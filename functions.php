@@ -11,7 +11,7 @@ sidebars, comments, ect.
 /************* INCLUDE NEEDED FILES ***************/
 
 /*
-1. library/bones.php
+1. bones.php
     - head cleanup (remove rsd, uri links, junk css, ect)
 	- enqueueing scripts & styles
 	- theme support functions
@@ -23,27 +23,27 @@ sidebars, comments, ect.
 	- custom google+ integration
 	- adding custom fields to user profiles
 */
-require_once('library/bones.php'); // if you remove this, bones will break
+require_once('bones.php'); // if you remove this, bones will break
 /*
-2. library/custom-post-type.php
+2. custom-post-type.php
     - an example custom post type
     - example custom taxonomy (like categories)
     - example custom taxonomy (like tags)
 */
-require_once('library/custom-post-type.php'); // you can disable this if you like
+require_once('custom-post-type.php'); // you can disable this if you like
 /*
-3. library/admin.php
+3. admin.php
     - removing some default WordPress dashboard widgets
     - an example custom dashboard widget
     - adding custom login css
     - changing text in footer of admin
 */
-// require_once('library/admin.php'); // this comes turned off by default
+// require_once('admin.php'); // this comes turned off by default
 /*
-4. library/translation/translation.php
+4. translation/translation.php
     - adding support for other languages
 */
-// require_once('library/translation/translation.php'); // this comes turned off by default
+// require_once('translation/translation.php'); // this comes turned off by default
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
@@ -129,7 +129,7 @@ function bones_comments($comment, $args, $depth) {
 			    	// create variable
 			    	$bgauthemail = get_comment_author_email();
 			    ?>
-			    <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
+			    <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
 			    <!-- end custom gravatar call -->
 				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
