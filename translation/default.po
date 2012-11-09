@@ -242,130 +242,130 @@ msgstr ""
 msgid "Please activate some Widgets."
 msgstr ""
 
-#: library/bones.php:52
+#: bones.php:52
 msgid "Read more &raquo;"
 msgstr ""
 
-#: library/custom-post-type.php:24
+#: custom-post-type.php:24
 msgid "Custom Types"
 msgstr ""
 
-#: library/custom-post-type.php:25
+#: custom-post-type.php:25
 msgid "Custom Post"
 msgstr ""
 
-#: library/custom-post-type.php:26
+#: custom-post-type.php:26
 msgid "Add New"
 msgstr ""
 
-#: library/custom-post-type.php:27
+#: custom-post-type.php:27
 msgid "Add New Custom Type"
 msgstr ""
 
-#: library/custom-post-type.php:28
+#: custom-post-type.php:28
 msgid "Edit"
 msgstr ""
 
-#: library/custom-post-type.php:29
+#: custom-post-type.php:29
 msgid "Edit Post Types"
 msgstr ""
 
-#: library/custom-post-type.php:30
+#: custom-post-type.php:30
 msgid "New Post Type"
 msgstr ""
 
-#: library/custom-post-type.php:31
+#: custom-post-type.php:31
 msgid "View Post Type"
 msgstr ""
 
-#: library/custom-post-type.php:32
+#: custom-post-type.php:32
 msgid "Search Post Type"
 msgstr ""
 
-#: library/custom-post-type.php:33
+#: custom-post-type.php:33
 msgid "Nothing found in the Database."
 msgstr ""
 
-#: library/custom-post-type.php:34
+#: custom-post-type.php:34
 msgid "Nothing found in Trash"
 msgstr ""
 
-#: library/custom-post-type.php:37
+#: custom-post-type.php:37
 msgid "This is the example custom post type"
 msgstr ""
 
-#: library/custom-post-type.php:73
+#: custom-post-type.php:73
 msgid "Custom Categories"
 msgstr ""
 
-#: library/custom-post-type.php:74
+#: custom-post-type.php:74
 msgid "Custom Category"
 msgstr ""
 
-#: library/custom-post-type.php:75
+#: custom-post-type.php:75
 msgid "Search Custom Categories"
 msgstr ""
 
-#: library/custom-post-type.php:76
+#: custom-post-type.php:76
 msgid "All Custom Categories"
 msgstr ""
 
-#: library/custom-post-type.php:77
+#: custom-post-type.php:77
 msgid "Parent Custom Category"
 msgstr ""
 
-#: library/custom-post-type.php:78
+#: custom-post-type.php:78
 msgid "Parent Custom Category:"
 msgstr ""
 
-#: library/custom-post-type.php:79
+#: custom-post-type.php:79
 msgid "Edit Custom Category"
 msgstr ""
 
-#: library/custom-post-type.php:80
+#: custom-post-type.php:80
 msgid "Update Custom Category"
 msgstr ""
 
-#: library/custom-post-type.php:81
+#: custom-post-type.php:81
 msgid "Add New Custom Category"
 msgstr ""
 
-#: library/custom-post-type.php:82
+#: custom-post-type.php:82
 msgid "New Custom Category Name"
 msgstr ""
 
-#: library/custom-post-type.php:95
+#: custom-post-type.php:95
 msgid "Custom Tag"
 msgstr ""
 
-#: library/custom-post-type.php:96
+#: custom-post-type.php:96
 msgid "Search Custom Tags"
 msgstr ""
 
-#: library/custom-post-type.php:97
+#: custom-post-type.php:97
 msgid "All Custom Tags"
 msgstr ""
 
-#: library/custom-post-type.php:98
+#: custom-post-type.php:98
 msgid "Parent Custom Tag"
 msgstr ""
 
-#: library/custom-post-type.php:99
+#: custom-post-type.php:99
 msgid "Parent Custom Tag:"
 msgstr ""
 
-#: library/custom-post-type.php:100
+#: custom-post-type.php:100
 msgid "Edit Custom Tag"
 msgstr ""
 
-#: library/custom-post-type.php:101
+#: custom-post-type.php:101
 msgid "Update Custom Tag"
 msgstr ""
 
-#: library/custom-post-type.php:102
+#: custom-post-type.php:102
 msgid "Add New Custom Tag"
 msgstr ""
 
-#: library/custom-post-type.php:103
+#: custom-post-type.php:103
 msgid "New Custom Tag Name"
 msgstr ""

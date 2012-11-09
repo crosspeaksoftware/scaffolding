@@ -250,131 +250,131 @@ msgstr "Lo sentimos pero el recurso solicitado no se encuentra disponible en est
 msgid "Please activate some Widgets."
 msgstr "Por favor active algunos widgets."
 
-#: library/bones.php:52
+#: bones.php:52
 msgid "Read more &raquo;"
 msgstr "Leer más &raquo;"
 
-#: library/custom-post-type.php:24
+#: custom-post-type.php:24
 msgid "Custom Types"
 msgstr "Tipos personalizados"
 
-#: library/custom-post-type.php:25
+#: custom-post-type.php:25
 msgid "Custom Post"
 msgstr "Entrada personalizada"
 
-#: library/custom-post-type.php:26
+#: custom-post-type.php:26
 msgid "Add New"
 msgstr "Añadir nuevo"
 
-#: library/custom-post-type.php:27
+#: custom-post-type.php:27
 msgid "Add New Custom Type"
 msgstr "Añadir nuevo tipo personalizado"
 
-#: library/custom-post-type.php:28
+#: custom-post-type.php:28
 msgid "Edit"
 msgstr "Editar"
 
-#: library/custom-post-type.php:29
+#: custom-post-type.php:29
 msgid "Edit Post Types"
 msgstr "Editar typo de entrada"
 
-#: library/custom-post-type.php:30
+#: custom-post-type.php:30
 msgid "New Post Type"
 msgstr "Nuevo tipo de entrada"
 
-#: library/custom-post-type.php:31
+#: custom-post-type.php:31
 msgid "View Post Type"
 msgstr "Ver tipo de entrada"
 
-#: library/custom-post-type.php:32
+#: custom-post-type.php:32
 msgid "Search Post Type"
 msgstr "Buscar tipo de entrada"
 
-#: library/custom-post-type.php:33
+#: custom-post-type.php:33
 msgid "Nothing found in the Database."
 msgstr "Nada encontrado en la base de datos."
 
-#: library/custom-post-type.php:34
+#: custom-post-type.php:34
 msgid "Nothing found in Trash"
 msgstr "Nada encontrado en la papelera de reciclaje"
 
-#: library/custom-post-type.php:37
+#: custom-post-type.php:37
 msgid "This is the example custom post type"
 msgstr "Este es un ejemplo de typo de entrada personalizada"
 
-#: library/custom-post-type.php:73
+#: custom-post-type.php:73
 msgid "Custom Categories"
 msgstr "Catergorías personalizadas"
 
-#: library/custom-post-type.php:74
+#: custom-post-type.php:74
 msgid "Custom Category"
 msgstr "Categoría personalizada"
 
-#: library/custom-post-type.php:75
+#: custom-post-type.php:75
 msgid "Search Custom Categories"
 msgstr "Buscar en categorías personalizadas"
 
-#: library/custom-post-type.php:76
+#: custom-post-type.php:76
 msgid "All Custom Categories"
 msgstr "Todas las categorias personalizadas"
 
-#: library/custom-post-type.php:77
+#: custom-post-type.php:77
 msgid "Parent Custom Category"
 msgstr "Categoría personalizada padre"
 
-#: library/custom-post-type.php:78
+#: custom-post-type.php:78
 msgid "Parent Custom Category:"
 msgstr "Categoría personalizada padre:"
 
-#: library/custom-post-type.php:79
+#: custom-post-type.php:79
 msgid "Edit Custom Category"
 msgstr "Editar categoría personalizada"
 
-#: library/custom-post-type.php:80
+#: custom-post-type.php:80
 msgid "Update Custom Category"
 msgstr "Actualizar categoría personalizada"
 
-#: library/custom-post-type.php:81
+#: custom-post-type.php:81
 msgid "Add New Custom Category"
 msgstr "Añadir nueva categoría personalizada"
 
-#: library/custom-post-type.php:82
+#: custom-post-type.php:82
 msgid "New Custom Category Name"
 msgstr "Nuevo nombre de categoría personalizada"
 
-#: library/custom-post-type.php:95
+#: custom-post-type.php:95
 msgid "Custom Tag"
 msgstr "Etiqueta personalizada"
 
-#: library/custom-post-type.php:96
+#: custom-post-type.php:96
 msgid "Search Custom Tags"
 msgstr "Buscar entiqueta personalizada"
 
-#: library/custom-post-type.php:97
+#: custom-post-type.php:97
 msgid "All Custom Tags"
 msgstr "Todas las etiquetas personalizadas"
 
-#: library/custom-post-type.php:98
+#: custom-post-type.php:98
 msgid "Parent Custom Tag"
 msgstr "Etiqueta personalizada padre"
 
-#: library/custom-post-type.php:99
+#: custom-post-type.php:99
 msgid "Parent Custom Tag:"
 msgstr "Etiqueta personalizada padre"
 
-#: library/custom-post-type.php:100
+#: custom-post-type.php:100
 msgid "Edit Custom Tag"
 msgstr "Editar etiqueta personalizada"
 
-#: library/custom-post-type.php:101
+#: custom-post-type.php:101
 msgid "Update Custom Tag"
 msgstr "Actualizar etiqueta personalizada"
 
-#: library/custom-post-type.php:102
+#: custom-post-type.php:102
 msgid "Add New Custom Tag"
 msgstr "Añadir nueva etiqueta personalizada"
 
-#: library/custom-post-type.php:103
+#: custom-post-type.php:103
 msgid "New Custom Tag Name"
 msgstr "Nuevo nombre de etiqueta personalizada"
 

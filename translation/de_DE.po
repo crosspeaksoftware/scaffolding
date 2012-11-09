@@ -247,131 +247,131 @@ msgstr "Die angefragte Quelle konnte nicht gefunden werden."
 msgid "Please activate some Widgets."
 msgstr "Bitte nutzen Sie doch ein paar Widgets."
 
-#: library/bones.php:52
+#: bones.php:52
 msgid "Read more &raquo;"
 msgstr "Weiter &raquo;"
 
-#: library/custom-post-type.php:24
+#: custom-post-type.php:24
 msgid "Custom Types"
 msgstr "Eigene Arten"
 
-#: library/custom-post-type.php:25
+#: custom-post-type.php:25
 msgid "Custom Post"
 msgstr "Eigener Eintrag"
 
-#: library/custom-post-type.php:26
+#: custom-post-type.php:26
 msgid "Add New"
 msgstr "Hinzufügen"
 
-#: library/custom-post-type.php:27
+#: custom-post-type.php:27
 msgid "Add New Custom Type"
 msgstr "Eigene Art hinzufügen"
 
-#: library/custom-post-type.php:28
+#: custom-post-type.php:28
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: library/custom-post-type.php:29
+#: custom-post-type.php:29
 msgid "Edit Post Types"
 msgstr "Eintrags-Arten bearbeiten"
 
-#: library/custom-post-type.php:30
+#: custom-post-type.php:30
 msgid "New Post Type"
 msgstr "Neue Eintrags-Art"
 
-#: library/custom-post-type.php:31
+#: custom-post-type.php:31
 msgid "View Post Type"
 msgstr "Zeige Eintrags-Art"
 
-#: library/custom-post-type.php:32
+#: custom-post-type.php:32
 msgid "Search Post Type"
 msgstr "Suche Eintrags-Art"
 
-#: library/custom-post-type.php:33
+#: custom-post-type.php:33
 msgid "Nothing found in the Database."
 msgstr "In der Datenbank wurde nichts gefunden."
 
-#: library/custom-post-type.php:34
+#: custom-post-type.php:34
 msgid "Nothing found in Trash"
 msgstr "Im Papierkorb wurde nichts gefunden"
 
-#: library/custom-post-type.php:37
+#: custom-post-type.php:37
 msgid "This is the example custom post type"
 msgstr "Beispel für eine eigene Eintrags-Art"
 
-#: library/custom-post-type.php:73
+#: custom-post-type.php:73
 msgid "Custom Categories"
 msgstr "Eigene Kategorien"
 
-#: library/custom-post-type.php:74
+#: custom-post-type.php:74
 msgid "Custom Category"
 msgstr "Eigene Kategorie"
 
-#: library/custom-post-type.php:75
+#: custom-post-type.php:75
 msgid "Search Custom Categories"
 msgstr "Suche eigene Kategorien"
 
-#: library/custom-post-type.php:76
+#: custom-post-type.php:76
 msgid "All Custom Categories"
 msgstr "Alle eigenen Kategorien"
 
-#: library/custom-post-type.php:77
+#: custom-post-type.php:77
 msgid "Parent Custom Category"
 msgstr "Übergeordnete eigene Kategorie"
 
-#: library/custom-post-type.php:78
+#: custom-post-type.php:78
 msgid "Parent Custom Category:"
 msgstr "Übergeordnete eigene Kategorie:"
 
-#: library/custom-post-type.php:79
+#: custom-post-type.php:79
 msgid "Edit Custom Category"
 msgstr "Bearbeite eigene Kategorie"
 
-#: library/custom-post-type.php:80
+#: custom-post-type.php:80
 msgid "Update Custom Category"
 msgstr "Aktualisiere eigene Kategorie"
 
-#: library/custom-post-type.php:81
+#: custom-post-type.php:81
 msgid "Add New Custom Category"
 msgstr "Eigene Kategorie hinzufügen"
 
-#: library/custom-post-type.php:82
+#: custom-post-type.php:82
 msgid "New Custom Category Name"
 msgstr "Name für neue eigene Kategorie"
 
-#: library/custom-post-type.php:95
+#: custom-post-type.php:95
 msgid "Custom Tag"
 msgstr "Eigenes Schlagwort"
 
-#: library/custom-post-type.php:96
+#: custom-post-type.php:96
 msgid "Search Custom Tags"
 msgstr "Suche eigene Schlagworte"
 
-#: library/custom-post-type.php:97
+#: custom-post-type.php:97
 msgid "All Custom Tags"
 msgstr "Alle eigenen Schlagworte"
 
-#: library/custom-post-type.php:98
+#: custom-post-type.php:98
 msgid "Parent Custom Tag"
 msgstr "Übergeordnetes eigene Schlagwort"
 
-#: library/custom-post-type.php:99
+#: custom-post-type.php:99
 msgid "Parent Custom Tag:"
 msgstr "Übergeordnetes eigene Schlagwort:"
 
-#: library/custom-post-type.php:100
+#: custom-post-type.php:100
 msgid "Edit Custom Tag"
 msgstr "Bearbeite eigenes Schlagwort"
 
-#: library/custom-post-type.php:101
+#: custom-post-type.php:101
 msgid "Update Custom Tag"
 msgstr "Aktualisiere eigene Schlagwort"
 
-#: library/custom-post-type.php:102
+#: custom-post-type.php:102
 msgid "Add New Custom Tag"
 msgstr "Eigene Schlagwort hinzufügen"
 
-#: library/custom-post-type.php:103
+#: custom-post-type.php:103
 msgid "New Custom Tag Name"
 msgstr "Name für eigene Schlagwort hinzufügen"
 

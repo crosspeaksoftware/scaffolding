@@ -217,142 +217,142 @@ msgstr "Это сообщение об ошибке в шаблоне single.php
 msgid "This is the error message in the taxonomy-custom_cat.php template."
 msgstr "Это сообщение об ошибке в шаблоне taxonomy-custom_cat.php."
 
-#: ../library/bones.php:206
+#: ../bones.php:206
 msgid "The Main Menu"
 msgstr "Главное меню"
 
-#: ../library/bones.php:207
+#: ../bones.php:207
 msgid "Footer Links"
 msgstr "Ссылки в футере"
 
-#: ../library/custom-post-type.php:24
+#: ../custom-post-type.php:24
 msgid "Custom Types"
 msgstr "Пользовательские типы"
 
-#: ../library/custom-post-type.php:25
+#: ../custom-post-type.php:25
 msgid "Custom Post"
 msgstr "Пользовательский пост"
 
-#: ../library/custom-post-type.php:26
+#: ../custom-post-type.php:26
 msgid "All Custom Posts"
 msgstr "Все пользовательские посты"
 
-#: ../library/custom-post-type.php:27
+#: ../custom-post-type.php:27
 msgid "Add New"
 msgstr "Создать новый"
 
-#: ../library/custom-post-type.php:28
+#: ../custom-post-type.php:28
 msgid "Add New Custom Type"
 msgstr "Создать новый пользовательский тип"
 
-#: ../library/custom-post-type.php:29
+#: ../custom-post-type.php:29
 msgid "Edit"
 msgstr "Изменить"
 
-#: ../library/custom-post-type.php:30
+#: ../custom-post-type.php:30
 msgid "Edit Post Types"
 msgstr "Изменить типы постов"
 
-#: ../library/custom-post-type.php:31
+#: ../custom-post-type.php:31
 msgid "New Post Type"
 msgstr "Новый тип поста"
 
-#: ../library/custom-post-type.php:32
+#: ../custom-post-type.php:32
 msgid "View Post Type"
 msgstr "Посмотреть тип поста"
 
-#: ../library/custom-post-type.php:33
+#: ../custom-post-type.php:33
 msgid "Search Post Type"
 msgstr "Найти тип поста"
 
-#: ../library/custom-post-type.php:34
+#: ../custom-post-type.php:34
 msgid "Nothing found in the Database."
 msgstr "В базе данных ничего не найдено."
 
-#: ../library/custom-post-type.php:35
+#: ../custom-post-type.php:35
 msgid "Nothing found in Trash"
 msgstr "В Корзине ничего не найдено"
 
-#: ../library/custom-post-type.php:38
+#: ../custom-post-type.php:38
 msgid "This is the example custom post type"
 msgstr "Это пример пользовательского типа поста"
 
-#: ../library/custom-post-type.php:75
+#: ../custom-post-type.php:75
 msgid "Custom Categories"
 msgstr "Пользовательские категории"
 
-#: ../library/custom-post-type.php:76
+#: ../custom-post-type.php:76
 msgid "Custom Category"
 msgstr "Пользовательская категория"
 
-#: ../library/custom-post-type.php:77
+#: ../custom-post-type.php:77
 msgid "Search Custom Categories"
 msgstr "Поиск в пользовательских категориях"
 
-#: ../library/custom-post-type.php:78
+#: ../custom-post-type.php:78
 msgid "All Custom Categories"
 msgstr "Все пользовательские категории"
 
-#: ../library/custom-post-type.php:79
+#: ../custom-post-type.php:79
 msgid "Parent Custom Category"
 msgstr "Родительская пользовательская категория"
 
-#: ../library/custom-post-type.php:80
+#: ../custom-post-type.php:80
 msgid "Parent Custom Category:"
 msgstr "Родительская пользовательская категория:"
 
-#: ../library/custom-post-type.php:81
+#: ../custom-post-type.php:81
 msgid "Edit Custom Category"
 msgstr "Изменить пользовательскую категорию"
 
-#: ../library/custom-post-type.php:82
+#: ../custom-post-type.php:82
 msgid "Update Custom Category"
 msgstr "Обновить пользовательскую категорию"
 
-#: ../library/custom-post-type.php:83
+#: ../custom-post-type.php:83
 msgid "Add New Custom Category"
 msgstr "Создать пользовательскую категорию"
 
-#: ../library/custom-post-type.php:84
+#: ../custom-post-type.php:84
 msgid "New Custom Category Name"
 msgstr "Новое название пользовательской категории"
 
-#: ../library/custom-post-type.php:97
+#: ../custom-post-type.php:97
 msgid "Custom Tags"
 msgstr "Пользовательские теги"
 
-#: ../library/custom-post-type.php:98
+#: ../custom-post-type.php:98
 msgid "Custom Tag"
 msgstr "Пользовательский тег"
 
-#: ../library/custom-post-type.php:99
+#: ../custom-post-type.php:99
 msgid "Search Custom Tags"
 msgstr "Поиск по пользовательским тегам"
 
-#: ../library/custom-post-type.php:100
+#: ../custom-post-type.php:100
 msgid "All Custom Tags"
 msgstr "Все пользовательские теги"
 
-#: ../library/custom-post-type.php:101
+#: ../custom-post-type.php:101
 msgid "Parent Custom Tag"
 msgstr "Родительский пользовательский тег"
 
-#: ../library/custom-post-type.php:102
+#: ../custom-post-type.php:102
 msgid "Parent Custom Tag:"
 msgstr "Родительский пользовательский тег:"
 
-#: ../library/custom-post-type.php:103
+#: ../custom-post-type.php:103
 msgid "Edit Custom Tag"
 msgstr "Изменить пользовательский тег"
 
-#: ../library/custom-post-type.php:104
+#: ../custom-post-type.php:104
 msgid "Update Custom Tag"
 msgstr "Обновить пользовательский тег"
 
-#: ../library/custom-post-type.php:105
+#: ../custom-post-type.php:105
 msgid "Add New Custom Tag"
 msgstr "Создать пользовательский тег"
 
-#: ../library/custom-post-type.php:106
+#: ../custom-post-type.php:106
 msgid "New Custom Tag Name"
 msgstr "Новый пользовательский тег"

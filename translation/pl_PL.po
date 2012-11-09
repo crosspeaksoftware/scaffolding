@@ -242,130 +242,130 @@ msgstr "Żądany zasób nie został znaleziony."
 msgid "Please activate some Widgets."
 msgstr "Proszę, włącz jakieś widgety."
 
-#: library/bones.php:52
+#: bones.php:52
 msgid "Read more &raquo;"
 msgstr "Czytaj dalej &raquo;"
 
-#: library/custom-post-type.php:24
+#: custom-post-type.php:24
 msgid "Custom Types"
 msgstr "Niestandardowe typy"
 
-#: library/custom-post-type.php:25
+#: custom-post-type.php:25
 msgid "Custom Post"
 msgstr "Niestandardowe posty"
 
-#: library/custom-post-type.php:26
+#: custom-post-type.php:26
 msgid "Add New"
 msgstr "Dodaj nowy"
 
-#: library/custom-post-type.php:27
+#: custom-post-type.php:27
 msgid "Add New Custom Type"
 msgstr "Dodaj nowy niestandardowy typ"
 
-#: library/custom-post-type.php:28
+#: custom-post-type.php:28
 msgid "Edit"
 msgstr "Edytuj"
 
-#: library/custom-post-type.php:29
+#: custom-post-type.php:29
 msgid "Edit Post Types"
 msgstr "Edytuj typy postów"
 
-#: library/custom-post-type.php:30
+#: custom-post-type.php:30
 msgid "New Post Type"
 msgstr "Nowy typ postu"
 
-#: library/custom-post-type.php:31
+#: custom-post-type.php:31
 msgid "View Post Type"
 msgstr "Zobacz typ postu"
 
-#: library/custom-post-type.php:32
+#: custom-post-type.php:32
 msgid "Search Post Type"
 msgstr "Szukaj typu postu"
 
-#: library/custom-post-type.php:33
+#: custom-post-type.php:33
 msgid "Nothing found in the Database."
 msgstr "Brak wpisów w bazie."
 
-#: library/custom-post-type.php:34
+#: custom-post-type.php:34
 msgid "Nothing found in Trash"
 msgstr "Brak wpisów w koszu"
 
-#: library/custom-post-type.php:37
+#: custom-post-type.php:37
 msgid "This is the example custom post type"
 msgstr "To jest przykład własnego typu postu"
 
-#: library/custom-post-type.php:73
+#: custom-post-type.php:73
 msgid "Custom Categories"
 msgstr "Niestandardowe kategorie"
 
-#: library/custom-post-type.php:74
+#: custom-post-type.php:74
 msgid "Custom Category"
 msgstr "Niestandardowa kategoria"
 
-#: library/custom-post-type.php:75
+#: custom-post-type.php:75
 msgid "Search Custom Categories"
 msgstr "Szukaj niestandardowych kategorii"
 
-#: library/custom-post-type.php:76
+#: custom-post-type.php:76
 msgid "All Custom Categories"
 msgstr "Wszystkie niestandardowe kategorie:"
 
-#: library/custom-post-type.php:77
+#: custom-post-type.php:77
 msgid "Parent Custom Category"
 msgstr "Niestandardowa kategoria (rodzic)"
 
-#: library/custom-post-type.php:78
+#: custom-post-type.php:78
 msgid "Parent Custom Category:"
 msgstr "Niestandardowa kategoria (rodzic):"
 
-#: library/custom-post-type.php:79
+#: custom-post-type.php:79
 msgid "Edit Custom Category"
 msgstr "Edytuj niestandardową kategorię"
 
-#: library/custom-post-type.php:80
+#: custom-post-type.php:80
 msgid "Update Custom Category"
 msgstr "Aktualizuj niestandardową kategorię"
 
-#: library/custom-post-type.php:81
+#: custom-post-type.php:81
 msgid "Add New Custom Category"
 msgstr "Dodaj nową niestandardową kategorię"
 
-#: library/custom-post-type.php:82
+#: custom-post-type.php:82
 msgid "New Custom Category Name"
 msgstr "Nazwa nowej niestandardowej kategorii"
 
-#: library/custom-post-type.php:95
+#: custom-post-type.php:95
 msgid "Custom Tag"
 msgstr "Niestandardowy tag"
 
-#: library/custom-post-type.php:96
+#: custom-post-type.php:96
 msgid "Search Custom Tags"
 msgstr "Szukaj niestandardowych tagów"
 
-#: library/custom-post-type.php:97
+#: custom-post-type.php:97
 msgid "All Custom Tags"
 msgstr "Wszystkie niestandardowe tagi"
 
-#: library/custom-post-type.php:98
+#: custom-post-type.php:98
 msgid "Parent Custom Tag"
 msgstr "Niestandardowy tag (rodzic)"
 
-#: library/custom-post-type.php:99
+#: custom-post-type.php:99
 msgid "Parent Custom Tag:"
 msgstr "Niestandardowy tag (rodzic):"
 
-#: library/custom-post-type.php:100
+#: custom-post-type.php:100
 msgid "Edit Custom Tag"
 msgstr "Edytuj niestandardowy tag"
 
-#: library/custom-post-type.php:101
+#: custom-post-type.php:101
 msgid "Update Custom Tag"
 msgstr "Aktualizuj niestandardowy tag"
 
-#: library/custom-post-type.php:102
+#: custom-post-type.php:102
 msgid "Add New Custom Tag"
 msgstr "Dodaj nowy niestandardowy tag"
 
-#: library/custom-post-type.php:103
+#: custom-post-type.php:103
 msgid "New Custom Tag Name"
 msgstr "Nazwa nowego niestandardowego tagu"

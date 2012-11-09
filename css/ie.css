@@ -83,18 +83,18 @@ TYPOGRAPHY
 *********************/
 /* 	To embed your own fonts, use this syntax
 	and place your fonts inside the
-	library/fonts folder. For more information
+	fonts folder. For more information
 	on embedding fonts, go to:
 	http://www.fontsquirrel.com/
 	Be sure to remove the comment brackets.
 */
 /*	@font-face {
     	font-family: 'Font Name';
-    	src: url('library/fonts/font-name.eot');
-    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
+    	src: url('fonts/font-name.eot');
+    	src: url('fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('fonts/font-name.woff') format('woff'),
+             url('fonts/font-name.ttf') format('truetype'),
+             url('fonts/font-name.svg#font-name') format('svg');
     	font-weight: normal;
     	font-style: normal;
 	}

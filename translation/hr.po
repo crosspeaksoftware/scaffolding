@@ -311,15 +311,15 @@ msgstr "Nastavi čitati &raquo;"
 msgid "This is the error message in the taxonomy-custom_cat.php template."
 msgstr "Ovo je poruka greške u predlošku taxonomy-custom_cat.php."
 
-#: library/admin.php:66
+#: admin.php:66
 msgid "j F Y @ g:i a"
 msgstr "j F Y @ g:i a"
 
-#: library/admin.php:78
+#: admin.php:78
 msgid "Recently on Themble (Customize on admin.php)"
 msgstr "Najnovije sa Themble (Prilagodi u admin.php)"
 
-#: library/admin.php:123
+#: admin.php:123
 msgid ""
 "<span id=\"footer-thankyou\">Developed by <a href=\"http://yoursite.com\" "
 "target=\"_blank\">Your Site Name</a></span>. Built using <a href=\"http://"
@@ -330,160 +330,160 @@ msgstr ""
 "\"http://hr.wordpress.org\" target=\"_blank\">WordPress</a> i <a href="
 "\"http://themble.com/bones\" target=\"_blank\">Bones</a>."
 
-#: library/bones.php:217 library/bones.php:234
+#: bones.php:217 bones.php:234
 msgid "The Main Menu"
 msgstr "Glavni Izbornik"
 
-#: library/bones.php:218 library/bones.php:252
+#: bones.php:218 bones.php:252
 msgid "Footer Links"
 msgstr "Poveznice Podnožja"
 
-#: library/bones.php:296
+#: bones.php:296
 msgid "No Related Posts Yet!"
 msgstr "Još nema srodnih postova!"
 
-#: library/bones.php:340
+#: bones.php:340
 msgid "First"
 msgstr "Prva"
 
-#: library/bones.php:357
+#: bones.php:357
 msgid "Last"
 msgstr "Posljednja"
 
-#: library/bones.php:391
+#: bones.php:391
 #, php-format
 msgid "Posts by %s"
 msgstr "Postovi od %s"
 
-#: library/custom-post-type.php:24
+#: custom-post-type.php:24
 msgid "Custom Types"
 msgstr "Prilagođeni Tipovi"
 
-#: library/custom-post-type.php:25
+#: custom-post-type.php:25
 msgid "Custom Post"
 msgstr "Prilagođeni Post"
 
-#: library/custom-post-type.php:26
+#: custom-post-type.php:26
 msgid "All Custom Posts"
 msgstr "Svi Prilagođeni Postovi"
 
-#: library/custom-post-type.php:27
+#: custom-post-type.php:27
 msgid "Add New"
 msgstr "Dodaj Novi"
 
-#: library/custom-post-type.php:28
+#: custom-post-type.php:28
 msgid "Add New Custom Type"
 msgstr "Dodaj Novi Prilagođeni Tip"
 
-#: library/custom-post-type.php:29
+#: custom-post-type.php:29
 msgid "Edit"
 msgstr "Uredi"
 
-#: library/custom-post-type.php:30
+#: custom-post-type.php:30
 msgid "Edit Post Types"
 msgstr "Uredi Post Tipove"
 
-#: library/custom-post-type.php:31
+#: custom-post-type.php:31
 msgid "New Post Type"
 msgstr "Novi Post Tip"
 
-#: library/custom-post-type.php:32
+#: custom-post-type.php:32
 msgid "View Post Type"
 msgstr "Pregledaj Post Tip"
 
-#: library/custom-post-type.php:33
+#: custom-post-type.php:33
 msgid "Search Post Type"
 msgstr "Pretraži Post Tip"
 
-#: library/custom-post-type.php:34
+#: custom-post-type.php:34
 msgid "Nothing found in the Database."
 msgstr "Ništa nije pronađeno u Bazi podataka."
 
-#: library/custom-post-type.php:35
+#: custom-post-type.php:35
 msgid "Nothing found in Trash"
 msgstr "Ništa nije pronađeno u Smeću."
 
-#: library/custom-post-type.php:38
+#: custom-post-type.php:38
 msgid "This is the example custom post type"
 msgstr "Ovo je primjer prilagođenog post tipa"
 
-#: library/custom-post-type.php:75
+#: custom-post-type.php:75
 msgid "Custom Categories"
 msgstr "Prilagođene Kategorije"
 
-#: library/custom-post-type.php:76
+#: custom-post-type.php:76
 msgid "Custom Category"
 msgstr "Prilagođena Kategorija"
 
-#: library/custom-post-type.php:77
+#: custom-post-type.php:77
 msgid "Search Custom Categories"
 msgstr "Pretraži Prilagođene Kategorije"
 
-#: library/custom-post-type.php:78
+#: custom-post-type.php:78
 msgid "All Custom Categories"
 msgstr "Sve Prilagođene Kategorije"
 
-#: library/custom-post-type.php:79
+#: custom-post-type.php:79
 msgid "Parent Custom Category"
 msgstr "Matična Prilagođena Kategorija"
 
-#: library/custom-post-type.php:80
+#: custom-post-type.php:80
 msgid "Parent Custom Category:"
 msgstr "Matična Prilagođena Kategorija:"
 
-#: library/custom-post-type.php:81
+#: custom-post-type.php:81
 msgid "Edit Custom Category"
 msgstr "Uredi Prilagođenu Kategoriju"
 
-#: library/custom-post-type.php:82
+#: custom-post-type.php:82
 msgid "Update Custom Category"
 msgstr "Ažuriraj Prilagođenu Kategoriju"
 
-#: library/custom-post-type.php:83
+#: custom-post-type.php:83
 msgid "Add New Custom Category"
 msgstr "Dodaj Novu Prilagođenu Kategoriju"
 
-#: library/custom-post-type.php:84
+#: custom-post-type.php:84
 msgid "New Custom Category Name"
 msgstr "Novo Ime Prilagođene Kategorije"
 
-#: library/custom-post-type.php:97
+#: custom-post-type.php:97
 msgid "Custom Tags"
 msgstr "Prilagođene Oznake"
 
-#: library/custom-post-type.php:98
+#: custom-post-type.php:98
 msgid "Custom Tag"
 msgstr "Prilagođena Oznaka"
 
-#: library/custom-post-type.php:99
+#: custom-post-type.php:99
 msgid "Search Custom Tags"
 msgstr "Pretraži Prilagođene Oznake"
 
-#: library/custom-post-type.php:100
+#: custom-post-type.php:100
 msgid "All Custom Tags"
 msgstr "Sve Prilagođene Oznake"
 
-#: library/custom-post-type.php:101
+#: custom-post-type.php:101
 msgid "Parent Custom Tag"
 msgstr "Matična Prilagođena Oznaka"
 
-#: library/custom-post-type.php:102
+#: custom-post-type.php:102
 msgid "Parent Custom Tag:"
 msgstr "Matična Prilagođena Oznaka:"
 
-#: library/custom-post-type.php:103
+#: custom-post-type.php:103
 msgid "Edit Custom Tag"
 msgstr "Uredi Prilagođenu Oznaku"
 
-#: library/custom-post-type.php:104
+#: custom-post-type.php:104
 msgid "Update Custom Tag"
 msgstr "Ažuriraj Prilagođenu Oznaku"
 
-#: library/custom-post-type.php:105
+#: custom-post-type.php:105
 msgid "Add New Custom Tag"
 msgstr "Dodaj Novu Prilagođenu Oznaku"
 
-#: library/custom-post-type.php:106
+#: custom-post-type.php:106
 msgid "New Custom Tag Name"
 msgstr "Novo Ime Prilagođene Kategorije"
 
