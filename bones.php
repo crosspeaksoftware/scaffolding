@@ -139,7 +139,7 @@ function bones_scripts_and_styles() {
     }
 
     //adding scripts file in the footer
-    wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
+    //wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
     // enqueue styles and scripts
     wp_enqueue_script( 'bones-modernizr' );
@@ -151,7 +151,7 @@ function bones_scripts_and_styles() {
     and your site will load faster.
     */
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'bones-js' );
+    //wp_enqueue_script( 'bones-js' );
 
   }
 }
@@ -178,7 +178,7 @@ function bones_theme_support() {
 	set_post_thumbnail_size(125, 125, true);
 
 	// wp custom background (thx to @bransonwerner for update)
-	add_theme_support( 'custom-background',
+	/*add_theme_support( 'custom-background',
 	    array(
 	    'default-image' => '',  // background image default
 	    'default-color' => '', // background color default (dont add the #)
@@ -186,14 +186,30 @@ function bones_theme_support() {
 	    'admin-head-callback' => '',
 	    'admin-preview-callback' => ''
 	    )
-	);
+	);*/
 
 	// rss thingy
 	add_theme_support('automatic-feed-links');
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
+	//adding custome header suport
+	add_theme_support( 'custom-header', array(
+		'default-image'=> '%s/images/headers/default-header.jpg',
+		'random-default'=> false,
+		'width'=> 999,
+		'height'=> 262,
+		'flex-height'=> false,
+		'flex-width'=> false,
+		'default-text-color'=> 'ffffff',
+		'header-text'=> false,
+		'uploads'=> true,
+		'wp-head-callback'=> '_custom_background_cb',
+		'admin-head-callback'=> '',
+		'admin-preview-callback'=> '',
+		)
+	);
 
-	// adding post format support
+	/*// adding post format support
 	add_theme_support( 'post-formats',
 		array(
 			'aside',             // title less blurb
@@ -207,6 +223,7 @@ function bones_theme_support() {
 			'chat'               // chat transcript
 		)
 	);
+	**/
 
 	// wp menus
 	add_theme_support( 'menus' );
@@ -215,6 +232,7 @@ function bones_theme_support() {
 	register_nav_menus(
 		array(
 			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
+			'home-sub-nav' => __( 'Home Page Sub-Menu', 'bonestheme' ),   // main nav in header
 			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
 		)
 	);
@@ -243,6 +261,24 @@ function bones_main_nav() {
 	));
 } /* end bones main nav */
 
+// the main menu
+function bones_home_sub_nav() {
+	// display the wp3 menu if available
+    wp_nav_menu(array(
+    	'container' => false,                           // remove nav container
+    	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
+    	'menu' => 'The Home Sub-Menu',                  // nav name
+    	'menu_class' => 'nav home-sub-nav clearfix',    // adding custom nav class
+    	'theme_location' => 'home-sub-nav',             // where it's located in the theme
+    	'before' => '',                                 // before the menu
+        'after' => '',                                  // after the menu
+        'link_before' => '',                            // before each link
+        'link_after' => '',                             // after each link
+        'depth' => 0,                                   // limit the depth of the nav
+    	'fallback_cb' => 'bones_home_sub_nav_fallback'  // fallback function
+	));
+} /* end bones main nav */
+
 // the footer menu (should you choose to use one)
 function bones_footer_links() {
 	// display the wp3 menu if available
@@ -264,6 +300,11 @@ function bones_footer_links() {
 // this is the fallback for header menu
 function bones_main_nav_fallback() {
 	wp_page_menu( 'show_home=Home' );
+}
+
+// this is the fallback for home sub menu
+function bones_home_sub_nav_fallback() {
+	/* you can put a default here if you like */
 }
 
 // this is the fallback for footer menu
