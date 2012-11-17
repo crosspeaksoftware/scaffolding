@@ -30,7 +30,7 @@ require_once('bones.php'); // if you remove this, bones will break
     - example custom taxonomy (like categories)
     - example custom taxonomy (like tags)
 */
-require_once('attorney-post-type.php'); // you can disable this if you like
+require_once('custom-post-type.php'); // you can disable this if you like
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
