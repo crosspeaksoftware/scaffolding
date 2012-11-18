@@ -204,9 +204,9 @@ function widget_first_last_classes($params) {
 	$class = 'class="widget-' . $my_widget_num[$this_id] . ' '; // Add a widget number class for additional styling options
 
 	if($my_widget_num[$this_id] == 1) { // If this is the first widget
-		$class .= 'first ';
+		$class .= 'first-widget ';
 	} elseif($my_widget_num[$this_id] == count($arr_registered_widgets[$this_id])) { // If this is the last widget
-		$class .= 'last ';
+		$class .= 'last-widget ';
 	}
 
 	$params[0]['before_widget'] = str_replace('class="', $class, $params[0]['before_widget']); // Insert our new classes into "before widget"
