@@ -1,5 +1,5 @@
 <?php
-/* Bones Custom Post Type Example
+/* Custom Post Type Example
 This page walks you through creating 
 a custom post type and taxonomies. You
 can edit this one or copy the following code 
@@ -111,9 +111,7 @@ function custom_post_example() {
     ); 
     
     /*
-    	looking for custom meta boxes?
-    	check out this fantastic tool:
-    	https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
+    	For custom meta boxes, use the Advanced Custom Fields plugin from http://www.advancedcustomfields.com
     */
 	
 
