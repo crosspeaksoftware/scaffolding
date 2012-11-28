@@ -1,0 +1,126 @@
+/* Basic Styles */
+nav {
+	width: 100%;
+	font-size: 11pt;
+	position: relative;
+}
+
+nav > ul {
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+
+	ul {
+		display: none;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	li:hover ul {
+		display: block;
+	}
+}
+	
+nav li {
+	display: inline-block;
+	position: relative;
+	margin: 0px;
+	
+	a {
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+	}
+	
+	&:last-child a {
+		border-right: 0;
+	}
+}
+
+	nav a {
+		display: inline-block;
+		text-align: center;
+		text-decoration: none;
+		padding: 10px 15px;
+	
+		&#pull {
+			display: none;
+		}
+	}
+
+
+@media screen and (min-width: 480px) {
+
+	nav > ul ul {
+		position: absolute;
+		top: 40px;
+		left: 0px;
+		display: none;
+	}
+
+}
+
+/*Styles for screen 600px and lower*/
+@media screen and (max-width: 600px) {
+	nav { 
+  		height: auto;
+  	
+		ul {
+			width: 100%;
+			display: block;
+			height: auto;
+		}
+  
+		li {
+			position: relative;
+		}
+		
+		a {
+			width: 100%;
+		}
+	}
+}
+
+/*Styles for screen 515px and lower*/
+@media only screen and (max-width : 480px) {
+	nav {
+		border-bottom: 0;
+		
+		ul {
+			display: none;
+			height: auto;
+		}
+		
+		li {
+			float: none;
+			display: block;
+		}
+		
+		a#pull {
+			display: block;
+			background-color: #283744;
+			width: 100%;
+			position: relative;
+		
+			&:after {
+				content:"";
+				background: url('../images/nav-icon.png') no-repeat;
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				position: absolute;
+				right: 15px;
+				top: 10px;
+			}
+		}
+	}
+}
+
+/*Smartphone*/
+@media only screen and (max-width : 320px) {
+	nav li {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+}
