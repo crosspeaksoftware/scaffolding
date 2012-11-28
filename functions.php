@@ -268,7 +268,7 @@ function bones_mcekit_editor_style($url) {
         $url .= ',';
     // Retrieves the plugin directory URL and adds editor stylesheet
     // Change the path here if using different directories
-    $url .= trailingslashit( get_template_directory_uri() ) . 'css/typography.css';
+    $url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
     return $url;
 }
 add_filter('mce_css', 'bones_mcekit_editor_style');
