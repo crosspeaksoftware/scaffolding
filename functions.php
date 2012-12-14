@@ -12,10 +12,10 @@ sidebars, comments, ect.
 
 /*
 1. bones.php
-    - head cleanup (remove rsd, uri links, junk css, ect)
+	- head cleanup (remove rsd, uri links, junk css, ect)
 	- enqueueing scripts & styles
 	- theme support functions
-    - custom menu output & fallbacks
+	- custom menu output & fallbacks
 	- related post function
 	- page-navi function
 	- removing <p> from around images
@@ -26,9 +26,9 @@ sidebars, comments, ect.
 require_once('bones.php'); // if you remove this, bones will break
 /*
 2. custom-post-type.php
-    - an example custom post type
-    - example custom taxonomy (like categories)
-    - example custom taxonomy (like tags)
+	- an example custom post type
+	- example custom taxonomy (like categories)
+	- example custom taxonomy (like tags)
 */
 require_once('custom-post-type.php'); // you can disable this if you like
 /************* THUMBNAIL SIZE OPTIONS *************/
@@ -60,15 +60,15 @@ you like. Enjoy!
 
 // Sidebars & Widgetizes Areas
 function bones_register_sidebars() {
-    register_sidebar(array(
-    	'id' => 'sidebar1',
-    	'name' => 'Sidebar 1',
-    	'description' => 'The first (primary) sidebar.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
-    ));
+	register_sidebar(array(
+		'id' => 'sidebar1',
+		'name' => 'Sidebar 1',
+		'description' => 'The first (primary) sidebar.',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 } // don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
@@ -79,34 +79,34 @@ function bones_comments($comment, $args, $depth) {
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<header class="comment-author vcard">
-			    <?php
-			    /*
-			        this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
-			        echo get_avatar($comment,$size='32',$default='<path_to_url>' );
-			    */
-			    ?>
-			    <!-- custom gravatar call -->
-			    <?php
-			    	// create variable
-			    	$bgauthemail = get_comment_author_email();
-			    ?>
-			    <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
-			    <!-- end custom gravatar call -->
+				<?php
+				/*
+					this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
+					echo get_avatar($comment,$size='32',$default='<path_to_url>' );
+				*/
+				?>
+				<!-- custom gravatar call -->
+				<?php
+					// create variable
+					$bgauthemail = get_comment_author_email();
+				?>
+				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
+				<!-- end custom gravatar call -->
 				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
 				<?php edit_comment_link(__('(Edit)', 'bonestheme'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
-       			<div class="alert info">
-          			<p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
-          		</div>
+	   			<div class="alert info">
+		  			<p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
+		  		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
 				<?php comment_text() ?>
 			</section>
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
 		</article>
-    <!-- </li> is added by WordPress automatically -->
+	<!-- </li> is added by WordPress automatically -->
 <?php
 } // don't remove this bracket!
 
@@ -114,12 +114,12 @@ function bones_comments($comment, $args, $depth) {
 
 // Search Form
 function bones_wpsearch($form) {
-    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
-    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','bonestheme').'" />
-    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
-    </form>';
-    return $form;
+	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+	<label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','bonestheme').'" />
+	<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+	</form>';
+	return $form;
 } // don't remove this bracket!
 
 /************* CUSTOM PAGE HEADERS *****************/
@@ -172,9 +172,9 @@ function my_save_post_meta_box( $post_id, $post ) {
 }
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
 function add_first_and_last($output) {
-  $output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
-  $output = substr_replace($output, 'class="last-item menu-item', strripos($output, 'class="menu-item'), strlen('class="menu-item'));
-  return $output;
+	$output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
+	$output = substr_replace($output, 'class="last-item menu-item', strripos($output, 'class="menu-item'), strlen('class="menu-item'));
+	return $output;
 }
 add_filter('wp_nav_menu', 'add_first_and_last');
 
@@ -195,7 +195,8 @@ function widget_first_last_classes($params) {
 
 	if(isset($my_widget_num[$this_id])) { // See if the counter array has an entry for this sidebar
 		$my_widget_num[$this_id] ++;
-	} else { // If not, create it starting with 1
+	}
+	else { // If not, create it starting with 1
 		$my_widget_num[$this_id] = 1;
 	}
 
@@ -203,7 +204,8 @@ function widget_first_last_classes($params) {
 
 	if($my_widget_num[$this_id] == 1) { // If this is the first widget
 		$class .= 'first-widget ';
-	} elseif($my_widget_num[$this_id] == count($arr_registered_widgets[$this_id])) { // If this is the last widget
+	}
+	elseif($my_widget_num[$this_id] == count($arr_registered_widgets[$this_id])) { // If this is the last widget
 		$class .= 'last-widget ';
 	}
 
@@ -217,18 +219,18 @@ add_filter('dynamic_sidebar_params','widget_first_last_classes');
 /************* DASHBOARD WIDGETS *****************/
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
-	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
+	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');	// Right Now Widget
 	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');		 // Plugins Widget
 
 	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');		 //
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');	   //
 
 	// removing plugin dashboard boxes
-	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
+	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
 }
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
@@ -264,32 +266,36 @@ add_filter('admin_footer_text', 'bones_custom_admin_footer');
 
 //Apply styles to the visual editor
 function bones_mcekit_editor_style($url) {
-    if ( !empty($url) )
-        $url .= ',';
-    // Retrieves the plugin directory URL and adds editor stylesheet
-    // Change the path here if using different directories
-    $url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
-    return $url;
+	if ( !empty($url) )
+		$url .= ',';
+	// Retrieves the plugin directory URL and adds editor stylesheet
+	// Change the path here if using different directories
+	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
+	return $url;
 }
 add_filter('mce_css', 'bones_mcekit_editor_style');
 
 /** Remove Wordpress Logo From Admin Bar **/
- function remove_admin_bar_links() {
+function remove_admin_bar_links() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('wp-logo');
-	}
+}
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
 /* Check the version of WP you are using*/
 function is_wp_version( $is_ver ) {
-    $wp_ver = explode( '.', get_bloginfo( 'version' ) );
-    $is_ver = explode( '.', $is_ver );
-    for( $i=0; $i<=count( $is_ver ); $i++ )
-        if( !isset( $wp_ver[$i] ) ) array_push( $wp_ver, 0 );
+	$wp_ver = explode( '.', get_bloginfo( 'version' ) );
+	$is_ver = explode( '.', $is_ver );
+	for( $i=0; $i<=count( $is_ver ); $i++ ) {
+		if( !isset( $wp_ver[$i] ) ) {
+			array_push( $wp_ver, 0 );
+		}
+	}
 
-    foreach( $is_ver as $i => $is_val )
-        if( $wp_ver[$i] < $is_val ) return false;
-    return true;
+	foreach( $is_ver as $i => $is_val ) {
+		if( $wp_ver[$i] < $is_val ) {
+			return false;
+		}
+	}
+	return true;
 }
-
-?>

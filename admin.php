@@ -19,18 +19,18 @@ Digging into WP - http://digwp.com/2010/10/customize-wordpress-dashboard/
 
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
-	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
+	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');	// Right Now Widget
 	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');		 // Plugins Widget
 
 	// remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');		 //
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');	   //
 
 	// removing plugin dashboard boxes
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
+	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
 
 	/*
 	have more plugin widgets you'd like to remove?
@@ -54,23 +54,28 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 // RSS Dashboard Widget
 function bones_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
-		include_once(ABSPATH . WPINC . '/feed.php');               // include the required file
-		$feed = fetch_feed('http://themble.com/feed/rss/');        // specify the source feed
-		$limit = $feed->get_item_quantity(7);                      // specify number of items
-		$items = $feed->get_items(0, $limit);                      // create an array of items
+		include_once(ABSPATH . WPINC . '/feed.php');			   // include the required file
+		$feed = fetch_feed('http://themble.com/feed/rss/');		// specify the source feed
+		$limit = $feed->get_item_quantity(7);					  // specify number of items
+		$items = $feed->get_items(0, $limit);					  // create an array of items
 	}
-	if ($limit == 0) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
-	else foreach ($items as $item) : ?>
+	if ($limit == 0) {
+		echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
+	}
+	else {
+		foreach ($items as $item) : ?>
 
-	<h4 style="margin-bottom: 0;">
-		<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo $item->get_date('j F Y @ g:i a'); ?>" target="_blank">
-			<?php echo $item->get_title(); ?>
-		</a>
-	</h4>
-	<p style="margin-top: 0.5em;">
-		<?php echo substr($item->get_description(), 0, 200); ?>
-	</p>
-	<?php endforeach;
+		<h4 style="margin-bottom: 0;">
+			<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo $item->get_date('j F Y @ g:i a'); ?>" target="_blank">
+				<?php echo $item->get_title(); ?>
+			</a>
+		</h4>
+		<p style="margin-top: 0.5em;">
+			<?php echo substr($item->get_description(), 0, 200); ?>
+		</p>
+	<?php
+		endforeach;
+	}
 }
 
 // calling all custom dashboard widgets
@@ -98,10 +103,14 @@ function bones_login_css() {
 }
 
 // changing the logo link from wordpress.org to your site
-function bones_login_url() {  return home_url(); }
+function bones_login_url() {
+	return home_url();
+}
 
 // changing the alt text on the logo to show your site name
-function bones_login_title() { return get_option('blogname'); }
+function bones_login_title() {
+	return get_option('blogname');
+}
 
 // calling it only on the login page
 add_action('login_head', 'bones_login_css');
@@ -125,5 +134,3 @@ function bones_custom_admin_footer() {
 
 // adding it to the admin area
 add_filter('admin_footer_text', 'bones_custom_admin_footer');
-
-?>
