@@ -66,8 +66,8 @@ jQuery(document).ready(function($) {
 	}
 
 	// RESPONSIVE NAV
-	var pull = $('#pull'),
-		menu = $('nav ul').
+	var pull = $('#pull');
+		menu = $('nav ul');
 		menuHeight = menu.height();
 
 	pull.on('click', function(e) {
