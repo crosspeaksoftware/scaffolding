@@ -287,20 +287,3 @@ function remove_admin_bar_links() {
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
-/* Check the version of WP you are using*/
-function is_wp_version( $is_ver ) {
-	$wp_ver = explode( '.', get_bloginfo( 'version' ) );
-	$is_ver = explode( '.', $is_ver );
-	for( $i=0; $i<=count( $is_ver ); $i++ ) {
-		if( !isset( $wp_ver[$i] ) ) {
-			array_push( $wp_ver, 0 );
-		}
-	}
-
-	foreach( $is_ver as $i => $is_val ) {
-		if( $wp_ver[$i] < $is_val ) {
-			return false;
-		}
-	}
-	return true;
-}
