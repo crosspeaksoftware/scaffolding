@@ -145,7 +145,7 @@ function my_create_post_meta_box() {
 
 function my_post_meta_box( $object, $box ) { ?>
 	<p>
-		<input type="text" name="tuck-h1" id="tuck-h1" tabindex="30" class="large-text" value="<?php echo wp_specialchars( get_post_meta( $object->ID, 'Tuck Away H1', true ), 1 ); ?>"/>
+		<input type="text" name="tuck-h1" id="tuck-h1" tabindex="30" class="large-text" value="<?php echo wp_specialchars( get_post_meta( $object->ID, 'Tuckaway H1', true ), 1 ); ?>"/>
 		<input type="hidden" name="my_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
 	</p>
 <?php }
