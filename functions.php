@@ -135,40 +135,45 @@ register_default_headers( array(
 
 /************* ADD TUCKAWAY H1 *****************/
 
-add_action( 'admin_menu', 'my_create_post_meta_box' );
-add_action( 'save_post', 'my_save_post_meta_box', 10, 2 );
+add_action( 'admin_menu', 'tuck_h1_create_post_meta_box' );
+add_action( 'save_post', 'tuck_h1_save_post_meta_box', 10, 2 );
 
-function my_create_post_meta_box() {
-	add_meta_box( 'my-meta-box', 'Tuckaway H1', 'my_post_meta_box', 'page', 'normal', 'high' );
-	add_meta_box( 'my-meta-box', 'Tuckaway H1', 'my_post_meta_box', 'post', 'normal', 'high' );
+function tuck_h1_create_post_meta_box() {
+	add_meta_box( 'tuck-h1-meta-box', 'Tuckaway H1', 'tuck_h1_post_meta_box', 'page', 'normal', 'high' );
+	add_meta_box( 'tuck-h1-meta-box', 'Tuckaway H1', 'tuck_h1_post_meta_box', 'post', 'normal', 'high' );
 }
 
-function my_post_meta_box( $object, $box ) { ?>
+function tuck_h1_post_meta_box( $object, $box ) {
+?>
 	<p>
-		<input type="text" name="tuck-h1" id="tuck-h1" tabindex="30" class="large-text" value="<?php echo wp_specialchars( get_post_meta( $object->ID, 'Tuckaway H1', true ), 1 ); ?>"/>
-		<input type="hidden" name="my_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
+		<input type="text" name="tuck-h1" id="tuck-h1" tabindex="30" class="large-text" value="<?php echo wp_specialchars( get_post_meta( $object->ID, 'tuckaway_h1', true ), 1 ); ?>"/>
+		<input type="hidden" name="tuck_h1_meta_box_nonce" value="<?php echo wp_create_nonce( 'tuck_h1_meta_box' ); ?>" />
 	</p>
-<?php }
+<?php
+}
 
-function my_save_post_meta_box( $post_id, $post ) {
+function tuck_h1_save_post_meta_box( $post_id, $post ) {
 
-	if ( !wp_verify_nonce( $_POST['my_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
+	if ( !wp_verify_nonce( $_POST['tuck_h1_meta_box_nonce'], 'tuck_h1_meta_box' ) ) {
 		return $post_id;
+	}
 
-	if ( !current_user_can( 'edit_post', $post_id ) )
+	if ( !current_user_can( 'edit_post', $post_id ) ) {
 		return $post_id;
+	}
 
-	$meta_value = get_post_meta( $post_id, 'Tuckaway H1', true );
+	$meta_value = get_post_meta( $post_id, 'tuckaway_h1', true );
 	$new_meta_value = stripslashes( $_POST['tuck-h1'] );
 
-	if ( $new_meta_value && '' == $meta_value )
-		add_post_meta( $post_id, 'Tuckaway H1', $new_meta_value, true );
-
-	elseif ( $new_meta_value != $meta_value )
-		update_post_meta( $post_id, 'Tuckaway H1', $new_meta_value );
-
-	elseif ( '' == $new_meta_value && $meta_value )
-		delete_post_meta( $post_id, 'Tuckaway H1', $meta_value );
+	if ( $new_meta_value && '' == $meta_value ) {
+		add_post_meta( $post_id, 'tuckaway_h1', $new_meta_value, true );
+	}
+	elseif ( $new_meta_value != $meta_value ) {
+		update_post_meta( $post_id, 'tuckaway_h1', $new_meta_value );
+	}
+	elseif ( '' == $new_meta_value && $meta_value ) {
+		delete_post_meta( $post_id, 'tuckaway_h1', $meta_value );
+	}
 }
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
 function add_first_and_last($output) {
