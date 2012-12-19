@@ -178,7 +178,10 @@ function tuck_h1_save_post_meta_box( $post_id, $post ) {
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
 function add_first_and_last($output) {
 	$output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
-	$output = substr_replace($output, 'class="last-item menu-item', strripos($output, 'class="menu-item'), strlen('class="menu-item'));
+	$last_pos = strripos($output, 'class="menu-item');
+	if($last_pos !== false) {
+		$output = substr_replace($output, 'class="last-item menu-item', $last_pos, 16 /* 16 = hardcoded strlen('class="menu-item') */);
+	}
 	return $output;
 }
 add_filter('wp_nav_menu', 'add_first_and_last');
