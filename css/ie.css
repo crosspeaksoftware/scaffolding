@@ -61,6 +61,50 @@ TOOLS
   overflow: hidden;
 }
 
+/* line 42, ../scss/_mixins.scss */
+.mobile-only {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  /* line 47, ../scss/_mixins.scss */
+  .mobile-only {
+    display: block;
+  }
+}
+/* line 52, ../scss/_mixins.scss */
+.mobile-hide {
+  display: block;
+}
+
+@media only screen and (max-width: 480px) {
+  /* line 57, ../scss/_mixins.scss */
+  .mobile-hide {
+    display: none;
+  }
+}
+/* line 62, ../scss/_mixins.scss */
+.tablet-only {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 67, ../scss/_mixins.scss */
+  .tablet-only {
+    display: block;
+  }
+}
+/* line 72, ../scss/_mixins.scss */
+.tablet-hide {
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 77, ../scss/_mixins.scss */
+  .tablet-hide {
+    display: none;
+  }
+}
 /*********************
 COLORS
 Need help w/ choosing your colors? Try this site out:
@@ -96,53 +140,53 @@ TYPOGRAPHY
 use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
-/* line 100, ../scss/_mixins.scss */
+/* line 140, ../scss/_mixins.scss */
 span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
 }
 
-/* line 106, ../scss/_mixins.scss */
+/* line 146, ../scss/_mixins.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 107, ../scss/_mixins.scss */
+/* line 147, ../scss/_mixins.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 108, ../scss/_mixins.scss */
+/* line 148, ../scss/_mixins.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 112, ../scss/_mixins.scss */
+/* line 152, ../scss/_mixins.scss */
 .alert-help, .alert-info, .alert-error, .alert-success {
   margin: 10px;
   padding: 5px 18px;
   border: 1px solid;
 }
 
-/* line 118, ../scss/_mixins.scss */
+/* line 158, ../scss/_mixins.scss */
 .alert-help {
   border-color: #e8dc59;
   background: #ebe16f;
 }
 
-/* line 124, ../scss/_mixins.scss */
+/* line 164, ../scss/_mixins.scss */
 .alert-info {
   border-color: #bfe4f4;
   background: #d5edf8;
 }
 
-/* line 130, ../scss/_mixins.scss */
+/* line 170, ../scss/_mixins.scss */
 .alert-error {
   border-color: #f8cdce;
   background: #fbe3e4;
 }
 
-/* line 136, ../scss/_mixins.scss */
+/* line 176, ../scss/_mixins.scss */
 .alert-success {
   border-color: #deeaae;
   background: #e6efc2;
@@ -184,7 +228,7 @@ really slow down your CSS. Don't overdue it.
 /*********************
 BUTTONS
 *********************/
-/* line 228, ../scss/_mixins.scss */
+/* line 268, ../scss/_mixins.scss */
 .button, .button:visited {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid #1286b5;
@@ -213,7 +257,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #20afe9, #16a1da);
   background-image: linear-gradient(to bottom, #20afe9, #16a1da);
 }
-/* line 247, ../scss/_mixins.scss */
+/* line 287, ../scss/_mixins.scss */
 .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
   color: white;
   border: 1px solid #1286b5;
@@ -226,7 +270,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #16a1da, #1390c3);
   background-image: linear-gradient(to bottom, #16a1da, #1390c3);
 }
-/* line 255, ../scss/_mixins.scss */
+/* line 295, ../scss/_mixins.scss */
 .button:active, .button:visited:active {
   background-color: #20afe9;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#16a1da), to(#20afe9));
@@ -236,7 +280,7 @@ BUTTONS
   background-image: linear-gradient(to bottom, #16a1da, #20afe9);
 }
 
-/* line 260, ../scss/_mixins.scss */
+/* line 300, ../scss/_mixins.scss */
 .blue-button, .blue-button:visited {
   border-color: #1390c3;
   text-shadow: 0 1px 1px #1390c3;
@@ -253,7 +297,7 @@ BUTTONS
   -box-shadow: inset 0 0 3px #6acaf0;
   box-shadow: inset 0 0 3px #6acaf0;
 }
-/* line 266, ../scss/_mixins.scss */
+/* line 306, ../scss/_mixins.scss */
 .blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
   border-color: #117fac;
   background-color: #1390c3;
@@ -263,7 +307,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #16a5df, #1390c3);
   background-image: linear-gradient(to bottom, #16a5df, #1390c3);
 }
-/* line 270, ../scss/_mixins.scss */
+/* line 310, ../scss/_mixins.scss */
 .blue-button:active, .blue-button:visited:active {
   background-color: #20afe9;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#16a1da), to(#20afe9));

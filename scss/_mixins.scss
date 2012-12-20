@@ -38,6 +38,46 @@ TOOLS
 	overflow: hidden;
 }
 
+// Device-specific hide/show classes. Written in reverse logic for IE compatibility
+.mobile-only {
+	display: none;
+}
+
+	@media only screen and (max-width: 480px) {
+		.mobile-only {
+			display: block;
+		}
+	}
+
+.mobile-hide {
+	display: block;
+}
+
+	@media only screen and (max-width: 480px) {
+		.mobile-hide {
+			display: none;
+		}
+	}
+	
+.tablet-only {
+	display: none;
+}
+
+	@media only screen and (max-width: 767px) {
+		.tablet-only {
+			display: block;
+		}
+	}
+
+.tablet-hide {
+	display: block;
+}
+
+	@media only screen and (max-width: 767px) {
+		.tablet-hide {
+			display: none;
+		}
+	}
 
 /*********************
 COLORS
