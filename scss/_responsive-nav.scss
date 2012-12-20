@@ -26,11 +26,7 @@ nav li {
 	position: relative;
 	margin: 0px;
 	
-	a {
-		box-sizing:border-box;
-		-moz-box-sizing:border-box;
-		-webkit-box-sizing:border-box;
-	}
+	a {}
 	
 	&:last-child a {
 		border-right: 0;

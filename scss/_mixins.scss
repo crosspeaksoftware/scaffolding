@@ -31,13 +31,6 @@ CLEARFIXIN'
 TOOLS
 *********************/
 
-// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
-* { 
-	-webkit-box-sizing: border-box; 
-	-moz-box-sizing:    border-box; 
-	box-sizing:         border-box; 
-}
-
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ 
 .image-replacement {
 	text-indent: 100%;
@@ -225,20 +218,6 @@ really slow down your CSS. Don't overdue it.
 	background-image: -moz-linear-gradient(top, $from, $to);
 	background-image: -o-linear-gradient(top, $from, $to);
 	background-image: linear-gradient(to bottom, $from, $to);
-}
-
-/*********************
-BOX SIZING
-*********************/
-
-/* @include box-sizing(border-box); */
-/* NOTE: value of "padding-box" is only supported in Gecko. So
-probably best not to use it. I mean, were you going to anyway? */
-@mixin box-sizing($type: border-box) {
-	-webkit-box-sizing: $type;
-	-moz-box-sizing:    $type;
-	-ms-box-sizing:     $type;
-	box-sizing:         $type;
 }
 
 
