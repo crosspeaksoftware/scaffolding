@@ -16,7 +16,7 @@ of the styles inside media queries.
 /*
  * Corrects `block` display not defined in IE6/7/8/9 & FF3.
  */
-/* line 21, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 21, ../scss/_normalize.scss */
 article,
 aside,
 details,
@@ -34,7 +34,7 @@ summary {
 /*
  * Corrects `inline-block` display not defined in IE6/7/8/9 & FF3.
  */
-/* line 31, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 31, ../scss/_normalize.scss */
 audio,
 canvas,
 video {
@@ -47,7 +47,7 @@ video {
  * Prevents modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS5 devices.
  */
-/* line 42, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 42, ../scss/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -57,7 +57,7 @@ audio:not([controls]) {
  * Addresses styling for `hidden` attribute not present in IE7/8/9, FF3, S4.
  * Known issue: no IE6 support.
  */
-/* line 52, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 52, ../scss/_normalize.scss */
 [hidden] {
   display: none;
 }
@@ -71,7 +71,7 @@ audio:not([controls]) {
  * 2. Prevents iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-/* line 67, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 67, ../scss/_normalize.scss */
 html {
   font-size: 100%;
   /* 1 */
@@ -85,7 +85,7 @@ html {
  * Addresses `font-family` inconsistency between `textarea` and other form
  * elements.
  */
-/* line 82, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 82, ../scss/_normalize.scss */
 html,
 button,
 input,
@@ -97,7 +97,7 @@ textarea {
 /*
  * Addresses margins handled incorrectly in IE6/7.
  */
-/* line 90, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 90, ../scss/_normalize.scss */
 body {
   margin: 0;
 }
@@ -108,7 +108,7 @@ body {
 /*
  * Addresses `outline` inconsistency between Chrome and other browsers.
  */
-/* line 102, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 102, ../scss/_normalize.scss */
 a:focus {
   outline: thin dotted;
 }
@@ -117,7 +117,7 @@ a:focus {
  * Improves readability when focused and also mouse hovered in all browsers.
  * people.opera.com/patrickl/experiments/keyboard/test
  */
-/* line 112, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 112, ../scss/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -130,37 +130,37 @@ a:hover {
  * Addresses font sizes and margins set differently in IE6/7.
  * Addresses font sizes within `section` and `article` in FF4+, Chrome, S5.
  */
-/* line 125, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 125, ../scss/_normalize.scss */
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-/* line 130, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 130, ../scss/_normalize.scss */
 h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
 }
 
-/* line 135, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 135, ../scss/_normalize.scss */
 h3 {
   font-size: 1.17em;
   margin: 1em 0;
 }
 
-/* line 140, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 140, ../scss/_normalize.scss */
 h4 {
   font-size: 1em;
   margin: 1.33em 0;
 }
 
-/* line 145, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 145, ../scss/_normalize.scss */
 h5 {
   font-size: 0.83em;
   margin: 1.67em 0;
 }
 
-/* line 150, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 150, ../scss/_normalize.scss */
 h6 {
   font-size: 0.75em;
   margin: 2.33em 0;
@@ -169,7 +169,7 @@ h6 {
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome.
  */
-/* line 159, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 159, ../scss/_normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -177,13 +177,13 @@ abbr[title] {
 /*
  * Addresses style set to `bolder` in FF3+, S4/5, Chrome.
  */
-/* line 168, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 168, ../scss/_normalize.scss */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 172, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 172, ../scss/_normalize.scss */
 blockquote {
   margin: 1em 40px;
 }
@@ -191,7 +191,7 @@ blockquote {
 /*
  * Addresses styling not present in S5, Chrome.
  */
-/* line 180, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 180, ../scss/_normalize.scss */
 dfn {
   font-style: italic;
 }
@@ -199,7 +199,7 @@ dfn {
 /*
  * Addresses styling not present in IE6/7/8/9.
  */
-/* line 188, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 188, ../scss/_normalize.scss */
 mark {
   background: #ff0;
   color: #000;
@@ -208,7 +208,7 @@ mark {
 /*
  * Addresses margins set differently in IE6/7.
  */
-/* line 198, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 198, ../scss/_normalize.scss */
 p,
 pre {
   margin: 1em 0;
@@ -218,7 +218,7 @@ pre {
  * Corrects font family set oddly in IE6, S4/5, Chrome.
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
  */
-/* line 210, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 210, ../scss/_normalize.scss */
 code,
 kbd,
 pre,
@@ -231,7 +231,7 @@ samp {
 /*
  * Improves readability of pre-formatted text in all browsers.
  */
-/* line 220, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 220, ../scss/_normalize.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
@@ -241,7 +241,7 @@ pre {
 /*
  * Addresses CSS quotes not supported in IE6/7.
  */
-/* line 230, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 230, ../scss/_normalize.scss */
 q {
   quotes: none;
 }
@@ -249,14 +249,14 @@ q {
 /*
  * Addresses `quotes` property not supported in S4.
  */
-/* line 239, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 239, ../scss/_normalize.scss */
 q:before,
 q:after {
   content: '';
   content: none;
 }
 
-/* line 244, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 244, ../scss/_normalize.scss */
 small {
   font-size: 75%;
 }
@@ -265,7 +265,7 @@ small {
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
  * gist.github.com/413930
  */
-/* line 254, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 254, ../scss/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -274,12 +274,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 261, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 261, ../scss/_normalize.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 265, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 265, ../scss/_normalize.scss */
 sub {
   bottom: -0.25em;
 }
@@ -290,7 +290,7 @@ sub {
 /*
  * Addresses margins set differently in IE6/7.
  */
-/* line 280, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 280, ../scss/_normalize.scss */
 dl,
 menu,
 ol,
@@ -298,7 +298,7 @@ ul {
   margin: 1em 0;
 }
 
-/* line 284, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 284, ../scss/_normalize.scss */
 dd {
   margin: 0 0 0 40px;
 }
@@ -306,7 +306,7 @@ dd {
 /*
  * Addresses paddings set differently in IE6/7.
  */
-/* line 294, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 294, ../scss/_normalize.scss */
 menu,
 ol,
 ul {
@@ -316,7 +316,7 @@ ul {
 /*
  * Corrects list images handled incorrectly in IE7.
  */
-/* line 303, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 303, ../scss/_normalize.scss */
 nav ul,
 nav ol {
   list-style: none;
@@ -331,7 +331,7 @@ nav ol {
  * 2. Improves image quality when scaled in IE7.
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
-/* line 318, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 318, ../scss/_normalize.scss */
 img {
   border: 0;
   /* 1 */
@@ -342,7 +342,7 @@ img {
 /*
  * Corrects overflow displayed oddly in IE9.
  */
-/* line 327, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 327, ../scss/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
@@ -353,7 +353,7 @@ svg:not(:root) {
 /*
  * Addresses margin not present in IE6/7/8/9, S5, O11.
  */
-/* line 339, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 339, ../scss/_normalize.scss */
 figure {
   margin: 0;
 }
@@ -364,7 +364,7 @@ figure {
 /*
  * Corrects margin displayed oddly in IE6/7.
  */
-/* line 351, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 351, ../scss/_normalize.scss */
 form {
   margin: 0;
 }
@@ -372,7 +372,7 @@ form {
 /*
  * Define consistent border, margin, and padding.
  */
-/* line 359, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 359, ../scss/_normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -384,7 +384,7 @@ fieldset {
  * 2. Corrects text not wrapping in FF3.
  * 3. Corrects alignment displayed oddly in IE6/7.
  */
-/* line 371, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 371, ../scss/_normalize.scss */
 legend {
   border: 0;
   /* 1 */
@@ -400,7 +400,7 @@ legend {
  * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome.
  * 3. Improves appearance and consistency in all browsers.
  */
-/* line 387, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 387, ../scss/_normalize.scss */
 button,
 input,
 select,
@@ -419,7 +419,7 @@ textarea {
  * Addresses FF3/4 setting `line-height` on `input` using `!important` in the
  * UA stylesheet.
  */
-/* line 400, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 400, ../scss/_normalize.scss */
 button,
 input {
   line-height: normal;
@@ -434,7 +434,7 @@ input {
  * 4. Removes inner spacing in IE7 without affecting normal text inputs.
  *    Known issue: inner spacing remains in IE6.
  */
-/* line 417, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 417, ../scss/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -450,7 +450,7 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements.
  */
-/* line 428, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 428, ../scss/_normalize.scss */
 button[disabled],
 input[disabled] {
   cursor: default;
@@ -462,7 +462,7 @@ input[disabled] {
  * 3. Removes excess padding in IE7.
  *    Known issue: excess padding remains in IE6.
  */
-/* line 440, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 440, ../scss/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   padding: 0;
@@ -478,7 +478,7 @@ input[type="radio"] {
  * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
  *    to future-proof).
  */
-/* line 452, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 452, ../scss/_normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -491,7 +491,7 @@ input[type="search"] {
 /*
  * Removes inner padding and search cancel button in S5, Chrome on OS X.
  */
-/* line 464, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 464, ../scss/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -500,7 +500,7 @@ input[type="search"]::-webkit-search-decoration {
 /*
  * Removes inner padding and border in FF3+.
  */
-/* line 473, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 473, ../scss/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -511,7 +511,7 @@ input::-moz-focus-inner {
  * 1. Removes default vertical scrollbar in IE6/7/8/9.
  * 2. Improves readability and alignment in all browsers.
  */
-/* line 483, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 483, ../scss/_normalize.scss */
 textarea {
   overflow: auto;
   /* 1 */
@@ -525,7 +525,7 @@ textarea {
 /*
  * Remove most spacing between table cells.
  */
-/* line 496, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 496, ../scss/_normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -537,7 +537,7 @@ I added these extra styles as a more personalized reset. Feel free
 to remove them if you like or add your own. If you want to update
 the normalize styles, make sure to edit from this point up.
 ******************************************************************/
-/* line 509, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 509, ../scss/_normalize.scss */
 p {
   -webkit-hyphens: auto;
   -epub-hyphens: auto;
@@ -545,33 +545,33 @@ p {
   hyphens: auto;
 }
 
-/* line 516, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 516, ../scss/_normalize.scss */
 b, strong, .strong {
   font-weight: bold;
 }
 
-/* line 518, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 518, ../scss/_normalize.scss */
 dfn, em, .em {
   font-style: italic;
 }
 
-/* line 520, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 520, ../scss/_normalize.scss */
 small, .small {
   font-size: 75%;
 }
 
-/* line 522, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 522, ../scss/_normalize.scss */
 ul, ol {
   padding: 0;
   list-style-type: none;
 }
 
-/* line 527, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 527, ../scss/_normalize.scss */
 dd {
   margin: 0;
 }
 
-/* line 533, /Applications/MAMP/htdocs/Github/toolkit/scss/_normalize.scss */
+/* line 533, ../scss/_normalize.scss */
 .sidebar ul,
 .sidebar ol,
 .commentlist {
@@ -601,16 +601,16 @@ remember less is more.
 /*********************
 CLEARFIXIN'
 *********************/
-/* line 24, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 24, ../scss/_mixins.scss */
 .clearfix {
   zoom: 1;
 }
-/* line 26, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 26, ../scss/_mixins.scss */
 .clearfix:before, .clearfix:after {
   content: "";
   display: table;
 }
-/* line 27, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 27, ../scss/_mixins.scss */
 .clearfix:after {
   clear: both;
 }
@@ -618,7 +618,7 @@ CLEARFIXIN'
 /*********************
 TOOLS
 *********************/
-/* line 35, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 35, ../scss/_mixins.scss */
 .image-replacement {
   text-indent: 100%;
   white-space: nowrap;
@@ -660,53 +660,53 @@ TYPOGRAPHY
 use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
-/* line 100, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 100, ../scss/_mixins.scss */
 span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
 }
 
-/* line 106, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 106, ../scss/_mixins.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 107, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 107, ../scss/_mixins.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 108, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 108, ../scss/_mixins.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 112, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 112, ../scss/_mixins.scss */
 .alert-help, .alert-info, .alert-error, .alert-success {
   margin: 10px;
   padding: 5px 18px;
   border: 1px solid;
 }
 
-/* line 118, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 118, ../scss/_mixins.scss */
 .alert-help {
   border-color: #e8dc59;
   background: #ebe16f;
 }
 
-/* line 124, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 124, ../scss/_mixins.scss */
 .alert-info {
   border-color: #bfe4f4;
   background: #d5edf8;
 }
 
-/* line 130, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 130, ../scss/_mixins.scss */
 .alert-error {
   border-color: #f8cdce;
   background: #fbe3e4;
 }
 
-/* line 136, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 136, ../scss/_mixins.scss */
 .alert-success {
   border-color: #deeaae;
   background: #e6efc2;
@@ -748,7 +748,7 @@ really slow down your CSS. Don't overdue it.
 /*********************
 BUTTONS
 *********************/
-/* line 228, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 228, ../scss/_mixins.scss */
 .button, .button:visited {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid #1286b5;
@@ -777,7 +777,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #20afe9, #16a1da);
   background-image: linear-gradient(to bottom, #20afe9, #16a1da);
 }
-/* line 247, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 247, ../scss/_mixins.scss */
 .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
   color: white;
   border: 1px solid #1286b5;
@@ -790,7 +790,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #16a1da, #1390c3);
   background-image: linear-gradient(to bottom, #16a1da, #1390c3);
 }
-/* line 255, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 255, ../scss/_mixins.scss */
 .button:active, .button:visited:active {
   background-color: #20afe9;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#16a1da), to(#20afe9));
@@ -800,7 +800,7 @@ BUTTONS
   background-image: linear-gradient(to bottom, #16a1da, #20afe9);
 }
 
-/* line 260, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 260, ../scss/_mixins.scss */
 .blue-button, .blue-button:visited {
   border-color: #1390c3;
   text-shadow: 0 1px 1px #1390c3;
@@ -817,7 +817,7 @@ BUTTONS
   -box-shadow: inset 0 0 3px #6acaf0;
   box-shadow: inset 0 0 3px #6acaf0;
 }
-/* line 266, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 266, ../scss/_mixins.scss */
 .blue-button:hover, .blue-button:focus, .blue-button:visited:hover, .blue-button:visited:focus {
   border-color: #117fac;
   background-color: #1390c3;
@@ -827,7 +827,7 @@ BUTTONS
   background-image: -o-linear-gradient(top, #16a5df, #1390c3);
   background-image: linear-gradient(to bottom, #16a5df, #1390c3);
 }
-/* line 270, /Applications/MAMP/htdocs/Github/toolkit/scss/_mixins.scss */
+/* line 270, ../scss/_mixins.scss */
 .blue-button:active, .blue-button:visited:active {
   background-color: #20afe9;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#16a1da), to(#20afe9));
@@ -838,55 +838,55 @@ BUTTONS
 }
 
 /* Basic Styles */
-/* line 2, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 2, ../scss/_responsive-nav.scss */
 nav {
   width: 100%;
   font-size: 11pt;
   position: relative;
 }
 
-/* line 8, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 8, ../scss/_responsive-nav.scss */
 nav > ul {
   padding: 0;
   margin: 0 auto;
   text-align: center;
 }
-/* line 13, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 13, ../scss/_responsive-nav.scss */
 nav > ul ul {
   display: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 19, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 19, ../scss/_responsive-nav.scss */
 nav > ul li:hover ul {
   display: block;
 }
 
-/* line 24, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 24, ../scss/_responsive-nav.scss */
 nav li {
   display: inline-block;
   position: relative;
   margin: 0px;
 }
-/* line 31, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 31, ../scss/_responsive-nav.scss */
 nav li:last-child a {
   border-right: 0;
 }
 
-/* line 36, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 36, ../scss/_responsive-nav.scss */
 nav a {
   display: inline-block;
   text-align: center;
   text-decoration: none;
   padding: 10px 15px;
 }
-/* line 42, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+/* line 42, ../scss/_responsive-nav.scss */
 nav a#pull {
   display: none;
 }
 
 @media screen and (min-width: 480px) {
-  /* line 50, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 50, ../scss/_responsive-nav.scss */
   nav > ul ul {
     position: absolute;
     top: 40px;
@@ -896,49 +896,49 @@ nav a#pull {
 }
 /*Styles for screen 600px and lower*/
 @media screen and (max-width: 600px) {
-  /* line 61, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 61, ../scss/_responsive-nav.scss */
   nav {
     height: auto;
   }
-  /* line 64, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 64, ../scss/_responsive-nav.scss */
   nav ul {
     width: 100%;
     display: block;
     height: auto;
   }
-  /* line 70, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 70, ../scss/_responsive-nav.scss */
   nav li {
     position: relative;
   }
-  /* line 74, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 74, ../scss/_responsive-nav.scss */
   nav a {
     width: 100%;
   }
 }
 /*Styles for screen 515px and lower*/
 @media only screen and (max-width: 480px) {
-  /* line 82, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 82, ../scss/_responsive-nav.scss */
   nav {
     border-bottom: 0;
   }
-  /* line 85, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 85, ../scss/_responsive-nav.scss */
   nav ul {
     display: none;
     height: auto;
   }
-  /* line 90, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 90, ../scss/_responsive-nav.scss */
   nav li {
     float: none;
     display: block;
   }
-  /* line 95, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 95, ../scss/_responsive-nav.scss */
   nav a#pull {
     display: block;
     background-color: #283744;
     width: 100%;
     position: relative;
   }
-  /* line 101, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 101, ../scss/_responsive-nav.scss */
   nav a#pull:after {
     content: "";
     background: url("../images/nav-icon.png") no-repeat;
@@ -952,7 +952,7 @@ nav a#pull {
 }
 /*Smartphone*/
 @media only screen and (max-width: 320px) {
-  /* line 117, /Applications/MAMP/htdocs/Github/toolkit/scss/_responsive-nav.scss */
+  /* line 117, ../scss/_responsive-nav.scss */
   nav li {
     display: block;
     float: none;
@@ -980,7 +980,7 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-/* line 18, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 18, ../scss/_base.scss */
 body {
   font-family: "Georgia", Cambria, Times New Roman, Times, serif;
   font-size: 100%;
@@ -1030,7 +1030,7 @@ style a page via class
 /*********************
 LAYOUT & GRID STYLES
 *********************/
-/* line 70, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 70, ../scss/_base.scss */
 .wrap {
   width: 96%;
   margin: 0 auto;
@@ -1039,18 +1039,18 @@ LAYOUT & GRID STYLES
 /*********************
 LINK STYLES
 *********************/
-/* line 79, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 79, ../scss/_base.scss */
 a, a:visited {
   color: #20afe9;
   /* on hover */
   /* on click */
   /* mobile tap color */
 }
-/* line 83, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 83, ../scss/_base.scss */
 a:hover, a:focus, a:visited:hover, a:visited:focus {
   color: #1494c7;
 }
-/* line 93, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 93, ../scss/_base.scss */
 a:link, a:visited:link {
   /*
   this highlights links on iPhones/iPads.
@@ -1063,7 +1063,7 @@ a:link, a:visited:link {
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
-/* line 107, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 107, ../scss/_base.scss */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
@@ -1074,36 +1074,36 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   */
   /* removing text decoration from all headline links */
 }
-/* line 117, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 117, ../scss/_base.scss */
 h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
   text-decoration: none;
 }
 
-/* line 122, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 122, ../scss/_base.scss */
 h1, .h1 {
   font-size: 2.5em;
   line-height: 1.333em;
 }
 
-/* line 127, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 127, ../scss/_base.scss */
 h2, .h2 {
   font-size: 1.75em;
   line-height: 1.4em;
   margin-bottom: 0.375em;
 }
 
-/* line 133, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 133, ../scss/_base.scss */
 h3, .h3 {
   font-size: 1.125em;
 }
 
-/* line 137, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 137, ../scss/_base.scss */
 h4, .h4 {
   font-size: 1.1em;
   font-weight: 700;
 }
 
-/* line 142, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 142, ../scss/_base.scss */
 h5, .h5 {
   font-size: 0.846em;
   line-height: 2.09em;
@@ -1124,7 +1124,7 @@ easily just write on group of styles for
 the navs on the site and our css is cleaner
 and moe scalable.
 */
-/* line 169, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 169, ../scss/_base.scss */
 .nav {
   border-bottom: 0;
   background: #eee;
@@ -1132,7 +1132,7 @@ and moe scalable.
   /* highlight current page */
   /* end current highlighters */
 }
-/* line 173, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 173, ../scss/_base.scss */
 .nav li {
   /*
   so you really have to rethink your dropdowns for mobile.
@@ -1142,7 +1142,7 @@ and moe scalable.
   http://www.alistapart.com/articles/organizing-mobile/
   */
 }
-/* line 175, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 175, ../scss/_base.scss */
 .nav li a {
   display: block;
   text-decoration: none;
@@ -1156,7 +1156,7 @@ and moe scalable.
   keep this file as small as possible!
   */
 }
-/* line 209, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 209, ../scss/_base.scss */
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
   padding-left: 30px;
@@ -1166,7 +1166,7 @@ and moe scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-/* line 245, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 245, ../scss/_base.scss */
 #content {
   margin-top: 2.2em;
 }
@@ -1182,13 +1182,13 @@ POSTS & CONTENT STYLES
 /* style by category (i.e. category-videos) */
 /* style by tag (i.e. tag-news) */
 /* post meta */
-/* line 277, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 277, ../scss/_base.scss */
 .byline {
   color: #999;
 }
 
 /* entry content */
-/* line 284, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 284, ../scss/_base.scss */
 .entry-content {
   /*
   image alignment on a screen this size may be
@@ -1197,25 +1197,25 @@ POSTS & CONTENT STYLES
   but it's up to you. Feel free to change it up.
   */
 }
-/* line 319, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 319, ../scss/_base.scss */
 .entry-content dd {
   margin-left: 0;
   font-size: 0.9em;
   color: #787878;
   margin-bottom: 1.5em;
 }
-/* line 326, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 326, ../scss/_base.scss */
 .entry-content img {
   margin: 0 0 1.5em 0;
   max-width: 100%;
   height: auto;
 }
-/* line 342, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 342, ../scss/_base.scss */
 .entry-content video, .entry-content object {
   max-width: 100%;
   height: auto;
 }
-/* line 347, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 347, ../scss/_base.scss */
 .entry-content pre {
   background: #eee;
   border: 1px solid #cecece;
@@ -1223,18 +1223,18 @@ POSTS & CONTENT STYLES
 }
 
 /* end .entry-content */
-/* line 355, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 355, ../scss/_base.scss */
 .wp-caption {
   background: #eee;
   padding: 5px;
   /* images inside wp-caption */
 }
-/* line 360, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 360, ../scss/_base.scss */
 .wp-caption img {
   margin-bottom: 0;
   width: 100%;
 }
-/* line 365, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 365, ../scss/_base.scss */
 .wp-caption p.wp-caption-text {
   font-size: 0.85em;
   margin: 4px 0 7px;
@@ -1248,13 +1248,13 @@ POSTS & CONTENT STYLES
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
-/* line 403, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 403, ../scss/_base.scss */
 .page-navigation,
 .wp-prev-next {
   margin: 1.1em 0 2.2em;
 }
 
-/* line 406, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 406, ../scss/_base.scss */
 .bones_page_navi {
   /* current page link */
   /* end .bones_page_navi .bpn-current */
@@ -1265,44 +1265,44 @@ PAGE NAVI STYLES
   /* first page link */
   /* last page link */
 }
-/* line 408, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 408, ../scss/_base.scss */
 .bones_page_navi li {
   float: left;
   margin-left: 10px;
 }
-/* line 412, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 412, ../scss/_base.scss */
 .bones_page_navi li a {
   padding: 3px 6px;
   display: block;
   text-decoration: none;
   position: relative;
 }
-/* line 419, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 419, ../scss/_base.scss */
 .bones_page_navi li a:hover, .bones_page_navi li a:focus {
   color: #f01d4f;
   text-decoration: underline;
 }
-/* line 428, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 428, ../scss/_base.scss */
 .bones_page_navi li.bpn-current {
   padding: 3px 6px;
   border-bottom: 2px solid #f01d4f;
   position: relative;
 }
-/* line 433, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 433, ../scss/_base.scss */
 .bones_page_navi li.bpn-current a {
   /* hovering on current page link */
 }
-/* line 444, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 444, ../scss/_base.scss */
 .bones_page_navi li.bpn-prev-link,
 .bones_page_navi li.bpn-next-link {
   font-weight: 700;
 }
-/* line 447, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 447, ../scss/_base.scss */
 .bones_page_navi li.bpn-prev-link a,
 .bones_page_navi li.bpn-next-link a {
   padding: 0;
 }
-/* line 456, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 456, ../scss/_base.scss */
 .bones_page_navi li.bpn-prev-link a:hover,
 .bones_page_navi li.bpn-next-link a:hover,
 .bones_page_navi li.bpn-first-page-link a:hover,
@@ -1312,11 +1312,11 @@ PAGE NAVI STYLES
 
 /* end .bones_page_navi */
 /* fallback previous & next links */
-/* line 499, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 499, ../scss/_base.scss */
 .wp-prev-next .prev-link {
   float: left;
 }
-/* line 503, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 503, ../scss/_base.scss */
 .wp-prev-next .next-link {
   float: right;
 }
@@ -1326,12 +1326,12 @@ PAGE NAVI STYLES
 COMMENT STYLES
 ******************************************************************/
 /* h3 comment title */
-/* line 514, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 514, ../scss/_base.scss */
 #comments {
   /* number of comments span */
 }
 
-/* line 531, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 531, ../scss/_base.scss */
 .commentlist {
   /* general comment classes */
   /* vcard */
@@ -1342,7 +1342,7 @@ COMMENT STYLES
   /* comment reply link */
   /* end .commentlist .comment-reply-link */
 }
-/* line 533, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 533, ../scss/_base.scss */
 .commentlist li {
   position: relative;
   clear: both;
@@ -1352,63 +1352,63 @@ COMMENT STYLES
   padding: 0.7335em 10px;
   /* end .commentlist li ul.children */
 }
-/* line 541, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 541, ../scss/_base.scss */
 .commentlist li:last-child {
   margin-bottom: 0;
 }
-/* line 545, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 545, ../scss/_base.scss */
 .commentlist li ul.children {
   margin: 0;
   /* variations */
   /* change number for different depth */
 }
-/* line 563, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 563, ../scss/_base.scss */
 .commentlist li[class*=depth-] {
   margin-top: 1.1em;
 }
-/* line 567, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 567, ../scss/_base.scss */
 .commentlist li.depth-1 {
   margin-left: 0;
   margin-top: 0;
 }
-/* line 572, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 572, ../scss/_base.scss */
 .commentlist li:not(.depth-1) {
   margin-right: -10px;
   margin-left: -10px;
   margin-top: 0;
   padding-bottom: 0;
 }
-/* line 586, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 586, ../scss/_base.scss */
 .commentlist .odd {
   background: #eee;
 }
-/* line 589, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 589, ../scss/_base.scss */
 .commentlist .even {
   background: #fefefe;
 }
-/* line 604, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 604, ../scss/_base.scss */
 .commentlist .vcard {
   margin-left: 50px;
 }
-/* line 607, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 607, ../scss/_base.scss */
 .commentlist .vcard cite.fn {
   font-weight: 700;
   font-style: normal;
 }
-/* line 615, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 615, ../scss/_base.scss */
 .commentlist .vcard time {
   float: right;
 }
-/* line 618, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 618, ../scss/_base.scss */
 .commentlist .vcard time a {
   color: #999;
   text-decoration: none;
 }
-/* line 622, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 622, ../scss/_base.scss */
 .commentlist .vcard time a:hover {
   text-decoration: underline;
 }
-/* line 632, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 632, ../scss/_base.scss */
 .commentlist .vcard img.avatar {
   position: absolute;
   left: 10px;
@@ -1416,17 +1416,17 @@ COMMENT STYLES
   border: 1px solid #cecece;
   background: #fff;
 }
-/* line 657, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 657, ../scss/_base.scss */
 .commentlist .comment_content {
   margin-left: 50px;
 }
-/* line 660, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 660, ../scss/_base.scss */
 .commentlist .comment_content p {
   margin: 0.7335em 0 1.5em;
   font-size: 1em;
   line-height: 1.5em;
 }
-/* line 669, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 669, ../scss/_base.scss */
 .commentlist .comment-reply-link {
   text-decoration: none;
   float: right;
@@ -1438,7 +1438,7 @@ COMMENT STYLES
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 681, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 681, ../scss/_base.scss */
 .commentlist .comment-reply-link:hover, .commentlist .comment-reply-link:focus {
   opacity: 1;
 }
@@ -1447,27 +1447,27 @@ COMMENT STYLES
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
-/* line 693, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 693, ../scss/_base.scss */
 .respond-form {
   margin: 1.5em 10px;
   padding-bottom: 2.2em;
 }
-/* line 697, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 697, ../scss/_base.scss */
 .respond-form form {
   margin: 0.75em 0;
 }
-/* line 700, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 700, ../scss/_base.scss */
 .respond-form form li {
   list-style-type: none;
   clear: both;
   margin-bottom: 0.7335em;
 }
-/* line 706, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 706, ../scss/_base.scss */
 .respond-form form li label,
 .respond-form form li small {
   display: none;
 }
-/* line 714, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 714, ../scss/_base.scss */
 .respond-form form input[type=text],
 .respond-form form input[type=email],
 .respond-form form input[type=url],
@@ -1478,14 +1478,14 @@ COMMENT FORM STYLES
   line-height: 1.5em;
   /* form validation */
 }
-/* line 720, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 720, ../scss/_base.scss */
 .respond-form form input[type=text]:focus,
 .respond-form form input[type=email]:focus,
 .respond-form form input[type=url]:focus,
 .respond-form form textarea:focus {
   background: #fff;
 }
-/* line 725, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 725, ../scss/_base.scss */
 .respond-form form input[type=text]:invalid,
 .respond-form form input[type=email]:invalid,
 .respond-form form input[type=url]:invalid,
@@ -1498,14 +1498,14 @@ COMMENT FORM STYLES
   -ms-box-shadow: none;
   box-shadow: none;
 }
-/* line 738, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 738, ../scss/_base.scss */
 .respond-form form input[type=text],
 .respond-form form input[type=email],
 .respond-form form input[type=url] {
   max-width: 400px;
   min-width: 250px;
 }
-/* line 743, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 743, ../scss/_base.scss */
 .respond-form form textarea {
   resize: none;
   width: 97.3%;
@@ -1514,7 +1514,7 @@ COMMENT FORM STYLES
 
 /* comment submit button */
 /* comment form title */
-/* line 756, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 756, ../scss/_base.scss */
 #comment-form-title {
   margin: 0 0 1.1em;
 }
@@ -1522,13 +1522,13 @@ COMMENT FORM STYLES
 /* cancel comment reply link */
 /* logged in comments */
 /* allowed tags */
-/* line 769, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 769, ../scss/_base.scss */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0;
 }
 
 /* no comments */
-/* line 774, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 774, ../scss/_base.scss */
 .nocomments {
   margin: 0 20px 1.1em;
 }
@@ -1536,7 +1536,7 @@ COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 790, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 790, ../scss/_base.scss */
 .widget ul li {
   /* deep nesting */
 }
@@ -1544,7 +1544,7 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 811, /Applications/MAMP/htdocs/Github/toolkit/scss/_base.scss */
+/* line 811, ../scss/_base.scss */
 .footer {
   clear: both;
 }
@@ -1585,29 +1585,29 @@ tweeners.
   /*********************
   NAVIGATION STYLES
   *********************/
-  /* line 25, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 25, ../scss/_481up.scss */
   .nav li a {
     border-bottom: 0px;
   }
 
   /* .menu is clearfixed inside mixins.scss */
-  /* line 31, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 31, ../scss/_481up.scss */
   .menu {
     /* end .menu ul */
   }
-  /* line 32, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 32, ../scss/_481up.scss */
   .menu ul {
     /* end .menu ul li */
     /* highlight current page */
     /* end current highlighters */
   }
-  /* line 33, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 33, ../scss/_481up.scss */
   .menu ul li {
     /*
     plan your menus and drop-downs wisely.
     */
   }
-  /* line 34, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 34, ../scss/_481up.scss */
   .menu ul li a {
     /*
     you can use hover styles here even though this size
@@ -1620,23 +1620,23 @@ tweeners.
   POSTS & CONTENT STYLES
   *********************/
   /* entry content */
-  /* line 78, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 78, ../scss/_481up.scss */
   .entry-content {
     /* at this larger size, we can start to align images */
   }
-  /* line 82, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 82, ../scss/_481up.scss */
   .entry-content .alignleft, .entry-content img.alignleft {
     margin-right: 1.5em;
     display: inline;
     float: left;
   }
-  /* line 87, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 87, ../scss/_481up.scss */
   .entry-content .alignright, .entry-content img.alignright {
     margin-left: 1.5em;
     display: inline;
     float: right;
   }
-  /* line 92, /Applications/MAMP/htdocs/Github/toolkit/scss/_481up.scss */
+  /* line 92, ../scss/_481up.scss */
   .entry-content .aligncenter, .entry-content img.aligncenter {
     margin-right: auto;
     margin-left: auto;
@@ -1683,79 +1683,79 @@ you can add resource intensive styles.
   values are commented out on each line.
   
   ******************************************************************/
-  /* line 24, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 24, ../scss/_grid.scss */
   .onecol {
     width: 5.801104972%;
   }
 
   /* 4.85%;  } /* grid_1  */
-  /* line 25, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 25, ../scss/_grid.scss */
   .twocol {
     width: 14.364640883%;
   }
 
   /* 13.45%; } /* grid_2  */
-  /* line 26, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 26, ../scss/_grid.scss */
   .threecol {
     width: 22.928176794%;
   }
 
   /* 22.05%; } /* grid_3  */
-  /* line 27, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 27, ../scss/_grid.scss */
   .fourcol {
     width: 31.491712705%;
   }
 
   /* 30.75%; } /* grid_4  */
-  /* line 28, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 28, ../scss/_grid.scss */
   .fivecol {
     width: 40.055248616%;
   }
 
   /* 39.45%; } /* grid_5  */
-  /* line 29, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 29, ../scss/_grid.scss */
   .sixcol {
     width: 48.618784527%;
   }
 
   /* 48%;    } /* grid_6  */
-  /* line 30, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 30, ../scss/_grid.scss */
   .sevencol {
     width: 57.182320438000005%;
   }
 
   /* 56.75%; } /* grid_7  */
-  /* line 31, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 31, ../scss/_grid.scss */
   .eightcol {
     width: 65.74585634900001%;
   }
 
   /* 65.4%;  } /* grid_8  */
-  /* line 32, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 32, ../scss/_grid.scss */
   .ninecol {
     width: 74.30939226%;
   }
 
   /* 74.05%; } /* grid_9  */
-  /* line 33, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 33, ../scss/_grid.scss */
   .tencol {
     width: 82.87292817100001%;
   }
 
   /* 82.7%;  } /* grid_10 */
-  /* line 34, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 34, ../scss/_grid.scss */
   .elevencol {
     width: 91.436464082%;
   }
 
   /* 91.35%; } /* grid_11 */
-  /* line 35, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 35, ../scss/_grid.scss */
   .twelvecol {
     width: 99.999999993%;
   }
 
   /* 100%;   } /* grid_12 */
-  /* line 38, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 38, ../scss/_grid.scss */
   .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
     position: relative;
     float: left;
@@ -1763,12 +1763,12 @@ you can add resource intensive styles.
     padding-right: 1.3812154695%;
   }
 
-  /* line 45, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 45, ../scss/_grid.scss */
   .first {
     padding-left: 0;
   }
 
-  /* line 49, /Applications/MAMP/htdocs/Github/toolkit/scss/_grid.scss */
+  /* line 49, ../scss/_grid.scss */
   .last {
     float: right;
     padding-right: 0;
@@ -1793,7 +1793,7 @@ you can add resource intensive styles.
   /*********************
   LAYOUT & GRID STYLES
   *********************/
-  /* line 26, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 26, ../scss/_768up.scss */
   .wrap {
     max-width: 1140px;
   }
@@ -1804,14 +1804,14 @@ you can add resource intensive styles.
   /*********************
   NAVIGATION STYLES
   *********************/
-  /* line 42, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 42, ../scss/_768up.scss */
   .nav {
     border: 0;
     /* end .menu ul li */
     /* highlight current page */
     /* end current highlighters */
   }
-  /* line 45, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 45, ../scss/_768up.scss */
   .nav li {
     float: left;
     position: relative;
@@ -1820,7 +1820,7 @@ you can add resource intensive styles.
     */
     /* showing sub-menus */
   }
-  /* line 49, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 49, ../scss/_768up.scss */
   .nav li a {
     border-bottom: 0;
     /*
@@ -1828,11 +1828,11 @@ you can add resource intensive styles.
     has the possibility of being a mobile device.
     */
   }
-  /* line 56, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 56, ../scss/_768up.scss */
   .nav li a:hover, .nav li a:focus {
     background-color: #dedede;
   }
-  /* line 69, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 69, ../scss/_768up.scss */
   .nav li ul.sub-menu,
   .nav li ul.children {
     width: 200px;
@@ -1843,7 +1843,7 @@ you can add resource intensive styles.
     z-index: 8999;
     /* highlight sub-menu current page */
   }
-  /* line 77, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 77, ../scss/_768up.scss */
   .nav li ul.sub-menu li,
   .nav li ul.children li {
     /*
@@ -1852,7 +1852,7 @@ you can add resource intensive styles.
     for usability. k, bai.
     */
   }
-  /* line 79, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 79, ../scss/_768up.scss */
   .nav li ul.sub-menu li a,
   .nav li ul.children li a {
     padding-left: 10px;
@@ -1861,12 +1861,12 @@ you can add resource intensive styles.
     width: 180px;
     border-bottom: 1px solid #ccc;
   }
-  /* line 96, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 96, ../scss/_768up.scss */
   .nav li ul.sub-menu li:last-child a,
   .nav li ul.children li:last-child a {
     border-bottom: 0;
   }
-  /* line 118, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 118, ../scss/_768up.scss */
   .nav li:hover ul {
     top: auto;
     display: block;
@@ -1876,28 +1876,28 @@ you can add resource intensive styles.
   /*********************
   SIDEBARS & ASIDES
   *********************/
-  /* line 138, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 138, ../scss/_768up.scss */
   .sidebar {
     margin-top: 2.2em;
   }
 
-  /* line 142, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 142, ../scss/_768up.scss */
   .widgettitle {
     border-bottom: 2px solid #444;
     margin-bottom: 0.75em;
   }
 
-  /* line 147, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 147, ../scss/_768up.scss */
   .widget {
     padding: 0 10px;
     margin: 2.2em 0;
   }
-  /* line 152, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 152, ../scss/_768up.scss */
   .widget ul li {
     margin-bottom: 0.75em;
     /* deep nesting */
   }
-  /* line 160, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 160, ../scss/_768up.scss */
   .widget ul li ul {
     margin-top: 0.75em;
     padding-left: 1em;
@@ -1922,7 +1922,7 @@ you can add resource intensive styles.
   of overriding here if you styled them for
   mobile. Make sure to double check these!
   */
-  /* line 268, /Applications/MAMP/htdocs/Github/toolkit/scss/_768up.scss */
+  /* line 268, ../scss/_768up.scss */
   .footer-links ul li {
     /*
     be careful with the depth of your menus.
@@ -1932,6 +1932,40 @@ you can add resource intensive styles.
   }
 
   /* end .footer-links */
+  /*********************
+  STICKY FOOTER STYLES
+  *********************/
+  /* line 288, ../scss/_768up.scss */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  /* line 293, ../scss/_768up.scss */
+  #container {
+    display: table;
+    width: 100%;
+  }
+
+  /* line 298, ../scss/_768up.scss */
+  html > body #container {
+    height: 100%;
+  }
+
+  /* line 304, ../scss/_768up.scss */
+  #container .header,
+  #content,
+  #container .footer {
+    display: table-row;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* line 310, ../scss/_768up.scss */
+  html > body #content {
+    height: auto;
+  }
 }
 /*
 DESKTOP
@@ -2037,7 +2071,7 @@ be set to display none.
   though, go for it.
   
   ******************************************************************/
-  /* line 15, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 15, ../scss/_print.scss */
   * {
     background: transparent !important;
     color: black !important;
@@ -2046,44 +2080,44 @@ be set to display none.
     -ms-filter: none !important;
   }
 
-  /* line 23, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 23, ../scss/_print.scss */
   a, a:visited {
     color: #444 !important;
     text-decoration: underline;
   }
-  /* line 28, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 28, ../scss/_print.scss */
   a:after, a:visited:after {
     content: " (" attr(href) ")";
   }
-  /* line 33, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 33, ../scss/_print.scss */
   a abbr[title]:after, a:visited abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* line 40, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 40, ../scss/_print.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-  /* line 44, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 44, ../scss/_print.scss */
   pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 49, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 49, ../scss/_print.scss */
   thead {
     display: table-header-group;
   }
 
-  /* line 53, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 53, ../scss/_print.scss */
   tr, img {
     page-break-inside: avoid;
   }
 
-  /* line 57, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 57, ../scss/_print.scss */
   img {
     max-width: 100% !important;
   }
@@ -2092,19 +2126,19 @@ be set to display none.
     margin: 0.5cm;
 }
 
-  /* line 65, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 65, ../scss/_print.scss */
   p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
 
-  /* line 71, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 71, ../scss/_print.scss */
   h2,
   h3 {
     page-break-after: avoid;
   }
 
-  /* line 80, /Applications/MAMP/htdocs/Github/toolkit/scss/_print.scss */
+  /* line 80, ../scss/_print.scss */
   .sidebar,
   .page-navigation,
   .wp-prev-next,

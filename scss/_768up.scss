@@ -279,3 +279,34 @@ mobile. Make sure to double check these!
 	}
 } /* end .footer-links */
 
+
+	/*********************
+	STICKY FOOTER STYLES
+	*********************/
+	
+	html,
+	body {
+		height: 100%;
+		margin: 0;
+	}
+
+	#container {
+	    display: table;
+	    width: 100%;
+	}
+
+	html>/**/body #container {
+	    height: 100%;
+	}
+
+	#container .header,
+	#content,
+	#container .footer {
+	    display: table-row;
+	    height: 1px;
+	    overflow: hidden;
+	}
+
+	html>body #content {
+	    height: auto;
+	}
