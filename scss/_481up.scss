@@ -16,6 +16,17 @@ upon your base.scss styles.
 ******************************************************************/
 
 
+/*********************
+HEADER SYTLES
+*********************/
+
+.header {
+
+	nav {
+		border-top: none;
+		box-shadow: none;
+	}
+}
 	
 /*********************
 NAVIGATION STYLES

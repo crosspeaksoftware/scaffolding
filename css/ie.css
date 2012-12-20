@@ -414,7 +414,7 @@ nav a#pull {
   /* line 95, ../scss/_responsive-nav.scss */
   nav a#pull {
     display: block;
-    background-color: #283744;
+    background-color: #E2E2E2;
     width: 100%;
     position: relative;
   }
@@ -456,32 +456,41 @@ upon your base.scss styles.
 
 ******************************************************************/
 /*********************
-NAVIGATION STYLES
+HEADER SYTLES
 *********************/
 /* line 25, ../scss/_481up.scss */
+.header nav {
+  border-top: none;
+  box-shadow: none;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+/* line 36, ../scss/_481up.scss */
 .nav li a {
   border-bottom: 0px;
   padding: 10px 10px;
 }
 
 /* .menu is clearfixed inside mixins.scss */
-/* line 32, ../scss/_481up.scss */
+/* line 43, ../scss/_481up.scss */
 .menu {
   /* end .menu ul */
 }
-/* line 33, ../scss/_481up.scss */
+/* line 44, ../scss/_481up.scss */
 .menu ul {
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
 }
-/* line 34, ../scss/_481up.scss */
+/* line 45, ../scss/_481up.scss */
 .menu ul li {
   /*
   plan your menus and drop-downs wisely.
   */
 }
-/* line 35, ../scss/_481up.scss */
+/* line 46, ../scss/_481up.scss */
 .menu ul li a {
   /*
   you can use hover styles here even though this size
@@ -494,23 +503,23 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 /* entry content */
-/* line 79, ../scss/_481up.scss */
+/* line 90, ../scss/_481up.scss */
 .entry-content {
   /* at this larger size, we can start to align images */
 }
-/* line 83, ../scss/_481up.scss */
+/* line 94, ../scss/_481up.scss */
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
   display: inline;
   float: left;
 }
-/* line 88, ../scss/_481up.scss */
+/* line 99, ../scss/_481up.scss */
 .entry-content .alignright, .entry-content img.alignright {
   margin-left: 1.5em;
   display: inline;
   float: right;
 }
-/* line 93, ../scss/_481up.scss */
+/* line 104, ../scss/_481up.scss */
 .entry-content .aligncenter, .entry-content img.aligncenter {
   margin-right: auto;
   margin-left: auto;

@@ -150,7 +150,13 @@ h5, .h5 {
 HEADER SYTLES
 *********************/
 
-.header {}
+.header {
+
+	nav {
+		border-top: solid 1px #CCC;
+		@include box-shadow(0 0 10px 0px #CCC inset);
+	}
+}
 
 	#logo {}
 
