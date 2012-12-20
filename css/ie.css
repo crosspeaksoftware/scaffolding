@@ -417,26 +417,27 @@ NAVIGATION STYLES
 /* line 25, ../scss/_481up.scss */
 .nav li a {
   border-bottom: 0px;
+  padding: 10px 10px;
 }
 
 /* .menu is clearfixed inside mixins.scss */
-/* line 31, ../scss/_481up.scss */
+/* line 32, ../scss/_481up.scss */
 .menu {
   /* end .menu ul */
 }
-/* line 32, ../scss/_481up.scss */
+/* line 33, ../scss/_481up.scss */
 .menu ul {
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
 }
-/* line 33, ../scss/_481up.scss */
+/* line 34, ../scss/_481up.scss */
 .menu ul li {
   /*
   plan your menus and drop-downs wisely.
   */
 }
-/* line 34, ../scss/_481up.scss */
+/* line 35, ../scss/_481up.scss */
 .menu ul li a {
   /*
   you can use hover styles here even though this size
@@ -449,23 +450,23 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 /* entry content */
-/* line 78, ../scss/_481up.scss */
+/* line 79, ../scss/_481up.scss */
 .entry-content {
   /* at this larger size, we can start to align images */
 }
-/* line 82, ../scss/_481up.scss */
+/* line 83, ../scss/_481up.scss */
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
   display: inline;
   float: left;
 }
-/* line 87, ../scss/_481up.scss */
+/* line 88, ../scss/_481up.scss */
 .entry-content .alignright, .entry-content img.alignright {
   margin-left: 1.5em;
   display: inline;
   float: right;
 }
-/* line 92, ../scss/_481up.scss */
+/* line 93, ../scss/_481up.scss */
 .entry-content .aligncenter, .entry-content img.aligncenter {
   margin-right: auto;
   margin-left: auto;
