@@ -14,13 +14,13 @@ http://gridsetapp.com - Love this site. Responsive Grids made easy.
 http://susy.oddbird.net/ - Grids using Compass. Very elegant.
 http://gridpak.com/ - Create your own responsive grid.
 
-The grid below is a combination of the 1140 grid and Twitter Boostrap. 
-I liked 1140 but Boostrap's grid was way more detailed so I merged them 
-together, let's see how this works out. If you want to use 1140, the original 
+The grid below is a combination of the 1140 grid and Twitter Boostrap.
+I liked 1140 but Boostrap's grid was way more detailed so I merged them
+together, let's see how this works out. If you want to use 1140, the original
 values are commented out on each line.
 
 ******************************************************************/
-
+/*Standered Grid with Padding*/
 .onecol    { width: 5.801104972%;  }       /* 4.85%;  } /* grid_1  */
 .twocol    { width: 14.364640883%; }       /* 13.45%; } /* grid_2  */
 .threecol  { width: 22.928176794%; }       /* 22.05%; } /* grid_3  */
@@ -42,6 +42,27 @@ values are commented out on each line.
   padding-right: 1.3812154695%;
 }
 
+// ALTERNATE GRID - NO PADDING //
+.full-onecol    { width: 8.3333333333%;}
+.full-twocol    { width: 16.666666666%;}
+.full-threecol  { width: 25%;}
+.full-fourcol   { width: 33.333333333%;}
+.full-fivecol   { width: 41.666666666%;}
+.full-sixcol    { width: 50%;}
+.full-sevencol  { width: 58.333333333%;}
+.full-eightcol  { width: 66.666666666%;}
+.full-ninecol   { width: 75%;}
+.full-tencol    { width: 83.333333333%;}
+.full-elevencol { width: 91.666666666%;}
+.full-twelvecol { width: 100%; }
+
+// layout & column defaults
+.full-onecol, .full-twocol, .full-threecol, .full-fourcol, .full-fivecol, .full-sixcol, .full-sevencol, .full-eightcol, .full-ninecol, .full-tencol, .full-elevencol, .full-twelvecol {
+  position: relative;
+  float: left;
+}
+
+//First & Last used for both grids
 .first {
   padding-left: 0;
 }
@@ -50,3 +71,59 @@ values are commented out on each line.
   float: right;
   padding-right: 0;
 }
+
+//Prefix Extra Space >> 12 Columns
+.pre-onecol    { padding-left: 8.3333333333%;}
+.pre-twocol    { padding-left: 16.666666666%;}
+.pre-threecol  { padding-left: 25%;}
+.pre-fourcol   { padding-left: 33.333333333%;}
+.pre-fivecol   { padding-left: 41.666666666%;}
+.pre-sixcol    { padding-left: 50%;}
+.pre-sevencol  { padding-left: 58.333333333%;}
+.pre-eightcol  { padding-left: 66.666666666%;}
+.pre-ninecol   { padding-left: 75%;}
+.pre-tencol    { padding-left: 83.333333333%;}
+.pre-elevencol { padding-left: 91.666666666%;}
+.pre-twelvecol { padding-left: 100%; }
+
+// Suffix Extra Space >> 12 Columns
+.post-onecol    { padding-right: 8.3333333333%;}
+.post-twocol    { padding-right: 16.666666666%;}
+.post-threecol  { padding-right: 25%;}
+.post-fourcol   { padding-right: 33.333333333%;}
+.post-fivecol   { padding-right: 41.666666666%;}
+.post-sixcol    { padding-right: 50%;}
+.post-sevencol  { padding-right: 58.333333333%;}
+.post-eightcol  { padding-right: 66.666666666%;}
+.post-ninecol   { padding-right: 75%;}
+.post-tencol    { padding-right: 83.333333333%;}
+.post-elevencol { padding-right: 91.666666666%;}
+.post-twelvecol { padding-right: 100%; }
+
+//Push Space >> 12 Columns
+.push-onecol    { left: 8.3333333333%;}
+.push-twocol    { left: 16.666666666%;}
+.push-threecol  { left: 25%;}
+.push-fourcol   { left: 33.333333333%;}
+.push-fivecol   { left: 41.666666666%;}
+.push-sixcol    { left: 50%;}
+.push-sevencol  { left: 58.333333333%;}
+.push-eightcol  { left: 66.666666666%;}
+.push-ninecol   { left: 75%;}
+.push-tencol    { left: 83.333333333%;}
+.push-elevencol { left: 91.666666666%;}
+.push-twelvecol { left: 100%; }
+
+//Pull Space >> 12 Columns
+.pull-onecol    { left: -8.3333333333%;}
+.pull-twocol    { left: -16.666666666%;}
+.pull-threecol  { left: -25%;}
+.pull-fourcol   { left: -33.333333333%;}
+.pull-fivecol   { left: -41.666666666%;}
+.pull-sixcol    { left: -50%;}
+.pull-sevencol  { left: -58.333333333%;}
+.pull-eightcol  { left: -66.666666666%;}
+.pull-ninecol   { left: -75%;}
+.pull-tencol    { left: -83.333333333%;}
+.pull-elevencol { left: -91.666666666%;}
+.pull-twelvecol { left: -100%; }
