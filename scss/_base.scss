@@ -639,6 +639,7 @@ COMMENT STYLES
 			position: absolute;
 			left: 10px;
 			padding: 2px;
+			margin: 0;
 			border: 1px solid #cecece;
 			background: #fff;
 		}
@@ -702,16 +703,22 @@ COMMENT FORM STYLES
 
 	form {
 		margin: 0.75em 0;
+		
+		ul {
 
-		li {
-			list-style-type: none;
-			clear: both;
-			margin-bottom: 0.7335em;
+			margin: 0;
 
-			label,
-			small {
-				display: none;
-			}
+			li {
+				list-style-type: none;
+				clear: both;
+				margin-bottom: 0.7335em;
+				margin-left: 0;
+	
+				label,
+				small {
+					display: none;
+				}
+			}	
 		}
 
 		input[type=text],
