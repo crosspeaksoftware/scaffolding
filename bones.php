@@ -203,7 +203,7 @@ function bones_theme_support() {
 		'default-text-color'=> 'ffffff',
 		'header-text'=> false,
 		'uploads'=> true,
-		'wp-head-callback'=> '_custom_background_cb',
+		'wp-head-callback'=> 'bones_custom_headers_callback',
 		'admin-head-callback'=> '',
 		'admin-preview-callback'=> '',
 		)

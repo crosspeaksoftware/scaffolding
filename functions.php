@@ -125,12 +125,17 @@ function bones_wpsearch($form) {
 /************* CUSTOM PAGE HEADERS *****************/
 
 register_default_headers( array(
-	'about-us' => array(
-		'url' => get_template_directory_uri().'/images/headers/default-header.jpg',
-		'thumbnail_url' => get_template_directory_uri().'/images/headers/default-header.jpg',
-		'description' => __( 'About', 'jbbrown' )
-	)
+    'default-header' => array(
+        'url' => get_template_directory_uri().'/images/headers/default-header.jpg',
+        'thumbnail_url' => get_template_directory_uri().'/images/headers/default-header.jpg',
+        'description' => __( 'default-header', 'toolkit' )
+    )
 ));
+
+//Set header image as a BG
+function bones_custom_headers_callback(){
+    ?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
+}
 
 
 /************* ADD TUCKAWAY H1 *****************/
