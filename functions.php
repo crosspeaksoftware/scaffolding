@@ -126,10 +126,10 @@ function bones_wpsearch($form) {
 
 /************* CUSTOM PAGE HEADERS *****************/
 register_default_headers( array(
-	'industries-served' => array(
-		'url' => get_template_directory_uri().'/images/interior-headers/industries-served.jpg',
-		'thumbnail_url' => get_template_directory_uri().'/images/interior-headers/industries-served.jpg',
-		'description' => __( 'industries-served', 'pratt-abbot' )
+	'default' => array(
+		'url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
+		'thumbnail_url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
+		'description' => __( 'default', 'bones' )
 	)
 ));
 
