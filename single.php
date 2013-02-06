@@ -6,6 +6,13 @@ get_header();
 
 	<div id="inner-content" class="wrap clearfix">
 
+		<!--Header/Banner Image-->
+        <div class="banner-wrap">
+            <div id="banner">
+                <div class="spacer"></div>
+            </div>
+        </div>
+
 		<div id="main" class="eightcol first clearfix" role="main">
 
 			<?php
