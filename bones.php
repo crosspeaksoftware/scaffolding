@@ -194,7 +194,7 @@ function bones_theme_support() {
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 	//adding custome header suport
 	add_theme_support( 'custom-header', array(
-		'default-image'=> '%s/images/headers/default-header.jpg',
+		'default-image'=> '%s/images/interior-headers/default.jpg',
 		'random-default'=> false,
 		'width'=> 999,
 		'height'=> 262,
