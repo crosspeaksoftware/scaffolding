@@ -10,9 +10,6 @@
 
 	<title><?php wp_title(''); ?></title>
 
-	<!-- Google Chrome Frame for IE -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
 	<!-- mobile meta (hooray!) -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
@@ -29,7 +26,7 @@
 
 	<!-- drop Google Analytics Here -->
 	<?php if(!is_admin()): //only track anonymous users ?>
-	
+
 	<?php endif; ?>
 	<!-- end analytics -->
 
