@@ -20,6 +20,10 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script>
+	<![endif]-->
+
 	<!-- wordpress head functions -->
 	<?php wp_head(); ?>
 	<!-- end of wordpress head -->
