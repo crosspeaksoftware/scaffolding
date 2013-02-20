@@ -31,7 +31,7 @@ CLEARFIXIN'
 TOOLS
 *********************/
 
-// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ 
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 .image-replacement {
 	text-indent: 100%;
 	white-space: nowrap;
@@ -58,7 +58,7 @@ TOOLS
 			display: none;
 		}
 	}
-	
+
 .tablet-only {
 	display: none;
 }
@@ -109,8 +109,6 @@ http://sachagreif.com/sass-color-variables/
 TYPOGRAPHY
 *********************/
 
-$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
 
 /* 	To embed your own fonts, use this syntax
@@ -142,7 +140,7 @@ span.amp {
   font-style: italic;
 }
 
-// text alignment 
+// text alignment
 .text-left   { text-align: left; }
 .text-center { text-align: center; }
 .text-right  { text-align: right; }

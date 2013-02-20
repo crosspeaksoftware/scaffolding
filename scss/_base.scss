@@ -14,9 +14,7 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-
 body {}
-
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -81,6 +79,17 @@ HEADER SYTLES
 
 	#logo {}
 
+	#banner {
+
+		background-position:top center;
+		background-repeat:no-repeat;
+		background-size: cover;
+
+		.spacer {
+			padding-top: 23%; // change this value based on the aspect ratio of your header image
+		}
+	}
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -95,7 +104,6 @@ and moe scalable.
 
 .nav {
 	border-bottom: 0;
-	background: #eee;
 
 	li {
 
@@ -103,8 +111,7 @@ and moe scalable.
 			display: block;
 			text-decoration: none;
 			padding: 10px 0px;
-			background-color: #eee;
-			border-bottom: 1px solid #ccc;
+			border-bottom: 1px solid #f1f1f1;
 
 			/*
 			remember this is for mobile ONLY, so there's no need

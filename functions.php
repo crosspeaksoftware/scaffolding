@@ -122,9 +122,9 @@ function bones_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
-/************* CUSTOM PAGE HEADERS *****************/
 
 /************* CUSTOM PAGE HEADERS *****************/
+
 register_default_headers( array(
 	'default' => array(
 		'url' => get_template_directory_uri().'/images/interior-headers/default.jpg',

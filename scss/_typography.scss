@@ -11,19 +11,20 @@ remember less is more.
 // import normalize
 @import "normalize";
 
-//import google fonts
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif);
+//import google fonts - commented out for now
+//@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif);
 
-$sans:'Droid Sans', sans-serif;
-$serif:'Droid Serif', serif;
+$sans: sans-serif;
+$serif: serif;
 
 /********************
 CUSTOMIZED RESET VALUES
 *********************/
 body {
 	font-family: $sans;
-	font-size: 100%;
+	font-size: 14px;
 	line-height: 1.5;
+	color: #111;
 }
 p {
     -webkit-hyphens: manual;
@@ -136,9 +137,7 @@ table {
 		background-color: #F0F0F6;
 	}
 
-	tr:hover{
-		background-color: #D0D0D6;
-	}
+	tr:hover{}
 }
 
 /*********************
@@ -334,24 +333,6 @@ $alert-blue:#d5edf8;
 @media only screen and (max-width: 767px) {
 	.tablet-hide {display: none;}
 }
-
-/******************************************************************
- Grid Styles STYLES - allows the grid to be used in the wys
-******************************************************************/
-.onecol,
-.twocol,
-.threecol,
-.fourcol,
-.fivecol,
-.sixcol,
-.sevencol,
-.eightcol,
-.ninecol,
-.tencol,
-.elevencol,
-.twelvecol,
-.first,
-.last{position:relative;}
 /******************************************************************
  UTILITY STYLES
 ******************************************************************/

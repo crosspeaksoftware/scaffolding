@@ -10,9 +10,6 @@
 
 	<title><?php wp_title(''); ?></title>
 
-	<!-- Google Chrome Frame for IE -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
 	<!-- mobile meta (hooray!) -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
@@ -23,13 +20,17 @@
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script>
+	<![endif]-->
+
 	<!-- wordpress head functions -->
 	<?php wp_head(); ?>
 	<!-- end of wordpress head -->
 
 	<!-- drop Google Analytics Here -->
 	<?php if(!is_admin()): //only track anonymous users ?>
-	
+
 	<?php endif; ?>
 	<!-- end analytics -->
 
