@@ -1,6 +1,8 @@
 /* ==========================================================================
-   Editor Stylesheet
+   Editor Stylesheet - this style sheet is only for the wysiwyg editor
    ========================================================================== */
-
 // Import Editor Styles
 @import "typography";
+
+// import grids - so it can be used in the wysiwyg
+@import "grid";

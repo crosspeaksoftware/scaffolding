@@ -232,15 +232,15 @@ add_filter('dynamic_sidebar_params','widget_first_last_classes');
 /************* DASHBOARD WIDGETS *****************/
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
-	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');	// Right Now Widget
-	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');		 // Plugins Widget
+	//remove_meta_box('dashboard_right_now', 'dashboard', 'core');// Right Now Widget
+	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');// Comments Widget
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');// Incoming Links Widget
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');// Plugins Widget
 
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');		 //
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');	   //
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');// Quick Press Widget
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');// Recent Drafts Widget
+	//remove_meta_box('dashboard_primary', 'dashboard', 'core');//1st blog feed
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');//2nd blog feed
 
 	// removing plugin dashboard boxes
 	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
@@ -294,4 +294,14 @@ function remove_admin_bar_links() {
 	$wp_admin_bar->remove_menu('wp-logo');
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+
+/*Filter post with noindex set from serch results*/
+function SearchFilter($query) {
+	if ($query->is_search) {
+		$args = array(array('key'     => '_yoast_wpseo_meta-robots-noindex	','value'   => '1','compare' => '!='));
+		$query->set('meta_query', $args);
+	}
+	return $query;
+}
+add_filter('pre_get_posts','SearchFilter');
 

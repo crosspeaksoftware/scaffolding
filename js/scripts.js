@@ -42,7 +42,11 @@ jQuery(document).ready(function($) {
 
 	/* if is below 481px */
 	if (responsive_viewport < 481) {
-
+		//if mobile device scroll to the content on page load
+		var new_position = jQuery('#main').offset();
+		if (typeof new_position != 'undefined'){
+			jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
+		}
 	} /* end smallest screen */
 
 	/* if is larger than 481px */

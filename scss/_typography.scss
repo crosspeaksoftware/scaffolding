@@ -1,3 +1,380 @@
-/* ==========================================================================
-   Editor Stylesheet
-   ========================================================================== */
+/******************************************************************
+Site Name:
+Author: Hall Internet Marketing
+Stylesheet: Typography Stylesheet
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+******************************************************************/
+@import "compass";
+// import normalize
+@import "normalize";
+
+//import google fonts
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif);
+
+$sans:'Droid Sans', sans-serif;
+$serif:'Droid Serif', serif;
+
+/********************
+CUSTOMIZED RESET VALUES
+*********************/
+body {
+	font-family: $sans;
+	font-size: 100%;
+	line-height: 1.5;
+}
+p {
+    -webkit-hyphens: manual;
+    -epub-hyphens: manual;
+    -moz-hyphens: manual;
+    hyphens: manual;
+}
+ul, ol {
+  padding:0;
+  margin:.5em;
+}
+ul{
+    list-style-type:disc;
+}
+ol{
+    list-style-type:decimal;
+}
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol {
+      margin:0em .5em;
+    }
+
+li{
+	margin-left:2em;
+	margin-bottom:.5em;
+}
+
+blockquote {
+	&:before {}
+}
+
+dl {}
+dt {}
+dd {
+	margin-left: 0;
+	font-size: 0.9em;
+	color: #787878;
+	margin-bottom: 1.5em;
+}
+
+b, strong, .strong {
+  font-weight: bold;
+}
+
+dfn, em, .em {
+  font-style: italic;
+}
+
+small, .small {
+  font-size: 75%;
+}
+
+hr {
+    clear:both;
+}
+
+img {
+	margin: 0 0 1.5em 0;
+    max-width: 100%;
+    height: auto;
+}
+
+video, object {
+    max-width: 100%;
+    height: auto;
+}
+
+pre {
+    background: #eee;
+    border: 1px solid #cecece;
+    padding: 10px;
+}
+
+/*********************
+* TABLE STYLES
+*********************/
+table {
+	border-collapse: separate;
+	border-spacing: 1px;
+	margin: 10px 0px 15px 0px;
+	width: 100%;
+	text-align: left;
+
+	thead {
+		text-align: center;
+	}
+
+	th {
+		background-color: #E6EEEE;
+		border: 1px solid #FFFFFF;
+		padding: 4px;
+		color: #3D3D3D;
+		text-align: center;
+	}
+
+	td {
+		border: solid 1px #e1e1e1;
+		color: #3D3D3D;
+		padding: 4px;
+		vertical-align: top;
+	}
+	tr:nth-child(even),
+	tr.even{
+		background-color: #FFFFFF;
+	}
+	tr:nth-child(odd),
+	tr.odd{
+		background-color: #F0F0F6;
+	}
+
+	tr:hover{
+		background-color: #D0D0D6;
+	}
+}
+
+/*********************
+LINK STYLES
+*********************/
+a, a:visited {
+	color:#069;
+	text-decoration:none;
+}
+
+/* on hover */
+a:hover, a:focus {
+	text-decoration:underline;
+}
+
+/* on click */
+a:active {
+
+}
+
+a:link {
+	-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	text-rendering: optimizelegibility;
+	font-weight: 500;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	font-size: 2em;
+}
+
+h2, .h2 {
+	font-size: 1.75em;
+}
+
+h3, .h3 {
+	font-size: 1.25em;
+}
+
+h4, .h4 {
+	font-size: 1.1em;
+}
+
+h5, .h5 {
+	font-size: 0.846em;
+}
+
+h6, .h6 {
+	font-size: 0.746em;
+}
+/******************************************************************
+ TINYMCE STYLES DROPDOWN
+******************************************************************/
+.underline {
+    text-decoration:underline;
+}
+
+.italic {
+    font-style:italic;
+}
+
+.bold {
+    font-weight:bold;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* image alignment */
+.alignleft, img.alignleft {
+    float: left;
+    margin: 0 15px 10px 0;
+}
+
+.alignright, img.alignright {
+    float: right;
+    margin: 0 0 10px 15px;
+}
+
+.aligncenter, img.aligncenter {
+    display: block;
+    margin: 0 auto;
+}
+
+.img-border {
+    border:1px solid #CCC;
+    padding:5px;
+}
+
+.wp-caption {
+	background: #eee;
+	padding: 5px;
+
+	/* images inside wp-caption */
+	img {
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
+
+} /* end .wp-caption */
+
+/*Custom Fonts*/
+.droidsans{
+    font-family: 'Droid Sans', sans-serif;
+}
+.droidserif{
+    font-family: 'Droid Serif', serif;
+}
+
+/* use the best ampersand http://simplebits.com/notebook/2008/08/14/ampersands-2/ */
+span.amp {}
+
+// alerts and notices  -  *You'll need to be using Sass 3.2+ for these to work.
+
+$alert-yellow:#ebe16f;
+$alert-red:#fbe3e4;
+$alert-green:#e6efc2;
+$alert-blue:#d5edf8;
+
+%alert {
+	margin: 2%;
+	padding: 2% 1%;
+	border: 1px solid;
+}
+
+.alert-help {
+	@extend %alert;
+	border-color: darken($alert-yellow, 5%);
+	background: $alert-yellow;
+}
+
+.alert-info {
+	@extend %alert;
+	border-color: darken($alert-blue, 5%);
+	background: $alert-blue;
+}
+
+.alert-error {
+	@extend %alert;
+	border-color: darken($alert-red, 5%);
+	background: $alert-red;
+}
+
+.alert-success {
+	@extend %alert;
+	border-color: darken($alert-green, 5%);
+	background: $alert-green;
+}
+// Device-specific hide/show classes. Written in reverse logic for IE compatibility
+.mobile-only {display: none;}
+@media only screen and (max-width: 480px) {
+	.mobile-only {display: inline-block;}
+}
+.mobile-hide {display: block;}
+@media only screen and (max-width: 480px) {
+	.mobile-hide {display: none;}
+}
+.tablet-only {display: none;}
+@media only screen and (max-width: 767px) {
+	.tablet-only {display: inline-block;}
+}
+.tablet-hide {display: block;}
+@media only screen and (max-width: 767px) {
+	.tablet-hide {display: none;}
+}
+
+/******************************************************************
+ Grid Styles STYLES - allows the grid to be used in the wys
+******************************************************************/
+.onecol,
+.twocol,
+.threecol,
+.fourcol,
+.fivecol,
+.sixcol,
+.sevencol,
+.eightcol,
+.ninecol,
+.tencol,
+.elevencol,
+.twelvecol,
+.first,
+.last{position:relative;}
+/******************************************************************
+ UTILITY STYLES
+******************************************************************/
+.float-left{float:left;}
+.float-none{float:none;}
+.float-right{float:right;}
+.clear-left{clear:left;}
+.clear-both{clear:both;}
+.clear-right{clear:right;}
+.image-replacement {display:block; text-indent: 100%; white-space: nowrap; overflow: hidden;}
+.image-replacement *{display:none;}
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix {
+  zoom: 1;
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
+}
+/*set the max size of the content area in the editor to match the template*/
+.mceContentBody {
+    max-width:1000px;
+    background-color:#F9F9F9;
+    line-height:1.5em;
+}

@@ -18,11 +18,8 @@ of the styles inside media queries.
 // import normalize
 @import "normalize";
 
-// import editor stylesheet
-@import "editor-styles";
-
-// import mixins
-@import "mixins";
+// import typography
+@import "typography";
 
 // import responsive-nav
 @import "responsive-nav";
@@ -110,9 +107,9 @@ iPHONE 5 MEDIA QUERY
 Want to get fancy for no good reason? Knock yourself out.
 */
 @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  
+
   // iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
-  
+
 }
 
 /*
