@@ -10,16 +10,14 @@ and is called at the beginning, after that we call the rest
 of the styles inside media queries.
 ******************************************************************/
 
-
-//
-// IMPORTING STYLES
-//
-
 // import normalize
 @import "normalize";
 
 // import typography
 @import "typography";
+
+// import forms
+@import "forms";
 
 // import responsive-nav
 @import "responsive-nav";

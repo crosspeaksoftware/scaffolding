@@ -1628,6 +1628,127 @@ h6, .h6 {
   line-height: 1.5em;
 }
 
+/******************************************************************
+ FORM STYLES - Overwrites
+******************************************************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000326}}
+form textarea,
+form select,
+form input[type="text"],
+form input[type="password"],
+form input[type="file"],
+form input[type="color"],
+form input[type="date"],
+form input[type="datetime"],
+form input[type="datetime-local"],
+form input[type="email"],
+form input[type="month"],
+form input[type="number"],
+form input[type="search"],
+form input[type="tel"],
+form input[type="time"],
+form input[type="url"],
+form input[type="week"],
+form input[type="text"],
+form input[type="password"],
+form input[type="file"] {
+  background: #FFF;
+  border: 1px solid #999;
+  -webkit-box-shadow: inset 2px 2px 2px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 2px 2px 2px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 2px 2px 2px -1px rgba(0, 0, 0, 0.5);
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000351}}
+form textarea {
+  letter-spacing: normal;
+  outline-style: none;
+  resize: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000357}}
+form select {
+  width: auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000361}}
+form input[type=image] {
+  border: none !important;
+  padding: 0 !important;
+  width: auto !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000371}}
+a.button,
+input.submit,
+input[type=submit] {
+  display: block;
+  background-color: #69AFDF;
+  border-top: 1px solid #8DC2E7;
+  border-left: 1px solid #8DC2E7;
+  border-bottom: 1px solid #527AA3;
+  border-right: 1px solid #527AA3;
+  color: #fff;
+  font-size: 1.2em!important;
+  text-decoration: none;
+  padding: 13px 20px;
+  margin: 5px 0px;
+  position: relative;
+  cursor: pointer;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000386}}
+a.button {
+  display: inline-block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\0000391}}
+a.button:before,
+input.submit:before,
+input[type=submit]:before {
+  content: " ";
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px dashed #8DC2E7;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\00003104}}
+a.button:hover,
+input.submit:hover,
+input[type=submit]:hover {
+  background-color: #527AA3;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\00003131}}
+.widget form textarea,
+.widget form select,
+.widget form input[type="text"],
+.widget form input[type="password"],
+.widget form input[type="file"],
+.widget form input[type="color"],
+.widget form input[type="date"],
+.widget form input[type="datetime"],
+.widget form input[type="datetime-local"],
+.widget form input[type="email"],
+.widget form input[type="month"],
+.widget form input[type="number"],
+.widget form input[type="search"],
+.widget form input[type="tel"],
+.widget form input[type="time"],
+.widget form input[type="url"],
+.widget form input[type="week"],
+.widget form input[type="text"],
+.widget form input[type="password"],
+.widget form input[type="file"] {
+  width: 95%!important;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_forms\.scss}line{font-family:\00003136}}
+.widget input.submit,
+.widget input[type=submit] {
+  margin: 5px auto;
+}
+
 /* Basic Styles */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_responsive-nav\.scss}line{font-family:\000032}}
 nav {
@@ -1772,49 +1893,10 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-/********************
-WORDPRESS BODY CLASSES
-style a page via class
-********************/
-/* for sites that are read right to left (i.e. hebrew) */
-/* home page */
-/* blog template page */
-/* archive page */
-/* date archive page */
-/* replace the number to the corresponding page number */
-/* search page */
-/* search result page */
-/* no results search page */
-/* individual paged search (i.e. body.search-paged-3) */
-/* 404 page */
-/* single post page */
-/* individual post page by id (i.e. body.postid-73) */
-/* individual paged single (i.e. body.single-paged-3) */
-/* attatchment page */
-/* individual attatchment page (i.e. body.attachmentid-763) */
-/* style mime type pages */
-/* author page */
-/* user nicename (i.e. body.author-samueladams) */
-/* paged author archives (i.e. body.author-paged-4) for page 4 */
-/* category page */
-/* individual category page (i.e. body.category-6) */
-/* replace the number to the corresponding page number */
-/* tag page */
-/* individual tag page (i.e. body.tag-news) */
-/* replace the number to the corresponding page number */
-/* custom page template page */
-/* individual page template (i.e. body.page-template-contact-php */
-/* replace the number to the corresponding page number */
-/* parent page template */
-/* child page template */
-/* replace the number to the corresponding page number */
-/* if user is logged in */
-/* paged items like search results or archives */
-/* individual paged (i.e. body.paged-3) */
 /*********************
 LAYOUT & GRID STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000323}}
 .wrap {
   width: 96%;
   margin: 0 auto;
@@ -1823,21 +1905,13 @@ LAYOUT & GRID STYLES
 /*********************
 HEADER SYTLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000374}}
-.header nav {
-  border-top: solid 1px #CCC;
-  -webkit-box-shadow: 0 0 10px 0px #cccccc inset;
-  -moz-box-shadow: 0 0 10px 0px #cccccc inset;
-  box-shadow: 0 0 10px 0px #cccccc inset;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000333}}
 #banner {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000339}}
 #banner .spacer {
   padding-top: 23%;
 }
@@ -1845,142 +1919,49 @@ HEADER SYTLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/*
-all navs have a .nav class applied via
-the wp_menu function, this is so we can
-easily just write on group of styles for
-the navs on the site and our css is cleaner
-and moe scalable.
-*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003105}}
-.nav {
-  border-bottom: 0;
-  /* end .menu li */
-  /* highlight current page */
-  /* end current highlighters */
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003108}}
-.nav li {
-  /*
-  so you really have to rethink your dropdowns for mobile.
-  you don't want to have it expand too much because the
-  screen is so small. How you manage your menu should
-  depend on the project. Here's some great info on it:
-  http://www.alistapart.com/articles/organizing-mobile/
-  */
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003110}}
+/*Base Navigation Styles - these will effect all menus on the site*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000349}}
 .nav li a {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   padding: 10px 0px;
-  border-bottom: 1px solid #f1f1f1;
-  /*
-  remember this is for mobile ONLY, so there's no need
-  to even declare hover styles here, you can do it in
-  the style.scss file where it's relevant. We want to
-  keep this file as small as possible!
-  */
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003143}}
-.nav li ul.sub-menu li a,
-.nav li ul.children li a {
-  padding-left: 30px;
 }
 
-/* end .nav */
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\0000380}}
 #content {
   margin-top: 2.2em;
+  /* end .hentry */
+  /* want to style individual post classes? Booya! */
+  /* post by id (i.e. post-3) */
+  /* general post style */
+  /* general article on a page style */
+  /* general style on an attatchment */
+  /* sticky post style */
+  /* hentry class */
+  /* style by category (i.e. category-videos) */
+  /* style by tag (i.e. tag-news) */
+  /* post meta */
+  /* entry content */
+  /* end .entry-content */
 }
-
-/* end .hentry */
-/* want to style individual post classes? Booya! */
-/* post by id (i.e. post-3) */
-/* general post style */
-/* general article on a page style */
-/* general style on an attatchment */
-/* sticky post style */
-/* hentry class */
-/* style by category (i.e. category-videos) */
-/* style by tag (i.e. tag-news) */
-/* post meta */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003211}}
-.byline {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003107}}
+#content .byline {
   color: #999;
 }
 
-/* entry content */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003218}}
-.entry-content {
-  /*
-  image alignment on a screen this size may be
-  a bit difficult. It's set to start aligning
-  and floating images at the next breakpoint,
-  but it's up to you. Feel free to change it up.
-  */
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003253}}
-.entry-content dd {
-  margin-left: 0;
-  font-size: 0.9em;
-  color: #787878;
-  margin-bottom: 1.5em;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003260}}
-.entry-content img {
-  margin: 0 0 1.5em 0;
-  max-width: 100%;
-  height: auto;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003276}}
-.entry-content video, .entry-content object {
-  max-width: 100%;
-  height: auto;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003281}}
-.entry-content pre {
-  background: #eee;
-  border: 1px solid #cecece;
-  padding: 10px;
-}
-
-/* end .entry-content */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003289}}
-.wp-caption {
-  background: #eee;
-  padding: 5px;
-  /* images inside wp-caption */
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003294}}
-.wp-caption img {
-  margin-bottom: 0;
-  width: 100%;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003299}}
-.wp-caption p.wp-caption-text {
-  font-size: 0.85em;
-  margin: 4px 0 7px;
-  text-align: center;
-}
-
-/* end .wp-caption */
-/* image gallery styles */
-/* end .gallery */
-/* gallery caption styles */
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003121}}
 .page-navigation,
 .wp-prev-next {
   margin: 1.1em 0 2.2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003124}}
 .bones_page_navi {
   /* current page link */
   /* end .bones_page_navi .bpn-current */
@@ -1991,44 +1972,44 @@ PAGE NAVI STYLES
   /* first page link */
   /* last page link */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003125}}
 .bones_page_navi li {
   float: left;
   margin-left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003129}}
 .bones_page_navi li a {
   padding: 3px 6px;
   display: block;
   text-decoration: none;
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003136}}
 .bones_page_navi li a:hover, .bones_page_navi li a:focus {
   color: #f01d4f;
   text-decoration: underline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003145}}
 .bones_page_navi li.bpn-current {
   padding: 3px 6px;
   border-bottom: 2px solid #f01d4f;
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003150}}
 .bones_page_navi li.bpn-current a {
   /* hovering on current page link */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003161}}
 .bones_page_navi li.bpn-prev-link,
 .bones_page_navi li.bpn-next-link {
   font-weight: 700;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003164}}
 .bones_page_navi li.bpn-prev-link a,
 .bones_page_navi li.bpn-next-link a {
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003173}}
 .bones_page_navi li.bpn-prev-link a:hover,
 .bones_page_navi li.bpn-next-link a:hover,
 .bones_page_navi li.bpn-first-page-link a:hover,
@@ -2038,11 +2019,11 @@ PAGE NAVI STYLES
 
 /* end .bones_page_navi */
 /* fallback previous & next links */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003433}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003216}}
 .wp-prev-next .prev-link {
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003437}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003220}}
 .wp-prev-next .next-link {
   float: right;
 }
@@ -2052,12 +2033,12 @@ PAGE NAVI STYLES
 COMMENT STYLES
 ******************************************************************/
 /* h3 comment title */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003448}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003231}}
 #comments {
   /* number of comments span */
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003465}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003248}}
 .commentlist {
   /* general comment classes */
   /* vcard */
@@ -2068,7 +2049,7 @@ COMMENT STYLES
   /* comment reply link */
   /* end .commentlist .comment-reply-link */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003467}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003249}}
 .commentlist li {
   position: relative;
   clear: both;
@@ -2078,63 +2059,63 @@ COMMENT STYLES
   padding: 0.7335em 10px;
   /* end .commentlist li ul.children */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003475}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003257}}
 .commentlist li:last-child {
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003479}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003261}}
 .commentlist li ul.children {
   margin: 0;
   /* variations */
   /* change number for different depth */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003497}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003279}}
 .commentlist li[class*=depth-] {
   margin-top: 1.1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003501}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003283}}
 .commentlist li.depth-1 {
   margin-left: 0;
   margin-top: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003506}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003288}}
 .commentlist li:not(.depth-1) {
   margin-right: -10px;
   margin-left: -10px;
   margin-top: 0;
   padding-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003520}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003302}}
 .commentlist .odd {
   background: #eee;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003523}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003305}}
 .commentlist .even {
   background: #fefefe;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003538}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003320}}
 .commentlist .vcard {
   margin-left: 50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003541}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003323}}
 .commentlist .vcard cite.fn {
   font-weight: 700;
   font-style: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003549}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003331}}
 .commentlist .vcard time {
   float: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003552}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003334}}
 .commentlist .vcard time a {
   color: #999;
   text-decoration: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003556}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003338}}
 .commentlist .vcard time a:hover {
   text-decoration: underline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003566}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003348}}
 .commentlist .vcard img.avatar {
   position: absolute;
   left: 10px;
@@ -2143,17 +2124,17 @@ COMMENT STYLES
   border: 1px solid #cecece;
   background: #fff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003592}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003374}}
 .commentlist .comment_content {
   margin-left: 50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003595}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003377}}
 .commentlist .comment_content p {
   margin: 0.7335em 0 1.5em;
   font-size: 1em;
   line-height: 1.5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003604}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003386}}
 .commentlist .comment-reply-link {
   text-decoration: none;
   float: right;
@@ -2165,7 +2146,7 @@ COMMENT STYLES
   font-weight: 700;
   font-size: 0.9em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003616}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003398}}
 .commentlist .comment-reply-link:hover, .commentlist .comment-reply-link:focus {
   opacity: 1;
 }
@@ -2174,32 +2155,32 @@ COMMENT STYLES
 /******************************************************************
 COMMENT FORM STYLES
 ******************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003628}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003410}}
 .respond-form {
   margin: 1.5em 10px;
   padding-bottom: 2.2em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003632}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003414}}
 .respond-form form {
   margin: 0.75em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003635}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003417}}
 .respond-form form ul {
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003639}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003421}}
 .respond-form form ul li {
   list-style-type: none;
   clear: both;
   margin-bottom: 0.7335em;
   margin-left: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003646}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003428}}
 .respond-form form ul li label,
 .respond-form form ul li small {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003655}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003437}}
 .respond-form form input[type=text],
 .respond-form form input[type=email],
 .respond-form form input[type=url],
@@ -2210,14 +2191,14 @@ COMMENT FORM STYLES
   line-height: 1.5em;
   /* form validation */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003661}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003443}}
 .respond-form form input[type=text]:focus,
 .respond-form form input[type=email]:focus,
 .respond-form form input[type=url]:focus,
 .respond-form form textarea:focus {
   background: #fff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003666}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003448}}
 .respond-form form input[type=text]:invalid,
 .respond-form form input[type=email]:invalid,
 .respond-form form input[type=url]:invalid,
@@ -2230,14 +2211,14 @@ COMMENT FORM STYLES
   -ms-box-shadow: none;
   box-shadow: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003679}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003461}}
 .respond-form form input[type=text],
 .respond-form form input[type=email],
 .respond-form form input[type=url] {
   max-width: 400px;
   min-width: 250px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003684}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003466}}
 .respond-form form textarea {
   resize: none;
   width: 97.3%;
@@ -2246,7 +2227,7 @@ COMMENT FORM STYLES
 
 /* comment submit button */
 /* comment form title */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003697}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003479}}
 #comment-form-title {
   margin: 0 0 1.1em;
 }
@@ -2254,13 +2235,13 @@ COMMENT FORM STYLES
 /* cancel comment reply link */
 /* logged in comments */
 /* allowed tags */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003710}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003492}}
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0;
 }
 
 /* no comments */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003715}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003497}}
 .nocomments {
   margin: 0 20px 1.1em;
 }
@@ -2268,7 +2249,7 @@ COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003731}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003512}}
 .widget ul li {
   /* deep nesting */
 }
@@ -2276,20 +2257,11 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003752}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_base\.scss}line{font-family:\00003533}}
 .footer {
   clear: both;
 }
 
-/*
-if you checked out the link above:
-http://www.alistapart.com/articles/organizing-mobile/
-you'll want to style the footer nav
-a bit more in-depth. Remember to keep
-it simple because you'll have to
-override these styles for the desktop
-view.
-*/
 /* end .footer-links */
 /*
 LARGER MOBILE DEVICES

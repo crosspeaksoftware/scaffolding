@@ -15,46 +15,6 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {}
-/********************
-WORDPRESS BODY CLASSES
-style a page via class
-********************/
-
-.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
-.blog {}                          /* blog template page */
-.archive {}                       /* archive page */
-.date {}                          /* date archive page */
-	.date-paged-1 {}                /* replace the number to the corresponding page number */
-.search {}                        /* search page */
-	.search-results {}              /* search result page */
-	.search-no-results {}           /* no results search page */
-	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error404 {}                      /* 404 page */
-.single {}                        /* single post page */
-	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
-	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
-.attachment {}                    /* attatchment page */
-	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
-	.attachment-mime-type {}        /* style mime type pages */
-.author {}                        /* author page */
-	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
-	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
-.category {}                      /* category page */
-	.category-1 {}                  /* individual category page (i.e. body.category-6) */
-	.category-paged-1 {}            /* replace the number to the corresponding page number */
-.tag {}                           /* tag page */
-	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
-	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
-.page-template {}                 /* custom page template page */
-	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
-	.page-paged-1 {}                /* replace the number to the corresponding page number */
-	.page-parent {}                 /* parent page template */
-	.page-child {}                  /* child page template */
-	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
-.logged-in {}                     /* if user is logged in */
-.paged {}                         /* paged items like search results or archives */
-	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
 
 /*********************
 LAYOUT & GRID STYLES
@@ -68,17 +28,8 @@ LAYOUT & GRID STYLES
 /*********************
 HEADER SYTLES
 *********************/
-
-.header {
-
-	nav {
-		border-top: solid 1px #CCC;
-		@include box-shadow(0 0 10px 0px #CCC inset);
-	}
-}
-
+.header {}
 	#logo {}
-
 	#banner {
 
 		background-position:top center;
@@ -89,87 +40,37 @@ HEADER SYTLES
 			padding-top: 23%; // change this value based on the aspect ratio of your header image
 		}
 	}
-
 /*********************
 NAVIGATION STYLES
 *********************/
-
-/*
-all navs have a .nav class applied via
-the wp_menu function, this is so we can
-easily just write on group of styles for
-the navs on the site and our css is cleaner
-and moe scalable.
-*/
-
+/*Base Navigation Styles - these will effect all menus on the site*/
 .nav {
-	border-bottom: 0;
-
 	li {
-
 		a {
-			display: block;
+			display: inline-block;
 			text-decoration: none;
 			padding: 10px 0px;
-			border-bottom: 1px solid #f1f1f1;
-
-			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
-			*/
-			&:hover, &:focus {
-
-			}
+			&:hover, &:focus {}
 		}
-
 		&:first-child {}
-
 		&:last-child {}
-
-		/*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
-		*/
 		ul.sub-menu,
 		ul.children {
-
 			li {
-
-				a {
-					padding-left: 30px;
-
-					&:hover,
-					&:focus {}
-
-					&:link {}
-
-				}
-
+				a, a:visited {}
+				a:hover, a:focus {}
 				&:first-child {}
-
 				&:last-child {}
-
 			}
-
 		}
-
-	} /* end .menu li */
-
-	/* highlight current page */
+	}
 	li.current-menu-item,
 	li.current_page_item,
 	li.current-page-ancestor {
-
-		a {}
-
-	}  /* end current highlighters */
-
-} /* end .nav */
+		a, a:visited {}
+		a:hover, a:focus {}
+	}
+}
 
 
 /*********************
@@ -178,157 +79,40 @@ POSTS & CONTENT STYLES
 
 #content {
 	margin-top: 2.2em;
+	.hentry {
+		header {}
+		footer {}
+	} /* end .hentry */
+
+	.single-title,
+	.page-title {}
+
+	.single-title {}
+
+	.page-title {}
+
+	.archive-title { }
+
+	/* want to style individual post classes? Booya! */
+	.post-id {}         /* post by id (i.e. post-3) */
+	.post {}            /* general post style */
+	.page {}            /* general article on a page style */
+	.attachment {}      /* general style on an attatchment */
+	.sticky {}          /* sticky post style */
+	.hentry {}          /* hentry class */
+	.category-slug {}   /* style by category (i.e. category-videos) */
+	.tag-slug {}        /* style by tag (i.e. tag-news) */
+
+	/* post meta */
+	.byline {
+		color: #999;
+		time {}
+	}
+
+	/* entry content */
+	.entry-content {
+	} /* end .entry-content */
 }
-
-		.hentry {
-
-			header {}
-
-			footer {}
-
-		} /* end .hentry */
-
-		.single-title,
-		.page-title {}
-
-		.single-title {}
-
-		.page-title {}
-
-		.archive-title { }
-
-		/* want to style individual post classes? Booya! */
-		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
-		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
-		.hentry {}          /* hentry class */
-		.category-slug {}   /* style by category (i.e. category-videos) */
-		.tag-slug {}        /* style by tag (i.e. tag-news) */
-
-		/* post meta */
-		.byline {
-			color: #999;
-
-			time {}
-		}
-
-		/* entry content */
-		.entry-content {
-
-			p {}
-
-
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			blockquote {
-
-				&:before {}
-
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {
-				margin-left: 0;
-				font-size: 0.9em;
-				color: #787878;
-				margin-bottom: 1.5em;
-			}
-
-			img {
-				margin: 0 0 1.5em 0;
-				max-width: 100%;
-				height: auto;
-			}
-
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
-			.alignleft, img.alignleft {}
-			.alignright, img.alignright {}
-			.aligncenter, img.aligncenter {}
-
-			video, object {
-				max-width: 100%;
-				height: auto;
-			}
-
-			pre {
-				background: #eee;
-				border: 1px solid #cecece;
-				padding: 10px;
-			}
-
-		} /* end .entry-content */
-
-		.wp-caption {
-			background: #eee;
-			padding: 5px;
-
-			/* images inside wp-caption */
-			img {
-				margin-bottom: 0;
-				width: 100%;
-			}
-
-			p.wp-caption-text {
-				font-size: 0.85em;
-				margin: 4px 0 7px;
-				text-align: center;
-			}
-
-		} /* end .wp-caption */
-
-		/* image gallery styles */
-		.gallery {
-
-			dl {
-
-				a {}
-
-				img {}
-
-			}
-
-			dt {}
-
-			dd {}
-
-		} /* end .gallery */
-
-		/* gallery caption styles */
-		.gallery-caption {}
-
-		.size-full {}
-		.size-large {}
-		.size-medium {}
-		.size-thumbnail {}
-
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -338,7 +122,6 @@ PAGE NAVI STYLES
 	margin: 1.1em 0 2.2em;
 }
 	.bones_page_navi {
-
 		li {
 			float: left;
 			margin-left: 10px;
@@ -463,7 +246,6 @@ COMMENT STYLES
 
 
 .commentlist {
-
 	li {
 		position: relative;
 		clear: both;
@@ -719,7 +501,6 @@ COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-
 .sidebar {}
 
 	.widgettitle {}
@@ -753,25 +534,10 @@ FOOTER STYLES
 	clear: both;
 }
 
-	/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
 	.footer-links {
-
 		ul {
-
 			li {}
-
 		}
-
 	} /* end .footer-links */
 
-
 	.copyright {}
-
