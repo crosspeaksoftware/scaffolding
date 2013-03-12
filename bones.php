@@ -17,7 +17,7 @@ right up top and clean.
 *********************/
 
 // we're firing all out initial functions at the start
-add_action('after_setup_theme','bones_ahoy', 15);
+add_action('after_setup_theme','bones_ahoy', 16);
 
 function bones_ahoy() {
 
