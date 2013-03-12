@@ -24,7 +24,7 @@ get_header();
 			?>
 				<h1 class="archive-title h2">
 
-					<span><?php _e("Posts By:", "bonestheme"); ?></span> <?php echo get_the_author_meta('display_name', $author_id); ?>
+					<span><?php _e("Posts By:", "bonestheme"); ?></span> <?php echo the_author_meta('display_name', $author_id); ?>
 
 				</h1>
 			<?php } elseif (is_day()) { ?>
