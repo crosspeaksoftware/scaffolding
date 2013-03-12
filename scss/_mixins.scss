@@ -8,8 +8,7 @@ This is where you can take advantage of Sass' great features:
 Mixins & Constants. I won't go in-depth on how they work exactly,
 there are a few articles below that will help do that. What I will
 tell you is that this will help speed up simple changes like
-changing a color or adding CSS3 techniques like box shadow and
-border-radius.
+changing a color or adding CSS3 techniques like gradients.
 
 A WORD OF WARNING: It's very easy to overdo it here. Be careful and
 remember less is more.
@@ -178,28 +177,7 @@ span.amp {
 }
 
 /*********************
-BORDER RADIUS
-*********************/
-
-/*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include border-radius(4px 4px 0 0);
-*/
-
-@mixin border-radius($radius...) {
-	// defining prefixes so we can use them in mixins below
-	$prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
-  @each $prefix in $prefixes {
-    #{$prefix}-border-radius: $radius;
-  }
-
-  border-radius: $radius;
-}
-
-/*********************
-TRANISTION
+TRANSITION
 *********************/
 
 /*
@@ -217,28 +195,6 @@ USAGE: @include transition(all 0.2s ease-in-out);
   }
 
   transition: $transition;
-}
-
-
-/*********************
-BOX SHADOWS
-*********************/
-
-/*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include box-shadow(inset 0 0 4px rgba(0,0,0,0.22));
-*/
-
-@mixin box-shadow($shadow...) {
-	// defining prefixes so we can use them in mixins below
-	$prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
-  @each $prefix in $prefixes {
-    #{$prefix}-box-shadow: $shadow;
-  }
-
-  box-shadow: $shadow;
 }
 
 

@@ -13,6 +13,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
 
+@import "compass";
 
 body.login {} 
 
@@ -40,14 +41,8 @@ form {
 	font-weight: normal;
 	background: white;
 	border: 1px solid #E5E5E5;
-	-webkit-border-radius: 3px;
-	 -khtml-border-radius: 3px;
-	   -moz-border-radius: 3px;
-			border-radius: 3px;
-	-webkit-box-shadow: none;
-	 -khtml-box-shadow: none;
-	   -moz-box-shadow: none;
-			box-shadow: none;
+	@include border-radius(3px);
+	@include box-shadow(none);
 }
 
 body form .input {
