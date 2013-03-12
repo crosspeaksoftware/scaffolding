@@ -1,0 +1,155 @@
+/******************************************************************
+ FORM STYLES - Overwrites
+******************************************************************/
+form {
+    label {}
+
+    textarea,
+    select,
+    input[type="text"],
+    input[type="password"],
+    input[type="file"],
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    input[type="text"],
+    input[type="password"],
+    input[type="file"]{
+		background:#FFF;
+		border:1px solid #999;
+		@include box-shadow(inset 2px 2px 2px -1px rgba(0, 0, 0, 0.5));
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="file"],
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    input[type="text"],
+    input[type="password"],
+    input[type="file"]{}
+
+    textarea {
+        letter-spacing: normal;
+        outline-style: none;
+        resize: none;
+    }
+
+    select {
+        width:auto;
+    }
+
+    input[type=image] {
+        border: none !important;
+        padding: 0 !important;
+        width: auto !important
+    }
+
+	table{
+		background-color:transparent!important;
+		thead,th,tr,tr:hover,td{
+			background-color:transparent!important;
+		}
+
+	}
+}
+
+a.button,
+input.submit,
+input[type=submit] {
+	display:block;
+	background-color:#FFC73A;
+	@include filter-gradient(#ffd65e, #febf04, vertical); // IE6-9
+	@include background-image(linear-gradient(top,  rgba(255,214,94,1) 25%,rgba(254,191,4,1) 100%));
+	border:none;
+	color:#000;
+	font-size:1em;
+	text-decoration:none;
+	padding:13px 20px;
+	margin: 0 auto;
+	position: relative;
+	cursor:pointer;
+}
+a.button{
+	display:inline-block;
+	margin: 3px;
+}
+
+a.button:hover,
+input.submit:hover,
+input[type=submit]:hover {
+	background-color:#E5B034;
+	background-image:none;
+}
+
+a.button span{}
+
+
+/*Form Widgets Styles*/
+.gform_widget{
+	form{
+	    textarea,
+	    select,
+	    input[type="text"],
+	    input[type="password"],
+	    input[type="file"],
+	    input[type="color"],
+	    input[type="date"],
+	    input[type="datetime"],
+	    input[type="datetime-local"],
+	    input[type="email"],
+	    input[type="month"],
+	    input[type="number"],
+	    input[type="search"],
+	    input[type="tel"],
+	    input[type="time"],
+	    input[type="url"],
+	    input[type="week"],
+	    input[type="text"],
+	    input[type="password"],
+	    input[type="file"]{}
+	}
+	input.submit,
+	input[type=submit] {}
+}
+
+/* CUSTOM GRAVITY FORM STYLES */
+.gform_wrapper {
+	.gform_body {
+		li {
+			input,
+			textarea {
+				padding:0.5em 0 !important;
+				@include border-radius(2px);
+				@include box-shadow(2px 2px 8px 0px #CCC inset);
+				border: solid 1px #CCC;
+				font-size: .9em !important;
+				color: #555;
+			}
+		}
+	}
+	.gform_footer {
+	    clear: both;
+	    margin:0!important;
+	    padding:0!important;
+    }
+}
