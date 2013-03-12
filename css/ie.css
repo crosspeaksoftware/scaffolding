@@ -35,7 +35,7 @@ upon your base.scss styles.
 /*********************
 HEADER SYTLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000325}}
 .header nav {
   border-top: none;
   box-shadow: none;
@@ -44,30 +44,30 @@ HEADER SYTLES
 /*********************
 NAVIGATION STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000336}}
 .nav li a {
   border-bottom: 0px;
   padding: 10px 10px;
 }
 
 /* .menu is clearfixed inside mixins.scss */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000343}}
 .menu {
   /* end .menu ul */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000344}}
 .menu ul {
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000345}}
 .menu ul li {
   /*
   plan your menus and drop-downs wisely.
   */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000346}}
 .menu ul li a {
   /*
   you can use hover styles here even though this size
@@ -80,23 +80,23 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 /* entry content */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000390}}
 .entry-content {
   /* at this larger size, we can start to align images */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000394}}
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
   display: inline;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\0000399}}
 .entry-content .alignright, .entry-content img.alignright {
   margin-left: 1.5em;
   display: inline;
   float: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_481up\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_481up\.scss}line{font-family:\00003104}}
 .entry-content .aligncenter, .entry-content img.aligncenter {
   margin-right: auto;
   margin-left: auto;
@@ -136,79 +136,79 @@ values are commented out on each line.
 
 ******************************************************************/
 /*Standered Grid with Padding*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000324}}
 .onecol {
   width: 5.801104972%;
 }
 
 /* 4.85%;  } /* grid_1  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000325}}
 .twocol {
   width: 14.364640883%;
 }
 
 /* 13.45%; } /* grid_2  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000326}}
 .threecol {
   width: 22.928176794%;
 }
 
 /* 22.05%; } /* grid_3  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000327}}
 .fourcol {
   width: 31.491712705%;
 }
 
 /* 30.75%; } /* grid_4  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000328}}
 .fivecol {
   width: 40.055248616%;
 }
 
 /* 39.45%; } /* grid_5  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000329}}
 .sixcol {
   width: 48.618784527%;
 }
 
 /* 48%;    } /* grid_6  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000330}}
 .sevencol {
   width: 57.182320438000005%;
 }
 
 /* 56.75%; } /* grid_7  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000331}}
 .eightcol {
   width: 65.74585634900001%;
 }
 
 /* 65.4%;  } /* grid_8  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000332}}
 .ninecol {
   width: 74.30939226%;
 }
 
 /* 74.05%; } /* grid_9  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000333}}
 .tencol {
   width: 82.87292817100001%;
 }
 
 /* 82.7%;  } /* grid_10 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000334}}
 .elevencol {
   width: 91.436464082%;
 }
 
 /* 91.35%; } /* grid_11 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000335}}
 .twelvecol {
   width: 99.999999993%;
 }
 
 /* 100%;   } /* grid_12 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000338}}
 .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
   position: relative;
   float: left;
@@ -216,319 +216,319 @@ values are commented out on each line.
   padding-right: 1.3812154695%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000346}}
 .full-onecol {
   width: 8.3333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000347}}
 .full-twocol {
   width: 16.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000348}}
 .full-threecol {
   width: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000349}}
 .full-fourcol {
   width: 33.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000350}}
 .full-fivecol {
   width: 41.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000351}}
 .full-sixcol {
   width: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000352}}
 .full-sevencol {
   width: 58.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000353}}
 .full-eightcol {
   width: 66.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000354}}
 .full-ninecol {
   width: 75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000355}}
 .full-tencol {
   width: 83.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000356}}
 .full-elevencol {
   width: 91.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000357}}
 .full-twelvecol {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000360}}
 .full-onecol, .full-twocol, .full-threecol, .full-fourcol, .full-fivecol, .full-sixcol, .full-sevencol, .full-eightcol, .full-ninecol, .full-tencol, .full-elevencol, .full-twelvecol {
   position: relative;
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000366}}
 .first {
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000370}}
 .last {
   float: right;
   padding-right: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000376}}
 .pre-onecol {
   padding-left: 8.3333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000377}}
 .pre-twocol {
   padding-left: 16.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000378}}
 .pre-threecol {
   padding-left: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000379}}
 .pre-fourcol {
   padding-left: 33.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000380}}
 .pre-fivecol {
   padding-left: 41.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000381}}
 .pre-sixcol {
   padding-left: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000382}}
 .pre-sevencol {
   padding-left: 58.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000383}}
 .pre-eightcol {
   padding-left: 66.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000384}}
 .pre-ninecol {
   padding-left: 75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000385}}
 .pre-tencol {
   padding-left: 83.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000386}}
 .pre-elevencol {
   padding-left: 91.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000387}}
 .pre-twelvecol {
   padding-left: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000390}}
 .post-onecol {
   padding-right: 8.3333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000391}}
 .post-twocol {
   padding-right: 16.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000392}}
 .post-threecol {
   padding-right: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000393}}
 .post-fourcol {
   padding-right: 33.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000394}}
 .post-fivecol {
   padding-right: 41.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000395}}
 .post-sixcol {
   padding-right: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000396}}
 .post-sevencol {
   padding-right: 58.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000397}}
 .post-eightcol {
   padding-right: 66.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000398}}
 .post-ninecol {
   padding-right: 75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\0000399}}
 .post-tencol {
   padding-right: 83.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003100}}
 .post-elevencol {
   padding-right: 91.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003101}}
 .post-twelvecol {
   padding-right: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003104}}
 .push-onecol {
   left: 8.3333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003105}}
 .push-twocol {
   left: 16.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003106}}
 .push-threecol {
   left: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003107}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003107}}
 .push-fourcol {
   left: 33.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003108}}
 .push-fivecol {
   left: 41.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003109}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003109}}
 .push-sixcol {
   left: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003110}}
 .push-sevencol {
   left: 58.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003111}}
 .push-eightcol {
   left: 66.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003112}}
 .push-ninecol {
   left: 75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003113}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003113}}
 .push-tencol {
   left: 83.333333333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003114}}
 .push-elevencol {
   left: 91.666666666%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003115}}
 .push-twelvecol {
   left: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003118}}
 .pull-onecol {
   left: -8.33333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003119}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003119}}
 .pull-twocol {
   left: -16.66667%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003120}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003120}}
 .pull-threecol {
   left: -25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003121}}
 .pull-fourcol {
   left: -33.33333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003122}}
 .pull-fivecol {
   left: -41.66667%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003123}}
 .pull-sixcol {
   left: -50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003124}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003124}}
 .pull-sevencol {
   left: -58.33333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003125}}
 .pull-eightcol {
   left: -66.66667%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003126}}
 .pull-ninecol {
   left: -75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003127}}
 .pull-tencol {
   left: -83.33333%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003128}}
 .pull-elevencol {
   left: -91.66667%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_grid\.scss}line{font-family:\00003129}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_grid\.scss}line{font-family:\00003129}}
 .pull-twelvecol {
   left: -100%;
 }
@@ -552,7 +552,7 @@ GENERAL STYLES
 /*********************
 LAYOUT & GRID STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000326}}
 .wrap {
   max-width: 1140px;
 }
@@ -563,14 +563,14 @@ HEADER SYTLES
 /*********************
 NAVIGATION STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000342}}
 .nav {
   border: 0;
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000345}}
 .nav li {
   float: left;
   position: relative;
@@ -579,7 +579,7 @@ NAVIGATION STYLES
   */
   /* showing sub-menus */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000349}}
 .nav li a {
   border-bottom: 0;
   /*
@@ -587,11 +587,11 @@ NAVIGATION STYLES
   has the possibility of being a mobile device.
   */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000356}}
 .nav li a:hover, .nav li a:focus {
   background-color: #dedede;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000369}}
 .nav li ul.sub-menu,
 .nav li ul.children {
   width: 200px;
@@ -602,7 +602,7 @@ NAVIGATION STYLES
   z-index: 8999;
   /* highlight sub-menu current page */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000377}}
 .nav li ul.sub-menu li,
 .nav li ul.children li {
   /*
@@ -611,7 +611,7 @@ NAVIGATION STYLES
   for usability. k, bai.
   */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000379}}
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
   padding-left: 10px;
@@ -620,12 +620,12 @@ NAVIGATION STYLES
   width: 180px;
   border-bottom: 1px solid #ccc;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000396}}
 .nav li ul.sub-menu li:last-child a,
 .nav li ul.children li:last-child a {
   border-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003118}}
 .nav li:hover ul {
   top: auto;
   display: block;
@@ -633,11 +633,11 @@ NAVIGATION STYLES
 
 /* end .nav */
 /*Main Navigation*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003135}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003135}}
 .header {
   /* end .nav */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003137}}
 .header .top-nav {
   text-align: center;
   padding: 0;
@@ -647,7 +647,7 @@ NAVIGATION STYLES
   /* end .menu li */
   /*Show the child ul*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003143}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003143}}
 .header .top-nav li {
   display: inline;
   padding: 10px 0;
@@ -656,7 +656,7 @@ NAVIGATION STYLES
   z-index: 1000;
   /*Children*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003149}}
 .header .top-nav li a {
   display: inline-block;
   color: #1b75bc;
@@ -665,7 +665,7 @@ NAVIGATION STYLES
   text-decoration: none;
   padding: 10px 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003160}}
 .header .top-nav li ul.sub-menu,
 .header .top-nav li ul.children {
   background-color: #558FBF;
@@ -681,7 +681,7 @@ NAVIGATION STYLES
   left: 0px;
   z-index: 1000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003173}}
 .header .top-nav li ul.sub-menu li,
 .header .top-nav li ul.children li {
   display: block;
@@ -690,7 +690,7 @@ NAVIGATION STYLES
   margin: 0;
   /*Grand Children*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003178}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003178}}
 .header .top-nav li ul.sub-menu li a,
 .header .top-nav li ul.children li a {
   display: block;
@@ -699,7 +699,7 @@ NAVIGATION STYLES
   font-weight: normal;
   padding: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003187}}
 .header .top-nav li ul.sub-menu li ul.sub-menu,
 .header .top-nav li ul.sub-menu li ul.children,
 .header .top-nav li ul.children li ul.sub-menu,
@@ -707,31 +707,31 @@ NAVIGATION STYLES
   left: 99.9%;
   top: 0px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003196}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003196}}
 .header .top-nav li:hover > ul {
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003202}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003202}}
 .header .top-nav li.mega-menu ul.sub-menu,
 .header .top-nav li.mega-menu ul.children {
   min-width: 700%;
   padding: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003205}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003205}}
 .header .top-nav li.mega-menu ul.sub-menu li,
 .header .top-nav li.mega-menu ul.children li {
   float: left;
   width: 30%;
   height: 50%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003209}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003209}}
 .header .top-nav li.mega-menu ul.sub-menu li a,
 .header .top-nav li.mega-menu ul.children li a {
   font-weight: bold;
   padding-top: 0;
   padding-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003215}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003215}}
 .header .top-nav li.mega-menu ul.sub-menu li ul.sub-menu,
 .header .top-nav li.mega-menu ul.sub-menu li ul.children,
 .header .top-nav li.mega-menu ul.children li ul.sub-menu,
@@ -743,7 +743,7 @@ NAVIGATION STYLES
   min-width: auto;
   position: static;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003222}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003222}}
 .header .top-nav li.mega-menu ul.sub-menu li ul.sub-menu li,
 .header .top-nav li.mega-menu ul.sub-menu li ul.children li,
 .header .top-nav li.mega-menu ul.children li ul.sub-menu li,
@@ -755,20 +755,20 @@ NAVIGATION STYLES
   white-space: normal;
   padding-left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003229}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003229}}
 .header .top-nav li.mega-menu ul.sub-menu li ul.sub-menu li a,
 .header .top-nav li.mega-menu ul.sub-menu li ul.children li a,
 .header .top-nav li.mega-menu ul.children li ul.sub-menu li a,
 .header .top-nav li.mega-menu ul.children li ul.children li a {
   font-weight: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003240}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003240}}
 .header .top-nav > li.first-item {
   float: left;
   margin-left: 0;
   padding: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003245}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003245}}
 .header .top-nav > li.last-item {
   float: right;
   margin-right: 0;
@@ -779,28 +779,28 @@ NAVIGATION STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003255}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003255}}
 .sidebar {
   margin-top: 2.2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003259}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003259}}
 .widgettitle {
   border-bottom: 2px solid #444;
   margin-bottom: 0.75em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003264}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003264}}
 .widget {
   padding: 0 10px;
   margin: 2.2em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003269}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003269}}
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003277}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003277}}
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -825,7 +825,7 @@ you'll probably need to do quite a bit
 of overriding here if you styled them for
 mobile. Make sure to double check these!
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003385}}
 .footer-links ul li {
   /*
   be careful with the depth of your menus.
@@ -838,35 +838,34 @@ mobile. Make sure to double check these!
 /*********************
 STICKY FOOTER STYLES
 *********************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003405}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003405}}
 html,
-body {
+body.sticky-footer {
   height: 100%;
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003410}}
-#container {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003412}}
+body.sticky-footer #container {
   display: table;
   width: 100%;
 }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003415}}
-html > body #container {
-  height: 100%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003421}}
-#container .header,
-#content,
-#container .footer {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003419}}
+body.sticky-footer #container .header,
+body.sticky-footer #content,
+body.sticky-footer #container .footer {
   display: table-row;
   height: 1px;
   overflow: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/_768up\.scss}line{font-family:\00003427}}
-html > body #content {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003426}}
+html > body.sticky-footer #container {
+  height: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003430}}
+html > body.sticky-footer #content {
   height: auto;
 }
 

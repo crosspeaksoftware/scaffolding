@@ -402,28 +402,31 @@ mobile. Make sure to double check these!
 	*********************/
 
 	html,
-	body {
+	body.sticky-footer {
 		height: 100%;
 		margin: 0;
 	}
+	
+	body.sticky-footer {
 
-	#container {
-	    display: table;
-	    width: 100%;
+		#container {
+		    display: table;
+		    width: 100%;
+		}
+	
+		#container .header,
+		#content,
+		#container .footer {
+		    display: table-row;
+		    height: 1px;
+		    overflow: hidden;
+		}
 	}
-
-	html>/**/body #container {
+	
+	html>/**/body.sticky-footer #container {
 	    height: 100%;
 	}
 
-	#container .header,
-	#content,
-	#container .footer {
-	    display: table-row;
-	    height: 1px;
-	    overflow: hidden;
-	}
-
-	html>body #content {
+	html>body.sticky-footer #content {
 	    height: auto;
 	}

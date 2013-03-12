@@ -3099,33 +3099,32 @@ you can add resource intensive styles.
   *********************/
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003405}}
   html,
-  body {
+  body.sticky-footer {
     height: 100%;
     margin: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003410}}
-  #container {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003412}}
+  body.sticky-footer #container {
     display: table;
     width: 100%;
   }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003415}}
-  html > body #container {
-    height: 100%;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003421}}
-  #container .header,
-  #content,
-  #container .footer {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003419}}
+  body.sticky-footer #container .header,
+  body.sticky-footer #content,
+  body.sticky-footer #container .footer {
     display: table-row;
     height: 1px;
     overflow: hidden;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003427}}
-  html > body #content {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003426}}
+  html > body.sticky-footer #container {
+    height: 100%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\00003430}}
+  html > body.sticky-footer #content {
     height: auto;
   }
 }
