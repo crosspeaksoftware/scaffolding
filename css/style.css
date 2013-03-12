@@ -2853,7 +2853,7 @@ you can add resource intensive styles.
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/_768up\.scss}line{font-family:\0000369}}
   .nav li ul.sub-menu,
   .nav li ul.children {
-    width: 200px;
+    margin-top: 0;
     border: 1px solid #ccc;
     border-top: 0;
     position: absolute;

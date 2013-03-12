@@ -38,7 +38,9 @@ function bones_ahoy() {
 	add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
 
 	// launching this stuff after theme setup
-	add_action('after_setup_theme','bones_theme_support');
+	// add_action('after_setup_theme','bones_theme_support');
+	bones_theme_support();
+	
 	// adding sidebars to Wordpress (these are created in functions.php)
 	add_action( 'widgets_init', 'bones_register_sidebars' );
 	// adding the bones search form (created in functions.php)
