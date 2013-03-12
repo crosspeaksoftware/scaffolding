@@ -85,6 +85,7 @@ register_taxonomy( 'custom_cat',
 			'add_new_item' => __( 'Add New Custom Category', 'bonestheme' ), /* add new title for taxonomy */
 			'new_item_name' => __( 'New Custom Category Name', 'bonestheme' ) /* name title for taxonomy */
 		),
+		'show_admin_column' => true,
 		'show_ui' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'custom-slug' ),
@@ -107,6 +108,7 @@ register_taxonomy( 'custom_tag',
 			'add_new_item' => __( 'Add New Custom Tag', 'bonestheme' ), /* add new title for taxonomy */
 			'new_item_name' => __( 'New Custom Tag Name', 'bonestheme' ) /* name title for taxonomy */
 		),
+		'show_admin_column' => true,
 		'show_ui' => true,
 		'query_var' => true,
 	)
