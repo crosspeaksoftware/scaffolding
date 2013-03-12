@@ -348,7 +348,7 @@ function bones_related_posts() {
 			endforeach;
 		}
 		else {
-			echo '<li class="no_related_post">No Related Posts Yet!</li>';
+			<?php echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'bonestheme' ) . '</li>'; ?>
 		}
 	}
 	wp_reset_query();
@@ -392,7 +392,7 @@ function bones_page_navi($before = '', $after = '') {
 	}
 	echo $before.'<nav class="page-navigation"><ol class="bones_page_navi clearfix">'."";
 	if ($start_page >= 2 && $pages_to_show < $max_page) {
-		$first_page_text = "First";
+		$first_page_text = __( "First", 'bonestheme' );
 		echo '<li class="bpn-first-page-link"><a href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
 	}
 	echo '<li class="bpn-prev-link">';
@@ -409,7 +409,7 @@ function bones_page_navi($before = '', $after = '') {
 	next_posts_link('>>');
 	echo '</li>';
 	if ($end_page < $max_page) {
-		$last_page_text = "Last";
+		$last_page_text = __( "Last", 'bonestheme' );
 		echo '<li class="bpn-last-page-link"><a href="'.get_pagenum_link($max_page).'" title="'.$last_page_text.'">'.$last_page_text.'</a></li>';
 	}
 	echo '</ol></nav>'.$after."";
@@ -429,4 +429,22 @@ function bones_excerpt_more($more) {
 	global $post;
 	// edit here if you like
 	return '...  <a href="'. get_permalink($post->ID) . '" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';
+}
+
+/*
+ * This is a modified the_author_posts_link() which just returns the link.
+ *
+ * This is necessary to allow usage of the usual l10n process with printf().
+ */
+function bones_get_the_author_posts_link() {
+  global $authordata;
+  if ( !is_object( $authordata ) )
+    return false;
+  $link = sprintf(
+    '<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
+    get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
+    esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
+    get_the_author()
+  );
+  return $link;
 }
