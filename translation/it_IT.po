@@ -19,7 +19,8 @@ msgstr ""
 #: comments.php:12
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
-"Il post è protetto da password. Inserisci la password per vedere i commenti."
+"Il post &egrave; protetto da password. Inserisci la password per vedere i "
+"commenti."
 
 #: comments.php:23
 msgid "Response"
@@ -35,7 +36,7 @@ msgstr "Uno"
 
 #: comments.php:26
 msgid "No"
-msgstr "No"
+msgstr "Ancora niente"
 
 #: comments.php:32
 msgid "to"
@@ -100,7 +101,7 @@ msgstr "La Tua Email"
 
 #: comments.php:100
 msgid "will not be published"
-msgstr "non sarà pubblicata"
+msgstr "non sar&agrave; pubblicata"
 
 #: comments.php:104
 msgid "Website"
@@ -153,7 +154,7 @@ msgstr "(Modifica)"
 
 #: functions.php:107
 msgid "Your comment is awaiting moderation."
-msgstr "Il tuo commento è in attesa di moderazione."
+msgstr "Il tuo commento &egrave; in attesa di moderazione."
 
 #: functions.php:124
 msgid "Search for:"
@@ -165,13 +166,14 @@ msgstr "Cerca nel Sito..."
 
 #: 404.php:11
 msgid "Epic 404 - Article Not Found"
-msgstr "404 Epico! - L'articolo non c'è"
+msgstr "404 Epico! - L'articolo non c'&egrave;"
 
 #: 404.php:17
 msgid ""
 "The article you were looking for was not found, but maybe try looking again!"
 msgstr ""
-"L'articolo che cercavi non è stato trovato. Ritenta, sarai più fortunato!"
+"L'articolo che cercavi non &egrave; stato trovato. Ritenta, sarai pi&ugrave; "
+"fortunato!"
 
 #: search.php:7
 msgid "Search Results for:"
@@ -223,7 +225,7 @@ msgstr "Spiacente, gli allegati che cercavi non ci sono."
 
 #: embed-prev_next.php:3
 msgid "&laquo; Older Entries"
-msgstr "&laquo; Più Vecchi"
+msgstr "&laquo; Pi&ugrave; Vecchi"
 
 #: embed-prev_next.php:4
 msgid "Newer Entries &raquo;"
@@ -239,7 +241,7 @@ msgstr "Non Trovato"
 
 #: embed-not_found.php:6
 msgid "Sorry, but the requested resource was not found on this site."
-msgstr "Spiacente, non ho trovato ciò che cercavi."
+msgstr "Spiacente, non ho trovato ci&ograve; che cercavi."
 
 #: sidebar.php:15
 msgid "Please activate some Widgets."
@@ -287,15 +289,15 @@ msgstr "Cerca Post Personalizzato"
 
 #: library/custom-post-type.php:33
 msgid "Nothing found in the Database."
-msgstr "Non c'è nulla nel Database."
+msgstr "Non c'&egrave; nulla nel Database."
 
 #: library/custom-post-type.php:34
 msgid "Nothing found in Trash"
-msgstr "Non c'è nulla nel Cestino"
+msgstr "Non c'&egrave; nulla nel Cestino"
 
 #: library/custom-post-type.php:37
 msgid "This is the example custom post type"
-msgstr "Questo è un esempio di post personalizzato"
+msgstr "Questo &egrave; un esempio di post personalizzato"
 
 #: library/custom-post-type.php:73
 msgid "Custom Categories"
