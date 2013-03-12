@@ -275,6 +275,39 @@ function bones_custom_admin_footer() {
 add_filter('admin_footer_text', 'bones_custom_admin_footer');
 
 
+/************* REMOVE HEIGHT & WIDTH ON IMAGES *****************/
+/**
+* Filter out hard-coded width, height attributes on all images in WordPress. 
+* https://gist.github.com/4557917
+*
+* This version applies the function as a filter to the_content rather than send_to_editor. 
+* Changes made by filtering send_to_editor will be lost if you update the image or associated post 
+* and you will slowly lose your grip on sanity if you don't know to keep an eye out for it. 
+* the_content applies to the content of a post after it is retrieved from the database and is "theme-safe". 
+* (i.e., Your changes will not be stored permanently or impact the HTML output in other themes.)
+*
+* Also, the regex has been updated to catch both double and single quotes, since the output of 
+* get_avatar is inconsistent with other WP image functions and uses single quotes for attributes. 
+* [insert hate-stare here]
+*
+*/
+function bones_remove_img_dimensions($html) {
+    // Loop through all <img> tags
+    if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
+        foreach ($matches as $match) {
+            // Replace all occurences of width/height
+            $clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
+            // Replace with result within html
+            $html = str_replace($match, $clean, $html);
+        }
+    }
+    return $html;
+}
+add_filter('post_thumbnail_html', 'bones_remove_img_dimensions', 10);
+add_filter('the_content', 'bones_remove_img_dimensions', 10);
+add_filter('get_avatar','bones_remove_img_dimensions', 10);
+
+
 /************* CUSTOM FUNCTIONS *****************/
 
 //Apply styles to the visual editor
