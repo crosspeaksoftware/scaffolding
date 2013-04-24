@@ -31,6 +31,7 @@ require_once('bones.php'); // if you remove this, bones will break
 	- example custom taxonomy (like tags)
 */
 require_once('custom-post-type.php'); // you can disable this if you like
+
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
@@ -277,6 +278,15 @@ function bones_remove_img_dimensions($html) {
 add_filter('post_thumbnail_html', 'bones_remove_img_dimensions', 10);
 add_filter('the_content', 'bones_remove_img_dimensions', 10);
 add_filter('get_avatar','bones_remove_img_dimensions', 10);
+
+
+/************* CLIENT ACCESS FUNCTIONS *****************/
+function increase_editor_permissions(){
+    $role = get_role('editor');
+    $role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
+    $role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
+}
+add_action('admin_init','increase_editor_permissions');
 
 
 /************* CUSTOM FUNCTIONS *****************/
