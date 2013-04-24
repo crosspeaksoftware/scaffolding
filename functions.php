@@ -288,6 +288,8 @@ function increase_editor_permissions(){
 }
 add_action('admin_init','increase_editor_permissions');
 
+wp_register_sidebar_widget( 'wpe_widget_powered_by' ); // Removes the Powered By WPEngine widget
+
 
 /************* CUSTOM FUNCTIONS *****************/
 
