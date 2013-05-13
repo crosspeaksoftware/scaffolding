@@ -282,9 +282,9 @@ add_filter('get_avatar','bones_remove_img_dimensions', 10);
 
 /************* CLIENT ACCESS FUNCTIONS *****************/
 function increase_editor_permissions(){
-    $role = get_role('editor');
-    $role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
-    $role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
+	$role = get_role('editor');
+	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
+	$role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
 }
 add_action('admin_init','increase_editor_permissions');
 
