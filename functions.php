@@ -277,17 +277,17 @@ add_filter('admin_footer_text', 'bones_custom_admin_footer');
 
 /************* REMOVE HEIGHT & WIDTH ON IMAGES *****************/
 /**
-* Filter out hard-coded width, height attributes on all images in WordPress. 
+* Filter out hard-coded width, height attributes on all images in WordPress.
 * https://gist.github.com/4557917
 *
-* This version applies the function as a filter to the_content rather than send_to_editor. 
-* Changes made by filtering send_to_editor will be lost if you update the image or associated post 
-* and you will slowly lose your grip on sanity if you don't know to keep an eye out for it. 
-* the_content applies to the content of a post after it is retrieved from the database and is "theme-safe". 
+* This version applies the function as a filter to the_content rather than send_to_editor.
+* Changes made by filtering send_to_editor will be lost if you update the image or associated post
+* and you will slowly lose your grip on sanity if you don't know to keep an eye out for it.
+* the_content applies to the content of a post after it is retrieved from the database and is "theme-safe".
 * (i.e., Your changes will not be stored permanently or impact the HTML output in other themes.)
 *
-* Also, the regex has been updated to catch both double and single quotes, since the output of 
-* get_avatar is inconsistent with other WP image functions and uses single quotes for attributes. 
+* Also, the regex has been updated to catch both double and single quotes, since the output of
+* get_avatar is inconsistent with other WP image functions and uses single quotes for attributes.
 * [insert hate-stare here]
 *
 */

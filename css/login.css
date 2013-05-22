@@ -18,7 +18,7 @@ This is the Wordpress logo in the admin area.
 You'll have to load your own images and mess
 with the width and height.
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/login\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/login\.scss}line{font-family:\0000328}}
 .login h1 a {
   background: url(../images/login-logo.png) no-repeat top center;
   /* make sure to replace this! */
@@ -30,7 +30,7 @@ with the width and height.
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/login\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/login\.scss}line{font-family:\0000338}}
 form {
   margin-left: 8px;
   padding: 26px 24px 46px;
@@ -47,7 +47,7 @@ form {
   box-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/\*Github\/toolkit\/scss\/login\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tim\/svn\/wordpress\.hallwebservers\.com\/wp-content\/themes\/toolkit\/scss\/login\.scss}line{font-family:\0000348}}
 body form .input {
   font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
   font-weight: 200;
