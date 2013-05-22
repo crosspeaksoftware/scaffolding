@@ -75,9 +75,18 @@ add_filter('media_send_to_editor', 'root_relative_urls',100);
 // Sidebars & Widgetizes Areas
 function bones_register_sidebars() {
 	register_sidebar(array(
-		'id' => 'sidebar1',
-		'name' => __('Sidebar 1', 'bonestheme'),
-		'description' => __('The first (primary) sidebar.', 'bonestheme'),
+		'id' => 'left-sidebar',
+		'name' => __('Left Sidebar', 'bonestheme'),
+		'description' => __('The Left (primary) sidebar used for the interior menu.', 'bonestheme'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+	register_sidebar(array(
+		'id' => 'right-sidebar',
+		'name' => __('Right Sidebar', 'bonestheme'),
+		'description' => __('The Right sidebar used for the interior call to actions.', 'bonestheme'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -86,6 +95,37 @@ function bones_register_sidebars() {
 } // don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
+
+/**** CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND ****/
+/*
+function change_post_menu_label() {
+	global $menu;
+	global $submenu;
+	$menu[5][0] = 'News';
+	$submenu['edit.php'][5][0] = 'All News Entries';
+	$submenu['edit.php'][10][0] = 'Add News Entries';
+	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
+	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
+	echo '';
+}
+
+function change_post_object_label() {
+	global $wp_post_types;
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = 'News';
+	$labels->singular_name = 'News';
+	$labels->add_new = 'Add News Entry';
+	$labels->add_new_item = 'Add News Entry';
+	$labels->edit_item = 'Edit News Entry';
+	$labels->new_item = 'News Entry';
+	$labels->view_item = 'View Entry';
+	$labels->search_items = 'Search News Entries';
+	$labels->not_found = 'No News Entries found';
+	$labels->not_found_in_trash = 'No News Entries found in Trash';
+}
+add_action( 'init', 'change_post_object_label' );
+add_action( 'admin_menu', 'change_post_menu_label' );
+*/
 
 // Comment Layout
 function bones_comments($comment, $args, $depth) {
@@ -250,18 +290,7 @@ add_filter('admin_footer_text', 'bones_custom_admin_footer');
 /************* REMOVE HEIGHT & WIDTH ON IMAGES *****************/
 /**
 * Filter out hard-coded width, height attributes on all images in WordPress.
-* https://gist.github.com/4557917
-*
-* This version applies the function as a filter to the_content rather than send_to_editor.
-* Changes made by filtering send_to_editor will be lost if you update the image or associated post
-* and you will slowly lose your grip on sanity if you don't know to keep an eye out for it.
-* the_content applies to the content of a post after it is retrieved from the database and is "theme-safe".
-* (i.e., Your changes will not be stored permanently or impact the HTML output in other themes.)
-*
-* Also, the regex has been updated to catch both double and single quotes, since the output of
-* get_avatar is inconsistent with other WP image functions and uses single quotes for attributes.
-* [insert hate-stare here]
-*
+* https://gist.github.com/4557917 - for more information
 */
 function bones_remove_img_dimensions($html) {
     // Loop through all <img> tags
@@ -276,7 +305,7 @@ function bones_remove_img_dimensions($html) {
     return $html;
 }
 add_filter('post_thumbnail_html', 'bones_remove_img_dimensions', 10);
-add_filter('the_content', 'bones_remove_img_dimensions', 10);
+//add_filter('the_content', 'bones_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
 add_filter('get_avatar','bones_remove_img_dimensions', 10);
 
 
@@ -304,14 +333,16 @@ function bones_mcekit_editor_style($url) {
 }
 add_filter('mce_css', 'bones_mcekit_editor_style');
 
-/** Remove Wordpress Logo From Admin Bar **/
+
+// Remove Wordpress Logo From Admin Bar
 function remove_admin_bar_links() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('wp-logo');
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
-/*Filter post with noindex set from serch results*/
+
+//Filter post with noindex set from serch results
 function SearchFilter($query) {
 	if ($query->is_search) {
 		$args = array(array('key'     => '_yoast_wpseo_meta-robots-noindex	','value'   => '1','compare' => '!='));
@@ -320,3 +351,174 @@ function SearchFilter($query) {
 	return $query;
 }
 add_filter('pre_get_posts','SearchFilter');
+
+//Clean the formatting out of phone numbers for tel links
+function clean_phone($phone){
+	$phone = preg_replace('/\D+/', '', $phone); //strip all non-digits
+	return $phone;
+}
+
+//Check if current page is in the a specified menu
+/* Currently commented out to be worked on so a menu can be specified to test
+function in_menu($post_ID=false){
+	if(is_object($post_ID)){
+		$post_ID = $post_ID->ID;
+	}
+	if($post_ID===false){
+		global $post;
+		$post_ID = $post->ID;
+	}
+	$menu_locals = get_nav_menu_locations(); //get the menus in all the locations
+	$menu_items = wp_get_nav_menu_items($menu_locals['main-nav']); //return the objects in the main-nav location
+	$is_in_menu = false;
+	foreach ( (array) $menu_items as $menu_item ) {
+		if($menu_item->object_id == $post_ID){
+			$is_in_menu = true;
+			break;
+		}
+	}
+	return $is_in_menu;
+}
+*/
+
+//Returns an array of all the post ID's for the posts using a specified template
+function get_posts_by_template($tmpl_name){
+	//if no template name us given return
+	if( is_null($tmpl_name) )
+		return;
+
+	//collect all the post using specified template
+	$pages = get_pages(array(
+	    'meta_key' => '_wp_page_template',
+	    'meta_value' => $tmpl_name,
+	    'hierarchical' => 0
+	));
+
+	//load ids into array
+	$tmpl_pages = array();
+	foreach($pages as $page){
+		$tmpl_pages[] = $page->ID;
+	}
+
+	return $tmpl_pages;
+}
+
+//Get the_excerpt and speciphi its size http://www.wprecipes.com/wordpress-improved-the_excerpt-function
+function get_excerpt($length=100) {
+	global $post;
+	$text = $post->post_excerpt;
+	if ( '' == $text ) {
+		$text = get_the_content('');
+		$text = apply_filters('the_content', $text);
+		$text = str_replace(']]>', ']]>', $text);
+	}
+	//clean up the string
+	$text = strip_shortcodes($text); // optional, recommended
+	$text = strip_tags($text,'<b><strong><em><i><br><span><p>'); //remove most html tags optional, recommended
+
+	//add read more link without interfering with excerpt length
+	$excerpt_end = '... <a class="read-more-link" href="'. get_permalink($post->ID) . '" title="'. __('Read ', 'bonestheme') . get_the_title($post->ID).'">'. __('Read more', 'bonestheme') .'</a>';
+	$excerpt_end_size = strlen($excerpt_end);
+	$length = $length + $excerpt_end_size;
+
+	//truncate the string while preserving remaining html tags
+	$excerpt = truncateHtml($text,$length,$excerpt_end);
+
+	//return truncated excerpt or text depending on string length
+	if( strlen($text) < $length ) {
+		return apply_filters('the_content', $text);
+	} else {
+		return apply_filters('the_content', $excerpt);
+	}
+}
+
+//Truncate Text while preserving HTML
+function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $considerHtml = true) {
+	if ($considerHtml) {
+		// if the plain text is shorter than the maximum length, return the whole text
+		if (strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
+			return $text;
+		}
+		// splits all html-tags to scanable lines
+		preg_match_all('/(<.+?>)?([^<>]*)/s', $text, $lines, PREG_SET_ORDER);
+		$total_length = strlen($ending);
+		$open_tags = array();
+		$truncate = '';
+		foreach ($lines as $line_matchings) {
+			// if there is any html-tag in this line, handle it and add it (uncounted) to the output
+			if (!empty($line_matchings[1])) {
+				// if it's an "empty element" with or without xhtml-conform closing slash
+				if (preg_match('/^<(\s*.+?\/\s*|\s*(img|br|input|hr|area|base|basefont|col|frame|isindex|link|meta|param)(\s.+?)?)>$/is', $line_matchings[1])) {
+					// do nothing
+				// if tag is a closing tag
+				} else if (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings)) {
+					// delete tag from $open_tags list
+					$pos = array_search($tag_matchings[1], $open_tags);
+					if ($pos !== false) {
+					unset($open_tags[$pos]);
+					}
+				// if tag is an opening tag
+				} else if (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings)) {
+					// add tag to the beginning of $open_tags list
+					array_unshift($open_tags, strtolower($tag_matchings[1]));
+				}
+				// add html-tag to $truncate'd text
+				$truncate .= $line_matchings[1];
+			}
+			// calculate the length of the plain text part of the line; handle entities as one character
+			$content_length = strlen(preg_replace('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|[0-9a-f]{1,6};/i', ' ', $line_matchings[2]));
+			if ($total_length+$content_length> $length) {
+				// the number of characters which are left
+				$left = $length - $total_length;
+				$entities_length = 0;
+				// search for html entities
+				if (preg_match_all('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|[0-9a-f]{1,6};/i', $line_matchings[2], $entities, PREG_OFFSET_CAPTURE)) {
+					// calculate the real length of all entities in the legal range
+					foreach ($entities[0] as $entity) {
+						if ($entity[1]+1-$entities_length <= $left) {
+							$left--;
+							$entities_length += strlen($entity[0]);
+						} else {
+							// no more characters left
+							break;
+						}
+					}
+				}
+				$truncate .= substr($line_matchings[2], 0, $left+$entities_length);
+				// maximum lenght is reached, so get off the loop
+				break;
+			} else {
+				$truncate .= $line_matchings[2];
+				$total_length += $content_length;
+			}
+			// if the maximum length is reached, get off the loop
+			if($total_length>= $length) {
+				break;
+			}
+		}
+	} else {
+		if (strlen($text) <= $length) {
+			return $text;
+		} else {
+			$truncate = substr($text, 0, $length - strlen($ending));
+		}
+	}
+	// if the words shouldn't be cut in the middle...
+	if (!$exact) {
+		// ...search the last occurance of a space...
+		$spacepos = strrpos($truncate, ' ');
+		if (isset($spacepos)) {
+			// ...and cut the text in this position
+			$truncate = substr($truncate, 0, $spacepos);
+		}
+	}
+	// add the defined ending to the text
+	$truncate .= $ending;
+	if($considerHtml) {
+		// close all unclosed html-tags
+		foreach ($open_tags as $tag) {
+			$truncate .= '</' . $tag . '>';
+		}
+	}
+	return $truncate;
+}
