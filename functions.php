@@ -31,6 +31,7 @@ require_once('bones.php'); // if you remove this, bones will break
 	- example custom taxonomy (like tags)
 */
 require_once('custom-post-type.php'); // you can disable this if you like
+
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
@@ -55,6 +56,19 @@ for the 600 x 100 image:
 You can change the names and dimensions to whatever
 you like. Enjoy!
 */
+
+// Relative root the urls for the media uploader
+function root_relative_urls($html) {
+	if(defined('WP_SITEURL')) {
+		$url = WP_SITEURL;
+	}
+	else {
+		$url = 'http://' . $_SERVER['HTTP_HOST'];
+	}
+	return str_ireplace($url, '', $html);
+}
+add_filter('image_send_to_editor', 'root_relative_urls',100);
+add_filter('media_send_to_editor', 'root_relative_urls',100);
 
 /************* ACTIVE SIDEBARS ********************/
 
@@ -138,48 +152,6 @@ function bones_custom_headers_callback(){
     ?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
 }
 
-/************* ADD TUCKAWAY H1 *****************/
-
-add_action( 'admin_menu', 'tuck_h1_create_post_meta_box' );
-add_action( 'save_post', 'tuck_h1_save_post_meta_box', 10, 2 );
-
-function tuck_h1_create_post_meta_box() {
-	add_meta_box( 'tuck-h1-meta-box', 'Tuckaway H1', 'tuck_h1_post_meta_box', 'page', 'normal', 'high' );
-	add_meta_box( 'tuck-h1-meta-box', 'Tuckaway H1', 'tuck_h1_post_meta_box', 'post', 'normal', 'high' );
-}
-
-function tuck_h1_post_meta_box( $object, $box ) {
-?>
-	<p>
-		<input type="text" name="tuck-h1" id="tuck-h1" tabindex="30" class="large-text" value="<?php echo wp_specialchars( get_post_meta( $object->ID, 'tuckaway_h1', true ), 1 ); ?>"/>
-		<input type="hidden" name="tuck_h1_meta_box_nonce" value="<?php echo wp_create_nonce( 'tuck_h1_meta_box' ); ?>" />
-	</p>
-<?php
-}
-
-function tuck_h1_save_post_meta_box( $post_id, $post ) {
-
-	if ( !wp_verify_nonce( $_POST['tuck_h1_meta_box_nonce'], 'tuck_h1_meta_box' ) ) {
-		return $post_id;
-	}
-
-	if ( !current_user_can( 'edit_post', $post_id ) ) {
-		return $post_id;
-	}
-
-	$meta_value = get_post_meta( $post_id, 'tuckaway_h1', true );
-	$new_meta_value = stripslashes( $_POST['tuck-h1'] );
-
-	if ( $new_meta_value && '' == $meta_value ) {
-		add_post_meta( $post_id, 'tuckaway_h1', $new_meta_value, true );
-	}
-	elseif ( $new_meta_value != $meta_value ) {
-		update_post_meta( $post_id, 'tuckaway_h1', $new_meta_value );
-	}
-	elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_post_meta( $post_id, 'tuckaway_h1', $meta_value );
-	}
-}
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
 function add_first_and_last($output) {
 	$output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
@@ -306,6 +278,17 @@ function bones_remove_img_dimensions($html) {
 add_filter('post_thumbnail_html', 'bones_remove_img_dimensions', 10);
 add_filter('the_content', 'bones_remove_img_dimensions', 10);
 add_filter('get_avatar','bones_remove_img_dimensions', 10);
+
+
+/************* CLIENT ACCESS FUNCTIONS *****************/
+function increase_editor_permissions(){
+	$role = get_role('editor');
+	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
+	$role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
+}
+add_action('admin_init','increase_editor_permissions');
+
+wp_unregister_sidebar_widget( 'wpe_widget_powered_by' ); // Removes the Powered By WPEngine widget
 
 
 /************* CUSTOM FUNCTIONS *****************/
