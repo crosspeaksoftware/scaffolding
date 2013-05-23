@@ -342,7 +342,7 @@ add_filter('media_send_to_editor', 'root_relative_urls',100);
 //Filter post with noindex set from serch results
 function SearchFilter($query) {
 	if ($query->is_search) {
-		$args = array(array('key'     => '_yoast_wpseo_meta-robots-noindex	','value'   => '1','compare' => '!='));
+		$args = array(array('key' => '_yoast_wpseo_meta-robots-noindex', 'value' => '1', 'compare' => '!='));
 		$query->set('meta_query', $args);
 	}
 	return $query;
