@@ -32,13 +32,8 @@ require_once('bones.php'); // if you remove this, bones will break
 */
 require_once('custom-post-type.php'); // you can disable this if you like
 
-/************* THUMBNAIL SIZE OPTIONS *************/
-
-// Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
-/*
-to add more sizes, simply copy a line from above
+/************* THUMBNAIL SIZE OPTIONS *************
+to add more sizes, simply copy a line below
 and change the dimensions & name. As long as you
 upload a "featured image" as large as the biggest
 set width or height, all the other sizes will be
@@ -50,25 +45,13 @@ inside the thumbnail function.
 For example, to call the 300 x 300 sized image,
 we would use the function:
 <?php the_post_thumbnail( 'bones-thumb-300' ); ?>
-for the 600 x 100 image:
-<?php the_post_thumbnail( 'bones-thumb-600' ); ?>
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
-// Relative root the urls for the media uploader
-function root_relative_urls($html) {
-	if(defined('WP_SITEURL')) {
-		$url = WP_SITEURL;
-	}
-	else {
-		$url = 'http://' . $_SERVER['HTTP_HOST'];
-	}
-	return str_ireplace($url, '', $html);
-}
-add_filter('image_send_to_editor', 'root_relative_urls',100);
-add_filter('media_send_to_editor', 'root_relative_urls',100);
+// Thumbnail sizes
+//add_image_size( 'bones-thumb-600', 600, 150, true );
 
 /************* ACTIVE SIDEBARS ********************/
 
@@ -340,6 +323,20 @@ function remove_admin_bar_links() {
 	$wp_admin_bar->remove_menu('wp-logo');
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+
+
+// Relative root the urls for the media uploader
+function root_relative_urls($html) {
+	if(defined('WP_SITEURL')) {
+		$url = WP_SITEURL;
+	}
+	else {
+		$url = 'http://' . $_SERVER['HTTP_HOST'];
+	}
+	return str_ireplace($url, '', $html);
+}
+add_filter('image_send_to_editor', 'root_relative_urls',100);
+add_filter('media_send_to_editor', 'root_relative_urls',100);
 
 
 //Filter post with noindex set from serch results
