@@ -1,7 +1,7 @@
 /******************************************************************
-Theme Name: Toolkit (Rename Me!)
-Theme URI: https://github.com/rclations/toolkit
-Description: This site was built using the Toolkit Development Theme</a>. For more information about Toolkit or to view documentation, you can visit the <a href="https://github.com/rclations/toolkit" title="Toolkit Development Page">Github page</a> for the proejct. You'll want to customize this for your clients with your own information.
+Theme Name: Responsive Design Scaffolding (Rename Me!)
+Theme URI: https://github.com/hallme/scaffolding
+Description: This site was built using the Scaffolding Development Theme</a>. For more information about Scaffolding or to view documentation, you can visit the <a href="https://github.com/hallme/scaffolding" title="Scaffolding Development Page">Github page</a> for the proejct. You'll want to customize this for your clients with your own information.
 Author: Your Name Here
 Author URI: http://www.yoururlhere.com
 Version: 1.0
@@ -35,8 +35,7 @@ http://cognition.happycog.com/article/preprocess-this
 http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
 
 I would HIGHLY RECOMMEND, if you are going to be working with
-SASS, that you work locally. Sass isn't readable by a browser
-and using a LESS js file to parse it on live sites can make your site sluggish.
+SASS, that you work locally.
 
 That being said, here are a few MUST HAVE TOOLS for working with a
 pre-processor: (You really only need one of them)
@@ -44,10 +43,8 @@ pre-processor: (You really only need one of them)
 CodeKit: (Highly Recommended)
 http://incident57.com/codekit/
 
-
 Compass App: (Windows / Mac Users)
 http://compass.handlino.com/
-
 
 These applications compile Sass into valid CSS. This
 way you can keep your production files easy to read and your
