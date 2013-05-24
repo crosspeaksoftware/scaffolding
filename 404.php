@@ -1,10 +1,4 @@
-<?php
-get_header();
-?>
-
-<div id="content">
-
-	<div id="inner-content" class="wrap clearfix">
+<?php get_header(); ?>
 
 		<div id="main" class="eightcol first clearfix" role="main">
 

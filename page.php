@@ -1,18 +1,4 @@
-<?php
-get_header();
-?>
-
-
-<div id="content">
-
-	<div id="inner-content" class="wrap clearfix">
-
-		<?php // Header/Banner Image ?>
-        <div class="banner-wrap">
-            <div id="banner">
-                <div class="spacer"></div>
-            </div>
-        </div>
+<?php get_header(); ?>
 
 		<div id="main" class="eightcol first clearfix" role="main">
 
@@ -54,13 +40,12 @@ get_header();
 
 				<article id="post-not-found" class="hentry clearfix">
 					<header class="article-header">
-						<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
+						<h2><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h2>
 					</header>
 					<section class="entry-content">
-						<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "bonestheme"); ?></p>
 					</section>
 					<footer class="article-footer">
-						<p><?php _e("This is the error message in the page-custom.php template.", "bonestheme"); ?></p>
 					</footer>
 				</article>
 
@@ -68,11 +53,4 @@ get_header();
 
 		</div> <!-- end #main -->
 
-		<?php get_sidebar(); ?>
-
-	</div> <!-- end #inner-content -->
-
-</div> <!-- end #content -->
-
-<?php
-get_footer();
+<?php get_footer();

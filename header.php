@@ -60,3 +60,14 @@
 			</div> <!-- end #inner-header -->
 
 		</header> <!-- end header -->
+
+		<?php // Header/Banner Image ?>
+        <div class="banner-wrap">
+            <div id="banner">
+                <div class="spacer"></div>
+            </div>
+        </div>
+
+	<div id="content">
+
+		<div id="inner-content" class="wrap clearfix">

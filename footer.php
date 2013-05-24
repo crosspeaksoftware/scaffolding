@@ -1,3 +1,10 @@
+
+			<?php get_sidebar(); ?>
+
+		</div> <!-- end #inner-content -->
+
+	</div> <!-- end #content -->
+
 	<footer class="footer" role="contentinfo">
 
 		<div id="inner-footer" class="wrap clearfix">
