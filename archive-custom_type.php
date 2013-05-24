@@ -69,5 +69,4 @@
 
 		</div> <!-- end #main -->
 
-
 <?php get_footer();
