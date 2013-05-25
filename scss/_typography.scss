@@ -349,6 +349,7 @@ $alert-blue:#d5edf8;
 .invisible { visibility: hidden; }
 .clearfix {
   zoom: 1;
+  display: block;
 	&:before, &:after { content: ""; display: table; }
 	&:after { clear: both; }
 }
