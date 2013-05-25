@@ -1,20 +1,20 @@
 /******************************************************************
-Bones
+scaffolding
 A Lightweight Wordpress Development Theme
 
 _______________________________________________________________
 HEADS UP!!!
-Bones & Bones (Responsive Edition) have been merged.
+scaffolding & scaffolding (Responsive Edition) have been merged.
 _______________________________________________________________
 
-Bones is designed to make the life of developers easier. It's built
+scaffolding is designed to make the life of developers easier. It's built
 using HTML5 & has a strong semantic foundation. It was updated recently
 using some of the HTML5 Boilerplate's recommended markup and setup.
 It's constantly growing so be sure to check back often if you are a
 frequent user. I'm always open to contribution. :)
 
 Designed by Eddie Machado
-http://themble.com/bones
+http://themble.com/scaffolding
 
 License: WTFPL
 License URI: http://sam.zoy.org/wtfpl/
@@ -28,7 +28,7 @@ David Dellanave for speed & code optimization
 and several other developers. :)
 
 Submit Bugs & or Fixes:
-https://github.com/eddiemachado/bones/issues
+https://github.com/eddiemachado/scaffolding/issues
 
 To view Release & Update Notes, read the log.txt file inside
 the library folder.
@@ -71,7 +71,7 @@ the library folder.
 - merged base.css into style.css for one less call in the header
 - added styleguide page and styles (oh yea!)
 - added nav class to both menus
-- removed "Powered by Wordpress & Bones" from footer, because let's face it: we all delete this anyway.
+- removed "Powered by Wordpress & scaffolding" from footer, because let's face it: we all delete this anyway.
 - added button class to submit comment button
 - removed html5 placeholder fallback (you should be using Gravity Forms)
 - added slug and rewrite to custom post type for easier urls

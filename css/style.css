@@ -1959,9 +1959,9 @@ PAGE NAVI STYLES
 }
 
 /* line 124, ../scss/_base.scss */
-.bones_page_navi {
+.scaffolding_page_navi {
   /* current page link */
-  /* end .bones_page_navi .bpn-current */
+  /* end .scaffolding_page_navi .bpn-current */
   /* common styles for page-navi links */
   /* remove the bg on end links */
   /* previous link */
@@ -1970,51 +1970,51 @@ PAGE NAVI STYLES
   /* last page link */
 }
 /* line 125, ../scss/_base.scss */
-.bones_page_navi li {
+.scaffolding_page_navi li {
   float: left;
   margin-left: 10px;
 }
 /* line 129, ../scss/_base.scss */
-.bones_page_navi li a {
+.scaffolding_page_navi li a {
   padding: 3px 6px;
   display: block;
   text-decoration: none;
   position: relative;
 }
 /* line 136, ../scss/_base.scss */
-.bones_page_navi li a:hover, .bones_page_navi li a:focus {
+.scaffolding_page_navi li a:hover, .scaffolding_page_navi li a:focus {
   color: #f01d4f;
   text-decoration: underline;
 }
 /* line 145, ../scss/_base.scss */
-.bones_page_navi li.bpn-current {
+.scaffolding_page_navi li.bpn-current {
   padding: 3px 6px;
   border-bottom: 2px solid #f01d4f;
   position: relative;
 }
 /* line 150, ../scss/_base.scss */
-.bones_page_navi li.bpn-current a {
+.scaffolding_page_navi li.bpn-current a {
   /* hovering on current page link */
 }
 /* line 161, ../scss/_base.scss */
-.bones_page_navi li.bpn-prev-link,
-.bones_page_navi li.bpn-next-link {
+.scaffolding_page_navi li.bpn-prev-link,
+.scaffolding_page_navi li.bpn-next-link {
   font-weight: 700;
 }
 /* line 164, ../scss/_base.scss */
-.bones_page_navi li.bpn-prev-link a,
-.bones_page_navi li.bpn-next-link a {
+.scaffolding_page_navi li.bpn-prev-link a,
+.scaffolding_page_navi li.bpn-next-link a {
   padding: 0;
 }
 /* line 173, ../scss/_base.scss */
-.bones_page_navi li.bpn-prev-link a:hover,
-.bones_page_navi li.bpn-next-link a:hover,
-.bones_page_navi li.bpn-first-page-link a:hover,
-.bones_page_navi li.bpn-last-page-link a:hover {
+.scaffolding_page_navi li.bpn-prev-link a:hover,
+.scaffolding_page_navi li.bpn-next-link a:hover,
+.scaffolding_page_navi li.bpn-first-page-link a:hover,
+.scaffolding_page_navi li.bpn-last-page-link a:hover {
   background: none;
 }
 
-/* end .bones_page_navi */
+/* end .scaffolding_page_navi */
 /* fallback previous & next links */
 /* line 216, ../scss/_base.scss */
 .wp-prev-next .prev-link {

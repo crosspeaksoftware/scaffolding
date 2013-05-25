@@ -17,7 +17,7 @@
 
 							<?php
 							/* Hidden by default
-							<p class="byline vcard"><?php _e("Posted", "bonestheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
+							<p class="byline vcard"><?php _e("Posted", "scaffoldingtheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "scaffoldingtheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "scaffoldingtheme"); ?> <?php the_category(', '); ?>.</p>
 							*/ ?>
 
 						</header> <!-- end article header -->
@@ -36,15 +36,15 @@
 				<?php endwhile; ?>
 
 				<?php
-				if (function_exists('bones_page_navi')) {
-					bones_page_navi();
+				if (function_exists('scaffolding_page_navi')) {
+					scaffolding_page_navi();
 				}
 				else {
 				?>
 					<nav class="wp-prev-next">
 						<ul class="clearfix">
-							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "bonestheme")) ?></li>
-							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "bonestheme")) ?></li>
+							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "scaffoldingtheme")) ?></li>
+							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "scaffoldingtheme")) ?></li>
 						</ul>
 					</nav>
 				<?php
@@ -55,10 +55,10 @@
 
 				<article id="post-not-found" class="hentry clearfix">
 					<header class="article-header">
-						<h2><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h2>
+						<h2><?php _e("Oops, Post Not Found!", "scaffoldingtheme"); ?></h2>
 					</header>
 					<section class="entry-content">
-						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "bonestheme"); ?></p>
+						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "scaffoldingtheme"); ?></p>
 					</section>
 					<footer class="article-footer">
 					</footer>

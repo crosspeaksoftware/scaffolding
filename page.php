@@ -15,7 +15,7 @@
 
 							<?php
 							/* Hidden by default
-							<p class="byline vcard"><?php _e("Posted", "bonestheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span>.</p>
+							<p class="byline vcard"><?php _e("Posted", "scaffoldingtheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "scaffoldingtheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span>.</p>
 							*/ ?>
 
 						</header> <!-- end article header -->
@@ -40,10 +40,10 @@
 
 				<article id="post-not-found" class="hentry clearfix">
 					<header class="article-header">
-						<h2><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h2>
+						<h2><?php _e("Oops, Post Not Found!", "scaffoldingtheme"); ?></h2>
 					</header>
 					<section class="entry-content">
-						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "bonestheme"); ?></p>
+						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "scaffoldingtheme"); ?></p>
 					</section>
 					<footer class="article-footer">
 					</footer>

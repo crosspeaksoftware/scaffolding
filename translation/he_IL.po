@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp theme bones\n"
+"Project-Id-Version: wp theme scaffolding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-02 22:11+0100\n"
 "PO-Revision-Date: \n"
@@ -11,11 +11,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e;_n\n"
-"X-Poedit-Basepath: /home/fulgor/GIT/bones\n"
+"X-Poedit-Basepath: /home/fulgor/GIT/scaffolding\n"
 "Last-Translator: Elron <elron100duck@gmail.com>\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
-"X-Poedit-SearchPath-0: /home/fulgor/GIT/bones\n"
+"X-Poedit-SearchPath-0: /home/fulgor/GIT/scaffolding\n"
 
 #: comments.php:12
 msgid "This post is password protected. Enter the password to view comments."
@@ -252,7 +252,7 @@ msgstr "מצטערים, התוכן המבוקש לא נמצא באתר."
 msgid "Please activate some Widgets."
 msgstr "נא להפעיל כמה וידג'טים."
 
-#: bones.php:52
+#: scaffolding.php:52
 msgid "Read more &raquo;"
 msgstr "להמשיך לקרוא &laquo;"
 

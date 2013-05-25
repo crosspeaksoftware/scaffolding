@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp theme bones\n"
+"Project-Id-Version: wp theme scaffolding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-02 17:52+0200\n"
 "PO-Revision-Date: \n"
@@ -217,11 +217,11 @@ msgstr "Это сообщение об ошибке в шаблоне single.php
 msgid "This is the error message in the taxonomy-custom_cat.php template."
 msgstr "Это сообщение об ошибке в шаблоне taxonomy-custom_cat.php."
 
-#: ../bones.php:206
+#: ../scaffolding.php:206
 msgid "The Main Menu"
 msgstr "Главное меню"
 
-#: ../bones.php:207
+#: ../scaffolding.php:207
 msgid "Footer Links"
 msgstr "Ссылки в футере"
 

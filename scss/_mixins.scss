@@ -92,9 +92,9 @@ $alert-blue:        #d5edf8;
 $black:             #000;
 $white:             #fff;
 
-$bones-blue:        #20AFE9;
+$scaffolding-blue:        #20AFE9;
 
-$link-color:        $bones-blue;
+$link-color:        $scaffolding-blue;
 $link-hover:        darken($link-color, 9%);
 
 /*
@@ -267,16 +267,16 @@ BUTTONS
 }
 
 .blue-button, .blue-button:visited {
-	border-color: darken($bones-blue, 10%);
-	text-shadow: 0 1px 1px darken($bones-blue, 10%);
-	@include css-gradient( $bones-blue, darken($bones-blue, 5%) );
-	@include box-shadow(inset 0 0 3px lighten($bones-blue, 16%));
+	border-color: darken($scaffolding-blue, 10%);
+	text-shadow: 0 1px 1px darken($scaffolding-blue, 10%);
+	@include css-gradient( $scaffolding-blue, darken($scaffolding-blue, 5%) );
+	@include box-shadow(inset 0 0 3px lighten($scaffolding-blue, 16%));
 
 	&:hover, &:focus {
-		border-color: darken($bones-blue, 15%);
-		@include css-gradient( darken($bones-blue, 4%), darken($bones-blue, 10%) );
+		border-color: darken($scaffolding-blue, 15%);
+		@include css-gradient( darken($scaffolding-blue, 4%), darken($scaffolding-blue, 10%) );
 	}
 	&:active {
-		@include css-gradient( darken($bones-blue, 5%), $bones-blue );
+		@include css-gradient( darken($scaffolding-blue, 5%), $scaffolding-blue );
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 /*
 Author: Eddie Machado
-URL: htp://themble.com/bones/
+URL: htp://themble.com/scaffolding/
 
 This is where you can drop your custom functions or
 just edit things like thumbnail sizes, header images,
@@ -11,7 +11,7 @@ sidebars, comments, ect.
 /************* INCLUDE NEEDED FILES ***************/
 
 /*
-1. bones.php
+1. scaffolding.php
 	- head cleanup (remove rsd, uri links, junk css, ect)
 	- enqueueing scripts & styles
 	- theme support functions
@@ -23,7 +23,7 @@ sidebars, comments, ect.
 	- custom google+ integration
 	- adding custom fields to user profiles
 */
-require_once('bones.php'); // if you remove this, bones will break
+require_once('scaffolding.php'); // if you remove this, scaffolding will break
 /*
 2. custom-post-type.php
 	- an example custom post type
@@ -44,23 +44,23 @@ inside the thumbnail function.
 
 For example, to call the 300 x 300 sized image,
 we would use the function:
-<?php the_post_thumbnail( 'bones-thumb-300' ); ?>
+<?php the_post_thumbnail( 'scaffolding-thumb-300' ); ?>
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
 // Thumbnail sizes
-//add_image_size( 'bones-thumb-600', 600, 150, true );
+//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
 
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
-function bones_register_sidebars() {
+function scaffolding_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'left-sidebar',
-		'name' => __('Left Sidebar', 'bonestheme'),
-		'description' => __('The Left (primary) sidebar used for the interior menu.', 'bonestheme'),
+		'name' => __('Left Sidebar', 'scaffoldingtheme'),
+		'description' => __('The Left (primary) sidebar used for the interior menu.', 'scaffoldingtheme'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -68,8 +68,8 @@ function bones_register_sidebars() {
 	));
 	register_sidebar(array(
 		'id' => 'right-sidebar',
-		'name' => __('Right Sidebar', 'bonestheme'),
-		'description' => __('The Right sidebar used for the interior call to actions.', 'bonestheme'),
+		'name' => __('Right Sidebar', 'scaffoldingtheme'),
+		'description' => __('The Right sidebar used for the interior call to actions.', 'scaffoldingtheme'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -111,7 +111,7 @@ add_action( 'admin_menu', 'change_post_menu_label' );
 */
 
 // Comment Layout
-function bones_comments($comment, $args, $depth) {
+function scaffolding_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
@@ -129,13 +129,13 @@ function bones_comments($comment, $args, $depth) {
 				?>
 				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
 				<!-- end custom gravatar call -->
-				<?php printf(__('<cite class="fn">%s</cite>', 'bonestheme'), get_comment_author_link()) ?>
-				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__('F jS, Y', 'bonestheme')); ?> </a></time>
-				<?php edit_comment_link(__('(Edit)', 'bonestheme'),'  ','') ?>
+				<?php printf(__('<cite class="fn">%s</cite>', 'scaffoldingtheme'), get_comment_author_link()) ?>
+				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__('F jS, Y', 'scaffoldingtheme')); ?> </a></time>
+				<?php edit_comment_link(__('(Edit)', 'scaffoldingtheme'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
 	   			<div class="alert info">
-		  			<p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
+		  			<p><?php _e('Your comment is awaiting moderation.', 'scaffoldingtheme') ?></p>
 		  		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
@@ -150,10 +150,10 @@ function bones_comments($comment, $args, $depth) {
 /************* SEARCH FORM LAYOUT *****************/
 
 // Search Form
-function bones_wpsearch($form) {
+function scaffolding_wpsearch($form) {
 	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	<label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','bonestheme').'" />
+	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffoldingtheme') . '</label>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','scaffoldingtheme').'" />
 	<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
 	</form>';
 	return $form;
@@ -166,12 +166,12 @@ register_default_headers( array(
 	'default' => array(
 		'url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
 		'thumbnail_url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
-		'description' => __( 'default', 'bones' )
+		'description' => __( 'default', 'scaffolding' )
 	)
 ));
 
 //Set header image as a BG
-function bones_custom_headers_callback(){
+function scaffolding_custom_headers_callback(){
     ?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
 }
 
@@ -245,29 +245,29 @@ add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 /************* CUSTOM LOGIN PAGE *****************/
 // calling your own login css so you can style it
-function bones_login_css() {
+function scaffolding_login_css() {
 	/* I couldn't get wp_enqueue_style to work :( */
 	echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/css/login.css">';
 }
 
 // changing the logo link from wordpress.org to your site
-function bones_login_url() {  return home_url(); }
+function scaffolding_login_url() {  return home_url(); }
 
 // changing the alt text on the logo to show your site name
-function bones_login_title() { return get_option('blogname'); }
+function scaffolding_login_title() { return get_option('blogname'); }
 
 // calling it only on the login page
-add_action('login_head', 'bones_login_css');
-add_filter('login_headerurl', 'bones_login_url');
-add_filter('login_headertitle', 'bones_login_title');
+add_action('login_head', 'scaffolding_login_css');
+add_filter('login_headerurl', 'scaffolding_login_url');
+add_filter('login_headertitle', 'scaffolding_login_title');
 
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer
-function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/rclations/toolkit" target="_blank">toolkit</a> a branch of <a href="http://themble.com/bones" target="_blank">Bones</a>.';
+function scaffolding_custom_admin_footer() {
+	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/rclations/toolkit" target="_blank">toolkit</a> a branch of <a href="http://themble.com/scaffolding" target="_blank">scaffolding</a>.';
 }
 // adding it to the admin area
-add_filter('admin_footer_text', 'bones_custom_admin_footer');
+add_filter('admin_footer_text', 'scaffolding_custom_admin_footer');
 
 
 /************* REMOVE HEIGHT & WIDTH ON IMAGES *****************/
@@ -275,7 +275,7 @@ add_filter('admin_footer_text', 'bones_custom_admin_footer');
 * Filter out hard-coded width, height attributes on all images in WordPress.
 * https://gist.github.com/4557917 - for more information
 */
-function bones_remove_img_dimensions($html) {
+function scaffolding_remove_img_dimensions($html) {
     // Loop through all <img> tags
     if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
         foreach ($matches as $match) {
@@ -287,9 +287,9 @@ function bones_remove_img_dimensions($html) {
     }
     return $html;
 }
-add_filter('post_thumbnail_html', 'bones_remove_img_dimensions', 10);
-//add_filter('the_content', 'bones_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
-add_filter('get_avatar','bones_remove_img_dimensions', 10);
+add_filter('post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10);
+//add_filter('the_content', 'scaffolding_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
+add_filter('get_avatar','scaffolding_remove_img_dimensions', 10);
 
 
 /************* CLIENT ACCESS FUNCTIONS *****************/
@@ -306,7 +306,7 @@ wp_unregister_sidebar_widget( 'wpe_widget_powered_by' ); // Removes the Powered 
 /************* CUSTOM FUNCTIONS *****************/
 
 //Apply styles to the visual editor
-function bones_mcekit_editor_style($url) {
+function scaffolding_mcekit_editor_style($url) {
 	if ( !empty($url) )
 		$url .= ',';
 	// Retrieves the plugin directory URL and adds editor stylesheet
@@ -314,7 +314,7 @@ function bones_mcekit_editor_style($url) {
 	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
 	return $url;
 }
-add_filter('mce_css', 'bones_mcekit_editor_style');
+add_filter('mce_css', 'scaffolding_mcekit_editor_style');
 
 
 // Remove Wordpress Logo From Admin Bar
@@ -414,7 +414,7 @@ function get_excerpt($length=100) {
 	$text = strip_tags($text,'<b><strong><em><i><br><span><p>'); //remove most html tags optional, recommended
 
 	//add read more link without interfering with excerpt length
-	$excerpt_end = '... <a class="read-more-link" href="'. get_permalink($post->ID) . '" title="'. __('Read ', 'bonestheme') . get_the_title($post->ID).'">'. __('Read more', 'bonestheme') .'</a>';
+	$excerpt_end = '... <a class="read-more-link" href="'. get_permalink($post->ID) . '" title="'. __('Read ', 'scaffoldingtheme') . get_the_title($post->ID).'">'. __('Read more', 'scaffoldingtheme') .'</a>';
 	$excerpt_end_size = strlen($excerpt_end);
 	$length = $length + $excerpt_end_size;
 

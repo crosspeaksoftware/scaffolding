@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp theme bones\n"
+"Project-Id-Version: wp theme scaffolding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-02 22:11+0100\n"
 "PO-Revision-Date: \n"
@@ -11,10 +11,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e;_n\n"
-"X-Poedit-Basepath: /home/fulgor/GIT/bones\n"
+"X-Poedit-Basepath: /home/fulgor/GIT/scaffolding\n"
 "Last-Translator: \n"
 "X-Generator: Poedit 1.5.4\n"
-"X-Poedit-SearchPath-0: /home/fulgor/GIT/bones\n"
+"X-Poedit-SearchPath-0: /home/fulgor/GIT/scaffolding\n"
 
 #: comments.php:12
 msgid "This post is password protected. Enter the password to view comments."
@@ -245,7 +245,7 @@ msgstr "Beklager, men det søgte emne blev ikke fundet på denne side."
 msgid "Please activate some Widgets."
 msgstr "Aktiver venligst nogle Widgets."
 
-#: library/bones.php:52
+#: library/scaffolding.php:52
 msgid "Read more &raquo;"
 msgstr "Læs mere &raquo;"
 

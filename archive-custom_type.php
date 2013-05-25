@@ -17,7 +17,7 @@
 
 							<?php
 							/* Hidden by default
-							<p class="byline vcard"><?php printf(__('Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>.', 'bonestheme'), get_the_time('Y-m-j'), get_the_time(__('F jS, Y', 'bonestheme')), bones_get_the_author_posts_link()); ?></p>
+							<p class="byline vcard"><?php printf(__('Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>.', 'scaffoldingtheme'), get_the_time('Y-m-j'), get_the_time(__('F jS, Y', 'scaffoldingtheme')), scaffolding_get_the_author_posts_link()); ?></p>
 							*/ ?>
 
 						</header> <!-- end article header -->
@@ -37,15 +37,15 @@
 				<?php endwhile; ?>
 
 				<?php
-				if (function_exists('bones_page_navi')) {
-					bones_page_navi();
+				if (function_exists('scaffolding_page_navi')) {
+					scaffolding_page_navi();
 				}
 				else {
 				?>
 					<nav class="wp-prev-next">
 						<ul class="clearfix">
-							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "bonestheme")) ?></li>
-							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "bonestheme")) ?></li>
+							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "scaffoldingtheme")) ?></li>
+							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "scaffoldingtheme")) ?></li>
 						</ul>
 					</nav>
 				<?php
@@ -56,10 +56,10 @@
 
 				<article id="post-not-found" class="hentry clearfix">
 					<header class="article-header">
-						<h2><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h2>
+						<h2><?php _e("Oops, Post Not Found!", "scaffoldingtheme"); ?></h2>
 					</header>
 					<section class="entry-content">
-						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "bonestheme"); ?></p>
+						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "scaffoldingtheme"); ?></p>
 					</section>
 					<footer class="article-footer">
 					</footer>

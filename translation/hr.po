@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp theme bones\n"
+"Project-Id-Version: wp theme scaffolding\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-01 19:37+0100\n"
 "PO-Revision-Date: \n"
@@ -323,34 +323,34 @@ msgstr "Najnovije sa Themble (Prilagodi u admin.php)"
 msgid ""
 "<span id=\"footer-thankyou\">Developed by <a href=\"http://yoursite.com\" "
 "target=\"_blank\">Your Site Name</a></span>. Built using <a href=\"http://"
-"themble.com/bones\" target=\"_blank\">Bones</a>."
+"themble.com/scaffolding\" target=\"_blank\">scaffolding</a>."
 msgstr ""
 "<span id=\"footer-thankyou\">Razvio <a href=\"http://jurica-zuanovic.from.hr"
 "\" target=\"_blank\">juricazuanovic</a></span>. Izgrađeno koristeći <a href="
 "\"http://hr.wordpress.org\" target=\"_blank\">WordPress</a> i <a href="
-"\"http://themble.com/bones\" target=\"_blank\">Bones</a>."
+"\"http://themble.com/scaffolding\" target=\"_blank\">scaffolding</a>."
 
-#: bones.php:217 bones.php:234
+#: scaffolding.php:217 scaffolding.php:234
 msgid "The Main Menu"
 msgstr "Glavni Izbornik"
 
-#: bones.php:218 bones.php:252
+#: scaffolding.php:218 scaffolding.php:252
 msgid "Footer Links"
 msgstr "Poveznice Podnožja"
 
-#: bones.php:296
+#: scaffolding.php:296
 msgid "No Related Posts Yet!"
 msgstr "Još nema srodnih postova!"
 
-#: bones.php:340
+#: scaffolding.php:340
 msgid "First"
 msgstr "Prva"
 
-#: bones.php:357
+#: scaffolding.php:357
 msgid "Last"
 msgstr "Posljednja"
 
-#: bones.php:391
+#: scaffolding.php:391
 #, php-format
 msgid "Posts by %s"
 msgstr "Postovi od %s"
