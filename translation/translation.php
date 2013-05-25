@@ -4,7 +4,6 @@ Thanks to the fantastic work by scaffolding users, we've now
 the ability to translate scaffolding into different languages.
 
 Developed by: Eddie Machado
-URL: http://themble.com/scaffolding/
 */
 
 

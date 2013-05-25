@@ -11,7 +11,6 @@ and change things if they are concentrated
 in their own file.
 
 Developed by: Eddie Machado
-URL: http://themble.com/scaffolding/
 */
 
 
