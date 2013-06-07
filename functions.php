@@ -244,7 +244,7 @@ function scaffolding_main_nav() {
 	wp_nav_menu(array(
 		'container' => false,						 	// remove nav container
 		'container_class' => '',		 				// class of container (should you choose to use it)
-		'menu' => 'Main Menu',					 	 	// nav name
+		'menu' => '',							 	 	// nav name
 		'menu_class' => 'menu main-menu wrap clearfix', // adding custom nav class
 		'theme_location' => 'main-menu',			 	// where it's located in the theme
 		'before' => '',								 	// before the menu
@@ -262,7 +262,7 @@ function scaffolding_footer_nav() {
 	wp_nav_menu(array(
 		'container' => '',
 		'container_class' => '',
-		'menu' => 'Footer Links',
+		'menu' => '',
 		'menu_class' => 'menu footer-menu clearfix',
 		'theme_location' => 'footer-menu',
 		'before' => '',

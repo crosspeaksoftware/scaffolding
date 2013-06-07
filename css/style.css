@@ -2655,7 +2655,7 @@ you can add resource intensive styles.
   called at the top the style.scss stylesheet.
   
   There are a ton of grid solutions out there. You should definitely
-  experiment with your own. Here are some recommendations:
+  experiment with your own. Here are some recommenda tions:
   
   http://gridsetapp.com - Love this site. Responsive Grids made easy.
   http://susy.oddbird.net/ - Grids using Compass. Very elegant.
@@ -3293,13 +3293,13 @@ you can add resource intensive styles.
 */
 @media only screen and (min-width: 1030px) {
   /******************************************************************
-  Site Name: 
-  Author: 
+  Site Name:
+  Author:
   
   Stylesheet: Desktop Stylsheet
   
   This is the desktop size. It's larger than an iPad so it will only
-  be seen on the Desktop. 
+  be seen on the Desktop.
   
   ******************************************************************/
 }
@@ -3309,8 +3309,8 @@ This is for the larger monitors and possibly full screen viewers.
 */
 @media only screen and (min-width: 1240px) {
   /******************************************************************
-  Site Name: 
-  Author: 
+  Site Name:
+  Author:
   
   Stylesheet: Super Large Monitor Stylesheet
   

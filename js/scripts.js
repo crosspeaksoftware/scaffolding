@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
 	var responsive_viewport = $(window).width() + getScrollBarWidth();
 
 	// RESPONSIVE NAV
-	var menu = $('#menu-main-menu');
+	var menu = $('#main-navigation > ul');
 	$('.menu-button').on('click', function(e) {
 		e.preventDefault();
 		$(this).next('ul').slideToggle();
