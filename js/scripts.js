@@ -27,6 +27,33 @@ if (!window.getComputedStyle) {
 	}
 }
 
+//Caculate the width of the scroll bar so css media queries and js widow.width match
+function getScrollBarWidth () {
+	var inner = document.createElement('p');
+	inner.style.width = "100%";
+	inner.style.height = "200px";
+
+	var outer = document.createElement('div');
+	outer.style.position = "absolute";
+	outer.style.top = "0px";
+	outer.style.left = "0px";
+	outer.style.visibility = "hidden";
+	outer.style.width = "200px";
+	outer.style.height = "150px";
+	outer.style.overflow = "hidden";
+	outer.appendChild (inner);
+
+	document.body.appendChild (outer);
+	var w1 = inner.offsetWidth;
+	outer.style.overflow = 'scroll';
+	var w2 = inner.offsetWidth;
+	if (w1 == w2) w2 = outer.clientWidth;
+
+	document.body.removeChild (outer);
+
+	return (w1 - w2);
+};
+
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
@@ -38,7 +65,25 @@ jQuery(document).ready(function($) {
 	*/
 
 	/* getting viewport width */
-	var responsive_viewport = $(window).width();
+	var responsive_viewport = $(window).width() + getScrollBarWidth();
+
+	// RESPONSIVE NAV
+	var menu = $('#menu-main-menu');
+	$('.menu-button').on('click', function(e) {
+		e.preventDefault();
+		$(this).next('ul').slideToggle();
+		$(this).toggleClass('menu-open');
+	});
+
+	$(window).resize(function() {
+		responsive_viewport = $(window).width() + getScrollBarWidth();
+		if(responsive_viewport >= 768 && menu.is(':hidden')) {
+			menu.removeAttr('style');
+		}else if(responsive_viewport < 768 && !menu.is(':hidden')){
+			menu.css('display','none');
+		}
+	});
+	// END RESPONSIVE NAV
 
 	/* if is below 481px */
 	if (responsive_viewport < 481) {
@@ -49,46 +94,27 @@ jQuery(document).ready(function($) {
 		}
 	} /* end smallest screen */
 
+	/* if is smaller than 481px */
+	if (responsive_viewport < 481) {}
 	/* if is larger than 481px */
-	if (responsive_viewport > 481) {
+	if (responsive_viewport > 481){}
 
-	} /* end larger than 481px */
-
-	/* if is above or equal to 768px */
-	if (responsive_viewport >= 768) {
-
+	/* if is smaller to 768px */
+	if (responsive_viewport < 768) {
+		menu.css({"display":"none"});
+	}
+	/* if is larger to 768px */
+	if (responsive_viewport > 768) {
 		/* load gravatars */
 		$('.comment img[data-gravatar]').each(function(){
 			$(this).attr('src',$(this).attr('data-gravatar'));
 		});
-
 	}
 
+	/* off the bat smaller screen actions */
+	if (responsive_viewport < 1030) {}
 	/* off the bat large screen actions */
-	if (responsive_viewport > 1030) {
-
-	}
-
-	// RESPONSIVE NAV
-	var pull = $('#pull');
-		menu = $('nav ul');
-		menuHeight = menu.height();
-
-	pull.on('click', function(e) {
-		e.preventDefault();
-		menu.slideToggle();
-	});
-
-	$(window).resize(function() {
-		var w = $(window).width();
-		if(w > 320 && menu.is(':hidden')) {
-			menu.removeAttr('style');
-		}
-	});
-	// END RESPONSIVE NAV
-
-	// add all your scripts here
-
+	if (responsive_viewport > 1030) {}
 
 }); /* end of as page load scripts */
 

@@ -27,56 +27,34 @@ CLEARFIXIN'
 }
 
 /*********************
-TOOLS
+Images
 *********************/
-
-// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
-.image-replacement {
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
+.img-border {
+    border:1px solid #CCC;
+    padding:5px;
 }
 
-// Device-specific hide/show classes. Written in reverse logic for IE compatibility
-.mobile-only {
-	display: none;
+.img-rounded {
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
 }
 
-	@media only screen and (max-width: 480px) {
-		.mobile-only {
-			display: block;
-		}
-	}
-
-.mobile-hide {
-	display: block;
+.img-polaroid {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-	@media only screen and (max-width: 480px) {
-		.mobile-hide {
-			display: none;
-		}
-	}
-
-.tablet-only {
-	display: none;
+.img-circle {
+  -webkit-border-radius: 500px;
+     -moz-border-radius: 500px;
+          border-radius: 500px;
 }
-
-	@media only screen and (max-width: 767px) {
-		.tablet-only {
-			display: block;
-		}
-	}
-
-.tablet-hide {
-	display: block;
-}
-
-	@media only screen and (max-width: 767px) {
-		.tablet-hide {
-			display: none;
-		}
-	}
 
 /*********************
 COLORS
@@ -107,29 +85,6 @@ http://sachagreif.com/sass-color-variables/
 /*********************
 TYPOGRAPHY
 *********************/
-
-
-
-/* 	To embed your own fonts, use this syntax
-	and place your fonts inside the
-	fonts folder. For more information
-	on embedding fonts, go to:
-	http://www.fontsquirrel.com/
-	Be sure to remove the comment brackets.
-*/
-
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('fonts/font-name.eot');
-    	src: url('fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('fonts/font-name.woff') format('woff'),
-             url('fonts/font-name.ttf') format('truetype'),
-             url('fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
-	}
-*/
-
 /*
 use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
@@ -138,12 +93,6 @@ span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
 }
-
-// text alignment
-.text-left   { text-align: left; }
-.text-center { text-align: center; }
-.text-right  { text-align: right; }
-
 
 // alerts and notices  -  *You'll need to be using Sass 3.2+ for these to work.
 %alert {
@@ -174,6 +123,105 @@ span.amp {
 	@extend %alert;
 	border-color: darken($alert-green, 5%);
 	background: $alert-green;
+}
+
+
+// Device-specific hide/show classes. Written in reverse logic for IE compatibility
+.mobile-only {display: none;}
+@media only screen and (max-width: 480px) {
+	.mobile-only {display: inline-block;}
+}
+.mobile-hide {display: block;}
+@media only screen and (max-width: 480px) {
+	.mobile-hide {display: none;}
+}
+.tablet-only {display: none;}
+@media only screen and (max-width: 767px) {
+	.tablet-only {display: inline-block;}
+}
+.tablet-hide {display: block;}
+@media only screen and (max-width: 767px) {
+	.tablet-hide {display: none;}
+}
+
+/******************************************************************
+ UTILITY STYLES
+******************************************************************/
+.float-left{float:left;}
+.float-none{float:none;}
+.float-right{float:right;}
+.clear-left{clear:left;}
+.clear-both{clear:both;}
+.clear-right{clear:right;}
+
+/* Image replacement */
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+
+.invisible {
+    visibility: hidden;
+}
+/*********************
+CLEARFIXIN'
+*********************/
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+  zoom: 1;
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
 }
 
 /*********************
@@ -227,56 +275,4 @@ really slow down your CSS. Don't overdue it.
 	background-image: -moz-linear-gradient(top, $from, $to);
 	background-image: -o-linear-gradient(top, $from, $to);
 	background-image: linear-gradient(to bottom, $from, $to);
-}
-
-
-/*********************
-BUTTONS
-*********************/
-
-.button, .button:visited {
-	font-family: $sans-serif;
-	border: 1px solid darken($link-color, 13%);
-	border-top-color: darken($link-color, 7%);
-	border-left-color: darken($link-color, 7%);
-	padding: 4px 12px;
-	color: $white;
-	display: inline-block;
-	font-size: 11px;
-	font-weight: bold;
-	text-decoration: none;
-	text-shadow: 0 1px rgba(0,0,0, .75);
-	cursor: pointer;
-	margin-bottom: 20px;
-	line-height: 21px;
-	@include border-radius(4px);
-	@include css-gradient($link-color, darken($link-color, 5%));
-
-
-	&:hover, &:focus {
-		color: $white;
-	  	border: 1px solid darken($link-color, 13%);
-	  	border-top-color: darken($link-color, 20%);
-	 	border-left-color: darken($link-color, 20%);
-		@include css-gradient(darken($link-color, 5%), darken($link-color, 10%));
-	}
-
-	&:active {
-		@include css-gradient(darken($link-color, 5%), $link-color);
-	}
-}
-
-.blue-button, .blue-button:visited {
-	border-color: darken($scaffolding-blue, 10%);
-	text-shadow: 0 1px 1px darken($scaffolding-blue, 10%);
-	@include css-gradient( $scaffolding-blue, darken($scaffolding-blue, 5%) );
-	@include box-shadow(inset 0 0 3px lighten($scaffolding-blue, 16%));
-
-	&:hover, &:focus {
-		border-color: darken($scaffolding-blue, 15%);
-		@include css-gradient( darken($scaffolding-blue, 4%), darken($scaffolding-blue, 10%) );
-	}
-	&:active {
-		@include css-gradient( darken($scaffolding-blue, 5%), $scaffolding-blue );
-	}
 }

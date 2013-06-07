@@ -10,7 +10,7 @@
 		<div id="inner-footer" class="wrap clearfix">
 
 			<nav role="navigation">
-				<?php scaffolding_footer_links(); ?>
+				<?php scaffolding_footer_nav(); ?>
 			</nav>
 
 			<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>

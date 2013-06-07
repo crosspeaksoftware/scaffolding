@@ -123,7 +123,7 @@ function scaffolding_scripts_and_styles() {
 	if (!is_admin()) {
 
 		// modernizr (without media query polyfill)
-		wp_register_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '', false );
+		wp_register_script( 'scaffolding-modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '', false );
 
 		// register main stylesheet
 		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
@@ -170,8 +170,9 @@ function scaffolding_theme_support() {
 	// default thumb size
 	set_post_thumbnail_size(125, 125, true);
 
+/* Feature Currently Disabled
 	// wp custom background (thx to @bransonwerner for update)
-	/*add_theme_support( 'custom-background',
+	add_theme_support( 'custom-background',
 		array(
 		'default-image' => '',  // background image default
 		'default-color' => '', // background color default (dont add the #)
@@ -179,7 +180,8 @@ function scaffolding_theme_support() {
 		'admin-head-callback' => '',
 		'admin-preview-callback' => ''
 		)
-	);*/
+	);
+*/
 
 	// rss thingy
 	add_theme_support('automatic-feed-links');
@@ -187,7 +189,7 @@ function scaffolding_theme_support() {
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 	//adding custome header suport
 	add_theme_support( 'custom-header', array(
-		'default-image'=> '%s/images/interior-headers/default.jpg',
+		'default-image'=> '%s/images/headers/default.jpg',
 		'random-default'=> false,
 		'width'=> 999,
 		'height'=> 262,
@@ -202,21 +204,22 @@ function scaffolding_theme_support() {
 		)
 	);
 
-	/*// adding post format support
+/* Feature Currently Disabled
+	// adding post format support
 	add_theme_support( 'post-formats',
 		array(
-			'aside',			 // title less blurb
+			'aside',			// title less blurb
 			'gallery',			// gallery of images
-			'link',			  // quick link to other site
-			'image',			 // an image
-			'quote',			 // a quick quote
+			'link',			  	// quick link to other site
+			'image',			// an image
+			'quote',			// a quick quote
 			'status',			// a Facebook like status update
-			'video',			 // video
-			'audio',			 // audio
+			'video',			// video
+			'audio',			// audio
 			'chat'				// chat transcript
 		)
 	);
-	**/
+*/
 
 	// wp menus
 	add_theme_support( 'menus' );
@@ -224,9 +227,8 @@ function scaffolding_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'The Main Menu', 'scaffoldingtheme' ),	// main nav in header
-			'home-sub-nav' => __( 'Home Page Sub-Menu', 'scaffoldingtheme' ),	// main nav in header
-			'footer-links' => __( 'Footer Links', 'scaffoldingtheme' ) // secondary nav in footer
+			'main-nav' => __( 'Main Menu', 'scaffoldingtheme' ),	// main nav in header
+			'footer-nav' => __( 'Footer Menu', 'scaffoldingtheme' ) // secondary nav in footer
 		)
 	);
 } /* end scaffolding theme support */
@@ -240,54 +242,35 @@ MENUS & NAVIGATION
 function scaffolding_main_nav() {
 	// display the wp3 menu if available
 	wp_nav_menu(array(
-		'container' => false,							// remove nav container
-		'container_class' => 'menu clearfix',			// class of container (should you choose to use it)
-		'menu' => 'The Main Menu',					  // nav name
-		'menu_class' => 'nav top-nav clearfix',		 // adding custom nav class
-		'theme_location' => 'main-nav',				 // where it's located in the theme
-		'before' => '',								 // before the menu
-		'after' => '',								  // after the menu
-		'link_before' => '',							// before each link
-		'link_after' => '',							 // after each link
-		'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul><a href="#" id="pull">Menu</a>',
-		'depth' => 0,									// limit the depth of the nav
-		'fallback_cb' => 'scaffolding_main_nav_fallback'	  // fallback function
-	));
-} /* end scaffolding main nav */
-
-// the main menu
-function scaffolding_home_sub_nav() {
-	// display the wp3 menu if available
-	wp_nav_menu(array(
-		'container' => false,							// remove nav container
-		'container_class' => 'menu clearfix',			// class of container (should you choose to use it)
-		'menu' => 'The Home Sub-Menu',				  // nav name
-		'menu_class' => 'nav home-sub-nav clearfix',	// adding custom nav class
-		'theme_location' => 'home-sub-nav',			 // where it's located in the theme
-		'before' => '',								 // before the menu
-		'after' => '',								  // after the menu
-		'link_before' => '',							// before each link
-		'link_after' => '',							 // after each link
-		'depth' => 0,									// limit the depth of the nav
-		'fallback_cb' => 'scaffolding_home_sub_nav_fallback'  // fallback function
+		'container' => false,						 	// remove nav container
+		'container_class' => '',		 				// class of container (should you choose to use it)
+		'menu' => 'Main Menu',					 	 	// nav name
+		'menu_class' => 'menu main-menu wrap clearfix', // adding custom nav class
+		'theme_location' => 'main-menu',			 	// where it's located in the theme
+		'before' => '',								 	// before the menu
+		'after' => '',								 	// after the menu
+		'link_before' => '',						 	// before each link
+		'link_after' => '',							 	// after each link
+		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu">Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
+		'depth' => 0,								 	// limit the depth of the nav
+		'fallback_cb' => 'scaffolding_main_nav_fallback'// fallback function
 	));
 } /* end scaffolding main nav */
 
 // the footer menu (should you choose to use one)
-function scaffolding_footer_links() {
-	// display the wp3 menu if available
+function scaffolding_footer_nav() {
 	wp_nav_menu(array(
-		'container' => '',							  // remove nav container
-		'container_class' => 'footer-links clearfix',	// class of container (should you choose to use it)
-		'menu' => 'Footer Links',						// nav name
-		'menu_class' => 'nav footer-nav clearfix',	  // adding custom nav class
-		'theme_location' => 'footer-links',			 // where it's located in the theme
-		'before' => '',								 // before the menu
-		'after' => '',								  // after the menu
-		'link_before' => '',							// before each link
-		'link_after' => '',							 // after each link
-		'depth' => 0,									// limit the depth of the nav
-		'fallback_cb' => 'scaffolding_footer_links_fallback'  // fallback function
+		'container' => '',
+		'container_class' => '',
+		'menu' => 'Footer Links',
+		'menu_class' => 'menu footer-menu clearfix',
+		'theme_location' => 'footer-menu',
+		'before' => '',
+		'after' => '',
+		'link_before' => '',
+		'link_after' => '',
+		'depth' => 0,
+		'fallback_cb' => 'scaffolding_footer_nav_fallback'
 	));
 } /* end scaffolding footer link */
 
@@ -295,22 +278,17 @@ function scaffolding_footer_links() {
 function scaffolding_main_nav_fallback() {
 	wp_page_menu( array(
 		'show_home' => true,
-    	'menu_class' => 'nav footer-nav clearfix',      // adding custom nav class
+    	'menu_class' => 'nav main-nav clearfix',
 		'include'     => '',
 		'exclude'     => '',
 		'echo'        => true,
-        'link_before' => '',                            // before each link
-        'link_after' => ''                             // after each link
+        'link_before' => '',
+        'link_after' => ''
 	) );
 }
 
-// this is the fallback for home sub menu
-function scaffolding_home_sub_nav_fallback() {
-	/* you can put a default here if you like */
-}
-
 // this is the fallback for footer menu
-function scaffolding_footer_links_fallback() {
+function scaffolding_footer_nav_fallback() {
 	/* you can put a default here if you like */
 }
 

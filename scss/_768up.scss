@@ -38,50 +38,24 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-
-.nav {
-	border: 0;
+ul.menu {
 
 	li {
-		float: left;
-		position: relative;
 
 		a {
-			border-bottom: 0;
 
-			/*
-			you can use hover styles here even though this size
-			has the possibility of being a mobile device.
-			*/
-			&:hover, &:focus {
-				background-color: #dedede;
-
-			}
+			&:hover, &:focus {}
 		}
 
 		&:first-child {}
 		&:last-child {}
 
-		/*
-		plan your menus and drop-downs wisely.
-		*/
 		ul.sub-menu,
 		ul.children {
-			margin-top: 0;
-			border: 1px solid #ccc;
-			border-top: 0;
-			position: absolute;
-			display: none;
-			z-index: 8999;
 
 			li {
 
 				a {
-					padding-left: 10px;
-					border-right: 0;
-					display: block;
-					width: 180px;
-					border-bottom: 1px solid #ccc;
 
 					&:hover,
 					&:focus {}
@@ -90,121 +64,73 @@ NAVIGATION STYLES
 				}
 
 				&:first-child {}
+				&:last-child {}
 
-				&:last-child {
-
-					a {
-						border-bottom: 0;
-					}
-				}
-
-				/*
-				if you need to go deeper, go nuts
-				just remember deeper menus suck
-				for usability. k, bai.
-				*/
 				ul {}
 			}
-
-			/* highlight sub-menu current page */
-			li.current-menu-item,
-			li.current_page_item,
-			li.current-page-ancestor {
-				a {}
-			}
 		}
+	}
+}/*end ul.menu*/
 
-		/* showing sub-menus */
-		&:hover ul {
-			top: auto;
-			display: block;
-		}
+/****Main Navigation****/
 
-	} /* end .menu ul li */
+#main-navigation {
+	background-color:#333;
 
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
-		a {}
-	}  /* end current highlighters */
-
-} /* end .nav */
-
-/*Main Navigation*/
-.header {
-
-	.nav {}
-	
-	.top-nav {
-
+	ul.menu {
 		text-align:center;
 		padding:0;
-		margin:0;
 		position:relative;
 		z-index:1000;
 
 		li {
-
-			display:inline;
-			margin:0 13px;
+			display:inline-block;
+			border-top:none;
 			position:relative;
 			z-index:1000;
 
 			a {
-
 				display:inline-block;
-				color: #1b75bc;
-				font-weight: bold;
-				text-transform: uppercase;
-				text-decoration: none;
-				padding:10px 5px;
+				width:auto;
+				padding:10px 20px;
 
-				&:hover, &:focus {}
+				&:hover, &:focus {
+					color:#F79B36;
+				}
 			}
 
 			/*Children*/
 			ul.sub-menu,
 			ul.children {
-
-				background-color:#558FBF;
-				background-color:rgba(85,143,191,0.8);
-				border-bottom:3px solid #1b75bc;
 				display:none;
+				background-color:#333;
 				text-align:left;
 				min-width:100%;
-				padding:0;
-				margin:0;
 				position:absolute;
 				top:99.9%;
 				left:0px;
 				z-index:1000;
 
 				li {
-
 					display:block;
 					white-space:nowrap;
-					padding:0;
-					margin:0;
 
 					a {
-
 						display:block;
-						color: #fff;
-						font-size:13px;
-						font-weight: normal;
-						padding:5px;
+						padding:10px;
+
+						&:hover, &:focus {}
 					}
 
 					/*Grand Children*/
 					ul.sub-menu,
 					ul.children {
-					
 						left:99.9%;
 						top:0px;
 					}
 				}
 			}
+
 		} /* end .menu li */
 
 		/*Show the child ul*/
@@ -212,70 +138,95 @@ NAVIGATION STYLES
 			display: block;
 		}
 
-		li.mega-menu {
+	} /* end ul.menu */
+	/*menu buttons*/
+	.menu-button{
+		display:none;
+	}
+} /* end #main-navigation */
 
-			ul.sub-menu,
-			ul.children {
+/*********************
+POSTS & CONTENT STYLES
+*********************/
 
-				min-width:700%;
-				padding:5px;
+#content {
 
-				li {
+	#inner-content{
 
-					float:left;
-					width:30%;
-					height:50%;
+		.hentry {
 
-					a {
+			header {}
 
-						font-weight:bold;
-						padding-top:0;
-						padding-bottom:0;
-					}
+			footer {}
 
-					ul.sub-menu,
-					ul.children {
+		} /* end .hentry */
 
-						background:none;
-						border-bottom:none;
-						display:block;
-						height:auto;
-						min-width:auto;
-						position:static;
+		.single-title,
+		.page-title {}
 
-						li {
+		.single-title {}
 
-							float:none;
-							width:auto;
-							height:auto;
-							font-weight:normal;
-							white-space:normal;
-							padding-left:10px;
+		.page-title {}
 
-							a {
-								font-weight:normal;
-							}
-						}
-					}
-				}
+		.archive-title { }
+
+		/* want to style individual post classes? Booya! */
+		.post-id {}         /* post by id (i.e. post-3) */
+		.post {}            /* general post style */
+		.page {}            /* general article on a page style */
+		.attachment {}      /* general style on an attatchment */
+		.sticky {}          /* sticky post style */
+		.hentry {}          /* hentry class */
+		.category-slug {}   /* style by category (i.e. category-videos) */
+		.tag-slug {}        /* style by tag (i.e. tag-news) */
+
+		/* post meta */
+		.byline {
+
+			time {}
+		}
+
+		/* entry content */
+		.entry-content {
+
+			p {}
+
+
+			ul, ol, table, dl {}
+
+			ul, ol {
+
+				li {}
 
 			}
+
+			ul {
+
+				li {}
+
+			}
+
+			ol {
+
+				li {}
+
+			}
+
+			blockquote {
+
+				&:before {}
+
+			}
+
+			dl {}
+
+			dt {}
+
+			dd {}
 		}
-	} /* end .nav */
-
-	.top-nav > li.first-item{
-		float:left;
-		margin-left:0;
-		padding:0;
 	}
 
-	.top-nav > li.last-item{
-		float:right;
-		margin-right:0;
-		padding:0;
-	}
-} /* end .header */
-
+}
 
 /*********************
 SIDEBARS & ASIDES
@@ -435,14 +386,14 @@ mobile. Make sure to double check these!
 		height: 100%;
 		margin: 0;
 	}
-	
+
 	body.sticky-footer {
 
 		#container {
 		    display: table;
 		    width: 100%;
 		}
-	
+
 		#container .header,
 		#content,
 		#container .footer {
@@ -451,7 +402,7 @@ mobile. Make sure to double check these!
 		    overflow: hidden;
 		}
 	}
-	
+
 	html>/**/body.sticky-footer #container {
 	    height: 100%;
 	}

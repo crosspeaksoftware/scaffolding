@@ -11,9 +11,6 @@ remember less is more.
 // import normalize
 @import "normalize";
 
-//import google fonts - commented out for now
-//@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif);
-
 $sans: sans-serif;
 $serif: serif;
 
@@ -93,12 +90,101 @@ video, object {
     height: auto;
 }
 
-pre {
-    background: #eee;
-    border: 1px solid #cecece;
-    padding: 10px;
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted #999999;
 }
 
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 20px;
+  border-left: 5px solid #eeeeee;
+}
+
+blockquote p {
+  margin-bottom: 0;
+  font-size: 17.5px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+blockquote small {
+  display: block;
+  line-height: 20px;
+  color: #999999;
+}
+
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+address {
+  display: block;
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: 20px;
+}
+
+code,
+pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  color: #333333;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 20px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+pre code {
+  padding: 0;
+  color: inherit;
+  white-space: pre;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border: 0;
+}
+
+hr {
+	margin: 1.429em 0;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #ffffff;
+}
 /*********************
 * TABLE STYLES
 *********************/
@@ -245,11 +331,6 @@ h6, .h6 {
     margin: 0 auto;
 }
 
-.img-border {
-    border:1px solid #CCC;
-    padding:5px;
-}
-
 .wp-caption {
 	background: #eee;
 	padding: 5px;
@@ -268,94 +349,9 @@ h6, .h6 {
 
 } /* end .wp-caption */
 
-/*Custom Fonts*/
-.droidsans{
-    font-family: 'Droid Sans', sans-serif;
-}
-.droidserif{
-    font-family: 'Droid Serif', serif;
-}
-
-/* use the best ampersand http://simplebits.com/notebook/2008/08/14/ampersands-2/ */
-span.amp {}
-
-// alerts and notices  -  *You'll need to be using Sass 3.2+ for these to work.
-
-$alert-yellow:#ebe16f;
-$alert-red:#fbe3e4;
-$alert-green:#e6efc2;
-$alert-blue:#d5edf8;
-
-%alert {
-	margin: 2%;
-	padding: 2% 1%;
-	border: 1px solid;
-}
-
-.alert-help {
-	@extend %alert;
-	border-color: darken($alert-yellow, 5%);
-	background: $alert-yellow;
-}
-
-.alert-info {
-	@extend %alert;
-	border-color: darken($alert-blue, 5%);
-	background: $alert-blue;
-}
-
-.alert-error {
-	@extend %alert;
-	border-color: darken($alert-red, 5%);
-	background: $alert-red;
-}
-
-.alert-success {
-	@extend %alert;
-	border-color: darken($alert-green, 5%);
-	background: $alert-green;
-}
-// Device-specific hide/show classes. Written in reverse logic for IE compatibility
-.mobile-only {display: none;}
-@media only screen and (max-width: 480px) {
-	.mobile-only {display: inline-block;}
-}
-.mobile-hide {display: block;}
-@media only screen and (max-width: 480px) {
-	.mobile-hide {display: none;}
-}
-.tablet-only {display: none;}
-@media only screen and (max-width: 767px) {
-	.tablet-only {display: inline-block;}
-}
-.tablet-hide {display: block;}
-@media only screen and (max-width: 767px) {
-	.tablet-hide {display: none;}
-}
-/******************************************************************
- UTILITY STYLES
-******************************************************************/
-.float-left{float:left;}
-.float-none{float:none;}
-.float-right{float:right;}
-.clear-left{clear:left;}
-.clear-both{clear:both;}
-.clear-right{clear:right;}
-.image-replacement {display:block; text-indent: 100%; white-space: nowrap; overflow: hidden;}
-.image-replacement *{display:none;}
-.hidden { display: none !important; visibility: hidden; }
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-.invisible { visibility: hidden; }
-.clearfix {
-  zoom: 1;
-  display: block;
-	&:before, &:after { content: ""; display: table; }
-	&:after { clear: both; }
-}
-/*set the max size of the content area in the editor to match the template*/
+/*Use this class for any Editor Specific Styles to help the user experience
+ * set the max size of the content area in the editor to match the template*/
 .mceContentBody {
     max-width:1000px;
-    background-color:#F9F9F9;
-    line-height:1.5em;
+    background-color:#FDFDFD;
 }

@@ -37,42 +37,120 @@ HEADER SYTLES
 		background-size: cover;
 
 		.spacer {
-			padding-top: 23%; // change this value based on the aspect ratio of your header image
+			padding-top: 6%; // change this value based on the aspect ratio of your header image
 		}
 	}
 /*********************
 NAVIGATION STYLES
 *********************/
 /*Base Navigation Styles - these will effect all menus on the site*/
-.nav {
+ul.menu {
+
 	li {
+
 		a {
-			display: inline-block;
-			text-decoration: none;
-			padding: 10px 0px;
+
 			&:hover, &:focus {}
 		}
+
 		&:first-child {}
 		&:last-child {}
+
 		ul.sub-menu,
 		ul.children {
+
 			li {
-				a, a:visited {}
-				a:hover, a:focus {}
+
+				a {
+
+					&:hover,
+					&:focus {}
+
+					&:link {}
+				}
+
 				&:first-child {}
 				&:last-child {}
+
+				ul {}
 			}
 		}
 	}
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
-		a, a:visited {}
-		a:hover, a:focus {}
+}/*end ul.menu*/
+
+/****Main Navigation****/
+#main-navigation {
+
+	ul.menu {
+		background-color:#333;
+		clear:both;
+		padding:0;
+
+		li {
+			display:block;
+			background-color:#333;
+			border-top:1px solid #ddd;
+			margin:0;
+			padding:0;
+
+			a {
+				display:inline-block;
+				color:#fff;
+				font-size:1.143em;
+				text-decoration: none;
+				width:96%;
+				padding:12px 0 12px 4%;
+
+				&:hover, &:focus {}
+
+			}
+
+			&.first-item {
+				border-top:none;
+			}
+			&.last-item {}
+
+			/*sub menu*/
+			ul.sub-menu,
+			ul.children {
+				display:none;
+				margin:0;
+				padding:0;
+
+				li {
+					a {
+
+					&:hover, &:focus {}
+					}
+
+					&.first-item,
+					&.last-item {}
+				}
+			}
+		}
+	}
+	/*menu buttons*/
+	.menu-button{
+		display:block;
+		background-color:#333;
+		background-image:url('../images/nav-icon.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		float:right;
+		clear:right;
+		@include border-radius(4px);
+		width:60px;
+		height:40px;
+		text-indent: 100%;
+		white-space: nowrap;
+		margin:-40px 2% 0 0;
+		overflow: hidden;
+
+		&.menu-open{
+			@include border-radius(4px 4px 0px 0px);
+		}
 	}
 }
-
-
 /*********************
 POSTS & CONTENT STYLES
 *********************/

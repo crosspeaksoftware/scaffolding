@@ -1,6 +1,14 @@
 /******************************************************************
- FORM STYLES - Overwrites
+Site Name: Schooner Estates
+Author: Hall Internet Marketing
+
+Stylesheet: Forms Stylsheet
+
 ******************************************************************/
+
+/******************************************************
+FORM STYLES - Overwrites
+*******************************************************/
 form {
     label {}
 
@@ -8,7 +16,6 @@ form {
     select,
     input[type="text"],
     input[type="password"],
-    input[type="file"],
     input[type="color"],
     input[type="date"],
     input[type="datetime"],
@@ -24,14 +31,26 @@ form {
     input[type="text"],
     input[type="password"],
     input[type="file"]{
+	    outline:none;
 		background:#FFF;
-		border:1px solid #999;
-		@include box-shadow(inset 2px 2px 2px -1px rgba(0, 0, 0, 0.5));
+		border:1px solid #CCCCCC;
+		@include box-shadow(2px 2px 8px 0 #CCCCCC inset);
+		@include border-radius(2px);
+		color: #555555;
+		transition: all 0.25s ease-in-out;
+		-webkit-transition: all 0.25s ease-in-out;
+		-moz-transition: all 0.25s ease-in-out;
+		padding:8px 1%;
+
+		&:focus {
+			border:1px solid #333!important;
+		}
+
+		&:invalid{}
     }
 
     input[type="text"],
     input[type="password"],
-    input[type="file"],
     input[type="color"],
     input[type="date"],
     input[type="datetime"],
@@ -52,6 +71,8 @@ form {
         letter-spacing: normal;
         outline-style: none;
         resize: none;
+        width:97%;
+        min-height:150px;
     }
 
     select {
@@ -73,36 +94,132 @@ form {
 	}
 }
 
-a.button,
-input.submit,
-input[type=submit] {
-	display:block;
-	background-color:#FFC73A;
-	@include filter-gradient(#ffd65e, #febf04, vertical); // IE6-9
-	@include background-image(linear-gradient(top,  rgba(255,214,94,1) 25%,rgba(254,191,4,1) 100%));
-	border:none;
-	color:#000;
-	font-size:1em;
-	text-decoration:none;
-	padding:13px 20px;
-	margin: 0 auto;
-	position: relative;
-	cursor:pointer;
-}
-a.button{
-	display:inline-block;
-	margin: 3px;
+/*************************
+ * Button Styles
+ *************************/
+.btn,
+input[type="button"],
+input[type="submit"] {
+	display: inline-block;
+	*display: inline;// IE6-7
+	padding: 4px 12px;
+	margin-bottom: 0;
+	*margin-left: .3em; // IE6-7
+	font-size: 1em;
+	color: #333333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	*background-color: #e6e6e6;// IE6-7
+	@include filter-gradient(#ffffff, #e6e6e6, vertical); // IE6-9
+	@include background-image(linear-gradient(top,  #ffffff 25%, #e6e6e6 100%));
+	background-repeat: repeat-x;
+	border: 1px solid #cccccc;
+	*border: 0; // IE6-7
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	*zoom: 1;// IE6-7
+	@include border-radius(4px);
+	@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
 }
 
-a.button:hover,
-input.submit:hover,
-input[type=submit]:hover {
-	background-color:#E5B034;
-	background-image:none;
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled],
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="button"]:active,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="submit"]:active {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
 }
 
-a.button span{}
+.btn:active,
+.btn.active
+input[type="submit"]:active,
+input[type="submit"]:active {
+	background-color: #cccccc \9;
+}
 
+.btn:first-child
+input[type="submit"]:first-child,
+input[type="submit"]:first-child {
+	*margin-left: 0;
+}
+
+.btn:hover,
+.btn:focus,
+input[type="button"]:focus,
+input[type="button"]:active,
+input[type="submit"]:focus,
+input[type="submit"]:active {
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position 0.1s linear;
+	   -moz-transition: background-position 0.1s linear;
+	     -o-transition: background-position 0.1s linear;
+		    transition: background-position 0.1s linear;
+}
+
+.btn:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,{
+	outline: thin dotted #333;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+.btn.active,
+.btn:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+	background-image: none;
+	outline: 0;
+	@include box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05));
+}
+
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
+/************************
+ * SearchFrom Styles
+ ************************/
+#searchform{
+	label{
+		display:none;
+	}
+	#s{}
+	#searchsubmit{
+		display: inline;
+		padding: 7px 15px;
+	}
+}
+
+.error404{
+	#searchform{
+		label{}
+		#s{}
+		#searchsubmit{}
+	}
+}
 
 /*Form Widgets Styles*/
 .gform_widget{
@@ -111,7 +228,6 @@ a.button span{}
 	    select,
 	    input[type="text"],
 	    input[type="password"],
-	    input[type="file"],
 	    input[type="color"],
 	    input[type="date"],
 	    input[type="datetime"],
@@ -128,8 +244,8 @@ a.button span{}
 	    input[type="password"],
 	    input[type="file"]{}
 	}
-	input.submit,
-	input[type=submit] {}
+	input[type="button"],
+	input[type="submit"] {}
 }
 
 /* CUSTOM GRAVITY FORM STYLES */
@@ -140,7 +256,6 @@ a.button span{}
 			textarea {
 				padding:0.5em 0 !important;
 				@include border-radius(2px);
-				@include box-shadow(2px 2px 8px 0px #CCC inset);
 				border: solid 1px #CCC;
 				font-size: .9em !important;
 				color: #555;
@@ -152,4 +267,50 @@ a.button span{}
 	    margin:0!important;
 	    padding:0!important;
     }
+}
+
+/******************************************************
+MOBLIE FORM STYLES - to make forms more finger friendly
+*******************************************************/
+@media only screen and (max-width: 481px) {
+	form {
+	    label {}
+
+	    select.small,
+	    select.medium,
+	    select.large,
+	    input.small,
+	    input.medium,
+	    input.large{
+			width: 97%!important;
+			padding:5px 1%!important;
+
+			&:focus {}
+
+			&:invalid{}
+	    }
+
+	    textarea {}
+
+	    select {}
+
+	    input[type=image] {}
+	}
+
+/*Mobile Buttons*/
+	a.btn,
+	input[type="button"],
+	input[type="submit"] {
+		width:90%;
+		padding:15px 4.5%;
+
+	}
+
+	a.btn{}
+
+	a.btn:hover,
+	input[type="button"]:hover,
+	input[type="submit"]:hover {}
+
+	a.button span{}
 }

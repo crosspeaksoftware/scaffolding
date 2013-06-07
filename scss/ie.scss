@@ -49,3 +49,14 @@ header.php file to see what they are:
 .lt-ie8 .class { ... }
 
 */
+
+.lt-ie8 {
+	#main-navigation {
+		ul.menu {
+			li {
+				float:left;
+			}
+		}
+	}
+}
+

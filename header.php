@@ -52,22 +52,26 @@
 				<!-- if you'd like to use the site description you can un-comment it below -->
 				<?php // bloginfo('description'); ?>
 
-
-				<nav role="navigation">
-					<?php scaffolding_main_nav(); ?>
-				</nav>
-
 			</div> <!-- end #inner-header -->
+
+			<nav id="main-navigation" role="navigation">
+
+				<?php scaffolding_main_nav(); ?>
+
+			</nav><!-- end main-navigation -->
 
 		</header> <!-- end header -->
 
-		<?php // Header/Banner Image ?>
         <div class="banner-wrap">
+
             <div id="banner">
+
                 <div class="spacer"></div>
-            </div>
-        </div>
 
-	<div id="content">
+            </div><!-- end banner -->
 
-		<div id="inner-content" class="wrap clearfix">
+        </div><!-- end banner-wrap -->
+
+		<div id="content">
+
+			<div id="inner-content" class="wrap clearfix">
