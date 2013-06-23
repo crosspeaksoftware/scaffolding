@@ -278,7 +278,7 @@ function scaffolding_footer_nav() {
 function scaffolding_main_nav_fallback() {
 	wp_page_menu( array(
 		'show_home' => true,
-    	'menu_class' => 'nav main-nav clearfix',
+    	'menu_class' => 'menu main-menu wrap clearfix',
 		'include'     => '',
 		'exclude'     => '',
 		'echo'        => true,
@@ -633,7 +633,7 @@ function scaffolding_post_classes( $classes ) {
 	} elseif(($wp_query->current_post + 1) == $wp_query->post_count) {
 		$classes[] = 'last-post';
 	}
-	
+
 	return $classes;
 }
 
