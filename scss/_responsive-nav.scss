@@ -21,19 +21,19 @@ nav > ul {
 	}
 }
 
-nav li {
-	display: inline-block;
-	position: relative;
-	margin: 0px;
+nav {
+	li {
+		display: inline-block;
+		position: relative;
+		margin: 0px;
 
-	a {}
+		a {}
 
-	&:last-child a {
-		border-right: 0;
+		&:last-child a {
+			border-right: 0;
+		}
 	}
-}
-
-	nav a {
+	a {
 		display: inline-block;
 		text-align: center;
 		text-decoration: none;
@@ -43,7 +43,7 @@ nav li {
 			display: none;
 		}
 	}
-
+}
 
 @media screen and (min-width: 480px) {
 
@@ -101,7 +101,7 @@ nav li {
 
 			&:after {
 				content:"";
-				background: url('../images/nav-icon.png') no-repeat;
+				background: url(../images/nav-icon.png) no-repeat;
 				width: 30px;
 				height: 30px;
 				display: inline-block;
