@@ -623,6 +623,21 @@ function widget_first_last_classes($params) {
 }
 add_filter('dynamic_sidebar_params','widget_first_last_classes');
 
+
+/************* ADD FIRST AND LAST CLASSES TO POSTS *****************/
+add_filter( 'post_class', 'scaffolding_post_classes' );
+function scaffolding_post_classes( $classes ) {
+	global $wp_query;
+	if($wp_query->current_post == 0) {
+		$classes[] = 'first-post';
+	} elseif(($wp_query->current_post + 1) == $wp_query->post_count) {
+		$classes[] = 'last-post';
+	}
+	
+	return $classes;
+}
+
+
 /************* DASHBOARD WIDGETS *****************/
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
