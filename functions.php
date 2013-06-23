@@ -246,7 +246,7 @@ function scaffolding_main_nav() {
 		'container_class' => '',		 				// class of container (should you choose to use it)
 		'menu' => '',							 	 	// nav name
 		'menu_class' => 'menu main-menu wrap clearfix', // adding custom nav class
-		'theme_location' => 'main-menu',			 	// where it's located in the theme
+		'theme_location' => 'main-nav',			 	// where it's located in the theme
 		'before' => '',								 	// before the menu
 		'after' => '',								 	// after the menu
 		'link_before' => '',						 	// before each link
@@ -264,7 +264,7 @@ function scaffolding_footer_nav() {
 		'container_class' => '',
 		'menu' => '',
 		'menu_class' => 'menu footer-menu clearfix',
-		'theme_location' => 'footer-menu',
+		'theme_location' => 'footer-nav',
 		'before' => '',
 		'after' => '',
 		'link_before' => '',
