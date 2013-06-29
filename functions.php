@@ -1,18 +1,12 @@
 <?php
 /*
-Author: Eddie Machado
-URL: htp://themble.com/scaffolding/
+Author: Hall Internet Marketing
+URL: https://github.com/hallme/scaffolding
 
 This is where you can drop your custom functions or
 just edit things like thumbnail sizes, header images,
 sidebars, comments, ect.
 */
-/*********************
-LAUNCH scaffolding
-Let's fire off all the functions
-and tools. I put it up here so it's
-right up top and clean.
-*********************/
 
 // we're firing all out initial functions at the start
 add_action('after_setup_theme','scaffolding_ahoy', 16);
@@ -372,7 +366,8 @@ function scaffolding_page_navi($before = '', $after = '') {
 	for($i = $start_page; $i  <= $end_page; $i++) {
 		if($i == $paged) {
 			echo '<li class="bpn-current">'.$i.'</li>';
-		} else {
+		}
+		else {
 			echo '<li><a href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
 		}
 	}
@@ -408,16 +403,17 @@ function scaffolding_excerpt_more($more) {
  * This is necessary to allow usage of the usual l10n process with printf().
  */
 function scaffolding_get_the_author_posts_link() {
-  global $authordata;
-  if ( !is_object( $authordata ) )
-    return false;
-  $link = sprintf(
-    '<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
-    get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-    esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
-    get_the_author()
-  );
-  return $link;
+	global $authordata;
+	if ( !is_object( $authordata ) ) {
+		return false;
+	}
+	$link = sprintf(
+		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
+		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
+		esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
+		get_the_author()
+	);
+	return $link;
 }
 
 
@@ -429,7 +425,7 @@ function scaffolding_get_the_author_posts_link() {
 	- example custom taxonomy (like categories)
 	- example custom taxonomy (like tags)
 */
-//require_once('custom-post-type.php'); // you can disable this if you like
+//require_once('custom-post-type.php'); // include your custom post type files here
 
 /************* THUMBNAIL SIZE OPTIONS *************
 to add more sizes, simply copy a line below
@@ -570,8 +566,8 @@ register_default_headers( array(
 ));
 
 //Set header image as a BG
-function scaffolding_custom_headers_callback(){
-    ?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
+function scaffolding_custom_headers_callback() {
+	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
 }
 
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
@@ -678,7 +674,7 @@ add_filter('login_headertitle', 'scaffolding_login_title');
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer
 function scaffolding_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/rclations/toolkit" target="_blank">toolkit</a> a branch of <a href="http://themble.com/scaffolding" target="_blank">scaffolding</a>.';
+	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/hallme/scaffolding" target="_blank">scaffolding</a> a fork of <a href="http://themble.com/bones" target="_blank">bones</a>.';
 }
 // adding it to the admin area
 add_filter('admin_footer_text', 'scaffolding_custom_admin_footer');
@@ -861,15 +857,17 @@ function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $co
 				// if it's an "empty element" with or without xhtml-conform closing slash
 				if (preg_match('/^<(\s*.+?\/\s*|\s*(img|br|input|hr|area|base|basefont|col|frame|isindex|link|meta|param)(\s.+?)?)>$/is', $line_matchings[1])) {
 					// do nothing
+				}
 				// if tag is a closing tag
-				} else if (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings)) {
+				elseif (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings)) {
 					// delete tag from $open_tags list
 					$pos = array_search($tag_matchings[1], $open_tags);
 					if ($pos !== false) {
-					unset($open_tags[$pos]);
+						unset($open_tags[$pos]);
 					}
+				}
 				// if tag is an opening tag
-				} else if (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings)) {
+				elseif (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings)) {
 					// add tag to the beginning of $open_tags list
 					array_unshift($open_tags, strtolower($tag_matchings[1]));
 				}
@@ -889,7 +887,8 @@ function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $co
 						if ($entity[1]+1-$entities_length <= $left) {
 							$left--;
 							$entities_length += strlen($entity[0]);
-						} else {
+						}
+						else {
 							// no more characters left
 							break;
 						}
@@ -898,7 +897,8 @@ function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $co
 				$truncate .= substr($line_matchings[2], 0, $left+$entities_length);
 				// maximum lenght is reached, so get off the loop
 				break;
-			} else {
+			}
+			else {
 				$truncate .= $line_matchings[2];
 				$total_length += $content_length;
 			}
@@ -907,10 +907,12 @@ function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $co
 				break;
 			}
 		}
-	} else {
+	}
+	else {
 		if (strlen($text) <= $length) {
 			return $text;
-		} else {
+		}
+		else {
 			$truncate = substr($text, 0, $length - strlen($ending));
 		}
 	}

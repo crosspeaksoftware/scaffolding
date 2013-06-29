@@ -1,7 +1,7 @@
 /******************************************************************
 Theme Name: Responsive Design Scaffolding (Rename Me!)
 Theme URI: https://github.com/hallme/scaffolding
-Description: This site was built using the Scaffolding Development Theme</a>. For more information about Scaffolding or to view documentation, you can visit the <a href="https://github.com/hallme/scaffolding" title="Scaffolding Development Page">Github page</a> for the proejct. You'll want to customize this for your clients with your own information.
+Description: This site was built using the Scaffolding Development Theme. For more information about Scaffolding or to view documentation, you can visit the <a href="https://github.com/hallme/scaffolding" title="Scaffolding Development Page">Github page</a> for the proejct. You'll want to customize this for your clients with your own information.
 Author: Your Name Here
 Author URI: http://www.yoururlhere.com
 Version: 1.0
@@ -9,20 +9,19 @@ Tags: flexble-width, translation-ready, microformats, rtl-language-support
 
 License: WTFPL
 License URI: http://sam.zoy.org/wtfpl/
-Are You Serious? Yes.
-
 
 MAKE SURE TO READ BELOW BEFORE GETTING STARTED FOR THE FIRST TIME!
 ------------------------------------------------------------------
 
 You may be thinking…
 
-WHOA, WHOA, WHOA…WHAT HAPPENED HERE?
+WHOA, WHOA, WHOA... WHERE ARE THE STYLES?
 
 But before you freak out, let me take a few minutes to explain.
 
-scaffolding now uses Compass (and by extension, SASS) by default. If you prefer
-using regular CSS, then feel free to modify this theme how you like
+scaffolding uses Compass ( http://compass-style.org/ ) (and by
+extension, SASS) by default. If you prefer using regular CSS, then feel
+free to modify this theme how you like
 and keep a copy as your own personal starting point.
 
 DON'T DISMISS IT JUST YET THOUGH, USING SASS ISN'T AS
@@ -37,14 +36,12 @@ http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-compar
 I would HIGHLY RECOMMEND, if you are going to be working with
 SASS, that you work locally.
 
-That being said, here are a few MUST HAVE TOOLS for working with a
-pre-processor: (You really only need one of them)
+That being said, here is the guide to installing compass.
+http://compass-style.org/install/
 
-CodeKit: (Highly Recommended)
-http://incident57.com/codekit/
-
-Compass App: (Windows / Mac Users)
-http://compass.handlino.com/
+If you need a GUI for it, we recommend using Scout.
+Scout: (Windows / Mac Users)
+http://mhs.github.io/scout-app/
 
 These applications compile Sass into valid CSS. This
 way you can keep your production files easy to read and your
@@ -55,14 +52,7 @@ library/css folder and you are all set. It's a thing of beauty.
 
 Remember, once you download scaffolding it's up to you how to use it,
 so go nuts. Set things up and develop in a way that's easiest for
-you. If SASS is still a bit confusing for you, then remove them
-and customize this template as you see fit.
-
-If you're frustrated with this new direction and don't like change,
-take a few minutes and think about how much better a developer you 
-can become by just TRYING out new technologies. It may be tough at 
-first but it WILL make you a better developer. TRUST ME ON THIS. Give
-it a week, maybe two, and you will never go back.
+you.
 
 Happy Developing!
 
