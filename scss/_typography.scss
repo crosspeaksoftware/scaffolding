@@ -13,13 +13,14 @@ remember less is more.
 
 $sans: sans-serif;
 $serif: serif;
+$default-font-size: 14px;
 
 /********************
 CUSTOMIZED RESET VALUES
 *********************/
 body {
 	font-family: $sans;
-	font-size: 14px;
+	font-size: $default-font-size;
 	line-height: 1.5;
 	color: #111;
 }
