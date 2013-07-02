@@ -726,11 +726,11 @@ function scaffolding_mcekit_editor_style($url) {
 }
 add_filter('mce_css', 'scaffolding_mcekit_editor_style');
 
-
-// Remove Wordpress Logo From Admin Bar
-function remove_admin_bar_links() {
+/** ADMIN BAR **/
+ function remove_admin_bar_links() {
 	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('wp-logo');
+	$wp_admin_bar->remove_menu('wp-logo'); // Remove Wordpress Logo From Admin Bar
+	$wp_admin_bar->remove_menu('wpseo-menu'); // Remove SEO from Admin Bar
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
