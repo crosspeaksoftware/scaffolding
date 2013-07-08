@@ -78,13 +78,13 @@ you can add resource intensive styles.
 } // end of media query
 
 /*
-LARGE VIEWING SIZE
+FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
-@media only screen and (min-width: 1240px) {
+@media only screen and (min-width: 1140px) {
 
-	// styles in 1240up.scss
-	@import "1240up";
+	// styles in full.scss
+	@import "full";
 
 } // end of media query
 

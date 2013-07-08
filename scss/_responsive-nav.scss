@@ -15,35 +15,35 @@ nav > ul {
 		margin: 0px;
 		padding: 0px;
 	}
-	
+
 	li:hover ul {
 		display: block;
 	}
 }
-	
-nav li {
-	display: inline-block;
-	position: relative;
-	margin: 0px;
-	
-	a {}
-	
-	&:last-child a {
-		border-right: 0;
-	}
-}
 
-	nav a {
+nav {
+	li {
+		display: inline-block;
+		position: relative;
+		margin: 0px;
+
+		a {}
+
+		&:last-child a {
+			border-right: 0;
+		}
+	}
+	a {
 		display: inline-block;
 		text-align: center;
 		text-decoration: none;
 		padding: 10px 15px;
-	
+
 		&#pull {
 			display: none;
 		}
 	}
-
+}
 
 @media screen and (min-width: 480px) {
 
@@ -58,19 +58,19 @@ nav li {
 
 /*Styles for screen 600px and lower*/
 @media screen and (max-width: 600px) {
-	nav { 
+	nav {
   		height: auto;
-  	
+
 		ul {
 			width: 100%;
 			display: block;
 			height: auto;
 		}
-  
+
 		li {
 			position: relative;
 		}
-		
+
 		a {
 			width: 100%;
 		}
@@ -81,27 +81,27 @@ nav li {
 @media only screen and (max-width : 480px) {
 	nav {
 		border-bottom: 0;
-		
+
 		ul {
 			display: none;
 			height: auto;
 		}
-		
+
 		li {
 			float: none;
 			display: block;
 		}
-		
+
 		a#pull {
 			display: block;
 			background-color: #E2E2E2;
 			width: 100%;
 			position: relative;
 			padding: 10px 0;
-		
+
 			&:after {
 				content:"";
-				background: url('../images/nav-icon.png') no-repeat;
+				background: url(../images/nav-icon.png) no-repeat;
 				width: 30px;
 				height: 30px;
 				display: inline-block;
