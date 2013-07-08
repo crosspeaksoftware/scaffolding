@@ -7,19 +7,30 @@
 			if ( 'page' == get_option('show_on_front') && get_option('page_for_posts') && is_home() ) :
 				the_post();
 				$page_for_posts_id = get_option('page_for_posts');
-				setup_postdata(get_page($page_for_posts_id));
+				$post = get_post($page_for_posts_id);
+				setup_postdata($post);
 			?>
 
-			<div id="post<?php the_ID(); ?>" <?php post_class('static-blog-page clearfix'); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class('static-blog-page clearfix'); ?> role="article">
 
-				<div class="post-content">
+				<header class="article-header">
+
+					<h2 class="page-title"><?php the_title(); ?></h2>
+
+				</header> <!-- end article header -->
+
+				<section class="entry-content clearfix">
 					<?php the_content(); ?>
-				</div>
+				</section> <!-- end article section -->
 
-			</div>
+				<footer class="article-footer">
+
+				</footer> <!-- end article footer -->
+
+			</article> <!-- end article -->
 
 			<?php
-				rewind_posts();
+				wp_reset_postdata();
 			endif; //continue the loop as normal
 			?>
 
