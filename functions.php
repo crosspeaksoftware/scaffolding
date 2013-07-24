@@ -750,14 +750,33 @@ add_filter('media_send_to_editor', 'root_relative_urls',100);
 
 
 //Filter post with noindex set from serch results
-function SearchFilter($query) {
+function scaffolding_search_filter($query) {
 	if ($query->is_search) {
-		$args = array(array('key' => '_yoast_wpseo_meta-robots-noindex', 'value' => '1', 'compare' => '!='));
-		$query->set('meta_query', $args);
+		$query->set('meta_query', array(
+				'relation' => 'OR',
+				// include if this key doesn't exists
+				array(
+					'key' => '_yoast_wpseo_meta-robots-noindex',
+					'value' => '', // This is ignored, but is necessary...
+					'compare' => 'NOT EXISTS'
+				),
+				// OR if key does exists include if it is not 1
+				array(
+					'key' => '_yoast_wpseo_meta-robots-noindex',
+					'value' => '1',
+					'compare' => '!='
+				),
+				// OR this key overrides it
+				array(
+					'key' => '_yoast_wpseo_sitemap-html-include',
+					'value' => 'always',
+					'compare' => '='
+				)
+			));
 	}
 	return $query;
 }
-add_filter('pre_get_posts','SearchFilter');
+add_filter('pre_get_posts','scaffolding_search_filter');
 
 //Clean the formatting out of phone numbers for tel links
 function clean_phone($phone){
