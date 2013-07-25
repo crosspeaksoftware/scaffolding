@@ -262,6 +262,11 @@ input[type="submit"]:active {
 			}
 		}
 	}
+	
+	ul.gfield_radio li input[type=radio] {
+		width: 16px !important;
+	}
+	
 	.gform_footer {
 	    clear: both;
 	    margin:0!important;
