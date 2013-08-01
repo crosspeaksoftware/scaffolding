@@ -85,6 +85,13 @@ jQuery(document).ready(function($) {
 	});
 	// END RESPONSIVE NAV
 
+	// make sure font stays on refesh in ie7 & 8
+	/* Uncomment this if you are using custom fonts, not needed if you arn't
+	if ($("html").hasClass("lt-ie9")) {
+		$("#scaffolding-stylesheet-css")[0].href = $("#scaffolding-stylesheet-css")[0].href;
+	}
+	*/
+
 	/* if is below 481px */
 	if (responsive_viewport < 481) {
 		//if mobile device scroll to the content on page load

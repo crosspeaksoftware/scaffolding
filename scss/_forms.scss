@@ -62,9 +62,7 @@ form {
 		@include box-shadow(2px 2px 8px 0 #CCCCCC inset);
 		@include border-radius(2px);
 		color: #555555;
-		transition: all 0.25s ease-in-out;
-		-webkit-transition: all 0.25s ease-in-out;
-		-moz-transition: all 0.25s ease-in-out;
+		@include transition(all 0.25s ease-in-out);
 
 		&:focus {
 			border:1px solid #333;
@@ -96,24 +94,6 @@ form {
 			background-color:transparent!important;
 		}
 
-	}
-
-	li.double-col,
-	li.triple-col,
-	li.quad-col {
-		display: inline-block;
-		clear: none !important;
-		float: left;
-	}
-
-	li.double-col { width:50%; }
-	li.triple-col { width:33.333%; }
-	li.quad-col { width:25%; }
-
-	input.large,
-	select.large,
-	textarea.textarea {
-	    width: 98%!important;
 	}
 }
 
@@ -188,10 +168,7 @@ input[type="submit"]:active {
 	color: #333333;
 	text-decoration: none;
 	background-position: 0 -15px;
-	-webkit-transition: background-position 0.1s linear;
-	   -moz-transition: background-position 0.1s linear;
-	     -o-transition: background-position 0.1s linear;
-		    transition: background-position 0.1s linear;
+    @include transition(background-position 0.1s linear);
 }
 
 .btn:focus,
@@ -213,13 +190,11 @@ input[type="submit"]:active {
 
 .btn.disabled,
 .btn[disabled] {
-  cursor: default;
-  background-image: none;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+	cursor: default;
+	background-image: none;
+	opacity: 0.65;
+	filter: alpha(opacity=65);
+	@include box-shadow(none);
 }
 
 /************************
@@ -244,9 +219,7 @@ input[type="submit"]:active {
 		@include box-shadow(none);
 		@include border-radius(0);
 		color: #555555;
-		transition: all 0.25s ease-in-out;
-		-webkit-transition: all 0.25s ease-in-out;
-		-moz-transition: all 0.25s ease-in-out;
+		@include transition(all 0.25s ease-in-out);
 		width:75%;
 		padding:2px 1%;
 
@@ -263,39 +236,13 @@ input[type="submit"]:active {
 	}
 }
 
+/*Search Styles on 404 page*/
 .error404{
 	#searchform{
 		label{}
 		#s{}
 		#searchsubmit{}
 	}
-}
-
-/*Form Widgets Styles*/
-.gform_widget{
-	form{
-	    textarea,
-	    select,
-	    input[type="text"],
-	    input[type="password"],
-	    input[type="color"],
-	    input[type="date"],
-	    input[type="datetime"],
-	    input[type="datetime-local"],
-	    input[type="email"],
-	    input[type="month"],
-	    input[type="number"],
-	    input[type="search"],
-	    input[type="tel"],
-	    input[type="time"],
-	    input[type="url"],
-	    input[type="week"],
-	    input[type="text"],
-	    input[type="password"],
-	    input[type="file"]{}
-	}
-	input[type="button"],
-	input[type="submit"] {}
 }
 
 /******************************************************

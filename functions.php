@@ -152,13 +152,6 @@ function scaffolding_scripts_and_styles() {
 /*************
  INCLUDE NEEDED FILES
  ***************/
-
-/*
-2. custom-post-type.php
-	- an example custom post type
-	- example custom taxonomy (like categories)
-	- example custom taxonomy (like tags)
-*/
 //require_once('custom-post-type.php'); // include your custom post type files here
 
 /*********************
@@ -515,7 +508,7 @@ function scaffolding_comments($comment, $args, $depth) {
 <?php
 } // don't remove this bracket!
 
-/************* SEARCH FORM LAYOUT *****************/
+/************* SEARCH FUNCTIONS *****************/
 
 // Search Form
 function scaffolding_wpsearch($form) {
@@ -527,6 +520,34 @@ function scaffolding_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
+//Filter post with noindex set from serch results
+function scaffolding_search_filter($query) {
+	if ($query->is_search) {
+		$query->set('meta_query', array(
+				'relation' => 'OR',
+				// include if this key doesn't exists
+				array(
+					'key' => '_yoast_wpseo_meta-robots-noindex',
+					'value' => '', // This is ignored, but is necessary...
+					'compare' => 'NOT EXISTS'
+				),
+				// OR if key does exists include if it is not 1
+				array(
+					'key' => '_yoast_wpseo_meta-robots-noindex',
+					'value' => '1',
+					'compare' => '!='
+				),
+				// OR this key overrides it
+				array(
+					'key' => '_yoast_wpseo_sitemap-html-include',
+					'value' => 'always',
+					'compare' => '='
+				)
+			));
+	}
+	return $query;
+}
+add_filter('pre_get_posts','scaffolding_search_filter');
 
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
 function add_first_and_last($output) {
@@ -695,12 +716,10 @@ function disable_default_dashboard_widgets() {
 	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');// Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');// Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');// Plugins Widget
-
 	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');// Quick Press Widget
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');// Recent Drafts Widget
 	//remove_meta_box('dashboard_primary', 'dashboard', 'core');//1st blog feed
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core');//2nd blog feed
-
 	// removing plugin dashboard boxes
 	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
 }
