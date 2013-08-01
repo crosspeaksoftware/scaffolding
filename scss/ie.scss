@@ -51,6 +51,7 @@ header.php file to see what they are:
 */
 
 .lt-ie8 {
+	//Fix Main Navigation Inline issue
 	#main-navigation {
 		ul.menu {
 			li {
@@ -58,5 +59,19 @@ header.php file to see what they are:
 			}
 		}
 	}
-}
 
+    //IE7 will round to the nearest 10th throwing off the default grid. This fix preserves the layout while keeping the padding as cloase as possible
+    .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+      padding-left: 1.34%;
+      padding-right: 1.34%;
+    }
+
+    .first {
+      padding-left: 0;
+    }
+
+
+    .last {
+      padding-right: 0;
+    }
+}
