@@ -9,9 +9,8 @@ sidebars, comments, ect.
 */
 
 // we're firing all out initial functions at the start
-add_action('after_setup_theme','scaffolding_ahoy', 16);
-
-function scaffolding_ahoy() {
+add_action('after_setup_theme','scaffolding_build', 16);
+function scaffolding_build() {
 
 	// launching operation cleanup
 	add_action('init', 'scaffolding_head_cleanup');
@@ -110,7 +109,6 @@ function scaffolding_gallery_style($css) {
 /*********************
 SCRIPTS & ENQUEUEING
 *********************/
-
 // loading modernizr and jquery, and reply script
 function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
@@ -151,6 +149,18 @@ function scaffolding_scripts_and_styles() {
 	}
 }
 
+/*************
+ INCLUDE NEEDED FILES
+ ***************/
+
+/*
+2. custom-post-type.php
+	- an example custom post type
+	- example custom taxonomy (like categories)
+	- example custom taxonomy (like tags)
+*/
+//require_once('custom-post-type.php'); // include your custom post type files here
+
 /*********************
 THEME SUPPORT
 *********************/
@@ -185,8 +195,8 @@ function scaffolding_theme_support() {
 	add_theme_support( 'custom-header', array(
 		'default-image'=> '%s/images/headers/default.jpg',
 		'random-default'=> false,
-		'width'=> 999,
-		'height'=> 262,
+		'width'=> 999,  // Make sure to set this
+		'height'=> 262, // Make sure to set this
 		'flex-height'=> false,
 		'flex-width'=> false,
 		'default-text-color'=> 'ffffff',
@@ -240,12 +250,11 @@ function scaffolding_main_nav() {
 		'container_class' => '',		 				// class of container (should you choose to use it)
 		'menu' => '',							 	 	// nav name
 		'menu_class' => 'menu main-menu wrap clearfix', // adding custom nav class
-		'theme_location' => 'main-nav',			 	// where it's located in the theme
+		'theme_location' => 'main-nav',			 		// where it's located in the theme
 		'before' => '',								 	// before the menu
 		'after' => '',								 	// after the menu
 		'link_before' => '',						 	// before each link
 		'link_after' => '',							 	// after each link
-		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu">Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
 		'depth' => 0,								 	// limit the depth of the nav
 		'fallback_cb' => 'scaffolding_main_nav_fallback'// fallback function
 	));
@@ -264,7 +273,7 @@ function scaffolding_footer_nav() {
 		'link_before' => '',
 		'link_after' => '',
 		'depth' => 0,
-		'fallback_cb' => 'scaffolding_footer_nav_fallback'
+		'fallback_cb' => 'scaffolding_nav_fallback'
 	));
 } /* end scaffolding footer link */
 
@@ -282,14 +291,98 @@ function scaffolding_main_nav_fallback() {
 }
 
 // this is the fallback for footer menu
-function scaffolding_footer_nav_fallback() {
+function scaffolding_nav_fallback() {
 	/* you can put a default here if you like */
 }
+
+/*************
+ ACTIVE SIDEBARS
+ ***************/
+
+// Sidebars & Widgetizes Areas
+function scaffolding_register_sidebars() {
+	register_sidebar(array(
+		'id' => 'left-sidebar',
+		'name' => __('Left Sidebar', 'scaffoldingtheme'),
+		'description' => __('The Left (primary) sidebar used for the interior menu.', 'scaffoldingtheme'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+	register_sidebar(array(
+		'id' => 'right-sidebar',
+		'name' => __('Right Sidebar', 'scaffoldingtheme'),
+		'description' => __('The Right sidebar used for the interior call to actions.', 'scaffoldingtheme'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+} // don't remove this bracket!
+
+
+/*************
+ CUSTOM PAGE HEADERS
+ *************/
+
+register_default_headers( array(
+	'default' => array(
+		'url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
+		'thumbnail_url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
+		'description' => __( 'default', 'scaffolding' )
+	)
+));
+
+//Set header image as a BG
+function scaffolding_custom_headers_callback() {
+	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
+}
+
+/*************
+ THUMBNAIL SIZE OPTIONS
+ **************/
+
+// Thumbnail sizes
+//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
+
+/**********************
+ CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
+ **********************/
+/* Currently commented out. This is useful for imporving UX in the WP backend
+function change_post_menu_label() {
+	global $menu;
+	global $submenu;
+	$menu[5][0] = 'News';
+	$submenu['edit.php'][5][0] = 'All News Entries';
+	$submenu['edit.php'][10][0] = 'Add News Entries';
+	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
+	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
+	echo '';
+}
+
+function change_post_object_label() {
+	global $wp_post_types;
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = 'News';
+	$labels->singular_name = 'News';
+	$labels->add_new = 'Add News Entry';
+	$labels->add_new_item = 'Add News Entry';
+	$labels->edit_item = 'Edit News Entry';
+	$labels->new_item = 'News Entry';
+	$labels->view_item = 'View Entry';
+	$labels->search_items = 'Search News Entries';
+	$labels->not_found = 'No News Entries found';
+	$labels->not_found_in_trash = 'No News Entries found in Trash';
+}
+add_action( 'init', 'change_post_object_label' );
+add_action( 'admin_menu', 'change_post_menu_label' );
+*/
+
 
 /*********************
 RELATED POSTS FUNCTION
 *********************/
-
 // Related Posts Function (call using scaffolding_related_posts(); )
 function scaffolding_related_posts() {
 	echo '<ul id="scaffolding-related-posts">';
@@ -381,130 +474,10 @@ function scaffolding_page_navi($before = '', $after = '') {
 	echo '</ol></nav>'.$after."";
 } /* end page navi */
 
-/*********************
-RANDOM CLEANUP ITEMS
-*********************/
 
-// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
-function scaffolding_filter_ptags_on_images($content){
-	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
-
-// This removes the annoying […] to a Read More link
-function scaffolding_excerpt_more($more) {
-	global $post;
-	// edit here if you like
-	return '...  <a href="'. get_permalink($post->ID) . '" title="'. __('Read', 'scaffoldingtheme') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffoldingtheme') .'</a>';
-}
-
-/*
- * This is a modified the_author_posts_link() which just returns the link.
- *
- * This is necessary to allow usage of the usual l10n process with printf().
- */
-function scaffolding_get_the_author_posts_link() {
-	global $authordata;
-	if ( !is_object( $authordata ) ) {
-		return false;
-	}
-	$link = sprintf(
-		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
-		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
-		get_the_author()
-	);
-	return $link;
-}
-
-
-/************* INCLUDE NEEDED FILES ***************/
-
-/*
-2. custom-post-type.php
-	- an example custom post type
-	- example custom taxonomy (like categories)
-	- example custom taxonomy (like tags)
-*/
-//require_once('custom-post-type.php'); // include your custom post type files here
-
-/************* THUMBNAIL SIZE OPTIONS *************
-to add more sizes, simply copy a line below
-and change the dimensions & name. As long as you
-upload a "featured image" as large as the biggest
-set width or height, all the other sizes will be
-auto-cropped.
-
-To call a different size, simply change the text
-inside the thumbnail function.
-
-For example, to call the 300 x 300 sized image,
-we would use the function:
-<?php the_post_thumbnail( 'scaffolding-thumb-300' ); ?>
-
-You can change the names and dimensions to whatever
-you like. Enjoy!
-*/
-
-// Thumbnail sizes
-//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
-
-/************* ACTIVE SIDEBARS ********************/
-
-// Sidebars & Widgetizes Areas
-function scaffolding_register_sidebars() {
-	register_sidebar(array(
-		'id' => 'left-sidebar',
-		'name' => __('Left Sidebar', 'scaffoldingtheme'),
-		'description' => __('The Left (primary) sidebar used for the interior menu.', 'scaffoldingtheme'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-	register_sidebar(array(
-		'id' => 'right-sidebar',
-		'name' => __('Right Sidebar', 'scaffoldingtheme'),
-		'description' => __('The Right sidebar used for the interior call to actions.', 'scaffoldingtheme'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-} // don't remove this bracket!
-
-/************* COMMENT LAYOUT *********************/
-
-/**** CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND ****/
-/*
-function change_post_menu_label() {
-	global $menu;
-	global $submenu;
-	$menu[5][0] = 'News';
-	$submenu['edit.php'][5][0] = 'All News Entries';
-	$submenu['edit.php'][10][0] = 'Add News Entries';
-	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
-	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
-	echo '';
-}
-
-function change_post_object_label() {
-	global $wp_post_types;
-	$labels = &$wp_post_types['post']->labels;
-	$labels->name = 'News';
-	$labels->singular_name = 'News';
-	$labels->add_new = 'Add News Entry';
-	$labels->add_new_item = 'Add News Entry';
-	$labels->edit_item = 'Edit News Entry';
-	$labels->new_item = 'News Entry';
-	$labels->view_item = 'View Entry';
-	$labels->search_items = 'Search News Entries';
-	$labels->not_found = 'No News Entries found';
-	$labels->not_found_in_trash = 'No News Entries found in Trash';
-}
-add_action( 'init', 'change_post_object_label' );
-add_action( 'admin_menu', 'change_post_menu_label' );
-*/
-
+/*******************
+ COMMENT LAYOUT
+ *******************/
 // Comment Layout
 function scaffolding_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
@@ -554,21 +527,6 @@ function scaffolding_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
-
-/************* CUSTOM PAGE HEADERS *****************/
-
-register_default_headers( array(
-	'default' => array(
-		'url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
-		'thumbnail_url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
-		'description' => __( 'default', 'scaffolding' )
-	)
-));
-
-//Set header image as a BG
-function scaffolding_custom_headers_callback() {
-	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
-}
 
 /************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
 function add_first_and_last($output) {
@@ -621,7 +579,6 @@ add_filter('dynamic_sidebar_params','widget_first_last_classes');
 
 
 /************* ADD FIRST AND LAST CLASSES TO POSTS *****************/
-add_filter( 'post_class', 'scaffolding_post_classes' );
 function scaffolding_post_classes( $classes ) {
 	global $wp_query;
 	if($wp_query->current_post == 0) {
@@ -632,7 +589,104 @@ function scaffolding_post_classes( $classes ) {
 
 	return $classes;
 }
+add_filter( 'post_class', 'scaffolding_post_classes' );
 
+/************* WYSIWYG CLEANUP FUNCTIONS *****************/
+//Apply styles to the visual editor
+function scaffolding_mcekit_editor_style($url) {
+	if ( !empty($url) )
+		$url .= ',';
+	// Retrieves the plugin directory URL and adds editor stylesheet
+	// Change the path here if using different directories
+	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
+	return $url;
+}
+add_filter('mce_css', 'scaffolding_mcekit_editor_style');
+
+// Relative root the urls for the media uploader
+function root_relative_urls($html) {
+	if(defined('WP_SITEURL')) {
+		$url = WP_SITEURL;
+	}
+	else {
+		$url = 'http://' . $_SERVER['HTTP_HOST'];
+	}
+	return str_ireplace($url, '', $html);
+}
+add_filter('image_send_to_editor', 'root_relative_urls',100);
+add_filter('media_send_to_editor', 'root_relative_urls',100);
+
+//Filter out hard-coded width, height attributes on all images in WordPress. - https://gist.github.com/4557917 - for more information
+function scaffolding_remove_img_dimensions($html) {
+    // Loop through all <img> tags
+    if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
+        foreach ($matches as $match) {
+            // Replace all occurences of width/height
+            $clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
+            // Replace with result within html
+            $html = str_replace($match, $clean, $html);
+        }
+    }
+    return $html;
+}
+add_filter('post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10);
+//add_filter('the_content', 'scaffolding_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
+add_filter('get_avatar','scaffolding_remove_img_dimensions', 10);
+
+
+// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
+function scaffolding_filter_ptags_on_images($content){
+	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+
+// This removes the annoying […] to a Read More link
+function scaffolding_excerpt_more($more) {
+	global $post;
+	// edit here if you like
+	return '...  <a href="'. get_permalink($post->ID) . '" title="'. __('Read', 'scaffoldingtheme') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffoldingtheme') .'</a>';
+}
+
+
+//This is a modified the_author_posts_link() which just returns the link.
+//This is necessary to allow usage of the usual l10n process with printf().
+function scaffolding_get_the_author_posts_link() {
+	global $authordata;
+	if ( !is_object( $authordata ) ) {
+		return false;
+	}
+	$link = sprintf(
+		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
+		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
+		esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
+		get_the_author()
+	);
+	return $link;
+}
+
+/************* CLIENT UX FUNCTIONS *****************/
+function increase_editor_permissions(){
+	$role = get_role('editor');
+	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
+	$role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
+}
+add_action('admin_init','increase_editor_permissions');
+
+// Removes the Powered By WPEngine widget
+wp_unregister_sidebar_widget( 'wpe_widget_powered_by' );
+
+//Remove some of the admin bar links to keep from confusing client admins
+function remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('wp-logo'); // Remove Wordpress Logo From Admin Bar
+	$wp_admin_bar->remove_menu('wpseo-menu'); // Remove SEO from Admin Bar
+}
+add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+
+// Custom Backend Footer
+function scaffolding_custom_admin_footer() {
+	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/hallme/scaffolding" target="_blank">scaffolding</a> a fork of <a href="http://themble.com/bones" target="_blank">bones</a>.';
+}
+add_filter('admin_footer_text', 'scaffolding_custom_admin_footer');
 
 /************* DASHBOARD WIDGETS *****************/
 // disable default dashboard widgets
@@ -670,268 +724,3 @@ function scaffolding_login_title() { return get_option('blogname'); }
 add_action('login_head', 'scaffolding_login_css');
 add_filter('login_headerurl', 'scaffolding_login_url');
 add_filter('login_headertitle', 'scaffolding_login_title');
-
-/************* CUSTOMIZE ADMIN *******************/
-// Custom Backend Footer
-function scaffolding_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/hallme/scaffolding" target="_blank">scaffolding</a> a fork of <a href="http://themble.com/bones" target="_blank">bones</a>.';
-}
-// adding it to the admin area
-add_filter('admin_footer_text', 'scaffolding_custom_admin_footer');
-
-
-/************* REMOVE HEIGHT & WIDTH ON IMAGES *****************/
-/**
-* Filter out hard-coded width, height attributes on all images in WordPress.
-* https://gist.github.com/4557917 - for more information
-*/
-function scaffolding_remove_img_dimensions($html) {
-    // Loop through all <img> tags
-    if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
-        foreach ($matches as $match) {
-            // Replace all occurences of width/height
-            $clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
-            // Replace with result within html
-            $html = str_replace($match, $clean, $html);
-        }
-    }
-    return $html;
-}
-add_filter('post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10);
-//add_filter('the_content', 'scaffolding_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
-add_filter('get_avatar','scaffolding_remove_img_dimensions', 10);
-
-
-/************* CLIENT ACCESS FUNCTIONS *****************/
-function increase_editor_permissions(){
-	$role = get_role('editor');
-	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
-	$role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
-}
-add_action('admin_init','increase_editor_permissions');
-
-wp_unregister_sidebar_widget( 'wpe_widget_powered_by' ); // Removes the Powered By WPEngine widget
-
-
-/************* CUSTOM FUNCTIONS *****************/
-
-//Apply styles to the visual editor
-function scaffolding_mcekit_editor_style($url) {
-	if ( !empty($url) )
-		$url .= ',';
-	// Retrieves the plugin directory URL and adds editor stylesheet
-	// Change the path here if using different directories
-	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
-	return $url;
-}
-add_filter('mce_css', 'scaffolding_mcekit_editor_style');
-
-/** ADMIN BAR **/
- function remove_admin_bar_links() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('wp-logo'); // Remove Wordpress Logo From Admin Bar
-	$wp_admin_bar->remove_menu('wpseo-menu'); // Remove SEO from Admin Bar
-}
-add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
-
-
-// Relative root the urls for the media uploader
-function root_relative_urls($html) {
-	if(defined('WP_SITEURL')) {
-		$url = WP_SITEURL;
-	}
-	else {
-		$url = 'http://' . $_SERVER['HTTP_HOST'];
-	}
-	return str_ireplace($url, '', $html);
-}
-add_filter('image_send_to_editor', 'root_relative_urls',100);
-add_filter('media_send_to_editor', 'root_relative_urls',100);
-
-
-//Filter post with noindex set from serch results
-function SearchFilter($query) {
-	if ($query->is_search) {
-		$args = array(array('key' => '_yoast_wpseo_meta-robots-noindex', 'value' => '1', 'compare' => '!='));
-		$query->set('meta_query', $args);
-	}
-	return $query;
-}
-add_filter('pre_get_posts','SearchFilter');
-
-//Clean the formatting out of phone numbers for tel links
-function clean_phone($phone){
-	$phone = preg_replace('/\D+/', '', $phone); //strip all non-digits
-	return $phone;
-}
-
-//Check if current page is in the a specified menu
-/* Currently commented out to be worked on so a menu can be specified to test
-function in_menu($post_ID=false){
-	if(is_object($post_ID)){
-		$post_ID = $post_ID->ID;
-	}
-	if($post_ID===false){
-		global $post;
-		$post_ID = $post->ID;
-	}
-	$menu_locals = get_nav_menu_locations(); //get the menus in all the locations
-	$menu_items = wp_get_nav_menu_items($menu_locals['main-nav']); //return the objects in the main-nav location
-	$is_in_menu = false;
-	foreach ( (array) $menu_items as $menu_item ) {
-		if($menu_item->object_id == $post_ID){
-			$is_in_menu = true;
-			break;
-		}
-	}
-	return $is_in_menu;
-}
-*/
-
-//Returns an array of all the post ID's for the posts using a specified template
-function get_posts_by_template($tmpl_name){
-	//if no template name us given return
-	if( is_null($tmpl_name) )
-		return;
-
-	//collect all the post using specified template
-	$pages = get_pages(array(
-	    'meta_key' => '_wp_page_template',
-	    'meta_value' => $tmpl_name,
-	    'hierarchical' => 0
-	));
-
-	//load ids into array
-	$tmpl_pages = array();
-	foreach($pages as $page){
-		$tmpl_pages[] = $page->ID;
-	}
-
-	return $tmpl_pages;
-}
-
-//Get the_excerpt and speciphi its size http://www.wprecipes.com/wordpress-improved-the_excerpt-function
-function get_excerpt($length=100) {
-	global $post;
-	$text = $post->post_excerpt;
-	if ( '' == $text ) {
-		$text = get_the_content('');
-		$text = apply_filters('the_content', $text);
-		$text = str_replace(']]>', ']]>', $text);
-	}
-	//clean up the string
-	$text = strip_shortcodes($text); // optional, recommended
-	$text = strip_tags($text,'<b><strong><em><i><br><span><p>'); //remove most html tags optional, recommended
-
-	//add read more link without interfering with excerpt length
-	$excerpt_end = '... <a class="read-more-link" href="'. get_permalink($post->ID) . '" title="'. __('Read ', 'scaffoldingtheme') . get_the_title($post->ID).'">'. __('Read more', 'scaffoldingtheme') .'</a>';
-	$excerpt_end_size = strlen($excerpt_end);
-	$length = $length + $excerpt_end_size;
-
-	//truncate the string while preserving remaining html tags
-	$excerpt = truncateHtml($text,$length,$excerpt_end);
-
-	//return truncated excerpt or text depending on string length
-	if( strlen($text) < $length ) {
-		return apply_filters('the_content', $text);
-	} else {
-		return apply_filters('the_content', $excerpt);
-	}
-}
-
-//Truncate Text while preserving HTML
-function truncateHtml($text, $length = 100, $ending = '...', $exact = false, $considerHtml = true) {
-	if ($considerHtml) {
-		// if the plain text is shorter than the maximum length, return the whole text
-		if (strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
-			return $text;
-		}
-		// splits all html-tags to scanable lines
-		preg_match_all('/(<.+?>)?([^<>]*)/s', $text, $lines, PREG_SET_ORDER);
-		$total_length = strlen($ending);
-		$open_tags = array();
-		$truncate = '';
-		foreach ($lines as $line_matchings) {
-			// if there is any html-tag in this line, handle it and add it (uncounted) to the output
-			if (!empty($line_matchings[1])) {
-				// if it's an "empty element" with or without xhtml-conform closing slash
-				if (preg_match('/^<(\s*.+?\/\s*|\s*(img|br|input|hr|area|base|basefont|col|frame|isindex|link|meta|param)(\s.+?)?)>$/is', $line_matchings[1])) {
-					// do nothing
-				}
-				// if tag is a closing tag
-				elseif (preg_match('/^<\s*\/([^\s]+?)\s*>$/s', $line_matchings[1], $tag_matchings)) {
-					// delete tag from $open_tags list
-					$pos = array_search($tag_matchings[1], $open_tags);
-					if ($pos !== false) {
-						unset($open_tags[$pos]);
-					}
-				}
-				// if tag is an opening tag
-				elseif (preg_match('/^<\s*([^\s>!]+).*?>$/s', $line_matchings[1], $tag_matchings)) {
-					// add tag to the beginning of $open_tags list
-					array_unshift($open_tags, strtolower($tag_matchings[1]));
-				}
-				// add html-tag to $truncate'd text
-				$truncate .= $line_matchings[1];
-			}
-			// calculate the length of the plain text part of the line; handle entities as one character
-			$content_length = strlen(preg_replace('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|[0-9a-f]{1,6};/i', ' ', $line_matchings[2]));
-			if ($total_length+$content_length> $length) {
-				// the number of characters which are left
-				$left = $length - $total_length;
-				$entities_length = 0;
-				// search for html entities
-				if (preg_match_all('/&[0-9a-z]{2,8};|&#[0-9]{1,7};|[0-9a-f]{1,6};/i', $line_matchings[2], $entities, PREG_OFFSET_CAPTURE)) {
-					// calculate the real length of all entities in the legal range
-					foreach ($entities[0] as $entity) {
-						if ($entity[1]+1-$entities_length <= $left) {
-							$left--;
-							$entities_length += strlen($entity[0]);
-						}
-						else {
-							// no more characters left
-							break;
-						}
-					}
-				}
-				$truncate .= substr($line_matchings[2], 0, $left+$entities_length);
-				// maximum lenght is reached, so get off the loop
-				break;
-			}
-			else {
-				$truncate .= $line_matchings[2];
-				$total_length += $content_length;
-			}
-			// if the maximum length is reached, get off the loop
-			if($total_length>= $length) {
-				break;
-			}
-		}
-	}
-	else {
-		if (strlen($text) <= $length) {
-			return $text;
-		}
-		else {
-			$truncate = substr($text, 0, $length - strlen($ending));
-		}
-	}
-	// if the words shouldn't be cut in the middle...
-	if (!$exact) {
-		// ...search the last occurance of a space...
-		$spacepos = strrpos($truncate, ' ');
-		if (isset($spacepos)) {
-			// ...and cut the text in this position
-			$truncate = substr($truncate, 0, $spacepos);
-		}
-	}
-	// add the defined ending to the text
-	$truncate .= $ending;
-	if($considerHtml) {
-		// close all unclosed html-tags
-		foreach ($open_tags as $tag) {
-			$truncate .= '</' . $tag . '>';
-		}
-	}
-	return $truncate;
-}

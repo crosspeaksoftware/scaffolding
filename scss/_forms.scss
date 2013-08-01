@@ -31,24 +31,14 @@ form {
     input[type="text"],
     input[type="password"],
     input[type="file"]{
-	    outline:none;
-		background:#FFF;
-		border:1px solid #CCCCCC;
-		@include box-shadow(2px 2px 8px 0 #CCCCCC inset);
-		@include border-radius(2px);
-		color: #555555;
-		transition: all 0.25s ease-in-out;
-		-webkit-transition: all 0.25s ease-in-out;
-		-moz-transition: all 0.25s ease-in-out;
-		padding:8px 1%;
-
-		&:focus {
-			border:1px solid #333!important;
-		}
+		color: #555;
+		font-size: .9em !important;
+		padding:0.5em 1% !important;
 
 		&:invalid{}
     }
 
+	textarea,
     input[type="text"],
     input[type="password"],
     input[type="color"],
@@ -65,7 +55,21 @@ form {
     input[type="week"],
     input[type="text"],
     input[type="password"],
-    input[type="file"]{}
+    input[type="file"]{
+    	outline:none;
+		background:#FFF;
+		border:1px solid #CCCCCC;
+		@include box-shadow(2px 2px 8px 0 #CCCCCC inset);
+		@include border-radius(2px);
+		color: #555555;
+		transition: all 0.25s ease-in-out;
+		-webkit-transition: all 0.25s ease-in-out;
+		-moz-transition: all 0.25s ease-in-out;
+
+		&:focus {
+			border:1px solid #333;
+		}
+    }
 
     textarea {
         letter-spacing: normal;
@@ -77,6 +81,7 @@ form {
 
     select {
         width:auto;
+        padding: 0.25em 1% !important;
     }
 
     input[type=image] {
@@ -91,6 +96,24 @@ form {
 			background-color:transparent!important;
 		}
 
+	}
+
+	li.double-col,
+	li.triple-col,
+	li.quad-col {
+		display: inline-block;
+		clear: none !important;
+		float: left;
+	}
+
+	li.double-col { width:50%; }
+	li.triple-col { width:33.333%; }
+	li.quad-col { width:25%; }
+
+	input.large,
+	select.large,
+	textarea.textarea {
+	    width: 98%!important;
 	}
 }
 
@@ -203,12 +226,39 @@ input[type="submit"]:active {
  * SearchFrom Styles
  ************************/
 #searchform{
+
 	label{
-		display:none;
+		display:inline-block;
+		*display:inline;
+		font-size:0.750em;
+		font-weight:bold;
+		text-transform: uppercase;
+		width:20%;
 	}
-	#s{}
+
+	//Text inpute
+	#s{
+		outline:none;
+		background:#FFF;
+		border:1px solid #CCCCCC;
+		@include box-shadow(none);
+		@include border-radius(0);
+		color: #555555;
+		transition: all 0.25s ease-in-out;
+		-webkit-transition: all 0.25s ease-in-out;
+		-moz-transition: all 0.25s ease-in-out;
+		width:75%;
+		padding:2px 1%;
+
+		&:focus {
+			border:1px solid #AAA;
+		}
+
+	}
+
+	//Submit Button
 	#searchsubmit{
-		display: inline;
+		display:none;
 		padding: 7px 15px;
 	}
 }
@@ -246,27 +296,6 @@ input[type="submit"]:active {
 	}
 	input[type="button"],
 	input[type="submit"] {}
-}
-
-/* CUSTOM GRAVITY FORM STYLES */
-.gform_wrapper {
-	.gform_body {
-		li {
-			input,
-			textarea {
-				padding:0.5em 0 !important;
-				@include border-radius(2px);
-				border: solid 1px #CCC;
-				font-size: .9em !important;
-				color: #555;
-			}
-		}
-	}
-	.gform_footer {
-	    clear: both;
-	    margin:0!important;
-	    padding:0!important;
-    }
 }
 
 /******************************************************

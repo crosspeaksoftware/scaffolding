@@ -12,7 +12,7 @@
 
 				<section class="entry-content">
 
-					<p><?php _e("The page you were looking for was not found, but maybe try looking again!", "scaffoldingtheme"); ?></p>
+					<p><?php _e('The page you were looking for was not found. This may be due to the page being moved, renamed or deleted.<ul><li>Check the URL in the address bar above</li><li>Look for the page in the main navigation above or on the <a href="/site-map/" title="Site Map Page">Site Map</a> page</li><li>Try using the Search below.</li></ul>', "bonestheme"); ?></p>
 
 				</section> <!-- end article section -->
 
