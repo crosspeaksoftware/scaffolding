@@ -272,15 +272,17 @@ function scaffolding_footer_nav() {
 
 // this is the fallback for header menu
 function scaffolding_main_nav_fallback() {
-	wp_page_menu( array(
-		'show_home' => true,
-    	'menu_class' => 'menu main-menu wrap clearfix',
-		'include'     => '',
-		'exclude'     => '',
-		'echo'        => true,
-        'link_before' => '',
-        'link_after' => ''
-	) );
+	wp_nav_menu(array(
+		'container' => false,
+		'container_class' => '',
+		'menu' => '',
+		'menu_class' => 'menu main-menu wrap clearfix',
+		'before' => '',
+		'after' => '',
+		'link_before' => '',
+		'link_after' => '',
+		'depth' => 0,
+	));
 }
 
 // this is the fallback for footer menu
