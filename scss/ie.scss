@@ -22,6 +22,7 @@ import the mixins file so SASS can understand the variables.
 @import "grid";
 @import "768up";
 @import "1030up";
+@import "full";
 
 /*
 you can call the larger styles if you want, but there's really no need
@@ -51,6 +52,9 @@ header.php file to see what they are:
 */
 
 .lt-ie8 {
+
+	@import "font-awesome-ie7";
+
 	//Fix Main Navigation Inline issue
 	#main-navigation {
 		ul.menu {
