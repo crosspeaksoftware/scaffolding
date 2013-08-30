@@ -244,7 +244,7 @@ SIDEBARS & ASIDES
 	.widget {
 		padding: 0 10px;
 		margin: 2.2em 0;
-		
+
 		&.first-widget {
 			margin: 0 0 2.2em;
 		}
@@ -399,6 +399,7 @@ mobile. Make sure to double check these!
 		}
 
 		#container .header,
+		#container .banner-wrap,
 		#content,
 		#container .footer {
 		    display: table-row;

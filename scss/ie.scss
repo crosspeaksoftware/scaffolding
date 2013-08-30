@@ -78,4 +78,28 @@ header.php file to see what they are:
     .last {
       padding-right: 0;
     }
+
+	//disable the sticky footer in IE7
+	html,
+	body.sticky-footer {
+		height: 100%;
+		margin: 0;
+	}
+
+	body.sticky-footer {
+
+		#container {
+		    display: block;
+		    width: auto;
+		}
+
+		#container .header,
+		#container .banner-wrap,
+		#content,
+		#container .footer {
+		    display: block;
+		    height: auto;
+		    overflow: hidden;
+		}
+	}
 }

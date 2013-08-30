@@ -8,3 +8,8 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
+
+/*Force Vertical Scrollbar using body - http://css-tricks.com/snippets/css/force-vertical-scrollbar/ */
+body {
+       overflow-y: scroll;
+}
