@@ -364,21 +364,19 @@ you'll probably need to do quite a bit
 of overriding here if you styled them for
 mobile. Make sure to double check these!
 */
-.footer-links {
-	ul {
-		li {
-			a {
-				&:hover {}
-			}
-			/*
-			be careful with the depth of your menus.
-			it's very rare to have multi-depth menus in
-			the footer.
-			*/
-			ul {}
+ul.footer-menu {
+	li {
+		a {
+			&:hover {}
 		}
+		/*
+		be careful with the depth of your menus.
+		it's very rare to have multi-depth menus in
+		the footer.
+		*/
+		ul {}
 	}
-} /* end .footer-links */
+}
 
 
 	/*********************
