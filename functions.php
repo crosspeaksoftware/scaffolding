@@ -761,3 +761,11 @@ function scaffolding_login_title() { return get_option('blogname'); }
 add_action('login_head', 'scaffolding_login_css');
 add_filter('login_headerurl', 'scaffolding_login_url');
 add_filter('login_headertitle', 'scaffolding_login_title');
+
+
+//Add page title attribute to a tags
+function wp_list_pages_filter($output) {
+    $output = preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1 title="$4" href="$2"$3>$4</a>',$output);
+    return $output;
+}
+add_filter('wp_list_pages', 'wp_list_pages_filter');
