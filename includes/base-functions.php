@@ -10,10 +10,9 @@ Custom functions go in functions.php to facilitate future updates if necessary.
 /******************************************
 TABLE OF CONTENTS
 
-1. INITIATING SCAFFOLDING
-2. CLEANING UP WP_HEAD
-3. SCRIPTS & ENQUEUEING
-4. 
+1. Initiating Scaffolding
+2. Cleaning Up wp_head
+3. Scripts & Enqueueing
 
 ******************************************/
 
