@@ -16,8 +16,6 @@ INCLUDE FILES
 
 
 
-
-
 /*********************
 MENUS & NAVIGATION
 *********************/
@@ -489,47 +487,8 @@ function scaffolding_get_the_author_posts_link() {
 	return $link;
 }
 
-/************* CLIENT UX FUNCTIONS *****************/
-function increase_editor_permissions(){
-	$role = get_role('editor');
-	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
-	$role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
-}
-add_action('admin_init','increase_editor_permissions');
 
-// Removes the Powered By WPEngine widget
-wp_unregister_sidebar_widget( 'wpe_widget_powered_by' );
 
-//Remove some of the admin bar links to keep from confusing client admins
-function remove_admin_bar_links() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('wp-logo'); // Remove Wordpress Logo From Admin Bar
-	$wp_admin_bar->remove_menu('wpseo-menu'); // Remove SEO from Admin Bar
-}
-add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
-
-// Custom Backend Footer
-function scaffolding_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/hallme/scaffolding" target="_blank">scaffolding</a> a fork of <a href="http://themble.com/bones" target="_blank">bones</a>.';
-}
-add_filter('admin_footer_text', 'scaffolding_custom_admin_footer');
-
-/************* DASHBOARD WIDGETS *****************/
-// disable default dashboard widgets
-function disable_default_dashboard_widgets() {
-	//remove_meta_box('dashboard_right_now', 'dashboard', 'core');// Right Now Widget
-	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');// Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');// Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');// Plugins Widget
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');// Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');// Recent Drafts Widget
-	//remove_meta_box('dashboard_primary', 'dashboard', 'core');//1st blog feed
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');//2nd blog feed
-	// removing plugin dashboard boxes
-	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
-}
-// removing the dashboard widgets
-add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 /************* CUSTOM LOGIN PAGE *****************/
 // calling your own login css so you can style it
