@@ -93,6 +93,9 @@ function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 	if (!is_admin()) {
 
+		// jQuery loaded from cdnjs
+		wp_register_script( 'scaffolding-jquery', 'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js', array(), '', false );
+
 		// modernizr (without media query polyfill)
 		wp_register_script( 'scaffolding-modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '', false );
 
@@ -117,9 +120,82 @@ function scaffolding_scripts_and_styles() {
 
 		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-		// RECOMMENDATION: Load jQuery via Google CDN using http://wordpress.org/plugins/use-google-libraries/
-		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'scaffolding-jquery' );
 		wp_enqueue_script( 'scaffolding-js' );
 
 	}
 }
+
+/*********************
+THEME SUPPORT
+*********************/
+
+// Adding WP 3+ Functions & Theme Support
+function scaffolding_theme_support() {
+
+	add_theme_support('post-thumbnails');						// wp thumbnails (sizes handled in functions.php)
+
+	set_post_thumbnail_size(125, 125, true);					// default thumb size
+
+	/*  Feature Currently Disabled
+	// wp custom background (thx to @bransonwerner for update)
+	add_theme_support( 'custom-background',
+		array(
+		'default-image' => '',  // background image default
+		'default-color' => '', // background color default (dont add the #)
+		'wp-head-callback' => '_custom_background_cb',
+		'admin-head-callback' => '',
+		'admin-preview-callback' => ''
+		)
+	);
+	*/
+
+
+	add_theme_support('automatic-feed-links');					// rss thingy
+
+	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
+	//adding custome header suport
+	add_theme_support( 'custom-header', array(
+		'default-image'=> '%s/images/headers/default.jpg',
+		'random-default'=> false,
+		'width'=> 999,  // Make sure to set this
+		'height'=> 262, // Make sure to set this
+		'flex-height'=> false,
+		'flex-width'=> false,
+		'default-text-color'=> 'ffffff',
+		'header-text'=> false,
+		'uploads'=> true,
+		'wp-head-callback'=> 'scaffolding_custom_headers_callback',
+		'admin-head-callback'=> '',
+		'admin-preview-callback'=> '',
+		)
+	);
+
+/* Feature Currently Disabled
+	// adding post format support
+	add_theme_support( 'post-formats',
+		array(
+			'aside',			// title less blurb
+			'gallery',			// gallery of images
+			'link',			  	// quick link to other site
+			'image',			// an image
+			'quote',			// a quick quote
+			'status',			// a Facebook like status update
+			'video',			// video
+			'audio',			// audio
+			'chat'				// chat transcript
+		)
+	);
+*/
+
+	// wp menus
+	add_theme_support( 'menus' );
+
+	// registering wp3+ menus
+	register_nav_menus(
+		array(
+			'main-nav' => __( 'Main Menu', 'scaffoldingtheme' ),	// main nav in header
+			'footer-nav' => __( 'Footer Menu', 'scaffoldingtheme' ) // secondary nav in footer
+		)
+	);
+} /* end scaffolding theme support */
