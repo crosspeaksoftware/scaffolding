@@ -20,7 +20,7 @@ of the styles inside media queries.
 @import "mixins";
 
 // import Icons
-@import "font-awesome";
+@import "font-awesome";	//	To use Font Awesome, simply add the icons to your html like this: <i class="icon-compass"></i>. See _font_awesome.scss for all available icons.
 
 // import forms
 @import "forms";
