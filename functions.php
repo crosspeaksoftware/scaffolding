@@ -12,7 +12,8 @@ sidebars, comments, ect.
 INCLUDE FILES
 *********************/
 
-// require_once('/includes/custom-post-type.php');
+require_once('includes/base-functions.php');
+// require_once('includes/custom-post-type.php');
 
 
 
