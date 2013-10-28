@@ -15,6 +15,79 @@ INCLUDE FILES
 require_once('includes/base-functions.php');
 // require_once('includes/custom-post-type.php');
 
+/*********************
+THEME SUPPORT
+*********************/
+
+// Adding WP 3+ Functions & Theme Support
+function scaffolding_theme_support() {
+
+	add_theme_support('post-thumbnails');						// wp thumbnails (sizes handled in functions.php)
+
+	set_post_thumbnail_size(125, 125, true);					// default thumb size
+
+	/*  Feature Currently Disabled
+	// wp custom background (thx to @bransonwerner for update)
+	add_theme_support( 'custom-background',
+		array(
+		'default-image' => '',  // background image default
+		'default-color' => '', // background color default (dont add the #)
+		'wp-head-callback' => '_custom_background_cb',
+		'admin-head-callback' => '',
+		'admin-preview-callback' => ''
+		)
+	);
+	*/
+
+
+	add_theme_support('automatic-feed-links');					// rss thingy
+
+	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
+	//adding custome header suport
+	add_theme_support( 'custom-header', array(
+		'default-image'=> '%s/images/headers/default.jpg',
+		'random-default'=> false,
+		'width'=> 999,  // Make sure to set this
+		'height'=> 262, // Make sure to set this
+		'flex-height'=> false,
+		'flex-width'=> false,
+		'default-text-color'=> 'ffffff',
+		'header-text'=> false,
+		'uploads'=> true,
+		'wp-head-callback'=> 'scaffolding_custom_headers_callback',
+		'admin-head-callback'=> '',
+		'admin-preview-callback'=> '',
+		)
+	);
+
+/* Feature Currently Disabled
+	// adding post format support
+	add_theme_support( 'post-formats',
+		array(
+			'aside',			// title less blurb
+			'gallery',			// gallery of images
+			'link',			  	// quick link to other site
+			'image',			// an image
+			'quote',			// a quick quote
+			'status',			// a Facebook like status update
+			'video',			// video
+			'audio',			// audio
+			'chat'				// chat transcript
+		)
+	);
+*/
+
+	// wp menus
+	add_theme_support( 'menus' );
+
+	// registering wp3+ menus
+	register_nav_menus(
+		array(
+			'main-nav' => __( 'Main Menu', 'scaffoldingtheme' ),	// main nav in header
+			'footer-nav' => __( 'Footer Menu', 'scaffoldingtheme' ) // secondary nav in footer
+		)
+	);
+} /* end scaffolding theme support */
 
 
 /*********************
@@ -193,84 +266,6 @@ function scaffolding_related_posts() {
 	wp_reset_query();
 	echo '</ul>';
 } /* end scaffolding related posts function */
-
-/*********************
-PAGE NAVI
-*********************/
-
-// Numeric Page Navi (built into the theme by default)
-function scaffolding_page_navi($before = '', $after = '') {
-    global $wpdb, $wp_query;
-    $request = $wp_query->request;
-    $posts_per_page = intval(get_query_var('posts_per_page'));
-    $paged = intval(get_query_var('paged'));
-    $numposts = $wp_query->found_posts;
-    $max_page = $wp_query->max_num_pages;
-    if ( $numposts <= $posts_per_page ) { return; }
-    if(empty($paged) || $paged == 0) {
-        $paged = 1;
-    }
-    $pages_to_show = 7;
-    $pages_to_show_minus_1 = $pages_to_show-1;
-    $half_page_start = floor($pages_to_show_minus_1/2);
-    $half_page_end = ceil($pages_to_show_minus_1/2);
-    $start_page = $paged - $half_page_start;
-    if($start_page <= 0) {
-        $start_page = 1;
-    }
-    $end_page = $paged + $half_page_end;
-    if(($end_page - $start_page) != $pages_to_show_minus_1) {
-        $end_page = $start_page + $pages_to_show_minus_1;
-    }
-    if($end_page > $max_page) {
-        $start_page = $max_page - $pages_to_show_minus_1;
-        $end_page = $max_page;
-    }
-    if($start_page <= 0) {
-        $start_page = 1;
-    }
-    echo $before.'<nav class="page-navigation"><ol class="scaffolding_page_navi clearfix">'."";
-    if ($start_page >= 2 && $pages_to_show < $max_page) {
-        $first_page_text = __( "First", 'scaffoldingtheme' );
-        echo '<li class="bpn-first-page-link"><a rel="prev" href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
-    }
-    echo '<li class="bpn-prev-link">';
-    previous_posts_link('<<');
-    echo '</li>';
-    for($i = $start_page; $i  <= $end_page; $i++) {
-        if( $i == $paged ) {
-            echo '<li class="bpn-current">'.$i.'</li>';
-        }elseif( $i == ($paged - 1) ) {
-            echo '<li><a rel="prev" href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
-        }elseif( $i == ($paged + 1) ) {
-            echo '<li><a rel="next" href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
-        }else {
-            echo '<li><a href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
-        }
-    }
-    echo '<li class="bpn-next-link">';
-    next_posts_link('>>');
-    echo '</li>';
-    if ($end_page < $max_page) {
-        $last_page_text = __( "Last", 'scaffoldingtheme' );
-        echo '<li class="bpn-last-page-link"><a rel="next" href="'.get_pagenum_link($max_page).'" title="'.$last_page_text.'">'.$last_page_text.'</a></li>';
-    }
-    echo '</ol></nav>'.$after."";
-} /* end page navi */
-
-//add rel and title attribute to next pagination link
-function get_next_posts_link_attributes($attr){
-    $attr = 'rel="next" title="View the Next Page"';
-    return $attr;
-}
-add_filter('next_posts_link_attributes', 'get_next_posts_link_attributes');
-
-//add rel and title attribute to prev pagination link
-function get_previous_posts_link_attributes($attr){
-    $attr = 'rel="prev" title="View the Previous Page"';
-    return $attr;
-}
-add_filter('previous_posts_link_attributes', 'get_previous_posts_link_attributes');
 
 /*******************
  COMMENT LAYOUT
