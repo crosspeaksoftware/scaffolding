@@ -18,7 +18,6 @@ TABLE OF CONTENTS
 6. Dashboard Widgets
 
 ******************************************/
-
 /*********************
 INITIATING SCAFFOLDING
 *********************/
@@ -96,11 +95,8 @@ function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 	if (!is_admin()) {
 
-		// jQuery loaded from cdnjs
-		wp_register_script( 'scaffolding-jquery', 'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js', array(), '', false );
-
 		// modernizr (without media query polyfill)
-		wp_register_script( 'scaffolding-modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '', false );
+		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
 
 		// register main stylesheet
 		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
@@ -122,6 +118,7 @@ function scaffolding_scripts_and_styles() {
 		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
+	    wp_enqueue_script( 'jquery' );
 		wp_enqueue_style( 'magnific-popup-css' );
 		wp_enqueue_style( 'scaffolding-stylesheet' );
 		wp_enqueue_style('scaffolding-ie-only');

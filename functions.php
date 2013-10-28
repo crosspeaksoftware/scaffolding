@@ -90,6 +90,62 @@ function scaffolding_theme_support() {
 } /* end scaffolding theme support */
 
 
+/*************
+ CUSTOM PAGE HEADERS
+ *************/
+register_default_headers( array(
+	'default' => array(
+		'url' => get_template_directory_uri().'/images/headers/default.jpg',
+		'thumbnail_url' => get_template_directory_uri().'/images/headers/default.jpg',
+		'description' => __( 'default', 'scaffolding' )
+	)
+));
+
+//Set header image as a BG
+function scaffolding_custom_headers_callback() {
+	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
+}
+
+/*************
+ THUMBNAIL SIZE OPTIONS
+ **************/
+// Thumbnail sizes
+//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
+
+/**********************
+ CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
+ **********************/
+/* //Currently commented out. This is useful for imporving UX in the WP backend
+function change_post_menu_label() {
+	global $menu;
+	global $submenu;
+	$menu[5][0] = 'News';
+	$submenu['edit.php'][5][0] = 'All News Entries';
+	$submenu['edit.php'][10][0] = 'Add News Entries';
+	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
+	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
+	echo '';
+}
+
+function change_post_object_label() {
+	global $wp_post_types;
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = 'News';
+	$labels->singular_name = 'News';
+	$labels->add_new = 'Add News Entry';
+	$labels->add_new_item = 'Add News Entry';
+	$labels->edit_item = 'Edit News Entry';
+	$labels->new_item = 'News Entry';
+	$labels->view_item = 'View Entry';
+	$labels->search_items = 'Search News Entries';
+	$labels->not_found = 'No News Entries found';
+	$labels->not_found_in_trash = 'No News Entries found in Trash';
+}
+add_action( 'init', 'change_post_object_label' );
+add_action( 'admin_menu', 'change_post_menu_label' );
+*/
+
+
 /*********************
 MENUS & NAVIGATION
 *********************/
@@ -98,17 +154,19 @@ MENUS & NAVIGATION
 function scaffolding_main_nav() {
 	// display the wp3 menu if available
 	wp_nav_menu(array(
-		'container' => false,						 	// remove nav container
-		'container_class' => '',		 				// class of container (should you choose to use it)
-		'menu' => '',							 	 	// nav name
-		'menu_class' => 'menu main-menu wrap clearfix', // adding custom nav class
-		'theme_location' => 'main-nav',			 		// where it's located in the theme
-		'before' => '',								 	// before the menu
-		'after' => '',								 	// after the menu
-		'link_before' => '',						 	// before each link
-		'link_after' => '',							 	// after each link
-		'depth' => 0,								 	// limit the depth of the nav
-		'fallback_cb' => 'scaffolding_main_nav_fallback'// fallback function
+		'container' => false,						 	 // remove nav container
+		'container_class' => '',		 				 // class of container (should you choose to use it)
+		'menu' => '',							 	 	 // nav name
+		'menu_class' => 'menu main-menu wrap clearfix',  // adding custom nav class
+		'theme_location' => 'main-nav',			 		 // where it's located in the theme
+		'before' => '',								 	 // before the menu
+		'after' => '',								 	 // after the menu
+		'link_before' => '',						 	 // before each link
+		'link_after' => '',							 	 // after each link
+		'depth' => 0,								 	 // limit the depth of the nav
+		'fallback_cb' => 'scaffolding_main_nav_fallback',// fallback function
+        'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="icon-reorder"></i></a><ul id="%1$s" class="%2$s">%3$s</ul>',
+        'walker'=> new scaffolding_walker_nav_menu
 	));
 } /* end scaffolding main nav */
 
@@ -149,6 +207,94 @@ function scaffolding_nav_fallback() {
 	/* you can put a default here if you like */
 }
 
+//Custom walker to build main menu
+class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
+    // add classes to ul sub-menus
+    function start_lvl( &$output, $depth ) {
+        // depth dependent classes
+        $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+        $display_depth = ( $depth + 1); // because it counts the first submenu as 0
+        $classes = array(
+                'sub-menu',
+                ( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
+                'menu-depth-' . $display_depth
+            );
+        $class_names = implode( ' ', $classes );
+        // build html
+        $output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="icon-chevron-left"></i> Back</a></li>' . "\n";
+    }
+
+    function start_el(&$output, $item, $depth, $args) {
+        global $wp_query;
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+        $class_names = $value = '';
+
+        //set <li> classes
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'menu-item-' . $item->ID;
+        //if( $args->has_children ){ $classes[] = 'menu-has-children'; }
+        if( !$args->has_children ){ $classes[] = 'menu-no-children'; }
+        //combine the class array into a string
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+        $class_names = ' class="' . esc_attr( $class_names ) . '"';
+
+        //set <li> id
+        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+        $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+
+        //set outer <li> and it's attributes
+        $output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+        //set <a> attributes
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="'  . esc_attr( strip_tags($item->title) ) .'"';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+        //Add menu button links to items with children
+        if ( $args->has_children ) {
+            $menu_pull_link = '<a class="menu-button ir" title="Click to Open Menu">Open Sub Menu</a>';
+        }
+        else{
+            $menu_pull_link = '';
+        }
+
+        //adds the ability to have a heading in a menu
+        if(in_array('no-link',$classes)){
+            $item_output = $args->before;
+            $item_output .= '<span>';
+            $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+            $item_output .= '</span>';
+            $item_output .= $args->after;
+        }
+        else{
+            $item_output = $args->before;
+            $item_output .= '<a'. $attributes .'>';
+            $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+            $item_output .= '</a>';
+            $item_output .= $menu_pull_link.$args->after;
+        }
+
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+
+    function end_el(&$output, $item, $depth=0, $args=array()) {
+        $output .= "</li>\n";
+    }
+
+   function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+
+        //Set custom arg to tell if item has children
+        $id_field = $this->db_fields['id'];
+        if ( is_object( $args[0] ) ) {
+            $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
+        }
+
+        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
+}
+
 /*************
  ACTIVE SIDEBARS
  ***************/
@@ -176,62 +322,6 @@ function scaffolding_register_sidebars() {
 } // don't remove this bracket!
 
 
-/*************
- CUSTOM PAGE HEADERS
- *************/
-
-register_default_headers( array(
-	'default' => array(
-		'url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
-		'thumbnail_url' => get_template_directory_uri().'/images/interior-headers/default.jpg',
-		'description' => __( 'default', 'scaffolding' )
-	)
-));
-
-//Set header image as a BG
-function scaffolding_custom_headers_callback() {
-	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
-}
-
-/*************
- THUMBNAIL SIZE OPTIONS
- **************/
-
-// Thumbnail sizes
-//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
-
-/**********************
- CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
- **********************/
-/* Currently commented out. This is useful for imporving UX in the WP backend
-function change_post_menu_label() {
-	global $menu;
-	global $submenu;
-	$menu[5][0] = 'News';
-	$submenu['edit.php'][5][0] = 'All News Entries';
-	$submenu['edit.php'][10][0] = 'Add News Entries';
-	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
-	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
-	echo '';
-}
-
-function change_post_object_label() {
-	global $wp_post_types;
-	$labels = &$wp_post_types['post']->labels;
-	$labels->name = 'News';
-	$labels->singular_name = 'News';
-	$labels->add_new = 'Add News Entry';
-	$labels->add_new_item = 'Add News Entry';
-	$labels->edit_item = 'Edit News Entry';
-	$labels->new_item = 'News Entry';
-	$labels->view_item = 'View Entry';
-	$labels->search_items = 'Search News Entries';
-	$labels->not_found = 'No News Entries found';
-	$labels->not_found_in_trash = 'No News Entries found in Trash';
-}
-add_action( 'init', 'change_post_object_label' );
-add_action( 'admin_menu', 'change_post_menu_label' );
-*/
 
 
 /*********************

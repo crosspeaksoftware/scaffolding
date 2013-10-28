@@ -14,7 +14,15 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-body {}
+body {
+    overflow-x: hidden;
+
+    #container{
+		/*styles for mobile nave slide in*/
+		position:relative;
+		@include transition(all 0.25s ease-in-out);
+    }
+}
 
 /*********************
 LAYOUT & GRID STYLES
@@ -81,82 +89,121 @@ ul.menu {
 /****Main Navigation****/
 #main-navigation {
 
-	ul.menu {
-		background-color:#333;
-		clear:both;
-		padding:0;
+    ul.menu {
+        background-color:blue;
+        clear: both;
+        width: 70%;
+        top: 0;
+        bottom:0;
+        right: -70%;
+        z-index: 9999;
+        padding: 0;
+        margin: 0;
+        position: absolute;
 
-		li {
-			display:block;
-			background-color:#333;
-			border-top:1px solid #ddd;
-			margin:0;
-			padding:0;
+        li {
+            display: block;
+            border-bottom: 1px solid #4094B3;
+            margin: 0;
+            padding: 0;
+            @include transition(all 0.25s ease-in-out);
 
-			a {
-				display:inline-block;
-				color:#fff;
-				font-size:1.143em;
-				text-decoration: none;
-				width:96%;
-				padding:12px 0 12px 4%;
+            a {
+                display: inline-block;
+                width: 75%;
+                color: #fff;
+                text-decoration: none;
+                padding: 15px 0 15px 5%;
+                @include transition(all 0.25s ease-in-out);
+            }
 
-				&:hover, &:focus {}
+            &:hover, &:focus {
+                background-color: #4094B3;
+            }
 
-			}
+            a.menu-button{
+                display:block;
+                width:19%;
+                margin:0;
+                padding:14px 0;
+                cursor:pointer;
+                @include transition(all 0.25s ease-in-out);
 
-			&.first-item {
-				border-top:none;
-			}
-			&.last-item {}
+                &:hover, &:focus {
+                    background-color: #4094B3;
+                }
+            }
 
-			/*sub menu*/
-			ul.sub-menu,
-			ul.children {
-				display:none;
-				margin:0;
-				padding:0;
+            a.menu-back-button{
+                display: inline-block;
+                width: 80%;
+                color: #fff;
+                font-size: 0.875em;
+                text-decoration: none;
+                padding: 15px 10%;
+                cursor:pointer;
+                @include transition(all 0.25s ease-in-out);
 
-				li {
-					a {
+                &:hover, &:focus {
+                    background-color: #4094B3;
+                }
+            }
 
-					&:hover, &:focus {}
-					}
+            &:first-child {}
 
-					&.first-item,
-					&.last-item {}
-				}
-			}
-		}
-	}
-	/*menu buttons*/
-	.menu-button{
-		display:block;
-		background-color:#333;
-		background-image:url('../images/nav-icon.png');
-		background-repeat: no-repeat;
-		background-position: center;
-		float:right;
-		clear:right;
-		@include border-radius(4px);
-		width:60px;
-		height:40px;
-		text-indent: 100%;
-		white-space: nowrap;
-		margin:-40px 2% 0 0;
-		overflow: hidden;
+            &:last-child  {}
 
-		&.menu-open{
-			@include border-radius(4px 4px 0px 0px);
-		}
-	}
+            /*sub menu - child*/
+            ul.sub-menu{
+                display:block;
+                background-color:#367992;
+                width: 100%;
+                position:absolute;
+                right:-100%;
+                top:0;
+                bottom:0;
+                margin:0;
+                padding:0;
+                @include transition(all 0.25s ease-in-out);
+            }
+            /*sub menu - child*/
+            ul.sub-menu-open{
+                right:0%;
+            }
+        }
+    }
+    .menu-button{
+        display: block;
+        float: right;
+        clear: both;
+        width: 78px;
+        height: 25px;
+        white-space: nowrap;
+        margin: 0 2% 0 10px;
+        overflow: hidden;
+        color: #367992;
+        font-size: 1em;
+        @include transition(all 0.25s ease-in-out);
+
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
 }
+
+body.menu-open{
+    #container {
+        left: -70%;
+    }
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
 
 #content {
 	margin-top: 2.2em;
+
 	.hentry {
 		header {}
 		footer {}
