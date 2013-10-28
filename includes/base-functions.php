@@ -45,7 +45,7 @@ CLEANING UP WP_HEAD
 *********************/
 
 function scaffolding_head_cleanup() {
-	
+
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );						// category feeds
 	// remove_action( 'wp_head', 'feed_links', 2 );								// post and comment feeds
 	remove_action( 'wp_head', 'rsd_link' );										// EditURI link
@@ -55,7 +55,7 @@ function scaffolding_head_cleanup() {
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );					// start link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );		// links for adjacent posts
 	remove_action( 'wp_head', 'wp_generator' );									// WP version
-	add_filter( 'style_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );	// remove WP version from css	
+	add_filter( 'style_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );	// remove WP version from css
 	add_filter( 'script_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );// remove WP version from scripts
 }
 
@@ -108,6 +108,11 @@ function scaffolding_scripts_and_styles() {
 		// ie-only style sheet
 		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 
+		//Magnific Popups (LightBox)
+        wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
+        wp_register_style( 'magnific-popup-css', get_stylesheet_directory_uri() . '/css/magnific-popup.css', array(), '0.9.5', 'screen' );
+
+
 		// comment reply script for threaded comments
 		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
 			wp_enqueue_script( 'comment-reply' );
@@ -117,13 +122,15 @@ function scaffolding_scripts_and_styles() {
 		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
-		wp_enqueue_script( 'scaffolding-modernizr' );
+		wp_enqueue_style( 'magnific-popup-css' );
 		wp_enqueue_style( 'scaffolding-stylesheet' );
 		wp_enqueue_style('scaffolding-ie-only');
 
 		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
+		wp_enqueue_script( 'scaffolding-modernizr' );
 		wp_enqueue_script( 'scaffolding-jquery' );
+		wp_enqueue_script( 'magnific-popup-js' );
 		wp_enqueue_script( 'scaffolding-js' );
 
 	}

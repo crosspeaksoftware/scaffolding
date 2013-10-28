@@ -57,12 +57,10 @@ function getScrollBarWidth () {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
-	/*
-	Responsive jQuery is a tricky thing.
-	There's a bunch of different ways to handle
-	it, so be sure to research and find the one
-	that works for you best.
-	*/
+	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
+	$('a[href*=".jpg"], a[href*="jpeg"], a[href*=".png"], a[href*=".gif"], a[href$=".bmp"]').magnificPopup({
+		type: 'image'
+	});
 
 	/* getting viewport width */
 	var responsive_viewport = $(window).width() + getScrollBarWidth();

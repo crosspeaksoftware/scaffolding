@@ -28,12 +28,21 @@ LAYOUT & GRID STYLES
 }
 
 /*********************
-HEADER STYLES
+HEADER SYTLES
 *********************/
 
 .header {}
-
 	#logo {}
+	#banner {
+
+		background-position:top center;
+		background-repeat:no-repeat;
+		background-size: cover;
+
+		.spacer {
+			padding-top: 15%; // change this value based on the aspect ratio of your header image
+		}
+	}
 
 /*********************
 NAVIGATION STYLES
