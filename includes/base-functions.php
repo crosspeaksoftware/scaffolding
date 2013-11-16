@@ -97,7 +97,8 @@ function scaffolding_scripts_and_styles() {
 	if (!is_admin()) {
 
 		// jQuery loaded from cdnjs
-		wp_register_script( 'scaffolding-jquery', 'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js', array(), '', false );
+		wp_deregister_script('jquery');
+		wp_register_script( 'jquery', 'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js', array(), '', false );
 
 		// modernizr (without media query polyfill)
 		wp_register_script( 'scaffolding-modernizr', 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array(), '', false );
@@ -129,7 +130,6 @@ function scaffolding_scripts_and_styles() {
 		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
 		wp_enqueue_script( 'scaffolding-modernizr' );
-		wp_enqueue_script( 'scaffolding-jquery' );
 		wp_enqueue_script( 'magnific-popup-js' );
 		wp_enqueue_script( 'scaffolding-js' );
 
