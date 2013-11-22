@@ -59,13 +59,13 @@
 
 			</div> <!-- end #inner-header -->
 
-			<nav id="main-navigation" role="navigation">
-
-				<?php scaffolding_main_nav(); ?>
-
-			</nav><!-- end main-navigation -->
-
 		</header> <!-- end header -->
+
+		<nav id="main-navigation" class="clearfix" role="navigation">
+
+			<?php scaffolding_main_nav(); ?>
+
+		</nav><!-- end main-navigation -->
 
         <div class="banner-wrap">
 

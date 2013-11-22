@@ -11,7 +11,6 @@ sidebars, comments, ect.
 /*********************
 INCLUDE FILES
 *********************/
-
 require_once('includes/base-functions.php');
 // require_once('includes/custom-post-type.php');
 
@@ -47,8 +46,8 @@ function scaffolding_theme_support() {
 	add_theme_support( 'custom-header', array(
 		'default-image'=> '%s/images/headers/default.jpg',
 		'random-default'=> false,
-		'width'=> 999,  // Make sure to set this
-		'height'=> 262, // Make sure to set this
+		'width'=> 1140,  // Make sure to set this
+		'height'=> 250, // Make sure to set this
 		'flex-height'=> false,
 		'flex-width'=> false,
 		'default-text-color'=> 'ffffff',
@@ -165,7 +164,7 @@ function scaffolding_main_nav() {
 		'link_after' => '',							 	 // after each link
 		'depth' => 0,								 	 // limit the depth of the nav
 		'fallback_cb' => 'scaffolding_main_nav_fallback',// fallback function
-        'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="icon-reorder"></i></a><ul id="%1$s" class="%2$s">%3$s</ul>',
+        'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-reorder"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
         'walker'=> new scaffolding_walker_nav_menu
 	));
 } /* end scaffolding main nav */
@@ -221,7 +220,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
             );
         $class_names = implode( ' ', $classes );
         // build html
-        $output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="icon-chevron-left"></i> Back</a></li>' . "\n";
+        $output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
     }
 
     function start_el(&$output, $item, $depth, $args) {
@@ -234,7 +233,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
         $classes[] = 'menu-item-' . $item->ID;
         //if( $args->has_children ){ $classes[] = 'menu-has-children'; }
-        if( !$args->has_children ){ $classes[] = 'menu-no-children'; }
+        if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
         //combine the class array into a string
         $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
         $class_names = ' class="' . esc_attr( $class_names ) . '"';
@@ -254,7 +253,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 
         //Add menu button links to items with children
         if ( $args->has_children ) {
-            $menu_pull_link = '<a class="menu-button ir" title="Click to Open Menu">Open Sub Menu</a>';
+            $menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
         }
         else{
             $menu_pull_link = '';

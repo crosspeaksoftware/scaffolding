@@ -96,7 +96,7 @@ function scaffolding_scripts_and_styles() {
 	if (!is_admin()) {
 
 		// modernizr (without media query polyfill)
-		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
+		wp_register_script('modernizr', "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
 
 		// register main stylesheet
 		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
@@ -108,6 +108,9 @@ function scaffolding_scripts_and_styles() {
         wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
         wp_register_style( 'magnific-popup-css', get_stylesheet_directory_uri() . '/css/magnific-popup.css', array(), '0.9.5', 'screen' );
 
+		//Font Awesome (icon set)
+        wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+
 
 		// comment reply script for threaded comments
 		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -118,16 +121,13 @@ function scaffolding_scripts_and_styles() {
 		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
-	    wp_enqueue_script( 'jquery' );
+	    wp_enqueue_script( 'modernizr' );
+		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_style( 'magnific-popup-css' );
-		wp_enqueue_style( 'scaffolding-stylesheet' );
-		wp_enqueue_style('scaffolding-ie-only');
-
-		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-
-		wp_enqueue_script( 'scaffolding-modernizr' );
-		wp_enqueue_script( 'scaffolding-jquery' );
 		wp_enqueue_script( 'magnific-popup-js' );
+		wp_enqueue_style( 'scaffolding-stylesheet' );
+		wp_enqueue_style( 'scaffolding-ie-only' );
+		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 		wp_enqueue_script( 'scaffolding-js' );
 
 	}
@@ -214,7 +214,7 @@ add_filter('previous_posts_link_attributes', 'get_previous_posts_link_attributes
 /*********************
 CLIENT UX FUNCTIONS
 *********************/
-
+//Extend permisitons for the 'editor' role (used for client accounts)
 function increase_editor_permissions(){
 	$role = get_role('editor');
 	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
@@ -257,14 +257,12 @@ add_action('login_head', 'scaffolding_login_css');
 add_filter('login_headerurl', 'scaffolding_login_url');
 add_filter('login_headertitle', 'scaffolding_login_title');
 
-
 //Add page title attribute to a tags
 function wp_list_pages_filter($output) {
     $output = preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1 title="$4" href="$2"$3>$4</a>',$output);
     return $output;
 }
 add_filter('wp_list_pages', 'wp_list_pages_filter');
-
 
 /*********************
 DASHBOARD WIDGETS
