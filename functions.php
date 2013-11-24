@@ -114,7 +114,7 @@ function scaffolding_custom_headers_callback() {
 /**********************
  CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
  **********************/
-/* //Currently commented out. This is useful for imporving UX in the WP backend
+/* //Currently commented out. This is useful for improving UX in the WP backend
 function change_post_menu_label() {
 	global $menu;
 	global $submenu;
@@ -322,7 +322,6 @@ function scaffolding_register_sidebars() {
 
 
 
-
 /*********************
 RELATED POSTS FUNCTION
 *********************/
@@ -408,7 +407,7 @@ function scaffolding_wpsearch($form) {
 	return $form;
 } // don't remove this bracket!
 
-//Filter post with noindex set from serch results
+//Filter post with noindex set from search results
 function scaffolding_search_filter($query) {
 	if ($query->is_search) {
 		$query->set('meta_query', array(
