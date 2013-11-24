@@ -27,7 +27,7 @@ if (!window.getComputedStyle) {
 	}
 }
 
-//Caculate the width of the scroll bar so css media queries and js widow.width match
+//Calculate the width of the scroll bar so css media queries and js widow.width match
 function getScrollBarWidth () {
 	var inner = document.createElement('p');
 	inner.style.width = "100%";
