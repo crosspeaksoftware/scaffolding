@@ -1,20 +1,6 @@
 <?php get_header(); ?>
 
-		 <div id="main" class="eightcol first clearfix" role="main">
-
-		<!--Header/Banner Image-->
-        <div class="banner-wrap">
-            <div id="banner">
-                <div class="spacer"></div>
-            </div>
-        </div>
-
-		<div id="main" class="eightcol first clearfix" role="main">
-
-			<?php
-			if (have_posts()) :
-				while (have_posts()) :
-					the_post(); ?>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -44,10 +30,8 @@
 
 			<?php else : ?>
 
-			<?php include_once('error.php'); //wordpress template error message ?>
+			<?php include_once('includes/template-error.php'); //wordpress template error message ?>
 
 			<?php endif; ?>
-
-		</div> <!-- end #main -->
 
 <?php get_footer();

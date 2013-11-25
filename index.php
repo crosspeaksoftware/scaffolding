@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-		 <div id="main" class="eightcol first clearfix" role="main">
-
 			<?php
 			//load in the content of a static blog page if set in the back end
 			if ( 'page' == get_option('show_on_front') && get_option('page_for_posts') && is_home() ) :
@@ -34,10 +32,7 @@
 			endif; //continue the loop as normal
 			?>
 
-			<?php
-			if (have_posts()) :
-				while (have_posts()) :
-					the_post(); ?>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
@@ -65,28 +60,12 @@
 
 				<?php endwhile; ?>
 
-				<?php
-				if (function_exists('scaffolding_page_navi')) {
-					scaffolding_page_navi();
-				}
-				else {
-				?>
-					<nav class="wp-prev-next">
-						<ul class="clearfix">
-							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "scaffoldingtheme")) ?></li>
-							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "scaffoldingtheme")) ?></li>
-						</ul>
-					</nav>
-				<?php
-				}
-				?>
+				<?php include_once('includes/template-pager.php'); //wordpress template pager/pagination ?>
 
 			<?php else : ?>
 
-			<?php include_once('error.php'); //wordpress template error message ?>
+			<?php include_once('includes/template-error.php'); //wordpress template error message ?>
 
 			<?php endif; ?>
-
-		</div> <!-- end #main -->
 
 <?php get_footer();

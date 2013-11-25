@@ -1,3 +1,4 @@
+		</div> <!-- end #main -->
 
 	<?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
 
