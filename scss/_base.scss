@@ -677,3 +677,39 @@ FOOTER STYLES
 	} /* end .footer-menu */
 
 	.copyright {}
+	
+	#back-top {
+		position: fixed;
+		bottom: 10px;
+		margin-right: 30px;
+		right: 0;
+		z-index: 9999;
+		
+		a {
+			width: 40px;
+			display: block;
+			text-decoration: none;
+			opacity: .2;
+			background: #000;
+			@include transition(all 1s ease-in-out);
+			-webkit-border-radius: 500px;
+			-moz-border-radius: 500px;
+			border-radius: 500px;
+			
+			&:hover, &:focus {
+				color: #000;
+				opacity: 1;
+			}
+		}
+		
+		i {
+			width: 40px;
+			height: 40px;
+			display: block;
+			margin-bottom: 7px;
+			font-size: 1.5em;
+			line-height: 35px;
+			color: #FFF;
+			text-align: center;
+		}
+	}

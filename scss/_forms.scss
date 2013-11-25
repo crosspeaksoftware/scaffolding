@@ -2,7 +2,7 @@
 Site Name:
 Author:
 
-Stylesheet: Forms Stylsheet
+Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
@@ -77,6 +77,7 @@ form {
         min-height:150px;
     }
 
+	/* Use chosen.js for better dropdowns http://harvesthq.github.io/chosen/ */
     select {
         width:auto;
         padding: 0.25em 1% !important;
@@ -95,7 +96,9 @@ form {
 		}
 
 	}
+	
 }
+
 
 /*************************
  * Button Styles
@@ -326,7 +329,7 @@ MOBLIE FORM STYLES - to make forms more finger friendly
 	    input[type=image] {}
 	}
 
-/*Mobile Buttons*/
+	/*Mobile Buttons*/
 	a.btn,
 	input[type="button"],
 	input[type="submit"] {
