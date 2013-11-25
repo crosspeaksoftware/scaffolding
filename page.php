@@ -2,10 +2,7 @@
 
 		<div id="main" class="eightcol first clearfix" role="main">
 
-			<?php
-			if (have_posts()) :
-				while (have_posts()) :
-					the_post(); ?>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -38,16 +35,7 @@
 
 			<?php else : ?>
 
-				<article id="post-not-found" class="hentry clearfix">
-					<header class="article-header">
-						<h2><?php _e("Oops, Post Not Found!", "scaffoldingtheme"); ?></h2>
-					</header>
-					<section class="entry-content">
-						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "scaffoldingtheme"); ?></p>
-					</section>
-					<footer class="article-footer">
-					</footer>
-				</article>
+			<?php include_once('error.php'); //wordpress template error message ?>
 
 			<?php endif; ?>
 

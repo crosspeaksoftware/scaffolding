@@ -1,5 +1,23 @@
 
-			<?php get_sidebar(); ?>
+	<?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
+
+		<div id="left-sidebar" class="sidebar threecol first clearfix" role="complementary">
+
+			<?php dynamic_sidebar( 'left-sidebar' ); ?>
+
+		</div>
+
+	<?php endif; ?>
+
+	<?php if ( is_active_sidebar( 'right-sidebar' ) ) : ?>
+
+		<div id="right-sidebar" class="sidebar threecol last clearfix" role="complementary">
+
+			<?php dynamic_sidebar( 'right-sidebar' ); ?>
+
+		</div>
+
+	<?php endif; ?>
 
 		</div> <!-- end #inner-content -->
 

@@ -98,7 +98,6 @@ ul.menu {
     ul.menu {
 		clear: both;
 		background-color: #333;
-		@include box-shadow(15px 0 20px -10px rgba(0, 0, 0, 0.8) inset);
 		width: 70%;
 		margin: 0;
 		padding: 0;
@@ -179,7 +178,6 @@ ul.menu {
                 margin:0;
                 padding:0;
                 @include transition(all 0.25s ease-in-out);
-				@include box-shadow(15px 0 20px -10px rgba(0, 0, 0, 0.8) inset);
             }
             /*sub menu - child*/
             ul.sub-menu-open{

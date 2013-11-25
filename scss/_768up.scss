@@ -151,6 +151,7 @@ ul.menu {
 				bottom:auto;
 				left:0px;
 				z-index:1000;
+				@include transition(top 1s);
 
 				li {
 					display:block;
