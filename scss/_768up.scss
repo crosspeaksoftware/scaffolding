@@ -83,9 +83,10 @@ ul.menu {
 
 #main-navigation {
 	background-color: #333;
+	white-space: nowrap;
 
     ul.menu {
-	    text-align:right;
+	    text-align:center;
         width: auto;
         position:relative;
         top:auto;
@@ -125,7 +126,25 @@ ul.menu {
 				}
             }
 
-            &:last-child  {}
+            &:last-child  {
+
+	            /*Children*/
+				ul.sub-menu,
+				ul.children {
+					left:auto;
+					right:0;
+
+					li{
+
+						/*Grand Children*/
+						ul.sub-menu,
+						ul.children {
+							left:auto;
+							right:99.9%;
+						}
+					}
+				}
+            }
 
             &:hover, &:focus {}
 
@@ -217,14 +236,15 @@ POSTS & CONTENT STYLES
 
 		} /* end .hentry */
 
-		.single-title,
+		.entry-content {} /* general title class */
+
 		.page-title {}
 
 		.single-title {}
 
-		.page-title {}
+		.archive-title {}
 
-		.archive-title { }
+		.search-title {}
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
@@ -434,7 +454,7 @@ ul.footer-menu {
 	}
 }
 
-#back-top {	
+#back-top {
 	a {
 		opacity: 1;
 	}

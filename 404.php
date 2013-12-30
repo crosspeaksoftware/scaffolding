@@ -6,7 +6,7 @@
 
 				<header class="article-header">
 
-					<h1><?php _e("404 Error - Page Not Found", "scaffoldingtheme"); ?></h1>
+					<h1 class="entry-title"><?php _e("404 Error - Page Not Found", "scaffoldingtheme"); ?></h1>
 
 				</header> <!-- end article header -->
 

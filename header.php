@@ -43,7 +43,7 @@
 
 </head>
 
-<body <?php body_class('sticky-footer'); ?>>
+<body <?php body_class('sticky-footer'); ?> itemscope itemtype="http://schema.org/WebPage">
 
 	<div id="container">
 

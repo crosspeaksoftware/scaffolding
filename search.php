@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+		<div itemscope itemtype="http://schema.org/SearchResultsPage">
 
 			<h1 class="archive-title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 
@@ -9,7 +10,7 @@
 
 						<header class="article-header">
 
-							<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<h3 class="entry-title search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 							<?php
 							/* Hidden by default
@@ -18,7 +19,7 @@
 
 						</header> <!-- end article header -->
 
-						<section class="entry-content">
+						<section class="entry-content" itemprop="description">
 							<?php the_excerpt('<span class="read-more">Read more &raquo;</span>'); ?>
 
 						</section> <!-- end article section -->
@@ -39,5 +40,6 @@
 
 			<?php endif; ?>
 
+		</div>
 
 <?php get_footer();
