@@ -16,6 +16,7 @@ TABLE OF CONTENTS
 4. Page Navi
 5. Client UX Functions
 6. Dashboard Widgets
+7. Visitor UX Function
 
 ******************************************/
 /*********************
@@ -264,6 +265,17 @@ function wp_list_pages_filter($output) {
 }
 add_filter('wp_list_pages', 'wp_list_pages_filter');
 
+//return the search results page even if the query is empty - http://vinayp.com.np/how-to-show-blank-search-on-wordpress/
+function make_blank_search ($query){
+    global $wp_query;
+    if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
+        $wp_query->set('s',' ');
+        $wp_query->is_search=true;
+    }
+    return $query;
+}
+add_action('pre_get_posts','make_blank_search');
+
 /*********************
 DASHBOARD WIDGETS
 *********************/
@@ -282,3 +294,59 @@ function disable_default_dashboard_widgets() {
 }
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
+
+/*********************
+VISITOR/USER UX FUNCTIONS
+*********************/
+//Apply styles to the visual editor
+function scaffolding_mcekit_editor_style($url) {
+	if ( !empty($url) )
+		$url .= ',';
+	// Retrieves the plugin directory URL and adds editor stylesheet
+	// Change the path here if using different directories
+	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
+	return $url;
+}
+add_filter('mce_css', 'scaffolding_mcekit_editor_style');
+
+// Relative root the urls for the media uploader
+function root_relative_urls($html) {
+	if(defined('WP_SITEURL')) {
+		$url = WP_SITEURL;
+	}
+	else {
+		$url = 'http://' . $_SERVER['HTTP_HOST'];
+	}
+	return str_ireplace($url, '', $html);
+}
+add_filter('image_send_to_editor', 'root_relative_urls',100);
+add_filter('media_send_to_editor', 'root_relative_urls',100);
+
+//Filter out hard-coded width, height attributes on all images in WordPress. - https://gist.github.com/4557917 - for more information
+function scaffolding_remove_img_dimensions($html) {
+    // Loop through all <img> tags
+    if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
+        foreach ($matches as $match) {
+            // Replace all occurences of width/height
+            $clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
+            // Replace with result within html
+            $html = str_replace($match, $clean, $html);
+        }
+    }
+    return $html;
+}
+add_filter('post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10);
+//add_filter('the_content', 'scaffolding_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
+add_filter('get_avatar','scaffolding_remove_img_dimensions', 10);
+
+// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
+function scaffolding_filter_ptags_on_images($content){
+	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+
+// Fix Gravity Form Tabindex Conflicts - http://gravitywiz.com/2013/01/28/fix-gravity-form-tabindex-conflicts/
+function gform_tabindexer() {
+    $starting_index = 1000; // if you need a higher tabindex, update this number
+    return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
+}
+add_filter("gform_tabindex", "gform_tabindexer");
