@@ -265,17 +265,6 @@ function wp_list_pages_filter($output) {
 }
 add_filter('wp_list_pages', 'wp_list_pages_filter');
 
-//return the search results page even if the query is empty - http://vinayp.com.np/how-to-show-blank-search-on-wordpress/
-function make_blank_search ($query){
-    global $wp_query;
-    if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
-        $wp_query->set('s',' ');
-        $wp_query->is_search=true;
-    }
-    return $query;
-}
-add_action('pre_get_posts','make_blank_search');
-
 /*********************
 DASHBOARD WIDGETS
 *********************/
@@ -343,6 +332,17 @@ add_filter('get_avatar','scaffolding_remove_img_dimensions', 10);
 function scaffolding_filter_ptags_on_images($content){
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
+
+//return the search results page even if the query is empty - http://vinayp.com.np/how-to-show-blank-search-on-wordpress/
+function make_blank_search ($query){
+    global $wp_query;
+    if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
+        $wp_query->set('s',' ');
+        $wp_query->is_search=true;
+    }
+    return $query;
+}
+add_action('pre_get_posts','make_blank_search');
 
 // Fix Gravity Form Tabindex Conflicts - http://gravitywiz.com/2013/01/28/fix-gravity-form-tabindex-conflicts/
 function gform_tabindexer() {
