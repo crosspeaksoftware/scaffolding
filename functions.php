@@ -499,53 +499,7 @@ function scaffolding_post_classes( $classes ) {
 }
 add_filter( 'post_class', 'scaffolding_post_classes' );
 
-/************* WYSIWYG CLEANUP FUNCTIONS *****************/
-//Apply styles to the visual editor
-function scaffolding_mcekit_editor_style($url) {
-	if ( !empty($url) )
-		$url .= ',';
-	// Retrieves the plugin directory URL and adds editor stylesheet
-	// Change the path here if using different directories
-	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
-	return $url;
-}
-add_filter('mce_css', 'scaffolding_mcekit_editor_style');
-
-// Relative root the urls for the media uploader
-function root_relative_urls($html) {
-	if(defined('WP_SITEURL')) {
-		$url = WP_SITEURL;
-	}
-	else {
-		$url = 'http://' . $_SERVER['HTTP_HOST'];
-	}
-	return str_ireplace($url, '', $html);
-}
-add_filter('image_send_to_editor', 'root_relative_urls',100);
-add_filter('media_send_to_editor', 'root_relative_urls',100);
-
-//Filter out hard-coded width, height attributes on all images in WordPress. - https://gist.github.com/4557917 - for more information
-function scaffolding_remove_img_dimensions($html) {
-    // Loop through all <img> tags
-    if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
-        foreach ($matches as $match) {
-            // Replace all occurences of width/height
-            $clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
-            // Replace with result within html
-            $html = str_replace($match, $clean, $html);
-        }
-    }
-    return $html;
-}
-add_filter('post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10);
-//add_filter('the_content', 'scaffolding_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
-add_filter('get_avatar','scaffolding_remove_img_dimensions', 10);
-
-
-// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
-function scaffolding_filter_ptags_on_images($content){
-	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
+/************* CUSTOM FUNCTIONS *****************/
 
 // This removes the annoying […] to a Read More link
 function scaffolding_excerpt_more($more) {
@@ -553,7 +507,6 @@ function scaffolding_excerpt_more($more) {
 	// edit here if you like
 	return '...  <a href="'. get_permalink($post->ID) . '" title="'. __('Read', 'scaffoldingtheme') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffoldingtheme') .'</a>';
 }
-
 
 //This is a modified the_author_posts_link() which just returns the link.
 //This is necessary to allow usage of the usual l10n process with printf().
