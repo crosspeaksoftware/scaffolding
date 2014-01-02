@@ -14,21 +14,7 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-html {
-	height:100%;
-}
-
-body {
-	height:100%;
-    overflow-x: hidden;
-
-    #container{
-		height:100%;
-		/*styles for mobile nave slide in*/
-		position:relative;
-		@include transition(all 0.25s ease-in-out);
-    }
-}
+body {}
 
 /*********************
 LAYOUT & GRID STYLES
@@ -95,142 +81,95 @@ ul.menu {
 /****Main Navigation****/
 #main-navigation {
 
-    ul.menu {
-		clear: both;
-		background-color: #333;
-		width: 70%;
-		margin: 0;
-		padding: 0;
-		position: absolute;
-		right: -70%;
-		top: 0;
-		bottom: 0;
-		z-index: 1000;
+	ul.menu {
+		background-color:#333;
+		clear:both;
+		padding:0;
 
-        li {
-            display: block;
-            border-bottom: 2px solid #222;
-            margin: 0;
-            padding: 0;
-            @include transition(all 0.25s ease-in-out);
+		li {
+			display:block;
+			background-color:#333;
+			border-top:1px solid #ddd;
+			margin:0;
+			padding:0;
 
-            a {
-				display: inline-block;
-				color: #999;
-				font-size: 1.143em;
+			a {
+				display:inline-block;
+				color:#fff;
+				font-size:1.143em;
 				text-decoration: none;
-		        width: 75%;
-				padding: 15px 5%;
-                @include transition(all 0.25s ease-in-out);
+				width:96%;
+				padding:12px 0 12px 4%;
 
-				&:hover, &:focus {
-	                background-color: #222;
-					color:#ccc;
-                }
-            }
+				&:hover, &:focus {}
 
-            a.menu-button{
-                display:block;
-                text-align:center;
-                width:15%;
-                margin:0;
-                padding:15px 0;
-                cursor:pointer;
-                @include transition(all 0.25s ease-in-out);
-
-                &:hover, &:focus {}
-            }
-
-            a.menu-back-button{
-                display: inline-block;
-                width: 80%;
-                text-decoration: none;
-                padding: 15px 10%;
-                cursor:pointer;
-                @include transition(all 0.25s ease-in-out);
-
-                &:hover, &:focus {}
-            }
-
-            &:first-child {}
-
-            &:last-child  {}
-
-            &:hover, &:focus {}
-
-			&.menu-item-no-children {
-				a {
-				    width: 100%;
-			    }
 			}
 
-			&.menu-item-has-children {}
+			&.first-item {
+				border-top:none;
+			}
+			&.last-item {}
 
-            /*sub menu - child*/
-            ul.sub-menu{
-                display:block;
-                background-color:#333;
-                width: 100%;
-                position:absolute;
-                right:-100%;
-                top:0;
-                bottom:0;
-                margin:0;
-                padding:0;
-                @include transition(all 0.25s ease-in-out);
-            }
-            /*sub menu - child*/
-            ul.sub-menu-open{
-                right:0%;
-            }
-        }
-    }
-    .menu-button{
-        display: block;
-        float: right;
-        clear: both;
-        width: 78px;
-        height: 25px;
-        white-space: nowrap;
-        margin: 0 2% 0 10px;
-        overflow: hidden;
-        color: #367992;
-        font-size: 1em;
-        @include transition(all 0.25s ease-in-out);
+			/*sub menu*/
+			ul.sub-menu,
+			ul.children {
+				display:none;
+				margin:0;
+				padding:0;
 
-        &:hover, &:active, &:focus {
-            text-decoration: none;
-        }
-    }
+				li {
+					a {
+
+					&:hover, &:focus {}
+					}
+
+					&.first-item,
+					&.last-item {}
+				}
+			}
+		}
+	}
+	/*menu buttons*/
+	.menu-button{
+		display:block;
+		background-color:#333;
+		background-image:url('../images/nav-icon.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		float:right;
+		clear:right;
+		@include border-radius(4px);
+		width:60px;
+		height:40px;
+		text-indent: 100%;
+		white-space: nowrap;
+		margin:-40px 2% 0 0;
+		overflow: hidden;
+
+		&.menu-open{
+			@include border-radius(4px 4px 0px 0px);
+		}
+	}
 }
-
-body.menu-open{
-    #container {
-        left: -70%;
-    }
-}
-
 /*********************
 POSTS & CONTENT STYLES
 *********************/
 
 #content {
 	margin-top: 2.2em;
-
 	.hentry {
 		header {}
 		footer {}
 	} /* end .hentry */
 
-	.entry-content {} /* general title class */
-
+	.single-title,
 	.page-title {}
 
 	.single-title {}
 
-	.archive-title {}
+	.page-title {}
 
-	.search-title {}
+	.archive-title { }
 
 	/* want to style individual post classes? Booya! */
 	.post-id {}         /* post by id (i.e. post-3) */
@@ -678,39 +617,3 @@ FOOTER STYLES
 	} /* end .footer-menu */
 
 	.copyright {}
-
-	#back-top {
-		position: fixed;
-		bottom: 10px;
-		margin-right: 30px;
-		right: 0;
-		z-index: 9999;
-
-		a {
-			width: 40px;
-			display: block;
-			text-decoration: none;
-			opacity: .2;
-			background: #000;
-			@include transition(all 1s ease-in-out);
-			-webkit-border-radius: 500px;
-			-moz-border-radius: 500px;
-			border-radius: 500px;
-
-			&:hover, &:focus {
-				color: #000;
-				opacity: 1;
-			}
-		}
-
-		i {
-			width: 40px;
-			height: 40px;
-			display: block;
-			margin-bottom: 7px;
-			font-size: 1.5em;
-			line-height: 35px;
-			color: #FFF;
-			text-align: center;
-		}
-	}

@@ -8,14 +8,12 @@ remember less is more.
 
 ******************************************************************/
 @import "compass";
+// import normalize
 @import "normalize";
 
 $sans: sans-serif;
 $serif: serif;
 $default-font-size: 14px;
-
-$link-color:#008CBA;
-$link-hover-color:#007BA1;
 
 /********************
 CUSTOMIZED RESET VALUES
@@ -232,18 +230,19 @@ table {
 LINK STYLES
 *********************/
 a, a:visited {
-	color:$link-color;
+	color:#069;
 	text-decoration:none;
 }
 
 /* on hover */
 a:hover, a:focus {
-	color:$link-hover-color;
 	text-decoration:underline;
 }
 
 /* on click */
-a:active {}
+a:active {
+
+}
 
 a:link {
 	-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
@@ -256,7 +255,12 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
 	font-weight: 500;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
 
+	/* removing text decoration from all headline links */
 	a {
 		text-decoration: none;
 	}
@@ -355,5 +359,6 @@ h6, .h6 {
 /*Use this class for any Editor Specific Styles to help the user experience
  * set the max size of the content area in the editor to match the template*/
 .mceContentBody {
+	max-width:1000px;
 	background-color:#FDFDFD;
 }

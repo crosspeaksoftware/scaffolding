@@ -27,7 +27,7 @@ if (!window.getComputedStyle) {
 	}
 }
 
-//Calculate the width of the scroll bar so css media queries and js widow.width match
+//Caculate the width of the scroll bar so css media queries and js widow.width match
 function getScrollBarWidth () {
 	var inner = document.createElement('p');
 	inner.style.width = "100%";
@@ -57,126 +57,63 @@ function getScrollBarWidth () {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
-    //Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-    $('a[href*=".jpg"], a[href*="jpeg"], a[href*=".png"], a[href*=".gif"], a[href$=".bmp"]').magnificPopup({
-        type: 'image'
-    });
+	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
+	$('a[href*=".jpg"], a[href*="jpeg"], a[href*=".png"], a[href*=".gif"], a[href$=".bmp"]').magnificPopup({
+		type: 'image'
+	});
 
-    /*
-    Responsive jQuery is a tricky thing.
-    There's a bunch of different ways to handle
-    it, so be sure to research and find the one
-    that works for you best.
-    */
+	/* getting viewport width */
+	var responsive_viewport = $(window).width() + getScrollBarWidth();
 
-    /* getting viewport width */
-    var responsive_viewport = $(window).width() + getScrollBarWidth();
-    var menu = $('#main-navigation > ul');
+	// RESPONSIVE NAV
+	var menu = $('#main-navigation > ul');
+	$('.menu-button').on('click', function(e) {
+		e.preventDefault();
+		$(this).next('ul').slideToggle();
+		$(this).toggleClass('menu-open');
+	});
 
-    /* responsive nav */
-    $('#main-navigation > .menu-button').on('click', function(e) {
-        $('body').toggleClass('menu-open');
-    });
+	$(window).resize(function() {
+		responsive_viewport = $(window).width() + getScrollBarWidth();
+		if(responsive_viewport >= 768 && menu.is(':hidden')) {
+			menu.removeAttr('style');
+		}else if(responsive_viewport < 768 && !menu.is(':hidden')){
+			menu.css('display','none');
+		}
+	});
+	// END RESPONSIVE NAV
 
-    $('.menu-item > .menu-button').on('click', function(e) {
-        //$("ul.sub-menu").removeClass("sub-menu-open");
-        $(this).next('.sub-menu').addClass('sub-menu-open');
-    });
+	/* if is below 481px */
+	if (responsive_viewport < 481) {
+		//if mobile device scroll to the content on page load
+		var new_position = jQuery('#main').offset();
+		if (typeof new_position != 'undefined'){
+			jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
+		}
+	} /* end smallest screen */
 
-    $('.sub-menu .menu-back-button').on('click', function(e) {
-        $(this).parent("li").parent('ul').removeClass("sub-menu-open");
-    });
+	/* if is smaller than 481px */
+	if (responsive_viewport < 481) {}
+	/* if is larger than 481px */
+	if (responsive_viewport > 481){}
 
-    $(window).resize(function() {
-        if(Modernizr.touch) {
-            e.preventDefault();
-        }
-        else {
-            responsive_viewport = $(window).width() + getScrollBarWidth();
-            if(responsive_viewport >= 768 && menu.is(':hidden')) {
-                $('body').removeClass('menu-open');
-            }else if(responsive_viewport < 768 && !menu.is(':hidden')){
-                $('body').removeClass('menu-open');
-            }
-        }
-    });
-    /*end responsive nav */
+	/* if is smaller to 768px */
+	if (responsive_viewport < 768) {
+		menu.css({"display":"none"});
+	}
+	/* if is larger to 768px */
+	if (responsive_viewport > 768) {
+		/* load gravatars */
+		$('.comment img[data-gravatar]').each(function(){
+			$(this).attr('src',$(this).attr('data-gravatar'));
+		});
+	}
 
-    /* if is below 481px */
-    if (responsive_viewport < 481) {
-        // if mobile device and not on the home page scroll to the content on page load
-        if (!$('body').hasClass("home")){
-            var new_position = jQuery('#main').offset();
-            if (typeof new_position != 'undefined'){
-                jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
-            }
-        }
-    } /* end smallest screen */
+	/* off the bat smaller screen actions */
+	if (responsive_viewport < 1030) {}
+	/* off the bat large screen actions */
+	if (responsive_viewport > 1030) {}
 
-    /* if is smaller than 481px */
-    if (responsive_viewport < 481) {}
-    /* if is larger than 481px */
-    if (responsive_viewport >= 481){}
-
-    /* if is larger to 768px */
-    if (responsive_viewport >= 767) {
-        /* load gravatars */
-        $('.comment img[data-gravatar]').each(function(){
-            $(this).attr('src',$(this).attr('data-gravatar'));
-        });
-    }
-
-    /* off the bat smaller screen actions */
-    if (responsive_viewport < 1024) {}
-
-    /* off the bat large screen actions */
-    if (responsive_viewport >= 1024) {}
-
-    // hide #back-top first
-    $("#back-top").hide();
-
-    // fade in #back-top
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 300) {
-                $('#back-top').fadeIn();
-            } else {
-                $('#back-top').fadeOut();
-            }
-        });
-
-        // scroll body to 0px on click
-        $('#back-top a').click(function () {
-            $('body,html').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-    });
-
-
-/*  // Released under MIT license: http://www.opensource.org/licenses/mit-license.php
-    $('[placeholder]').focus(function() {
-        var input = $(this);
-        if (input.val() == input.attr('placeholder')) {
-            input.val('');
-            input.removeClass('placeholder');
-        }
-    }).blur(function() {
-        var input = $(this);
-        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-            input.addClass('placeholder');
-            input.val(input.attr('placeholder'));
-        }
-    }).blur().parents('form').submit(function() {
-        $(this).find('[placeholder]').each(function() {
-            var input = $(this);
-            if (input.val() == input.attr('placeholder')) {
-                input.val('');
-            }
-        })
-    });
-*/
 }); /* end of as page load scripts */
 
 

@@ -43,7 +43,7 @@
 
 </head>
 
-<body <?php body_class('sticky-footer'); ?> itemscope itemtype="http://schema.org/WebPage">
+<body <?php body_class('sticky-footer'); ?>>
 
 	<div id="container">
 
@@ -59,13 +59,13 @@
 
 			</div> <!-- end #inner-header -->
 
+			<nav id="main-navigation" role="navigation">
+
+				<?php scaffolding_main_nav(); ?>
+
+			</nav><!-- end main-navigation -->
+
 		</header> <!-- end header -->
-
-		<nav id="main-navigation" class="clearfix" role="navigation">
-
-			<?php scaffolding_main_nav(); ?>
-
-		</nav><!-- end main-navigation -->
 
         <div class="banner-wrap">
 
@@ -80,17 +80,3 @@
 		<div id="content">
 
 			<div id="inner-content" class="wrap clearfix">
-
-				<?php //Test for active sidebars to set the main content width
-					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )){ //both sidebars
-						$main_class = 'sixcol';
-					}elseif(is_active_sidebar( 'left-sidebar' ) && !is_active_sidebar( 'right-sidebar' )){ //left sidebar
-						$main_class = 'ninecol last';
-					}elseif(!is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )){ //right sidebar
-						$main_class = 'ninecol first';
-					}else{ //no sidebar
-						$main_class = 'twelvecol';
-					}
-				?>
-
-				<div id="main" class="<?=$main_class;?> clearfix" role="main">

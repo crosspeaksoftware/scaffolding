@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Custom Page Example
+*/
+?>
+
 <?php get_header(); ?>
 
 		<div id="main" class="eightcol first clearfix" role="main">
@@ -7,11 +13,11 @@
 				while (have_posts()) :
 					the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
 						<header class="article-header">
 
-							<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
 							<?php
 							/* Hidden by default
@@ -20,13 +26,13 @@
 
 						</header> <!-- end article header -->
 
-						<section class="entry-content clearfix" itemprop="articleBody">
+						<section class="entry-content">
 							<?php the_content(); ?>
 						</section> <!-- end article section -->
 
 						<footer class="article-footer">
 
-							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+							<p class="clearfix"><?php the_tags('<span class="tags">Tags: ', ', ', '</span>'); ?></p>
 
 						</footer> <!-- end article footer -->
 

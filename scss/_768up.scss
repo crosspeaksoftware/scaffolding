@@ -12,6 +12,7 @@ come into play. Have fun!
 
 ******************************************************************/
 
+
 /*********************
 GENERAL STYLES
 *********************/
@@ -33,6 +34,7 @@ HEADER SYTLES
 .header {}
 	#logo {}
 	#banner {
+
 		background-position:top center;
 		background-repeat:no-repeat;
 		background-size: cover;
@@ -82,80 +84,29 @@ ul.menu {
 /****Main Navigation****/
 
 #main-navigation {
-	background-color: #333;
-	white-space: nowrap;
+	background-color:#333;
 
-    ul.menu {
-	    text-align:center;
-        width: auto;
-        position:relative;
-        top:auto;
-        bottom:autp;
-        right:auto;
-        padding: 0;
-        margin: 0 auto;
-        @include box-shadow(none);
+	ul {
+		text-align:center;
+		padding:0;
+		position:relative;
+		z-index:1000;
 
 		li {
 			display:inline-block;
-            border-bottom:none;
+			border-top:none;
 			position:relative;
 			z-index:1000;
-			margin-left:-4px;
 
 			a {
 				display:inline-block;
-				border-left:2px solid #222;
 				width:auto;
 				padding:10px 20px;
 
-				&:hover, &:focus {}
-			}
-            a.menu-button{
-                display:none!important;
-            }
-
-			a.menu-back-button{
-                display:none!important;
-            }
-
-            &:first-child {
-
-				a{
-					border-left:none;
+				&:hover, &:focus {
+					color:#F79B36;
 				}
-            }
-
-            &:last-child  {
-
-	            /*Children*/
-				ul.sub-menu,
-				ul.children {
-					left:auto;
-					right:0;
-
-					li{
-
-						/*Grand Children*/
-						ul.sub-menu,
-						ul.children {
-							left:auto;
-							right:99.9%;
-						}
-					}
-				}
-            }
-
-            &:hover, &:focus {}
-
-			&.menu-item-no-children {
-
-				a {
-				    width:auto;
-			    }
 			}
-
-			&.menu-item-has-children {}
 
 			/*Children*/
 			ul.sub-menu,
@@ -163,45 +114,28 @@ ul.menu {
 				display:none;
 				background-color:#333;
 				text-align:left;
-				width:auto;
-				min-width:120%;
+				min-width:100%;
 				position:absolute;
 				top:99.9%;
-				bottom:auto;
 				left:0px;
 				z-index:1000;
-				@include transition(top 1s);
 
 				li {
 					display:block;
 					white-space:nowrap;
-					margin:0;
 
 					a {
 						display:block;
-						border-bottom:2px solid #222;
-						border-left:none;
 						padding:10px;
 
 						&:hover, &:focus {}
 					}
 
-
-		            &:first-child  {}
-
-		            &:last-child  {}
-
-		            &:hover, &:focus {}
-
-					&.menu-item-no-children {}
-
-					&.menu-item-has-children {}
-
 					/*Grand Children*/
 					ul.sub-menu,
 					ul.children {
 						left:99.9%;
-						top:0;
+						top:0px;
 					}
 				}
 			}
@@ -210,7 +144,7 @@ ul.menu {
 
 		/*Show the child ul*/
 		li:hover > ul {
-			display: table;
+			display: block;
 		}
 
 	} /* end ul.menu */
@@ -236,15 +170,14 @@ POSTS & CONTENT STYLES
 
 		} /* end .hentry */
 
-		.entry-content {} /* general title class */
-
+		.single-title,
 		.page-title {}
 
 		.single-title {}
 
-		.archive-title {}
+		.page-title {}
 
-		.search-title {}
+		.archive-title { }
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
@@ -454,45 +387,38 @@ ul.footer-menu {
 	}
 }
 
-#back-top {
-	a {
-		opacity: 1;
-	}
-}
 
+	/*********************
+	STICKY FOOTER STYLES
+	*********************/
 
-/*********************
-STICKY FOOTER STYLES
-*********************/
-
-html,
-body.sticky-footer {
-	height: 100%;
-	margin: 0;
-}
-
-body.sticky-footer {
-
-	#container {
-	    display: table;
-	    width: 100%;
+	html,
+	body.sticky-footer {
+		height: 100%;
+		margin: 0;
 	}
 
-	#container .header,
-	#main-navigation,
-	#container .banner-wrap,
-	#content,
-	#container .footer {
-	    display: table-row;
-	    height: 1px;
-	    overflow: hidden;
+	body.sticky-footer {
+
+		#container {
+		    display: table;
+		    width: 100%;
+		}
+
+		#container .header,
+		#container .banner-wrap,
+		#content,
+		#container .footer {
+		    display: table-row;
+		    height: 1px;
+		    overflow: hidden;
+		}
 	}
-}
 
-html>/**/body.sticky-footer #container {
-    height: 100%;
-}
+	html>/**/body.sticky-footer #container {
+	    height: 100%;
+	}
 
-html>body.sticky-footer #content {
-    height: auto;
-}
+	html>body.sticky-footer #content {
+	    height: auto;
+	}

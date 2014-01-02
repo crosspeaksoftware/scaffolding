@@ -1,13 +1,14 @@
 <?php get_header(); ?>
 
+		<div id="main" class="eightcol first clearfix" role="main">
 
 			<?php if (is_category()) { ?>
-				<h1 class="archive-title">
+				<h1 class="archive-title h2">
 					<span><?php _e("Posts Categorized:", "scaffoldingtheme"); ?></span> <?php single_cat_title(); ?>
 				</h1>
 
 			<?php } elseif (is_tag()) { ?>
-				<h1 class="archive-title">
+				<h1 class="archive-title h2">
 					<span><?php _e("Posts Tagged:", "scaffoldingtheme"); ?></span> <?php single_tag_title(); ?>
 				</h1>
 
@@ -15,34 +16,37 @@
 				global $post;
 				$author_id = $post->post_author;
 			?>
-				<h1 class="archive-title">
+				<h1 class="archive-title h2">
 
 					<span><?php _e("Posts By:", "scaffoldingtheme"); ?></span> <?php the_author_meta('display_name', $author_id); ?>
 
 				</h1>
 			<?php } elseif (is_day()) { ?>
-				<h1 class="archive-title">
+				<h1 class="archive-title h2">
 					<span><?php _e("Daily Archives:", "scaffoldingtheme"); ?></span> <?php the_time('l, F j, Y'); ?>
 				</h1>
 
 			<?php } elseif (is_month()) { ?>
-				<h1 class="archive-title">
+				<h1 class="archive-title h2">
 					<span><?php _e("Monthly Archives:", "scaffoldingtheme"); ?></span> <?php the_time('F Y'); ?>
 				</h1>
 
 			<?php } elseif (is_year()) { ?>
-				<h1 class="archive-title">
+				<h1 class="archive-title h2">
 					<span><?php _e("Yearly Archives:", "scaffoldingtheme"); ?></span> <?php the_time('Y'); ?>
 				</h1>
 			<?php } ?>
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<?php
+			if (have_posts()) :
+				while (have_posts()) :
+					the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
 						<header class="article-header">
 
-							<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 							<?php
 							/* Hidden by default
@@ -67,13 +71,37 @@
 
 				<?php endwhile; ?>
 
-				<?php include_once('includes/template-pager.php'); //wordpress template pager/pagination ?>
+				<?php
+				if (function_exists('scaffolding_page_navi')) {
+					scaffolding_page_navi();
+				}
+				else {
+				?>
+					<nav class="wp-prev-next">
+						<ul class="clearfix">
+							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "scaffoldingtheme")) ?></li>
+							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "scaffoldingtheme")) ?></li>
+						</ul>
+					</nav>
+				<?php
+				}
+				?>
 
 			<?php else : ?>
 
-			<?php include_once('includes/template-error.php'); //wordpress template error message ?>
+				<article id="post-not-found" class="hentry clearfix">
+					<header class="article-header">
+						<h2><?php _e("Oops, Post Not Found!", "scaffoldingtheme"); ?></h2>
+					</header>
+					<section class="entry-content">
+						<p><?php _e("Uh Oh. Something is missing. Please contact the site administrator.", "scaffoldingtheme"); ?></p>
+					</section>
+					<footer class="article-footer">
+					</footer>
+				</article>
 
 			<?php endif; ?>
 
+		</div> <!-- end #main -->
 
 <?php get_footer();
