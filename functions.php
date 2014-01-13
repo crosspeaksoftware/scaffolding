@@ -11,9 +11,10 @@ sidebars, comments, ect.
 /*********************
 INCLUDE FILES
 *********************/
-require_once('includes/base-functions.php');
-// require_once('includes/tinymce/styles-dropdown.php');
-// require_once('includes/custom-post-type.php');
+define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
+require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
+// require_once(SCAFFOLDING_INCLUDE_PATH.'tinymce/styles-dropdown.php');
+// require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
 
 /*********************
 THEME SUPPORT
