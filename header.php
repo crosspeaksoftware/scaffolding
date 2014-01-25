@@ -36,7 +36,7 @@
 	<!-- end of wordpress head -->
 
 	<!-- drop Google Analytics Here -->
-	<?php if(!is_admin()): //only track anonymous users ?>
+	<?php if(!is_admin_bar_showing()): //only track anonymous users ?>
 
 	<?php endif; ?>
 	<!-- end analytics -->
