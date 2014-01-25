@@ -20,7 +20,7 @@ together, let's see how this works out. If you want to use 1140, the original
 values are commented out on each line.
 
 ******************************************************************/
-/*Standered Grid with Padding*/
+/* Standered Grid with Padding */
 .onecol    { width: 5.801104972%;  }       /* 4.85%;  } /* grid_1  */
 .twocol    { width: 14.364640883%; }       /* 13.45%; } /* grid_2  */
 .threecol  { width: 22.928176794%; }       /* 22.05%; } /* grid_3  */
@@ -34,7 +34,7 @@ values are commented out on each line.
 .elevencol { width: 91.436464082%; }       /* 91.35%; } /* grid_11 */
 .twelvecol { width: 99.999999993%; }       /* 100%;   } /* grid_12 */
 
-// layout & column defaults
+// Layout & Column Defaults
 .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
   position: relative;
   float: left;
@@ -62,7 +62,7 @@ values are commented out on each line.
   float: left;
 }
 
-//First & Last used for both grids
+// First & Last used for both grids
 .first {
   padding-left: 0;
 }
@@ -72,7 +72,7 @@ values are commented out on each line.
   padding-right: 0;
 }
 
-//Prefix Extra Space >> 12 Columns
+// Prefix Extra Space >> 12 Columns
 .pre-onecol    { padding-left: 8.3333333333%;}
 .pre-twocol    { padding-left: 16.666666666%;}
 .pre-threecol  { padding-left: 25%;}
@@ -100,7 +100,7 @@ values are commented out on each line.
 .post-elevencol { padding-right: 91.666666666%;}
 .post-twelvecol { padding-right: 100%; }
 
-//Push Space >> 12 Columns
+// Push Space >> 12 Columns
 .push-onecol    { left: 8.3333333333%;}
 .push-twocol    { left: 16.666666666%;}
 .push-threecol  { left: 25%;}
@@ -114,7 +114,7 @@ values are commented out on each line.
 .push-elevencol { left: 91.666666666%;}
 .push-twelvecol { left: 100%; }
 
-//Pull Space >> 12 Columns
+// Pull Space >> 12 Columns
 .pull-onecol    { left: -8.3333333333%;}
 .pull-twocol    { left: -16.666666666%;}
 .pull-threecol  { left: -25%;}
