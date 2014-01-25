@@ -67,14 +67,11 @@
 
 		</nav><!-- end main-navigation -->
 
+		<?php // Interior Header Image ?>
         <div class="banner-wrap">
-
             <div id="banner">
-
                 <div class="spacer"></div>
-
             </div><!-- end banner -->
-
         </div><!-- end banner-wrap -->
 
 		<div id="content">
