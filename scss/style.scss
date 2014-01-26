@@ -11,16 +11,16 @@ of the styles inside media queries.
 ******************************************************************/
 
 // import normalize
-@import "normalize";
+@import "responsive-styles/libs/normalize";
 
 // import typography
-@import "typography";
+@import "responsive-styles/includes/typography";
 
 // import mixins
-@import "mixins";
+@import "responsive-styles/includes/mixins";
 
 // import forms
-@import "forms";
+@import "responsive-styles/includes/forms";
 
 // import responsive-nav
 //@import "responsive-nav";
@@ -33,7 +33,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 */
 
 // styles in _base.scss
-@import "base";
+@import "responsive-styles/base";
 
 /*
 LARGER MOBILE DEVICES
@@ -44,7 +44,7 @@ tweeners.
 @media only screen and (min-width: 481px) {
 
 	// styles in _481up.scss
-	@import "481up";
+	@import "responsive-styles/481up";
 
 } // end of media query
 
@@ -57,10 +57,10 @@ you can add resource intensive styles.
 @media only screen and (min-width: 768px) {
 
 	// import grids
-	@import "grid";
+	@import "responsive-styles/includes/grid";
 
 	// styles in 768up.scss
-	@import "768up";
+	@import "responsive-styles/768up";
 
 } // end of media query
 
@@ -73,7 +73,7 @@ you can add resource intensive styles.
 @media only screen and (min-width: 1024px) {
 
 	// styles in _1024up.scss
-	@import "1024up";
+	@import "responsive-styles/1024up";
 
 } // end of media query
 
@@ -84,7 +84,7 @@ This is for the larger monitors and possibly full screen viewers.
 @media only screen and (min-width: 1140px) {
 
 	// styles in _full.scss
-	@import "full";
+	@import "responsive-styles/full";
 
 } // end of media query
 
@@ -99,7 +99,7 @@ query for retina AND a certain size if you want. Go Nuts.
        only screen and (min-device-pixel-ratio: 1.5) {
 
 	// styles in _retina.scss
-	//@import "retina";
+	//@import "responsive-styles/includes/retina";
 
 }
 
@@ -120,5 +120,5 @@ sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
 */
 @media print {
-	@import "print";
+	@import "responsive-styles/includes/print";
 }

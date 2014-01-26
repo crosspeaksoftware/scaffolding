@@ -19,11 +19,11 @@ import the mixins file so SASS can understand the variables.
 */
 
 @import "compass";
-@import "481up";
-@import "grid";
-@import "768up";
-@import "1024up";
-@import "full";
+@import "responsive-styles/481up";
+@import "responsive-styles/includes/grid";
+@import "responsive-styles/768up";
+@import "responsive-styles/1024up";
+@import "responsive-styles/full";
 
 /*
 you can call the larger styles if you want, but there's really no need
