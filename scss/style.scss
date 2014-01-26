@@ -32,7 +32,7 @@ you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 */
 
-// styles in base.scss
+// styles in _base.scss
 @import "base";
 
 /*
@@ -43,7 +43,7 @@ tweeners.
 */
 @media only screen and (min-width: 481px) {
 
-	// styles in 481up.scss
+	// styles in _481up.scss
 	@import "481up";
 
 } // end of media query
@@ -72,7 +72,7 @@ you can add resource intensive styles.
 */
 @media only screen and (min-width: 1024px) {
 
-	// styles in 1024up.scss
+	// styles in _1024up.scss
 	@import "1024up";
 
 } // end of media query
@@ -83,7 +83,7 @@ This is for the larger monitors and possibly full screen viewers.
 */
 @media only screen and (min-width: 1140px) {
 
-	// styles in full.scss
+	// styles in _full.scss
 	@import "full";
 
 } // end of media query
@@ -98,8 +98,8 @@ query for retina AND a certain size if you want. Go Nuts.
        only screen and (min--moz-device-pixel-ratio: 1.5),
        only screen and (min-device-pixel-ratio: 1.5) {
 
-	// styles in 2x.scss
-	//@import "2x";
+	// styles in _retina.scss
+	//@import "retina";
 
 }
 
