@@ -8,18 +8,19 @@ Custom functions go in functions.php to facilitate future updates if necessary.
 */
 
 /******************************************
+
 TABLE OF CONTENTS
 
 1. Initiating Scaffolding
 2. Cleaning Up wp_head
-3. Scripts & Enqueueing
-4. Page Navi
-5. Client UX Functions
-6. Dashboard Widgets
-7. Visitor UX Function
-8. Recommended/Required Plugin Activation
+3. Page Navi
+4. Client UX Functions
+5. Dashboard Widgets
+6. Visitor UX Function
+7. Recommended/Required Plugin Activation
 
 ******************************************/
+
 /*********************
 INITIATING SCAFFOLDING
 *********************/
@@ -88,49 +89,6 @@ function scaffolding_remove_recent_comments_style() {
 // remove injected CSS from gallery
 function scaffolding_gallery_style($css) {
 	return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
-}
-
-/*********************
-SCRIPTS & ENQUEUEING
-*********************/
-function scaffolding_scripts_and_styles() {
-	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-	if (!is_admin()) {
-
-		// modernizr (without media query polyfill)
-		wp_register_script('modernizr', "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
-
-		// register main stylesheet
-		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
-
-		// ie-only style sheet
-		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
-
-		//Magnific Popups (LightBox)
-        wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
-
-		//Font Awesome (icon set)
-        wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
-
-
-		// comment reply script for threaded comments
-		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-
-		//adding scripts file in the footer
-		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
-
-		// enqueue styles and scripts
-	    wp_enqueue_script( 'modernizr' );
-		wp_enqueue_style( 'font-awesome' );
-		wp_enqueue_script( 'magnific-popup-js' );
-		wp_enqueue_style( 'scaffolding-stylesheet' );
-		wp_enqueue_style( 'scaffolding-ie-only' );
-		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-		wp_enqueue_script( 'scaffolding-js' );
-
-	}
 }
 
 /*********************

@@ -8,6 +8,27 @@ just edit things like thumbnail sizes, header images,
 sidebars, comments, ect.
 */
 
+/******************************************
+
+TABLE OF CONTENTS
+
+1. Include Files
+2. Scripts & Enqueueing
+3. Theme Support
+4. Custom Page Headers
+5. Thumbnail Size Options
+6. Change Name of Post Types in Admin Backend
+7. Menus & Navigation
+8. Active Sidebars
+9. Related Posts Function
+10. Comment Layout
+11. Search Functions
+12. Add First and Last Classes to Menu & Sidebar
+13. Add First and Last Classes to Posts
+14. Custom Functions
+
+******************************************/
+
 /*********************
 INCLUDE FILES
 *********************/
@@ -15,6 +36,52 @@ define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
 require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
 // require_once(SCAFFOLDING_INCLUDE_PATH.'tinymce/styles-dropdown.php');
 // require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
+
+
+/*********************
+SCRIPTS & ENQUEUEING
+*********************/
+
+function scaffolding_scripts_and_styles() {
+	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+	if (!is_admin()) {
+
+		// modernizr (without media query polyfill)
+		wp_register_script('modernizr', "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
+
+		// register main stylesheet
+		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
+
+		// ie-only style sheet
+		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
+
+		//Magnific Popups (LightBox)
+        wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
+
+		//Font Awesome (icon set)
+        wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+
+
+		// comment reply script for threaded comments
+		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+
+		//adding scripts file in the footer
+		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
+
+		// enqueue styles and scripts
+	    wp_enqueue_script( 'modernizr' );
+		wp_enqueue_style( 'font-awesome' );
+		wp_enqueue_script( 'magnific-popup-js' );
+		wp_enqueue_style( 'scaffolding-stylesheet' );
+		wp_enqueue_style( 'scaffolding-ie-only' );
+		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+		wp_enqueue_script( 'scaffolding-js' );
+
+	}
+}
+
 
 /*********************
 THEME SUPPORT
@@ -91,9 +158,10 @@ function scaffolding_theme_support() {
 } /* end scaffolding theme support */
 
 
-/*************
- CUSTOM PAGE HEADERS
- *************/
+/*********************
+CUSTOM PAGE HEADERS
+*********************/
+
 register_default_headers( array(
 	'default' => array(
 		'url' => get_template_directory_uri().'/images/headers/default.jpg',
@@ -107,15 +175,19 @@ function scaffolding_custom_headers_callback() {
 	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
 }
 
-/*************
- THUMBNAIL SIZE OPTIONS
- **************/
+
+/*********************
+THUMBNAIL SIZE OPTIONS
+*********************/
+
 // Thumbnail sizes
 //add_image_size( 'scaffolding-thumb-600', 600, 150, true );
 
-/**********************
- CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
- **********************/
+
+/*********************
+CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
+*********************/
+
 /* //Currently commented out. This is useful for improving UX in the WP backend
 function change_post_menu_label() {
 	global $menu;
@@ -296,9 +368,10 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
     }
 }
 
-/*************
- ACTIVE SIDEBARS
- ***************/
+
+/*********************
+ACTIVE SIDEBARS
+*********************/
 
 // Sidebars & Widgetizes Areas
 function scaffolding_register_sidebars() {
@@ -323,10 +396,10 @@ function scaffolding_register_sidebars() {
 } // don't remove this bracket!
 
 
-
 /*********************
 RELATED POSTS FUNCTION
 *********************/
+
 // Related Posts Function (call using scaffolding_related_posts(); )
 function scaffolding_related_posts() {
 	echo '<ul id="scaffolding-related-posts">';
@@ -357,9 +430,11 @@ function scaffolding_related_posts() {
 	echo '</ul>';
 } /* end scaffolding related posts function */
 
-/*******************
- COMMENT LAYOUT
- *******************/
+
+/*********************
+COMMENT LAYOUT
+*********************/
+
 // Comment Layout
 function scaffolding_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
@@ -397,7 +472,10 @@ function scaffolding_comments($comment, $args, $depth) {
 <?php
 } // don't remove this bracket!
 
-/************* SEARCH FUNCTIONS *****************/
+
+/*********************
+SEARCH FUNCTIONS
+*********************/
 
 // Search Form
 function scaffolding_wpsearch($form) {
@@ -438,7 +516,11 @@ function scaffolding_search_filter($query) {
 }
 add_filter('pre_get_posts','scaffolding_search_filter');
 
-/************* ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR *****************/
+
+/*********************
+ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR
+*********************/
+
 function add_first_and_last($output) {
 	$output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
 	$last_pos = strripos($output, 'class="menu-item');
@@ -488,7 +570,10 @@ function widget_first_last_classes($params) {
 add_filter('dynamic_sidebar_params','widget_first_last_classes');
 
 
-/************* ADD FIRST AND LAST CLASSES TO POSTS *****************/
+/*********************
+ADD FIRST AND LAST CLASSES TO POSTS
+*********************/
+
 function scaffolding_post_classes( $classes ) {
 	global $wp_query;
 	if($wp_query->current_post == 0) {
@@ -501,7 +586,10 @@ function scaffolding_post_classes( $classes ) {
 }
 add_filter( 'post_class', 'scaffolding_post_classes' );
 
-/************* CUSTOM FUNCTIONS *****************/
+
+/*********************
+CUSTOM FUNCTIONS
+*********************/
 
 // This removes the annoying […] to a Read More link
 function scaffolding_excerpt_more($more) {
