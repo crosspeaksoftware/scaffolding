@@ -11,16 +11,16 @@ of the styles inside media queries.
 ******************************************************************/
 
 // import normalize
-@import "responsive-styles/libs/normalize";
+@import "libs/normalize";
 
 // import typography
-@import "responsive-styles/includes/typography";
+@import "includes/typography";
 
 // import mixins
-@import "responsive-styles/includes/mixins";
+@import "includes/mixins";
 
 // import forms
-@import "responsive-styles/includes/forms";
+@import "includes/forms";
 
 // import responsive-nav
 //@import "responsive-nav";
@@ -57,7 +57,7 @@ you can add resource intensive styles.
 @media only screen and (min-width: 768px) {
 
 	// import grids
-	@import "responsive-styles/includes/grid";
+	@import "includes/grid";
 
 	// styles in 768up.scss
 	@import "responsive-styles/768up";
@@ -99,7 +99,7 @@ query for retina AND a certain size if you want. Go Nuts.
        only screen and (min-device-pixel-ratio: 1.5) {
 
 	// styles in _retina.scss
-	//@import "responsive-styles/includes/retina";
+	//@import "includes/retina";
 
 }
 
@@ -120,5 +120,5 @@ sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
 */
 @media print {
-	@import "responsive-styles/includes/print";
+	@import "includes/print";
 }
