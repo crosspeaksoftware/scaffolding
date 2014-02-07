@@ -97,75 +97,78 @@ PAGE NAVI
 
 // Numeric Page Navi (built into the theme by default)
 function scaffolding_page_navi($before = '', $after = '') {
-    global $wpdb, $wp_query;
-    $request = $wp_query->request;
-    $posts_per_page = intval(get_query_var('posts_per_page'));
-    $paged = intval(get_query_var('paged'));
-    $numposts = $wp_query->found_posts;
-    $max_page = $wp_query->max_num_pages;
-    if ( $numposts <= $posts_per_page ) { return; }
-    if(empty($paged) || $paged == 0) {
-        $paged = 1;
-    }
-    $pages_to_show = 7;
-    $pages_to_show_minus_1 = $pages_to_show-1;
-    $half_page_start = floor($pages_to_show_minus_1/2);
-    $half_page_end = ceil($pages_to_show_minus_1/2);
-    $start_page = $paged - $half_page_start;
-    if($start_page <= 0) {
-        $start_page = 1;
-    }
-    $end_page = $paged + $half_page_end;
-    if(($end_page - $start_page) != $pages_to_show_minus_1) {
-        $end_page = $start_page + $pages_to_show_minus_1;
-    }
-    if($end_page > $max_page) {
-        $start_page = $max_page - $pages_to_show_minus_1;
-        $end_page = $max_page;
-    }
-    if($start_page <= 0) {
-        $start_page = 1;
-    }
-    echo $before.'<nav class="page-navigation"><ol class="scaffolding_page_navi clearfix">'."";
-    if ($start_page >= 2 && $pages_to_show < $max_page) {
-        $first_page_text = __( "First", 'scaffoldingtheme' );
-        echo '<li class="bpn-first-page-link"><a rel="prev" href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
-    }
-    echo '<li class="bpn-prev-link">';
-    previous_posts_link('<i class="fa fa-angle-double-left"></i>');
-    echo '</li>';
-    for($i = $start_page; $i  <= $end_page; $i++) {
-        if( $i == $paged ) {
-            echo '<li class="bpn-current">'.$i.'</li>';
-        }elseif( $i == ($paged - 1) ) {
-            echo '<li><a rel="prev" href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
-        }elseif( $i == ($paged + 1) ) {
-            echo '<li><a rel="next" href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
-        }else {
-            echo '<li><a href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
-        }
-    }
-    echo '<li class="bpn-next-link">';
-    next_posts_link('<i class="fa fa-angle-double-right"></i>');
-    echo '</li>';
-    if ($end_page < $max_page) {
-        $last_page_text = __( "Last", 'scaffoldingtheme' );
-        echo '<li class="bpn-last-page-link"><a rel="next" href="'.get_pagenum_link($max_page).'" title="'.$last_page_text.'">'.$last_page_text.'</a></li>';
-    }
-    echo '</ol></nav>'.$after."";
+	global $wpdb, $wp_query;
+	$request = $wp_query->request;
+	$posts_per_page = intval(get_query_var('posts_per_page'));
+	$paged = intval(get_query_var('paged'));
+	$numposts = $wp_query->found_posts;
+	$max_page = $wp_query->max_num_pages;
+	if ( $numposts <= $posts_per_page ) { return; }
+	if(empty($paged) || $paged == 0) {
+		$paged = 1;
+	}
+	$pages_to_show = 7;
+	$pages_to_show_minus_1 = $pages_to_show-1;
+	$half_page_start = floor($pages_to_show_minus_1/2);
+	$half_page_end = ceil($pages_to_show_minus_1/2);
+	$start_page = $paged - $half_page_start;
+	if($start_page <= 0) {
+		$start_page = 1;
+	}
+	$end_page = $paged + $half_page_end;
+	if(($end_page - $start_page) != $pages_to_show_minus_1) {
+		$end_page = $start_page + $pages_to_show_minus_1;
+	}
+	if($end_page > $max_page) {
+		$start_page = $max_page - $pages_to_show_minus_1;
+		$end_page = $max_page;
+	}
+	if($start_page <= 0) {
+		$start_page = 1;
+	}
+	echo $before.'<nav class="page-navigation"><ol class="scaffolding_page_navi clearfix">'."";
+	if ($start_page >= 2 && $pages_to_show < $max_page) {
+		$first_page_text = __( "First", 'scaffoldingtheme' );
+		echo '<li class="bpn-first-page-link"><a rel="prev" href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
+	}
+	echo '<li class="bpn-prev-link">';
+	previous_posts_link('<i class="fa fa-angle-double-left"></i>');
+	echo '</li>';
+	for($i = $start_page; $i  <= $end_page; $i++) {
+		if( $i == $paged ) {
+			echo '<li class="bpn-current">'.$i.'</li>';
+		}
+		elseif( $i == ($paged - 1) ) {
+			echo '<li><a rel="prev" href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
+		}
+		elseif( $i == ($paged + 1) ) {
+			echo '<li><a rel="next" href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
+		}
+		else {
+			echo '<li><a href="'.get_pagenum_link($i).'" title="View Page '.$i.'">'.$i.'</a></li>';
+		}
+	}
+	echo '<li class="bpn-next-link">';
+	next_posts_link('<i class="fa fa-angle-double-right"></i>');
+	echo '</li>';
+	if ($end_page < $max_page) {
+		$last_page_text = __( "Last", 'scaffoldingtheme' );
+		echo '<li class="bpn-last-page-link"><a rel="next" href="'.get_pagenum_link($max_page).'" title="'.$last_page_text.'">'.$last_page_text.'</a></li>';
+	}
+	echo '</ol></nav>'.$after."";
 } /* end page navi */
 
 //add rel and title attribute to next pagination link
 function get_next_posts_link_attributes($attr){
-    $attr = 'rel="next" title="View the Next Page"';
-    return $attr;
+	$attr = 'rel="next" title="View the Next Page"';
+	return $attr;
 }
 add_filter('next_posts_link_attributes', 'get_next_posts_link_attributes');
 
 //add rel and title attribute to prev pagination link
 function get_previous_posts_link_attributes($attr){
-    $attr = 'rel="prev" title="View the Previous Page"';
-    return $attr;
+	$attr = 'rel="prev" title="View the Previous Page"';
+	return $attr;
 }
 add_filter('previous_posts_link_attributes', 'get_previous_posts_link_attributes');
 
@@ -217,19 +220,19 @@ add_filter('login_headertitle', 'scaffolding_login_title');
 
 //Add page title attribute to a tags
 function wp_list_pages_filter($output) {
-    $output = preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1 title="$4" href="$2"$3>$4</a>',$output);
-    return $output;
+	$output = preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1 title="$4" href="$2"$3>$4</a>',$output);
+	return $output;
 }
 add_filter('wp_list_pages', 'wp_list_pages_filter');
 
 //return the search results page even if the query is empty - http://vinayp.com.np/how-to-show-blank-search-on-wordpress/
 function make_blank_search ($query){
-    global $wp_query;
-    if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
-        $wp_query->set('s',' ');
-        $wp_query->is_search=true;
-    }
-    return $query;
+	global $wp_query;
+	if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
+		$wp_query->set('s',' ');
+		$wp_query->is_search=true;
+	}
+	return $query;
 }
 add_action('pre_get_posts','make_blank_search');
 
@@ -257,8 +260,9 @@ VISITOR/USER UX FUNCTIONS
 *********************/
 //Apply styles to the visual editor
 function scaffolding_mcekit_editor_style($url) {
-	if ( !empty($url) )
+	if ( !empty($url) ) {
 		$url .= ',';
+	}
 	// Retrieves the plugin directory URL and adds editor stylesheet
 	// Change the path here if using different directories
 	$url .= trailingslashit( get_template_directory_uri() ) . 'css/editor-styles.css';
@@ -281,16 +285,16 @@ add_filter('media_send_to_editor', 'root_relative_urls',100);
 
 //Filter out hard-coded width, height attributes on all images in WordPress. - https://gist.github.com/4557917 - for more information
 function scaffolding_remove_img_dimensions($html) {
-    // Loop through all <img> tags
-    if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
-        foreach ($matches as $match) {
-            // Replace all occurences of width/height
-            $clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
-            // Replace with result within html
-            $html = str_replace($match, $clean, $html);
-        }
-    }
-    return $html;
+	// Loop through all <img> tags
+	if (preg_match('/<img[^>]+>/ims', $html, $matches)) {
+		foreach ($matches as $match) {
+			// Replace all occurences of width/height
+			$clean = preg_replace('/(width|height)=["\'\d%\s]+/ims', "", $match);
+			// Replace with result within html
+			$html = str_replace($match, $clean, $html);
+		}
+	}
+	return $html;
 }
 add_filter('post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10);
 //add_filter('the_content', 'scaffolding_remove_img_dimensions', 10); //Options - This has been removed from the content filter so that clients can still edit image sizes in the editor
@@ -303,8 +307,8 @@ function scaffolding_filter_ptags_on_images($content){
 
 // Fix Gravity Form Tabindex Conflicts - http://gravitywiz.com/2013/01/28/fix-gravity-form-tabindex-conflicts/
 function gform_tabindexer() {
-    $starting_index = 1000; // if you need a higher tabindex, update this number
-    return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
+	$starting_index = 1000; // if you need a higher tabindex, update this number
+	return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
 }
 add_filter("gform_tabindex", "gform_tabindexer");
 
@@ -345,7 +349,7 @@ RECOMMENDED/REQUIRED PLUGIN ACTIVATION
  * @author	   Gary Jones <gamajo@gamajo.com>
  * @copyright  Copyright (c) 2012, Thomas Griffin
  * @license	   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
+ * @link	   https://github.com/thomasgriffin/TGM-Plugin-Activation
  */
 
 /* Include the TGM_Plugin_Activation class. */
@@ -374,8 +378,8 @@ function my_theme_register_required_plugins() {
 
 		// This is an example of how to include a plugin pre-packaged with a theme
 		//array(
-		//	'name'     				=> 'TGM Example Plugin', // The plugin name
-		//	'slug'     				=> 'tgm-example-plugin', // The plugin slug (typically the folder name)
+		//	'name'	 				=> 'TGM Example Plugin', // The plugin name
+		//	'slug'	 				=> 'tgm-example-plugin', // The plugin slug (typically the folder name)
 		//	'source'   				=> get_stylesheet_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source
 		//	'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
 		//	'version' 				=> '', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
@@ -390,13 +394,13 @@ function my_theme_register_required_plugins() {
 			'slug' 		=> 'codepress-admin-columns',
 			'required' 	=> false,
 		),
-		
+
 		array(
 			'name'		=> 'TinyMCE Advanced', // http://wordpress.org/plugins/tinymce-advanced/
 			'slug'		=> 'tinymce-advanced',
 			'required'	=> false,
 		),
-		
+
 		array(
 			'name'		=> 'Dynamic Widgets', // http://wordpress.org/plugins/dynamic-widgets/
 			'slug'		=> 'dynamic-widgets',
@@ -406,7 +410,7 @@ function my_theme_register_required_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'Scaffolding';
+	$theme_text_domain = 'scaffolding';
 
 	/**
 	 * Array of configuration settings. Amend each line as needed.
@@ -416,33 +420,33 @@ function my_theme_register_required_plugins() {
 	 * end of each line for what each argument will be.
 	 */
 	$config = array(
-		'domain'       		=> $theme_text_domain,         	// Text domain - likely want to be the same as your theme.
-		'default_path' 		=> '',                         	// Default absolute path to pre-packaged plugins
-		'parent_menu_slug' 	=> 'themes.php', 				// Default parent menu slug
-		'parent_url_slug' 	=> 'themes.php', 				// Default parent URL slug
-		'menu'         		=> 'install-required-plugins', 	// Menu slug
-		'has_notices'      	=> true,                       	// Show admin notices or not
-		'is_automatic'    	=> false,					   	// Automatically activate plugins after installation or not
-		'message' 			=> '',							// Message to output right before the plugins table
-		'strings'      		=> array(
-			'page_title'                       			=> __( 'Install Required Plugins', $theme_text_domain ),
-			'menu_title'                       			=> __( 'Install Plugins', $theme_text_domain ),
-			'installing'                       			=> __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
-			'oops'                             			=> __( 'Something went wrong with the plugin API.', $theme_text_domain ),
-			'notice_can_install_required'     			=> _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
-			'notice_can_install_recommended'			=> _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
-			'notice_cannot_install'  					=> _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
-			'notice_can_activate_required'    			=> _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-			'notice_can_activate_recommended'			=> _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-			'notice_cannot_activate' 					=> _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
-			'notice_ask_to_update' 						=> _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
-			'notice_cannot_update' 						=> _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
-			'install_link' 					  			=> _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-			'activate_link' 				  			=> _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
-			'return'                           			=> __( 'Return to Required Plugins Installer', $theme_text_domain ),
-			'plugin_activated'                 			=> __( 'Plugin activated successfully.', $theme_text_domain ),
-			'complete' 									=> __( 'All plugins installed and activated successfully. %s', $theme_text_domain ), // %1$s = dashboard link
-			'nag_type'									=> 'updated' // Determines admin notice type - can only be 'updated' or 'error'
+		'domain' => $theme_text_domain,		 	// Text domain - likely want to be the same as your theme.
+		'default_path' => '',						 	// Default absolute path to pre-packaged plugins
+		'parent_menu_slug' => 'themes.php', 				// Default parent menu slug
+		'parent_url_slug' => 'themes.php', 				// Default parent URL slug
+		'menu' => 'install-required-plugins', 	// Menu slug
+		'has_notices' => true,					   	// Show admin notices or not
+		'is_automatic' => false,					   	// Automatically activate plugins after installation or not
+		'message' => '',							// Message to output right before the plugins table
+		'strings' => array(
+		'page_title' => __( 'Install Required Plugins', $theme_text_domain ),
+		'menu_title' => __( 'Install Plugins', $theme_text_domain ),
+		'installing' => __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
+		'oops' => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
+		'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
+		'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
+		'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
+		'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
+		'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
+		'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
+		'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
+		'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
+		'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
+		'activate_link' => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
+		'return' => __( 'Return to Required Plugins Installer', $theme_text_domain ),
+		'plugin_activated' => __( 'Plugin activated successfully.', $theme_text_domain ),
+		'complete' => __( 'All plugins installed and activated successfully. %s', $theme_text_domain ), // %1$s = dashboard link
+		'nag_type' => 'updated' // Determines admin notice type - can only be 'updated' or 'error'
 		)
 	);
 
