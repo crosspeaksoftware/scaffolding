@@ -340,7 +340,7 @@ RECOMMENDED/REQUIRED PLUGIN ACTIVATION
  */
 
 /* Include the TGM_Plugin_Activation class. */
-require_once ( 'class-tgm-plugin-activation.php' );
+require_once ( SCAFFOLDING_INCLUDE_PATH.'class-tgm-plugin-activation.php' );
 
 add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 /**
@@ -377,22 +377,46 @@ function my_theme_register_required_plugins() {
 
 		// Include plugin from the WordPress Plugin Repository
 		array(
-			'name' 		=> 'Codepress Admin Columns', // http://wordpress.org/plugins/codepress-admin-columns/
-			'slug' 		=> 'codepress-admin-columns',
-			'required' 	=> false,
+			'name' 		=> 'Advanced Custom Fields', // http://wordpress.org/plugins/codepress-admin-columns/
+			'slug' 		=> 'advanced-custom-fields',
+			'required' 	=> false
 		),
 
 		array(
-			'name'		=> 'TinyMCE Advanced', // http://wordpress.org/plugins/tinymce-advanced/
-			'slug'		=> 'tinymce-advanced',
-			'required'	=> false,
+			'name' 		=> 'Codepress Admin Columns', // http://wordpress.org/plugins/codepress-admin-columns/
+			'slug' 		=> 'codepress-admin-columns',
+			'required' 	=> false
 		),
 
 		array(
 			'name'		=> 'Dynamic Widgets', // http://wordpress.org/plugins/dynamic-widgets/
 			'slug'		=> 'dynamic-widgets',
-			'required'	=> false,
+			'required'	=> false
 		),
+
+		array(
+			'name'		=> 'Mailgun for WordPress', // http://wordpress.org/plugins/mailgun/
+			'slug'		=> 'mailgun',
+			'required'	=> false
+		),
+
+		array(
+			'name'		=> 'Relevanssi', // http://wordpress.org/plugins/relevanssi/
+			'slug'		=> 'relevanssi',
+			'required'	=> false
+		),
+
+		array(
+			'name'		=> 'TinyMCE Advanced', // http://wordpress.org/plugins/tinymce-advanced/
+			'slug'		=> 'tinymce-advanced',
+			'required'	=> false
+		),
+
+		array(
+			'name'		=> 'WordPress SEO', // http://wordpress.org/plugins/wordpress-seo/
+			'slug'		=> 'wordpress-seo',
+			'required'	=> false
+		)
 
 	);
 
@@ -416,24 +440,24 @@ function my_theme_register_required_plugins() {
 		'is_automatic' => false,					   	// Automatically activate plugins after installation or not
 		'message' => '',							// Message to output right before the plugins table
 		'strings' => array(
-		'page_title' => __( 'Install Required Plugins', $theme_text_domain ),
-		'menu_title' => __( 'Install Plugins', $theme_text_domain ),
-		'installing' => __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
-		'oops' => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
-		'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
-		'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
-		'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
-		'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-		'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-		'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
-		'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
-		'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
-		'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-		'activate_link' => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
-		'return' => __( 'Return to Required Plugins Installer', $theme_text_domain ),
-		'plugin_activated' => __( 'Plugin activated successfully.', $theme_text_domain ),
-		'complete' => __( 'All plugins installed and activated successfully. %s', $theme_text_domain ), // %1$s = dashboard link
-		'nag_type' => 'updated' // Determines admin notice type - can only be 'updated' or 'error'
+			'page_title' => __( 'Install Required Plugins', $theme_text_domain ),
+			'menu_title' => __( 'Install Plugins', $theme_text_domain ),
+			'installing' => __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
+			'oops' => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
+			'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
+			'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
+			'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
+			'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
+			'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
+			'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
+			'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
+			'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
+			'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
+			'activate_link' => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
+			'return' => __( 'Return to Required Plugins Installer', $theme_text_domain ),
+			'plugin_activated' => __( 'Plugin activated successfully.', $theme_text_domain ),
+			'complete' => __( 'All plugins installed and activated successfully. %s', $theme_text_domain ), // %1$s = dashboard link
+			'nag_type' => 'updated' // Determines admin notice type - can only be 'updated' or 'error'
 		)
 	);
 
