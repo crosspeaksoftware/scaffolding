@@ -270,19 +270,6 @@ function scaffolding_mcekit_editor_style($url) {
 }
 add_filter('mce_css', 'scaffolding_mcekit_editor_style');
 
-// Relative root the urls for the media uploader
-function root_relative_urls($html) {
-	if(defined('WP_SITEURL')) {
-		$url = WP_SITEURL;
-	}
-	else {
-		$url = 'http://' . $_SERVER['HTTP_HOST'];
-	}
-	return str_ireplace($url, '', $html);
-}
-add_filter('image_send_to_editor', 'root_relative_urls',100);
-add_filter('media_send_to_editor', 'root_relative_urls',100);
-
 //Filter out hard-coded width, height attributes on all images in WordPress. - https://gist.github.com/4557917 - for more information
 function scaffolding_remove_img_dimensions($html) {
 	// Loop through all <img> tags
