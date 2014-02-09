@@ -17,14 +17,14 @@ Stylesheet: Bootstrap Grid Stylesheet
 .container {
   .container-fixed();
 
-  @media (min-width: @screen-sm-min) {
-    width: @container-sm;
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
   }
-  @media (min-width: @screen-md-min) {
-    width: @container-md;
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
   }
-  @media (min-width: @screen-lg-min) {
-    width: @container-lg;
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
   }
 }
 
@@ -61,10 +61,10 @@ Stylesheet: Bootstrap Grid Stylesheet
 // smartphones.
 
 .make-grid-columns-float(xs);
-.make-grid(@grid-columns, xs, width);
-.make-grid(@grid-columns, xs, pull);
-.make-grid(@grid-columns, xs, push);
-.make-grid(@grid-columns, xs, offset);
+.make-grid($grid-columns, xs, width);
+.make-grid($grid-columns, xs, pull);
+.make-grid($grid-columns, xs, push);
+.make-grid($grid-columns, xs, offset);
 
 
 // Small grid
@@ -72,12 +72,12 @@ Stylesheet: Bootstrap Grid Stylesheet
 // Columns, offsets, pushes, and pulls for the small device range, from phones
 // to tablets.
 
-@media (min-width: @screen-sm-min) {
+@media (min-width: $screen-sm-min) {
   .make-grid-columns-float(sm);
-  .make-grid(@grid-columns, sm, width);
-  .make-grid(@grid-columns, sm, pull);
-  .make-grid(@grid-columns, sm, push);
-  .make-grid(@grid-columns, sm, offset);
+  .make-grid($grid-columns, sm, width);
+  .make-grid($grid-columns, sm, pull);
+  .make-grid($grid-columns, sm, push);
+  .make-grid($grid-columns, sm, offset);
 }
 
 
@@ -85,12 +85,12 @@ Stylesheet: Bootstrap Grid Stylesheet
 //
 // Columns, offsets, pushes, and pulls for the desktop device range.
 
-@media (min-width: @screen-md-min) {
+@media (min-width: $screen-md-min) {
   .make-grid-columns-float(md);
-  .make-grid(@grid-columns, md, width);
-  .make-grid(@grid-columns, md, pull);
-  .make-grid(@grid-columns, md, push);
-  .make-grid(@grid-columns, md, offset);
+  .make-grid($grid-columns, md, width);
+  .make-grid($grid-columns, md, pull);
+  .make-grid($grid-columns, md, push);
+  .make-grid($grid-columns, md, offset);
 }
 
 
@@ -98,10 +98,10 @@ Stylesheet: Bootstrap Grid Stylesheet
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
 
-@media (min-width: @screen-lg-min) {
+@media (min-width: $screen-lg-min) {
   .make-grid-columns-float(lg);
-  .make-grid(@grid-columns, lg, width);
-  .make-grid(@grid-columns, lg, pull);
-  .make-grid(@grid-columns, lg, push);
-  .make-grid(@grid-columns, lg, offset);
+  .make-grid($grid-columns, lg, width);
+  .make-grid($grid-columns, lg, pull);
+  .make-grid($grid-columns, lg, push);
+  .make-grid($grid-columns, lg, offset);
 }
