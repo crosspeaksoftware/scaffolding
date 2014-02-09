@@ -16,7 +16,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 // Set the container width, and override it for fixed navbars in media queries.
 
 .container {
-  .container-fixed();
+  @extend .container-fixed;
 
   @media (min-width: $screen-sm-min) {
     width: $container-sm;
@@ -36,7 +36,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 // width for fluid, full width layouts.
 
 .container-fluid {
-  .container-fixed();
+  @extend .container-fixed;
 }
 
 
@@ -45,7 +45,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 // Rows contain and clear the floats of your columns.
 
 .row {
-  .make-row();
+  @extend .make-row;
 }
 
 
@@ -53,7 +53,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 //
 // Common styles for small and large grid columns
 
-.make-grid-columns();
+@extend .make-grid-columns;
 
 
 // Extra small grid
