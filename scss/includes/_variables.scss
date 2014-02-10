@@ -11,3 +11,14 @@ $default-font-size: 14px;
 
 $link-color:#008CBA;
 $link-hover-color:#007BA1;
+
+// Grid Stuff
+$screen-sm-min: 768px;
+$container-sm: 750px;
+$screen-md-min: 992px;
+$container-md: 970px;
+$screen-lg-min: 1200px;
+$container-lg: 1170px;
+
+$grid-columns: 12;
+$grid-gutter-width: 15px;
