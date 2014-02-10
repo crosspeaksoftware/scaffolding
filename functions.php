@@ -49,6 +49,9 @@ function scaffolding_scripts_and_styles() {
 		// modernizr (without media query polyfill)
 		wp_register_script('modernizr', "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
 
+		// respondjs
+		wp_register_script('respondjs', "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", false, null);
+
 		// register main stylesheet
 		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
 
@@ -71,6 +74,7 @@ function scaffolding_scripts_and_styles() {
 		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
+	    wp_enqueue_script( 'respondjs' );
 	    wp_enqueue_script( 'modernizr' );
 		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_script( 'magnific-popup-js' );
