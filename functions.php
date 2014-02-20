@@ -56,10 +56,10 @@ function scaffolding_scripts_and_styles() {
 		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 
 		//Magnific Popups (LightBox)
-        wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
+		wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
 
 		//Font Awesome (icon set)
-        wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+		wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
 
 
 		// comment reply script for threaded comments
@@ -71,7 +71,7 @@ function scaffolding_scripts_and_styles() {
 		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
-	    wp_enqueue_script( 'modernizr' );
+		wp_enqueue_script( 'modernizr' );
 		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_script( 'magnific-popup-js' );
 		wp_enqueue_style( 'scaffolding-stylesheet' );
@@ -238,8 +238,8 @@ function scaffolding_main_nav() {
 		'link_after' => '',							 	 // after each link
 		'depth' => 0,								 	 // limit the depth of the nav
 		'fallback_cb' => 'scaffolding_main_nav_fallback',// fallback function
-        'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-reorder"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
-        'walker'=> new scaffolding_walker_nav_menu
+		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-reorder"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
+		'walker'=> new scaffolding_walker_nav_menu
 	));
 } /* end scaffolding main nav */
 
@@ -282,90 +282,90 @@ function scaffolding_nav_fallback() {
 
 //Custom walker to build main menu
 class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
-    // add classes to ul sub-menus
-    function start_lvl( &$output, $depth ) {
-        // depth dependent classes
-        $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-        $display_depth = ( $depth + 1); // because it counts the first submenu as 0
-        $classes = array(
-                'sub-menu',
-                ( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
-                'menu-depth-' . $display_depth
-            );
-        $class_names = implode( ' ', $classes );
-        // build html
-        $output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
-    }
+	// add classes to ul sub-menus
+	function start_lvl( &$output, $depth ) {
+		// depth dependent classes
+		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+		$display_depth = ( $depth + 1); // because it counts the first submenu as 0
+		$classes = array(
+				'sub-menu',
+				( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
+				'menu-depth-' . $display_depth
+			);
+		$class_names = implode( ' ', $classes );
+		// build html
+		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
+	}
 
-    function start_el(&$output, $item, $depth, $args) {
-        global $wp_query;
-        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+	function start_el(&$output, $item, $depth, $args) {
+		global $wp_query;
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
-        $class_names = $value = '';
+		$class_names = $value = '';
 
-        //set <li> classes
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-        $classes[] = 'menu-item-' . $item->ID;
-        //if( $args->has_children ){ $classes[] = 'menu-has-children'; }
-        if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
-        //combine the class array into a string
-        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-        $class_names = ' class="' . esc_attr( $class_names ) . '"';
+		//set <li> classes
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+		//if( $args->has_children ){ $classes[] = 'menu-has-children'; }
+		if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
+		//combine the class array into a string
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
-        //set <li> id
-        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-        $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+		//set <li> id
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
-        //set outer <li> and it's attributes
-        $output .= $indent . '<li' . $id . $value . $class_names .'>';
+		//set outer <li> and it's attributes
+		$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
-        //set <a> attributes
-        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="'  . esc_attr( strip_tags($item->title) ) .'"';
-        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		//set <a> attributes
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="'  . esc_attr( strip_tags($item->title) ) .'"';
+		$attributes .= ! empty( $item->target )	 ? ' target="' . esc_attr( $item->target	 ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )		? ' rel="'	. esc_attr( $item->xfn		) .'"' : '';
+		$attributes .= ! empty( $item->url )		? ' href="'   . esc_attr( $item->url		) .'"' : '';
 
-        //Add menu button links to items with children
-        if ( $args->has_children ) {
-            $menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
-        }
-        else{
-            $menu_pull_link = '';
-        }
+		//Add menu button links to items with children
+		if ( $args->has_children ) {
+			$menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
+		}
+		else{
+			$menu_pull_link = '';
+		}
 
-        //adds the ability to have a heading in a menu
-        if(in_array('no-link',$classes)){
-            $item_output = $args->before;
-            $item_output .= '<span>';
-            $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-            $item_output .= '</span>';
-            $item_output .= $args->after;
-        }
-        else{
-            $item_output = $args->before;
-            $item_output .= '<a'. $attributes .'>';
-            $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-            $item_output .= '</a>';
-            $item_output .= $menu_pull_link.$args->after;
-        }
+		//adds the ability to have a heading in a menu
+		if(in_array('no-link',$classes)){
+			$item_output = $args->before;
+			$item_output .= '<span>';
+			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			$item_output .= '</span>';
+			$item_output .= $args->after;
+		}
+		else{
+			$item_output = $args->before;
+			$item_output .= '<a'. $attributes .'>';
+			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			$item_output .= '</a>';
+			$item_output .= $menu_pull_link.$args->after;
+		}
 
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
 
-    function end_el(&$output, $item, $depth=0, $args=array()) {
-        $output .= "</li>\n";
-    }
+	function end_el(&$output, $item, $depth=0, $args=array()) {
+		$output .= "</li>\n";
+	}
 
    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
 
-        //Set custom arg to tell if item has children
-        $id_field = $this->db_fields['id'];
-        if ( is_object( $args[0] ) ) {
-            $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
-        }
+		//Set custom arg to tell if item has children
+		$id_field = $this->db_fields['id'];
+		if ( is_object( $args[0] ) ) {
+			$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
+		}
 
-        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-    }
+		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+	}
 }
 
 
