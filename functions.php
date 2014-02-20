@@ -56,7 +56,7 @@ function scaffolding_scripts_and_styles() {
 		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 
 		//Magnific Popups (LightBox)
-		wp_register_script( 'magnific-popup-js', get_stylesheet_directory_uri() . '/js/libs/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.5', true );
+		wp_register_script( 'magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
 		//Font Awesome (icon set)
 		wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
