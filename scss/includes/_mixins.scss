@@ -262,6 +262,19 @@ GRAYSCALE
 	}
 }
 
+
+/*********************
+TRANSPARENT BG-COLOR
+*********************/
+@mixin transparent($color, $alpha) {
+    $rgba: rgba($color, $alpha);
+    $ie-hex-str: ie-hex-str($rgba);
+    background-color: transparent;
+    background-color: $rgba;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+    zoom: 1;
+}
+
 /*********************
 CSS3 GRADIENTS
 Be careful with these since they can
