@@ -2,34 +2,36 @@
 
 			<?php
 			//load in the content of a static blog page if set in the back end
-			if ( 'page' == get_option('show_on_front') && get_option('page_for_posts') && is_home() ) :
-				the_post();
+			if ( 'page' == get_option('show_on_front') && get_option('page_for_posts') && is_home() ) {
 				$page_for_posts_id = get_option('page_for_posts');
 				$post = get_post($page_for_posts_id);
-				setup_postdata($post);
-			?>
+				if ( ! is_null($post) ) {
+					setup_postdata($post);
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class('static-blog-page clearfix'); ?> role="article">
+					?>
 
-				<header class="article-header">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('static-blog-page clearfix'); ?> role="article">
 
-					<h2 class="entry-title page-title"><?php the_title(); ?></h2>
+						<header class="article-header">
 
-				</header> <!-- end article header -->
+							<h2 class="entry-title page-title"><?php the_title(); ?></h2>
 
-				<section class="entry-content clearfix">
-					<?php the_content(); ?>
-				</section> <!-- end article section -->
+						</header> <!-- end article header -->
 
-				<footer class="article-footer">
+						<section class="entry-content clearfix">
+							<?php the_content(); ?>
+						</section> <!-- end article section -->
 
-				</footer> <!-- end article footer -->
+						<footer class="article-footer">
 
-			</article> <!-- end article -->
+						</footer> <!-- end article footer -->
 
-			<?php
-				wp_reset_postdata();
-			endif; //continue the loop as normal
+					</article> <!-- end article -->
+
+					<?php
+					wp_reset_postdata();
+				}
+			} //continue the loop as normal
 			?>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
