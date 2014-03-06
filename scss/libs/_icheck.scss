@@ -1,0 +1,76 @@
+/*
+* Choose from a number of included skins for iCheck
+* usage: replace with the desired skin and color scheme
+* change: scripts.js
+	<script>
+	$(document).ready(function(){
+	  $('input').iCheck({
+		checkboxClass: 'icheckbox_flat-red',
+		radioClass: 'iradio_flat-red'
+	  });
+	});
+	</script>
+*/
+
+/* iCheck plugin skins
+----------------------------------- */
+//@import url("icheck_skins/minimal/_all.css");
+/*
+@import url("icheck_skins/minimal/minimal.css");
+@import url("icheck_skins/minimal/red.css");
+@import url("icheck_skins/minimal/green.css");
+@import url("icheck_skins/minimal/blue.css");
+@import url("icheck_skins/minimal/aero.css");
+@import url("icheck_skins/minimal/grey.css");
+@import url("icheck_skins/minimal/orange.css");
+@import url("icheck_skins/minimal/yellow.css");
+@import url("icheck_skins/minimal/pink.css");
+@import url("icheck_skins/minimal/purple.css");
+*/
+
+//@import url("icheck_skins/square/_all.css");
+
+@import url("icheck_skins/square/square.css");
+/*
+@import url("icheck_skins/square/red.css");
+@import url("icheck_skins/square/green.css");
+@import url("icheck_skins/square/blue.css");
+@import url("icheck_skins/square/aero.css");
+@import url("icheck_skins/square/grey.css");
+@import url("icheck_skins/square/orange.css");
+@import url("icheck_skins/square/yellow.css");
+@import url("icheck_skins/square/pink.css");
+@import url("icheck_skins/square/purple.css");
+*/
+
+//@import url("icheck_skins/flat/_all.css");
+/*
+@import url("icheck_skins/flat/flat.css");
+@import url("icheck_skins/flat/red.css");
+@import url("icheck_skins/flat/green.css");
+@import url("icheck_skins/flat/blue.css");
+@import url("icheck_skins/flat/aero.css");
+@import url("icheck_skins/flat/grey.css");
+@import url("icheck_skins/flat/orange.css");
+@import url("icheck_skins/flat/yellow.css");
+@import url("icheck_skins/flat/pink.css");
+@import url("icheck_skins/flat/purple.css");
+*/
+
+//@import url("icheck_skins/line/_all.css");
+/*
+@import url("icheck_skins/line/line.css");
+@import url("icheck_skins/line/red.css");
+@import url("icheck_skins/line/green.css");
+@import url("icheck_skins/line/blue.css");
+@import url("icheck_skins/line/aero.css");
+@import url("icheck_skins/line/grey.css");
+@import url("icheck_skins/line/orange.css");
+@import url("icheck_skins/line/yellow.css");
+@import url("icheck_skins/line/pink.css");
+@import url("icheck_skins/line/purple.css");
+*/
+
+//@import url("icheck_skins/polaris/polaris.css");
+
+//@import url("icheck_skins/futurico/futurico.css");

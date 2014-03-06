@@ -61,6 +61,8 @@ function scaffolding_scripts_and_styles() {
 		//Font Awesome (icon set)
 		wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
 
+		// iCheck (better radio and checkbox inputs)
+		wp_register_script( 'icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
 
 		// comment reply script for threaded comments
 		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -74,6 +76,7 @@ function scaffolding_scripts_and_styles() {
 		wp_enqueue_script( 'modernizr' );
 		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_script( 'magnific-popup-js' );
+		wp_enqueue_script( 'icheck' );
 		wp_enqueue_style( 'scaffolding-stylesheet' );
 		wp_enqueue_style( 'scaffolding-ie-only' );
 		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet

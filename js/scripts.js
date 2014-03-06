@@ -61,6 +61,13 @@ jQuery(document).ready(function($) {
     $('a[href*=".jpg"], a[href*="jpeg"], a[href*=".png"], a[href*=".gif"], a[href$=".bmp"]').magnificPopup({
         type: 'image'
     });
+    
+    //iCheck - http://fronteed.com/iCheck/
+	$('input').iCheck({
+		checkboxClass: 'icheckbox_square',
+		radioClass: 'iradio_square',
+		increaseArea: '20%' // optional
+	});
 
 	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed"),
