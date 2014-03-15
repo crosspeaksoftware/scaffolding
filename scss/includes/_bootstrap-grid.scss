@@ -5,6 +5,13 @@ Author:
 Stylesheet: Bootstrap Grid Stylesheet
 
 ******************************************************************/
+* {
+  @include box-sizing(border-box);
+}
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
 
 @mixin clearfix() {
   &:before,
@@ -281,8 +288,10 @@ width: percentage(($columns / $grid-columns));
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 
-.container-fluid {
+.container-fluid,
+.wrap {
   @include container-fixed;
+  max-width: 90%;
 }
 
 

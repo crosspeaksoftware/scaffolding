@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-		<div id="main" class="eightcol first clearfix" role="main">
+		<div id="main" class="col-sm-8 clearfix" role="main">
 
 			<article id="post-not-found" class="hentry clearfix">
 

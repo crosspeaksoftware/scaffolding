@@ -2,7 +2,7 @@
 
 	<?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
 
-		<div id="left-sidebar" class="sidebar threecol first clearfix" role="complementary">
+		<div id="left-sidebar" class="sidebar col-sm-3 col-md-pull-9 clearfix" role="complementary">
 
 			<?php dynamic_sidebar( 'left-sidebar' ); ?>
 
@@ -12,7 +12,7 @@
 
 	<?php if ( is_active_sidebar( 'right-sidebar' ) ) : ?>
 
-		<div id="right-sidebar" class="sidebar threecol last clearfix" role="complementary">
+		<div id="right-sidebar" class="sidebar col-sm-3 clearfix" role="complementary">
 
 			<?php dynamic_sidebar( 'right-sidebar' ); ?>
 
