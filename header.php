@@ -1,47 +1,45 @@
-<!doctype html>
-
-<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
-
+<?php
+/**
+ * The Header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package test
+ */
+?><!DOCTYPE html><?php
+// <IE7 Class ?><!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><?php
+// IE7 Class ?><!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]--><?php
+// IE8 Class ?><!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]--><?php
+// >IE8 Class ?><!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 <head>
-	<meta charset="utf-8">
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<title><?php wp_title(''); ?></title>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<title><?php wp_title(''); ?></title>
+<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
+<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/apple-icon-touch.png">
+<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+<!--[if IE]><link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico"><![endif]-->
+<meta name="msapplication-TileColor" content="#f01d4f">
+<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/win8-tile-icon.png">
 
-	<!-- mobile meta -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-	<!-- icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) -->
-	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/apple-icon-touch.png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-	<!--[if IE]>
-	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-	<![endif]-->
-	<!-- or, set /favicon.ico for IE10 win -->
-	<meta name="msapplication-TileColor" content="#f01d4f">
-	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/win8-tile-icon.png">
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+<!--[if lt IE 9]>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv-printshiv.min.js"></script>
+<![endif]-->
 
-	<!--[if lt IE 9]>
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.min.js"></script>
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv-printshiv.min.js"></script>
-	<![endif]-->
+<?php wp_head(); ?>
 
-	<!-- wordpress head functions -->
-	<?php wp_head(); ?>
-	<!-- end of wordpress head -->
-
-	<!-- drop Google Analytics Here -->
-	
-	<!-- end analytics -->
+<?php // Add Google Analytics Code Here ?>
 
 </head>
 
-<body <?php body_class('sticky-footer'); ?> itemscope itemtype="http://schema.org/WebPage">
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 
 	<div id="container">
 
