@@ -146,6 +146,9 @@ code {
 	white-space: nowrap;
 	background-color: #f7f7f9;
 	border: 1px solid #e1e1e8;
+	display: block;
+	overflow: scroll;
+	text-overflow: ellipsis;
 }
 
 pre {
