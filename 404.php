@@ -1,29 +1,21 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (Not Found).
+ */
 
-		<div id="main" class="col-sm-8 clearfix" role="main">
+get_header(); ?>
 
-			<article id="post-not-found" class="hentry clearfix">
+			<section class="error-404 not-found">
+				<header class="page-header">
+					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'test' ); ?></h1>
+				</header><!-- .page-header -->
 
-				<header class="article-header">
+				<div class="page-content">
+					<p><?php _e( 'It looks like nothing was found at this location. This may be due to the page being moved, renamed or deleted.<ul><li>Check the URL in the address bar above</li><li>Look for the page in the main navigation above or on the <a href="/site-map/" title="Site Map Page">Site Map</a> page</li><li>Try using the Search below.</li></ul>'); ?></p>
 
-					<h1 class="entry-title"><?php _e("404 Error - Page Not Found", "scaffoldingtheme"); ?></h1>
+					<?php get_search_form(); ?>
 
-				</header> <!-- end article header -->
-
-				<section class="entry-content">
-
-					<p><?php _e('The page you were looking for was not found. This may be due to the page being moved, renamed or deleted.<ul><li>Check the URL in the address bar above</li><li>Look for the page in the main navigation above or on the <a href="/site-map/" title="Site Map Page">Site Map</a> page</li><li>Try using the Search below.</li></ul>', "bonestheme"); ?></p>
-
-				</section> <!-- end article section -->
-
-				<section class="search">
-
-					<p><?php get_search_form(); ?></p>
-
-				</section> <!-- end search section -->
-
-			</article> <!-- end article -->
-
-		</div> <!-- end #main -->
+				</div>
+			</section>
 
 <?php get_footer();
