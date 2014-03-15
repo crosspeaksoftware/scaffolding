@@ -39,29 +39,29 @@
 
 </head>
 
-<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
-
+<body <?php body_class(); ?>>
 	<div id="container">
 
-		<header class="header" role="banner">
+		<header id="masthead" class="header" role="banner">
 
 			<div id="inner-header" class="wrap clearfix">
+			
+				<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
+				<div id="logo" class="h1"><a href="<?php  echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
+	
+				<?php // if you'd like to use the site description you can un-comment it below
+				// echo '<p class="site-description">'. bloginfo( "description" ) .'</p>' ?>
 
-				<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-				<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></p>
+			</div><?php // #inner-header ?>
 
-				<!-- if you'd like to use the site description you can un-comment it below -->
-				<?php // bloginfo('description'); ?>
-
-			</div> <!-- end #inner-header -->
-
-		</header> <!-- end header -->
-
+		</header><?php // #masthead ?>
+		
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'test' ); ?></a>
 		<nav id="main-navigation" class="clearfix" role="navigation">
 
 			<?php scaffolding_main_nav(); ?>
 
-		</nav><!-- end main-navigation -->
+		</nav><?php // #main-navigation ?>
 
 		<?php // Interior Header Image ?>
         <div class="banner-wrap">
