@@ -19,9 +19,9 @@
 		</div>
 	<?php endif; ?>
 
-		</div> <?php #inner-content ?>
+		</div><?php #inner-content ?>
 
-	</div> <?php #content ?>
+	</div><?php #content ?>
 
 	<footer class="footer" role="contentinfo">
 
@@ -33,19 +33,18 @@
 
 			<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
 
-		</div> <!-- end #inner-footer -->
+		</div> <?php #inner-footer ?>
 
-	</footer> <!-- end footer -->
+	</footer> <?php // footer ?>
 	
 	<p id="back-top">
         <a href="#top"><i class="fa fa-angle-up"></i></a>
     </p>
 
-</div> <!-- end #container -->
+</div> <?php  #container ?>
 
-<!-- all js scripts are loaded in scaffolding.php -->
+<?php // all js scripts are loaded in functions.php ?>
 <?php wp_footer(); ?>
 
 </body>
-
-</html> <!-- end page. what a ride! -->
+</html>
