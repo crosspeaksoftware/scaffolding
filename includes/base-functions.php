@@ -128,7 +128,7 @@ function scaffolding_page_navi($before = '', $after = '') {
 	}
 	echo $before.'<nav class="page-navigation"><ol class="scaffolding_page_navi clearfix">'."";
 	if ($start_page >= 2 && $pages_to_show < $max_page) {
-		$first_page_text = __( "First", 'scaffoldingtheme' );
+		$first_page_text = __( "First", 'scaffolding' );
 		echo '<li class="bpn-first-page-link"><a rel="prev" href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
 	}
 	echo '<li class="bpn-prev-link">';
@@ -152,7 +152,7 @@ function scaffolding_page_navi($before = '', $after = '') {
 	next_posts_link('<i class="fa fa-angle-double-right"></i>');
 	echo '</li>';
 	if ($end_page < $max_page) {
-		$last_page_text = __( "Last", 'scaffoldingtheme' );
+		$last_page_text = __( "Last", 'scaffolding' );
 		echo '<li class="bpn-last-page-link"><a rel="next" href="'.get_pagenum_link($max_page).'" title="'.$last_page_text.'">'.$last_page_text.'</a></li>';
 	}
 	echo '</ol></nav>'.$after."";

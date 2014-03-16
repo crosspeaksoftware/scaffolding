@@ -155,8 +155,8 @@ function scaffolding_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'Main Menu', 'scaffoldingtheme' ),	// main nav in header
-			'footer-nav' => __( 'Footer Menu', 'scaffoldingtheme' ) // secondary nav in footer
+			'main-nav' => __( 'Main Menu', 'scaffolding' ),	// main nav in header
+			'footer-nav' => __( 'Footer Menu', 'scaffolding' ) // secondary nav in footer
 		)
 	);
 } /* end scaffolding theme support */
@@ -381,8 +381,8 @@ ACTIVE SIDEBARS
 function scaffolding_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'left-sidebar',
-		'name' => __('Left Sidebar', 'scaffoldingtheme'),
-		'description' => __('The Left (primary) sidebar used for the interior menu.', 'scaffoldingtheme'),
+		'name' => __('Left Sidebar', 'scaffolding'),
+		'description' => __('The Left (primary) sidebar used for the interior menu.', 'scaffolding'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -390,8 +390,8 @@ function scaffolding_register_sidebars() {
 	));
 	register_sidebar(array(
 		'id' => 'right-sidebar',
-		'name' => __('Right Sidebar', 'scaffoldingtheme'),
-		'description' => __('The Right sidebar used for the interior call to actions.', 'scaffoldingtheme'),
+		'name' => __('Right Sidebar', 'scaffolding'),
+		'description' => __('The Right sidebar used for the interior call to actions.', 'scaffolding'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -427,7 +427,7 @@ function scaffolding_related_posts() {
 			endforeach;
 		}
 		else {
-			echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'scaffoldingtheme' ) . '</li>';
+			echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'scaffolding' ) . '</li>';
 		}
 	}
 	wp_reset_query();
@@ -458,13 +458,13 @@ function scaffolding_comments($comment, $args, $depth) {
 				?>
 				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
 				<!-- end custom gravatar call -->
-				<?php printf(__('<cite class="fn">%s</cite>', 'scaffoldingtheme'), get_comment_author_link()) ?>
-				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__('F jS, Y', 'scaffoldingtheme')); ?> </a></time>
-				<?php edit_comment_link(__('(Edit)', 'scaffoldingtheme'),'  ','') ?>
+				<?php printf(__('<cite class="fn">%s</cite>', 'scaffolding'), get_comment_author_link()) ?>
+				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__('F jS, Y', 'scaffolding')); ?> </a></time>
+				<?php edit_comment_link(__('(Edit)', 'scaffolding'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
 	   			<div class="alert info">
-		  			<p><?php _e('Your comment is awaiting moderation.', 'scaffoldingtheme') ?></p>
+		  			<p><?php _e('Your comment is awaiting moderation.', 'scaffolding') ?></p>
 		  		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
@@ -484,8 +484,8 @@ SEARCH FUNCTIONS
 // Search Form
 function scaffolding_wpsearch($form) {
 	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffoldingtheme') . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','scaffoldingtheme').'" />
+	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffolding') . '</label>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','scaffolding').'" />
 	<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
 	</form>';
 	return $form;
@@ -599,7 +599,7 @@ CUSTOM FUNCTIONS
 function scaffolding_excerpt_more($more) {
 	global $post;
 	// edit here if you like
-	return '...  <a href="'. get_permalink($post->ID) . '" title="'. __('Read', 'scaffoldingtheme') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffoldingtheme') .'</a>';
+	return '...  <a href="'. get_permalink($post->ID) . '" title="'. __('Read', 'scaffolding') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
 }
 
 //This is a modified the_author_posts_link() which just returns the link.

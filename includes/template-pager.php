@@ -5,8 +5,8 @@
 				?>
 					<nav class="wp-prev-next">
 						<ul class="clearfix">
-							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "scaffoldingtheme")) ?></li>
-							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "scaffoldingtheme")) ?></li>
+							<li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "scaffolding")) ?></li>
+							<li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "scaffolding")) ?></li>
 						</ul>
 					</nav>
 

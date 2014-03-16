@@ -14,7 +14,7 @@
 
 							<?php
 							/* Hidden by default
-							<p class="byline vcard"><?php _e("Posted", "scaffoldingtheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "scaffoldingtheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "scaffoldingtheme"); ?> <?php the_category(', '); ?>.</p>
+							<p class="byline vcard"><?php _e("Posted", "scaffolding"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "scaffolding"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "scaffolding"); ?> <?php the_category(', '); ?>.</p>
 							*/ ?>
 
 						</header> <!-- end article header -->

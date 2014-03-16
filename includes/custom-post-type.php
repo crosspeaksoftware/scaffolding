@@ -17,21 +17,21 @@ function custom_post_example() {
 	 	// let's now add all the options for this post type
 		array(
 			'labels' => array(
-				'name' => __('Custom Types', 'scaffoldingtheme'), /* This is the Title of the Group */
-				'singular_name' => __('Custom Post', 'scaffoldingtheme'), /* This is the individual type */
-				'all_items' => __('All Custom Posts', 'scaffoldingtheme'), /* the all items menu item */
-				'add_new' => __('Add New', 'scaffoldingtheme'), /* The add new menu item */
-				'add_new_item' => __('Add New Custom Type', 'scaffoldingtheme'), /* Add New Display Title */
-				'edit' => __( 'Edit', 'scaffoldingtheme' ), /* Edit Dialog */
-				'edit_item' => __('Edit Post Types', 'scaffoldingtheme'), /* Edit Display Title */
-				'new_item' => __('New Post Type', 'scaffoldingtheme'), /* New Display Title */
-				'view_item' => __('View Post Type', 'scaffoldingtheme'), /* View Display Title */
-				'search_items' => __('Search Post Type', 'scaffoldingtheme'), /* Search Custom Type Title */
-				'not_found' =>  __('Nothing found in the Database.', 'scaffoldingtheme'), /* This displays if there are no entries yet */
-				'not_found_in_trash' => __('Nothing found in Trash', 'scaffoldingtheme'), /* This displays if there is nothing in the trash */
+				'name' => __('Custom Types', 'scaffolding'), /* This is the Title of the Group */
+				'singular_name' => __('Custom Post', 'scaffolding'), /* This is the individual type */
+				'all_items' => __('All Custom Posts', 'scaffolding'), /* the all items menu item */
+				'add_new' => __('Add New', 'scaffolding'), /* The add new menu item */
+				'add_new_item' => __('Add New Custom Type', 'scaffolding'), /* Add New Display Title */
+				'edit' => __( 'Edit', 'scaffolding' ), /* Edit Dialog */
+				'edit_item' => __('Edit Post Types', 'scaffolding'), /* Edit Display Title */
+				'new_item' => __('New Post Type', 'scaffolding'), /* New Display Title */
+				'view_item' => __('View Post Type', 'scaffolding'), /* View Display Title */
+				'search_items' => __('Search Post Type', 'scaffolding'), /* Search Custom Type Title */
+				'not_found' =>  __('Nothing found in the Database.', 'scaffolding'), /* This displays if there are no entries yet */
+				'not_found_in_trash' => __('Nothing found in Trash', 'scaffolding'), /* This displays if there is nothing in the trash */
 				'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is the example custom post type', 'scaffoldingtheme' ), /* Custom Type Description */
+			'description' => __( 'This is the example custom post type', 'scaffolding' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
@@ -69,16 +69,16 @@ register_taxonomy( 'custom_cat',
 	array(
 		'hierarchical' => true,	 /* if this is true, it acts like categories */
 		'labels' => array(
-			'name' => __( 'Custom Categories', 'scaffoldingtheme' ), /* name of the custom taxonomy */
-			'singular_name' => __( 'Custom Category', 'scaffoldingtheme' ), /* single taxonomy name */
-			'search_items' =>  __( 'Search Custom Categories', 'scaffoldingtheme' ), /* search title for taxomony */
-			'all_items' => __( 'All Custom Categories', 'scaffoldingtheme' ), /* all title for taxonomies */
-			'parent_item' => __( 'Parent Custom Category', 'scaffoldingtheme' ), /* parent title for taxonomy */
-			'parent_item_colon' => __( 'Parent Custom Category:', 'scaffoldingtheme' ), /* parent taxonomy title */
-			'edit_item' => __( 'Edit Custom Category', 'scaffoldingtheme' ), /* edit custom taxonomy title */
-			'update_item' => __( 'Update Custom Category', 'scaffoldingtheme' ), /* update title for taxonomy */
-			'add_new_item' => __( 'Add New Custom Category', 'scaffoldingtheme' ), /* add new title for taxonomy */
-			'new_item_name' => __( 'New Custom Category Name', 'scaffoldingtheme' ) /* name title for taxonomy */
+			'name' => __( 'Custom Categories', 'scaffolding' ), /* name of the custom taxonomy */
+			'singular_name' => __( 'Custom Category', 'scaffolding' ), /* single taxonomy name */
+			'search_items' =>  __( 'Search Custom Categories', 'scaffolding' ), /* search title for taxomony */
+			'all_items' => __( 'All Custom Categories', 'scaffolding' ), /* all title for taxonomies */
+			'parent_item' => __( 'Parent Custom Category', 'scaffolding' ), /* parent title for taxonomy */
+			'parent_item_colon' => __( 'Parent Custom Category:', 'scaffolding' ), /* parent taxonomy title */
+			'edit_item' => __( 'Edit Custom Category', 'scaffolding' ), /* edit custom taxonomy title */
+			'update_item' => __( 'Update Custom Category', 'scaffolding' ), /* update title for taxonomy */
+			'add_new_item' => __( 'Add New Custom Category', 'scaffolding' ), /* add new title for taxonomy */
+			'new_item_name' => __( 'New Custom Category Name', 'scaffolding' ) /* name title for taxonomy */
 		),
 		'show_admin_column' => true,
 		'show_ui' => true,
@@ -92,16 +92,16 @@ register_taxonomy( 'custom_tag',
 	array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 	array('hierarchical' => false,	/* if this is false, it acts like tags */
 		'labels' => array(
-			'name' => __( 'Custom Tags', 'scaffoldingtheme' ), /* name of the custom taxonomy */
-			'singular_name' => __( 'Custom Tag', 'scaffoldingtheme' ), /* single taxonomy name */
-			'search_items' =>  __( 'Search Custom Tags', 'scaffoldingtheme' ), /* search title for taxomony */
-			'all_items' => __( 'All Custom Tags', 'scaffoldingtheme' ), /* all title for taxonomies */
-			'parent_item' => __( 'Parent Custom Tag', 'scaffoldingtheme' ), /* parent title for taxonomy */
-			'parent_item_colon' => __( 'Parent Custom Tag:', 'scaffoldingtheme' ), /* parent taxonomy title */
-			'edit_item' => __( 'Edit Custom Tag', 'scaffoldingtheme' ), /* edit custom taxonomy title */
-			'update_item' => __( 'Update Custom Tag', 'scaffoldingtheme' ), /* update title for taxonomy */
-			'add_new_item' => __( 'Add New Custom Tag', 'scaffoldingtheme' ), /* add new title for taxonomy */
-			'new_item_name' => __( 'New Custom Tag Name', 'scaffoldingtheme' ) /* name title for taxonomy */
+			'name' => __( 'Custom Tags', 'scaffolding' ), /* name of the custom taxonomy */
+			'singular_name' => __( 'Custom Tag', 'scaffolding' ), /* single taxonomy name */
+			'search_items' =>  __( 'Search Custom Tags', 'scaffolding' ), /* search title for taxomony */
+			'all_items' => __( 'All Custom Tags', 'scaffolding' ), /* all title for taxonomies */
+			'parent_item' => __( 'Parent Custom Tag', 'scaffolding' ), /* parent title for taxonomy */
+			'parent_item_colon' => __( 'Parent Custom Tag:', 'scaffolding' ), /* parent taxonomy title */
+			'edit_item' => __( 'Edit Custom Tag', 'scaffolding' ), /* edit custom taxonomy title */
+			'update_item' => __( 'Update Custom Tag', 'scaffolding' ), /* update title for taxonomy */
+			'add_new_item' => __( 'Add New Custom Tag', 'scaffolding' ), /* add new title for taxonomy */
+			'new_item_name' => __( 'New Custom Tag Name', 'scaffolding' ) /* name title for taxonomy */
 		),
 		'show_admin_column' => true,
 		'show_ui' => true,
