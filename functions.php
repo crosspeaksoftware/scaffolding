@@ -30,7 +30,7 @@ TABLE OF CONTENTS
 ******************************************/
 
 /*********************
-INCLUDE FILES
+1. INCLUDE FILES
 *********************/
 define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
 require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
@@ -39,7 +39,7 @@ require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
 
 
 /*********************
-SCRIPTS & ENQUEUEING
+2. SCRIPTS & ENQUEUEING
 *********************/
 
 function scaffolding_scripts_and_styles() {
@@ -88,7 +88,7 @@ function scaffolding_scripts_and_styles() {
 
 
 /*********************
-THEME SUPPORT
+3. THEME SUPPORT
 *********************/
 
 // Adding WP 3+ Functions & Theme Support
@@ -163,7 +163,7 @@ function scaffolding_theme_support() {
 
 
 /*********************
-CUSTOM PAGE HEADERS
+4. CUSTOM PAGE HEADERS
 *********************/
 
 register_default_headers( array(
@@ -181,7 +181,7 @@ function scaffolding_custom_headers_callback() {
 
 
 /*********************
-THUMBNAIL SIZE OPTIONS
+5. THUMBNAIL SIZE OPTIONS
 *********************/
 
 // Thumbnail sizes
@@ -189,7 +189,7 @@ THUMBNAIL SIZE OPTIONS
 
 
 /*********************
-CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
+6. CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
 *********************/
 
 /* //Currently commented out. This is useful for improving UX in the WP backend
@@ -224,7 +224,7 @@ add_action( 'admin_menu', 'change_post_menu_label' );
 
 
 /*********************
-MENUS & NAVIGATION
+7. MENUS & NAVIGATION
 *********************/
 
 // the main menu
@@ -374,7 +374,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 
 
 /*********************
-ACTIVE SIDEBARS
+8. ACTIVE SIDEBARS
 *********************/
 
 // Sidebars & Widgetizes Areas
@@ -401,7 +401,7 @@ function scaffolding_register_sidebars() {
 
 
 /*********************
-RELATED POSTS FUNCTION
+9. RELATED POSTS FUNCTION
 *********************/
 
 // Related Posts Function (call using scaffolding_related_posts(); )
@@ -436,7 +436,7 @@ function scaffolding_related_posts() {
 
 
 /*********************
-COMMENT LAYOUT
+10. COMMENT LAYOUT
 *********************/
 
 // Comment Layout
@@ -478,7 +478,7 @@ function scaffolding_comments($comment, $args, $depth) {
 
 
 /*********************
-SEARCH FUNCTIONS
+11. SEARCH FUNCTIONS
 *********************/
 
 // Search Form
@@ -522,7 +522,7 @@ add_filter('pre_get_posts','scaffolding_search_filter');
 
 
 /*********************
-ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR
+12. ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR
 *********************/
 
 function add_first_and_last($output) {
@@ -575,7 +575,7 @@ add_filter('dynamic_sidebar_params','widget_first_last_classes');
 
 
 /*********************
-ADD FIRST AND LAST CLASSES TO POSTS
+13. ADD FIRST AND LAST CLASSES TO POSTS
 *********************/
 
 function scaffolding_post_classes( $classes ) {
@@ -592,7 +592,7 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 
 
 /*********************
-CUSTOM FUNCTIONS
+14. CUSTOM FUNCTIONS
 *********************/
 
 // This removes the annoying […] to a Read More link
