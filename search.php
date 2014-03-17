@@ -17,26 +17,26 @@
 							<p class="byline vcard"><?php _e("Posted", "scaffolding"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "scaffolding"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "scaffolding"); ?> <?php the_category(', '); ?>.</p>
 							*/ ?>
 
-						</header> <!-- end article header -->
+						</header><?php // end article header ?>
 
 						<section class="entry-content" itemprop="description">
 							<?php the_excerpt('<span class="read-more">Read more &raquo;</span>'); ?>
 
-						</section> <!-- end article section -->
+						</section><?php // end article section ?>
 
 						<footer class="article-footer">
 
-						</footer> <!-- end article footer -->
+						</footer><?php // end article footer ?>
 
-					</article> <!-- end article -->
+					</article><?php // end article ?>
 
 				<?php endwhile; ?>
 
-				<?php include_once('includes/template-pager.php'); //wordpress template pager/pagination ?>
+				<?php include_once('includes/template-pager.php'); // WordPress template pager/pagination ?>
 
 			<?php else : ?>
 
-			<?php include_once('includes/template-error.php'); //wordpress template error message ?>
+			<?php include_once('includes/template-error.php'); // WordPress template error message ?>
 
 			<?php endif; ?>
 

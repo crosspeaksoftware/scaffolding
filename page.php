@@ -18,17 +18,17 @@ get_header(); ?>
 
 							<h1 class="entry-title page-title"><?php the_title(); ?></h1>
 
-						</header> <!-- end article header -->
+						</header><?php // end article header ?>
 
 						<section class="entry-content clearfix">
 							<?php the_content(); ?>
-						</section> <!-- end article section -->
+						</section><?php // end article section ?>
 
 						<footer class="article-footer">
 
 							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
 
-						</footer> <!-- end article footer -->
+						</footer><?php // end article footer ?>
 
 						<?php
 							// If comments are open or we have at least one comment, load up the comment template
@@ -37,13 +37,13 @@ get_header(); ?>
 							endif;
 						?>
 
-					</article> <!-- end article -->
+					</article><?php // end article ?>
 
 				<?php endwhile; ?>
 
 			<?php else : ?>
 
-			<?php include_once('includes/template-error.php'); //wordpress template error message ?>
+			<?php include_once('includes/template-error.php'); // WordPress template error message ?>
 
 			<?php endif; ?>
 
