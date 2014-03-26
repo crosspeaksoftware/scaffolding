@@ -70,9 +70,9 @@ jQuery(document).ready(function($) {
 	});
 
 	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+	$("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed").wrap( "<figure></figure>" );
 	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed"),
 	$fluidEl = $("figure");
-	$allVideos.wrap( "<figure></figure>" );
 
 	$allVideos.each(function() {
 		$(this)
