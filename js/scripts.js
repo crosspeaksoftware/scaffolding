@@ -58,10 +58,10 @@ function getScrollBarWidth () {
 jQuery(document).ready(function($) {
 
     //Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-    $('a[href*=".jpg"], a[href*="jpeg"], a[href*=".png"], a[href*=".gif"], a[href$=".bmp"]').magnificPopup({
+    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
         type: 'image'
     });
-    
+
     //iCheck - http://fronteed.com/iCheck/
 	$('input').iCheck({
 		checkboxClass: 'icheckbox_square',
@@ -70,8 +70,7 @@ jQuery(document).ready(function($) {
 	});
 
 	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	$("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed").wrap( "<figure></figure>" );
-	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed"),
+	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed").wrap( "<figure></figure>" ),
 	$fluidEl = $("figure");
 
 	$allVideos.each(function() {
