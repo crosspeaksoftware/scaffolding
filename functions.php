@@ -230,7 +230,7 @@ MENUS & NAVIGATION
 function scaffolding_main_nav() {
 	// display the wp3 menu if available
 	wp_nav_menu(array(
-		'container' => false,						 	 // remove nav container
+		'container' => '',						 	 // remove nav container
 		'container_class' => '',		 				 // class of container (should you choose to use it)
 		'menu' => '',							 	 	 // nav name
 		'menu_class' => 'menu main-menu wrap clearfix',  // adding custom nav class
@@ -240,7 +240,7 @@ function scaffolding_main_nav() {
 		'link_before' => '',						 	 // before each link
 		'link_after' => '',							 	 // after each link
 		'depth' => 0,								 	 // limit the depth of the nav
-		'fallback_cb' => 'scaffolding_main_nav_fallback',// fallback function
+		'fallback_cb' => '',	 // fallback function
 		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-reorder"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
 		'walker'=> new scaffolding_walker_nav_menu
 	));
@@ -259,29 +259,9 @@ function scaffolding_footer_nav() {
 		'link_before' => '',
 		'link_after' => '',
 		'depth' => 0,
-		'fallback_cb' => 'scaffolding_nav_fallback'
+		'fallback_cb' => '__return_false'
 	));
 } /* end scaffolding footer link */
-
-// this is the fallback for header menu
-function scaffolding_main_nav_fallback() {
-	wp_nav_menu(array(
-		'container' => false,
-		'container_class' => '',
-		'menu' => '',
-		'menu_class' => 'menu main-menu wrap clearfix',
-		'before' => '',
-		'after' => '',
-		'link_before' => '',
-		'link_after' => '',
-		'depth' => 0,
-	));
-}
-
-// this is the fallback for footer menu
-function scaffolding_nav_fallback() {
-	/* you can put a default here if you like */
-}
 
 //Custom walker to build main menu
 class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
@@ -310,7 +290,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 		//if( $args->has_children ){ $classes[] = 'menu-has-children'; }
-		if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
+		//if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
 		//combine the class array into a string
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
@@ -323,34 +303,23 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
 		//set <a> attributes
-		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="'  . esc_attr( strip_tags($item->title) ) .'"';
-		$attributes .= ! empty( $item->target )	 ? ' target="' . esc_attr( $item->target	 ) .'"' : '';
-		$attributes .= ! empty( $item->xfn )		? ' rel="'	. esc_attr( $item->xfn		) .'"' : '';
-		$attributes .= ! empty( $item->url )		? ' href="'   . esc_attr( $item->url		) .'"' : '';
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="' . esc_attr( strip_tags($item->title) ) . '"';
+		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+		$attributes .= ! empty( $item->xfn ) ? ' rel="'	. esc_attr( $item->xfn ) . '"' : '';
+		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 
 		//Add menu button links to items with children
 		if ( $args->has_children ) {
 			$menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
-		}
-		else{
+		}else{
 			$menu_pull_link = '';
 		}
 
-		//adds the ability to have a heading in a menu
-		if(in_array('no-link',$classes)){
-			$item_output = $args->before;
-			$item_output .= '<span>';
-			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-			$item_output .= '</span>';
-			$item_output .= $args->after;
-		}
-		else{
-			$item_output = $args->before;
-			$item_output .= '<a'. $attributes .'>';
-			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-			$item_output .= '</a>';
-			$item_output .= $menu_pull_link.$args->after;
-		}
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= '</a>';
+		$item_output .= $menu_pull_link.$args->after;
 
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
