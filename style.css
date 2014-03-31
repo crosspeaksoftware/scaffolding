@@ -19,21 +19,15 @@ WHOA, WHOA, WHOA... WHERE ARE THE STYLES?
 
 But before you freak out, let me take a few minutes to explain.
 
-scaffolding uses Compass ( http://compass-style.org/ ) (and by
-extension, SASS) by default. If you prefer using regular CSS, then feel
-free to modify this theme how you like
-and keep a copy as your own personal starting point.
+scaffolding uses Compass ( http://compass-style.org/ ) (and by extension, SASS) by default. If you prefer using regular CSS, then feel free to modify this theme how you like and keep a copy as your own personal starting point.
 
 DON'T DISMISS IT JUST YET THOUGH, USING SASS ISN'T AS COMPLICATED AS YOU THINK.
 
-It does take a few minutes to wrap your head around, but it will all
-be worth it. Need a quick intro? Here are a few quick reads:
-
+It does take a few minutes to wrap your head around, but it will all be worth it. Need a quick intro? Here are a few quick reads:
 http://cognition.happycog.com/article/preprocess-this
 http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
 
-I would HIGHLY RECOMMEND, if you are going to be working with
-SASS, that you work locally.
+I would HIGHLY RECOMMEND, if you are going to be working with SASS, that you work locally.
 
 That being said, here is the guide to installing compass.
 http://compass-style.org/install/
