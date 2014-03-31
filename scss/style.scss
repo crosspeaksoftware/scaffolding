@@ -36,7 +36,7 @@ of the styles inside media queries.
 
 
 /*
-BASE (MOBILE) SIZE
+BASE (MOBILE) STYLES
 This are the mobile styles. It's what people see on their phones. If
 you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
@@ -47,9 +47,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
 /*
 LARGER MOBILE DEVICES
-This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
 */
 @media only screen and (min-width: 481px) {
 
@@ -77,10 +74,10 @@ This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 992px) {
 
 	// styles in _1024up.scss
-	@import "responsive-styles/1024up";
+	@import "responsive-styles/992up";
 
 } // end of media query
 
@@ -88,7 +85,7 @@ you can add resource intensive styles.
 FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
-@media only screen and (min-width: 1140px) {
+@media only screen and (min-width: 1200px) {
 
 	// styles in _full.scss
 	@import "responsive-styles/full";
