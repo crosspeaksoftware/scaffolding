@@ -3,108 +3,71 @@ Site Name:
 Author:
 
 Stylesheet: Main Stylesheet
-
-Here's where the magic happens. Here, you'll see we are calling in
-the separate media queries. The base mobile goes outside any query
-and is called at the beginning, after that we call the rest
-of the styles inside media queries.
 ******************************************************************/
 
-// import normalize
+// STEP 1: Import all our resources and libraries
 @import "libs/normalize";
-
-// import variables
 @import "includes/variables";
-
-// import typography
 @import "includes/typography";
-
-// import mixins
 @import "includes/mixins";
-
-// import forms
 @import "includes/forms";
-
-// import responsive-nav
 @import "includes/responsive-nav";
+@import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
-// import magnific popup lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
-@import "libs/magnific-popup";
-
-// import grids
+// STEP 2: Import our grid
 @import "includes/bootstrap-grid";
 
+// STEP 3: Import our responsive stylesheets (where you'll put your styles)
 
 /*
 BASE (MOBILE) STYLES
-This are the mobile styles. It's what people see on their phones. If
-you set a great foundation, you won't need to add too many styles in
-the other stylesheets. Remember, keep it light: Speed is Important.
+This is where you add the majority of your styles. These will be loaded on all devices, so make sure this holds the bare minimum any device needs to view your site.
 */
-
-// styles in _base.scss
 @import "responsive-styles/base";
 
 /*
 LARGER MOBILE DEVICES
+Should you need to customize the display for larger mobile devices.
 */
 @media only screen and (min-width: 481px) {
-
-	// styles in _481up.scss
 	@import "responsive-styles/481up";
-
-} // end of media query
+}
 
 /*
 TABLET & SMALLER LAPTOPS
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
+Here you can begin to add more resource-intensive styles.
 */
 @media only screen and (min-width: 768px) {
-
-	// styles in 768up.scss
 	@import "responsive-styles/768up";
-
-} // end of media query
+}
 
 /*
 DESKTOP
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
 */
 @media only screen and (min-width: 992px) {
-
-	// styles in _1024up.scss
 	@import "responsive-styles/992up";
-
-} // end of media query
+}
 
 /*
 FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
 @media only screen and (min-width: 1200px) {
-
-	// styles in _full.scss
 	@import "responsive-styles/full";
+}
 
-} // end of media query
+// STEP 4: Add in styles for retina devices, iPhone 5, and Print
 
 /*
 RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
+This applies to the retina iPhone (4s) and iPad (2+) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min--moz-device-pixel-ratio: 1.5),
-       only screen and (min-device-pixel-ratio: 1.5) {
-
-	// styles in _retina.scss
+	only screen and (min--moz-device-pixel-ratio: 1.5),
+	only screen and (min-device-pixel-ratio: 1.5) {
 	//@import "includes/retina";
-
 }
 
 /*
@@ -112,9 +75,7 @@ iPHONE 5 MEDIA QUERY
 Want to get fancy for no good reason? Knock yourself out.
 */
 @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-
   // iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
-
 }
 
 /*
