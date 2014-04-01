@@ -13,14 +13,14 @@ javascripts_dir = "../js"
 relative_assets = true
 
 # 3. Settings for development - enable if desired
- environment = :development
- output_style = :expanded
- line_comments = true
+# environment = :development
+# output_style = :expanded
+# line_comments = true
 
 # 4. Settings for production
-# environment = :production
-# output_style = :compressed
-# line_comments = false
+environment = :production
+output_style = :compressed
+line_comments = false
 
 # don't touch this
 preferred_syntax = :scss
