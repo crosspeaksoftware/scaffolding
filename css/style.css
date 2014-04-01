@@ -1,18 +1,18 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300);
 /******************************************************************
 Site Name:
 Author:
 
 Stylesheet: Main Stylesheet
 ******************************************************************/
-/*! normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
+/* normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
 /*
  * Corrects `block` display not defined in IE6/7/8/9 & FF3.
  */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300);
 /* line 21, ../scss/libs/_normalize.scss */
 article,
 aside,
@@ -1370,11 +1370,11 @@ form input[type=image] {
 }
 /* line 92, ../scss/includes/_forms.scss */
 form table {
-  background-color: transparent !important;
+  background-color: transparent!important;
 }
 /* line 94, ../scss/includes/_forms.scss */
 form table thead, form table th, form table tr, form table tr:hover, form table td {
-  background-color: transparent !important;
+  background-color: transparent!important;
 }
 
 /*************************
@@ -1403,6 +1403,7 @@ input[type="submit"] {
   background-image: -webkit-linear-gradient(top, #ffffff 25%, #e6e6e6 100%);
   background-image: -moz-linear-gradient(top, #ffffff 25%, #e6e6e6 100%);
   background-image: -o-linear-gradient(top, #ffffff 25%, #e6e6e6 100%);
+  background-image: -ms-linear-gradient(top, #ffffff 25%, #e6e6e6 100%);
   background-image: linear-gradient(top, #ffffff 25%, #e6e6e6 100%);
   background-repeat: repeat-x;
   border: 1px solid #cccccc;
@@ -1515,14 +1516,14 @@ input[type="submit"]:active {
 /* line 215, ../scss/includes/_forms.scss */
 .gform_wrapper form li.gfield.gfield_error,
 .gform_wrapper form li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
-  background-color: transparent !important;
-  border: none !important;
-  padding: 0 !important;
+  background-color: transparent!important;
+  border: none!important;
+  padding: 0!important;
 }
 /* line 220, ../scss/includes/_forms.scss */
 .gform_wrapper form li.gfield.gfield_error div.ginput_container,
 .gform_wrapper form li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning div.ginput_container {
-  margin-top: 0px !important;
+  margin-top: 0px!important;
 }
 /* line 241, ../scss/includes/_forms.scss */
 .gform_wrapper form li.gfield.gfield_error div.ginput_container textarea,
@@ -1569,7 +1570,7 @@ input[type="submit"]:active {
 /* line 249, ../scss/includes/_forms.scss */
 .gform_wrapper form .top_label .gfield_description.validation_message,
 .gform_wrapper form .gfield_description.validation_message {
-  padding: 0 !important;
+  padding: 0!important;
 }
 
 /************************
@@ -1630,8 +1631,8 @@ MOBLIE FORM STYLES - to make forms more finger friendly
   form input.small,
   form input.medium,
   form input.large {
-    width: 97% !important;
-    padding: 5px 1% !important;
+    width: 97%!important;
+    padding: 5px 1%!important;
   }
 
   /*Mobile Buttons*/
@@ -4223,11 +4224,11 @@ Here you can begin to add more resource-intensive styles.
   }
   /* line 128, ../scss/responsive-styles/_768up.scss */
   #main-navigation ul.menu li a.menu-button {
-    display: none !important;
+    display: none!important;
   }
   /* line 132, ../scss/responsive-styles/_768up.scss */
   #main-navigation ul.menu li a.menu-back-button {
-    display: none !important;
+    display: none!important;
   }
   /* line 138, ../scss/responsive-styles/_768up.scss */
   #main-navigation ul.menu li:first-child a {
@@ -4480,27 +4481,33 @@ This is for the larger monitors and possibly full screen viewers.
   9. Sidebars & Asides
   10. Footer Styles
   */
+  /* line 27, ../scss/responsive-styles/_full.scss */
+  .container-fluid,
+  .wrap {
+    max-width: 1170px;
+  }
+
   /****Main Navigation****/
-  /* line 31, ../scss/responsive-styles/_full.scss */
+  /* line 35, ../scss/responsive-styles/_full.scss */
   #main-navigation ul.menu {
     /* end .menu li */
   }
-  /* line 37, ../scss/responsive-styles/_full.scss */
+  /* line 41, ../scss/responsive-styles/_full.scss */
   #main-navigation ul.menu li:last-child {
     /*Children*/
   }
-  /* line 41, ../scss/responsive-styles/_full.scss */
+  /* line 45, ../scss/responsive-styles/_full.scss */
   #main-navigation ul.menu li:last-child ul.sub-menu,
   #main-navigation ul.menu li:last-child ul.children {
     left: 0;
     right: auto;
   }
-  /* line 45, ../scss/responsive-styles/_full.scss */
+  /* line 49, ../scss/responsive-styles/_full.scss */
   #main-navigation ul.menu li:last-child ul.sub-menu li,
   #main-navigation ul.menu li:last-child ul.children li {
     /*Grand Children*/
   }
-  /* line 49, ../scss/responsive-styles/_full.scss */
+  /* line 53, ../scss/responsive-styles/_full.scss */
   #main-navigation ul.menu li:last-child ul.sub-menu li ul.sub-menu,
   #main-navigation ul.menu li:last-child ul.sub-menu li ul.children,
   #main-navigation ul.menu li:last-child ul.children li ul.sub-menu,
