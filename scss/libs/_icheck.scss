@@ -1,0 +1,76 @@
+/*
+* Choose from a number of included skins for iCheck
+* usage: replace with the desired skin and color scheme
+* change: scripts.js
+	<script>
+	$(document).ready(function(){
+	  $('input').iCheck({
+		checkboxClass: 'icheckbox_flat-red',
+		radioClass: 'iradio_flat-red'
+	  });
+	});
+	</script>
+*/
+
+/* iCheck plugin skins
+----------------------------------- */
+//@import "icheck_skins/minimal/_all.css";
+/*
+@import "icheck_skins/minimal/minimal.css";
+@import "icheck_skins/minimal/red.css";
+@import "icheck_skins/minimal/green.css";
+@import "icheck_skins/minimal/blue.css";
+@import "icheck_skins/minimal/aero.css";
+@import "icheck_skins/minimal/grey.css";
+@import "icheck_skins/minimal/orange.css";
+@import "icheck_skins/minimal/yellow.css";
+@import "icheck_skins/minimal/pink.css";
+@import "icheck_skins/minimal/purple.css";
+*/
+
+//@import "icheck_skins/square/all";
+
+@import "icheck_skins/square/square";
+/*
+@import "icheck_skins/square/red";
+@import "icheck_skins/square/green";
+@import "icheck_skins/square/blue";
+@import "icheck_skins/square/aero";
+@import "icheck_skins/square/grey";
+@import "icheck_skins/square/orange";
+@import "icheck_skins/square/yellow";
+@import "icheck_skins/square/pink";
+@import "icheck_skins/square/purple";
+*/
+
+//@import "icheck_skins/flat/all";
+/*
+@import "icheck_skins/flat/flat";
+@import "icheck_skins/flat/red";
+@import "icheck_skins/flat/green";
+@import "icheck_skins/flat/blue";
+@import "icheck_skins/flat/aero";
+@import "icheck_skins/flat/grey";
+@import "icheck_skins/flat/orange";
+@import "icheck_skins/flat/yellow";
+@import "icheck_skins/flat/pink";
+@import "icheck_skins/flat/purple";
+*/
+
+//@import "icheck_skins/line/all";
+/*
+@import "icheck_skins/line/line";
+@import "icheck_skins/line/red";
+@import "icheck_skins/line/green";
+@import "icheck_skins/line/blue";
+@import "icheck_skins/line/aero";
+@import "icheck_skins/line/grey";
+@import "icheck_skins/line/orange";
+@import "icheck_skins/line/yellow";
+@import "icheck_skins/line/pink";
+@import "icheck_skins/line/purple";
+*/
+
+//@import "icheck_skins/polaris/polaris";
+
+//@import "icheck_skins/futurico/futurico";

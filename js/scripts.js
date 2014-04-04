@@ -58,9 +58,37 @@ function getScrollBarWidth () {
 jQuery(document).ready(function($) {
 
     //Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-    $('a[href*=".jpg"], a[href*="jpeg"], a[href*=".png"], a[href*=".gif"], a[href$=".bmp"]').magnificPopup({
+    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
         type: 'image'
     });
+
+    //iCheck - http://fronteed.com/iCheck/
+	$('input').iCheck({
+		checkboxClass: 'icheckbox_square',
+		radioClass: 'iradio_square',
+		increaseArea: '20%' // optional
+	});
+
+	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed").wrap( "<figure></figure>" ),
+	$fluidEl = $("figure");
+
+	$allVideos.each(function() {
+		$(this)
+		// jQuery .data does not work on object/embed elements
+		.attr('data-aspectRatio', this.height / this.width)
+		.removeAttr('height')
+		.removeAttr('width');
+	});
+	$(window).resize(function() {
+		var newWidth = $fluidEl.width();
+		$allVideos.each(function() {
+			var $el = $(this);
+			$el
+			.width(newWidth)
+			.height(newWidth * $el.attr('data-aspectRatio'));
+		});
+	}).resize();
 
     /*
     Responsive jQuery is a tricky thing.

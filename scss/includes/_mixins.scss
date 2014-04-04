@@ -16,15 +16,15 @@ remember less is more.
 ******************************************************************/
 
 /*********************
-CLEARFIXIN'
+CLEARFIX - http://nicolasgallagher.com/micro-clearfix-hack/
 *********************/
 
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
 .clearfix {
   zoom: 1;
 	&:before, &:after { content: " "; display: table; }
 	&:after { clear: both; }
 }
+
 
 /*********************
 IMAGES
@@ -214,28 +214,15 @@ span.amp {
 .invisible {
     visibility: hidden;
 }
-/*********************
-CLEARFIXIN'
-*********************/
-
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
-.clearfix {
-  zoom: 1;
-	&:before, &:after { content: ""; display: table; }
-	&:after { clear: both; }
-}
 
 /*********************
 TRANSITION
-*********************/
-
-/*
+*
 I totally rewrote this to be cleaner and easier to use.
 You'll need to be using Sass 3.2+ for these to work.
 Thanks to @anthonyshort for the inspiration on these.
 USAGE: @include transition(all 0.2s ease-in-out);
-*/
-
+*********************/
 @mixin transition($transition...) {
 	// defining prefixes so we can use them in mixins below
 	$prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
@@ -244,6 +231,40 @@ USAGE: @include transition(all 0.2s ease-in-out);
   }
 
   transition: $transition;
+}
+
+/*********************
+ANIMATION
+*
+Compass CSS3 mixins don’t yet handle vendor prefixes for CSS animations, so this is a very simple mixin to simulate that functionality.
+*********************/
+@mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
+  // There is a FF bug that requires all time values to have units, even 0 !!!!!!
+  -webkit-animation: $name $duration $iterations $timing-function $delay;
+  -moz-animation: $name $duration $iterations $timing-function $delay;
+  -o-animation: $name $duration $iterations $timing-function $delay;
+  animation: $name $duration $iterations $timing-function $delay;
+}
+
+/*********************
+VERTICAL ALIGN DYNAMIC HEIGHT - http://css-tricks.com/centering-in-the-unknown/
+*********************/
+@mixin dynamicVerticalAlign(){
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; width: .1px;
+  }
+}
+
+/*********************
+TEXT TRUNCATION
+*********************/
+@mixin truncateText($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow; // values are: clip, ellipsis, or a string
 }
 
 /*********************
@@ -263,12 +284,24 @@ GRAYSCALE
 }
 
 /*********************
+TRANSPARENT BG-COLOR
+*********************/
+@mixin transparent($color, $alpha) {
+    $rgba: rgba($color, $alpha);
+    $ie-hex-str: ie-hex-str($rgba);
+    background-color: transparent;
+    background-color: $rgba;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+    zoom: 1;
+}
+
+/*********************
 CSS3 GRADIENTS
+*
 Be careful with these since they can
 really slow down your CSS. Don't overdue it.
+USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
 *********************/
-
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
 @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
 	background-color: $to;
 	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));

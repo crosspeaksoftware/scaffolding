@@ -81,9 +81,9 @@ img {
 	height: auto;
 }
 
-video, object {
-	max-width: 100%;
-	height: auto;
+video {
+	width: 100% !important;
+	height: auto !important;
 }
 
 abbr[title],

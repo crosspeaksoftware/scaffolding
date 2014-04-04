@@ -19,6 +19,10 @@ Stylesheet: Main Stylesheet
 
 // STEP 3: Import our responsive stylesheets (where you'll put your styles)
 
+/* import icheck improved radio and checkbox inputs - see http://fronteed.com/iCheck/ for more info
+there are several different skins to choose from (a default is currently enabled) */
+@import "libs/icheck";
+
 /*
 BASE (MOBILE) STYLES
 This is where you add the majority of your styles. These will be loaded on all devices, so make sure this holds the bare minimum any device needs to view your site.
