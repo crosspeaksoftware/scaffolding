@@ -1,123 +1,406 @@
-/* Basic Styles */
-nav {
-	width: 100%;
-	font-size: 11pt;
-	position: relative;
-}
+/******************************************************************
+Site Name:
+Author:
 
-nav > ul {
-	padding: 0;
-	margin: 0 auto;
-	text-align: center;
+Stylesheet: Main Stylesheet
+******************************************************************/
 
-	ul {
-		display: none;
-		margin: 0px;
-		padding: 0px;
-	}
+/*BASE STYLES*/
+/*Base Navigation Styles - these will effect all menus on the site*/
+ul.menu {
 
-	li:hover ul {
-		display: block;
-	}
-}
-
-nav {
 	li {
-		display: inline-block;
-		position: relative;
-		margin: 0px;
-
-		a {}
-
-		&:last-child a {
-			border-right: 0;
-		}
-	}
-	a {
-		display: inline-block;
-		text-align: center;
-		text-decoration: none;
-		padding: 10px 15px;
-
-		&#pull {
-			display: none;
-		}
-	}
-}
-
-@media screen and (min-width: 480px) {
-
-	nav > ul ul {
-		position: absolute;
-		top: 40px;
-		left: 0px;
-		display: none;
-	}
-
-}
-
-/*Styles for screen 600px and lower*/
-@media screen and (max-width: 600px) {
-	nav {
-  		height: auto;
-
-		ul {
-			width: 100%;
-			display: block;
-			height: auto;
-		}
-
-		li {
-			position: relative;
-		}
 
 		a {
-			width: 100%;
-		}
-	}
-}
 
-/*Styles for screen 515px and lower*/
-@media only screen and (max-width : 480px) {
-	nav {
-		border-bottom: 0;
-
-		ul {
-			display: none;
-			height: auto;
+			&:hover, &:focus {}
 		}
 
-		li {
-			float: none;
-			display: block;
-		}
+		&:first-child {}
+		&:last-child {}
 
-		a#pull {
-			display: block;
-			background-color: #E2E2E2;
-			width: 100%;
-			position: relative;
-			padding: 10px 0;
+		ul.sub-menu,
+		ul.children {
 
-			&:after {
-				content:"";
-				background: url(../images/nav-icon.png) no-repeat;
-				width: 30px;
-				height: 30px;
-				display: inline-block;
-				position: absolute;
-				right: 15px;
-				top: 10px;
+			li {
+
+				a {
+
+					&:hover,
+					&:focus {}
+
+					&:link {}
+				}
+
+				&:first-child {}
+				&:last-child {}
+
+				ul {}
 			}
 		}
 	}
+}/*end ul.menu*/
+
+/****Main Navigation****/
+#main-navigation {
+
+    ul.menu {
+		clear: both;
+		background-color: #333;
+		width: 70%;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		right: -70%;
+		top: 0;
+		bottom: 0;
+		z-index: 1000;
+
+        li {
+            display: block;
+            border-bottom: 2px solid #222;
+            margin: 0;
+            padding: 0;
+            @include transition(all 0.25s ease-in-out);
+
+            a {
+				display: inline-block;
+				color: #999;
+				font-size: 1.143em;
+				text-decoration: none;
+		        width: 75%;
+				padding: 15px 5%;
+                @include transition(all 0.25s ease-in-out);
+
+				&:hover, &:focus {
+	                background-color: #222;
+					color:#ccc;
+                }
+            }
+
+            a.menu-button{
+                display:block;
+                text-align:center;
+                width:15%;
+                margin:0;
+                padding:15px 0;
+                cursor:pointer;
+                height: auto;
+                @include transition(all 0.25s ease-in-out);
+
+                &:hover, &:focus {}
+            }
+
+            a.menu-back-button{
+                display: inline-block;
+                width: 80%;
+                text-decoration: none;
+                padding: 15px 10%;
+                cursor:pointer;
+                @include transition(all 0.25s ease-in-out);
+
+                &:hover, &:focus {}
+            }
+
+            &:first-child {}
+
+            &:last-child  {}
+
+            &:hover, &:focus {}
+
+			&.menu-item-no-children {
+				a {
+				    width: 100%;
+			    }
+			}
+
+			&.menu-item-has-children {}
+
+            /*sub menu - child*/
+            ul.sub-menu{
+                display:block;
+                background-color:#333;
+                width: 100%;
+                position:absolute;
+                right:-100%;
+                top:0;
+                bottom:0;
+                margin:0;
+                padding:0;
+                @include transition(all 0.25s ease-in-out);
+            }
+            /*sub menu - child*/
+            ul.sub-menu-open{
+                right:0%;
+            }
+        }
+    }
+    .menu-button{
+        display: block;
+        float: right;
+        clear: both;
+        width: 78px;
+        height: 25px;
+        white-space: nowrap;
+        margin: 0 2% 0 10px;
+        overflow: hidden;
+        color: #367992;
+        font-size: 1em;
+        @include transition(all 0.25s ease-in-out);
+
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
 }
 
-/*Smartphone*/
-@media only screen and (max-width : 320px) {
-	nav li {
-		display: block;
-		float: none;
-		width: 100%;
-	}
+body.menu-open{
+    #container {
+        left: -70%;
+    }
+}
+
+
+/*
+LARGER MOBILE DEVICES
+Should you need to customize the display for larger mobile devices.
+*/
+@media only screen and (min-width: 481px) {
+
+
+
+
+
+}
+
+/*
+TABLET & SMALLER LAPTOPS
+Here you can begin to add more resource-intensive styles.
+*/
+@media only screen and (min-width: 768px) {
+
+	ul.menu {
+
+		li {
+
+			a {
+
+				&:hover, &:focus {}
+			}
+
+			&:first-child {}
+			&:last-child {}
+
+			ul.sub-menu,
+			ul.children {
+
+				li {
+
+					a {
+
+						&:hover,
+						&:focus {}
+
+						&:link {}
+					}
+
+					&:first-child {}
+					&:last-child {}
+
+					ul {}
+				}
+			}
+		}
+	}/*end ul.menu*/
+
+	/****Main Navigation****/
+
+	#main-navigation {
+		background-color: #333;
+		white-space: nowrap;
+
+	    ul.menu {
+		    text-align:center;
+	        width: auto;
+	        position:relative;
+	        top:auto;
+	        bottom:autp;
+	        right:auto;
+	        padding: 0;
+	        margin: 0 auto;
+	        @include box-shadow(none);
+
+			li {
+				display:inline-block;
+	            border-bottom:none;
+				position:relative;
+				z-index:1000;
+				margin-left:-4px;
+
+				a {
+					display:inline-block;
+					border-left:2px solid #222;
+					width:auto;
+					padding:10px 20px;
+
+					&:hover, &:focus {}
+				}
+	            a.menu-button{
+	                display:none!important;
+	            }
+
+				a.menu-back-button{
+	                display:none!important;
+	            }
+
+	            &:first-child {
+
+					a{
+						border-left:none;
+					}
+	            }
+
+	            &:last-child  {
+
+		            /*Children*/
+					ul.sub-menu,
+					ul.children {
+						left:auto;
+						right:0;
+
+						li{
+
+							/*Grand Children*/
+							ul.sub-menu,
+							ul.children {
+								left:auto;
+								right:99.9%;
+							}
+						}
+					}
+	            }
+
+	            &:hover, &:focus {}
+
+				&.menu-item-no-children {
+
+					a {
+					    width:auto;
+				    }
+				}
+
+				&.menu-item-has-children {}
+
+				/*Children*/
+				ul.sub-menu,
+				ul.children {
+					display:none;
+					background-color:#333;
+					text-align:left;
+					width:auto;
+					min-width:120%;
+					position:absolute;
+					top:99.9%;
+					bottom:auto;
+					left:0px;
+					z-index:1000;
+					@include transition(top 1s);
+
+					li {
+						display:block;
+						white-space:nowrap;
+						margin:0;
+
+						a {
+							display:block;
+							border-bottom:2px solid #222;
+							border-left:none;
+							padding:10px;
+
+							&:hover, &:focus {}
+						}
+
+
+			            &:first-child  {}
+
+			            &:last-child  {}
+
+			            &:hover, &:focus {}
+
+						&.menu-item-no-children {}
+
+						&.menu-item-has-children {}
+
+						/*Grand Children*/
+						ul.sub-menu,
+						ul.children {
+							left:99.9%;
+							top:0;
+						}
+					}
+				}
+
+			} /* end .menu li */
+
+			/*Show the child ul*/
+			li:hover > ul {
+				display: table;
+			}
+
+		} /* end ul.menu */
+		/*menu buttons*/
+		.menu-button{
+			display:none;
+		}
+	} /* end #main-navigation */
+}
+
+/*
+DESKTOP
+*/
+@media only screen and (min-width: 992px) {
+
+
+
+
+
+}
+
+/*
+FULL VIEWING SIZE
+This is for the larger monitors and possibly full screen viewers.
+*/
+@media only screen and (min-width: 1200px) {
+
+	#main-navigation {
+
+	    ul.menu {
+
+			li {
+
+	            &:first-child {}
+
+	            &:last-child  {
+
+		            /*Children*/
+					ul.sub-menu,
+					ul.children {
+						left:0;
+						right:auto;
+
+						li{
+
+							/*Grand Children*/
+							ul.sub-menu,
+							ul.children {
+								left:99.9%;
+								right:auto;
+							}
+						}
+					}
+	            }
+			} /* end .menu li */
+		}
+	} /* end #main-navigation */
+
 }

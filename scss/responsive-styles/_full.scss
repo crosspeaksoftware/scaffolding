@@ -27,36 +27,3 @@ CONTENTS:
 .wrap {
 	max-width: $container-lg;
 }
-
-/****Main Navigation****/
-
-#main-navigation {
-
-    ul.menu {
-
-		li {
-
-            &:first-child {}
-
-            &:last-child  {
-
-	            /*Children*/
-				ul.sub-menu,
-				ul.children {
-					left:0;
-					right:auto;
-
-					li{
-
-						/*Grand Children*/
-						ul.sub-menu,
-						ul.children {
-							left:99.9%;
-							right:auto;
-						}
-					}
-				}
-            }
-		} /* end .menu li */
-	}
-} /* end #main-navigation */
