@@ -236,7 +236,7 @@ USAGE: @include transition(all 0.2s ease-in-out);
 /*********************
 ANIMATION
 *
-Compass CSS3 mixins don’t yet handle vendor prefixes for CSS animations, so this is a very simple mixin to simulate that functionality.
+Compass CSS3 mixins don't yet handle vendor prefixes for CSS animations, so this is a very simple mixin to simulate that functionality.
 *********************/
 @mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
   // There is a FF bug that requires all time values to have units, even 0 !!!!!!
