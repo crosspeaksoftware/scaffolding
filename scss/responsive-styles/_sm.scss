@@ -59,7 +59,41 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/* Look for menu styles in _responsive-nav.scss */
+
+/*Base Navigation Styles - these will effect all menus on the site*/
+ul.menu {
+
+	li {
+
+		a {
+
+			&:hover, &:focus {}
+		}
+
+		&:first-child {}
+		&:last-child {}
+
+		ul.sub-menu,
+		ul.children {
+
+			li {
+
+				a {
+
+					&:hover,
+					&:focus {}
+
+					&:link {}
+				}
+
+				&:first-child {}
+				&:last-child {}
+
+				ul {}
+			}
+		}
+	}
+}/*end ul.menu*/
 
 /*********************
 POSTS & CONTENT STYLES

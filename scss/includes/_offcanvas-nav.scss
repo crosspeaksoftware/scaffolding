@@ -2,44 +2,8 @@
 Site Name:
 Author:
 
-Stylesheet: Main Stylesheet
+Stylesheet: Off Canvas Navigation
 ******************************************************************/
-
-/*BASE STYLES*/
-/*Base Navigation Styles - these will effect all menus on the site*/
-ul.menu {
-
-	li {
-
-		a {
-
-			&:hover, &:focus {}
-		}
-
-		&:first-child {}
-		&:last-child {}
-
-		ul.sub-menu,
-		ul.children {
-
-			li {
-
-				a {
-
-					&:hover,
-					&:focus {}
-
-					&:link {}
-				}
-
-				&:first-child {}
-				&:last-child {}
-
-				ul {}
-			}
-		}
-	}
-}/*end ul.menu*/
 
 /****Main Navigation****/
 #main-navigation {
@@ -165,53 +129,13 @@ body.menu-open{
 LARGER MOBILE DEVICES
 Should you need to customize the display for larger mobile devices.
 */
-@media only screen and (min-width: 481px) {
-
-
-
-
-
-}
+@media only screen and (min-width: 481px) {}
 
 /*
 TABLET & SMALLER LAPTOPS
 Here you can begin to add more resource-intensive styles.
 */
-@media only screen and (min-width: 768px) {
-
-	ul.menu {
-
-		li {
-
-			a {
-
-				&:hover, &:focus {}
-			}
-
-			&:first-child {}
-			&:last-child {}
-
-			ul.sub-menu,
-			ul.children {
-
-				li {
-
-					a {
-
-						&:hover,
-						&:focus {}
-
-						&:link {}
-					}
-
-					&:first-child {}
-					&:last-child {}
-
-					ul {}
-				}
-			}
-		}
-	}/*end ul.menu*/
+@media only screen and (min-width: $screen-sm-min) {
 
 	/****Main Navigation****/
 
@@ -358,19 +282,13 @@ Here you can begin to add more resource-intensive styles.
 /*
 DESKTOP
 */
-@media only screen and (min-width: 992px) {
-
-
-
-
-
-}
+@media only screen and (min-width: $screen-md-min) {}
 
 /*
 FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: $screen-lg-min) {
 
 	#main-navigation {
 

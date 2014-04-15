@@ -11,7 +11,7 @@ Stylesheet: Main Stylesheet
 @import "includes/typography";
 @import "includes/mixins";
 @import "includes/forms";
-@import "includes/responsive-nav";
+@import "includes/offcanvas-nav";
 @import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
 // STEP 2: Import our grid
@@ -27,7 +27,7 @@ there are several different skins to choose from (a default is currently enabled
 BASE (MOBILE) STYLES
 This is where you add the majority of your styles. These will be loaded on all devices, so make sure this holds the bare minimum any device needs to view your site.
 */
-@import "responsive-styles/base";
+@import "responsive-styles/xs";
 
 /*
 LARGER MOBILE DEVICES
@@ -41,23 +41,23 @@ Should you need to customize the display for larger mobile devices.
 TABLET & SMALLER LAPTOPS
 Here you can begin to add more resource-intensive styles.
 */
-@media only screen and (min-width: 768px) {
-	@import "responsive-styles/768up";
+@media only screen and (min-width: $screen-sm-min) {
+	@import "responsive-styles/sm";
 }
 
 /*
 DESKTOP
 */
-@media only screen and (min-width: 992px) {
-	@import "responsive-styles/992up";
+@media only screen and (min-width: $screen-md-min) {
+	@import "responsive-styles/md";
 }
 
 /*
 FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
-@media only screen and (min-width: 1200px) {
-	@import "responsive-styles/full";
+@media only screen and (min-width: $screen-lg-min) {
+	@import "responsive-styles/lg";
 }
 
 // STEP 4: Add in styles for retina devices, iPhone 5, and Print
