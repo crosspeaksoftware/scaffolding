@@ -57,6 +57,29 @@ h2 {
 		text-align: center;
 	}
 	#secondary {}
+	
+		#secondary h2 {
+			text-align: center;
+		}
+	
+		#secondary ul {
+			-webkit-column-count: 2; -webkit-column-gap:20px; 
+			-moz-column-count:2; -moz-column-gap:20px; 
+			-o-column-count:2; -o-column-gap:20px; 
+			column-count:2; column-gap:20px;
+		}
+	
+		#secondary li {
+			margin-bottom: .5em;
+			line-height: 1.2em;
+		}
+	
+		#secondary small {
+			display: block;
+			font-size: .7em;
+			color: #777;
+		}
+	
 	#secondary-image-separator {
 		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50%;
 		background-size: cover;
