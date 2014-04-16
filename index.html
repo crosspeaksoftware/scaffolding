@@ -28,6 +28,12 @@
 						<a id="getstarted" href="https://github.com/hallme/scaffolding">Get Started</a>
 					</div>
 				</div>
+				<div class="row">
+					<div class="row-xs-12">
+						<div id="headline" data-typer-targets="{ &quot;targets&quot; : 
+							[&quot;R_sponsive D_sign Scaffolding for WordPre_s&quot;]}"></div>
+					</div>
+				</div>
 			</div>
 		</header>
 
@@ -48,22 +54,33 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<h2>What's In The Box?</h2>
+					</div>
+					<div class="col-sm-5 col-sm-offset-2">
 						<ul>
-							<li>_S theme framework 
+							<li><a href="http://underscores.me/" target="_blank">_S theme framework</a>
 								<small><em>with a few slight modifications</em></small></li>
-							<li>Bootstrap Grid 
+							<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap Grid</a>
 								<small><em>SASS</em></small></li>
-							<li>Modular CSS Architecture 
+							<li><a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a>
+								<small><em>&nbsp;</em></small></li>
+							<li><a href="https://github.com/scottjehl/Respond" target="_blank">Respond.js</a>
+								<small><em>&nbsp;</em></small></li>
+							<li><a href="http://smacss.com/" target="_blank">Modular CSS Architecture</a>
 								<small><em>Easily swap out elements like mobile nav styles</em></small></li>
-							<li>FlexSlider
-								<small><em>Touch-enabled, responsive slider</em></small>
-							</li>
-							<li>Magnific Popup
+						</ul>
+					</div>
+					<div class="col-sm-4">
+						<ul>
+							<li><a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a>
 								<small><em>Modal Windows</em></small></li>
-							</li>
-							<li>Gravity Forms Styles
+							<li><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a> Styles
 								<small><em>Easy overrides for default styles</em></small></li>
-							</li>
+							<li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>
+								<small><em>&nbsp;</em></small></li>
+							<li><a href="http://harvesthq.github.io/chosen/" target="_blank">Chosen</a>
+								<small><em>&nbsp;</em></small></li>
+							<li><a href="http://fronteed.com/iCheck/" target="_blank">iCheck</a>
+								<small><em>&nbsp;</em></small></li>
 						</ul>
 					</div>
 				</div>
@@ -106,5 +123,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		$.getScript('https://raw.github.com/layervault/jquery.typer.js/master/src/jquery.typer.js', function () {
+			$(function () {
+				$('[data-typer-targets]').typer();
+			});
+		});
+	</script>
   </body>
 </html>
