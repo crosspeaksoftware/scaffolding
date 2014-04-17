@@ -41,17 +41,17 @@
 		<header id="masthead" class="header" role="banner">
 
 			<div id="inner-header" class="wrap clearfix">
-			
+
 				<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 				<div id="logo" class="h1"><a href="<?php  echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
-	
+
 				<?php // if you'd like to use the site description you can un-comment it below
 				// echo '<p class="site-description">'. bloginfo( "description" ) .'</p>' ?>
 
 			</div><?php // #inner-header ?>
 
 		</header><?php // #masthead ?>
-		
+
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'test' ); ?></a>
 		<nav id="main-navigation" class="clearfix" role="navigation">
 
@@ -71,13 +71,16 @@
 			<div id="inner-content" class="wrap clearfix">
 
 				<?php //Test for active sidebars to set the main content width
-					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )){ //both sidebars
+					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //both sidebars
 						$main_class = 'col-sm-6';
-					}elseif(is_active_sidebar( 'left-sidebar' ) && !is_active_sidebar( 'right-sidebar' )){ //left sidebar
+					}
+					elseif(is_active_sidebar( 'left-sidebar' ) && !is_active_sidebar( 'right-sidebar' )) { //left sidebar
 						$main_class = 'col-sm-9 col-md-push-3';
-					}elseif(!is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )){ //right sidebar
+					}
+					elseif(!is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //right sidebar
 						$main_class = 'col-sm-9';
-					}else{ //no sidebar
+					}
+					else { //no sidebar
 						$main_class = 'col-sm-12';
 					}
 				?>
