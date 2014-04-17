@@ -58,16 +58,20 @@ function getScrollBarWidth () {
 jQuery(document).ready(function($) {
 
 	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-	$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
-		type: 'image'
-	});
+	if($.fn.magnificPopup) {
+		$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
+			type: 'image'
+		});
+	}
 
 	//iCheck - http://fronteed.com/iCheck/
-	$('input').iCheck({
-		checkboxClass: 'icheckbox_square',
-		radioClass: 'iradio_square',
-		increaseArea: '20%' // optional
-	});
+	if($.fn.iCheck) {
+		$('input').iCheck({
+			checkboxClass: 'icheckbox_square',
+			radioClass: 'iradio_square',
+			increaseArea: '20%' // optional
+		});
+	}
 
 	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed").wrap( "<figure></figure>" ),
@@ -116,7 +120,7 @@ jQuery(document).ready(function($) {
 	});
 
 	$(window).resize(function() {
-		if(Modernizr.touch) {
+		if(Modernizr && Modernizr.touch) {
 			e.preventDefault();
 		}
 		else {
