@@ -57,12 +57,12 @@ function getScrollBarWidth () {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
-    //Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-    $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
-        type: 'image'
-    });
+	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
+	$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
+		type: 'image'
+	});
 
-    //iCheck - http://fronteed.com/iCheck/
+	//iCheck - http://fronteed.com/iCheck/
 	$('input').iCheck({
 		checkboxClass: 'icheckbox_square',
 		radioClass: 'iradio_square',
@@ -90,120 +90,122 @@ jQuery(document).ready(function($) {
 		});
 	}).resize();
 
-    /*
-    Responsive jQuery is a tricky thing.
-    There's a bunch of different ways to handle
-    it, so be sure to research and find the one
-    that works for you best.
-    */
+	/*
+	Responsive jQuery is a tricky thing.
+	There's a bunch of different ways to handle
+	it, so be sure to research and find the one
+	that works for you best.
+	*/
 
-    /* getting viewport width */
-    var responsive_viewport = $(window).width() + getScrollBarWidth();
-    var menu = $('#main-navigation > ul');
+	/* getting viewport width */
+	var responsive_viewport = $(window).width() + getScrollBarWidth();
+	var menu = $('#main-navigation > ul');
 
-    /* responsive nav */
-    $('#main-navigation > .menu-button').on('click', function(e) {
-        $('body').toggleClass('menu-open');
-    });
+	/* responsive nav */
+	$('#main-navigation > .menu-button').on('click', function(e) {
+		$('body').toggleClass('menu-open');
+	});
 
-    $('.menu-item > .menu-button').on('click', function(e) {
-        //$("ul.sub-menu").removeClass("sub-menu-open");
-        $(this).next('.sub-menu').addClass('sub-menu-open');
-    });
+	$('.menu-item > .menu-button').on('click', function(e) {
+		//$("ul.sub-menu").removeClass("sub-menu-open");
+		$(this).next('.sub-menu').addClass('sub-menu-open');
+	});
 
-    $('.sub-menu .menu-back-button').on('click', function(e) {
-        $(this).parent("li").parent('ul').removeClass("sub-menu-open");
-    });
+	$('.sub-menu .menu-back-button').on('click', function(e) {
+		$(this).parent("li").parent('ul').removeClass("sub-menu-open");
+	});
 
-    $(window).resize(function() {
-        if(Modernizr.touch) {
-            e.preventDefault();
-        }
-        else {
-            responsive_viewport = $(window).width() + getScrollBarWidth();
-            if(responsive_viewport >= 768 && menu.is(':hidden')) {
-                $('body').removeClass('menu-open');
-            }else if(responsive_viewport < 768 && !menu.is(':hidden')){
-                $('body').removeClass('menu-open');
-            }
-        }
-    });
-    /*end responsive nav */
+	$(window).resize(function() {
+		if(Modernizr.touch) {
+			e.preventDefault();
+		}
+		else {
+			responsive_viewport = $(window).width() + getScrollBarWidth();
+			if(responsive_viewport >= 768 && menu.is(':hidden')) {
+				$('body').removeClass('menu-open');
+			}
+			else if(responsive_viewport < 768 && !menu.is(':hidden')) {
+				$('body').removeClass('menu-open');
+			}
+		}
+	});
+	/*end responsive nav */
 
-    /* if is below 481px */
-    if (responsive_viewport < 481) {
-        // if mobile device and not on the home page scroll to the content on page load
-        if (!$('body').hasClass("home")){
-            var new_position = jQuery('#main').offset();
-            if (typeof new_position != 'undefined'){
-                jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
-            }
-        }
-    } /* end smallest screen */
+	/* if is below 481px */
+	if (responsive_viewport < 481) {
+		// if mobile device and not on the home page scroll to the content on page load
+		if (!$('body').hasClass("home")){
+			var new_position = jQuery('#main').offset();
+			if (typeof new_position != 'undefined') {
+				jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
+			}
+		}
+	} /* end smallest screen */
 
-    /* if is smaller than 481px */
-    if (responsive_viewport < 481) {}
-    /* if is larger than 481px */
-    if (responsive_viewport >= 481){}
+	/* if is smaller than 481px */
+	if (responsive_viewport < 481) {}
+	/* if is larger than 481px */
+	if (responsive_viewport >= 481){}
 
-    /* if is larger to 768px */
-    if (responsive_viewport >= 767) {
-        /* load gravatars */
-        $('.comment img[data-gravatar]').each(function(){
-            $(this).attr('src',$(this).attr('data-gravatar'));
-        });
-    }
+	/* if is larger to 768px */
+	if (responsive_viewport >= 767) {
+		/* load gravatars */
+		$('.comment img[data-gravatar]').each(function() {
+			$(this).attr('src',$(this).attr('data-gravatar'));
+		});
+	}
 
-    /* off the bat smaller screen actions */
-    if (responsive_viewport < 1024) {}
+	/* off the bat smaller screen actions */
+	if (responsive_viewport < 1024) {}
 
-    /* off the bat large screen actions */
-    if (responsive_viewport >= 1024) {}
+	/* off the bat large screen actions */
+	if (responsive_viewport >= 1024) {}
 
-    // hide #back-top first
-    $("#back-top").hide();
+	// hide #back-top first
+	$("#back-top").hide();
 
-    // fade in #back-top
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 300) {
-                $('#back-top').fadeIn();
-            } else {
-                $('#back-top').fadeOut();
-            }
-        });
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 300) {
+				$('#back-top').fadeIn();
+			}
+			else {
+				$('#back-top').fadeOut();
+			}
+		});
 
-        // scroll body to 0px on click
-        $('#back-top a').click(function () {
-            $('body,html').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-    });
+		// scroll body to 0px on click
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
 
 
 /*  // Released under MIT license: http://www.opensource.org/licenses/mit-license.php
-    $('[placeholder]').focus(function() {
-        var input = $(this);
-        if (input.val() == input.attr('placeholder')) {
-            input.val('');
-            input.removeClass('placeholder');
-        }
-    }).blur(function() {
-        var input = $(this);
-        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-            input.addClass('placeholder');
-            input.val(input.attr('placeholder'));
-        }
-    }).blur().parents('form').submit(function() {
-        $(this).find('[placeholder]').each(function() {
-            var input = $(this);
-            if (input.val() == input.attr('placeholder')) {
-                input.val('');
-            }
-        })
-    });
+	$('[placeholder]').focus(function() {
+		var input = $(this);
+		if (input.val() == input.attr('placeholder')) {
+			input.val('');
+			input.removeClass('placeholder');
+		}
+	}).blur(function() {
+		var input = $(this);
+		if (input.val() == '' || input.val() == input.attr('placeholder')) {
+			input.addClass('placeholder');
+			input.val(input.attr('placeholder'));
+		}
+	}).blur().parents('form').submit(function() {
+		$(this).find('[placeholder]').each(function() {
+			var input = $(this);
+			if (input.val() == input.attr('placeholder')) {
+				input.val('');
+			}
+		})
+	});
 */
 }); /* end of as page load scripts */
 
