@@ -10,6 +10,10 @@ h2 {
 	margin: 0 0 1em;
 }
 
+em {
+	color: #d35400;
+}
+
 #header {
 	background: url('../images/scaffolding-header.jpg') 50% 50%;
 	background-size: cover;
@@ -17,11 +21,23 @@ h2 {
 	font-weight: 100;
 }
 
+	body.get-started #header {
+		height: 150px;
+	}
+
 	h1 {
 		margin: 1.2em 0;
 		font-weight: 300;
-		color: #333;
 	}
+	
+		h1 a {
+			color: #333;
+		}
+		
+		h1 a:hover {
+			text-decoration: none;
+			color: #333;
+		}
 
 	#getstarted {
 		float: right;
@@ -49,11 +65,15 @@ h2 {
 		line-height: 1em;
 		color: #2980b9;
 	}
-		
+
 .content {
 	padding: 2em 0;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
+
+	body.home .content {
+		font-size: 1.5em;
+	}		
 
 	.content.dark {
 		color: #ccc;
@@ -63,7 +83,7 @@ h2 {
 			color: #fff;
 		}
 
-	#main {
+	body.home #main {
 		text-align: center;
 	}
 	#secondary {}

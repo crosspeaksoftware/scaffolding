@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Responsive Design Scaffolding for WordPress</title>
+
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheets/styles.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-50140941-1', 'scaffolding.io');
+		ga('send', 'pageview');
+		</script>
+	</head>
+	<body class="get-started">
+		<header id="header" class="row">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6">
+						<h1><a href="http://www.scaffolding.io">Scaffolding</a></h1>
+					</div>
+					<div class="col-xs-6">
+						<a id="getstarted" href="https://github.com/hallme/scaffolding" title="Scaffolding Github Repo">Fork on Github</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="main" class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2>Quick Start Guide</h2>
+						
+						
+						<h3><strong>Functions</strong></h3>
+						<p>We have 2 functions files - 
+							<ul>
+								<li><em>functions.php</em>: Contains scrips & enqueueing, sidebars, custom post type includes, and everything else you'd normally expect to modify.</li>
+								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis.</li>
+							</ul>
+						</p>
+						<br />
+						
+						
+						<h3><strong>Template Structure</strong></h3>
+						<p>Post formats are rarely used in client websites, so we've removed support for them by default. If you would like to use post formats on a project, the method used in <a href="http://underscores.me" target="_blank">underscores (_s)</a> could easily be integrated.</p>
+						<p>Our recommendation is to use the structure <em>tmpl-templatename.php</em> for custom templates to avoid namespace issues and create easily-accessible body classes for styling.</p>
+						<p>Reference: <a href="https://codex.wordpress.org/Template_Hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
+						<br />
+						
+						
+						<h3><strong>Styles</strong></h3>
+						<p>All of your styles are in the <em>/scss/</em> folder.</p>
+						<ul>
+							<li><em>style.scss</em>: This is a setup file that builds your stylesheet.</li>
+							<li><em>/includes/_variables.scss</em>: Set all your colors, fonts, and other variables here. Default grid settings are also here.</li>
+							<li><em>/scss/responsive-styles/</em>: This folder contains your main stylesheets. These load in according to your default settings from /includes/_variables.scss</li>
+							<ul>
+								<li><em>_xs.scss</em>: The majority of your styles go here. This sheet is loaded on all devices by default.</li>
+								<li><em>_sm.scss</em>: Small devices (tablets) with a min-width of 768px.</li>
+								<li><em>_md.scss</em>: Medium devices (desktops) with a min-width of 992px.</li>
+								<li><em>_lg.scss</em>: Large devices (desktops) with a min-width of 1200px.</li>
+							</ul>
+						</ul>
+						<br />
+						
+						
+						<h3><strong>Getting Started with SASS + Compass</strong></h3>
+						<p>We're using <em>SASS</em> by default to utilize it's organization, speed, and functions. If you've used LESS before, SASS is an easy transition. If you haven't used CSS preprocessors before, you're in for a treat. You can learn more about SASS <a href="http://sass-lang.com/guide" target="_blank">here</a>.</p>
+						
+						<p><em>Compass</em> is like an extension to SASS, giving us access to all sorts of predefined tools. On the most basic level, Compass can generate cross-browser code for CSS3 properties, saving valuable time and keeping your source code clean.</p>
+						
+						<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:
+							<ul>
+								<li><a href="https://incident57.com/codekit/" target="_blank">CodeKit</a></li>
+								<li><a href="http://compass.kkbox.com/" target="_blank">Compass.ass</a></li>
+								<li><a href="http://mhs.github.io/scout-app/" target="_blank">Scout</a></li>
+							</ul></p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						Scaffolding v1.0
+					</div>
+					<div class="col-sm-6 menu">
+						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
