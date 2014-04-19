@@ -307,6 +307,35 @@ SIDEBARS & ASIDES
 
 
 /*********************
+GALLERY STYLES
+*********************/
+
+.gallery {
+
+    .gallery-item {
+        float: left;
+        margin: 0 0 2% 2%;
+
+        &:first-child { margin-left:0; } /*Select the first item in the gallery*/
+    }
+
+    br + .gallery-item{ margin-left:0; } /*Select the first item in the following gallery rows*/
+
+    & > br{ display:block; }
+}
+
+.gallery-columns-1 .gallery-item { max-width: 98%; }
+.gallery-columns-2 .gallery-item { max-width: 48%; }
+.gallery-columns-3 .gallery-item { max-width: 32%; }
+.gallery-columns-4 .gallery-item { max-width: 23%; }
+.gallery-columns-5 .gallery-item { max-width: 19%; }
+.gallery-columns-6 .gallery-item { max-width: 15%; }
+.gallery-columns-7 .gallery-item { max-width: 13%; }
+.gallery-columns-8 .gallery-item { max-width: 11%; }
+.gallery-columns-9 .gallery-item { max-width: 9%; }
+
+
+/*********************
 FOOTER STYLES
 *********************/
 
