@@ -41,12 +41,13 @@ h2 {
 		}
 		
 	#headline {
-		font-size: 2.5em;
+		font-size: 4em;
 		font-weight: 400;
-		background: rgba(255,255,255,.4);
 		display: inline-block;
-		padding: 0 .5em;
-		margin: 2em;
+		margin: 1em auto;
+		max-width: 700px;
+		line-height: 1em;
+		color: #2980b9;
 	}
 		
 .content {
@@ -84,12 +85,12 @@ h2 {
 			#secondary li a,
 			#secondary li a:visited {
 				color: #ccc;
-				transition: color 0.1s ease;
+				transition: color 0.2s ease;
 			}
 			
 			#secondary li a:hover {
 				text-decoration: none;
-				color: #999;
+				color: #27ae60;
 			}
 	
 		#secondary small {
@@ -108,6 +109,11 @@ h2 {
 		}
 	
 	#tertiary {}
+	
+		#tertiary h2 {
+			margin: 0 0 .5em;
+		}
+	
 	#fourth {}
 	#fifth {
 		background: #222;
