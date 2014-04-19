@@ -127,22 +127,42 @@ span.amp {
 }
 
 
+// Responsive utilities
+@mixin responsive-visibility($parent) {
+  #{$parent} { display: block !important; }
+  tr#{$parent} { display: table-row !important; }
+  th#{$parent},
+  td#{$parent} { display: table-cell !important; }
+}
+
+// [converter] $parent hack
+@mixin responsive-invisibility($parent) {
+    #{$parent},
+  tr#{$parent},
+  th#{$parent},
+  td#{$parent} { display: none !important; }
+}
+
 // Device-specific hide/show classes. Written in reverse logic for IE compatibility
-.mobile-only {display: none;}
+
+@include responsive-invisibility('.mobile-only');
 @media only screen and (max-width: 480px) {
-	.mobile-only {display: inline-block;}
+    @include responsive-visibility('.mobile-only');
 }
-.mobile-hide {display: block;}
+
+@include responsive-visibility('.mobile-hide');
 @media only screen and (max-width: 480px) {
-	.mobile-hide {display: none;}
+    @include responsive-invisibility('.mobile-hide');
 }
-.tablet-only {display: none;}
+
+@include responsive-invisibility('.tablet-only');
 @media only screen and (max-width: 767px) {
-	.tablet-only {display: inline-block;}
+    @include responsive-visibility('.tablet-only');
 }
-.tablet-hide {display: block;}
+
+@include responsive-visibility('.tablet-hide');
 @media only screen and (max-width: 767px) {
-	.tablet-hide {display: none;}
+    @include responsive-invisibility('.tablet-hide');
 }
 
 /******************************************************************
