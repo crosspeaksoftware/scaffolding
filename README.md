@@ -11,8 +11,8 @@ wordpress theme that we build.
 Developed by Hall Internet Marketing
 http://www.hallme.com/
 
-License: WTFPL
-License URI: http://sam.zoy.org/wtfpl/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Special Thanks to:
 Eddie Machado. This started as a fork of bones. http://themble.com/bones
