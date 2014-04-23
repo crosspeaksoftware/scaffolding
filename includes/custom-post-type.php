@@ -11,7 +11,7 @@
 
 
 // let's create the function for the custom type
-function custom_post_example() {
+function scaffolding_custom_post_example() {
 	// creating (registering) the custom type
 	register_post_type( 'custom_type', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
@@ -56,7 +56,7 @@ function custom_post_example() {
 }
 
 // adding the function to the Wordpress init
-add_action( 'init', 'custom_post_example');
+add_action( 'init', 'scaffolding_custom_post_example');
 
 /*
 for more information on taxonomies, go here:

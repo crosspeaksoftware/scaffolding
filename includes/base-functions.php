@@ -24,7 +24,7 @@ TABLE OF CONTENTS
 /*********************
 INITIATING SCAFFOLDING
 *********************/
-add_action('after_setup_theme','scaffolding_build', 16);
+add_action( 'after_setup_theme', 'scaffolding_build', 16 );
 
 function scaffolding_build() {
 
@@ -159,40 +159,40 @@ function scaffolding_page_navi($before = '', $after = '') {
 } /* end page navi */
 
 //add rel and title attribute to next pagination link
-function get_next_posts_link_attributes($attr){
+function scaffolding_get_next_posts_link_attributes($attr){
 	$attr = 'rel="next" title="View the Next Page"';
 	return $attr;
 }
-add_filter('next_posts_link_attributes', 'get_next_posts_link_attributes');
+add_filter('next_posts_link_attributes', 'scaffolding_get_next_posts_link_attributes');
 
 //add rel and title attribute to prev pagination link
-function get_previous_posts_link_attributes($attr){
+function scaffolding_get_previous_posts_link_attributes($attr){
 	$attr = 'rel="prev" title="View the Previous Page"';
 	return $attr;
 }
-add_filter('previous_posts_link_attributes', 'get_previous_posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'scaffolding_get_previous_posts_link_attributes');
 
 /*********************
 CLIENT UX FUNCTIONS
 *********************/
 //Extend permisitons for the 'editor' role (used for client accounts)
-function increase_editor_permissions(){
+function scaffolding_increase_editor_permissions(){
 	$role = get_role('editor');
 	$role->add_cap('gform_full_access'); // Gives editors access to Gravity Forms
 	$role->add_cap('edit_theme_options'); // Gives editors access to widgets & menus
 }
-add_action('admin_init','increase_editor_permissions');
+add_action('admin_init','scaffolding_increase_editor_permissions');
 
 // Removes the Powered By WPEngine widget
 wp_unregister_sidebar_widget( 'wpe_widget_powered_by' );
 
 //Remove some of the admin bar links to keep from confusing client admins
-function remove_admin_bar_links() {
+function scaffolding_remove_admin_bar_links() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('wp-logo'); // Remove Wordpress Logo From Admin Bar
 	$wp_admin_bar->remove_menu('wpseo-menu'); // Remove SEO from Admin Bar
 }
-add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+add_action( 'wp_before_admin_bar_render', 'scaffolding_remove_admin_bar_links' );
 
 // Custom Backend Footer
 function scaffolding_custom_admin_footer() {
@@ -219,14 +219,14 @@ add_filter('login_headerurl', 'scaffolding_login_url');
 add_filter('login_headertitle', 'scaffolding_login_title');
 
 //Add page title attribute to a tags
-function wp_list_pages_filter($output) {
+function scaffolding_wp_list_pages_filter($output) {
 	$output = preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1 title="$4" href="$2"$3>$4</a>',$output);
 	return $output;
 }
-add_filter('wp_list_pages', 'wp_list_pages_filter');
+add_filter('wp_list_pages', 'scaffolding_wp_list_pages_filter');
 
 //return the search results page even if the query is empty - http://vinayp.com.np/how-to-show-blank-search-on-wordpress/
-function make_blank_search ($query){
+function scaffolding_make_blank_search ($query){
 	global $wp_query;
 	if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
 		$wp_query->set('s',' ');
@@ -234,13 +234,13 @@ function make_blank_search ($query){
 	}
 	return $query;
 }
-add_action('pre_get_posts','make_blank_search');
+add_action('pre_get_posts','scaffolding_make_blank_search');
 
 /*********************
 DASHBOARD WIDGETS
 *********************/
 // disable default dashboard widgets
-function disable_default_dashboard_widgets() {
+function scaffolding_disable_default_dashboard_widgets() {
 	//remove_meta_box('dashboard_right_now', 'dashboard', 'core');// Right Now Widget
 	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');// Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');// Incoming Links Widget
@@ -253,7 +253,7 @@ function disable_default_dashboard_widgets() {
 	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
 }
 // removing the dashboard widgets
-add_action('admin_menu', 'disable_default_dashboard_widgets');
+add_action('admin_menu', 'scaffolding_disable_default_dashboard_widgets');
 
 /*********************
 VISITOR/USER UX FUNCTIONS
@@ -293,15 +293,15 @@ function scaffolding_filter_ptags_on_images($content){
 }
 
 // Fix Gravity Form Tabindex Conflicts - http://gravitywiz.com/2013/01/28/fix-gravity-form-tabindex-conflicts/
-function gform_tabindexer() {
+function scaffolding_gform_tabindexer() {
 	$starting_index = 1000; // if you need a higher tabindex, update this number
 	return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
 }
-add_filter("gform_tabindex", "gform_tabindexer");
+add_filter("gform_tabindex", "scaffolding_gform_tabindexer");
 
 // Filter out hard-coded width, height attributes on all captions (wp-caption class)
-add_shortcode('wp_caption', 'fixed_img_caption_shortcode');
-add_shortcode('caption', 'fixed_img_caption_shortcode');
+add_shortcode('wp_caption', 'scaffolding_fixed_img_caption_shortcode');
+add_shortcode('caption', 'scaffolding_fixed_img_caption_shortcode');
 function fixed_img_caption_shortcode($attr, $content = null) {
 	if ( ! isset( $attr['caption'] ) ) {
 		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
@@ -342,7 +342,7 @@ RECOMMENDED/REQUIRED PLUGIN ACTIVATION
 /* Include the TGM_Plugin_Activation class. */
 require_once ( SCAFFOLDING_INCLUDE_PATH.'class-tgm-plugin-activation.php' );
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'scaffolding_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -355,7 +355,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function scaffolding_register_required_plugins() {
 
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.

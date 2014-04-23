@@ -47,10 +47,10 @@ function scaffolding_scripts_and_styles() {
 	if (!is_admin()) {
 
 		// modernizr (without media query polyfill)
-		wp_register_script('modernizr', "//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js", false, null);
+		wp_register_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', false, null );
 
 		// respondjs
-		wp_register_script('respondjs', "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js", false, null);
+		wp_register_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
 
 		// register main stylesheet
 		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
@@ -59,13 +59,13 @@ function scaffolding_scripts_and_styles() {
 		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 
 		//Magnific Popups (LightBox)
-		wp_register_script( 'magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
+		wp_register_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
 		//Font Awesome (icon set)
-		wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+		wp_register_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
 
 		// iCheck (better radio and checkbox inputs)
-		wp_register_script( 'icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
+		wp_register_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
 
 		// comment reply script for threaded comments
 		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -76,11 +76,11 @@ function scaffolding_scripts_and_styles() {
 		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
-		wp_enqueue_script( 'respondjs' );
-		wp_enqueue_script( 'modernizr' );
-		wp_enqueue_style( 'font-awesome' );
-		wp_enqueue_script( 'magnific-popup-js' );
-		wp_enqueue_script( 'icheck' );
+		wp_enqueue_script( 'scaffolding-respondjs' );
+		wp_enqueue_script( 'scaffolding-modernizr' );
+		wp_enqueue_style( 'scaffolding-font-awesome' );
+		wp_enqueue_script( 'scaffolding-magnific-popup-js' );
+		wp_enqueue_script( 'scaffolding-icheck' );
 		wp_enqueue_style( 'scaffolding-stylesheet' );
 		wp_enqueue_style( 'scaffolding-ie-only' );
 		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
@@ -97,9 +97,9 @@ function scaffolding_scripts_and_styles() {
 // Adding WP 3+ Functions & Theme Support
 function scaffolding_theme_support() {
 
-	add_theme_support('post-thumbnails');						// wp thumbnails (sizes handled in functions.php)
+	add_theme_support( 'post-thumbnails' );						// wp thumbnails (sizes handled in functions.php)
 
-	set_post_thumbnail_size(125, 125, true);					// default thumb size
+	set_post_thumbnail_size( 125, 125, true );					// default thumb size
 
 	/*  Feature Currently Disabled
 	// wp custom background (thx to @bransonwerner for update)
@@ -115,7 +115,7 @@ function scaffolding_theme_support() {
 	*/
 
 
-	add_theme_support('automatic-feed-links');					// rss thingy
+	add_theme_support( 'automatic-feed-links' );					// rss thingy
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 	//adding custome header suport
@@ -196,7 +196,7 @@ function scaffolding_custom_headers_callback() {
 *********************/
 
 /* //Currently commented out. This is useful for improving UX in the WP backend
-function change_post_menu_label() {
+function scaffolding_change_post_menu_label() {
 	global $menu;
 	global $submenu;
 	$menu[5][0] = 'News';
@@ -207,7 +207,7 @@ function change_post_menu_label() {
 	echo '';
 }
 
-function change_post_object_label() {
+function scaffolding_change_post_object_label() {
 	global $wp_post_types;
 	$labels = &$wp_post_types['post']->labels;
 	$labels->name = 'News';
@@ -221,8 +221,8 @@ function change_post_object_label() {
 	$labels->not_found = 'No News Entries found';
 	$labels->not_found_in_trash = 'No News Entries found in Trash';
 }
-add_action( 'init', 'change_post_object_label' );
-add_action( 'admin_menu', 'change_post_menu_label' );
+add_action( 'init', 'scaffolding_change_post_object_label' );
+add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
 */
 
 
@@ -497,7 +497,7 @@ add_filter('pre_get_posts','scaffolding_search_filter');
 12. ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR
 *********************/
 
-function add_first_and_last($output) {
+function scaffolding_add_first_and_last($output) {
 	$output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
 	$last_pos = strripos($output, 'class="menu-item');
 	if($last_pos !== false) {
@@ -505,10 +505,10 @@ function add_first_and_last($output) {
 	}
 	return $output;
 }
-add_filter('wp_nav_menu', 'add_first_and_last');
+add_filter('wp_nav_menu', 'scaffolding_add_first_and_last');
 
 // Add "first" and "last" CSS classes to dynamic sidebar widgets. Also adds numeric index class for each widget (widget-1, widget-2, etc.)
-function widget_first_last_classes($params) {
+function scaffolding_widget_first_last_classes($params) {
 
 	global $my_widget_num; // Global a counter array
 	$this_id = $params[0]['id']; // Get the id for the current sidebar we're processing
@@ -543,7 +543,7 @@ function widget_first_last_classes($params) {
 	return $params;
 
 }
-add_filter('dynamic_sidebar_params','widget_first_last_classes');
+add_filter( 'dynamic_sidebar_params', 'scaffolding_widget_first_last_classes' );
 
 
 /*********************
