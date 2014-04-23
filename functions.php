@@ -44,49 +44,36 @@ require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
 
 function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-	if (!is_admin()) {
 
-		// modernizr (without media query polyfill)
-		wp_register_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', false, null );
+	// modernizr (without media query polyfill)
+	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', false, null );
 
-		// respondjs
-		wp_register_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
+	// respondjs
+	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
 
-		// register main stylesheet
-		wp_register_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
+	// register main stylesheet
+	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
 
-		// ie-only style sheet
-		wp_register_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
+	// ie-only style sheet
+	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
+	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-		//Magnific Popups (LightBox)
-		wp_register_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
+	//Magnific Popups (LightBox)
+	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
-		//Font Awesome (icon set)
-		wp_register_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+	//Font Awesome (icon set)
+	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
 
-		// iCheck (better radio and checkbox inputs)
-		wp_register_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
+	// iCheck (better radio and checkbox inputs)
+	wp_enqueue_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
 
-		// comment reply script for threaded comments
-		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-
-		//adding scripts file in the footer
-		wp_register_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
-
-		// enqueue styles and scripts
-		wp_enqueue_script( 'scaffolding-respondjs' );
-		wp_enqueue_script( 'scaffolding-modernizr' );
-		wp_enqueue_style( 'scaffolding-font-awesome' );
-		wp_enqueue_script( 'scaffolding-magnific-popup-js' );
-		wp_enqueue_script( 'scaffolding-icheck' );
-		wp_enqueue_style( 'scaffolding-stylesheet' );
-		wp_enqueue_style( 'scaffolding-ie-only' );
-		$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-		wp_enqueue_script( 'scaffolding-js' );
-
+	// comment reply script for threaded comments
+	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//adding scripts file in the footer
+	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 }
 
 
