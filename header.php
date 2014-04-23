@@ -63,14 +63,14 @@
         <div class="banner-wrap">
             <div id="banner">
                 <div class="spacer"></div>
-            </div><!-- end banner -->
-        </div><!-- end banner-wrap -->
+            </div>
+        </div>
 
 		<div id="content">
 
 			<div id="inner-content" class="wrap clearfix">
 
-				<?php //Test for active sidebars to set the main content width
+				<?php // Test for active sidebars to set the main content width
 					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //both sidebars
 						$main_class = 'col-sm-6';
 					}
