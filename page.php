@@ -43,7 +43,7 @@ get_header(); ?>
 
 			<?php else : ?>
 
-			<?php include_once('includes/template-error.php'); // WordPress template error message ?>
+			<?php get_template_part('includes/template-error.php'); // WordPress template error message ?>
 
 			<?php endif; ?>
 

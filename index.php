@@ -61,11 +61,11 @@
 
 				<?php endwhile; ?>
 
-				<?php include_once('includes/template-pager.php'); //wordpress template pager/pagination ?>
+				<?php get_template_part('includes/template-pager.php'); //wordpress template pager/pagination ?>
 
 			<?php else : ?>
 
-			<?php include_once('includes/template-error.php'); //wordpress template error message ?>
+			<?php get_template_part('includes/template-error.php'); //wordpress template error message ?>
 
 			<?php endif; ?>
 
