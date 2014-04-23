@@ -101,7 +101,6 @@ function scaffolding_theme_support() {
 	);
 	*/
 
-
 	add_theme_support( 'automatic-feed-links' );					// rss thingy
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
