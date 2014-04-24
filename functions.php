@@ -66,6 +66,9 @@ function scaffolding_scripts_and_styles() {
 
 	// iCheck (better radio and checkbox inputs)
 	wp_enqueue_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
+	
+	//Chosen - http://harvesthq.github.io/chosen/
+    wp_enqueue_script( 'chosen-js', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', array( 'jquery' ), '1.1.0', true );
 
 	// comment reply script for threaded comments
 	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
