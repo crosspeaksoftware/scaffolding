@@ -74,10 +74,10 @@
 
 				<?php // Test for active sidebars to set the main content width
 					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //both sidebars
-						$main_class = 'col-sm-6 col-md-push-3';
+						$main_class = 'col-sm-6 col-sm-push-3';
 					}
 					elseif(is_active_sidebar( 'left-sidebar' ) && !is_active_sidebar( 'right-sidebar' )) { //left sidebar
-						$main_class = 'col-sm-9 col-md-push-3';
+						$main_class = 'col-sm-9 col-sm-push-3';
 					}
 					elseif(!is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //right sidebar
 						$main_class = 'col-sm-9';
