@@ -64,7 +64,7 @@ b, strong, .strong {
 	font-weight: bold;
 }
 
-dfn, em, .em {
+cite, dfn, em, i, .em {
 	font-style: italic;
 }
 
@@ -335,6 +335,7 @@ h6, .h6 {
 	margin: 0 auto;
 }
 
+/*Image Caption*/
 .wp-caption {
 	max-width:100%!important;
 	background: #eee;
@@ -354,17 +355,7 @@ h6, .h6 {
 
 } /* end .wp-caption */
 
-/*Use this class for any Editor Specific Styles to help the user experience
- * set the max size of the content area in the editor to match the template*/
-.mceContentBody {
-	background-color:#FDFDFD;
-}
-
-
-/******************************************************************
- GALLERY STYLES
-******************************************************************/
-
+/*Image Gallery*/
 .gallery {
 
     .gallery-item {
@@ -421,4 +412,10 @@ h6, .h6 {
 .gallery-columns-8 .gallery-caption,
 .gallery-columns-9 .gallery-caption {
     display: none;
+}
+
+/*Use this class for any Editor Specific Styles to help the user experience
+ * set the max size of the content area in the editor to match the template*/
+.mceContentBody {
+	background-color:#FDFDFD;
 }
