@@ -85,4 +85,4 @@
 					}
 				?>
 
-				<div id="main" class="<?=$main_class;?> clearfix" role="main">
+				<div id="main" class="<?php echo $main_class;?> clearfix" role="main">
