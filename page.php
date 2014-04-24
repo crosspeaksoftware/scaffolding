@@ -1,14 +1,4 @@
-<?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -18,17 +8,23 @@ get_header(); ?>
 
 							<h1 class="entry-title page-title"><?php the_title(); ?></h1>
 
-						</header><?php // end article header ?>
+						</header>
 
 						<section class="entry-content clearfix">
 							<?php the_content(); ?>
-						</section><?php // end article section ?>
+							<?php wp_link_pages( array(
+								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+								'after'       => '</div>',
+								'link_before' => '<span>',
+								'link_after'  => '</span>',
+							) ); ?>
+						</section>
 
 						<footer class="article-footer">
 
 							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
 
-						</footer><?php // end article footer ?>
+						</footer>
 
 						<?php
 							// If comments are open or we have at least one comment, load up the comment template
@@ -37,15 +33,14 @@ get_header(); ?>
 							endif;
 						?>
 
-					</article><?php // end article ?>
+					</article>
 
 				<?php endwhile; ?>
 
 			<?php else : ?>
 
-			<?php get_template_part('includes/template-error.php'); // WordPress template error message ?>
+			<?php get_template_part('includes/template','error'); // WordPress template error message ?>
 
 			<?php endif; ?>
-
 
 <?php get_footer();

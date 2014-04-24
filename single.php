@@ -14,6 +14,12 @@
 
 						<section class="entry-content clearfix" itemprop="articleBody">
 							<?php the_content(); ?>
+							<?php wp_link_pages( array(
+								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+								'after'       => '</div>',
+								'link_before' => '<span>',
+								'link_after'  => '</span>',
+							) ); ?>
 						</section><?php // end article section ?>
 
 						<footer class="article-footer">
@@ -22,7 +28,12 @@
 
 						</footer><?php // end article footer ?>
 
-						<?php comments_template(); ?>
+						<?php
+							// If comments are open or we have at least one comment, load up the comment template
+							if ( comments_open() || '0' != get_comments_number() ) :
+								comments_template();
+							endif;
+						?>
 
 					</article><?php // end article ?>
 
@@ -30,7 +41,7 @@
 
 			<?php else : ?>
 
-			<?php get_template_part('includes/template-error.php'); // WordPress template error message ?>
+			<?php get_template_part('includes/template','error'); // WordPress template error message ?>
 
 			<?php endif; ?>
 

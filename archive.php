@@ -103,11 +103,11 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php get_template_part('includes/template-pager.php'); //wordpress template pager/pagination ?>
+				<?php get_template_part('includes/template','pager'); //wordpress template pager/pagination ?>
 
 			<?php else : ?>
 
-			<?php get_template_part('includes/template-error.php'); //wordpress template error message ?>
+			<?php get_template_part('includes/template','error'); //wordpress template error message ?>
 
 			<?php endif; ?>
 
