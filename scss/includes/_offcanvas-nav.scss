@@ -32,7 +32,7 @@ Stylesheet: Off Canvas Navigation
 				color: #999;
 				font-size: 1.143em;
 				text-decoration: none;
-		        width: 75%;
+		        width: 80%;
 				padding: 15px 5%;
                 @include transition(all 0.25s ease-in-out);
 
@@ -45,7 +45,7 @@ Stylesheet: Off Canvas Navigation
             a.menu-button{
                 display:block;
                 text-align:center;
-                width:15%;
+                width:20%;
                 margin:0;
                 padding:15px 0;
                 cursor:pointer;
@@ -57,9 +57,9 @@ Stylesheet: Off Canvas Navigation
 
             a.menu-back-button{
                 display: inline-block;
-                width: 80%;
+                width:100%;
                 text-decoration: none;
-                padding: 15px 10%;
+                padding: 15px;
                 cursor:pointer;
                 @include transition(all 0.25s ease-in-out);
 

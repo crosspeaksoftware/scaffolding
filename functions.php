@@ -279,8 +279,8 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		//set <li> classes
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
-		//if( $args->has_children ){ $classes[] = 'menu-has-children'; }
-		//if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
+		if( $args->has_children ){ $classes[] = 'menu-has-children'; }
+		if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
 		//combine the class array into a string
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
@@ -448,36 +448,6 @@ function scaffolding_wpsearch($form) {
 	</form>';
 	return $form;
 } // don't remove this bracket!
-
-//Filter post with noindex set from search results
-function scaffolding_search_filter($query) {
-	if ($query->is_search) {
-		$query->set('meta_query', array(
-				'relation' => 'OR',
-				// include if this key doesn't exists
-				array(
-					'key' => '_yoast_wpseo_meta-robots-noindex',
-					'value' => '', // This is ignored, but is necessary...
-					'compare' => 'NOT EXISTS'
-				),
-				// OR if key does exists include if it is not 1
-				array(
-					'key' => '_yoast_wpseo_meta-robots-noindex',
-					'value' => '1',
-					'compare' => '!='
-				),
-				// OR this key overrides it
-				array(
-					'key' => '_yoast_wpseo_sitemap-html-include',
-					'value' => 'always',
-					'compare' => '='
-				)
-			));
-	}
-	return $query;
-}
-add_filter('pre_get_posts','scaffolding_search_filter');
-
 
 /*********************
 12. ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR
