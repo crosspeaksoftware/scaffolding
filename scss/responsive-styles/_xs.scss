@@ -157,110 +157,120 @@ PAGE NAVIGATION STYLES
 ******************************************************************/
 
 .page-navigation,
-.wp-prev-next {
-	margin: 1.1em 0 2.2em;
-}
-	.scaffolding_page_navi {
-		li {
-			float: left;
-			margin-left: 10px;
+.wp-prev-next {}
 
-			a {
-				padding: 3px 6px;
-				display: block;
-				text-decoration: none;
-				position: relative;
+    .scaffolding_page_navi {
+        margin:1em 0;
 
-				&:hover,
-				&:focus {
-					color: #f01d4f;
-					text-decoration: underline;
-				}
-			}
+        li {
+            float: left;
+            margin:0;
 
-		}
+            a {
+                display: block;
+                color:#333;
+                text-decoration: none;
+                padding: 3px 10px;
+                position: relative;
 
-		/* current page link */
-		li.bpn-current {
-			padding: 3px 6px;
-			border-bottom: 2px solid #f01d4f;
-			position: relative;
+                &:hover,
+                &:focus {
+                    color: $link-color;
+                    text-decoration: underline;
+                }
+            }
 
-			a {
-				/* hovering on current page link */
-				&:hover,
-				&:focus {}
+        }
 
-			}
+        /* current page link */
+        li.bpn-current {
+            background-color:#f5f5f5;
+            color:$link-color;
+            padding: 3px 10px;
+            position: relative;
 
-		} /* end .scaffolding_page_navi .bpn-current */
+            a {
+                /* hovering on current page link */
+                &:hover,
+                &:focus {
+                    color:#333;
+                }
 
-		/* common styles for page-navi links */
-		li.bpn-prev-link,
-		li.bpn-next-link {
-			font-weight: 700;
+            }
 
-			a {
-				padding: 0;
-			}
-		}
+        } /* end .scaffolding_page_navi .bpn-current */
 
-		/* remove the bg on end links */
-		li.bpn-prev-link a:hover,
-		li.bpn-next-link a:hover,
-		li.bpn-first-page-link a:hover,
-		li.bpn-last-page-link a:hover {
-			background: none;
-		}
+        /* common styles for page-navi links */
+        li.bpn-prev-link,
+        li.bpn-next-link {
+            font-weight: 700;
 
-		/* previous link */
-		li.bpn-prev-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+            a {
+                color:$link-color;
 
-		/* next page link */
-		li.bpn-next-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+                &:hover,
+                &:focus {
+                    color:#333;
+                }
+            }
+        }
 
-		/* first page link */
-		li.bpn-first-page-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+        /* remove the bg on end links */
+        li.bpn-prev-link a:hover,
+        li.bpn-next-link a:hover,
+        li.bpn-first-page-link a:hover,
+        li.bpn-last-page-link a:hover {
+            background: none;
+        }
 
-		/* last page link */
-		li.bpn-last-page-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+        /* previous link */
+        li.bpn-prev-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-	} /* end .scaffolding_page_navi */
+        /* next page link */
+        li.bpn-next-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-	/* fallback previous & next links */
-	.wp-prev-next {
+        /* first page link */
+        li.bpn-first-page-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-		ul {}
+        /* last page link */
+        li.bpn-last-page-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-		.prev-link {
-			float: left;
-		}
+    } /* end .scaffolding_page_navi */
 
-		.next-link {
-			float: right;
-		}
+    /* fallback previous & next links */
+    .wp-prev-next {
 
-	} /* end .wp-prev-next */
+        ul {}
+
+        .prev-link {
+            float: left;
+        }
+
+        .next-link {
+            float: right;
+        }
+
+    } /* end .wp-prev-next */
 
 /******************************************************************
 COMMENTS & COMMENT FORM STYLES
