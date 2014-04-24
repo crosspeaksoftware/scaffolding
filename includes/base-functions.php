@@ -340,7 +340,7 @@ RECOMMENDED/REQUIRED PLUGIN ACTIVATION
  */
 
 /* Include the TGM_Plugin_Activation class. */
-get_template_part ( SCAFFOLDING_INCLUDE_PATH.'class-tgm-plugin-activation.php' );
+require_once ( SCAFFOLDING_INCLUDE_PATH.'class-tgm-plugin-activation.php' );
 
 add_action( 'tgmpa_register', 'scaffolding_register_required_plugins' );
 /**

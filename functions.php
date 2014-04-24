@@ -84,9 +84,9 @@ function scaffolding_scripts_and_styles() {
 // Adding WP 3+ Functions & Theme Support
 function scaffolding_theme_support() {
 
-	add_theme_support( 'post-thumbnails' );						// wp thumbnails (sizes handled in functions.php)
+	add_theme_support( 'post-thumbnails' ); // wp thumbnails (sizes handled in functions.php)
 
-	set_post_thumbnail_size( 125, 125, true );					// default thumb size
+	set_post_thumbnail_size( 125, 125, true ); // default thumb size
 
 	/*  Feature Currently Disabled
 	// wp custom background (thx to @bransonwerner for update)
@@ -101,7 +101,7 @@ function scaffolding_theme_support() {
 	);
 	*/
 
-	add_theme_support( 'automatic-feed-links' );					// rss thingy
+	add_theme_support( 'automatic-feed-links' ); // rss thingy
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 	//adding custome header suport
