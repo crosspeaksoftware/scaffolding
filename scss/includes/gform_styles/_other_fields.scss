@@ -18,7 +18,7 @@
 	margin-right: 12px;
 	width: 50px;
 	float: left;
-	
+
 	input {
 		width: 85% !important;
 	}
@@ -99,7 +99,7 @@ input.datepicker.datepicker_with_icon {
 
 .ui-datepicker-title {
 	text-align: center;
-	
+
 	.ui-datepicker-month {
 		margin-right: 5px;
 	}
@@ -127,7 +127,7 @@ input.datepicker.datepicker_with_icon {
 	margin-left: 5px;
 }
 
-.ui-datepicker-prev, 
+.ui-datepicker-prev,
 .ui-datepicker-next {
 	display: inline-block;
 	text-align: center;
@@ -188,7 +188,7 @@ input.datepicker.datepicker_with_icon {
 	border-bottom: 0px;
 }
 
-.ui-datepicker td span, 
+.ui-datepicker td span,
 .ui-datepicker td a {
 	display: inline-block;
 	font-weight: bold;
@@ -341,14 +341,14 @@ input.ginput_quantity {
 	width: 99%;
 	border-top: 1px dotted #CCC;
 	padding: 16px 0 0 0;
-	
+
 	input.gform_previous_button {
 		float: left;
 		width: auto !important;
 		padding-left: 1em;
-		padding-right: 1em; 
+		padding-right: 1em;
 	}
-		
+
 	input.gform_next_button, .button.gform_button {
 		float: right;
 		width: auto !important;
@@ -383,7 +383,7 @@ input.ginput_quantity {
 	overflow: hidden;
 	line-height: 20px !important;
 	border: 1px solid #CCC;
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-bg.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-bg.png');
 	background-repeat: repeat-x;
 	background-position: bottom;
 	background-color: #FFF;
@@ -411,42 +411,42 @@ input.ginput_quantity {
 }
 
 .percentbar_blue {
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-blue.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-blue.png');
 	background-repeat: repeat-x;
 	background-color: #0072BC;
 	color: #FFF;
 }
 
 .percentbar_gray {
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-gray.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-gray.png');
 	background-repeat: repeat-x;
 	background-color: #666;
 	color: #FFF;
 }
 
 .percentbar_green {
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-green.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-green.png');
 	background-repeat: repeat-x;
 	background-color: #94DC21;
 	color: #FFF;
 }
 
 .percentbar_orange {
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-orange.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-orange.png');
 	background-repeat: repeat-x;
 	background-color: #DC7021;
 	color: #FFF;
 }
 
 .percentbar_red {
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-red.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-red.png');
 	background-repeat: repeat-x;
 	background-color: #DC2521;
 	color: #FFF;
 }
 
 .percentbar_custom {
-	background-image: url('/wp-content/plugins/gravityforms/images/gf-percentbar-custom.png');
+	background-image: url('#{$plugins-path}gravityforms/images/gf-percentbar-custom.png');
 	background-repeat: repeat-x;
 }
 
@@ -614,7 +614,7 @@ table.gfield_list td.gfield_list_icons {
 	text-align: center;
 	color: #111;
 	margin-bottom: 10px;
-	
+
 	input[type=button] {
 		padding: 5px 1em;
 		font-size: 0.875em;
