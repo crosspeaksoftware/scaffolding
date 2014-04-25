@@ -31,14 +31,6 @@ This is where you add the majority of your styles. These will be loaded on all d
 @import "responsive-styles/xs";
 
 /*
-LARGER MOBILE DEVICES
-Should you need to customize the display for larger mobile devices.
-*/
-@media only screen and (min-width: 481px) {
-	@import "responsive-styles/481up";
-}
-
-/*
 TABLET & SMALLER LAPTOPS
 Here you can begin to add more resource-intensive styles.
 */

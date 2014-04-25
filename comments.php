@@ -121,7 +121,7 @@ if ( post_password_required() ) { ?>
 				<p id="allowed_tags" class="small"><strong>XHTML:</strong> <?php _e('You can use these tags', 'scaffolding'); ?>: <code><?php echo allowed_tags(); ?></code></p>
 			</div>
 
-			<?php do_action('comment_form', $post->ID); ?>
+			<?php comment_form(); ?>
 
 			</form>
 
