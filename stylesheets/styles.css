@@ -125,8 +125,36 @@ em {
 	.headline-wrapper {
 		margin-top: 2em;
 	}
-		
-	.headline {
+	
+		h1 a {
+			color: #333;
+		}
+
+		h1 a:hover {
+			text-decoration: none;
+			color: #333;
+		}
+
+	#getstarted {
+		float: right;
+		margin: 2.2em 0;
+		font-size: 1.4em;
+		border: solid 1px #000;
+		padding: .4em .8em;
+		color: #000;
+		text-transform: uppercase;
+		font-weight: 100;
+		transition: background-color 0.5s ease;
+	}
+
+		#getstarted:hover {
+			text-decoration: none;
+			background: rgba(255, 255, 255, .4);
+		}
+
+	#headline {
+		font-size: 4em;
+		font-weight: 400;
 		display: inline-block;
 		margin: 5px 0;
 		max-width: 800px;
@@ -156,7 +184,7 @@ em {
 
 	body.home .content {
 		font-size: 1.5em;
-	}		
+	}
 
 	.content.dark {
 		color: #ccc;
@@ -175,34 +203,34 @@ em {
 	}
 	
 	#secondary {}
-	
+
 		#secondary h2 {
 			text-align: center;
 		}
-	
+
 		#secondary ul {
 			list-style: none;
 			padding: 0;
 		}
-	
+
 		#secondary li {
 			margin-bottom: .5em;
 			line-height: 1.2em;
 		}
-		
+
 			#secondary li a,
 			#secondary li a:visited {
 				color: #ccc;
 				font-weight: 300;
 				transition: color 0.2s ease;
 			}
-			
+
 			#secondary li a:hover {
 				text-decoration: none;
 				//color: #27ae60;
 				color: #428bca;
 			}
-	
+
 		#secondary small {
 			display: block;
 			font-size: .7em;
@@ -213,18 +241,29 @@ em {
 				font-weight: 300;
 			}
 	
+	#download .control-label {
+		font-size: 15px;
+	}
+	#download .help-block {
+		font-size: 13px;
+	}
+
 	#secondary-image-separator {
 		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
 		background-size: cover;
 		height: 700px;
 	}
-	
+
+		#secondary-image-separator .spacer {
+			padding-top: 50%;
+		}
+
 	#tertiary {}
-	
+
 		#tertiary h2 {
 			margin: 0 0 .5em;
 		}
-	
+
 	#fourth {}
 	#fifth {
 		background: #222;
@@ -250,7 +289,7 @@ em {
 	padding: 0 !important;
 }
 
-.form-horizontal small {
+.form-horizontal .help-block {
 	font-style: italic;
 }
 	
