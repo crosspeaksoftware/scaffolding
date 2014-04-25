@@ -275,18 +275,21 @@ em {
 		border-bottom: 1px solid #FFF7F2;
 	}
 	
+#goods {
+	margin-bottom: 2em;
+}
+
+#goods h2, #customize h2 {
+	text-align: center;
+}
+	
 .form-horizontal .control-label {
 	padding-top: 0;
-	padding-left: 0 !important;
 }
 
 .form-horizontal input {
 	box-shadow: none ;
 	border-radius: 0;
-}
-
-.form-horizontal .input-field {
-	padding: 0 !important;
 }
 
 .form-horizontal .help-block {
@@ -399,6 +402,14 @@ pre code {
 	
 	ul.inline-buttons li.only-item {
 		width: 48%;
+	}
+	
+	.form-horizontal .control-label {
+		padding-left: 0 !important;
+	}
+
+	.form-horizontal .input-field {
+		padding: 0 !important;
 	}
 	
 	.hall-logo {
