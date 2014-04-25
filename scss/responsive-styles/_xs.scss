@@ -409,12 +409,35 @@ SIDEBARS & ASIDES
 FOOTER STYLES
 *********************/
 
-.footer {
+#colophon {
 	clear: both;
+	background-color:#333;
+	color:#fff;
+	padding:1em 0;
 }
 
 	ul.footer-menu {
-		li {}
+		display:inline-block;
+		text-align:right;
+		margin:0;
+		padding:0;
+
+		li {
+			display:inline-block;
+			margin:0;
+			padding:0;
+
+			a{
+				border-left:1px solid #ccc;
+				color:#fff;
+				line-height:normal;
+				padding:0 1em;
+
+				&.first-child{
+					border-left:none;
+				}
+			}
+		}
 	} /* end .footer-menu */
 
 	.copyright {}
