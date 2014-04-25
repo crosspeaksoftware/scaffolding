@@ -152,7 +152,7 @@ em {
 			background: rgba(255, 255, 255, .4);
 		}
 
-	#headline {
+	.headline {
 		font-size: 4em;
 		font-weight: 400;
 		display: inline-block;
