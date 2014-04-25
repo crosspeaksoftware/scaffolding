@@ -3,14 +3,11 @@
  * Usage: be sure to uncheck the box in Gravity Forms Settings to "Not" Output default CSS
 ----------------------------------- */
 
-@import "compass";
-@import "../includes/variables";
-
 /* Import Other Styles */
-@import "gform_styles/_ready_classes.scss";
-@import "gform_styles/_submission_and_errors.scss";
-@import "gform_styles/_other_fields.scss";
-@import "gform_styles/_credit_cards.scss";
+@import "gform_styles/_ready_classes";
+@import "gform_styles/_submission_and_errors";
+@import "gform_styles/_other_fields";
+@import "gform_styles/_credit_cards";
 
 /* Browser Specific */
 ::-webkit-input-placeholder {
