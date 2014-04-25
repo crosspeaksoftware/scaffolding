@@ -29,13 +29,24 @@ TABLE OF CONTENTS
 
 ******************************************/
 
+//Set up the content width value based on the theme's design.
+if ( ! isset( $content_width ) ) {
+	$content_width = 474;
+}
+
+//Adjust content_width value for image attachment template.
+function scaffolding_content_width() {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$GLOBALS['content_width'] = 810;
+	}
+}
+add_action( 'template_redirect', 'scaffolding_content_width' );
+
 /*********************
 1. INCLUDE FILES
 *********************/
 define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
 require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
-// require_once(SCAFFOLDING_INCLUDE_PATH.'tinymce/styles-dropdown.php');
-// require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
 
 
 /*********************
@@ -66,7 +77,7 @@ function scaffolding_scripts_and_styles() {
 
 	// iCheck (better radio and checkbox inputs)
 	wp_enqueue_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
-	
+
 	//Chosen - http://harvesthq.github.io/chosen/
     wp_enqueue_script( 'chosen-js', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', array( 'jquery' ), '1.1.0', true );
 

@@ -414,6 +414,28 @@ h6, .h6 {
     display: none;
 }
 
+/*Block Quote Alignment*/
+blockquote.left {}
+blockquote.right {}
+
+/*Image Sizes*/
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+
+
+.wp-smiley {}
+
 /*Use this class for any Editor Specific Styles to help the user experience
  * set the max size of the content area in the editor to match the template*/
 .mceContentBody {
