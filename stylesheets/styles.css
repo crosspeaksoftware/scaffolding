@@ -29,11 +29,11 @@ em {
 		margin: 1.2em 0;
 		font-weight: 300;
 	}
-	
+
 		h1 a {
 			color: #333;
 		}
-		
+
 		h1 a:hover {
 			text-decoration: none;
 			color: #333;
@@ -50,12 +50,12 @@ em {
 		font-weight: 100;
 		transition: background-color 0.5s ease;
 	}
-	
+
 		#getstarted:hover {
 			text-decoration: none;
 			background: rgba(255, 255, 255, .4);
 		}
-		
+
 	#headline {
 		font-size: 4em;
 		font-weight: 400;
@@ -73,7 +73,7 @@ em {
 
 	body.home .content {
 		font-size: 1.5em;
-	}		
+	}
 
 	.content.dark {
 		color: #ccc;
@@ -87,58 +87,64 @@ em {
 		text-align: center;
 	}
 	#secondary {}
-	
+
 		#secondary h2 {
 			text-align: center;
 		}
-	
+
 		#secondary ul {
 			list-style: none;
 			padding: 0;
 		}
-	
+
 		#secondary li {
 			margin-bottom: .5em;
 			line-height: 1.2em;
 		}
-		
+
 			#secondary li a,
 			#secondary li a:visited {
 				color: #ccc;
 				transition: color 0.2s ease;
 			}
-			
+
 			#secondary li a:hover {
 				text-decoration: none;
 				color: #27ae60;
 			}
-	
+
 		#secondary small {
 			display: block;
 			font-size: .7em;
 			color: #777;
 		}
-	
+	#download .control-label {
+		font-size: 15px;
+	}
+	#download .help-block {
+		font-size: 13px;
+	}
+
 	#secondary-image-separator {
 		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50%;
 		background-size: cover;
 	}
-	
+
 		#secondary-image-separator .spacer {
 			padding-top: 50%;
 		}
-	
+
 	#tertiary {}
-	
+
 		#tertiary h2 {
 			margin: 0 0 .5em;
 		}
-	
+
 	#fourth {}
 	#fifth {
 		background: #222;
 	}
-	
+
 #footer {
 	background: #000;
 	color: #777;
