@@ -5,6 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Responsive Design Scaffolding for WordPress</title>
+		
+		<link rel="icon" href="favicon.ico">
 
 		<!-- Bootstrap -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,19 +29,26 @@
 		</script>
 	</head>
 	<body class="home">
-		<header id="header" class="row">
+		<header id="header" class="skrollable skrollable-between">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6">
-						<h1>Scaffolding</h1>
+					<div class="col-xs-12 col-sm-6 col-sm-push-6">
+						<ul class="inline-buttons">
+							<li class="first-item"><a href="get-started.html" title="Scaffolding Documentation">Get Started</a>
+							<li class="last-item"><a href="https://github.com/hallme/scaffolding" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
+						</ul>
 					</div>
-					<div class="col-xs-6">
-						<a id="getstarted" href="get-started.html" title="Scaffolding Github Repo">Get Started</a>
+					<div class="col-xs-12 col-sm-6 col-sm-pull-6">
+						<h1><a href="http://scaffolding.io" title="Scaffolding">Scaffolding</a></h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
-						<div id="headline">Responsive Design Scaffolding for WordPress</div>
+						<div class="headline-wrapper">
+							<div class="headline larger">Responsive Framework</div>
+							<br>
+							<div class="headline smaller">for WordPress</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -49,7 +58,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-						<h2>Don't Learn Another Framework.</h2>
+						<h2 class="section-title">Don't Learn Another Framework.</h2>
 						<p>Scaffolding is designed to utilize all the best tools across the web - <br />from the <a href="http://underscores.me/" title="Underscores theme framework" target="_blank">_S</a> starter theme by Automattic, to <a href="http://getbootstrap.com/css/#grid" target="_blank" title="Twitter Bootstrap">Bootstrap's grid structures</a>, and common WordPress helper functions.</p>
 						<p>Working with Scaffolding streamlines your existing process rather than reinventing it.</p>
 					</div>
@@ -67,14 +76,16 @@
 						<ul>
 							<li><a href="http://underscores.me/" target="_blank" title="Underscores theme framework">_S theme framework</a>
 								<small><em>with a few slight modifications</em></small></li>
-							<li><a href="http://getbootstrap.com/" target="_blank" title="Twitter Bootstrap">Bootstrap Grid</a>
-								<small><em>SASS</em></small></li>
-							<li><a href="https://github.com/Modernizr/Modernizr" target="_blank" title="Modernizer">Modernizr</a>
-								<small><em>&nbsp;</em></small></li>
+							<li><a href="http://getbootstrap.com/css/#grid" target="_blank" title="Twitter Bootstrap">Bootstrap Grid</a>
+								<small><em>Responsive grid with SASS</em></small></li>
+							<li><a href="http://necolas.github.io/normalize.css/" target="_blank" title="Normalize CSS">Normalize</a>
+								<small><em>CSS Reset</em></small></li>
+							<li><a href="http://modernizr.com/" target="_blank" title="Modernizer">Modernizr</a>
+								<small><em>HTML5/CSS3 feature detection</em></small></li>
 							<li><a href="https://github.com/scottjehl/Respond" target="_blank" title="Respond.js">Respond.js</a>
-								<small><em>&nbsp;</em></small></li>
+								<small><em>Media query polyfill for IE 6-8</em></small></li>
 							<li><a href="http://smacss.com/" target="_blank" title="Modular CSS Architecture">Modular CSS Architecture</a>
-								<small><em>Easily swap out elements like mobile nav styles</em></small></li>
+								<small><em>Easily swap out elements like mobile nav</em></small></li>
 						</ul>
 					</div>
 					<div class="col-sm-4">
@@ -82,31 +93,77 @@
 							<li><a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank" title="Magnific Popup">Magnific Popup</a>
 								<small><em>Modal Windows</em></small></li>
 							<li><a href="http://www.gravityforms.com/" target="_blank" title="Gravity Forms">Gravity Forms</a> Styles
-								<small><em>Easy overrides for default styles</em></small></li>
+								<small><em>Easy customization with no overrides</em></small></li>
 							<li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" title="Font Awesome">Font Awesome</a>
-								<small><em>&nbsp;</em></small></li>
+								<small><em>Icon font</em></small></li>
 							<li><a href="http://harvesthq.github.io/chosen/" target="_blank" title="Chosen.js">Chosen</a>
-								<small><em>&nbsp;</em></small></li>
+								<small><em>Better select inputs</em></small></li>
 							<li><a href="http://fronteed.com/iCheck/" target="_blank" title="iCheck.js">iCheck</a>
-								<small><em>&nbsp;</em></small></li>
+								<small><em>Better checkbox and radio inputs</em></small></li>
+							<li>Wordpress Best Practices</a>
+								<small><em>Clean, tested, and well commented code</em></small></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div id="secondary-image-separator">
-			<div class="spacer"></div>
+		
+		<div id="download" class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<h2>Download it!</h2>
+						<p><a href="http://download.scaffolding.io/" id="download-link" class="btn btn-default">Get the Goods</a></p>
+					</div>
+					<div class="col-sm-6 col-sm-push-2">
+						<h2>Customize it!</h2>
+						<form class="form-horizontal" role="form" action="http://download.scaffolding.io/" method="POST">
+							<div class="form-group">
+								<label for="name" class="col-sm-4 control-label">Theme Name</label>
+								<div class="col-sm-8 input-field">
+									<input type="text" class="form-control" id="name" name="name" placeholder="Scaffolding">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="slug" class="col-sm-4 control-label">Slug</label>
+								<div class="col-sm-8 input-field">
+									<input type="text" class="form-control" id="slug" name="slug" placeholder="scaffolding">
+									<small>Leave blank for auto generated slug.</small>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="author" class="col-sm-4 control-label">Author</label>
+								<div class="col-sm-8 input-field">
+									<input type="text" class="form-control" id="author" name="author" placeholder="Your Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="authoruri" class="col-sm-4 control-label">Author URI</label>
+								<div class="col-sm-8 input-field">
+									<input type="text" class="form-control" id="authoruri" name="authoruri" placeholder="http://www.yoururlhere.com">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-8">
+									<button type="submit" class="btn btn-default">Get It!</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
+
+		<div id="secondary-image-separator" class="skrollable skrollable-between"></div>
 
 		<div id="tertiary" class="content">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<h2>Tuned for Client Work</h2>
 						<p>Scaffolding is designed specifically for building client websites. We've refined it over a year of development on real projects to determine the best ways to streamline development.</p>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<h2>Optimized for SEO</h2>
 						<p>Scaffolding was built with direct input from search marketers, tested extensively with Yoast, and reviewed for technical search features.</p>
 					</div>
@@ -116,18 +173,24 @@
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-xs-6">
 						Scaffolding v1.0
 					</div>
-					<div class="col-sm-6 menu">
+					<div class="col-xs-6 col-sm-3 col-md-4 menu">
 						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-2">
+						<a class="hall-logo" href="http://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
 					</div>
 				</div>
 			</div>
 		</footer>
 
-
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.11/skrollr.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		skrollr.init({ forceHeight: false }); 
+	</script>
   </body>
 </html>

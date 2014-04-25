@@ -5,6 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Responsive Design Scaffolding for WordPress</title>
+		
+		<link rel="icon" href="favicon.ico">
 
 		<!-- Bootstrap -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,14 +29,16 @@
 		</script>
 	</head>
 	<body class="get-started">
-		<header id="header" class="row">
+		<header id="header" class="skrollable skrollable-between">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6">
-						<h1><a href="http://www.scaffolding.io">Scaffolding</a></h1>
+					<div class="col-xs-6 col-xs-push-6">
+						<ul class="inline-buttons">
+							<li class="only-item"><a href="https://github.com/hallme/scaffolding" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
+						</ul>
 					</div>
-					<div class="col-xs-6">
-						<a id="getstarted" href="https://github.com/hallme/scaffolding" title="Scaffolding Github Repo">Fork on Github</a>
+					<div class="col-xs-6 col-xs-pull-6">
+						<h1><a href="http://scaffolding.io" title="Scaffolding">Scaffolding</a></h1>
 					</div>
 				</div>
 			</div>
@@ -44,53 +48,77 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-						<h2>Quick Start Guide</h2>
+						<h2 class="page-title">Quick Start Guide</h2>
+					
+						<section>
+							<h3><strong>Functions</strong></h3>
+							<p>We have 2 functions files - 
+								<ul>
+									<li><em>functions.php</em>: Contains scripts & enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
+									<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis - clean up stuff, dashboard widgets, ux functions, recommended and required plugins that we've provided.</li>
+								</ul>
+							</p>
+<div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/********************************************
+13. ADD FIRST AND LAST CLASSES TO POSTS
+********************************************/
+
+function scaffolding_post_classes( $classes ) {
+	global $wp_query;
+	if($wp_query->current_post == 0) {
+		$classes[] = 'first-post';
+	} elseif(($wp_query->current_post + 1) == $wp_query->post_count) {
+		$classes[] = 'last-post';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'scaffolding_post_classes' );
+}</code></pre>
+						</section>
 						
 						
-						<h3><strong>Functions</strong></h3>
-						<p>We have 2 functions files - 
+						<section>
+							<h3><strong>Template Structure</strong></h3>
+							<p>Post formats are rarely used in client websites, so we've removed support for them by default. If you would like to use post formats on a project, the method used in <a href="http://underscores.me" target="_blank">underscores (_s)</a> could easily be integrated.</p>
+							<p>Our recommendation is to use the structure <em>tmpl-templatename.php</em> for custom templates to avoid namespace issues and create easily-accessible body classes for styling.</p>
+							<p>Reference: <a href="https://codex.wordpress.org/Template_Hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
+						</section>
+						
+						<section>
+							<h3><strong>Styles</strong></h3>
+							<p>All of your styles are in the <em>/scss/</em> folder.</p>
 							<ul>
-								<li><em>functions.php</em>: Contains scrips & enqueueing, sidebars, custom post type includes, and everything else you'd normally expect to modify.</li>
-								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis.</li>
+								<li><em>login.scss</em>: Customize the admin login screen.</li>
+								<li><em>editor-styles.scss</em>: Set specific styles for the wysiwyg editor.</li>
+								<li><em>ie.scss</em>: Set overrides for Internet Explorer.</li>
+								<li><em>print.scss</em>: Strips out all unnecessary elements for optimal printing.</li>
+								<li><em>style.scss</em>: This is a setup file that builds your stylesheet.</li>
+								<li><em>/includes/_variables.scss</em>: Set all your colors, fonts, and other variables here. Default grid settings are also here.</li>
+								<li><em>/includes/_mixins.scss</em>: We've included a lot of useful mixins and utility classes for rapid development.</li>
+								<li><em>/scss/responsive-styles/</em>: This folder contains your main stylesheets. These load in according to your default settings from /includes/_variables.scss</li>
+								<ul>
+									<li><em>_xs.scss</em>: The majority of your styles go here. This sheet is loaded on all devices by default.</li>
+									<li><em>_sm.scss</em>: Small devices (tablets) with a min-width of 768px.</li>
+									<li><em>_md.scss</em>: Medium devices (desktops) with a min-width of 992px.</li>
+									<li><em>_lg.scss</em>: Large devices (desktops) with a min-width of 1200px.</li>
+								</ul>
 							</ul>
-						</p>
-						<br />
+						</section>
 						
-						
-						<h3><strong>Template Structure</strong></h3>
-						<p>Post formats are rarely used in client websites, so we've removed support for them by default. If you would like to use post formats on a project, the method used in <a href="http://underscores.me" target="_blank">underscores (_s)</a> could easily be integrated.</p>
-						<p>Our recommendation is to use the structure <em>tmpl-templatename.php</em> for custom templates to avoid namespace issues and create easily-accessible body classes for styling.</p>
-						<p>Reference: <a href="https://codex.wordpress.org/Template_Hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
-						<br />
-						
-						
-						<h3><strong>Styles</strong></h3>
-						<p>All of your styles are in the <em>/scss/</em> folder.</p>
-						<ul>
-							<li><em>style.scss</em>: This is a setup file that builds your stylesheet.</li>
-							<li><em>/includes/_variables.scss</em>: Set all your colors, fonts, and other variables here. Default grid settings are also here.</li>
-							<li><em>/scss/responsive-styles/</em>: This folder contains your main stylesheets. These load in according to your default settings from /includes/_variables.scss</li>
-							<ul>
-								<li><em>_xs.scss</em>: The majority of your styles go here. This sheet is loaded on all devices by default.</li>
-								<li><em>_sm.scss</em>: Small devices (tablets) with a min-width of 768px.</li>
-								<li><em>_md.scss</em>: Medium devices (desktops) with a min-width of 992px.</li>
-								<li><em>_lg.scss</em>: Large devices (desktops) with a min-width of 1200px.</li>
-							</ul>
-						</ul>
-						<br />
-						
-						
-						<h3><strong>Getting Started with SASS + Compass</strong></h3>
-						<p>We're using <em>SASS</em> by default to utilize it's organization, speed, and functions. If you've used LESS before, SASS is an easy transition. If you haven't used CSS preprocessors before, you're in for a treat. You can learn more about SASS <a href="http://sass-lang.com/guide" target="_blank">here</a>.</p>
-						
-						<p><em>Compass</em> is like an extension to SASS, giving us access to all sorts of predefined tools. On the most basic level, Compass can generate cross-browser code for CSS3 properties, saving valuable time and keeping your source code clean.</p>
-						
-						<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:
-							<ul>
-								<li><a href="https://incident57.com/codekit/" target="_blank">CodeKit</a></li>
-								<li><a href="http://compass.kkbox.com/" target="_blank">Compass.ass</a></li>
-								<li><a href="http://mhs.github.io/scout-app/" target="_blank">Scout</a></li>
-							</ul></p>
+						<section>
+							<h3><strong>Getting Started with SASS + Compass</strong></h3>
+							<p>We're using <em>SASS</em> by default to utilize it's organization, speed, and functions. If you've used LESS before, SASS is an easy transition. If you haven't used CSS preprocessors before, you're in for a treat. You can learn more about SASS <a href="http://sass-lang.com/guide" target="_blank">here</a>.</p>
+							
+							<p><em>Compass</em> is like an extension to SASS, giving us access to all sorts of predefined tools. On the most basic level, Compass can generate cross-browser code for CSS3 properties, saving valuable time and keeping your source code clean.</p>
+							
+							<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:
+								<ul>
+									<li><a href="https://incident57.com/codekit/" target="_blank">CodeKit</a></li>
+									<li><a href="http://compass.kkbox.com/" target="_blank">Compass.ass</a></li>
+									<li><a href="http://mhs.github.io/scout-app/" target="_blank">Scout</a></li>
+								</ul>
+							</p>
+						</section>
 						
 					</div>
 				</div>
@@ -100,18 +128,24 @@
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-xs-6">
 						Scaffolding v1.0
 					</div>
-					<div class="col-sm-6 menu">
+					<div class="col-xs-6 col-sm-3 col-md-4 menu">
 						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-2">
+						<a class="hall-logo" href="http://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
 					</div>
 				</div>
 			</div>
 		</footer>
 
-
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.11/skrollr.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		skrollr.init({ forceHeight: false }); 
+	</script>
   </body>
 </html>
