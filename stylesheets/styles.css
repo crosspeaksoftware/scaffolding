@@ -101,8 +101,7 @@ a, em {
 	}
 
 em {
-	//color: #d35400;
-	color: #777;
+	color: #111;
 }
 
 .page-title {
@@ -245,7 +244,7 @@ em {
 			font-weight: 400;
 			font-size: 3.675em;
 			margin-bottom: 0.6em;
-			text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+			text-shadow: 1px 3px 5px rgba(0,0,0,0.5);
 		}
 
 	.headline {
@@ -254,7 +253,7 @@ em {
 		color: #FFF;
 		text-align: center;
 		background: rgba(0,0,0,0.1);
-		text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+		text-shadow: 1px 3px 5px rgba(0,0,0,0.5);
 		padding: 0.5em;
 	}
 	
@@ -324,6 +323,11 @@ em {
 			font-weight: 300;
 		}
 		
+			#download .form-control:focus {
+				border-color: #333;
+				box-shadow: none;
+			}
+		
 		#download form {
 			max-width: 800px;
 			margin: 0 auto;
@@ -351,7 +355,7 @@ em {
 
 			#secondary li a,
 			#secondary li a:visited {
-				color: #FFF;
+				color: #AAA;
 				font-weight: 300;
 				transition: color 0.2s ease;
 			}
@@ -427,7 +431,7 @@ em {
 	
 #footer {
 	background: #111;
-	color: #333;
+	color: #999;
 	padding: 2em 0 1em 0;
 	font-weight: 400;
 	font-size: 1em;
@@ -435,11 +439,11 @@ em {
 
 	#footer .menu {
 		text-align: right;
-		color: #777;
+		color: #999;
 	}
 	
 		#footer .menu a {
-			color: #777;
+			color: #999;
 		}
 		
 		#footer .menu a:hover,
