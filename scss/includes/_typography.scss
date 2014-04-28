@@ -408,10 +408,58 @@ h6, .h6 {
     opacity: 1;
 }
 
-.gallery-columns-7 .gallery-caption,
-.gallery-columns-8 .gallery-caption,
-.gallery-columns-9 .gallery-caption {
-    display: none;
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9 {
+	.gallery-caption {
+		display: none;
+	}
+}
+
+.gallery-columns-1 {
+	.gallery-item {
+		width:98%;
+	}
+}
+.gallery-columns-2 {
+	.gallery-item {
+		width:48%;
+	}
+}
+.gallery-columns-3 {
+	.gallery-item {
+		width:31.3%;
+	}
+}
+.gallery-columns-4 {
+	.gallery-item {
+		width:23%;
+	}
+}
+.gallery-columns-5 {
+	.gallery-item {
+		width:18%;
+	}
+}
+.gallery-columns-6 {
+	.gallery-item {
+		width:14.6%;
+	}
+}
+.gallery-columns-7 {
+	.gallery-item {
+		width:12.2%;
+	}
+}
+.gallery-columns-8 {
+	.gallery-item {
+		width:10.5%;
+	}
+}
+.gallery-columns-9 {
+	.gallery-item {
+		width:9.1%;
+	}
 }
 
 /*Block Quote Alignment*/
