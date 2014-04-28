@@ -6,260 +6,135 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
-/******************************************************
-FORM STYLES - Overwrites
-*******************************************************/
-form {
+/* Browser Specific */
 
-    label {}
-
-    textarea,
-    select,
-    input[type="text"],
-    input[type="password"],
-    input[type="color"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="email"],
-    input[type="month"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    input[type="text"],
-    input[type="password"],
-    input[type="file"]{
-		color: #555;
-		font-size: .9em !important;
-		padding:0.5em 1% !important;
-		-webkit-appearance: none;
-
-		&:invalid{}
-    }
-
-	textarea,
-    input[type="text"],
-    input[type="password"],
-    input[type="color"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="email"],
-    input[type="month"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    input[type="text"],
-    input[type="password"],
-    input[type="file"]{
-    	outline:none;
-		background:#FFF;
-		border:1px solid #CCCCCC;
-		@include box-shadow(2px 2px 8px 0 #CCCCCC inset);
-		@include border-radius(2px);
-		color: #555555;
-		@include transition(all 0.25s ease-in-out);
-
-		&:focus {
-			border:1px solid #333;
-		}
-    }
-
-    textarea {
-        letter-spacing: normal;
-        outline-style: none;
-        resize: none;
-        width:97%;
-        min-height:150px;
-    }
-
-	/* Use chosen.js for better dropdowns http://harvesthq.github.io/chosen/ */
-    select {
-        width:auto;
-        padding: 0.25em 1% !important;
-    }
-
-    input[type=image] {
-        border: none !important;
-        padding: 0 !important;
-        width: auto !important
-    }
-
-	table{
-		background-color:transparent!important;
-		thead,th,tr,tr:hover,td{
-			background-color:transparent!important;
-		}
-
-	}
-
+::-webkit-input-placeholder {
+	color: #CCC;
+	font-style: italic;
+	font-weight: 400;
+}
+:-moz-placeholder {
+	color: #CCC;
+	font-style: italic;
+	font-weight: 400;
+}
+::-moz-placeholder {
+	color: #CCC;
+	font-style: italic;
+	font-weight: 400;
+}
+:-ms-input-placeholder {
+	color: #CCC;
+	font-style: italic;
+	font-weight: 400;
 }
 
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
 
-/*************************
- * Button Styles
- *************************/
-.btn,
-input[type="button"],
-input[type="submit"] {
-	display: inline-block;
-	*display: inline;// IE6-7
-	padding: 4px 12px;
-	margin-bottom: 0;
-	*margin-left: .3em; // IE6-7
+/* INPUTS */
+
+textarea,
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=tel],
+input[type=number],
+input[type=password] {
+	outline: none;
+	background:#FFF;
+	border:1px solid #CCC;
+	color: #444;
+	font-size: .9em;
+	letter-spacing: normal;
+	padding: 8px 1%;
+	@include transition(all 0.25s ease-in-out);
+	border-radius: 0;
+	
+	&:focus {
+		border:1px solid #333;
+	}
+}
+
+input[type=image] {
+	padding: 0;
+	border: none !important;
+	padding: 0 !important;
+	width: auto !important;
+}
+
+textarea {
+	resize: none;
+}
+
+select { // Default select if Javascript is disabled
 	font-size: 1em;
-	color: #333333;
+	font-family: inherit;
+	padding: 5px 0 5px 0;
+	letter-spacing: normal;
+
+	option {
+		padding: 2px 2px;
+		display: block;
+	}
+}
+
+input[type=submit],
+input[type=button] {
+	display: inline-block;
+	width: 100%;
+	padding: 0.5em 0;
+	margin-bottom: 0;
+	font-size: 1.125em;
+	font-weight: 700;
+	color: #FFF;
 	text-align: center;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	vertical-align: middle;
 	cursor: pointer;
-	background-color: #f5f5f5;
-	*background-color: #e6e6e6;// IE6-7
-	@include filter-gradient(#ffffff, #e6e6e6, vertical); // IE6-9
-	@include background-image(linear-gradient(top,  #ffffff 25%, #e6e6e6 100%));
-	background-repeat: repeat-x;
-	border: 1px solid #cccccc;
-	*border: 0; // IE6-7
-	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	border-bottom-color: #b3b3b3;
-	*zoom: 1;// IE6-7
-	@include border-radius(4px);
-	@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
-}
-
-.btn:hover,
-.btn:focus,
-.btn:active,
-.btn.active,
-.btn.disabled,
-.btn[disabled],
-input[type="button"]:hover,
-input[type="button"]:focus,
-input[type="button"]:active,
-input[type="submit"]:hover,
-input[type="submit"]:focus,
-input[type="submit"]:active {
-  color: #333333;
-  background-color: #e6e6e6;
-  *background-color: #d9d9d9;
-}
-
-.btn:active,
-.btn.active
-input[type="submit"]:active,
-input[type="submit"]:active {
-	background-color: #cccccc \9;
-}
-
-.btn:first-child
-input[type="submit"]:first-child,
-input[type="submit"]:first-child {
-	*margin-left: 0;
-}
-
-.btn:hover,
-.btn:focus,
-input[type="button"]:focus,
-input[type="button"]:active,
-input[type="submit"]:focus,
-input[type="submit"]:active {
-	color: #333333;
-	text-decoration: none;
-	background-position: 0 -15px;
-    @include transition(background-position 0.1s linear);
-}
-
-.btn:focus,
-input[type="button"]:focus,
-input[type="submit"]:focus,{
-	outline: thin dotted #333;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
-}
-
-.btn.active,
-.btn:active,
-input[type="button"]:active,
-input[type="submit"]:active {
-	background-image: none;
-	outline: 0;
-	@include box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05));
-}
-
-.btn.disabled,
-.btn[disabled] {
-	cursor: default;
-	background-image: none;
-	opacity: 0.65;
-	filter: alpha(opacity=65);
-	@include box-shadow(none);
-}
-
-/************************
- * Validation Error Styles
- ************************/
-.gform_wrapper{
-
-	form{
-
-		.validation_error{
-			text-align:center;
-		}
-
-		li.gfield.gfield_error,
-		li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
-			background-color:transparent!important;
-		    border:none!important;
-		    padding:0!important;
-
-			div.ginput_container {
-				margin-top: 0px!important;
-
-				textarea,
-			    select,
-			    input[type="text"],
-			    input[type="password"],
-			    input[type="color"],
-			    input[type="date"],
-			    input[type="datetime"],
-			    input[type="datetime-local"],
-			    input[type="email"],
-			    input[type="month"],
-			    input[type="number"],
-			    input[type="search"],
-			    input[type="tel"],
-			    input[type="time"],
-			    input[type="url"],
-			    input[type="week"],
-			    input[type="text"],
-			    input[type="password"],
-			    input[type="file"] {
-					border-color:darken($alert-red, 5%);
-					background-color:$alert-red;
-				}
-			}
-		}
-
-		.top_label .gfield_description.validation_message,
-		.gfield_description.validation_message {
-			padding:0!important;
-		}
+	background: #444;
+	border: 0;
+	border-radius: 0;
+	font-family: $sans;
+	@include transition(all 0.25s ease-in-out);
+	
+	&:hover, &:focus, &:active, .active, .disabled, [disabled] {
+		color: #FFF;
+		background: darken(#444, 5%);
+		text-decoration: none;
+	}
+	
+	&:focus {
+		outline: thin dotted #333 !important;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+	
+	&:active {
+		outline: 0;
+	}
+	
+	&.disabled, [disabled] {
+		cursor: default;
+		background-image: none;
+		opacity: 0.65;
+		filter: alpha(opacity=65);
+		@include box-shadow(none);
+	}
+	
+	&:first-child {
+		*margin-left: 0;
 	}
 }
 
 /************************
- * SearchFrom Styles
+ * SearchForm Styles
  ************************/
+ 
 #searchform{
 
-	label{
+	label {
 		display:none;
 		/* Style to show label in line with text field
 		display:inline-block;
@@ -270,8 +145,8 @@ input[type="submit"]:active {
 		width:20%;
 	}
 
-	//Text inpute
-	#s{
+	//Text input
+	#s {
 		outline:none;
 		background:#FFF;
 		border:1px solid #CCCCCC;
@@ -289,62 +164,30 @@ input[type="submit"]:active {
 	}
 
 	//Submit Button
-	#searchsubmit{
+	#searchsubmit {
 		padding: 7px 15px;
 	}
 }
 
 /*Search Styles on 404 page*/
-.error404{
-	#searchform{
-		label{}
-		#s{}
-		#searchsubmit{}
+.error404 {
+	#searchform {
+		label {}
+		#s {}
+		#searchsubmit {}
 	}
 }
 
-/******************************************************
-MOBLIE FORM STYLES - to make forms more finger friendly
-*******************************************************/
-@media only screen and (max-width: 481px) {
-	form {
-	    label {}
+@media only screen and (min-width: $screen-sm-min) {
 
-	    select.small,
-	    select.medium,
-	    select.large,
-	    input.small,
-	    input.medium,
-	    input.large{
-			width: 97%!important;
-			padding:5px 1%!important;
-
-			&:focus {}
-
-			&:invalid{}
-	    }
-
-	    textarea {}
-
-	    select {}
-
-	    input[type=image] {}
+	input[type=button],
+	input[type=submit] {
+		width: auto;
+		padding: 0.5em 3em;
 	}
 
-	/*Mobile Buttons*/
-	a.btn,
-	input[type="button"],
-	input[type="submit"] {
-		width:90%;
-		padding:15px 4.5%;
-
-	}
-
-	a.btn{}
-
-	a.btn:hover,
-	input[type="button"]:hover,
-	input[type="submit"]:hover {}
-
-	a.button span{}
 }
+
+@media only screen and (min-width: $screen-md-min) {}
+
+@media only screen and (min-width: $screen-lg-min) {}
