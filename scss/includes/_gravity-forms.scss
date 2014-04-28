@@ -9,33 +9,6 @@
 @import "gform_styles/_other_fields";
 @import "gform_styles/_credit_cards";
 
-/* Browser Specific */
-::-webkit-input-placeholder {
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-:-moz-placeholder {
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-::-moz-placeholder {
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-:-ms-input-placeholder {
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-
-input, textarea {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-}
-
 /* Standard Fields */
 
 /* 
@@ -97,39 +70,6 @@ input, textarea {
 	
 /* INPUTS */
 
-textarea,
-input[type=text],
-input[type=url],
-input[type=email],
-input[type=tel],
-input[type=number],
-input[type=password] {
-	outline: none;
-	background:#FFF;
-	border:1px solid #CCC;
-	color: #444;
-	font-size: .9em;
-	letter-spacing: normal;
-	padding: 8px 1%;
-	@include transition(all 0.25s ease-in-out);
-	border-radius: 0;
-	
-	&:focus {
-		border:1px solid #333;
-	}
-}
-
-input[type=image] {
-	padding: 0;
-	border: none !important;
-	padding: 0 !important;
-	width: auto !important;
-}
-
-textarea {
-	resize: none;
-}
-
 textarea.small {
 	height: 80px;
 }
@@ -140,66 +80,6 @@ textarea.medium {
 
 textarea.large {
 	height: 250px;
-}
-
-select { // Default select if Javascript is disabled
-	font-size: 1em;
-	font-family: inherit;
-	padding: 5px 0 5px 0;
-	letter-spacing: normal;
-
-	option {
-		padding: 2px 2px;
-		display: block;
-	}
-}
-
-input.gform_button,
-input[type=submit],
-input[type=button] {
-	display: inline-block;
-	width: 100%;
-	padding: 0.5em 0;
-	margin-bottom: 0;
-	font-size: 1.125em;
-	font-weight: 700;
-	color: #FFF;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	background: #444;
-	border: 0;
-	border-radius: 0;
-	font-family: $sans;
-	@include transition(all 0.25s ease-in-out);
-	
-	&:hover, &:focus, &:active, .active, .disabled, [disabled] {
-		color: #FFF;
-		background: darken(#444, 5%);
-		text-decoration: none;
-	}
-	
-	&:focus {
-		outline: thin dotted #333 !important;
-		outline: 5px auto -webkit-focus-ring-color;
-		outline-offset: -2px;
-	}
-	
-	&:active {
-		outline: 0;
-	}
-	
-	&.disabled, [disabled] {
-		cursor: default;
-		background-image: none;
-		opacity: 0.65;
-		filter: alpha(opacity=65);
-		@include box-shadow(none);
-	}
-	
-	&:first-child {
-		*margin-left: 0;
-	}
 }
 	
 /* RADIO & CHECKBOXES */
@@ -618,13 +498,6 @@ form {
 	
 	li.has-select.gfield_error {
 		height: 300px;
-	}
-	
-	input.gform_button,
-	input[type=button],
-	input[type=submit] {
-		width: auto;
-		padding: 0.5em 3em;
 	}
 
 }
