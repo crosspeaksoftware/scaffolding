@@ -31,7 +31,7 @@ html {
 }
 
 body {
-	height:100%;
+	height:auto;
     overflow-x: hidden;
 
     #container{
@@ -70,7 +70,7 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 #content {
-	margin-top: 2em;
+	margin: 2em 0;
 
 	#inner-content{
 

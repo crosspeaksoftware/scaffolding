@@ -245,7 +245,7 @@ function scaffolding_main_nav() {
 		'link_after' => '',							 	 // after each link
 		'depth' => 0,								 	 // limit the depth of the nav
 		'fallback_cb' => '',	 // fallback function
-		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-reorder"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
+		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-bars"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
 		'walker'=> new scaffolding_walker_nav_menu
 	));
 } /* end scaffolding main nav */
