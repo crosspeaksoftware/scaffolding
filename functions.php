@@ -57,7 +57,7 @@ function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
 	// modernizr (without media query polyfill)
-	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', false, null );
+	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', false, null );
 
 	// respondjs
 	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
@@ -73,7 +73,7 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
 	//Font Awesome (icon set)
-	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
 
 	// iCheck (better radio and checkbox inputs)
 	wp_enqueue_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
