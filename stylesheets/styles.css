@@ -72,11 +72,9 @@ a, em {
 }
 
 	.bluebtn:hover, .bluebtn:focus {
-		background: #0078A1;
-		color: #333;
+		background: #0085B2;
+		color: #FFF;
 		text-decoration: none;
-		border: 1px solid #333;
-		background: rgba(255, 255, 255, .2);
 	}
 	
 .formbtn {
