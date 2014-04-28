@@ -462,6 +462,117 @@ h6, .h6 {
 	}
 }
 
+/*Core Media Player*/
+.mejs-container {
+
+	.mejs-controls{
+
+		.mejs-button{}
+
+		.mejs-playpause-button{}
+		.mejs-play{}
+		.mejs-pause{}
+
+		.mejs-time{}
+		.mejs-currenttime-container{}
+		.mejs-duration-container{}
+
+		.mejs-time-rail{}
+
+		.mejs-volume-button{}
+		.mejs-mute{}
+		.mejs-unmute{}
+
+		.mejs-fullscreen-button{}
+		.mejs-fullscreen{}
+		.mejs-unfullscreen{}
+	}
+}
+
+/*video player*/
+.mejs-video{
+	width: 100% !important;
+	height: auto !important;
+	padding-top: 57%;
+
+	.mejs-inner{
+
+		.mejs-mediaelement{
+
+			video{
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+
+		.mejs-layers{
+
+			.mejs-layer{
+
+				.mejs-overlay-loading{}
+
+				.mejs-overlay-error{}
+
+				.mejs-overlay-button{}
+
+			}
+
+			.mejs-poster{
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+
+		.mejs-overlay{}
+
+		.mejs-overlay-play{
+			width: 100% !important;
+			height: 100% !important;
+		}
+
+		.mejs-controls{}
+	}
+}
+
+/*audio player*/
+.mejs-audio{
+	.mejs-inner{
+
+		.mejs-mediaelement{
+
+			audio{}
+		}
+
+		.mejs-layers{
+
+			.mejs-layer{}
+
+			.mejs-poster{}
+		}
+
+		.mejs-controls{
+
+			.mejs-horizontal-volume-slider{
+
+				.mejs-horizontal-volume-total{}
+
+				.mejs-horizontal-volume-current{}
+
+				.mejs-horizontal-volume-handle{}
+			}
+
+			.mejs-mute{}
+
+			.mejs-unmute{}
+		}
+	}
+}
+
 /*Block Quote Alignment*/
 blockquote.left {}
 blockquote.right {}
