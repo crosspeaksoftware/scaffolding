@@ -22,16 +22,14 @@ COMMENT FORM STYLES
 *********************/
 
 .respond-form, .comment-respond {
-	//margin: 1.5em 10px;
-	//padding-bottom: 2.2em;
-	
+
 	#reply-title {
 		font-weight: bold;
 	}
 
 	form {
 		margin: 0.75em 0;
-		
+
 		p {
 			margin: 0 0 0.75em 0
 		}
@@ -57,12 +55,9 @@ COMMENT FORM STYLES
 		input[type=email],
 		input[type=url],
 		textarea {
-			background: #efefef;
 			width: 100%;
 
-			&:focus {
-				background: #fff;
-			}
+			&:focus {}
 
 			/* form validation */
 			&:invalid {
@@ -86,14 +81,13 @@ COMMENT FORM STYLES
 		textarea {
 			height: 150px;
 		}
-		
+
 		label {
 			margin: 10px 0 4px 0;
 			font-weight: bold;
 			display: block;
 			line-height: 1.3em;
 			clear: both;
-		}
 
 			.required{
 				color:#AF3124;
@@ -120,7 +114,7 @@ COMMENT FORM STYLES
 	/* allowed tags */
 	.form-allowed-tags {
 		margin: 1em 0 1.675em 0;
-		
+
 		code {
 			margin-top: 0.5em;
 		}
@@ -130,7 +124,7 @@ COMMENT FORM STYLES
 	.nocomments {
 		margin: 0 20px 1.1em;
 	}
-	
+
 }
 
 /*********************
@@ -287,7 +281,7 @@ COMMENTS STYLES
 		a {}
 
 	}
-	
+
 	.alert.info {
 		p {
 			color: #AF3124;
@@ -331,7 +325,7 @@ COMMENTS STYLES
 			color: $link-hover-color;
 			text-decoration: none;
 		}
-		
+
 		&:after {
 			font-family: "FontAwesome";
 			content: "\f112";
