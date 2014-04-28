@@ -123,13 +123,13 @@ jQuery(document).ready(function($) {
 		$(this).parent("li").parent('ul').removeClass("sub-menu-open");
 	});
 
-	$(window).resize(function() {
+	$(window).resize(function(e) {
 		if(Modernizr && Modernizr.touch) {
 			e.preventDefault();
 		}
 		else {
 			responsive_viewport = $(window).width() + getScrollBarWidth();
-			if(responsive_viewport >= 768 && menu.is(':hidden')) {
+			if(responsive_viewport >= 768) {
 				$('body').removeClass('menu-open');
 			}
 			else if(responsive_viewport < 768 && !menu.is(':hidden')) {
