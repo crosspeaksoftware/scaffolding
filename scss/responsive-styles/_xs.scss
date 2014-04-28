@@ -424,7 +424,7 @@ FOOTER STYLES
 
 		li {
 			display:inline-block;
-			margin:0;
+			margin:0 0 0 -4px;
 			padding:0;
 
 			a{
@@ -432,10 +432,10 @@ FOOTER STYLES
 				color:#fff;
 				line-height:normal;
 				padding:0 1em;
+			}
 
-				&.first-child{
-					border-left:none;
-				}
+			&:first-child a{
+				border-left:none;
 			}
 		}
 	} /* end .footer-menu */
