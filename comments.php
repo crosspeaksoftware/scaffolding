@@ -33,8 +33,8 @@ if ( post_password_required() ) { ?>
 
 	<nav class="comment-nav">
 		<ul class="clearfix">
-	  		<li><?php previous_comments_link() ?></li>
-	  		<li><?php next_comments_link() ?></li>
+	  		<li><?php previous_comments_link(); ?></li>
+	  		<li><?php next_comments_link(); ?></li>
 	 	</ul>
 	</nav>
 

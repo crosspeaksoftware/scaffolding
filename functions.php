@@ -179,7 +179,10 @@ register_default_headers( array(
 
 //Set header image as a BG
 function scaffolding_custom_headers_callback() {
-	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
+	?>	<style type="text/css">#banner {
+			background-image: url(<?php header_image(); ?>);
+			/*-ms-behavior: url(<?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc);*/
+		}</style><?php
 }
 
 
