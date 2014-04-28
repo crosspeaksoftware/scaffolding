@@ -29,9 +29,9 @@ if ( post_password_required() ) { ?>
  if ( have_comments() ) : ?>
  <div id="comments" class="comments-area">
 
-	<h3 id="comments" class="h2"><?php comments_number(__('<span>No</span> Responses', 'scaffolding'), __('<span>One</span> Response', 'scaffolding'), _n('<span>%</span> Response', '<span>%</span> Responses', get_comments_number(),'scaffolding') );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+	<h3 class="h2 comments"><?php comments_number(__('<span>No</span> Responses', 'scaffolding'), __('<span>One</span> Response', 'scaffolding'), _n('<span>%</span> Response', '<span>%</span> Responses', get_comments_number(),'scaffolding') );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
-	<nav id="comment-nav">
+	<nav class="comment-nav">
 		<ul class="clearfix">
 	  		<li><?php previous_comments_link() ?></li>
 	  		<li><?php next_comments_link() ?></li>
@@ -42,12 +42,13 @@ if ( post_password_required() ) { ?>
 		<?php wp_list_comments('type=comment&callback=scaffolding_comments'); ?>
 	</ol>
 
-	<nav id="comment-nav">
+	<nav class="comment-nav">
 		<ul class="clearfix">
 	  		<li><?php previous_comments_link() ?></li>
 	  		<li><?php next_comments_link() ?></li>
 		</ul>
 	</nav>
+</div>
 
 <?php else : // this is displayed if there are no comments so far ?>
 
@@ -66,11 +67,7 @@ if ( post_password_required() ) { ?>
 
 <?php if ( comments_open() ) : ?>
 
-	<section id="respond" class="respond-form">
-
-		<div id="cancel-comment-reply">
-			<p class="small"><?php cancel_comment_reply_link(); ?></p>
-		</div>
+	<section class="respond-form">
 
 		<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
 
@@ -80,11 +77,11 @@ if ( post_password_required() ) { ?>
 
 		<?php else : ?>
 
-			<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+			<!--<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">-->
 
 			<?php comment_form(); ?>
 
-			</form>
+			<!--</form>-->
 
 		<?php endif; // If registration required and not logged in ?>
 
