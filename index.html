@@ -186,6 +186,14 @@
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		skrollr.init({ forceHeight: false });
+		$(function() {
+			$("#download-link").click(function() {
+				ga('send', 'event', 'button', 'click', 'Download');
+			});
+			$("#customize button").click(function() {
+				ga('send', 'event', 'button', 'click', 'Customize');
+			});
+		});
 	</script>
   </body>
 </html>
