@@ -22,11 +22,19 @@ COMMENT FORM STYLES
 *********************/
 
 .respond-form {
-	margin: 1.5em 10px;
-	padding-bottom: 2.2em;
+	//margin: 1.5em 10px;
+	//padding-bottom: 2.2em;
+	
+	#reply-title {
+		font-weight: bold;
+	}
 
 	form {
 		margin: 0.75em 0;
+		
+		p {
+			margin: 0 0 0.75em 0
+		}
 
 		ul {
 
@@ -49,10 +57,8 @@ COMMENT FORM STYLES
 		input[type=email],
 		input[type=url],
 		textarea {
-			padding: 3px 6px;
 			background: #efefef;
-			border: 2px solid #cecece;
-			line-height: 1.5em;
+			width: 100%;
 
 			&:focus {
 				background: #fff;
@@ -78,13 +84,18 @@ COMMENT FORM STYLES
 		}
 
 		textarea {
-			resize: none;
-			width: 97.3%;
 			height: 150px;
+		}
+		
+		label {
+			margin: 10px 0 4px 0;
+			font-weight: bold;
+			display: block;
+			line-height: 1.3em;
+			clear: both;
 		}
 
 	}
-}
 
 	/* comment submit button */
 	#submit {}
@@ -103,8 +114,12 @@ COMMENT FORM STYLES
 	.comments-logged-in-as {}
 
 	/* allowed tags */
-	#allowed_tags {
-		margin: 1.5em 10px 0.7335em 0;
+	.form-allowed-tags {
+		margin: 1em 0 1.675em 0;
+		
+		code {
+			margin-top: 0.5em;
+		}
 	}
 
 	/* no comments */
@@ -112,7 +127,7 @@ COMMENT FORM STYLES
 		margin: 0 20px 1.1em;
 	}
 	
-
+}
 
 /*********************
 COMMENTS STYLES
