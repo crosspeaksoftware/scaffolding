@@ -271,6 +271,13 @@ COMMENTS STYLES
 			line-height: 1.5em;
 		}
 
+		ul, ol {
+			li {
+				overflow: visible;
+				list-style-type: inherit;
+			}
+		}
+
 	} /* end .commentlist .comment_content */
 
 	/* comment reply link */
