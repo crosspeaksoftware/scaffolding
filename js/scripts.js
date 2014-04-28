@@ -123,7 +123,7 @@ jQuery(document).ready(function($) {
 		$(this).parent("li").parent('ul').removeClass("sub-menu-open");
 	});
 
-	$(window).resize(function() {
+	$(window).resize(function(e) {
 		if(Modernizr && Modernizr.touch) {
 			e.preventDefault();
 		}
