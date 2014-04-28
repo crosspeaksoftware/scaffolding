@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Responsive Design Scaffolding for WordPress</title>
-		
+
 		<link rel="icon" href="favicon.ico">
 
 		<!-- Bootstrap -->
@@ -49,10 +49,10 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<h2 class="page-title">Quick Start Guide</h2>
-					
+
 						<section>
 							<h3><strong>Functions</strong></h3>
-							<p>We have 2 functions files - 
+							<p>We have 2 functions files -
 								<ul>
 									<li><em>functions.php</em>: Contains scripts & enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
 									<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, dashboard widgets, ux functions, recommended and required plugins that we've provided.</li>
@@ -75,15 +75,15 @@ function scaffolding_post_classes( $classes ) {
 add_filter( 'post_class', 'scaffolding_post_classes' );
 }</code></pre>
 						</section>
-						
-						
+
+
 						<section>
 							<h3><strong>Template Structure</strong></h3>
 							<p>Post formats are rarely used in client websites, so we've removed support for them by default. If you would like to use post formats on a project, the method used in <a href="http://underscores.me" target="_blank">underscores (_s)</a> could easily be integrated.</p>
 							<p>Our recommendation is to use the structure <em>tmpl-templatename.php</em> for custom templates to avoid namespace issues and create easily-accessible body classes for styling.</p>
 							<p>Reference: <a href="https://codex.wordpress.org/Template_Hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
 						</section>
-						
+
 						<section>
 							<h3><strong>Styles</strong></h3>
 							<p>All of your styles are in the <em>/scss/</em> folder.</p>
@@ -104,13 +104,13 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 								</ul>
 							</ul>
 						</section>
-						
+
 						<section>
 							<h3><strong>Getting Started with SASS + Compass</strong></h3>
 							<p>We're using <em>SASS</em> by default to utilize it's organization, speed, and functions. If you've used LESS before, SASS is an easy transition. If you haven't used CSS preprocessors before, you're in for a treat. You can learn more about SASS <a href="http://sass-lang.com/guide" target="_blank">here</a>.</p>
-							
+
 							<p><em>Compass</em> is like an extension to SASS, giving us access to all sorts of predefined tools. On the most basic level, Compass can generate cross-browser code for CSS3 properties, saving valuable time and keeping your source code clean.</p>
-							
+
 							<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:
 								<ul>
 									<li><a href="https://incident57.com/codekit/" target="_blank">CodeKit</a></li>
@@ -119,7 +119,7 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 								</ul>
 							</p>
 						</section>
-						
+
 						<section>
 							<h3><strong>Scripts</strong></h3>
 							<p>All of your javascript files are in the <em>/js/</em> folder.</p>
@@ -128,7 +128,7 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 								<li><em>/libs/</em>: Put all included libraries here that aren't available at <a href="http://cdnjs.com/" title="cdnj" target="_blank">cdnj</a>, a CDN for javascript and CSS files.</li>
 							</ul>
 						</section>
-						
+
 					</div>
 				</div>
 			</div>
@@ -150,11 +150,11 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 			</div>
 		</footer>
 
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.11/skrollr.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		skrollr.init({ forceHeight: false }); 
+		skrollr.init({ forceHeight: false });
 	</script>
   </body>
 </html>
