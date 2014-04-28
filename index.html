@@ -32,26 +32,22 @@
 		<header id="header" class="skrollable skrollable-between">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-sm-push-6">
+					<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7">
 						<ul class="inline-buttons">
 							<li class="first-item"><a href="get-started.html" title="Scaffolding Documentation">Get Started</a>
 							<li class="last-item"><a href="https://github.com/hallme/scaffolding" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
 						</ul>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-sm-pull-6">
-						<h1><a href="http://scaffolding.io" title="Scaffolding">Scaffolding</a></h1>
+					<div class="col-xs-12 col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5">
+						<h1><a href="http://scaffolding.io" title="Scaffolding"><img src="images/scaffolding-logo.png" alt="Scaffolding.io Logo"></a></h1>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="headline-wrapper">
-							<div class="headline larger">Responsive Framework</div>
-							<br>
-							<div class="headline smaller">for WordPress</div>
-						</div>
+				<div class="headline-wrapper">
+					<div class="headline">
+						<span class="larger">Responsive Framework</span>
+						<span class="smaller">for Wordpress</span>
 					</div>
 				</div>
-			</div>
 		</header>
 
 		<div id="main" class="content">
@@ -111,42 +107,36 @@
 		<div id="download" class="content">
 			<div class="container">
 				<div class="row">
-					<div id="goods" class="col-sm-3 col-sm-offset-2">
-						<h2>Download it!</h2>
-						<p><a href="http://download.scaffolding.io/" id="download-link" class="btn btn-default">Get the Goods</a></p>
-					</div>
-					<div id="customize" class="col-sm-4 col-sm-offset-1">
+					<div id="customize" class="col-xs-12">
 						<h2>Customize it!</h2>
-						<form class="form-horizontal" role="form" action="http://download.scaffolding.io/" method="POST">
+						<form role="form" action="http://download.scaffolding.io/" method="POST">
 							<div class="form-group">
-								<label for="name" class="col-sm-4 control-label">Theme Name</label>
-								<div class="col-sm-8 input-field">
+								<label for="name" class="control-label">Theme Name</label>
+								<div class="input-field">
 									<input type="text" class="form-control" id="name" name="name" placeholder="Scaffolding">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="slug" class="col-sm-4 control-label">Slug</label>
-								<div class="col-sm-8 input-field">
+								<label for="slug" class="control-label">Slug</label>
+								<div class="input-field">
 									<input type="text" class="form-control" id="slug" name="slug" placeholder="scaffolding">
 									<p class="help-block">Leave blank for auto generated slug.</p>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="author" class="col-sm-4 control-label">Author</label>
-								<div class="col-sm-8 input-field">
+								<label for="author" class="control-label">Author</label>
+								<div class="input-field">
 									<input type="text" class="form-control" id="author" name="author" placeholder="Your Name">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="authoruri" class="col-sm-4 control-label">Author URI</label>
-								<div class="col-sm-8 input-field">
+								<label for="authoruri" class="control-label">Author URI</label>
+								<div class="input-field">
 									<input type="text" class="form-control" id="authoruri" name="authoruri" placeholder="http://www.yoururlhere.com">
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-sm-offset-4 col-sm-8">
-									<button type="submit" class="btn btn-default">Get It!</button>
-								</div>
+								<button type="submit" class="formbtn">Get It!</button>
 							</div>
 						</form>
 					</div>
@@ -154,7 +144,12 @@
 			</div>
 		</div>
 
-		<div id="secondary-image-separator" class="skrollable skrollable-between"></div>
+		<div id="secondary-image-separator" class="skrollable skrollable-between">
+			<div class="download-wrapper">
+				<h2>Download Scaffolding Now!</h2>
+				<a href="http://download.scaffolding.io/" id="download-link" class="bluebtn">Get the Goods</a>
+			</div>
+		</div>
 
 		<div id="tertiary" class="content">
 			<div class="container">
@@ -173,13 +168,13 @@
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6">
+					<div class="col-xs-6 col-sm-7">
 						Scaffolding v1.0
 					</div>
-					<div class="col-xs-6 col-sm-3 col-md-4 menu">
+					<div class="col-xs-6 col-sm-3 menu">
 						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
 					</div>
-					<div class="col-xs-12 col-sm-3 col-md-2">
+					<div class="col-xs-12 col-sm-2">
 						<a class="hall-logo" href="http://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
 					</div>
 				</div>

@@ -5,6 +5,32 @@ body {
   font-weight:300;
 }
 
+::-webkit-input-placeholder {
+	color: #AAA;
+	font-style: italic;
+	font-weight: 300;
+}
+:-moz-placeholder {
+	color: #AAA;
+	font-style: italic;
+	font-weight: 300;
+}
+::-moz-placeholder {
+	color: #AAA;
+	font-style: italic;
+	font-weight: 300;
+}
+:-ms-input-placeholder {
+	color: #AAA;
+	font-style: italic;
+	font-weight: 300;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
@@ -25,12 +51,58 @@ h3 {
 	line-height: 1.4;
 }	
 
+a, a:hover, a:focus, a:active, a:visited {
+	color: #0085B2;
+}	
+
 a, em {
 	font-weight: 400;
 }
 
+.bluebtn {
+	display: inline-block;
+	padding: 0.4em 1em;
+	font-weight: 300;
+	text-transform: uppercase;
+	background: #0085B2;
+	color: #FFF;
+	font-size: 2em;
+	border: 1px solid #0085B2;
+	transition: background-color 0.5s ease;
+}
+
+	.bluebtn:hover, .bluebtn:focus {
+		background: #0078A1;
+		color: #333;
+		text-decoration: none;
+		border: 1px solid #333;
+		background: rgba(255, 255, 255, .2);
+	}
+	
+.formbtn {
+	display: block;
+	border: 1px solid #444;
+	background: none;
+	text-transform: uppercase;
+	color: #444;
+	text-align: center;
+	width: 180px;
+	line-height: 1;
+	margin: 1em auto 1.5em auto;
+	padding: 0.5em 0 0.6em 0;
+	transition: background-color 0.5s ease;
+}
+
+	.formbtn:hover, .formbtn:focus {
+		background: #0078A1;
+		color: #FFF;
+		text-decoration: none;
+		border: 1px solid #0078A1;
+	}
+
 em {
-	color: #d35400;
+	//color: #d35400;
+	color: #777;
 }
 
 .page-title {
@@ -43,7 +115,7 @@ em {
 }
 
 #header {
-	background: url('../images/scaffolding-header.jpg') 10% 50% no-repeat fixed;
+	background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
 	background-size: cover;
 	height: 655px;
 	font-weight: 300;
@@ -102,13 +174,13 @@ em {
 			width: 98%;
 		}
 
-			ul.inline-buttons li a, .btn {
+			ul.inline-buttons li a {
 				font-size: 1.2em;
-				border: solid 1px #000;
+				border: solid 1px #333;
 				padding: .4em 0;
 				width: 100%;
 				display: block;
-				color: #000;
+				color: #333;
 				text-transform: uppercase;
 				font-weight: 300;
 				text-align: center;
@@ -117,14 +189,12 @@ em {
 				border-radius: 0;
 			}
 	
-				ul.inline-buttons li a:hover {
+				ul.inline-buttons li a:hover, ul.inline-buttons li a:focus {
 					text-decoration: none;
-					background: rgba(255, 255, 255, .4);
+					background: #0085B2;
+					color: #FFF;
+					border: 1px solid #0085B2;
 				}
-				
-	.headline-wrapper {
-		margin-top: 2em;
-	}
 	
 		h1 a {
 			color: #333;
@@ -151,30 +221,56 @@ em {
 			text-decoration: none;
 			background: rgba(255, 255, 255, .4);
 		}
+		
+	.headline-wrapper, .download-wrapper {
+		position: absolute;
+		left: 50%;
+		width: 320px;
+		margin-left: -160px;
+	}
+	
+	.headline-wrapper {
+		top: 60%;
+	}
+	
+	.download-wrapper {
+		top: 30%;
+		text-align: center;
+	}
+	
+		.download-wrapper h2 {
+			display: block;
+			line-height: 1.1;
+			color: #FFF;
+			font-weight: 400;
+			font-size: 3.675em;
+			margin-bottom: 0.6em;
+			text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+		}
 
 	.headline {
-		font-size: 4em;
-		font-weight: 400;
-		display: inline-block;
-		margin: 5px 0;
-		max-width: 800px;
-		line-height: 1.1;
-		color: #2980b9;
-		background: rgba(255,255,255,0.1);
+		display: block;
+		line-height: 1;
+		color: #FFF;
+		text-align: center;
+		background: rgba(0,0,0,0.1);
+		text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 		padding: 0.5em;
-		position: relative;
 	}
 	
-	.headline.smaller {
-		font-size: 2em;
+	.headline .larger {
+		font-size: 4em;
+		font-weight: 400;
+		display: block;
+	}
+	
+	.headline .smaller {
+		font-size: 2.675em;
 		font-weight: 300;
-		padding: 0.3em 0.9em;
-	}
-	
-	.headline.larger {
-		font-size: 4em;
-		font-weight: 400;
-		padding: 0.5em;
+		font-style: italic;
+		display: block;
+		margin-bottom: 0.5em;
+		margin-top: 10px;
 	}
 
 .content {
@@ -184,6 +280,10 @@ em {
 
 	body.home .content {
 		font-size: 1.5em;
+	}
+	
+	body.home #main.content {
+		padding: 3em 0;
 	}
 
 	.content.dark {
@@ -202,7 +302,38 @@ em {
 		background: #F0F0F0;
 	}
 	
+		#download .control-label {
+			font-size: 15px;
+		}
+		
+		#download .help-block {
+			font-size: 13px;
+			margin-bottom: 0;
+			font-style: italic;
+		}
+		
+		#download .form-group {
+			margin-bottom: 0;
+		}
+		
+		#download .form-control {
+			height: 45px;
+			font-size: 0.875em;
+			border-radius: 0;
+			border: 1px solid #CCC;
+			font-weight: 300;
+		}
+		
+		#download form {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+	
 	#secondary {}
+	
+		body.home #secondary.content {
+			padding: 2em 0 2.5em 0;
+		}
 
 		#secondary h2 {
 			text-align: center;
@@ -220,7 +351,7 @@ em {
 
 			#secondary li a,
 			#secondary li a:visited {
-				color: #ccc;
+				color: #FFF;
 				font-weight: 300;
 				transition: color 0.2s ease;
 			}
@@ -228,7 +359,7 @@ em {
 			#secondary li a:hover {
 				text-decoration: none;
 				//color: #27ae60;
-				color: #428bca;
+				color: #0085B2;
 			}
 
 		#secondary small {
@@ -240,18 +371,12 @@ em {
 			#secondary small em {
 				font-weight: 300;
 			}
-	
-	#download .control-label {
-		font-size: 15px;
-	}
-	#download .help-block {
-		font-size: 13px;
-	}
 
 	#secondary-image-separator {
 		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
 		background-size: cover;
 		height: 700px;
+		position: relative;
 	}
 
 		#secondary-image-separator .spacer {
@@ -259,6 +384,10 @@ em {
 		}
 
 	#tertiary {}
+	
+		body.home #tertiary.content {
+			padding: 4em 0;
+		}
 
 		#tertiary h2 {
 			margin: 0 0 .5em;
@@ -298,8 +427,10 @@ em {
 	
 #footer {
 	background: #111;
-	color: #777;
-	padding: 2em 0;
+	color: #333;
+	padding: 2em 0 1em 0;
+	font-weight: 400;
+	font-size: 1em;
 }
 
 	#footer .menu {
@@ -383,17 +514,26 @@ pre code {
 			font-size: 1.35em;
 		}
 
-	.headline-wrapper {
-		margin-top: 3em;
+	.headline-wrapper, .download-wrapper {
+		width: 740px;
+		margin-left: -370px;
 	}
 	
-	.headline.smaller {
-		font-size: 3em;
-	}
+		.download-wrapper h2 {
+			font-size: 4.675em;
+		}
 	
-	.headline.larger {
-		font-size: 5em;
-	}
+		.headline {
+			padding: 0.8em;
+		}
+	
+			.headline .smaller {
+				font-size: 3em;
+			}
+			
+			.headline .larger {
+				font-size: 5em;
+			}
 	
 	body.get-started #header h1 {
 		font-size: 3.5em;
@@ -418,9 +558,37 @@ pre code {
 		top: -10px;
 	}
 		
-			.hall-logo img {
-				height: 40px;
-				float: right;
-				margin: 0;
-			}
+		.hall-logo img {
+			height: 40px;
+			float: right;
+			margin: 0;
+		}
+		
+	#footer .col-sm-7 {
+		width: 58.333333%;
+	}
+	
+	#footer .col-sm-2 {
+		width: 16.666667%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.headline-wrapper {
+		width: 760px;
+		margin-left: -380px;
+	}
+	
+	.download-wrapper {
+		width: 800px;
+		margin-left: -400px;
+	}
+	
+	#footer .col-sm-7 {
+		width: 61.333333%;
+	}
+	
+	#footer .col-sm-2 {
+		width: 13.666667%;
+	}
 }
