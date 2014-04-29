@@ -19,13 +19,17 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-50140941-1', 'scaffolding.io');
-		ga('send', 'pageview');
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		</script>
+		<script type="text/javascript" src="https://hwscdn.com/analytics/scaffolding.io/main_analytics.js"></script>
+		<script>
+			ga('create', 'UA-50140941-1', 'scaffolding.io');
+			ga('require', 'linkid', 'linkid.js'); // Enhanced Link Attribution
+			ga('require', 'displayfeatures'); // Demographics data
+			ga('send', 'pageview');
 		</script>
 	</head>
 	<body class="home">
@@ -34,8 +38,8 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7">
 						<ul class="inline-buttons">
-							<li class="first-item"><a href="get-started.html" title="Scaffolding Documentation">Get Started</a>
-							<li class="last-item"><a href="https://github.com/hallme/scaffolding" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
+							<li class="first-item"><a href="get-started.html" id="getstarted_btn" title="Scaffolding Documentation">Get Started</a>
+							<li class="last-item"><a href="https://github.com/hallme/scaffolding" id="forkongithub_btn" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
 						</ul>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5">
@@ -117,7 +121,7 @@
 				<div class="row">
 					<div id="customize" class="col-xs-12">
 						<h2>Customize it!</h2>
-						<form role="form" action="http://download.scaffolding.io/" method="POST">
+						<form id="customize-download" role="form" action="http://download.scaffolding.io/" method="POST">
 							<div class="form-group">
 								<label for="name" class="control-label">Theme Name</label>
 								<div class="input-field">
