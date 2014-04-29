@@ -34,6 +34,12 @@ input, textarea {
   -webkit-border-radius: 0;
 }
 
+/* LABEL */
+
+label {
+	font-weight: bold;
+}
+
 /* INPUTS */
 
 textarea,
@@ -140,7 +146,6 @@ input[type=button] {
 		display:inline-block;
 		*display:inline;*/
 		font-size:0.750em;
-		font-weight:bold;
 		text-transform: uppercase;
 		width:20%;
 	}
@@ -172,10 +177,20 @@ input[type=button] {
 /*Search Styles on 404 page*/
 .error404 {
 	#searchform {
-		label {}
+		label { font-weight: bold; }
 		#s {}
 		#searchsubmit {}
 	}
+}
+
+/************************
+ * Password Form Styles
+ ************************/
+ 
+.post-password-form {
+	p {}
+	label {}
+	input[type=submit] {}
 }
 
 @media only screen and (min-width: $screen-sm-min) {

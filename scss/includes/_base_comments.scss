@@ -142,8 +142,11 @@ COMMENTS STYLES
 .comment-nav {
 
 	ul {
+		margin: 1em 0;
 
-		li {}
+		li {
+			margin-left: 0;
+		}
 
 	}
 }

@@ -35,6 +35,14 @@ ul {
 ol {
 	list-style-type:decimal;
 }
+
+ul li > ul,
+ul li > ol,
+ol li > ol,
+ol li > ul {
+	margin-top: 5px;
+}
+
 	ul ul,
 	ul ol,
 	ol ul,
