@@ -52,12 +52,11 @@
 
 						<section>
 							<h3><strong>Functions</strong></h3>
-							<p>We have 2 functions files -
-								<ul>
-									<li><em>functions.php</em>: Contains scripts & enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
-									<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, dashboard widgets, ux functions, recommended and required plugins that we've provided.</li>
-								</ul>
-							</p>
+							<p>We have 2 functions files -</p>
+							<ul>
+								<li><em>functions.php</em>: Contains scripts & enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
+								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, dashboard widgets, ux functions, recommended and required plugins that we've provided.</li>
+							</ul>
 <div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/********************************************
 13. ADD FIRST AND LAST CLASSES TO POSTS
 ********************************************/
@@ -95,13 +94,14 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 								<li><em>style.scss</em>: This is a setup file that builds your stylesheet.</li>
 								<li><em>/includes/_variables.scss</em>: Set all your colors, fonts, and other variables here. Default grid settings are also here.</li>
 								<li><em>/includes/_mixins.scss</em>: We've included a lot of useful mixins and utility classes for rapid development.</li>
-								<li><em>/scss/responsive-styles/</em>: This folder contains your main stylesheets. These load in according to your default settings from /includes/_variables.scss</li>
-								<ul>
-									<li><em>_xs.scss</em>: The majority of your styles go here. This sheet is loaded on all devices by default.</li>
-									<li><em>_sm.scss</em>: Small devices (tablets) with a min-width of 768px.</li>
-									<li><em>_md.scss</em>: Medium devices (desktops) with a min-width of 992px.</li>
-									<li><em>_lg.scss</em>: Large devices (desktops) with a min-width of 1200px.</li>
-								</ul>
+								<li><em>/scss/responsive-styles/</em>: This folder contains your main stylesheets. These load in according to your default settings from /includes/_variables.scss
+									<ul>
+										<li><em>_xs.scss</em>: The majority of your styles go here. This sheet is loaded on all devices by default.</li>
+										<li><em>_sm.scss</em>: Small devices (tablets) with a min-width of 768px.</li>
+										<li><em>_md.scss</em>: Medium devices (desktops) with a min-width of 992px.</li>
+										<li><em>_lg.scss</em>: Large devices (desktops) with a min-width of 1200px.</li>
+									</ul>
+								</li>
 							</ul>
 						</section>
 
@@ -111,13 +111,12 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 
 							<p><em>Compass</em> is like an extension to SASS, giving us access to all sorts of predefined tools. On the most basic level, Compass can generate cross-browser code for CSS3 properties, saving valuable time and keeping your source code clean.</p>
 
-							<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:
-								<ul>
-									<li><a href="https://incident57.com/codekit/" target="_blank">CodeKit</a></li>
-									<li><a href="http://compass.kkbox.com/" target="_blank">Compass.ass</a></li>
-									<li><a href="http://mhs.github.io/scout-app/" target="_blank">Scout</a></li>
-								</ul>
-							</p>
+							<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:</p>
+							<ul>
+								<li><a href="https://incident57.com/codekit/" title="CodeKit" target="_blank">CodeKit</a></li>
+								<li><a href="http://compass.kkbox.com/" title="Compass.app" target="_blank">Compass.app</a></li>
+								<li><a href="http://mhs.github.io/scout-app/" title="Scout" target="_blank">Scout</a></li>
+							</ul>
 						</section>
 
 						<section>
