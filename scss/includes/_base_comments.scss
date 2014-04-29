@@ -240,6 +240,7 @@ COMMENTS STYLES
 
 		time {
 			float: right;
+			margin-left: 10px;
 
 			a {
 				color: #999;
@@ -294,6 +295,7 @@ COMMENTS STYLES
 		margin-top: 1em;
 		padding: 0.5em 0.5em 0.5em 1.5em;
 		border: 1px solid #DDD;
+		clear: both; 
 
 		p {
 			margin: 1em 0;
