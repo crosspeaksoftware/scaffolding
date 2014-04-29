@@ -326,7 +326,17 @@ h6, .h6 {
 
 .aligncenter, img.aligncenter {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 10px auto;
+}
+
+.alignnone, img.alignnone {
+	display: block;
+	margin: 0 0 10px 0;
+}
+
+.aligncenter, img.aligncenter,
+.alignnone, img.alignnone {
+	clear: both;
 }
 
 /*Image Caption*/
