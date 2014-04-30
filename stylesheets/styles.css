@@ -113,8 +113,8 @@ em {
 
 #header {
 	background: url('../images/scaffolding-header.jpg') no-repeat;
-	background-position: top;
-	height: 655px;
+	background-position: top left;
+	height: 500px;
 	font-weight: 300;
 	position: relative;
 }
@@ -230,7 +230,7 @@ em {
 	}
 	
 	.headline-wrapper {
-		top: 60%;
+		top: 44%;
 	}
 	
 	.download-wrapper {
@@ -506,9 +506,9 @@ pre code {
 		
 @media only screen and (min-width: 768px) {
 	#header {
-		background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
-		background-size: cover;
-		height: 655px;
+		background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+		background-position: top;
+		height: 700px;
 		font-weight: 300;
 		position: relative;
 	}
@@ -532,8 +532,9 @@ pre code {
 	.headline-wrapper, .download-wrapper {
 		width: 740px;
 		margin-left: -370px;
+		top: 44%;
 	}
-	
+
 		.download-wrapper h2 {
 			font-size: 4.675em;
 		}
@@ -597,8 +598,8 @@ pre code {
 		width: 16.666667%;
 	}
 	#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
-		background-size: cover;
+		background: url('../images/scaffolding-bg-graphic.jpg') no-repeat;
+		background-position: top;
 		height: 700px;
 		position: relative;
 	}
