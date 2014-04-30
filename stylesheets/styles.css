@@ -608,6 +608,7 @@ pre code {
 @media only screen and (min-width: 1024px) {
 	#header {
 		background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+		background-size: cover;
 		background-position: top;
 		height: 700px;
 		font-weight: 300;
@@ -633,6 +634,7 @@ pre code {
 	}
 		#secondary-image-separator {
 		background: url('../images/scaffolding-bg-graphic.jpg') top right fixed;
+		background-size: cover;
 		background-repeat: no-repeat;
 		height: 700px;
 		position: relative;
