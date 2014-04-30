@@ -644,11 +644,11 @@ pre code {
 @media only screen and (width: 1024px) {
 	/*For some reason, setting repeat on the background will prevent this image from appears on iPad landscape. No idea why, but this fixes the issue.*/
 	#header {
-		-webkit-background-size: cover;
+		-webkit-background-size: inherit;
 	}
 
 	#secondary-image-separator {
 		background-repeat: repeat;
-		-webkit-background-size: cover;
+		-webkit-background-size: inherit;
 	}
 }
