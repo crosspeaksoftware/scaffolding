@@ -112,12 +112,15 @@ em {
 }
 
 #header {
-	background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
-	background-size: cover;
+	background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+	background-position: top;
 	height: 655px;
 	font-weight: 300;
 	position: relative;
 }
+	#header .logo {
+		padding-top: 3em;
+	}
 
 	body.get-started #header {
 		height: 150px;
@@ -172,7 +175,7 @@ em {
 		}
 
 			ul.inline-buttons li a {
-				font-size: 1.2em;
+				font-size: 1.1em;
 				border: solid 1px #333;
 				padding: .4em 0;
 				width: 100%;
@@ -271,7 +274,7 @@ em {
 	}
 
 .content {
-	padding: 2em 0;
+	padding: 5em 0 3em;
 	font-size: 1.2em;
 }
 
@@ -375,12 +378,11 @@ em {
 			}
 
 	#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
-		background-size: cover;
+		background: url('../images/scaffolding-bg-graphic.jpg') no-repeat;
+		background-position: top;
 		height: 700px;
 		position: relative;
 	}
-
 		#secondary-image-separator .spacer {
 			padding-top: 50%;
 		}
@@ -432,7 +434,7 @@ em {
 	color: #999;
 	padding: 2em 0 1em 0;
 	font-weight: 400;
-	font-size: 1em;
+	font-size: 0.9em;
 }
 
 	#footer .menu {
@@ -503,9 +505,20 @@ pre code {
 }
 		
 @media only screen and (min-width: 768px) {
+	#header {
+		background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
+		background-size: cover;
+		height: 655px;
+		font-weight: 300;
+		position: relative;
+	}
+
 	#header h1 {
 		text-align: left;
 		margin-top: 1em;
+	}
+	#header .logo {
+		padding-top: 0;
 	}
 	
 	body.home ul.inline-buttons {
@@ -541,9 +554,16 @@ pre code {
 		font-size: 3.5em;
 		margin: 0.5em 0;
 	}
+
+	.content {
+		padding: 3em 0;
+	}
 	
 	ul.inline-buttons li.only-item {
 		width: 48%;
+	}
+	ul.inline-buttons li a {
+		font-size: 1.2em;
 	}
 	
 	.form-horizontal .control-label {
@@ -565,6 +585,9 @@ pre code {
 			float: right;
 			margin: 0;
 		}
+	#footer {
+		font-size: 1em;
+	}
 		
 	#footer .col-sm-7 {
 		width: 58.333333%;
@@ -573,9 +596,23 @@ pre code {
 	#footer .col-sm-2 {
 		width: 16.666667%;
 	}
+	#secondary-image-separator {
+		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
+		background-size: cover;
+		height: 700px;
+		position: relative;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
+	#header {
+		background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
+		background-size: cover;
+		height: 655px;
+		font-weight: 300;
+		position: relative;
+	}
+
 	.headline-wrapper {
 		width: 760px;
 		margin-left: -380px;
@@ -592,5 +629,11 @@ pre code {
 	
 	#footer .col-sm-2 {
 		width: 13.666667%;
+	}
+		#secondary-image-separator {
+		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
+		background-size: cover;
+		height: 700px;
+		position: relative;
 	}
 }
