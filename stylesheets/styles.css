@@ -607,9 +607,9 @@ pre code {
 
 @media only screen and (min-width: 1024px) {
 	#header {
-		background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
-		background-size: cover;
-		height: 655px;
+		background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+		background-position: top;
+		height: 700px;
 		font-weight: 300;
 		position: relative;
 	}
@@ -632,9 +632,16 @@ pre code {
 		width: 13.666667%;
 	}
 		#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
-		background-size: cover;
+		background: url('../images/scaffolding-bg-graphic.jpg') top right fixed;
+		background-repeat: no-repeat;
 		height: 700px;
 		position: relative;
+	}
+}
+
+@media only screen and (width: 1024px) {
+	/*For some reason, setting repeat on the background will prevent this image from appears on iPad landscape. No idea why, but this fixes the issue.*/
+	#secondary-image-separator {
+		background-repeat: repeat;
 	}
 }
