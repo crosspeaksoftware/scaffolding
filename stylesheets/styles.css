@@ -112,7 +112,7 @@ em {
 }
 
 #header {
-	background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+	background: url('../images/scaffolding-header.jpg') no-repeat;
 	background-position: top;
 	height: 655px;
 	font-weight: 300;
