@@ -190,7 +190,13 @@
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		skrollr.init({ forceHeight: false });
+		skrollr.init({ 
+			forceHeight: false,
+			mobileCheck: function() {
+                //hack - forces mobile version to be off
+                return false;
+            }
+		});
 		$(function() {
 			$("#download-link").click(function() {
 				ga('send', 'event', 'button', 'click', 'Download');
