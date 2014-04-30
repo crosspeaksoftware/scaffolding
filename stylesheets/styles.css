@@ -607,9 +607,9 @@ pre code {
 
 @media only screen and (min-width: 1024px) {
 	#header {
-		background: url('../images/scaffolding-header.jpg') no-repeat fixed;
-		background-position: top;
-		height: 700px;
+		background: url('../images/scaffolding-header.jpg') 44% 50% no-repeat fixed;
+		background-size: cover;
+		height: 655px;
 		font-weight: 300;
 		position: relative;
 	}
@@ -631,9 +631,9 @@ pre code {
 	#footer .col-sm-2 {
 		width: 13.666667%;
 	}
-	#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') no-repeat fixed;
-		background-position: top;
+		#secondary-image-separator {
+		background: url('../images/scaffolding-bg-graphic.jpg') 50% 50% no-repeat fixed;
+		background-size: cover;
 		height: 700px;
 		position: relative;
 	}
