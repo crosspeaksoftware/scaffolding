@@ -129,13 +129,23 @@ span.amp {
 }
 
 @include responsive-invisibility('.tablet-only');
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width:480px) and (max-width: 768px) {
     @include responsive-visibility('.tablet-only');
 }
 
 @include responsive-visibility('.tablet-hide');
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width:480px) and (max-width: 768px) {
     @include responsive-invisibility('.tablet-hide');
+}
+
+@include responsive-invisibility('.desktop-only');
+@media only screen and (min-width:768px) {
+    @include responsive-visibility('.desktop-only');
+}
+
+@include responsive-visibility('.desktop-hide');
+@media only screen and (min-width:768px) {
+    @include responsive-invisibility('.desktop-hide');
 }
 
 /******************************************************************
