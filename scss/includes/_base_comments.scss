@@ -6,7 +6,7 @@ Stylesheet: Base Mobile Comments Stylesheet
 
 Be light and don't over style since everything here will be
 loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
+possible. This is called at the top of the main stylesheet
 and will be used across all viewports.
 
 ******************************************************************/
@@ -21,17 +21,15 @@ CONTENTS:
 COMMENT FORM STYLES
 *********************/
 
-.respond-form {
-	//margin: 1.5em 10px;
-	//padding-bottom: 2.2em;
-	
+.respond-form, .comment-respond {
+
 	#reply-title {
 		font-weight: bold;
 	}
 
 	form {
 		margin: 0.75em 0;
-		
+
 		p {
 			margin: 0 0 0.75em 0
 		}
@@ -57,12 +55,9 @@ COMMENT FORM STYLES
 		input[type=email],
 		input[type=url],
 		textarea {
-			background: #efefef;
 			width: 100%;
 
-			&:focus {
-				background: #fff;
-			}
+			&:focus {}
 
 			/* form validation */
 			&:invalid {
@@ -86,15 +81,18 @@ COMMENT FORM STYLES
 		textarea {
 			height: 150px;
 		}
-		
+
 		label {
 			margin: 10px 0 4px 0;
 			font-weight: bold;
 			display: block;
 			line-height: 1.3em;
 			clear: both;
-		}
 
+			.required{
+				color:#AF3124;
+			}
+		}
 	}
 
 	/* comment submit button */
@@ -116,7 +114,7 @@ COMMENT FORM STYLES
 	/* allowed tags */
 	.form-allowed-tags {
 		margin: 1em 0 1.675em 0;
-		
+
 		code {
 			margin-top: 0.5em;
 		}
@@ -126,7 +124,7 @@ COMMENT FORM STYLES
 	.nocomments {
 		margin: 0 20px 1.1em;
 	}
-	
+
 }
 
 /*********************
@@ -144,30 +142,38 @@ COMMENTS STYLES
 .comment-nav {
 
 	ul {
+		margin: 1em 0;
 
-		li {}
+		li {
+			margin-left: 0;
+		}
 
 	}
 }
 
 
 .commentlist {
+	padding: 0;
+	margin: 0;
+
 	li {
 		position: relative;
 		clear: both;
 		overflow: hidden;
 		list-style-type: none;
 		margin-bottom: 1.5em;
-		padding: 0.7335em 10px;
+		padding: 0;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
 
 		ul.children {
-			margin-left: 0 0 0 3em;
+			margin: 0;
 
-			li {}
+			li {
+				margin-left: 0 0 0 3em;
+			}
 
 			/* variations */
 			.comment {}
@@ -191,12 +197,12 @@ COMMENTS STYLES
 		margin-top: 0;
 	}
 
-	li:not(.depth-1) {
+	/*li:not(.depth-1) {
 		margin-right: -10px;
 		margin-left: -10px;
 		margin-top: 0;
 		padding-bottom: 0;
-	}
+	}*/
 
 	li.depth-2 {}
 	li.depth-3 {}
@@ -205,12 +211,8 @@ COMMENTS STYLES
 
 	/* general comment classes */
 	.alt {}
-	.odd {
-		background: #eee;
-	}
-	.even {
-		background: #fefefe;
-	}
+	.odd {}
+	.even {}
 	.parent {}
 	.comment {}
 	.children {}
@@ -224,11 +226,16 @@ COMMENTS STYLES
 
 	/* vcard */
 	.vcard {
-		margin-left: 50px;
+		position: relative;
+		height: auto;
+		overflow: overflow;
+		min-height: 32px;
 
 		cite.fn {
 			font-weight: 700;
 			font-style: normal;
+			font-size: 1.25em;
+			margin-left: 50px;
 
 			a.url {}
 
@@ -236,9 +243,12 @@ COMMENTS STYLES
 
 		time {
 			float: right;
+			margin-left: 10px;
 
 			a {
 				color: #999;
+				font-size: 1.25em;
+				font-weight: 300;
 				text-decoration: none;
 
 				&:hover {
@@ -251,13 +261,13 @@ COMMENTS STYLES
 
 		img.photo {}
 
-		img.avatar {
+		img.avatar, img.photo {
 			position: absolute;
-			left: 10px;
-			padding: 2px;
+			left: 0;
+			top: 0;
 			margin: 0;
-			border: 1px solid #cecece;
-			background: #fff;
+			border: 1px solid #DDD;
+			@include border-radius(50%);
 		}
 
 	} /* end .commentlist .vcard */
@@ -276,12 +286,22 @@ COMMENTS STYLES
 
 	}
 
+	.alert.info {
+		p {
+			color: #AF3124;
+			font-style: italic;
+		}
+	}
+
 	/* comment content */
 	.comment_content {
-		margin-left: 50px;
+		margin-top: 1em;
+		padding: 0.5em 0.5em 0.5em 1.5em;
+		border: 1px solid #DDD;
+		clear: both; 
 
 		p {
-			margin: 0.7335em 0 1.5em;
+			margin: 1em 0;
 			font-size: 1em;
 			line-height: 1.5em;
 		}
@@ -299,17 +319,22 @@ COMMENTS STYLES
 	.comment-reply-link {
 		text-decoration: none;
 		float: right;
-		background: #4598bb;
-		padding: 3px 5px;
-		color: #fff;
-		opacity: 0.65;
-		margin-bottom: 10px;
-		font-weight: 700;
+		color: $link-color;
+		padding: 5px 15px;
+		margin: 0.5em 0 1em 0;
+		font-weight: 400;
 		font-size: 0.9em;
 
 		&:hover,
 		&:focus {
-			opacity: 1;
+			color: $link-hover-color;
+			text-decoration: none;
+		}
+
+		&:after {
+			font-family: "FontAwesome";
+			content: "\f112";
+			padding-left: 5px;
 		}
 
 	} /* end .commentlist .comment-reply-link */

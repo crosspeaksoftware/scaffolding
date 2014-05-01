@@ -35,6 +35,14 @@ ul {
 ol {
 	list-style-type:decimal;
 }
+
+ul li > ul,
+ul li > ol,
+ol li > ol,
+ol li > ul {
+	margin-top: 5px;
+}
+
 	ul ul,
 	ul ol,
 	ol ul,
@@ -135,20 +143,16 @@ pre {
 	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 	font-size: 12px;
 	color: #333333;
-	-webkit-border-radius: 3px;
-	   -moz-border-radius: 3px;
-	        border-radius: 3px;
+	border-radius: 0;
 }
 
 code {
 	padding: 2px 4px;
 	color: #d14;
-	white-space: nowrap;
+	white-space: pre-wrap;
 	background-color: #f7f7f9;
 	border: 1px solid #e1e1e8;
-	display: block;
-	overflow: scroll;
-	text-overflow: ellipsis;
+	display: inline-block;
 }
 
 pre {
@@ -164,9 +168,7 @@ pre {
 	background-color: #f5f5f5;
 	border: 1px solid #ccc;
 	border: 1px solid rgba(0, 0, 0, 0.15);
-	-webkit-border-radius: 4px;
-	   -moz-border-radius: 4px;
-	        border-radius: 4px;
+	border-radius: 0;
 }
 
 pre code {
@@ -332,7 +334,17 @@ h6, .h6 {
 
 .aligncenter, img.aligncenter {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 10px auto;
+}
+
+.alignnone, img.alignnone {
+	display: block;
+	margin: 0 0 10px 0;
+}
+
+.aligncenter, img.aligncenter,
+.alignnone, img.alignnone {
+	clear: both;
 }
 
 /*Image Caption*/

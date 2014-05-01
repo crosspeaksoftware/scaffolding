@@ -28,6 +28,7 @@ GENERAL STYLES
 *********************/
 html {
 	height:100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -105,7 +106,7 @@ POSTS & CONTENT STYLES
 		/* post meta */
 		.byline {
 			color: #999;
-			margin:-1.5em 0 1em;
+			margin: -1em 0 1em;
 
 			time {}
 		}
@@ -411,8 +412,8 @@ FOOTER STYLES
 
 #colophon {
 	clear: both;
-	background-color:#333;
-	color:#fff;
+	background-color:#111;
+	color:#999;
 	padding:1em 0;
 }
 
@@ -429,7 +430,7 @@ FOOTER STYLES
 
 			a{
 				border-left:1px solid #ccc;
-				color:#fff;
+				color:#999;
 				line-height:normal;
 				padding:0 1em;
 			}
