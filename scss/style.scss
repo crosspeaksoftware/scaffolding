@@ -19,8 +19,7 @@ Stylesheet: Main Stylesheet
 //@import "includes/gravity-forms"; /* gravity forms styles - uncheck box to NOT output default CSS */
 @import "libs/chosenjs"; /* better cross browser select inputs - see https://github.com/harvesthq/chosen for more info */
 @import "libs/magnific-popup"; /* magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info */
-@import "libs/icheck"; /* import icheck improved radio and checkbox inputs - see http://fronteed.com/iCheck/ for more info
-there are several different skins to choose from (a default is currently enabled) */
+@import "libs/icheck"; /* better radio and checkbox inputs - see http://fronteed.com/iCheck/ for more info; there are several different skins to choose from (a default is currently enabled) */
 
 // STEP 4: Import our grid
 @import "includes/bootstrap-grid";

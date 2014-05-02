@@ -47,6 +47,7 @@ add_action( 'template_redirect', 'scaffolding_content_width' );
 *********************/
 define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
 require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
+//require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
 
 
 /*********************
@@ -69,7 +70,7 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-	//Magnific Popups (LightBox)
+	//Magnific Popup (LightBox)
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
 	//Font Awesome (icon set)
