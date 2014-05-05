@@ -43,7 +43,7 @@
 
 			<div id="inner-header" class="wrap clearfix">
 
-				<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
+				<?php // to use a image just replace the bloginfo('name') with <img> ?>
 				<div id="logo" class="h1"><a href="<?php  echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
 
 				<?php // if you'd like to use the site description you can un-comment it below
