@@ -14,6 +14,7 @@ A WORD OF WARNING: It's very easy to overdo it here. Be careful and
 remember less is more.
 
 ******************************************************************/
+@import "variables";
 
 /*********************
 CLEARFIX - http://nicolasgallagher.com/micro-clearfix-hack/
@@ -24,7 +25,6 @@ CLEARFIX - http://nicolasgallagher.com/micro-clearfix-hack/
 	&:before, &:after { content: " "; display: table; }
 	&:after { clear: both; }
 }
-
 
 /*********************
 IMAGES
@@ -58,32 +58,6 @@ IMAGES
 }
 
 /*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
-*********************/
-
-$alert-yellow:      #ebe16f;
-$alert-red:         #fbe3e4;
-$alert-green:       #e6efc2;
-$alert-blue:        #d5edf8;
-
-$black:             #000;
-$white:             #fff;
-
-$scaffolding-blue:        #20AFE9;
-
-$link-color:        $scaffolding-blue;
-$link-hover:        darken($link-color, 9%);
-
-/*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
-*/
-
-
-/*********************
 TYPOGRAPHY
 *********************/
 /*
@@ -91,7 +65,7 @@ use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
 span.amp {
-  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-family: Arial, serif !important;
   font-style: italic;
 }
 
@@ -144,7 +118,6 @@ span.amp {
 }
 
 // Device-specific hide/show classes. Written in reverse logic for IE compatibility
-
 @include responsive-invisibility('.mobile-only');
 @media only screen and (max-width: 480px) {
     @include responsive-visibility('.mobile-only');
@@ -156,13 +129,23 @@ span.amp {
 }
 
 @include responsive-invisibility('.tablet-only');
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width:480px) and (max-width: 768px) {
     @include responsive-visibility('.tablet-only');
 }
 
 @include responsive-visibility('.tablet-hide');
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width:480px) and (max-width: 768px) {
     @include responsive-invisibility('.tablet-hide');
+}
+
+@include responsive-invisibility('.desktop-only');
+@media only screen and (min-width:768px) {
+    @include responsive-visibility('.desktop-only');
+}
+
+@include responsive-visibility('.desktop-hide');
+@media only screen and (min-width:768px) {
+    @include responsive-invisibility('.desktop-hide');
 }
 
 /******************************************************************

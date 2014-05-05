@@ -5,37 +5,32 @@ Author:
 Stylesheet: Main Stylesheet
 ******************************************************************/
 
-// STEP 1: Import all our resources and libraries
+// STEP 1: Import reset
 @import "libs/normalize";
+
+// STEP 2: Import all our resources
 @import "includes/variables";
 @import "includes/typography";
 @import "includes/mixins";
 @import "includes/forms";
 @import "includes/offcanvas-nav";
-@import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
-// STEP 2: Import our grid
+// STEP 3: Import all our libraries
+//@import "includes/gravity-forms"; /* gravity forms styles - uncheck box to NOT output default CSS */
+@import "libs/chosenjs"; /* better cross browser select inputs - see https://github.com/harvesthq/chosen for more info */
+@import "libs/magnific-popup"; /* magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info */
+@import "libs/icheck"; /* better radio and checkbox inputs - see http://fronteed.com/iCheck/ for more info; there are several different skins to choose from (a default is currently enabled) */
+
+// STEP 4: Import our grid
 @import "includes/bootstrap-grid";
 
-// STEP 3: Import our responsive stylesheets (where you'll put your styles)
-
-/* import icheck improved radio and checkbox inputs - see http://fronteed.com/iCheck/ for more info
-there are several different skins to choose from (a default is currently enabled) */
-@import "libs/icheck";
+// STEP 5: Import our responsive stylesheets (where you'll put your styles)
 
 /*
 BASE (MOBILE) STYLES
 This is where you add the majority of your styles. These will be loaded on all devices, so make sure this holds the bare minimum any device needs to view your site.
 */
 @import "responsive-styles/xs";
-
-/*
-LARGER MOBILE DEVICES
-Should you need to customize the display for larger mobile devices.
-*/
-@media only screen and (min-width: 481px) {
-	@import "responsive-styles/481up";
-}
 
 /*
 TABLET & SMALLER LAPTOPS

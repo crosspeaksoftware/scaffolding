@@ -57,6 +57,9 @@ function getScrollBarWidth () {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
+	//ChosenJs Select Input - https://github.com/harvesthq/chosen for more info
+	$("select").chosen({no_results_text: "Oops, nothing found!", width: "99.5%"});
+
 	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
 	if($.fn.magnificPopup) {
 		$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
@@ -74,13 +77,14 @@ jQuery(document).ready(function($) {
 	}
 
 	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src*=\"youtube\"], object, embed").wrap( "<figure></figure>" ),
+	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" ),
 	$fluidEl = $("figure");
 
 	$allVideos.each(function() {
 		$(this)
 		// jQuery .data does not work on object/embed elements
 		.attr('data-aspectRatio', this.height / this.width)
+		.css({ 'max-width': this.width + 'px', 'max-height': this.height + 'px' })
 		.removeAttr('height')
 		.removeAttr('width');
 	});
@@ -119,13 +123,13 @@ jQuery(document).ready(function($) {
 		$(this).parent("li").parent('ul').removeClass("sub-menu-open");
 	});
 
-	$(window).resize(function() {
+	$(window).resize(function(e) {
 		if(Modernizr && Modernizr.touch) {
 			e.preventDefault();
 		}
 		else {
 			responsive_viewport = $(window).width() + getScrollBarWidth();
-			if(responsive_viewport >= 768 && menu.is(':hidden')) {
+			if(responsive_viewport >= 768) {
 				$('body').removeClass('menu-open');
 			}
 			else if(responsive_viewport < 768 && !menu.is(':hidden')) {

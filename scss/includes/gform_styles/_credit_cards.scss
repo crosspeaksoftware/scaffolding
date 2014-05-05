@@ -1,0 +1,236 @@
+/* CREDIT CARD ICONS */
+
+.gform_card_icon_container {
+	margin: 8px 0 6px 0;
+	height: 32px;
+}
+
+div.gform_card_icon {
+	margin-right: 4px;
+	text-indent: -9000px;
+	background-image: url("#{$plugins-path}gravityforms/images/gf-creditcard-icons.png");
+	background-repeat: no-repeat;
+	width: 36px;
+	height: 32px;
+	float: left;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_visa {
+	background-position: 0 0;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_visa {
+	background-position: 0 -32px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_visa {
+	background-position: 0 -64px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_mastercard {
+	background-position: -36px 0;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_mastercard {
+	background-position: -36px -32px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_mastercard {
+	background-position: -36px -64px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_amex {
+	background-position: -72px 0;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_amex {
+	background-position: -72px -32px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_amex {
+	background-position: -72px -64px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_discover {
+	background-position: -108px 0;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_discover {
+	background-position: -108px -32px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_discover {
+	background-position: -108px -64px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_maestro {
+	background-position: -144px 0;
+}
+
+.gform_wrapper .gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_maestro {
+	background-position: -144px -32px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_maestro {
+	background-position: -144px -64px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_jcb {
+	background-position: -180px 0;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_jcb {
+	background-position: -180px -32px;
+}
+
+.gform_card_icon_container.gform_card_icon_style1 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_jcb {
+	background-position: -180px -64px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_visa {
+	background-position: 0 -192px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_visa {
+	background-position: 0 -224px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_visa {
+	background-position: 0 -256px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_mastercard {
+	background-position: -36px -192px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_mastercard {
+	background-position: -36px -224px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_mastercard {
+	background-position: -36px -256px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_amex {
+	background-position: -72px -192px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_amex {
+	background-position: -72px -224px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_amex {
+	background-position: -72px -256px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_discover {
+	background-position: -108px -192px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_discover {
+	background-position: -108px -224px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_discover {
+	background-position: -108px -256px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_maestro {
+	background-position: -144px -192px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_maestro {
+	background-position: -144px -224px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_maestro {
+	background-position: -144px -256px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_jcb {
+	background-position: -180px -192px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_selected.gform_card_icon_jcb {
+	background-position: -180px -224px;
+}
+
+.gform_card_icon_container.gform_card_icon_style2 div.gform_card_icon.gform_card_icon_inactive.gform_card_icon_jcb {
+	background-position: -180px -256px;
+}
+
+/* CREDIT CARD FIELDS */
+
+.gform_card_icon_container input[type=radio]#gform_payment_method_creditcard {
+	float: left;
+	position: relative;
+	top: 4px!important
+}
+
+.ginput_complex .ginput_cardinfo_left,
+.ginput_complex .ginput_cardinfo_right {
+	min-height: 43px;
+	position: relative;
+	float: left;
+}
+
+.ginput_complex .ginput_cardinfo_left {
+	width: 50%;
+	margin-right: 1%;
+}
+
+.ginput_complex .ginput_cardinfo_right {
+	min-width: 85px !important;
+}
+
+.ginput_complex .ginput_cardinfo_left label,
+.ginput_complex .ginput_cardinfo_right label {
+	white-space: nowrap !important;
+}
+
+.ginput_complex span.ginput_cardextras {
+	display: block;
+	overflow: hidden;
+}
+
+.ginput_complex .ginput_cardinfo_left span.ginput_card_expiration_container {
+	position: relative;
+	display: block;
+	min-width: 160px !important;
+}
+
+.ginput_complex select.ginput_card_expiration.ginput_card_expiration_month,
+.ginput_complex select.ginput_card_expiration.ginput_card_expiration_year {
+	width: 48% !important;
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+}
+
+.ginput_complex .ginput_cardinfo_left select.ginput_card_expiration.ginput_card_expiration_month {
+	margin-right: 4px;
+}
+
+.ginput_complex .ginput_cardinfo_right input.ginput_card_security_code {
+	max-width: 50% !important;
+}
+
+.ginput_complex .ginput_cardinfo_right span.ginput_card_security_code_icon {
+	width: 32px;
+	height: 23px;
+	background-image: url('#{$plugins-path}gravityforms/images/gf-creditcard-icons.png');
+	background-repeat: no-repeat;
+	background-position: 0 -128px;
+	position: relative;
+	top: -1px;
+	left: 6px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+}
+
+@media only screen and (min-width: $screen-sm-min) {}
+
+@media only screen and (min-width: $screen-md-min) {}
+
+@media only screen and (min-width: $screen-lg-min) {}

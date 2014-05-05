@@ -32,11 +32,11 @@
 
 				<?php endwhile; ?>
 
-				<?php include_once('includes/template-pager.php'); // WordPress template pager/pagination ?>
+				<?php get_template_part('includes/template','pager'); // WordPress template pager/pagination ?>
 
 			<?php else : ?>
 
-			<?php include_once('includes/template-error.php'); // WordPress template error message ?>
+			<?php get_template_part('includes/template','error'); // WordPress template error message ?>
 
 			<?php endif; ?>
 

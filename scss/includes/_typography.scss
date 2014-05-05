@@ -1,6 +1,7 @@
 /******************************************************************
 Site Name:
-Author: Hall Internet Marketing
+Author:
+
 Stylesheet: Typography Stylesheet
 
 A WORD OF WARNING: It's very easy to overdo it here. Be careful and
@@ -9,6 +10,7 @@ remember less is more.
 ******************************************************************/
 @import "compass";
 @import "variables";
+@import "mixins";
 
 /********************
 CUSTOMIZED RESET VALUES
@@ -35,6 +37,14 @@ ul {
 ol {
 	list-style-type:decimal;
 }
+
+ul li > ul,
+ul li > ol,
+ol li > ol,
+ol li > ul {
+	margin-top: 5px;
+}
+
 	ul ul,
 	ul ol,
 	ol ul,
@@ -64,7 +74,7 @@ b, strong, .strong {
 	font-weight: bold;
 }
 
-dfn, em, .em {
+cite, dfn, em, i, .em {
 	font-style: italic;
 }
 
@@ -135,20 +145,16 @@ pre {
 	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 	font-size: 12px;
 	color: #333333;
-	-webkit-border-radius: 3px;
-	   -moz-border-radius: 3px;
-	        border-radius: 3px;
+	border-radius: 0;
 }
 
 code {
 	padding: 2px 4px;
 	color: #d14;
-	white-space: nowrap;
+	white-space: pre-wrap;
 	background-color: #f7f7f9;
 	border: 1px solid #e1e1e8;
-	display: block;
-	overflow: scroll;
-	text-overflow: ellipsis;
+	display: inline-block;
 }
 
 pre {
@@ -164,9 +170,7 @@ pre {
 	background-color: #f5f5f5;
 	border: 1px solid #ccc;
 	border: 1px solid rgba(0, 0, 0, 0.15);
-	-webkit-border-radius: 4px;
-	   -moz-border-radius: 4px;
-	        border-radius: 4px;
+	border-radius: 0;
 }
 
 pre code {
@@ -332,10 +336,22 @@ h6, .h6 {
 
 .aligncenter, img.aligncenter {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 10px auto;
 }
 
+.alignnone, img.alignnone {
+	display: block;
+	margin: 0 0 10px 0;
+}
+
+.aligncenter, img.aligncenter,
+.alignnone, img.alignnone {
+	clear: both;
+}
+
+/*Image Caption*/
 .wp-caption {
+	max-width:100%!important;
 	background: #eee;
 	padding: 5px;
 
@@ -353,17 +369,7 @@ h6, .h6 {
 
 } /* end .wp-caption */
 
-/*Use this class for any Editor Specific Styles to help the user experience
- * set the max size of the content area in the editor to match the template*/
-.mceContentBody {
-	background-color:#FDFDFD;
-}
-
-
-/******************************************************************
- GALLERY STYLES
-******************************************************************/
-
+/*Image Gallery*/
 .gallery {
 
     .gallery-item {
@@ -393,7 +399,7 @@ h6, .h6 {
     text-align: left;
     line-height:1;
     opacity: 0;
-    max-height: 50%;
+    max-height: 75%;
     width: 100%;
     padding: 3px 5px;
     margin: 0;
@@ -416,8 +422,239 @@ h6, .h6 {
     opacity: 1;
 }
 
-.gallery-columns-7 .gallery-caption,
-.gallery-columns-8 .gallery-caption,
-.gallery-columns-9 .gallery-caption {
-    display: none;
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9 {
+	.gallery-caption {
+		display: none;
+	}
+}
+
+.gallery-columns-1 {
+	.gallery-item {
+		width:98%;
+	}
+}
+.gallery-columns-2 {
+	.gallery-item {
+		width:48%;
+	}
+}
+.gallery-columns-3 {
+	.gallery-item {
+		width:31.3%;
+	}
+}
+.gallery-columns-4 {
+	.gallery-item {
+		width:23%;
+	}
+}
+.gallery-columns-5 {
+	.gallery-item {
+		width:18%;
+	}
+}
+.gallery-columns-6 {
+	.gallery-item {
+		width:14.6%;
+	}
+}
+.gallery-columns-7 {
+	.gallery-item {
+		width:12.2%;
+	}
+}
+.gallery-columns-8 {
+	.gallery-item {
+		width:10.5%;
+	}
+}
+.gallery-columns-9 {
+	.gallery-item {
+		width:9.1%;
+	}
+}
+
+/*Core Media Player*/
+.mejs-container {
+
+	.mejs-controls{
+
+		.mejs-button{}
+
+		.mejs-playpause-button{}
+		.mejs-play{}
+		.mejs-pause{}
+
+		.mejs-time{}
+		.mejs-currenttime-container{}
+		.mejs-duration-container{}
+
+		.mejs-time-rail{}
+
+		.mejs-volume-button{}
+		.mejs-mute{}
+		.mejs-unmute{}
+
+		.mejs-fullscreen-button{}
+		.mejs-fullscreen{}
+		.mejs-unfullscreen{}
+	}
+}
+
+/*video player*/
+.mejs-video{
+	width: 100% !important;
+	height: auto !important;
+	padding-top: 57%;
+
+	.mejs-inner{
+
+		.mejs-mediaelement{
+
+			video{
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+
+		.mejs-layers{
+
+			.mejs-layer{
+
+				.mejs-overlay-loading{}
+
+				.mejs-overlay-error{}
+
+				.mejs-overlay-button{}
+
+			}
+
+			.mejs-poster{
+				width: 100% !important;
+				height: 100% !important;
+			}
+		}
+
+		.mejs-overlay{}
+
+		.mejs-overlay-play{
+			width: 100% !important;
+			height: 100% !important;
+		}
+
+		.mejs-controls{}
+	}
+}
+
+/*audio player*/
+.mejs-audio{
+	.mejs-inner{
+
+		.mejs-mediaelement{
+
+			audio{}
+		}
+
+		.mejs-layers{
+
+			.mejs-layer{}
+
+			.mejs-poster{}
+		}
+
+		.mejs-controls{
+
+			.mejs-horizontal-volume-slider{
+
+				.mejs-horizontal-volume-total{}
+
+				.mejs-horizontal-volume-current{}
+
+				.mejs-horizontal-volume-handle{}
+			}
+
+			.mejs-mute{}
+
+			.mejs-unmute{}
+		}
+	}
+}
+
+/* Audio Playlist */
+.wp-playlist {
+	overflow: hidden;
+	
+	.wp-playlist-current-item {
+		
+		img {}
+		
+		.wp-playlist-caption {
+		
+			.wp-playlist-item-title {}
+			
+			.wp-playlist-item-artist {}
+			
+		}
+		
+	}
+	
+	.wp-playlist-next {}
+	
+	.wp-playlist-prev {}
+	
+	.wp-playlist-tracks {
+	
+		.wp-playlist-item {
+		
+			&.wp-playlist-playing {}
+		
+			.wp-playlist-caption {
+				display: block;
+			
+				.wp-playlist-item-title { @include truncateText(ellipsis); }
+			
+			}
+			
+			.wp-playlist-item-length {}
+			
+		}
+	
+	}
+	
+}
+
+
+/*Block Quote Alignment*/
+blockquote.left {}
+blockquote.right {}
+
+/*Image Sizes*/
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+
+
+.wp-smiley {}
+
+/*Use this class for any Editor Specific Styles to help the user experience
+ * set the max size of the content area in the editor to match the template*/
+.mceContentBody {
+	background-color:#FDFDFD;
 }

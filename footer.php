@@ -5,7 +5,7 @@
  * Contains the closing of the #content div and all content after
  */
 ?>
-		</div> <?php #main ?>
+		</div><?php //END #main ?>
 
 	<?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
 		<div id="left-sidebar" class="sidebar col-sm-3 col-md-pull-9 clearfix" role="complementary">
@@ -19,11 +19,11 @@
 		</div>
 	<?php endif; ?>
 
-		</div><?php #inner-content ?>
+		</div><?php //END #inner-content ?>
 
-	</div><?php #content ?>
+	</div><?php //END #content ?>
 
-	<footer class="footer" role="contentinfo">
+	<footer id="colophon" class="footer" role="contentinfo">
 
 		<div id="inner-footer" class="wrap clearfix">
 
@@ -33,17 +33,16 @@
 
 			<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
 
-		</div> <?php #inner-footer ?>
+		</div>
 
-	</footer> <?php // footer ?>
-	
+	</footer>
+
 	<p id="back-top">
         <a href="#top"><i class="fa fa-angle-up"></i></a>
     </p>
 
-</div> <?php  #container ?>
+</div><?php //END #container ?>
 
-<?php // all js scripts are loaded in functions.php ?>
 <?php wp_footer(); ?>
 
 </body>

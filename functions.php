@@ -29,13 +29,25 @@ TABLE OF CONTENTS
 
 ******************************************/
 
+//Set up the content width value based on the theme's design.
+if ( ! isset( $content_width ) ) {
+	$content_width = 474;
+}
+
+//Adjust content_width value for image attachment template.
+function scaffolding_content_width() {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$GLOBALS['content_width'] = 810;
+	}
+}
+add_action( 'template_redirect', 'scaffolding_content_width' );
+
 /*********************
 1. INCLUDE FILES
 *********************/
 define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
 require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
-// require_once(SCAFFOLDING_INCLUDE_PATH.'tinymce/styles-dropdown.php');
-// require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
+//require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
 
 
 /*********************
@@ -46,7 +58,7 @@ function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
 	// modernizr (without media query polyfill)
-	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', false, null );
+	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', false, null );
 
 	// respondjs
 	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
@@ -58,14 +70,17 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-	//Magnific Popups (LightBox)
+	//Magnific Popup (LightBox)
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
 	//Font Awesome (icon set)
-	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css', array(), '4.0.1' );
+	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
 
 	// iCheck (better radio and checkbox inputs)
 	wp_enqueue_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
+
+	//Chosen - http://harvesthq.github.io/chosen/
+    wp_enqueue_script( 'chosen-js', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', array( 'jquery' ), '1.1.0', true );
 
 	// comment reply script for threaded comments
 	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -84,9 +99,9 @@ function scaffolding_scripts_and_styles() {
 // Adding WP 3+ Functions & Theme Support
 function scaffolding_theme_support() {
 
-	add_theme_support( 'post-thumbnails' );						// wp thumbnails (sizes handled in functions.php)
+	add_theme_support( 'post-thumbnails' ); // wp thumbnails (sizes handled in functions.php)
 
-	set_post_thumbnail_size( 125, 125, true );					// default thumb size
+	set_post_thumbnail_size( 125, 125, true ); // default thumb size
 
 	/*  Feature Currently Disabled
 	// wp custom background (thx to @bransonwerner for update)
@@ -101,7 +116,7 @@ function scaffolding_theme_support() {
 	);
 	*/
 
-	add_theme_support( 'automatic-feed-links' );					// rss thingy
+	add_theme_support( 'automatic-feed-links' ); // rss thingy
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 	//adding custome header suport
@@ -165,7 +180,10 @@ register_default_headers( array(
 
 //Set header image as a BG
 function scaffolding_custom_headers_callback() {
-	?><style type="text/css">#banner {background-image: url(<?php header_image(); ?>);}</style><?php
+	?>	<style type="text/css">#banner {
+			background-image: url(<?php header_image(); ?>);
+			/*-ms-behavior: url(<?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc);*/
+		}</style><?php
 }
 
 
@@ -231,7 +249,7 @@ function scaffolding_main_nav() {
 		'link_after' => '',							 	 // after each link
 		'depth' => 0,								 	 // limit the depth of the nav
 		'fallback_cb' => '',	 // fallback function
-		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-reorder"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
+		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-bars"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
 		'walker'=> new scaffolding_walker_nav_menu
 	));
 } /* end scaffolding main nav */
@@ -279,8 +297,8 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		//set <li> classes
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
-		//if( $args->has_children ){ $classes[] = 'menu-has-children'; }
-		//if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
+		if( $args->has_children ){ $classes[] = 'menu-has-children'; }
+		if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
 		//combine the class array into a string
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
@@ -448,36 +466,6 @@ function scaffolding_wpsearch($form) {
 	</form>';
 	return $form;
 } // don't remove this bracket!
-
-//Filter post with noindex set from search results
-function scaffolding_search_filter($query) {
-	if ($query->is_search) {
-		$query->set('meta_query', array(
-				'relation' => 'OR',
-				// include if this key doesn't exists
-				array(
-					'key' => '_yoast_wpseo_meta-robots-noindex',
-					'value' => '', // This is ignored, but is necessary...
-					'compare' => 'NOT EXISTS'
-				),
-				// OR if key does exists include if it is not 1
-				array(
-					'key' => '_yoast_wpseo_meta-robots-noindex',
-					'value' => '1',
-					'compare' => '!='
-				),
-				// OR this key overrides it
-				array(
-					'key' => '_yoast_wpseo_sitemap-html-include',
-					'value' => 'always',
-					'compare' => '='
-				)
-			));
-	}
-	return $query;
-}
-add_filter('pre_get_posts','scaffolding_search_filter');
-
 
 /*********************
 12. ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR

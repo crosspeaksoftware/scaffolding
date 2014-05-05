@@ -1,12 +1,14 @@
 <?php
 /**
- * The Header for our theme.
+ * The template for displaying the header.
+ *
+ * Contains the opening tag for the page structure
  */
-?><!DOCTYPE html><?php
-// <IE7 Class ?><!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><?php
-// IE7 Class ?><!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]--><?php
-// IE8 Class ?><!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]--><?php
-// >IE8 Class ?><!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+?><!DOCTYPE html>
+<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <title><?php wp_title(''); ?></title>
@@ -31,51 +33,51 @@
 
 <?php wp_head(); ?>
 
-<?php // Add Google Analytics Code Here ?>
-
 </head>
 
 <body <?php body_class(); ?>>
+
 	<div id="container">
 
 		<header id="masthead" class="header" role="banner">
 
 			<div id="inner-header" class="wrap clearfix">
 
-				<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
+				<?php // to use a image just replace the bloginfo('name') with <img> ?>
 				<div id="logo" class="h1"><a href="<?php  echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
 
 				<?php // if you'd like to use the site description you can un-comment it below
 				// echo '<p class="site-description">'. bloginfo( "description" ) .'</p>' ?>
 
-			</div><?php // #inner-header ?>
+			</div>
 
-		</header><?php // #masthead ?>
+		</header>
 
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'test' ); ?></a>
+
 		<nav id="main-navigation" class="clearfix" role="navigation">
 
 			<?php scaffolding_main_nav(); ?>
 
-		</nav><?php // #main-navigation ?>
+		</nav>
 
 		<?php // Interior Header Image ?>
         <div class="banner-wrap">
             <div id="banner">
                 <div class="spacer"></div>
-            </div><!-- end banner -->
-        </div><!-- end banner-wrap -->
+            </div>
+        </div>
 
 		<div id="content">
 
 			<div id="inner-content" class="wrap clearfix">
 
-				<?php //Test for active sidebars to set the main content width
+				<?php // Test for active sidebars to set the main content width
 					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //both sidebars
-						$main_class = 'col-sm-6';
+						$main_class = 'col-sm-6 col-sm-push-3';
 					}
 					elseif(is_active_sidebar( 'left-sidebar' ) && !is_active_sidebar( 'right-sidebar' )) { //left sidebar
-						$main_class = 'col-sm-9 col-md-push-3';
+						$main_class = 'col-sm-9 col-sm-push-3';
 					}
 					elseif(!is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //right sidebar
 						$main_class = 'col-sm-9';
@@ -85,4 +87,4 @@
 					}
 				?>
 
-				<div id="main" class="<?=$main_class;?> clearfix" role="main">
+				<div id="main" class="<?php echo $main_class;?> clearfix" role="main">

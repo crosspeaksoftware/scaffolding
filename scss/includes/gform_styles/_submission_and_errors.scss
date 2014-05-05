@@ -1,0 +1,292 @@
+/* ERRORS */
+
+.gform_wrapper.gform_validation_error {
+	::-webkit-input-placeholder {
+		color: #c0392b;
+	}
+	:-moz-placeholder {
+		color: #c0392b;
+	}
+	::-moz-placeholder {
+		color: #c0392b;
+	}
+	:-ms-input-placeholder {
+		color: #c0392b;
+	}
+}
+
+.gfield_error .ginput_complex .ginput_left,
+.gfield_error .ginput_complex .ginput_right {
+	width: 50%;
+}
+
+.gform_wrapper .top_label {
+	li.gfield.gfield_error.gf_left_half,
+	li.gfield.gfield_error.gf_right_half {
+		width: 100%;
+	}
+}
+
+.gfield_error .ginput_complex .ginput_left input[type=text],
+.gfield_error .ginput_complex .ginput_left input[type=url],
+.gfield_error .ginput_complex .ginput_left input[type=email],
+.gfield_error .ginput_complex .ginput_left input[type=tel],
+.gfield_error .ginput_complex .ginput_left input[type=number],
+.gfield_error .ginput_complex .ginput_left input[type=password] {
+	width: 100% !important;
+}
+
+.gfield_error .ginput_complex .ginput_right input[type=text],
+.gfield_error .ginput_complex .ginput_right input[type=url],
+.gfield_error .ginput_complex .ginput_right input[type=email],
+.gfield_error .ginput_complex .ginput_right input[type=tel],
+.gfield_error .ginput_complex .ginput_right input[type=number],
+.gfield_error .ginput_complex .ginput_right input[type=password] {
+	width: 100% !important;
+}
+
+li.gfield.gfield_error,
+li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+	/*background-color: #FFDFE0;
+	margin-bottom: 6px !important;
+	padding: 6px 6px 4px 6px !important;
+	border-top: 1px solid #C89797;
+	border-bottom: 1px solid #C89797;*/
+}
+
+li.gfield.gfield_creditcard_warning {
+	margin-bottom: 6px !important;
+	padding: 6px 6px 4px 6px !important;
+	border: 1px dashed #c0392b;
+}
+
+li.gfield.gfield_creditcard_warning div.gfield_creditcard_warning_message {
+	font-size:1em;
+	font-family: $sans;
+	padding: 10px 20px 10px 45px;
+	min-height: 25px;
+	background-image: url('#{$plugins-path}gravityforms/images/stopbanner.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-color: #c0392b;
+	border-bottom: 1px solid #620101;
+	color: #FFF;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.50);
+	line-height: 1.3em;
+	letter-spacing: 0.2pt;
+}
+
+li.gfield + li.gfield.gfield_creditcard_warning {
+	margin-top: 14px !important;
+}
+
+.top_label .gfield_error .ginput_container {
+	//max-width: 99%;
+}
+
+.top_label .gfield_error {
+	//width: 97%;
+}
+
+.top_label .gfield_error input.large,
+.top_label .gfield_error select.large,
+.top_label .gfield_error textarea.textarea {
+	//width: 97%;
+}
+
+.right_label .gfield_error input.large,
+.right_label .gfield_error select.large,
+.right_label .gfield_error textarea.textarea,
+.left_label .gfield_error input.large,
+.left_label .gfield_error select.large,
+.left_label .gfield_error textarea.textarea {
+	width: 66%;
+}
+
+.gfield_error .gfield_label {
+	color: #AF3124;
+}
+
+li.gfield.gfield_error.gfield_contains_required {
+	//margin-top: 12px;
+	//margin-bottom: 12px !important;
+	//padding-left: 10px !important;
+}
+
+li.gfield.gfield_error.gfield_contains_required label.gfield_label,
+li.gfield.gfield_error.gfield_contains_required div.ginput_container  {
+	//margin-top: 12px;
+}
+
+div.validation_error {
+	color: #AF3124;
+	border-left: 4px solid #c0392b;
+	background: #FFDFE0;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 1.6em;
+	padding: .5em .5em .5em 1em;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+div.gf_page_steps+div.validation_error {
+	margin-top: 16px;
+}
+
+div.gfield_description.validation_error {
+	color: #AF3124;
+	font-weight: bold;
+	font-size: 0.85em;
+	line-height: 1.2em;
+	margin-bottom: 16px;
+}
+
+.validation_message {
+	color: #c0392b;
+	font-weight: 700;
+	letter-spacing: normal;
+}
+
+li.gfield_error input[type=text],
+li.gfield_error input[type=url],
+li.gfield_error input[type=email],
+li.gfield_error input[type=tel],
+li.gfield_error input[type=number],
+li.gfield_error input[type=password],
+li.gfield_error textarea,
+li.gfield_error input {
+	border: 1px solid #c0392b;
+	background: #FFDFE0;
+}
+
+li.gfield_error div.ginput_complex.ginput_container label,
+li.gfield_error ul.gfield_checkbox,
+li.gfield_error ul.gfield_radio {
+	color: #AF3124;
+}
+
+.top_label .gfield_description.validation_message,
+.gfield_description.validation_message {
+	//padding: 10px 0 !important;
+}
+
+.ginput_container + .gfield_description.validation_message {
+	//margin-top: 6px;
+}
+
+.gfield_description + .gform_wrapper .gfield_description.validation_message {
+	//margin-top: 6px;
+}
+
+.ginput_container.ginput_list + .gfield_description.validation_message {
+	margin-top: 0;
+}
+
+/* AJAX FORMS */
+
+.gform_ajax_spinner {
+	padding-left: 10px;
+}
+
+/* CAPTCHA */
+
+.gfield_captcha_input_container {
+	padding-top: 3px;
+}
+
+.simple_captcha_small input {
+	width: 100px;
+}
+
+.simple_captcha_medium input {
+	width: 150px;
+}
+
+.simple_captcha_large input {
+	width: 200px;
+}
+
+.gform_wrapper .left_label .simple_captcha_small,
+.right_label .simple_captcha_small,
+.left_label .simple_captcha_medium,
+.right_label .simple_captcha_medium,
+.left_label .simple_captcha_large,
+.right_label .simple_captcha_large {
+	margin-left: 32%;
+}
+
+.gfield_captcha_container img.gfield_captcha {
+	border: none !important;
+	background: none !important;
+	float: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* MATH CHALLENGE */
+
+
+.math_small input {
+	width: 69px;
+}
+
+.math_medium input {
+	width: 90px;
+}
+
+.math_large input {
+	width: 108px;
+}
+
+.left_label .math_small,
+.right_label .math_small,
+.left_label .math_medium,
+.right_label .math_medium,
+.left_label .math_large,
+.right_label .math_large {
+	margin-left: 32%;
+}
+
+/* HIDDEN FIELDS */
+
+input[type=hidden],
+input.gform_hidden,
+.gform_hidden,
+.gf_hidden {
+	display: none !important;
+	max-height: 1px !important;
+	overflow: hidden;
+}
+
+.ginput_full br,
+.ginput_left br,
+.ginput_right br {
+	display: none !important;
+}
+
+/* HIDE HONEYPOT */
+
+.gform_validation_container,
+.gform_wrapper .gform_validation_container,
+body .gform_wrapper li.gform_validation_container,
+body .gform_wrapper .gform_body ul.gform_fields li.gfield.gform_validation_container,
+body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
+	display: none !important;
+	position: absolute !important;
+	left: -9000px;
+}
+
+@media only screen and (min-width: $screen-sm-min) {
+	.top_label {
+		li.gfield.gfield_error.gf_left_half,
+		li.gfield.gfield_error.gf_right_half {
+			width: 49%;
+		}
+	} /* end .top_label */
+}
+
+@media only screen and (min-width: $screen-md-min) {}
+
+@media only screen and (min-width: $screen-lg-min) {}

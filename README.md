@@ -8,6 +8,9 @@ built using HTML5 & has a strong semantic foundation. It is developed
 with the goal of providing a starting point for every responsive
 wordpress theme that we build.
 
+Scaffolding.io: Customization and Documentation
+http://scaffolding.io
+
 Developed by Hall Internet Marketing
 http://www.hallme.com/
 

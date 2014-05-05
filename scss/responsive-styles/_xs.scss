@@ -14,7 +14,6 @@ and will be used across all viewports.
 /*
 CONTENTS:
 1. General Styles
-2. Layout & Grid Styles
 3. Header Styles
 4. Navigation Styles
 5. Posts & Content Styles
@@ -29,10 +28,11 @@ GENERAL STYLES
 *********************/
 html {
 	height:100%;
+	overflow-x: hidden;
 }
 
 body {
-	height:100%;
+	height:auto;
     overflow-x: hidden;
 
     #container{
@@ -44,17 +44,12 @@ body {
 }
 
 /*********************
-LAYOUT & GRID STYLES
-*********************/
-
-.wrap {
-//	width: 96%;
-//	margin: 0 auto;
-}
-
-/*********************
 HEADER SYTLES
 *********************/
+
+/* Ensure that there is no gap between the header and the admin bar for WordPress versions before 3.8. */
+#wpadminbar { min-height: 32px; }
+
 .header {}
 	#logo {}
 	#banner {
@@ -75,44 +70,87 @@ NAVIGATION STYLES
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-
 #content {
-	margin-top: 2.2em;
+	margin: 2em 0;
 
-	.hentry {
-		header {}
-		footer {}
-	} /* end .hentry */
+	#inner-content{
 
-	.entry-content {} /* general title class */
+		.hentry {
 
-	.page-title {}
+			header {}
 
-	.single-title {}
+			footer {}
 
-	.archive-title {}
+		} /* end .hentry */
 
-	.search-title {}
+		.entry-content {} /* general title class */
 
-	/* want to style individual post classes? Booya! */
-	.post-id {}         /* post by id (i.e. post-3) */
-	.post {}            /* general post style */
-	.page {}            /* general article on a page style */
-	.attachment {}      /* general style on an attatchment */
-	.sticky {}          /* sticky post style */
-	.hentry {}          /* hentry class */
-	.category-slug {}   /* style by category (i.e. category-videos) */
-	.tag-slug {}        /* style by tag (i.e. tag-news) */
+		.page-title {}
 
-	/* post meta */
-	.byline {
-		color: #999;
-		time {}
+		.single-title {}
+
+		.archive-title {}
+
+		.search-title {}
+
+		/* want to style individual post classes? Booya! */
+		.post-id {}         /* post by id (i.e. post-3) */
+		.post {}            /* general post style */
+		.page {}            /* general article on a page style */
+		.attachment {}      /* general style on an attatchment */
+		.sticky {}          /* sticky post style */
+		.hentry {}          /* hentry class */
+		.category-slug {}   /* style by category (i.e. category-videos) */
+		.tag-slug {}        /* style by tag (i.e. tag-news) */
+
+		/* post meta */
+		.byline {
+			color: #999;
+			margin: -1em 0 1em;
+
+			time {}
+		}
+
+		/* entry content */
+		.entry-content {
+
+			p {}
+
+
+			ul, ol, table, dl {}
+
+			ul, ol {
+
+				li {}
+
+			}
+
+			ul {
+
+				li {}
+
+			}
+
+			ol {
+
+				li {}
+
+			}
+
+			blockquote {
+
+				&:before {}
+
+			}
+
+			dl {}
+
+			dt {}
+
+			dd {}
+		}
 	}
 
-	/* entry content */
-	.entry-content {
-	} /* end .entry-content */
 }
 
 /******************************************************************
@@ -120,110 +158,120 @@ PAGE NAVIGATION STYLES
 ******************************************************************/
 
 .page-navigation,
-.wp-prev-next {
-	margin: 1.1em 0 2.2em;
-}
-	.scaffolding_page_navi {
-		li {
-			float: left;
-			margin-left: 10px;
+.wp-prev-next {}
 
-			a {
-				padding: 3px 6px;
-				display: block;
-				text-decoration: none;
-				position: relative;
+    .scaffolding_page_navi {
+        margin:1em 0;
 
-				&:hover,
-				&:focus {
-					color: #f01d4f;
-					text-decoration: underline;
-				}
-			}
+        li {
+            float: left;
+            margin:0;
 
-		}
+            a {
+                display: block;
+                color:#333;
+                text-decoration: none;
+                padding: 3px 10px;
+                position: relative;
 
-		/* current page link */
-		li.bpn-current {
-			padding: 3px 6px;
-			border-bottom: 2px solid #f01d4f;
-			position: relative;
+                &:hover,
+                &:focus {
+                    color: $link-color;
+                    text-decoration: underline;
+                }
+            }
 
-			a {
-				/* hovering on current page link */
-				&:hover,
-				&:focus {}
+        }
 
-			}
+        /* current page link */
+        li.bpn-current {
+            background-color:#f5f5f5;
+            color:$link-color;
+            padding: 3px 10px;
+            position: relative;
 
-		} /* end .scaffolding_page_navi .bpn-current */
+            a {
+                /* hovering on current page link */
+                &:hover,
+                &:focus {
+                    color:#333;
+                }
 
-		/* common styles for page-navi links */
-		li.bpn-prev-link,
-		li.bpn-next-link {
-			font-weight: 700;
+            }
 
-			a {
-				padding: 0;
-			}
-		}
+        } /* end .scaffolding_page_navi .bpn-current */
 
-		/* remove the bg on end links */
-		li.bpn-prev-link a:hover,
-		li.bpn-next-link a:hover,
-		li.bpn-first-page-link a:hover,
-		li.bpn-last-page-link a:hover {
-			background: none;
-		}
+        /* common styles for page-navi links */
+        li.bpn-prev-link,
+        li.bpn-next-link {
+            font-weight: 700;
 
-		/* previous link */
-		li.bpn-prev-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+            a {
+                color:$link-color;
 
-		/* next page link */
-		li.bpn-next-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+                &:hover,
+                &:focus {
+                    color:#333;
+                }
+            }
+        }
 
-		/* first page link */
-		li.bpn-first-page-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+        /* remove the bg on end links */
+        li.bpn-prev-link a:hover,
+        li.bpn-next-link a:hover,
+        li.bpn-first-page-link a:hover,
+        li.bpn-last-page-link a:hover {
+            background: none;
+        }
 
-		/* last page link */
-		li.bpn-last-page-link {
-			a {
-				&:hover,
-				&:focus {}
-			}
-		}
+        /* previous link */
+        li.bpn-prev-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-	} /* end .scaffolding_page_navi */
+        /* next page link */
+        li.bpn-next-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-	/* fallback previous & next links */
-	.wp-prev-next {
+        /* first page link */
+        li.bpn-first-page-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-		ul {}
+        /* last page link */
+        li.bpn-last-page-link {
+            a {
+                &:hover,
+                &:focus {}
+            }
+        }
 
-		.prev-link {
-			float: left;
-		}
+    } /* end .scaffolding_page_navi */
 
-		.next-link {
-			float: right;
-		}
+    /* fallback previous & next links */
+    .wp-prev-next {
 
-	} /* end .wp-prev-next */
+        ul {}
+
+        .prev-link {
+            float: left;
+        }
+
+        .next-link {
+            float: right;
+        }
+
+    } /* end .wp-prev-next */
 
 /******************************************************************
 COMMENTS & COMMENT FORM STYLES
@@ -236,41 +284,161 @@ COMMENTS & COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-.sidebar {}
+.sidebar {
+	margin-top: 2em;
+}
 
-	.widgettitle {}
+	.widgettitle {
+		border-bottom: 2px solid #444;
+		margin-bottom: 0.75em;
+	}
 
 	.widget {
+		padding: 0 10px;
+		margin: 2.2em 0;
 
-		ul {
-
-			li {
-
-				&:first-child {}
-
-				&:last-child {}
-
-				a {}
-
-				/* deep nesting */
-				ul {}
-
-			}
-
+		&.first-widget {
+			margin: 0 0 2.2em;
 		}
 
+		ul {
+			li {
+				margin-bottom: 0.75em;
+
+				&:first-child {}
+				&:last-child {}
+				a {}
+				/* deep nesting */
+
+				ul {
+					margin-top: 0.75em;
+					padding-left: 1em;
+				}
+			}
+		}
 	}
+
+
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {}
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {}
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
 
 /*********************
 FOOTER STYLES
 *********************/
 
-.footer {
+#colophon {
 	clear: both;
+	background-color:#111;
+	color:#999;
+	padding:1em 0;
 }
 
 	ul.footer-menu {
-		li {}
+		display:inline-block;
+		text-align:right;
+		margin:0;
+		padding:0;
+
+		li {
+			display:inline-block;
+			margin:0 0 0 -4px;
+			padding:0;
+
+			a{
+				border-left:1px solid #ccc;
+				color:#999;
+				line-height:normal;
+				padding:0 1em;
+			}
+
+			&:first-child a{
+				border-left:none;
+			}
+		}
 	} /* end .footer-menu */
 
 	.copyright {}

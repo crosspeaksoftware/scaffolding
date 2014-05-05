@@ -196,7 +196,7 @@ add_action( 'wp_before_admin_bar_render', 'scaffolding_remove_admin_bar_links' )
 
 // Custom Backend Footer
 function scaffolding_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="https://github.com/hallme/scaffolding" target="_blank">scaffolding</a> a fork of <a href="http://themble.com/bones" target="_blank">bones</a>.';
+	echo '<span id="footer-thankyou">Developed by <a href="//www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="//github.com/hallme/scaffolding" target="_blank">scaffolding</a> a fork of <a href="//themble.com/bones" target="_blank">bones</a>.';
 }
 add_filter('admin_footer_text', 'scaffolding_custom_admin_footer');
 

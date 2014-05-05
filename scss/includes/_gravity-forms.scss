@@ -1,0 +1,507 @@
+/* 
+ * Responsive Gravity Forms Styles
+ * Usage: be sure to uncheck the box in Gravity Forms Settings to "Not" Output default CSS
+----------------------------------- */
+
+/* Import Other Styles */
+@import "gform_styles/_ready_classes";
+@import "gform_styles/_submission_and_errors";
+@import "gform_styles/_other_fields";
+@import "gform_styles/_credit_cards";
+
+/* Standard Fields */
+
+/* 
+ * Get Chosen Js to Work with all Select Inputs
+ * How: don't use the built-in checkbox "enable enhanced user interface"
+ * Advanced Fields with Select: add a class under the advanced tab like "has-select"
+ * Normal Select: set a class to keep it from spanning full width
+ *
+*/
+.gform_wrapper {
+	li.has-select {
+		overflow: visible;
+		height: 384px;
+		
+		.ginput_complex {
+			overflow: visible;
+			
+			.ginput_left, .ginput_right, .ginput_full {
+				overflow: visible;
+			}
+		}
+	}
+	
+	li.has-select.gfield_error {
+		.chosen-single {
+			border-color: #c0392b !important;
+			background: #FFDFE0 !important;
+			color: #c0392b !important;
+		}
+	}
+	
+	.chosen-single:hover, .chosen-single:focus { border-bottom: 1px solid #ccc !important; }
+	.chosen-container:focus+label, 
+	.chosen-container:active+label,
+	.chosen-container-active+label {
+		font-weight: bold;
+	}
+}
+
+/* GForm Wrapper */
+
+.gform_wrapper {
+	overflow: inherit;
+	margin: 15px auto;
+	width: 100%;
+	font-family: $sans;
+	
+	&:focus {
+		outline: 0;
+	}
+}
+	
+/* REQUIRED */
+
+.gfield_required {
+	color: #AF3124;
+	margin-left: 4px;
+}
+	
+/* INPUTS */
+
+textarea.small {
+	height: 80px;
+}
+
+textarea.medium {
+	height: 150px;
+}
+
+textarea.large {
+	height: 250px;
+}
+	
+/* RADIO & CHECKBOXES */
+
+ul.gfield_checkbox,
+ul.gfield_radio {
+	li {
+		label, input {
+			margin-left: 5px;
+		}
+	}
+}
+
+/* HOVER & FOCUS */
+
+.field_hover {
+	border: 1px dashed #2175A9;
+	cursor: pointer;
+}
+
+.field_selected {
+	background-color: #DFEFFF;
+	border: 1px solid #C2D7EF;
+}
+
+/* CUSTOM FIELDS */
+
+.ginput_complex {
+	overflow: hidden;
+	
+	.field_name_first,
+	.field_name_last {
+		width: 100%;
+	}
+	
+	.ginput_left,
+	.ginput_right,
+	.ginput_full {
+		min-height: 43px;
+		display: block;
+		overflow: hidden;
+	}
+	
+	.ginput_left,
+	.ginput_right  {
+		width: 100%;
+	}
+	
+	.name_prefix {
+		float: left;
+		width: 13%;
+	}
+	
+	.name_first {
+		float: left;
+		width: 83%;
+		margin-left: 4%;
+	}
+	
+	.name_last {
+		clear: both;
+		float: left;
+		width: 73%;
+	}
+	
+	.name_suffix {
+		float: right;
+		width: 23%;
+		margin-left: 4%;
+	}
+	
+	input[type=text],
+	input[type=url],
+	input[type=email],
+	input[type=tel],
+	input[type=number],
+	input[type=password] {
+		width: 100%;
+		
+		&:focus+label {
+			font-weight: bold;
+		}
+	}
+
+	select {
+		width: 100%;
+	}
+}
+
+/* HEADER */
+
+.gform_heading {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+/* BODY */
+
+.gform_body {}
+
+/* FOOTER */
+
+.gform_footer {
+	margin: 25px 0 15px 0;
+	clear: both;
+	text-align: center;
+
+	&.right_label,
+	&.left_label {
+		padding: 16px 0 10px 31%;
+	}
+}
+
+/* TITLES & DESCRIPTIONS */
+
+h2.gsection_title {
+	margin: 0 !important;
+	padding: 0 !important;
+	letter-spacing: normal !important;
+}
+
+h2.gsection_title,
+h3.gform_title {
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+h3.gform_title {
+	letter-spacing: normal !important;
+	margin: 10px 0 6px 0;
+}
+
+span.gform_description {
+	font-weight: normal;
+}
+
+h2.gsection_title,
+.gsection_description,
+h3.gform_title {
+	width: 100%;
+}
+
+.description,
+.gfield_description,
+.gsection_description,
+.instruction {
+	font-size: 0.85em;
+	line-height: 1.5em;
+	clear: both;
+	letter-spacing: normal;
+}
+
+.description,
+.gfield_description,
+.gsection_description {
+	padding: 4px 0 8px 0;
+}
+
+.left_label .gfield_description,
+.right_label .gfield_description {
+	width: 63%;
+}
+
+.gfield_date_year+.gfield_description {
+	padding: 0;
+}
+
+.right_label .gfield_description,
+.left_label .gfield_description,
+.left_label .instruction,
+.right_label .instruction {
+	margin-left: 31%;
+}
+
+.left_label .gsection .gsection_description,
+.right_label .gsection .gsection_description {
+	margin-left: 0;
+	padding-top: 4px;
+	padding-left: 0;
+	line-height: 1.5em;
+}
+
+/* LISTS */
+
+form {
+	ul {
+		margin: 0 !important;
+		list-style-type: none;
+		
+		li.gfield {
+			clear: both;
+		}
+	}
+}
+
+form li {
+	margin-left: 0 !important;
+	list-style-type: none !important;
+	list-style-image: none !important;
+	list-style: none !important;
+	overflow: visible;
+}
+
+
+ul.gfield_radio li,
+ul.gfield_checkbox li {
+	overflow: hidden;
+}
+
+form ul.right_label li,
+form ul.left_label li {
+	margin-bottom: 14px;
+}
+
+form ul.right_label li ul.gfield_radio li,
+form ul.left_label li ul.gfield_radio li,
+form ul.right_label li ul.gfield_checkbox li,
+form ul.left_label li ul.gfield_checkbox li {
+	margin-bottom: 10px;
+}
+
+form {
+	ul li:before,
+	ul li:after,
+	ul.gform_fields {
+		padding: 0;
+		margin: 0;
+		overflow: visible;
+	}
+
+	.inline {
+		display: inline !important;
+	}
+}
+
+/* LABELS */
+
+.ginput_complex {
+	.ginput_left,
+	.ginput_right,
+	.ginput_full {
+		input:focus+label {
+			font-weight: bold;
+		}
+	}
+}
+
+.ginput_complex label,
+.gfield_time_hour label,
+.gfield_time_minute label,
+.gfield_date_month label,
+.gfield_date_day label,
+.gfield_date_year label,
+.instruction {
+	display: block;
+	margin: 3px 0;
+	font-size: 11px;
+	letter-spacing: 0.5pt;
+}
+
+.top_label {
+	.gfield_label {
+		margin: 10px 0 4px 0;
+		font-weight: bold;
+		display: -moz-inline-stack;
+		display: inline-block;
+		line-height: 1.3em;
+		clear: both;
+	}
+}
+
+.left_label { 
+	.gfield_label {
+		float: left;
+		margin: 0 15px 0 0;
+		width: 29%;
+		font-weight: bold;
+	}
+}
+
+.right_label {
+	.gfield_label {
+		float: left;
+		margin: 0 15px 0 0;
+		width: 29%;
+		font-weight: bold;
+		text-align: right;
+	}
+}
+
+.left_label ul.gfield_checkbox,
+.right_label ul.gfield_checkbox,
+.left_label ul.gfield_radio,
+.right_label ul.gfield_radio {
+	margin-left: 32%;
+	overflow: hidden;
+}
+
+.gsection .gfield_label {
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+/* SECTIONS */
+
+.gsection {
+	border-bottom: 1px dotted #CCC;
+	padding: 0 0 8px 0;
+	margin: 16px 0;
+	clear: both;
+}
+
+
+@media only screen and (min-width: $screen-sm-min) {
+
+	.gform_wrapper {
+		max-width: 100%;
+		margin: 10px 0;
+	}
+		
+	textarea {
+		width: 100% !important;
+	}
+
+	.gform_heading {
+		width: auto;
+	}
+
+	.field_name_first,
+	.field_name_last {
+		width: 49%;
+	}
+	
+	.field_name_first {
+		float: left;
+	}
+	
+	.field_name_last {
+		float: right;
+	}
+	
+	.ginput_complex {
+		.ginput_left {
+			input[type=text],
+			input[type=url],
+			input[type=email],
+			input[type=tel],
+			input[type=number],
+			input[type=password] {
+				width: 100%;
+			}
+		}
+		
+		.ginput_right {
+			input[type=text],
+			input[type=url],
+			input[type=email],
+			input[type=tel],
+			input[type=number],
+			input[type=password] {
+				width: 100%;
+			}
+		}
+		
+		.ginput_full {
+			input[type=text],
+			input[type=url],
+			input[type=email],
+			input[type=tel],
+			input[type=number],
+			input[type=password] {
+				width: 100%;
+			}
+		}
+	
+		.ginput_left  {
+			width: 49%;
+			float: left;
+		}
+
+		.ginput_right {
+			width: 49%;
+			float: right;
+		}
+		
+		.name_prefix {
+			float: left;
+			width: 8%;
+		}
+		
+		.name_suffix {
+			float: left;
+			width: 11%;
+			margin-left: 2%;
+		}
+		
+		.name_first,
+		.name_last {
+			float: left;
+			width: 36%;
+		}
+		
+		.name_first {
+			margin-left: 2%;
+		}
+		
+		.name_last {
+			clear: none;
+			margin-left: 2%;
+		}
+	}
+	
+	li.has-select {
+		height: 234px;
+	}
+	
+	li.has-select.gfield_error {
+		height: 300px;
+	}
+
+}
+
+@media only screen and (min-width: $screen-md-min) {}
+
+@media only screen and (min-width: $screen-lg-min) {}
