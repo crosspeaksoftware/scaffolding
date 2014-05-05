@@ -22,14 +22,14 @@ Stylesheet: Off Canvas Navigation
 
         li {
             display: block;
-            border-bottom: 2px solid #222;
+            border-bottom: 1px solid #aaa;
             margin: 0;
             padding: 0;
             @include transition(all 0.25s ease-in-out);
 
             a {
 				display: inline-block;
-				color: #999;
+				color: #aaa;
 				font-size: 1.143em;
 				text-decoration: none;
 		        width: 80%;
@@ -37,8 +37,7 @@ Stylesheet: Off Canvas Navigation
                 @include transition(all 0.25s ease-in-out);
 
 				&:hover, &:focus {
-	                background-color: #222;
-					color:#ccc;
+					color:$link-color;
                 }
             }
 
@@ -163,7 +162,6 @@ Here you can begin to add more resource-intensive styles.
 
 				a {
 					display:inline-block;
-					border-left:2px solid #222;
 					width:auto;
 					padding:10px 20px;
 
@@ -237,7 +235,6 @@ Here you can begin to add more resource-intensive styles.
 
 						a {
 							display:block;
-							border-bottom:2px solid #222;
 							border-left:none;
 							padding:10px;
 

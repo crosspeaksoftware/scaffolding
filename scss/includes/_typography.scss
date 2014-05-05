@@ -9,6 +9,7 @@ remember less is more.
 ******************************************************************/
 @import "compass";
 @import "variables";
+@import "mixins";
 
 /********************
 CUSTOMIZED RESET VALUES
@@ -397,7 +398,7 @@ h6, .h6 {
     text-align: left;
     line-height:1;
     opacity: 0;
-    max-height: 50%;
+    max-height: 75%;
     width: 100%;
     padding: 3px 5px;
     margin: 0;
@@ -584,6 +585,50 @@ h6, .h6 {
 		}
 	}
 }
+
+/* Audio Playlist */
+.wp-playlist {
+	overflow: hidden;
+
+	.wp-playlist-current-item {
+
+		img {}
+
+		.wp-playlist-caption {
+
+			.wp-playlist-item-title {}
+
+			.wp-playlist-item-artist {}
+
+		}
+
+	}
+
+	.wp-playlist-next {}
+
+	.wp-playlist-prev {}
+
+	.wp-playlist-tracks {
+
+		.wp-playlist-item {
+
+			&.wp-playlist-playing {}
+
+			.wp-playlist-caption {
+				display: block;
+
+				.wp-playlist-item-title { @include truncateText(ellipsis); }
+
+			}
+
+			.wp-playlist-item-length {}
+
+		}
+
+	}
+
+}
+
 
 /*Block Quote Alignment*/
 blockquote.left {}
