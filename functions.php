@@ -99,6 +99,9 @@ function scaffolding_scripts_and_styles() {
 // Adding WP 3+ Functions & Theme Support
 function scaffolding_theme_support() {
 
+	// Make theme available for translation
+	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
+
 	add_theme_support( 'post-thumbnails' ); // wp thumbnails (sizes handled in functions.php)
 
 	set_post_thumbnail_size( 125, 125, true ); // default thumb size
