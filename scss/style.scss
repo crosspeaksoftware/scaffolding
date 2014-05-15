@@ -13,7 +13,8 @@ Stylesheet: Main Stylesheet
 @import "includes/typography";
 @import "includes/mixins";
 @import "includes/forms";
-@import "includes/offcanvas-nav";
+@import "includes/comments";
+@import "includes/responsive-nav";
 
 // STEP 3: Import all our libraries
 //@import "includes/gravity-forms"; /* gravity forms styles - uncheck box to NOT output default CSS */

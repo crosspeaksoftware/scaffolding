@@ -14,13 +14,11 @@ and will be used across all viewports.
 /*
 CONTENTS:
 1. General Styles
-3. Header Styles
-4. Navigation Styles
-5. Posts & Content Styles
-6. Page Navigation Styles
-7. Comments & Comment Form Styles
-8. Sidebars & Asides
-9. Footer Styles
+2. Header Styles
+3. Posts & Content Styles
+4. Page Navigation Styles
+5. Sidebars & Asides
+6. Footer Styles
 */
 
 /*********************
@@ -46,7 +44,6 @@ body {
 /*********************
 HEADER SYTLES
 *********************/
-
 /* Ensure that there is no gap between the header and the admin bar for WordPress versions before 3.8. */
 #wpadminbar { min-height: 32px; }
 
@@ -62,10 +59,6 @@ HEADER SYTLES
 			padding-top: 26%; // change this value based on the aspect ratio of your header image
 		}
 	}
-/*********************
-NAVIGATION STYLES
-*********************/
-/* Look for menu styles in _responsive-nav.scss */
 
 /*********************
 POSTS & CONTENT STYLES
@@ -110,53 +103,12 @@ POSTS & CONTENT STYLES
 
 			time {}
 		}
-
-		/* entry content */
-		.entry-content {
-
-			p {}
-
-
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			blockquote {
-
-				&:before {}
-
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {}
-		}
 	}
-
 }
 
 /******************************************************************
 PAGE NAVIGATION STYLES
 ******************************************************************/
-
 .page-navigation,
 .wp-prev-next {}
 
@@ -272,14 +224,6 @@ PAGE NAVIGATION STYLES
         }
 
     } /* end .wp-prev-next */
-
-/******************************************************************
-COMMENTS & COMMENT FORM STYLES
-******************************************************************/
-
-// styles in _base_comments.scss
-@import "includes/base_comments";
-
 
 /*********************
 SIDEBARS & ASIDES
@@ -409,7 +353,6 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-
 #colophon {
 	clear: both;
 	background-color:#333;

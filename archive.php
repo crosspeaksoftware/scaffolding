@@ -10,6 +10,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
+
 				<h1 class="archive-title">
 					<?php
 						if ( is_category() ) :
@@ -76,9 +77,9 @@ get_header(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-						<header class="article-header">
+						<header class="entry-header">
 
-							<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
 							<?php
 							/* Hidden by default
@@ -95,7 +96,7 @@ get_header(); ?>
 
 						</section> <!-- end article section -->
 
-						<footer class="article-footer">
+						<footer class="entry-footer">
 
 						</footer> <!-- end article footer -->
 

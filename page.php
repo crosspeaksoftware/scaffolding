@@ -4,13 +4,13 @@
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-						<header class="article-header">
+						<header class="page-header">
 
-							<h1 class="entry-title page-title"><?php the_title(); ?></h1>
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
 						</header>
 
-						<section class="entry-content clearfix">
+						<section class="page-content clearfix">
 							<?php the_content(); ?>
 							<?php wp_link_pages( array(
 								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
@@ -20,7 +20,7 @@
 							) ); ?>
 						</section>
 
-						<footer class="article-footer">
+						<footer class="page-footer" role="contentinfo">
 
 							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
 
