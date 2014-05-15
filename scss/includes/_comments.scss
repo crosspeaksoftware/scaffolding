@@ -1,0 +1,344 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Base Mobile Comments Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylesheet
+and will be used across all viewports.
+
+******************************************************************/
+
+/*
+CONTENTS:
+1. Comment Form Styles
+2. Comments Styles
+*/
+
+/*********************
+COMMENT FORM STYLES
+*********************/
+
+.respond-form, .comment-respond {
+
+	#reply-title {
+		font-weight: bold;
+	}
+
+	form {
+		margin: 0.75em 0;
+
+		p {
+			margin: 0 0 0.75em 0
+		}
+
+		ul {
+
+			margin: 0;
+
+			li {
+				list-style-type: none;
+				clear: both;
+				margin-bottom: 0.7335em;
+				margin-left: 0;
+
+				label,
+				small {
+					display: none;
+				}
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url],
+		textarea {
+			width: 100%;
+
+			&:focus {}
+
+			/* form validation */
+			&:invalid {
+				outline: none;
+				border-color: #fbc2c4;
+				background-color: #f6e7eb;
+				-webkit-box-shadow: none;
+				   -moz-box-shadow: none;
+				    -ms-box-shadow: none;
+						box-shadow: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url] {
+			max-width: 400px;
+			min-width: 250px;
+		}
+
+		textarea {
+			height: 150px;
+		}
+
+		label {
+			margin: 10px 0 4px 0;
+			font-weight: bold;
+			display: block;
+			line-height: 1.3em;
+			clear: both;
+
+			.required{
+				color:#AF3124;
+			}
+		}
+	}
+
+	/* comment submit button */
+	#submit {}
+
+	/* comment form title */
+	#comment-form-title {
+		margin: 0 0 1.1em;
+	}
+
+	/* cancel comment reply link */
+	#cancel-comment-reply {
+		a {}
+	}
+
+	/* logged in comments */
+	.comments-logged-in-as {}
+
+	/* allowed tags */
+	.form-allowed-tags {
+		margin: 1em 0 1.675em 0;
+
+		code {
+			margin-top: 0.5em;
+			display: block;
+			overflow: hidden;
+		}
+	}
+
+	/* no comments */
+	.nocomments {
+		margin: 0 20px 1.1em;
+	}
+
+}
+
+/*********************
+COMMENTS STYLES
+*********************/
+
+/* h3 comment title */
+#comments {
+
+	/* number of comments span */
+	span {}
+
+}
+
+.comment-nav {
+
+	ul {
+		margin: 1em 0;
+
+		li {
+			margin-left: 0;
+		}
+
+	}
+}
+
+
+.commentlist {
+	padding: 0;
+	margin: 0;
+
+	li {
+		position: relative;
+		clear: both;
+		overflow: hidden;
+		list-style-type: none;
+		margin-bottom: 1.5em;
+		padding: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		ul.children {
+			margin: 0;
+
+			li {
+				margin-left: 0 0 0 3em;
+			}
+
+			/* variations */
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {}           /* change number for different depth */
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+
+		} /* end .commentlist li ul.children */
+	}
+
+	li[class*=depth-] {
+		margin-top: 1.1em;
+	}
+
+	li.depth-1 {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	/*li:not(.depth-1) {
+		margin-right: -10px;
+		margin-left: -10px;
+		margin-top: 0;
+		padding-bottom: 0;
+	}*/
+
+	li.depth-2 {}
+	li.depth-3 {}
+	li.depth-4 {}
+	li.depth-5 {}
+
+	/* general comment classes */
+	.alt {}
+	.odd {}
+	.even {}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}
+
+	/* vcard */
+	.vcard {
+		position: relative;
+		height: auto;
+		overflow: overflow;
+		min-height: 32px;
+
+		cite.fn {
+			font-weight: 700;
+			font-style: normal;
+			font-size: 1.25em;
+			margin-left: 50px;
+
+			a.url {}
+
+		}
+
+		time {
+			float: right;
+			margin-left: 10px;
+
+			a {
+				color: #999;
+				font-size: 1.25em;
+				font-weight: 300;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+		img.photo {}
+
+		img.avatar, img.photo {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 0;
+			border: 1px solid #DDD;
+			@include border-radius(50%);
+		}
+
+	} /* end .commentlist .vcard */
+
+
+	/* comment meta */
+	.comment-meta {
+
+		a {}
+
+	}
+
+	.commentmetadata {
+
+		a {}
+
+	}
+
+	.alert.info {
+		p {
+			color: #AF3124;
+			font-style: italic;
+		}
+	}
+
+	/* comment content */
+	.comment_content {
+		margin-top: 1em;
+		padding: 0.5em 0.5em 0.5em 1.5em;
+		border: 1px solid #DDD;
+		clear: both; 
+
+		p {
+			margin: 1em 0;
+			font-size: 1em;
+			line-height: 1.5em;
+		}
+
+		ul, ol {
+			li {
+				overflow: visible;
+				list-style-type: inherit;
+			}
+		}
+
+	} /* end .commentlist .comment_content */
+
+	/* comment reply link */
+	.comment-reply-link {
+		text-decoration: none;
+		float: right;
+		color: $link-color;
+		padding: 5px 15px;
+		margin: 0.5em 0 1em 0;
+		font-weight: 400;
+		font-size: 0.9em;
+
+		&:hover,
+		&:focus {
+			color: $link-hover-color;
+			text-decoration: none;
+		}
+
+		&:after {
+			font-family: "FontAwesome";
+			content: "\f112";
+			padding-left: 5px;
+		}
+
+	} /* end .commentlist .comment-reply-link */
+
+} /* end .commentlist */
