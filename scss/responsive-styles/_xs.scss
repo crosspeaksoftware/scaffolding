@@ -6,7 +6,7 @@ Stylesheet: Base Mobile Stylesheet
 
 Be light and don't over style since everything here will be
 loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
+possible. This is called at the top of the main stylesheet
 and will be used across all viewports.
 
 ******************************************************************/
@@ -400,9 +400,7 @@ FOOTER STYLES
 			opacity: .2;
 			background: #000;
 			@include transition(all 1s ease-in-out);
-			-webkit-border-radius: 500px;
-			-moz-border-radius: 500px;
-			border-radius: 500px;
+			@include border-radius(500px);
 
 			&:hover, &:focus {
 				color: #000;
