@@ -50,10 +50,10 @@ HEADER SYTLES
 .header {}
 	#logo {}
 	#banner {
-
 		background-position:top center;
 		background-repeat:no-repeat;
 		background-size: cover;
+		-ms-behavior: url(wp-content/themes/my-scaffolding/includes/backgroundsize.min.htc);
 
 		.spacer {
 			padding-top: 26%; // change this value based on the aspect ratio of your header image
