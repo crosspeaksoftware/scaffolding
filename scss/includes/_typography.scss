@@ -235,9 +235,10 @@ table {
 /*********************
 LINK STYLES
 *********************/
-a, a:visited {
+a {
 	color:$link-color;
 	text-decoration:none;
+	word-wrap: break-word;
 }
 
 /* on hover */
@@ -589,44 +590,44 @@ h6, .h6 {
 /* Audio Playlist */
 .wp-playlist {
 	overflow: hidden;
-	
+
 	.wp-playlist-current-item {
-		
+
 		img {}
-		
+
 		.wp-playlist-caption {
-		
+
 			.wp-playlist-item-title {}
-			
+
 			.wp-playlist-item-artist {}
-			
+
 		}
-		
+
 	}
-	
+
 	.wp-playlist-next {}
-	
+
 	.wp-playlist-prev {}
-	
+
 	.wp-playlist-tracks {
-	
+
 		.wp-playlist-item {
-		
+
 			&.wp-playlist-playing {}
-		
+
 			.wp-playlist-caption {
 				display: block;
-			
+
 				.wp-playlist-item-title { @include truncateText(ellipsis); }
-			
+
 			}
-			
+
 			.wp-playlist-item-length {}
-			
+
 		}
-	
+
 	}
-	
+
 }
 
 
