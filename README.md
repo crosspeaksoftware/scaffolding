@@ -1,4 +1,5 @@
 **Scaffolding**
+
 Contributors: hallme
 Tags: mobile-ready, responsive, left-sidebar, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, microformats, sticky-post, translation-ready
 Donate link: http://scaffolding.io/
@@ -52,17 +53,20 @@ Scaffolding was built with direct input from search marketers, tested extensivel
 
 **Installation**
 
-1.Upload \"scafflding\" theme file to the \"/wp-content/themes/\" directory.
-2.Activate the theme through the \"Appearances\" menu in WordPress.
-3.Edit the styles and templates as needed.
+1. Upload \"scafflding\" theme file to the \"/wp-content/themes/\" directory.
+2. Activate the theme through the \"Appearances\" menu in WordPress.
+3. Edit the styles and templates as needed.
 
 **Frequently Asked Questions**
+
 NA
 
 **Changelog**
+
 *1.1*
-Changed add_submenu_page to add_theme_page
-Updated styles to deal with long titles and links
-Added backgroundsize pollyfill
-Renamed _offcanvas-nav.scss to _responsive-nav.scss
-Renamed _base_comments.scss to _comments.scss
+
+* Changed add_submenu_page to add_theme_page
+* Updated styles to deal with long titles and links
+* Added backgroundsize pollyfill
+* Renamed _offcanvas-nav.scss to _responsive-nav.scss
+* Renamed _base_comments.scss to _comments.scss
