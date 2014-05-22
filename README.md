@@ -1,5 +1,4 @@
 **Scaffolding**
-
 Contributors: hallme
 Tags: mobile-ready, responsive, left-sidebar, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, microformats, sticky-post, translation-ready
 Donate link: http://scaffolding.io/

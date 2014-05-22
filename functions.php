@@ -106,7 +106,6 @@ function scaffolding_theme_support() {
 
 	set_post_thumbnail_size( 125, 125, true ); // default thumb size
 
-	/*  Feature Currently Disabled
 	// wp custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background',
 		array(
@@ -117,7 +116,7 @@ function scaffolding_theme_support() {
 		'admin-preview-callback' => ''
 		)
 	);
-	*/
+	remove_theme_support( 'custom-background' ); //Disable Feature
 
 	add_theme_support( 'automatic-feed-links' ); // rss thingy
 
@@ -139,8 +138,8 @@ function scaffolding_theme_support() {
 		)
 	);
 
-/* Feature Currently Disabled
-	// adding post format support
+/*Featured Disabled
+	 //adding post format support
 	add_theme_support( 'post-formats',
 		array(
 			'aside',			// title less blurb
@@ -561,7 +560,7 @@ function scaffolding_get_the_author_posts_link() {
 	$link = sprintf(
 		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		esc_attr( sprintf( __( 'Posts by %s', $text_domain ), get_the_author() ) ), // No further l10n needed, core will take care of this one
+		esc_attr( sprintf( __( 'Posts by %s', 'scaffolding' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
 		get_the_author()
 	);
 	return $link;
