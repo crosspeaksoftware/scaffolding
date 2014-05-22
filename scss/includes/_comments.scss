@@ -219,7 +219,15 @@ COMMENTS STYLES
 	.comment {}
 	.children {}
 	.pingback {}
-	.bypostauthor {}
+
+	.bypostauthor {
+
+		.comment_content {
+		    border-color: #008CBA;
+		    background-color: tint(#008CBA,96%);
+		}
+	}
+
 	.comment-author {}
 	.comment-author-admin {}
 	.thread-alt {}
@@ -300,7 +308,7 @@ COMMENTS STYLES
 		margin-top: 1em;
 		padding: 0.5em 0.5em 0.5em 1.5em;
 		border: 1px solid #DDD;
-		clear: both; 
+		clear: both;
 
 		p {
 			margin: 1em 0;

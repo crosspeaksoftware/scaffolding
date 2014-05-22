@@ -1,6 +1,6 @@
 /******************************************************************
 Site Name:
-Author: 
+Author:
 
 Stylesheet: Variables
 
@@ -11,15 +11,24 @@ $sans: 'Lato', sans-serif;
 $serif: serif;
 $default-font-size: 14px;
 
+/**************
+ * Colors
+ **************/
+$primary: #008CBA;
+$secondary: #B25A00;
+$tertiary: #333;
+
 $alert-yellow: #ebe16f;
 $alert-red: #fbe3e4;
 $alert-green: #e6efc2;
 $alert-blue: #d5edf8;
 
 $link-color: #008CBA;
-$link-hover-color: #007BA1;
+$link-hover-color: darken(#008CBA, 15%);
 
-// Grid Stuff
+/**************
+ * Grid Stuff
+ **************/
 $screen-sm-min: 768px;
 $container-sm: 750px;
 

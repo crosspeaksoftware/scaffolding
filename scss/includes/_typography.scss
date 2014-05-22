@@ -20,19 +20,24 @@ body {
 	line-height: 1.5;
 	color: #111;
 }
+
 p {
+	@include word-break(break-all);
 	-webkit-hyphens: manual;
 	-epub-hyphens: manual;
 	-moz-hyphens: manual;
 	hyphens: manual;
 }
+
 ul, ol {
 	padding:0;
 	margin:.5em;
 }
+
 ul {
 	list-style-type:disc;
 }
+
 ol {
 	list-style-type:decimal;
 }
@@ -44,12 +49,12 @@ ol li > ul {
 	margin-top: 5px;
 }
 
-	ul ul,
-	ul ol,
-	ol ul,
-	ol ol {
-		margin:0em .5em;
-	}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+	margin:0em .5em;
+}
 
 li {
 	margin-left:2em;
@@ -198,9 +203,9 @@ hr {
 table {
 	border-collapse: separate;
 	border-spacing: 1px;
-	margin: 10px 0px 15px 0px;
-	width: 100%;
 	text-align: left;
+	width: 100%;
+	margin: 10px 0px 15px 0px;
 
 	thead {
 		text-align: center;
@@ -504,52 +509,55 @@ h6, .h6 {
 }
 
 /*video player*/
-.mejs-video{
-	width: 100% !important;
-	height: auto !important;
-	padding-top: 57%;
+wp-video{
 
-	.mejs-inner{
+	.mejs-video{
+		width: 100% !important;
+		height: auto !important;
+		padding-top: 57%;
 
-		.mejs-mediaelement{
+		.mejs-inner{
 
-			video{
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
+			.mejs-mediaelement{
+
+				video{
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					width: 100% !important;
+					height: 100% !important;
+				}
+			}
+
+			.mejs-layers{
+
+				.mejs-layer{
+
+					.mejs-overlay-loading{}
+
+					.mejs-overlay-error{}
+
+					.mejs-overlay-button{}
+
+				}
+
+				.mejs-poster{
+					width: 100% !important;
+					height: 100% !important;
+				}
+			}
+
+			.mejs-overlay{}
+
+			.mejs-overlay-play{
 				width: 100% !important;
 				height: 100% !important;
 			}
+
+			.mejs-controls{}
 		}
-
-		.mejs-layers{
-
-			.mejs-layer{
-
-				.mejs-overlay-loading{}
-
-				.mejs-overlay-error{}
-
-				.mejs-overlay-button{}
-
-			}
-
-			.mejs-poster{
-				width: 100% !important;
-				height: 100% !important;
-			}
-		}
-
-		.mejs-overlay{}
-
-		.mejs-overlay-play{
-			width: 100% !important;
-			height: 100% !important;
-		}
-
-		.mejs-controls{}
 	}
 }
 
@@ -587,7 +595,7 @@ h6, .h6 {
 	}
 }
 
-/* Audio Playlist */
+/* audio playlist */
 .wp-playlist {
 	overflow: hidden;
 
