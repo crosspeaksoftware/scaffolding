@@ -17,38 +17,47 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
  * return early without loading the comments.
  */
 if ( post_password_required() ) { ?>
+
 	<div class="alert help">
-	<p class="nocomments"><?php _e("This post is password protected. Enter the password to view comments.", "scaffolding"); ?></p>
+		<p class="nocomments"><?php _e("This post is password protected. Enter the password to view comments.", "scaffolding"); ?></p>
 	</div>
+
 	<?php
 	return;
 }
 ?>
 
 <?php // You can start editing here -- including this comment!
- if ( have_comments() ) : ?>
- <div id="comments" class="comments-area">
+	if ( have_comments() ) : ?>
+		<div id="comments" class="comments-area">
 
-	<h3 class="h2 comments"><?php comments_number(__('<span>No</span> Responses', 'scaffolding'), __('<span>One</span> Response', 'scaffolding'), _n('<span>%</span> Response', '<span>%</span> Responses', get_comments_number(),'scaffolding') );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+			<h3 class="h2 comments">Comments</h3>
 
-	<nav class="comment-nav">
-		<ul class="clearfix">
-	  		<li><?php previous_comments_link(); ?></li>
-	  		<li><?php next_comments_link(); ?></li>
-	 	</ul>
-	</nav>
+			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 
-	<ol class="commentlist">
-		<?php wp_list_comments('type=comment&callback=scaffolding_comments'); ?>
-	</ol>
+			<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+				<h4 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h4>
+				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentyfourteen' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentyfourteen' ) ); ?></div>
+			</nav><!-- #comment-nav-above -->
 
-	<nav class="comment-nav">
-		<ul class="clearfix">
-	  		<li><?php previous_comments_link() ?></li>
-	  		<li><?php next_comments_link() ?></li>
-		</ul>
-	</nav>
-</div>
+			<?php endif; // Check for comment navigation. ?>
+
+			<ol class="commentlist">
+				<?php wp_list_comments('type=comment&callback=scaffolding_comments'); ?>
+			</ol>
+
+			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+
+			<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+				<h4 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h4>
+				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentyfourteen' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentyfourteen' ) ); ?></div>
+			</nav><!-- #comment-nav-below -->
+
+			<?php endif; // Check for comment navigation. ?>
+
+		</div>
 
 <?php else : // this is displayed if there are no comments so far ?>
 

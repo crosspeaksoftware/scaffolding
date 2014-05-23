@@ -250,7 +250,7 @@ function scaffolding_disable_default_dashboard_widgets() {
 	//remove_meta_box('dashboard_primary', 'dashboard', 'core');//1st blog feed
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core');//2nd blog feed
 	// removing plugin dashboard boxes
-	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
+	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');// Yoast's SEO Plugin Widget
 }
 // removing the dashboard widgets
 add_action('admin_menu', 'scaffolding_disable_default_dashboard_widgets');
