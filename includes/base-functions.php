@@ -239,21 +239,47 @@ add_action('pre_get_posts','scaffolding_make_blank_search');
 /*********************
 DASHBOARD WIDGETS
 *********************/
-// disable default dashboard widgets
+
 function scaffolding_disable_default_dashboard_widgets() {
-	//remove_meta_box('dashboard_right_now', 'dashboard', 'core');// Right Now Widget
-	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');// Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');// Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');// Plugins Widget
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');// Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');// Recent Drafts Widget
-	//remove_meta_box('dashboard_primary', 'dashboard', 'core');//1st blog feed
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');//2nd blog feed
-	// removing plugin dashboard boxes
-	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');		 // Yoast's SEO Plugin Widget
+	global $wp_meta_boxes;
+	// wp..
+	//unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']); // Activity
+	//unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']); // At a Glance
+	//unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']); // Recent Comments
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']); // Incoming Links
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Quick Press
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']); // Recent Drafts
+	//unset($wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now']); // BBPress
+	//unset($wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget'']); // Yoast SEO
+	//unset($wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard']); // gravity forms
 }
 // removing the dashboard widgets
-add_action('admin_menu', 'scaffolding_disable_default_dashboard_widgets');
+add_action('wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999);
+
+// Adding a news feed widget to the dashboard
+function scaffolding_wp_admin_dashboard_add_news_feed_widget() {
+	global $wp_meta_boxes;
+
+	// Our new dashboard widget
+	wp_add_dashboard_widget( 'scaffolding_dashboard_site_feed', 'Hall Internet Marketing Blog', 'scaffolding_dashboard_site_feed_output' );
+}
+add_action('wp_dashboard_setup', 'scaffolding_wp_admin_dashboard_add_news_feed_widget');
+
+function scaffolding_dashboard_site_feed_output() {
+	echo '<div>';
+		wp_widget_rss_output(array(
+			'url' => 'http://www.hallme.com/feed/',
+			'title' => 'Hall Internet Marketing Blog',
+			'items' => 3,
+			'show_summary' => 1,
+			'show_author' => 1,
+			'show_date' => 1
+		));
+	echo '</div>';
+}
 
 /*********************
 VISITOR/USER UX FUNCTIONS
@@ -316,6 +342,15 @@ function fixed_img_caption_shortcode($attr, $content = null) {
 	return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >'
 	. do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
+
+// Add title attribute to gallery image links using the alt attribute of image
+function scaffolding_add_title_attachment_link($link, $id = null) {
+	$id = intval( $id );
+	$_post = get_post( $id );
+	$post_title = esc_attr( $_post->post_title );
+	return str_replace('<a href', '<a title="'. $post_title .'" href', $link);
+}
+add_filter('wp_get_attachment_link', 'scaffolding_add_title_attachment_link', 10, 2);
 
 /****************************************
 RECOMMENDED/REQUIRED PLUGIN ACTIVATION

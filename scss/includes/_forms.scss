@@ -6,6 +6,10 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
+/************************
+ * GENERAL FORM STYLES
+ ************************/
+
 /* Browser Specific */
 
 ::-webkit-input-placeholder {
@@ -135,56 +139,64 @@ input[type=button] {
 }
 
 /************************
- * SearchForm Styles
+ * SEARCH FORM STYLES
  ************************/
  
-#searchform{
+/*General Search Styles*/
+ #searchform {
 
 	label {
-		display:none;
+		display: none;
 		/* Style to show label in line with text field
-		display:inline-block;
-		*display:inline;*/
-		font-size:0.750em;
+		display: inline-block;
+		*display: inline;*/
+		font-size: 0.750em;
 		text-transform: uppercase;
-		width:20%;
+		width: 20%;
+		font-weight: bold;
 	}
 
-	//Text input
-	#s {
-		outline:none;
-		background:#FFF;
-		border:1px solid #CCCCCC;
-		@include box-shadow(none);
-		@include border-radius(0);
-		color: #555555;
-		@include transition(all 0.25s ease-in-out);
-		width:75%;
-		padding:2px 1%;
+	// Text input
+	#s {}
 
-		&:focus {
-			border:1px solid #AAA;
+	// Submit Button
+	#searchsubmit {}
+}
+
+/*Search Styles in sidebar*/ 
+.sidebar {
+	#searchform{
+		label {}
+		#s { width: 100%; }
+		#searchsubmit { 
+			width: 100%; 
+			padding-left: 0;
+			padding-right: 0;
 		}
-
-	}
-
-	//Submit Button
-	#searchsubmit {
-		padding: 7px 15px;
 	}
 }
 
 /*Search Styles on 404 page*/
 .error404 {
-	#searchform {
-		label { font-weight: bold; }
-		#s {}
-		#searchsubmit {}
+	#searchform{
+		height: auto;
+		overflow: hidden;
+		
+		#s { 
+			width: 75%;
+			float: left; 
+		}
+		#searchsubmit { 
+			width: 25%; 
+			float: right;
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 }
 
 /************************
- * Password Form Styles
+ * PASSWORD FORM STYLES
  ************************/
  
 .post-password-form {
@@ -193,6 +205,10 @@ input[type=button] {
 	input[type=submit] {}
 }
 
+/************************
+ * MEDIA QUERIES
+ ************************/
+
 @media only screen and (min-width: $screen-sm-min) {
 
 	input[type=button],
@@ -200,9 +216,28 @@ input[type=button] {
 		width: auto;
 		padding: 0.5em 3em;
 	}
-
+	
 }
 
-@media only screen and (min-width: $screen-md-min) {}
+@media only screen and (min-width: $screen-md-min) {
+
+	/*Search Styles in sidebar*/ 
+	.sidebar {
+		#searchform{
+			height: auto;
+			overflow: hidden;
+			
+			#s { 
+				width: 70%;
+				float: left; 
+			}
+			#searchsubmit { 
+				width: 30%; 
+				float: right;
+			}
+		}
+	}
+
+}
 
 @media only screen and (min-width: $screen-lg-min) {}
