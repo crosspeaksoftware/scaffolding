@@ -61,9 +61,27 @@ jQuery(document).ready(function($) {
 	$("select").chosen({no_results_text: "Oops, nothing found!", width: "99.5%"});
 
 	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-	if($.fn.magnificPopup) {
-		$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
-			type: 'image'
+	if ($.fn.magnificPopup) {
+		//single image popup
+		$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
+			if ($(this).parents('.gallery').length == 0) {
+				$(this).magnificPopup({type:'image'});
+			}
+		});
+		//gallery popup
+		$('.gallery').each(function() {
+			$(this).magnificPopup({
+				type: 'image',
+				delegate: 'a',
+				gallery: {
+					enabled: true
+				},
+				image: {
+					titleSrc: function(item) {
+						return item.el.parents('.gallery-item').find('.gallery-caption').text();
+					}
+				}
+			});
 		});
 	}
 
