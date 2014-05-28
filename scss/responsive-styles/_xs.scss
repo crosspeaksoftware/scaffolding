@@ -76,7 +76,7 @@ POSTS & CONTENT STYLES
 
 		} /* end .hentry */
 
-		.entry-content {} /* general title class */
+		.entry-title {} /* general title class */
 
 		.page-title {}
 
@@ -360,31 +360,36 @@ FOOTER STYLES
 	padding:1em 0;
 }
 
-	ul.footer-menu {
-		display:inline-block;
+	#footer-navigation {
 		text-align:right;
-		margin:0;
-		padding:0;
 
-		li {
+		ul.footer-menu {
 			display:inline-block;
-			margin:0 0 0 -4px;
+			margin:0;
 			padding:0;
 
-			a{
-				border-left:1px solid #AAA;
-				color:#AAA;
-				line-height:1;
-				padding:0 1em;
-			}
+			li {
+				display:inline-block;
+				margin:0 0 0 -4px;
+				padding:0;
 
-			&:first-child a{
-				border-left:none;
+				a{
+					border-left:1px solid #AAA;
+					color:#AAA;
+					line-height:1;
+					padding:0 1em;
+				}
+
+				&:first-child a{
+					border-left:none;
+				}
 			}
 		}
-	} /* end .footer-menu */
+	} /* end #footer-navigation */
 
-	.copyright {}
+	.copyright {
+		text-align:center;
+	}
 
 	#back-top {
 		position: fixed;

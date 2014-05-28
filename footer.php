@@ -20,7 +20,7 @@
 
 		<div id="inner-footer" class="wrap clearfix">
 
-			<nav role="navigation">
+			<nav id="footer-navigation" role="navigation">
 				<?php scaffolding_footer_nav(); ?>
 			</nav>
 
