@@ -31,12 +31,12 @@ if ( post_password_required() ) { ?>
 	if ( have_comments() ) : ?>
 		<div id="comments" class="comments-area">
 
-			<h3 class="h2 comments">Comments</h3>
+			<h3 class="h2 comments-title">Comments</h3>
 
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 
 			<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-				<h4 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h4>
+				<h4 class="visuallyhidden"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h4>
 				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentyfourteen' ) ); ?></div>
 				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentyfourteen' ) ); ?></div>
 			</nav><!-- #comment-nav-above -->
@@ -50,7 +50,7 @@ if ( post_password_required() ) { ?>
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 
 			<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-				<h4 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h4>
+				<h4 class="visuallyhidden"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h4>
 				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentyfourteen' ) ); ?></div>
 				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentyfourteen' ) ); ?></div>
 			</nav><!-- #comment-nav-below -->

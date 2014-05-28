@@ -1,5 +1,11 @@
-<?php get_header(); ?>
+<?php get_header();
 
+			// Load in the content of a static blog page if set in the back end
+			if ( 'page' == get_option('show_on_front') && get_option('page_for_posts') && is_home() && !is_paged() ) :
+				the_post();
+				$page_for_posts_id = get_option('page_for_posts');
+				$post = get_post($page_for_posts_id);
+				setup_postdata($post); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class('static-blog-page clearfix'); ?> role="article">
 

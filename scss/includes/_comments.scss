@@ -133,12 +133,30 @@ COMMENT FORM STYLES
 COMMENTS STYLES
 *********************/
 
-/* h3 comment title */
 #comments {
 
-	/* number of comments span */
-	span {}
+	.comments-title{
+		margin-bottom:0;
+	}
 
+	/* COMMENTS NAV STYLES */
+	#comment-nav-above {}
+
+	#comment-nav-below {}
+
+	.comment-navigation {
+
+		.nav-previous,
+		.nav-next {
+			display:inline-block;
+		}
+
+		.nav-previous {}
+
+		.nav-next {
+			float:right;
+		}
+	}
 }
 
 .comment-nav {
@@ -163,7 +181,7 @@ COMMENTS STYLES
 		clear: both;
 		overflow: hidden;
 		list-style-type: none;
-		margin-bottom: 1.5em;
+		margin: 1em 0;
 		padding: 0;
 
 		&:last-child {
@@ -190,27 +208,6 @@ COMMENTS STYLES
 		} /* end .commentlist li ul.children */
 	}
 
-	li[class*=depth-] {
-		margin-top: 1.1em;
-	}
-
-	li.depth-1 {
-		margin-left: 0;
-		margin-top: 0;
-	}
-
-	/*li:not(.depth-1) {
-		margin-right: -10px;
-		margin-left: -10px;
-		margin-top: 0;
-		padding-bottom: 0;
-	}*/
-
-	li.depth-2 {}
-	li.depth-3 {}
-	li.depth-4 {}
-	li.depth-5 {}
-
 	/* general comment classes */
 	.alt {}
 	.odd {}
@@ -227,12 +224,6 @@ COMMENTS STYLES
 		    background-color: tint(#008CBA,96%);
 		}
 	}
-
-	.comment-author {}
-	.comment-author-admin {}
-	.thread-alt {}
-	.thread-odd {}
-	.thread-even {}
 
 	/* vcard */
 	.vcard {

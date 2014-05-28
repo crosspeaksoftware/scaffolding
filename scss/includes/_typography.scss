@@ -19,10 +19,11 @@ body {
 	font-size: $default-font-size;
 	line-height: 1.5;
 	color: #111;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 p {
-	@include word-break(break-all);
 	-webkit-hyphens: manual;
 	-epub-hyphens: manual;
 	-moz-hyphens: manual;
@@ -388,8 +389,8 @@ h6, .h6 {
 
             a{
 
-                img { 
-					vertical-align: bottom; 
+                img {
+					vertical-align: bottom;
 					width: 100%;
 				}
             }
@@ -513,7 +514,8 @@ h6, .h6 {
 }
 
 /*video player*/
-wp-video{
+.wp-video{
+	margin: 1em 0;
 
 	.mejs-video{
 		width: 100% !important;
