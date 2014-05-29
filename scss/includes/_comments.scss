@@ -159,19 +159,6 @@ COMMENTS STYLES
 	}
 }
 
-.comment-nav {
-
-	ul {
-		margin: 1em 0;
-
-		li {
-			margin-left: 0;
-		}
-
-	}
-}
-
-
 .commentlist {
 	padding: 0;
 	margin: 0;
@@ -189,11 +176,9 @@ COMMENTS STYLES
 		}
 
 		ul.children {
-			margin: 0;
+			margin: 0 0 0 1em;
 
-			li {
-				margin-left: 0 0 0 3em;
-			}
+			li {}
 
 			/* variations */
 			.comment {}

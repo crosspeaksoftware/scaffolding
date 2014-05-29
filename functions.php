@@ -427,9 +427,17 @@ function scaffolding_comments($comment, $args, $depth) {
 
 			<header class="comment-author vcard">
 
-
-				<?php $bgauthemail = get_comment_author_email(); // create variable ?>
-				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
+			<?php //show avatar
+			$email = get_comment_author_email();
+			$size = 36;
+			if (function_exists('get_avatar')) {
+				echo get_avatar($email,$size);
+			} else {
+				//alternate gravatar code for < 2.5
+				$grav_url = "http://www.gravatar.com/avatar/" . md5(strtolower($email)) . "?d=" . urlencode($default) . "&s=" . $size;
+				echo '<img data-gravatar="'.$grav_url.'" class="load-gravatar avatar photo" height="'.$size.'" width="'.$size.'" src="'.$grav_url.'" />';
+			}
+			?>
 
 				<?php printf(__('<cite class="fn">%s</cite>', 'scaffolding'), get_comment_author_link()) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__('F jS, Y', 'scaffolding')); ?> </a></time>
