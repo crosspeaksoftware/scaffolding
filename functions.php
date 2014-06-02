@@ -47,7 +47,7 @@ add_action( 'template_redirect', 'scaffolding_content_width' );
 *********************/
 define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
 require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
-//require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
+require_once(SCAFFOLDING_INCLUDE_PATH.'theme-customizer.php');
 
 
 /*********************
@@ -429,7 +429,7 @@ function scaffolding_comments($comment, $args, $depth) {
 
 			<?php //show avatar
 			$email = get_comment_author_email();
-			$size = 36;
+			$size = 32;
 			if (function_exists('get_avatar')) {
 				echo get_avatar($email,$size);
 			} else {
