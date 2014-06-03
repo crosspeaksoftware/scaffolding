@@ -575,3 +575,13 @@ function scaffolding_get_the_author_posts_link() {
 	);
 	return $link;
 }
+
+//Handles Pages and Post have no titles
+function scaffolding_has_title($title){
+	if($title == ''){
+		return '[No Title]';
+	}else{
+		return $title;
+	}
+}
+add_filter('the_title','scaffolding_has_title');
