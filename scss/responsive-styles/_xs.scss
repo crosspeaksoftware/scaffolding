@@ -76,7 +76,17 @@ POSTS & CONTENT STYLES
 
 		} /* end .hentry */
 
-		.entry-title {} /* general title class */
+		.post-index {
+			border-bottom:1px solid #ccc;
+		}
+
+		.entry-title,
+		.page-title,
+		.single-title,
+		.archive-title,
+		.search-title {}
+
+		.entry-title {}
 
 		.page-title {}
 
@@ -99,7 +109,7 @@ POSTS & CONTENT STYLES
 		/* post meta */
 		.byline {
 			color: #999;
-			margin: -1em 0 1em;
+			margin-top: -1.5em;
 
 			time {}
 		}

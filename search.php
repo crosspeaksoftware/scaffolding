@@ -6,20 +6,20 @@
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('post-index clearfix'); ?> role="article">
 
 						<header class="article-header">
 
-							<h3 class="entry-title search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<h2 class="entry-title search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
-							<?php
-							/* Hidden by default
-							<p class="byline vcard"><?php _e("Posted", "scaffolding"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "scaffolding"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "scaffolding"); ?> <?php the_category(', '); ?>.</p>
-							*/ ?>
+							<?php if( 'page' != get_post_type() ): ?>
+								<p class="byline vcard"><?php printf(__('Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time>', 'scaffolding'), get_the_time('Y-m-j'), get_the_time(get_option('date_format'))); ?></p>
+							<?php endif; ?>
 
 						</header><?php // end article header ?>
 
 						<section class="entry-content" itemprop="description">
+
 							<?php the_excerpt('<span class="read-more">Read more &raquo;</span>'); ?>
 
 						</section><?php // end article section ?>
