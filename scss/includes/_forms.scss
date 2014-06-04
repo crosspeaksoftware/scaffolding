@@ -62,7 +62,7 @@ input[type=password] {
 	padding: 8px 1%;
 	@include transition(all 0.25s ease-in-out);
 	border-radius: 0;
-	
+
 	&:focus {
 		border:1px solid #333;
 	}
@@ -108,23 +108,23 @@ input[type=button] {
 	border-radius: 0;
 	font-family: $sans;
 	@include transition(all 0.25s ease-in-out);
-	
+
 	&:hover, &:focus, &:active, .active, .disabled, [disabled] {
 		color: #FFF;
 		background: darken(#444, 5%);
 		text-decoration: none;
 	}
-	
+
 	&:focus {
 		outline: thin dotted #333 !important;
 		outline: 5px auto -webkit-focus-ring-color;
 		outline-offset: -2px;
 	}
-	
+
 	&:active {
 		outline: 0;
 	}
-	
+
 	&.disabled, [disabled] {
 		cursor: default;
 		background-image: none;
@@ -132,7 +132,7 @@ input[type=button] {
 		filter: alpha(opacity=65);
 		@include box-shadow(none);
 	}
-	
+
 	&:first-child {
 		*margin-left: 0;
 	}
@@ -141,7 +141,7 @@ input[type=button] {
 /************************
  * SEARCH FORM STYLES
  ************************/
- 
+
 /*General Search Styles*/
  #searchform {
 
@@ -163,13 +163,13 @@ input[type=button] {
 	#searchsubmit {}
 }
 
-/*Search Styles in sidebar*/ 
+/*Search Styles in sidebar*/
 .sidebar {
 	#searchform{
 		label {}
 		#s { width: 100%; }
-		#searchsubmit { 
-			width: 100%; 
+		#searchsubmit {
+			width: 100%;
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -181,13 +181,13 @@ input[type=button] {
 	#searchform{
 		height: auto;
 		overflow: hidden;
-		
-		#s { 
+
+		#s {
 			width: 75%;
-			float: left; 
+			float: left;
 		}
-		#searchsubmit { 
-			width: 25%; 
+		#searchsubmit {
+			width: 25%;
 			float: right;
 			padding-left: 0;
 			padding-right: 0;
@@ -198,7 +198,7 @@ input[type=button] {
 /************************
  * PASSWORD FORM STYLES
  ************************/
- 
+
 .post-password-form {
 	p {}
 	label {}
@@ -214,25 +214,25 @@ input[type=button] {
 	input[type=button],
 	input[type=submit] {
 		width: auto;
-		padding: 0.5em 3em;
+		padding: 0.44em 3em;
 	}
-	
+
 }
 
 @media only screen and (min-width: $screen-md-min) {
 
-	/*Search Styles in sidebar*/ 
+	/*Search Styles in sidebar*/
 	.sidebar {
 		#searchform{
 			height: auto;
 			overflow: hidden;
-			
-			#s { 
+
+			#s {
 				width: 70%;
-				float: left; 
+				float: left;
 			}
-			#searchsubmit { 
-				width: 30%; 
+			#searchsubmit {
+				width: 30%;
 				float: right;
 			}
 		}

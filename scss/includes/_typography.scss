@@ -391,7 +391,6 @@ h6, .h6 {
 
                 img {
 					vertical-align: bottom;
-					width: 100%;
 				}
             }
         }
@@ -455,34 +454,45 @@ h6, .h6 {
 		width:31.3%;
 	}
 }
-.gallery-columns-4 {
+
+/*Galleries no more then 4 to a row on small screens*/
+.gallery-columns-4,
+.gallery-columns-5,
+.gallery-columns-6,
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9 {
 	.gallery-item {
 		width:23%;
 	}
 }
-.gallery-columns-5 {
-	.gallery-item {
-		width:18%;
+
+/*Change gallery to proper spacing on larger screens*/
+@media only screen and (min-width: $screen-sm-min) {
+	.gallery-columns-5 {
+		.gallery-item {
+			width:18%;
+		}
 	}
-}
-.gallery-columns-6 {
-	.gallery-item {
-		width:14.6%;
+	.gallery-columns-6 {
+		.gallery-item {
+			width:14.6%;
+		}
 	}
-}
-.gallery-columns-7 {
-	.gallery-item {
-		width:12.2%;
+	.gallery-columns-7 {
+		.gallery-item {
+			width:12.2%;
+		}
 	}
-}
-.gallery-columns-8 {
-	.gallery-item {
-		width:10.5%;
+	.gallery-columns-8 {
+		.gallery-item {
+			width:10.5%;
+		}
 	}
-}
-.gallery-columns-9 {
-	.gallery-item {
-		width:9.1%;
+	.gallery-columns-9 {
+		.gallery-item {
+			width:9.1%;
+		}
 	}
 }
 
