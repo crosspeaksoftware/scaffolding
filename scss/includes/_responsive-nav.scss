@@ -11,7 +11,7 @@ Stylesheet: Off-Canvas Navigation
 
     ul.menu {
 		clear: both;
-		background-color: #333;
+		background-color: #111;
 		width: 70%;
 		margin: 0;
 		padding: 0;
@@ -83,7 +83,7 @@ Stylesheet: Off-Canvas Navigation
             /*sub menu - child*/
             ul.sub-menu{
                 display:block;
-                background-color:#333;
+                background-color:#111;
                 width: 100%;
                 position:absolute;
                 right:-100%;
@@ -140,7 +140,7 @@ Here you can begin to add more resource-intensive styles.
 	/****Main Navigation****/
 
 	#main-navigation {
-		background-color: #333;
+		background-color: #111;
 		white-space: nowrap;
 
 	    ul.menu {
@@ -218,7 +218,7 @@ Here you can begin to add more resource-intensive styles.
 				ul.sub-menu,
 				ul.children {
 					display:none;
-					background-color:#333;
+					background-color:#111;
 					text-align:left;
 					width:auto;
 					min-width:120%;

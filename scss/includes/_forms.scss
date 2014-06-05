@@ -103,15 +103,15 @@ input[type=button] {
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
-	background: #444;
+	background: #222;
 	border: 0;
 	border-radius: 0;
 	font-family: $sans;
-	@include transition(all 0.25s ease-in-out);
+	@include transition(all 0.25s ease-in);
 
 	&:hover, &:focus, &:active, .active, .disabled, [disabled] {
 		color: #FFF;
-		background: darken(#444, 5%);
+		background: #000;
 		text-decoration: none;
 	}
 

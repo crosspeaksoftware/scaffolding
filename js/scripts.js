@@ -72,9 +72,10 @@ jQuery(document).ready(function($) {
 		$('.gallery').each(function() {
 			$(this).magnificPopup({
 				type: 'image',
-				delegate: 'a',
+				delegate: 'a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]',
 				gallery: {
-					enabled: true
+					enabled: true,
+					preload: [1,2]
 				},
 				image: {
 					titleSrc: function(item) {
