@@ -24,9 +24,7 @@
 
 						<footer class="single-footer" role="contentinfo">
 
-							<?php if( !empty(get_the_category_list()) ): ?>
-								<p class="categories"><span class="categories-title">Categories:</span> <?php echo get_the_category_list(', ') ?></p>
-							<?php endif;?>
+							<p class="categories"><span class="categories-title">Categories:</span> <?php echo get_the_category_list(', ') ?></p>
 
 							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
 
