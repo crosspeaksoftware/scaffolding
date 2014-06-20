@@ -27,6 +27,16 @@
 			ga('require', 'linkid', 'linkid.js'); // Enhanced Link Attribution
 			ga('require', 'displayfeatures'); // Demographics data
 			ga('send', 'pageview');
+			var _paq = _paq || [];
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://hallmonitor.us/";
+			_paq.push(['setTrackerUrl', u+'piwik.php']);
+			_paq.push(['setSiteId', 4]);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+			g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+			})();
 		</script>
 	</head>
 	<body class="get-started">
@@ -153,5 +163,6 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
 		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/js/scripts.js"></script>
+		<noscript><p><img src="http://hallmonitor.us/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
 	</body>
 </html>
