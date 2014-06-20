@@ -23,9 +23,6 @@
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		</script>
-		<script type="text/javascript" src="https://hwscdn.com/analytics/scaffolding.io/main_analytics.js"></script>
-		<script>
 			ga('create', 'UA-50140941-1', 'scaffolding.io');
 			ga('require', 'linkid', 'linkid.js'); // Enhanced Link Attribution
 			ga('require', 'displayfeatures'); // Demographics data
@@ -58,7 +55,7 @@
 							<h3><strong>Functions</strong></h3>
 							<p>We have 2 functions files -</p>
 							<ul>
-								<li><em>functions.php</em>: Contains scripts & enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
+								<li><em>functions.php</em>: Contains scripts &amp; enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
 								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, dashboard widgets, ux functions, recommended and required plugins that we've provided.</li>
 							</ul>
 <div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/********************************************
@@ -152,42 +149,9 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 			</div>
 		</footer>
 
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		// Set parallax on larger screens
-		var isMobile = {
-			Android: function() {
-				return navigator.userAgent.match(/Android/i);
-			},
-			BlackBerry: function() {
-				return navigator.userAgent.match(/BlackBerry/i);
-			},
-			iOS: function() {
-				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-			},
-			Opera: function() {
-				return navigator.userAgent.match(/Opera Mini/i);
-			},
-			Windows: function() {
-				return navigator.userAgent.match(/IEMobile/i);
-			},
-			any: function() {
-				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-			}
-		};
-		jQuery(document).ready(function(){
-			if( !isMobile.any() ){
-		   		skrollr.init({
-					forceHeight: false,
-					mobileCheck: function() {
-						//hack - forces mobile version to be off
-						return false;
-				}
-			});
-			};
-		});
-	</script>
-  </body>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
+		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/scripts.js"></script>
+	</body>
 </html>
