@@ -548,7 +548,7 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 function scaffolding_excerpt_more($more) {
 	global $post;
 	// edit here if you like
-	return '...  <a href="'. get_permalink($post->ID) . '" title="'. __('Read', 'scaffolding') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
+	return '...  <a class="read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read ', 'scaffolding') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
 }
 
 //This is a modified the_author_posts_link() which just returns the link.
