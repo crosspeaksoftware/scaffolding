@@ -407,12 +407,6 @@ function scaffolding_register_required_plugins() {
 		),
 
 		array(
-			'name'		=> 'TinyMCE Advanced', // http://wordpress.org/plugins/tinymce-advanced/
-			'slug'		=> 'tinymce-advanced',
-			'required'	=> false
-		),
-
-		array(
 			'name'		=> 'WordPress SEO', // http://wordpress.org/plugins/wordpress-seo/
 			'slug'		=> 'wordpress-seo',
 			'required'	=> false
