@@ -30,6 +30,9 @@ get_header(); ?>
 						elseif ( is_year() ) :
 							printf( __( 'Yearly Archives: %s', 'test' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'test' ) ) . '</span>' );
 
+                        elseif ( is_tax() ) :
+                            single_term_title();
+
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
 							_e( 'Asides', 'test' );
 
