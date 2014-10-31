@@ -8,7 +8,7 @@
 		</div><?php //END #main ?>
 
 	<?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
-		<div id="left-sidebar" class="sidebar col-sm-3 col-md-pull-9 clearfix" role="complementary">
+		<div id="left-sidebar" class="sidebar col-sm-3 col-md-pull-6 clearfix" role="complementary">
 			<?php dynamic_sidebar( 'left-sidebar' ); ?>
 		</div>
 	<?php endif; ?>
