@@ -228,7 +228,7 @@ add_filter('wp_list_pages', 'scaffolding_wp_list_pages_filter');
 //return the search results page even if the query is empty - http://vinayp.com.np/how-to-show-blank-search-on-wordpress/
 function scaffolding_make_blank_search ($query){
 	global $wp_query;
-	if (isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
+	if (!is_admin && isset($_GET['s']) && $_GET['s']==''){  //if search parameter is blank, do not return false
 		$wp_query->set('s',' ');
 		$wp_query->is_search=true;
 	}
