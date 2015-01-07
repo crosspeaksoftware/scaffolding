@@ -1,148 +1,187 @@
 <?php
-/*
-Author: Hall Internet Marketing
-URL: https://github.com/hallme/scaffolding
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, ect.
-*/
-
-/******************************************
-
-TABLE OF CONTENTS
-
-1. Include Files
-2. Scripts & Enqueueing
-3. Theme Support
-4. Custom Page Headers
-5. Thumbnail Size Options
-6. Change Name of Post Types in Admin Backend
-7. Menus & Navigation
-8. Active Sidebars
-9. Related Posts Function
-10. Comment Layout
-11. Search Functions
-12. Add First and Last Classes to Menu & Sidebar
-13. Add First and Last Classes to Posts
-14. Custom Functions
-
-******************************************/
-
-//Set up the content width value based on the theme's design.
-if ( ! isset( $content_width ) ) {
-	$content_width = 474;
-}
-
-//Adjust content_width value for image attachment template.
-function scaffolding_content_width() {
-	if ( is_attachment() && wp_attachment_is_image() ) {
-		$GLOBALS['content_width'] = 810;
-	}
-}
-add_action( 'template_redirect', 'scaffolding_content_width' );
-
-/*********************
-1. INCLUDE FILES
-*********************/
-define('SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__).'/includes/');
-require_once(SCAFFOLDING_INCLUDE_PATH.'base-functions.php');
-//require_once(SCAFFOLDING_INCLUDE_PATH.'custom-post-type.php');
+/**
+ * Scaffolding Main Functions
+ *
+ * Add custom functions and edit thumbnail sizes, header images, sidebars, menus, etc.
+ *
+ * @link https://github.com/hallme/scaffolding
+ * @link http://scaffolding.io
+ * @link https://codex.wordpress.org/Theme_Development
+ *
+ * @package Scaffolding
+ * @since Scaffolding 1.0
+ *
+ * @todo language support, customizer functions
+ *
+ * Table of Contents
+ *
+ * 1.0 - Include Files
+ * 2.0 - Scripts & Styles
+ * 3.0 - Theme Support
+ * 4.0 - Menus & Navigation
+ * 5.0 - Images & Headers
+ * 6.0 - Sidebars
+ * 7.0 - Search Functions
+ * 8.0 - Comment Layout
+ * 9.0 - Utility Functions
+ *    9.1 - Related posts function
+ *    9.2 - Removes […] from read more
+ *    9.3 - Modified author post link
+ * 10.0 - Admin Customization
+ *    10.1 - Set content width
+ *    10.2 - Set image attachment width
+ *    10.3 - Disable default dashboard widgets
+ *    10.4 - Add news feed widget
+ *    10.5 - Change name of "Posts" in admin menu
+ *    10.6 - Customize footer
+ *    10.7 - Add theme page
+ * 11.0 - Custom/Additional Functions
+ */
 
 
-/*********************
-2. SCRIPTS & ENQUEUEING
-*********************/
+/************************************
+ * 1.0 - INCLUDE FILES
+ ************************************/
 
+// Add any additional files to include here
+define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
+require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
+require_once( SCAFFOLDING_INCLUDE_PATH . 'custom-post-type.php' );
+//require_once( SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php' );
+
+
+/************************************
+ * 2.0 - SCRIPTS & STYLES
+ ************************************/
+
+/**
+ * Enqueue scripts and styles in wp_head() and wp_footer()
+ *
+ * This function is called in scaffolding_build() in base-functions.php.
+ *
+ * @since Scaffolding 1.0
+ * @global wp_styles
+ */ 
 function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+    
+    /**
+     * Add to wp_head()
+     */
 
-	// modernizr (without media query polyfill)
-	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js', false, null );
-
-	// respondjs
-	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
-
-	// register main stylesheet
+	// Main stylesheet
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
+    
+    // Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
+	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
 
-	// ie-only style sheet
+	// IE-only stylesheet
 	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+    
+    // Modernizr - http://modernizr.com/
+	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', false, null );
 
-	//Magnific Popup (LightBox)
+	// Respond - https://github.com/scottjehl/Respond
+	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
+    
+    /**
+     * Add to wp_footer()
+     */
+	
+	// Retina.js - http://imulus.github.io/retinajs/
+	wp_enqueue_script( 'scaffolding-retinajs', '//cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js', array(), '1.3.0', true );
+
+	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
-	//Font Awesome (icon set)
-	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
+	// Chosen - http://harvesthq.github.io/chosen/
+    wp_enqueue_script( 'scaffolding-chosenjs', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', array( 'jquery' ), '1.1.0', true );
 
-	// iCheck (better radio and checkbox inputs)
-	wp_enqueue_script( 'scaffolding-icheck', '//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/icheck.min.js', array( 'jquery' ), '1.0.1', true );
-
-	//Chosen - http://harvesthq.github.io/chosen/
-    wp_enqueue_script( 'chosen-js', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', array( 'jquery' ), '1.1.0', true );
-
-	// comment reply script for threaded comments
-	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-		wp_enqueue_script( 'comment-reply' );
+	// Comment reply script for threaded comments
+	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1) ) {
+		wp_enqueue_script( 'scaffolding-comment-reply' );
 	}
 
-	//adding scripts file in the footer
+	// Add Scaffolding scripts file in the footer
 	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
-}
+	
+} // end scaffolding_scripts_and_styles()
 
 
-/*********************
-3. THEME SUPPORT
-*********************/
+/************************************
+ * 3.0 - THEME SUPPORT
+ ************************************/
 
-// Adding WP 3+ Functions & Theme Support
+/**
+* Add WP3+ functions and theme support
+*
+* Function called in scaffolding_build() in base-functions.php.
+*
+* @see scaffolding_custom_headers_callback
+* @since Scaffolding 1.0
+*/
 function scaffolding_theme_support() {
 
 	// Make theme available for translation
 	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
 
-	add_theme_support( 'post-thumbnails' ); // wp thumbnails (sizes handled in functions.php)
+    // Support for thumbnails
+	add_theme_support( 'post-thumbnails' );
 
-	set_post_thumbnail_size( 125, 125, true ); // default thumb size
+    // Set default thumbnail size
+	set_post_thumbnail_size( 125, 125, true );
 
-	/*  Feature Currently Disabled
-	// wp custom background (thx to @bransonwerner for update)
-	add_theme_support( 'custom-background',
-		array(
-		'default-image' => '',  // background image default
-		'default-color' => '', // background color default (dont add the #)
-		'wp-head-callback' => '_custom_background_cb',
-		'admin-head-callback' => '',
-		'admin-preview-callback' => ''
+    // Support for RSS
+	add_theme_support( 'automatic-feed-links' );
+
+	// Support for custom headers
+	add_theme_support( 'custom-header', array(
+		'default-image'           => '%s/images/headers/default.jpg',
+		'random-default'          => false,
+		'width'                   => 1140,    // Make sure to set this
+		'height'                  => 250,     // Make sure to set this
+		'flex-height'             => false,
+		'flex-width'              => false,
+		'default-text-color'      => 'ffffff',
+		'header-text'             => false,
+		'uploads'                 => true,
+		'wp-head-callback'        => 'scaffolding_custom_headers_callback', // callback function
+		'admin-head-callback'     => '',
+		'admin-preview-callback'  => '',
 		)
 	);
+    
+    /* Feature Currently Disabled
+    // HTML5
+    add_theme_support( 'html5', array( 
+        'comment-list', 
+        'comment-form', 
+        'search-form', 
+        'gallery', 
+        'caption', 
+    ) );
+    */
+    
+    /* Feature Currently Disabled
+    // Title Tag
+    add_theme_support( 'title-tag' );
+    */
+    
+    /*  Feature Currently Disabled
+	// WP custom background (thx to @bransonwerner for update)
+	add_theme_support( 'custom-background', array(
+        'default-color'           => '',      // background color default (dont add the #)
+		'default-image'           => '',      // background image default
+		'wp-head-callback'        => '_custom_background_cb',
+		'admin-head-callback'     => '',
+		'admin-preview-callback'  => '',
+    ) );
 	*/
 
-	add_theme_support( 'automatic-feed-links' ); // rss thingy
-
-	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
-	//adding custome header suport
-	add_theme_support( 'custom-header', array(
-		'default-image'=> '%s/images/headers/default.jpg',
-		'random-default'=> false,
-		'width'=> 1140,  // Make sure to set this
-		'height'=> 250, // Make sure to set this
-		'flex-height'=> false,
-		'flex-width'=> false,
-		'default-text-color'=> 'ffffff',
-		'header-text'=> false,
-		'uploads'=> true,
-		'wp-head-callback'=> 'scaffolding_custom_headers_callback',
-		'admin-head-callback'=> '',
-		'admin-preview-callback'=> '',
-		)
-	);
-
-/* Feature Currently Disabled
-	// adding post format support
-	add_theme_support( 'post-formats',
-		array(
+	/* Feature Currently Disabled
+	// Support for post formats
+	add_theme_support( 'post-formats', array(
 			'aside',			// title less blurb
 			'gallery',			// gallery of images
 			'link',			  	// quick link to other site
@@ -151,178 +190,131 @@ function scaffolding_theme_support() {
 			'status',			// a Facebook like status update
 			'video',			// video
 			'audio',			// audio
-			'chat'				// chat transcript
-		)
-	);
-*/
+			'chat',				// chat transcript
+    ) );
+	*/
 
-	// wp menus
+	// Support for menus
 	add_theme_support( 'menus' );
 
-	// registering wp3+ menus
+	// Register WP3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'Main Menu', 'scaffolding' ),	// main nav in header
-			'footer-nav' => __( 'Footer Menu', 'scaffolding' ) // secondary nav in footer
+			'main-nav'   => __( 'Main Menu', 'scaffolding' ),    // main nav in header
+			'footer-nav' => __( 'Footer Menu', 'scaffolding' ),   // secondary nav in footer
 		)
 	);
-} /* end scaffolding theme support */
+    
+    // Add styles for use in visual editor
+    add_editor_style( 'css/editor-styles.css' );
+	
+} // end scaffolding_theme_support()
 
 
-/*********************
-4. CUSTOM PAGE HEADERS
-*********************/
+/************************************
+ * 4.0 - MENUS & NAVIGATION
+ ************************************/
 
-register_default_headers( array(
-	'default' => array(
-		'url' => get_template_directory_uri().'/images/headers/default.jpg',
-		'thumbnail_url' => get_template_directory_uri().'/images/headers/default.jpg',
-		'description' => __( 'default', 'scaffolding' )
-	)
-));
-
-//Set header image as a BG
-function scaffolding_custom_headers_callback() {
-	?>	<style type="text/css">#banner {
-			background-image: url(<?php header_image(); ?>);
-			/*-ms-behavior: url(<?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc);*/
-		}</style><?php
-}
-
-
-/*********************
-5. THUMBNAIL SIZE OPTIONS
-*********************/
-
-// Thumbnail sizes
-//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
-
-
-/*********************
-6. CHANGE NAME OF POSTS TYPE IN ADMIN BACKEND
-*********************/
-
-/* //Currently commented out. This is useful for improving UX in the WP backend
-function scaffolding_change_post_menu_label() {
-	global $menu;
-	global $submenu;
-	$menu[5][0] = 'News';
-	$submenu['edit.php'][5][0] = 'All News Entries';
-	$submenu['edit.php'][10][0] = 'Add News Entries';
-	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
-	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
-	echo '';
-}
-
-function scaffolding_change_post_object_label() {
-	global $wp_post_types;
-	$labels = &$wp_post_types['post']->labels;
-	$labels->name = 'News';
-	$labels->singular_name = 'News';
-	$labels->add_new = 'Add News Entry';
-	$labels->add_new_item = 'Add News Entry';
-	$labels->edit_item = 'Edit News Entry';
-	$labels->new_item = 'News Entry';
-	$labels->view_item = 'View Entry';
-	$labels->search_items = 'Search News Entries';
-	$labels->not_found = 'No News Entries found';
-	$labels->not_found_in_trash = 'No News Entries found in Trash';
-}
-add_action( 'init', 'scaffolding_change_post_object_label' );
-add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
+/**
+* Two menus included - main menu in header and footer menu
+*
+* Add any additional menus here. Register new menu in scaffolding_theme_support() above.
+* 
+* @see scaffolding_walker_nav_menu
+* @since Scaffolding 1.0
 */
 
-
-/*********************
-7. MENUS & NAVIGATION
-*********************/
-
-// the main menu
+// Main navigation menu
 function scaffolding_main_nav() {
-	// display the wp3 menu if available
+	// Display the wp3 menu if available
 	wp_nav_menu(array(
-		'container' => '',						 	 // remove nav container
-		'container_class' => '',		 				 // class of container (should you choose to use it)
-		'menu' => '',							 	 	 // nav name
-		'menu_class' => 'menu main-menu wrap clearfix',  // adding custom nav class
-		'theme_location' => 'main-nav',			 		 // where it's located in the theme
-		'before' => '',								 	 // before the menu
-		'after' => '',								 	 // after the menu
-		'link_before' => '',						 	 // before each link
-		'link_after' => '',							 	 // after each link
-		'depth' => 0,								 	 // limit the depth of the nav
-		'fallback_cb' => '',	 // fallback function
-		'items_wrap' => '<a href="#" class="menu-button" title="Click to open menu"><i class="fa fa-bars"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
-		'walker'=> new scaffolding_walker_nav_menu
+		'container'       => '',						 	  // remove nav container
+		'container_class' => '',		 			          // class of container (should you choose to use it)
+		'menu'            => '',						      // nav name
+		'menu_class'      => 'menu main-menu wrap clearfix',  // adding custom nav class
+		'theme_location'  => 'main-nav',			 		  // where it's located in the theme
+		'before'          => '',		                      // before the menu
+		'after'           => '',						      // after the menu
+		'link_before'     => '',						 	  // before each link
+		'link_after'      => '',						      // after each link
+		'depth'           => 0,							      // limit the depth of the nav
+		'fallback_cb'     => '',	                          // fallback function
+		'items_wrap'      => '<a href="#" id="mobile-menu-button" title="Click to open menu"><i class="fa"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
+		'walker'          => new scaffolding_walker_nav_menu,
 	));
-} /* end scaffolding main nav */
+} // end scaffolding_main_nav()
 
-// the footer menu (should you choose to use one)
+// Footer menu (should you choose to use one)
 function scaffolding_footer_nav() {
 	wp_nav_menu(array(
-		'container' => '',
+		'container'       => '',
 		'container_class' => '',
-		'menu' => '',
-		'menu_class' => 'menu footer-menu clearfix',
-		'theme_location' => 'footer-nav',
-		'before' => '',
-		'after' => '',
-		'link_before' => '',
-		'link_after' => '',
-		'depth' => 0,
-		'fallback_cb' => '__return_false'
+		'menu'            => '',
+		'menu_class'      => 'menu footer-menu clearfix',
+		'theme_location'  => 'footer-nav',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'depth'           => 0,
+		'fallback_cb'     => '__return_false',
 	));
-} /* end scaffolding footer link */
+} // end scaffolding_footer_nav()
 
-//Custom walker to build main menu
+/**
+ * Custom walker to build main navigation menu
+ *
+ * Adds classes for enhanced styles and support for mobile off-canvas menu.
+ *
+ * @since Scaffolding 1.0
+ */
 class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 	// add classes to ul sub-menus
-	function start_lvl(&$output, $depth = 0, $args = Array()) {
+	function start_lvl( &$output, $depth = 0, $args = Array() ) {
 		// depth dependent classes
 		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-		$display_depth = ( $depth + 1); // because it counts the first submenu as 0
+		$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0
 		$classes = array(
 				'sub-menu',
 				( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
 				'menu-depth-' . $display_depth
 			);
 		$class_names = implode( ' ', $classes );
+        
 		// build html
 		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
 	}
 
-	function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
+	function start_el( &$output, $item, $depth = 0, $args = Array(), $id = 0 ) {
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
 		$class_names = $value = '';
 
-		//set <li> classes
+		// set li classes
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
-		if( $args->has_children ){ $classes[] = 'menu-has-children'; }
-		if( !$args->has_children ){ $classes[] = 'menu-item-no-children'; }
-		//combine the class array into a string
+		if ( ! $args->has_children ) $classes[] = 'menu-item-no-children';
+        
+		// combine the class array into a string
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
-		//set <li> id
+		// set li id
 		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
-		//set outer <li> and it's attributes
+		// set outer li and its attributes
 		$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
-		//set <a> attributes
-		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="' . esc_attr( strip_tags($item->title) ) . '"';
+		// set link attributes
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : ' title="' . esc_attr( strip_tags( $item->title ) ) . '"';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="'	. esc_attr( $item->xfn ) . '"' : '';
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 
-		//Add menu button links to items with children
+		// Add menu button links to items with children
 		if ( $args->has_children ) {
 			$menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
-		}else{
+		} else {
 			$menu_pull_link = '';
 		}
 
@@ -335,7 +327,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
-	function end_el(&$output, $item, $depth=0, $args=array()) {
+	function end_el( &$output, $item, $depth=0, $args=array() ) {
 		$output .= "</li>\n";
 	}
 
@@ -344,218 +336,241 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		//Set custom arg to tell if item has children
 		$id_field = $this->db_fields['id'];
 		if ( is_object( $args[0] ) ) {
-			$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
+			$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 		}
 
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
-}
+} // end scaffolding_walker_nav_menu()
 
 
-/*********************
-8. ACTIVE SIDEBARS
-*********************/
+/************************************
+ * 5.0 - IMAGES & HEADERS
+ ************************************/
 
-// Sidebars & Widgetizes Areas
+// Add additional thumbnail sizes
+//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
+
+// Custom Page Headers
+register_default_headers( array(
+	'default' => array(
+		'url'             => get_template_directory_uri() . '/images/headers/default.jpg',
+		'thumbnail_url'   => get_template_directory_uri() . '/images/headers/default.jpg',
+		'description'     => __( 'default', 'scaffolding' ),
+	)
+));
+
+/**
+ * Set header image as a BG
+ *
+ * Includes IE8 polyfill to allow image to span full width of screen.
+ * This is a callback function defined in scaffolding_theme_support() 'custom-header'.
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_custom_headers_callback() { ?>
+	<style type="text/css">
+		#banner {
+			background-image: url( <?php header_image(); ?> );
+			-ms-behavior: url( <?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc );
+		}
+	</style>
+	<?php
+} // end scaffolding_custom_headers_callback()
+
+
+/************************************
+ * 6.0 - SIDEBARS
+ ************************************/
+
+/**
+ * Sidebars & Widgets Areas
+ *
+ * Two sidebars registered - left and right.
+ * Define additional sidebars here.
+ *
+ * @since Scaffolding 1.0
+ */
 function scaffolding_register_sidebars() {
 	register_sidebar(array(
-		'id' => 'left-sidebar',
-		'name' => __('Left Sidebar', 'scaffolding'),
-		'description' => __('The Left (primary) sidebar used for the interior menu.', 'scaffolding'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'id'              => 'left-sidebar',
+		'name'            => __('Left Sidebar', 'scaffolding'),
+		'description'     => __('The Left (primary) sidebar used for the interior menu.', 'scaffolding'),
+		'before_widget'   => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'    => '</div>',
+		'before_title'    => '<h4 class="widgettitle">',
+		'after_title'     => '</h4>',
 	));
 	register_sidebar(array(
-		'id' => 'right-sidebar',
-		'name' => __('Right Sidebar', 'scaffolding'),
-		'description' => __('The Right sidebar used for the interior call to actions.', 'scaffolding'),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
+		'id'              => 'right-sidebar',
+		'name'            => __('Right Sidebar', 'scaffolding'),
+		'description'     => __('The Right sidebar used for the interior call to actions.', 'scaffolding'),
+		'before_widget'   => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'    => '</div>',
+		'before_title'    => '<h4 class="widgettitle">',
+		'after_title'     => '</h4>',
 	));
-} // don't remove this bracket!
+} // end scaffolding_register_sidebars()
 
 
-/*********************
-9. RELATED POSTS FUNCTION
-*********************/
+/************************************
+ * 7.0 - SEARCH FUNCTIONS
+ ************************************/
 
-// Related Posts Function (call using scaffolding_related_posts(); )
-function scaffolding_related_posts() {
-	echo '<ul id="scaffolding-related-posts">';
-	global $post;
-	$tags = wp_get_post_tags($post->ID);
-	if($tags) {
-		foreach($tags as $tag) {
-			$tag_arr .= $tag->slug . ',';
-		}
-		$args = array(
-			'tag' => $tag_arr,
-			'numberposts' => 5, /* you can change this to show more */
-			'post__not_in' => array($post->ID)
-	 	);
-		$related_posts = get_posts($args);
-		if($related_posts) {
-			foreach ($related_posts as $post) :
-				setup_postdata($post); ?>
-				<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-			<?php
-			endforeach;
-		}
-		else {
-			echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'scaffolding' ) . '</li>';
-		}
-	}
-	wp_reset_query();
-	echo '</ul>';
-} /* end scaffolding related posts function */
+/**
+ * Search Form
+ *
+ * Call using get_search_form().
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_wpsearch( $form ) {
+	$form = '<form role="search" method="get" id="searchform" class="clearfix" action="' . home_url( '/' ) . '" >
+	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffolding') . '</label>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__( 'Search the Site&hellip;', 'scaffolding' ).'" />
+	<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+	</form>';
+	return $form;
+} // end scaffolding_wpsearch()
+
+/**
+ * Filter posts from query that are set to 'noindex'
+ *
+ * This function is dependent on Yoast SEO Plugin.
+ *
+ * @since Scaffolding 1.1
+ */
+function scaffolding_noindex_filter( $query ) {
+    if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
+        $query->set( 'meta_key', '_yoast_wpseo_meta-robots-noindex' );
+        $query->set( 'meta_value', '' );
+        $query->set( 'meta_compare', 'NOT EXISTS' );
+    }
+    return $query;
+} 
+add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
 
 
-/*********************
-10. COMMENT LAYOUT
-*********************/
+/************************************
+ * 8.0 - COMMENT LAYOUT
+ ************************************/
 
-// Comment Layout
-function scaffolding_comments($comment, $args, $depth) {
+/**
+ * Comment Layout
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_comments( $comment, $args, $depth ) {
    $GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<header class="comment-author vcard">
 				<?php
 				/*
-					this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
-					echo get_avatar($comment,$size='32',$default='<path_to_url>' );
+				This is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
+				echo get_avatar($comment,$size='32',$default='<path_to_url>' );
 				*/
 				?>
-				<!-- custom gravatar call -->
 				<?php
-					// create variable
-					$bgauthemail = get_comment_author_email();
+				// create variable
+				$bgauthemail = get_comment_author_email();
 				?>
-				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5($bgauthemail); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
-				<!-- end custom gravatar call -->
-				<?php printf(__('<cite class="fn">%s</cite>', 'scaffolding'), get_comment_author_link()) ?>
-				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__('F jS, Y', 'scaffolding')); ?> </a></time>
-				<?php edit_comment_link(__('(Edit)', 'scaffolding'),'  ','') ?>
+				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
+				<?php printf( __( '<cite class="fn">%s</cite>', 'scaffolding' ), get_comment_author_link() ) ?>
+				<time datetime="<?php echo comment_time( 'Y-m-j' ); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a></time>
+				<?php edit_comment_link( __( '(Edit)', 'scaffolding'),'  ','' ) ?>
 			</header>
-			<?php if ($comment->comment_approved == '0') : ?>
+			<?php if ( '0' == $comment->comment_approved ) : ?>
 	   			<div class="alert info">
-		  			<p><?php _e('Your comment is awaiting moderation.', 'scaffolding') ?></p>
+		  			<p><?php _e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
 		  		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
 				<?php comment_text() ?>
 			</section>
-			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+			<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
 		</article>
-	<!-- </li> is added by WordPress automatically -->
+	<?php /* </li> is added by WordPress automatically */ ?>
 <?php
-} // don't remove this bracket!
+} // end scaffolding_comments()
 
 
-/*********************
-11. SEARCH FUNCTIONS
-*********************/
+/************************************
+ * 9.0 - UTILITY FUNCTIONS
+ *     9.1 - Related posts function
+ *     9.2 - Removes […] from read more
+ *     9.3 - Modified author post link
+*************************************/
 
-// Search Form
-function scaffolding_wpsearch($form) {
-	$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffolding') . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','scaffolding').'" />
-	<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
-	</form>';
-	return $form;
-} // don't remove this bracket!
-
-/*********************
-12. ADD FIRST AND LAST CLASSES TO MENU & SIDEBAR
-*********************/
-
-function scaffolding_add_first_and_last($output) {
-	$output = preg_replace('/class="menu-item/', 'class="first-item menu-item', $output, 1);
-	$last_pos = strripos($output, 'class="menu-item');
-	if($last_pos !== false) {
-		$output = substr_replace($output, 'class="last-item menu-item', $last_pos, 16 /* 16 = hardcoded strlen('class="menu-item') */);
-	}
-	return $output;
-}
-add_filter('wp_nav_menu', 'scaffolding_add_first_and_last');
-
-// Add "first" and "last" CSS classes to dynamic sidebar widgets. Also adds numeric index class for each widget (widget-1, widget-2, etc.)
-function scaffolding_widget_first_last_classes($params) {
-
-	global $my_widget_num; // Global a counter array
-	$this_id = $params[0]['id']; // Get the id for the current sidebar we're processing
-	$arr_registered_widgets = wp_get_sidebars_widgets(); // Get an array of ALL registered widgets
-
-	if(!$my_widget_num) {// If the counter array doesn't exist, create it
-		$my_widget_num = array();
-	}
-
-	if(!isset($arr_registered_widgets[$this_id]) || !is_array($arr_registered_widgets[$this_id])) { // Check if the current sidebar has no widgets
-		return $params; // No widgets in this sidebar... bail early.
-	}
-
-	if(isset($my_widget_num[$this_id])) { // See if the counter array has an entry for this sidebar
-		$my_widget_num[$this_id] ++;
-	}
-	else { // If not, create it starting with 1
-		$my_widget_num[$this_id] = 1;
-	}
-
-	$class = 'class="widget-' . $my_widget_num[$this_id] . ' '; // Add a widget number class for additional styling options
-
-	if($my_widget_num[$this_id] == 1) { // If this is the first widget
-		$class .= 'first-widget ';
-	}
-	elseif($my_widget_num[$this_id] == count($arr_registered_widgets[$this_id])) { // If this is the last widget
-		$class .= 'last-widget ';
-	}
-
-	$params[0]['before_widget'] = str_replace('class="', $class, $params[0]['before_widget']); // Insert our new classes into "before widget"
-
-	return $params;
-
-}
-add_filter( 'dynamic_sidebar_params', 'scaffolding_widget_first_last_classes' );
-
-
-/*********************
-13. ADD FIRST AND LAST CLASSES TO POSTS
-*********************/
-
-function scaffolding_post_classes( $classes ) {
-	global $wp_query;
-	if($wp_query->current_post == 0) {
-		$classes[] = 'first-post';
-	} elseif(($wp_query->current_post + 1) == $wp_query->post_count) {
-		$classes[] = 'last-post';
-	}
-
-	return $classes;
-}
-add_filter( 'post_class', 'scaffolding_post_classes' );
-
-
-/*********************
-14. CUSTOM FUNCTIONS
-*********************/
-
-// This removes the annoying […] to a Read More link
-function scaffolding_excerpt_more($more) {
+/** 
+ * Related Posts Function
+ *
+ * @since Scaffolding 1.0
+ * @global post
+ */
+function scaffolding_related_posts() {
 	global $post;
-	// edit here if you like
-	return '...  <a class="read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read ', 'scaffolding') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
-}
+	$tags = wp_get_post_tags( $post->ID );
+	if ( $tags ) { ?>
+		<section id="scaffolding-related-posts">
+            <h3><?php _e( 'Related Posts', 'scaffolding' ); ?></h3>
+            <?php
+            foreach ( $tags as $tag ) {
+                $tag_arr = $tag->slug . ',';
+            }
+            $args = array(
+                'tag'            => $tag_arr,
+                'numberposts'    => 5,           // you can change this to show more
+                'post__not_in'   => array($post->ID)
+            );
+            $related_posts = get_posts( $args );
+            echo '<ul>';
+            if ( $related_posts ) {
+                foreach ( $related_posts as $post ) {
+                    setup_postdata( $post ); ?>
+                    <li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>"><?php the_title() ?></a></li>
+                <?php
+                }
+            } else { ?>
+                <li class="no_related_post"><?php _e( 'No Related Posts Yet!', 'scaffolding' ); ?></li>
+            <?php
+            }
+            echo '</ul>'; ?>
+		</section>
+    <?php
+	} else {
+		if ( current_user_can( 'publish_posts' ) ) { ?>
+			<section id="scaffolding-no-related-posts">
+				<p><?php printf( __( 'Related posts are only visible when tags are defined. <a href="%1$s">Get started here</a>.', 'scaffolding' ), esc_url( admin_url( 'edit-tags.php' ) ) ); ?></p>
+			</section>
+		<?php
+		}
+	}
+	wp_reset_query();
+} // end scaffolding_related_posts()
 
-//This is a modified the_author_posts_link() which just returns the link.
-//This is necessary to allow usage of the usual l10n process with printf().
+/** 
+ * Removes the annoying […] to a Read More link
+ *
+ * @since Scaffolding 1.0
+ * @global post
+ */ 
+function scaffolding_excerpt_more( $more ) {
+	global $post;
+	return '...  <a class="read-more" href="'. get_permalink( $post->ID ) . '" title="'. __('Read ', 'scaffolding') . get_the_title( $post->ID ).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
+} // end scaffolding_excerpt_more()
+
+/** 
+ * Modifies author post link which just returns the link
+ *
+ * This is necessary to allow usage of the usual l10n process with printf().
+ *
+ * @since Scaffolding 1.0
+ * @global authordata
+ */ 
 function scaffolding_get_the_author_posts_link() {
 	global $authordata;
-	if ( !is_object( $authordata ) ) {
+	if ( ! is_object( $authordata ) ) {
 		return false;
 	}
 	$link = sprintf(
@@ -566,3 +581,219 @@ function scaffolding_get_the_author_posts_link() {
 	);
 	return $link;
 }
+
+
+/************************************
+ * 10.0 - ADMIN CUSTOMIZATION
+ *     10.1 - Set content width
+ *     10.2 - Set image attachment width
+ *     10.3 - Disable default dashboard widgets
+ *     10.4 - Add news feed widget
+ *     10.5 - Change name of "Posts" in admin menu
+ *     10.6 - Customize footer
+ *     10.7 - Add theme page
+ ************************************/
+
+// Set up the content width value based on the theme's design
+if ( ! isset( $content_width ) ) {
+	$content_width = 474;
+}
+
+/** 
+ * Adjust content_width value for image attachment template
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_content_width() {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$GLOBALS['content_width'] = 810;
+	}
+}
+add_action( 'template_redirect', 'scaffolding_content_width' );
+
+/**
+ * Disabe Default Dashboard Widgets
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_disable_default_dashboard_widgets() {
+	global $wp_meta_boxes;
+	// wp..
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links
+	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'] );
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'] );
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );         // Quick Press
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );       // Recent Drafts
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now'] );   // BBPress
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget''] );          // Yoast SEO
+	//unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms
+}
+add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
+
+/**
+ * Settings for news feed widget
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_dashboard_site_feed_output() {
+	echo '<div>';
+		wp_widget_rss_output( array(
+			'url'            => 'http://www.hallme.com/feed/',
+			'title'          => 'Hall Internet Marketing Blog',
+			'items'          => 3,
+			'show_summary'   => 1,
+			'show_author'    => 1,
+			'show_date'      => 1,
+		) );
+	echo '</div>';
+}
+
+/**
+ * Adds a news feed widget to the dashboard
+ *
+ * @global wp_meta_boxes
+ * @see scaffolding_dashboard_site_feed_output
+ * @since Scaffolding 1.0
+ */
+function scaffolding_wp_admin_dashboard_add_news_feed_widget() {
+	global $wp_meta_boxes;
+	// Our new dashboard widget
+	wp_add_dashboard_widget( 'scaffolding_dashboard_site_feed', 'Hall Internet Marketing Blog', 'scaffolding_dashboard_site_feed_output' );
+}
+add_action( 'wp_dashboard_setup', 'scaffolding_wp_admin_dashboard_add_news_feed_widget' );
+
+/**
+ * Change name of "Posts" menu 
+ *
+ * This is useful for improving UX in the WP backend.
+ *
+ * @since Scaffolding 1.0
+ * @global menu, submenu
+ 
+function scaffolding_change_post_menu_label() {
+	global $menu;
+	global $submenu;
+	$menu[5][0] = 'News';
+	$submenu['edit.php'][5][0]  = 'All News Entries';
+	$submenu['edit.php'][10][0] = 'Add News Entries';
+	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
+	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
+	echo '';
+}
+add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
+*/
+
+/**
+ * Change labels for "Posts" 
+ *
+ * This is useful for improving UX in the WP backend.
+ *
+ * @since Scaffolding 1.0
+ * @global wp_post_types
+ 
+function scaffolding_change_post_object_label() {
+	global $wp_post_types;
+	$labels                        = &$wp_post_types['post']->labels;
+	$labels->name                  = 'News';
+	$labels->singular_name         = 'News';
+	$labels->add_new               = 'Add News Entry';
+	$labels->add_new_item          = 'Add News Entry';
+	$labels->edit_item             = 'Edit News Entry';
+	$labels->new_item              = 'News Entry';
+	$labels->view_item             = 'View Entry';
+	$labels->search_items          = 'Search News Entries';
+	$labels->not_found             = 'No News Entries found';
+	$labels->not_found_in_trash    = 'No News Entries found in Trash';
+}
+add_action( 'init', 'scaffolding_change_post_object_label' );
+*/
+
+/**
+ * Custom admin footer
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_custom_admin_footer() {
+	echo '<span id="footer-thankyou">Developed by <a href="//www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="//github.com/hallme/scaffolding" target="_blank">scaffolding</a>, a fork of <a href="//themble.com/bones" target="_blank">bones</a>.';
+}
+add_filter( 'admin_footer_text', 'scaffolding_custom_admin_footer' );
+
+/**
+ * Scaffolding theme page html
+ *
+ * @since Scaffolding 1.1
+ */
+function scaffolding_theme_page() { ?>
+    <div class="wrap">
+		<h2>Scaffolding Theme Guide</h2>
+        <ul>
+			<li>Here you can add theme specific instructions for clients;</li>
+			<li>Show content to specific users by capability or role;</li>
+			<li>Or do something completely different.</li>
+		</ul>
+        <strong>Resources</strong>
+        <ol>
+            <li><a href="http://scaffolding.io" target="_blank">Scaffolding Theme</a></li>
+            <li><a href="http://codex.wordpress.org" target="_blank">WordPress Codex</a></li>
+			<?php if ( class_exists( 'Woocommerce' ) ) { ?>
+				<li><a href="http://docs.woothemes.com/documentation/plugins/woocommerce/" target="_blank">WooCommerce</a></li>
+			<?php } ?>
+        </ol>
+        <strong>Theme Supports</strong>
+        <ol>
+            <?php if ( current_theme_supports( 'post-thumbnails' ) ) { ?>
+                <li>Post Thumbnails</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'post-formats' ) ) { ?>
+                <li>Post Formats</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'custom-header' ) ) { ?>
+                <li>Custom Headers</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'custom-background' ) ) { ?>
+                <li>Custom Background</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'menus' ) ) { ?>
+                <li>Menus</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'automatic-feed-links' ) ) { ?>
+                <li>RSS Feed</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'editor-style' ) ) { ?>
+                <li>Custom Editor Styles</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'widgets' ) ) { ?>
+                <li>Widgets</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'html5' ) ) { ?>
+                <li>HTML5</li>
+            <?php } ?>
+            <?php if ( current_theme_supports( 'title-tag' ) ) { ?>
+                <li>Title Tags</li>
+            <?php } ?>
+        </ol>
+	</div>
+    <?php
+} // end scaffolding_theme_page()
+
+/**
+ * Add scaffolding theme page in appearances dropdown menu
+ *
+ * @see scaffolding_theme_page
+ * @since Scaffolding 1.1
+ */
+function scaffolding_theme_menu() {
+    add_theme_page( 'Scaffolding Theme', 'Scaffolding Guide', 'edit_theme_options', 'scaffolding_theme_guide', 'scaffolding_theme_page' );
+}
+add_action( 'admin_menu', 'scaffolding_theme_menu' );
+
+
+/************************************
+ * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
+ ************************************/
+
+// Add your custom functions here
