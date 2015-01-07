@@ -180,44 +180,47 @@ function scaffolding_first_last_menu_classes( $objects, $args ) {
     $ids        = array();
     $parent_ids = array();
     $top_ids    = array();
+	
+	if ( ! emtpy( $objects ) ) {
     
-    foreach ( $objects as $i => $object ) {
-        // If there is no menu item parent, store the ID and skip over the object.
-        if ( 0 == $object->menu_item_parent ) {
-            $top_ids[ $i ] = $object;
-            continue;
-        }
+		foreach ( $objects as $i => $object ) {
+			// If there is no menu item parent, store the ID and skip over the object.
+			if ( 0 == $object->menu_item_parent ) {
+				$top_ids[ $i ] = $object;
+				continue;
+			}
 
-        // Add first item class to nested menus.
-        if ( ! in_array( $object->menu_item_parent, $ids ) ) {
-            $objects[ $i ]->classes[] = 'first-item';
-            $ids[] = $object->menu_item_parent;
-        }
+			// Add first item class to nested menus.
+			if ( ! in_array( $object->menu_item_parent, $ids ) ) {
+				$objects[ $i ]->classes[] = 'first-item';
+				$ids[] = $object->menu_item_parent;
+			}
 
-        // If we have just added the first menu item class, skip over adding the ID.
-        if ( in_array( 'first-item', $object->classes ) ) {
-            continue;
-        }
+			// If we have just added the first menu item class, skip over adding the ID.
+			if ( in_array( 'first-item', $object->classes ) ) {
+				continue;
+			}
 
-        // Store the menu parent IDs in an array.
-        $parent_ids[ $i ] = $object->menu_item_parent;
-    }
+			// Store the menu parent IDs in an array.
+			$parent_ids[ $i ] = $object->menu_item_parent;
+		}
 
-    // Remove any duplicate values and pull out the last menu item.
-    $sanitized_parent_ids = array_unique( array_reverse( $parent_ids, true ) );
+		// Remove any duplicate values and pull out the last menu item.
+		$sanitized_parent_ids = array_unique( array_reverse( $parent_ids, true ) );
 
-    // Loop through the IDs and add the last menu item class to the appropriate objects.
-    foreach ( $sanitized_parent_ids as $i => $id ) {
-        $objects[ $i ]->classes[] = 'last-item';
-    }
+		// Loop through the IDs and add the last menu item class to the appropriate objects.
+		foreach ( $sanitized_parent_ids as $i => $id ) {
+			$objects[ $i ]->classes[] = 'last-item';
+		}
 
-    // Finish it off by adding classes to the top level menu items.
-    $objects[1]->classes[] = 'first-item'; // We can be assured 1 will be the first item in the menu. :-)
-    $keys = array_keys( $top_ids );
-    $objects[end( $keys )]->classes[] = 'last-item';
+		// Finish it off by adding classes to the top level menu items.
+		$objects[1]->classes[] = 'first-item'; // We can be assured 1 will be the first item in the menu. :-)
+		$keys = array_keys( $top_ids );
+		$objects[end( $keys )]->classes[] = 'last-item';
 
-    // Return the menu objects.
-    return $objects;
+		// Return the menu objects.
+		return $objects;
+	}
 }
 add_filter( 'wp_nav_menu_objects', 'scaffolding_first_last_menu_classes', 10, 2 );
 
