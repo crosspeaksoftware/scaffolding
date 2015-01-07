@@ -2,7 +2,7 @@
 Site Name:
 Author:
 
-Stylesheet: Base Mobile Comments Stylesheet
+Stylesheet: Comments Stylesheet
 
 Be light and don't over style since everything here will be
 loaded by mobile devices. You want to keep it as minimal as
@@ -11,17 +11,12 @@ and will be used across all viewports.
 
 ******************************************************************/
 
-/*
-CONTENTS:
-1. Comment Form Styles
-2. Comments Styles
-*/
-
 /*********************
 COMMENT FORM STYLES
 *********************/
 
-.respond-form, .comment-respond {
+.respond-form, 
+.comment-respond {
 
 	#reply-title {
 		font-weight: bold;
@@ -31,7 +26,7 @@ COMMENT FORM STYLES
 		margin: 0.75em 0;
 
 		p {
-			margin: 0 0 0.75em 0
+			margin: 0 0 0.75em;
 		}
 
 		ul {
@@ -39,8 +34,8 @@ COMMENT FORM STYLES
 			margin: 0;
 
 			li {
-				list-style-type: none;
 				clear: both;
+				list-style-type: none;
 				margin-bottom: 0.7335em;
 				margin-left: 0;
 
@@ -51,9 +46,9 @@ COMMENT FORM STYLES
 			}
 		}
 
-		input[type=text],
-		input[type=email],
-		input[type=url],
+		input[type="text"],
+		input[type="email"],
+		input[type="url"],
 		textarea {
 			width: 100%;
 
@@ -61,19 +56,16 @@ COMMENT FORM STYLES
 
 			/* form validation */
 			&:invalid {
-				outline: none;
-				border-color: #fbc2c4;
 				background-color: #f6e7eb;
-				-webkit-box-shadow: none;
-				   -moz-box-shadow: none;
-				    -ms-box-shadow: none;
-						box-shadow: none;
+				border-color: #fbc2c4;
+				box-shadow: none;
+				outline: none;
 			}
 		}
 
-		input[type=text],
-		input[type=email],
-		input[type=url] {
+		input[type="text"],
+		input[type="email"],
+		input[type="url"] {
 			max-width: 400px;
 			min-width: 250px;
 		}
@@ -83,14 +75,14 @@ COMMENT FORM STYLES
 		}
 
 		label {
-			margin: 10px 0 4px 0;
-			font-weight: bold;
-			display: block;
-			line-height: 1.3em;
 			clear: both;
-
-			.required{
-				color:#AF3124;
+			display: block;
+			font-weight: bold;
+			line-height: 1.3em;
+			margin: 10px 0 4px 0;
+			
+			.required {
+				color: #AF3124;
 			}
 		}
 	}
@@ -116,8 +108,8 @@ COMMENT FORM STYLES
 		margin: 1em 0 1.675em 0;
 
 		code {
-			margin-top: 0.5em;
 			display: block;
+			margin-top: 0.5em;
 			overflow: hidden;
 		}
 	}
@@ -130,7 +122,7 @@ COMMENT FORM STYLES
 }
 
 /*********************
-COMMENTS STYLES
+COMMENT STYLES
 *********************/
 
 /* h3 comment title */
@@ -155,22 +147,22 @@ COMMENTS STYLES
 
 
 .commentlist {
-	padding: 0;
 	margin: 0;
+	padding: 0;
 
 	li {
-		position: relative;
 		clear: both;
-		overflow: hidden;
 		list-style-type: none;
 		margin-bottom: 1.5em;
+		overflow: hidden;
 		padding: 0;
-
+		position: relative;
+		
 		&:last-child {
 			margin-bottom: 0;
 		}
 
-		ul.children {
+		.children {
 			margin: 0;
 
 			li {
@@ -199,13 +191,6 @@ COMMENTS STYLES
 		margin-top: 0;
 	}
 
-	/*li:not(.depth-1) {
-		margin-right: -10px;
-		margin-left: -10px;
-		margin-top: 0;
-		padding-bottom: 0;
-	}*/
-
 	li.depth-2 {}
 	li.depth-3 {}
 	li.depth-4 {}
@@ -228,18 +213,17 @@ COMMENTS STYLES
 
 	/* vcard */
 	.vcard {
-		position: relative;
 		height: auto;
-		overflow: overflow;
 		min-height: 32px;
+		position: relative;
 
-		cite.fn {
+		.fn {
 			font-weight: 700;
 			font-style: normal;
 			font-size: 1.25em;
 			margin-left: 50px;
 
-			a.url {}
+			.url {}
 
 		}
 
@@ -261,14 +245,15 @@ COMMENTS STYLES
 
 		}
 
-		img.photo {}
+		.photo {}
 
-		img.avatar, img.photo {
-			position: absolute;
-			left: 0;
-			top: 0;
-			margin: 0;
+		.avatar, 
+		.photo {
 			border: 1px solid #DDD;
+			left: 0;
+			margin: 0;
+			position: absolute;
+			top: 0;
 			@include border-radius(50%);
 		}
 
@@ -297,21 +282,22 @@ COMMENTS STYLES
 
 	/* comment content */
 	.comment_content {
-		margin-top: 1em;
-		padding: 0.5em 0.5em 0.5em 1.5em;
 		border: 1px solid #DDD;
 		clear: both; 
+		margin-top: 1em;
+		padding: 0.5em 0.5em 0.5em 1.5em;
 
 		p {
-			margin: 1em 0;
 			font-size: 1em;
 			line-height: 1.5em;
+			margin: 1em 0;
 		}
 
-		ul, ol {
+		ul, 
+		ol {
 			li {
-				overflow: visible;
 				list-style-type: inherit;
+				overflow: visible;
 			}
 		}
 
@@ -319,13 +305,13 @@ COMMENTS STYLES
 
 	/* comment reply link */
 	.comment-reply-link {
-		text-decoration: none;
-		float: right;
 		color: $link-color;
-		padding: 5px 15px;
-		margin: 0.5em 0 1em 0;
-		font-weight: 400;
+		float: right;
 		font-size: 0.9em;
+		font-weight: 400;
+		margin: 0.5em 0 1em 0;
+		padding: 5px 15px;		
+		text-decoration: none;
 
 		&:hover,
 		&:focus {
@@ -334,11 +320,22 @@ COMMENTS STYLES
 		}
 
 		&:after {
-			font-family: "FontAwesome";
 			content: "\f112";
+			font-family: "FontAwesome";
 			padding-left: 5px;
 		}
 
 	} /* end .commentlist .comment-reply-link */
 
 } /* end .commentlist */
+
+
+/************************
+ * MEDIA QUERIES
+ ************************/
+
+@media only screen and (min-width: $screen-sm-min) {}
+
+@media only screen and (min-width: $screen-md-min) {}
+
+@media only screen and (min-width: $screen-lg-min) {}

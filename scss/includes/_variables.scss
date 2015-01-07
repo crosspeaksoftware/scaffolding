@@ -5,11 +5,20 @@ Author:
 Stylesheet: Variables
 
 ******************************************************************/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300);
+
+/**************
+ * Fonts
+ **************/
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300);
 
 $sans: 'Open Sans', sans-serif;
-$serif: serif;
-$default-font-size: 14px;
+$serif: Georgia, Times, 'Times New Roman', serif;
+$default-font-size: 1em;
+
+/**************
+ * Colors
+ **************/
 
 $alert-yellow: #ebe16f;
 $alert-red: #fbe3e4;
@@ -19,7 +28,17 @@ $alert-blue: #d5edf8;
 $link-color: #008CBA;
 $link-hover-color: #007BA1;
 
-// Grid Stuff
+/* Social Media - http://www.paulund.co.uk/social-media-colours */
+$facebook: #3B5998;
+$twitter: #00aced;
+$linkedin: #007bb6;
+$google-plus: #dd4b39;
+$youtube: #bb0000;
+
+/**************
+ * Grid Stuff
+ **************/
+
 $screen-sm-min: 768px;
 $container-sm: 750px;
 
@@ -30,6 +49,12 @@ $screen-lg-min: 1200px;
 $container-lg: 1170px;
 
 $grid-columns: 12;
-$grid-gutter-width: 15px;
+$grid-gutter-width: 30px;
 
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
+
+// Our plugin path
 $plugins-path: '/wp-content/plugins/';

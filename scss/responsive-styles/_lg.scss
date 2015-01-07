@@ -9,7 +9,57 @@ on larger screens.
 
 ******************************************************************/
 
+/*************************
+ * TABLE OF CONTENTS
+ *************************
+ 1. General Styles
+ 2. Header Styles
+ 3. Navigation Styles
+ 4. Posts & Content Styles
+ 5. Pagination Styles
+ 6. Comment Styles
+ 7. Sidebars & Asides
+ 8. Footer Styles
+ ************************/
+
+/*************************
+ * GENERAL STYLES
+ ************************/
+
+/* Set max content width */
 .container-fluid,
 .wrap {
 	max-width: $container-lg;
 }
+
+/*************************
+ * HEADER STYLES
+ ************************/
+
+/*************************
+ * NAVIGATION STYLES
+ ************************/
+
+/* Look for main menu styles in /includes/_main_navigation.scss */
+
+/*************************
+ * POSTS & CONTENT STYLES
+ ************************/
+
+/*************************
+ * PAGINATION STYLES
+ ************************/
+
+/*************************
+ * COMMENT STYLES
+ ************************/
+
+/* Look for comment styles in /includes/_comments.scss */
+
+/*************************
+ * SIDEBARS & ASIDES STYLES
+ ************************/
+
+/*************************
+ * FOOTER STYLES
+ ************************/

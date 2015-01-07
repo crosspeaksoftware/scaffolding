@@ -1,0 +1,373 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Main Navigation
+
+On mobile devices, this menu is known as "off-canvas".
+It currently slides out from the right.
+
+******************************************************************/
+
+// Menu Toggle
+#mobile-menu-button {
+	clear: both;
+	display: block;
+	float: right;
+	font-size: 1em;
+	line-height: 1;
+	margin: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	@include transition(all 0.25s ease-in-out);
+
+	&:hover, &:active, &:focus {
+		text-decoration: none;
+	}
+	
+	// Font Awesome Icon
+	.fa:before {
+		content: "\f0c9"; // bars icon
+	}
+}
+
+// Base Mobile Styles
+#main-navigation {
+
+    ul.menu {
+		background-color: #333;
+		bottom: 0;
+		clear: both;
+		display: none;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		right: -70%;
+		top: 0;
+		width: 70%;
+		z-index: 1000;	
+
+        li {
+			border-bottom: 1px solid #111;
+            display: block;
+            margin: 0;
+            padding: 0;
+            @include transition(all 0.25s ease-in-out);
+
+            a {
+				color: #999;
+				display: inline-block;
+				font-size: 1.125em;
+				padding: 15px 5%;
+				text-decoration: none;
+		        width: 80%;
+                @include transition(all 0.25s ease-in-out);
+
+				&:hover, &:focus {
+	                background-color: #222;
+					color: #CCC;
+                }
+            }
+
+            a.menu-button {
+				border-left: 1px solid #111;
+				cursor: pointer;
+                display: inline-block;
+				height: auto;
+				margin: 0;
+                padding: 15px 0;
+                text-align: center;
+                width: 20%;
+                @include transition(all 0.25s ease-in-out);
+
+                &:hover, &:focus {}
+            }
+
+            a.menu-back-button {
+				background: #222;
+				cursor: pointer;
+                display: inline-block;
+                padding: 15px;
+                text-decoration: none;
+				width: 100%;
+                @include transition(all 0.25s ease-in-out);
+
+                &:hover, &:focus {}
+            }
+			
+			&:hover, &:focus {}
+
+            &.first-item {}
+
+            &.last-item {}
+			
+			&.current-menu-item {
+				> a {
+					color: #EEE;
+				}
+			}
+			
+			&.current-menu-ancestor {
+				> a {
+					background-color: #292929;
+					
+					&:hover, &:focus {
+						background-color: #222;
+					}
+				}
+			}
+
+			&.menu-item-no-children {
+				a {
+				    width: 100%;
+			    }
+			}
+
+			&.menu-item-has-children {}
+
+            /* sub menu - child */
+            ul.sub-menu {
+				background-color: #333;
+				bottom: 0;
+                display: block;
+                margin: 0;
+				overflow: hidden;
+                padding: 0;
+				position: absolute;
+				right: -100%;
+                top: 0;
+                width: 100%;
+                @include transition(all 0.25s ease-in-out);
+				
+            }
+			
+            /* sub menu - child */
+            ul.sub-menu-open {
+                right: 0;
+            }
+        }
+    }
+}
+
+/* Opening Menu */
+body.menu-open {
+	#main-navigation {
+		ul.menu {
+			display: block;
+		}
+	}
+	
+	#mobile-menu-button {
+		.fa:before {
+			content: "\f00d"; // times icon
+		}
+	}
+	
+    #container {
+        left: -70%;
+    }
+}
+
+/* LARGER MOBILE DEVICES */
+@media only screen and (min-width: 481px) {}
+
+/* TABLET & SMALLER LAPTOPS */
+@media only screen and (min-width: $screen-sm-min) {
+	
+	#mobile-menu-button {
+		display: none !important;
+	}
+
+	#main-navigation {
+		background-color: #333;
+		white-space: nowrap;
+
+	    ul.menu {
+			bottom: auto;
+			box-shadow: none;
+            display: block;
+			margin: 0 auto;
+			overflow: visible;
+			padding: 0;
+			position: relative;
+			right: auto;
+		    text-align: center;
+			top: auto;
+	        width: auto;
+
+			li {
+				border-bottom: none;
+				display: inline-block;
+	            margin-left: -6px;
+				position: relative;
+				z-index: 1000;
+
+				a {
+					border-left: 2px solid #222;
+					display: block;
+					padding: 10px 20px;
+					width: auto;
+
+					&:hover, &:focus {}
+				}
+				
+	            a.menu-button {
+	                display: none !important;
+	            }
+
+				a.menu-back-button {
+	                display: none !important;
+	            }
+				
+				/* maintain hover state on dropdown */
+	            &:hover, &:focus {
+					background-color: #222;
+					
+					&.current-menu-ancestor {
+						> a {
+							background-color: #222;	
+						}
+					}
+				}
+
+	            &.first-item {
+					a {
+						border-left: none;
+					}
+	            }
+
+	            &.last-item  {
+
+		            /* Children */
+					ul.sub-menu {
+						left: auto;
+						right: 0;
+
+						li {
+
+							/* Grand Children */
+							ul.sub-menu {
+								left: auto;
+								right: 99.9%;
+							}
+						}
+					}
+	            }
+				
+				&.current-menu-item {}
+				
+				&.current-menu-ancestor {}
+
+				&.menu-item-no-children {
+					a {
+					    width: auto;
+				    }
+				}
+
+				&.menu-item-has-children {}
+
+				/*Children*/
+				ul.sub-menu {
+					background-color: #222;
+					bottom: auto;
+					display: none;
+					left: 0;
+					min-width: 120%;
+                    overflow: visible;
+					position: absolute;
+					text-align: left;
+					top: 99.9%;
+					width: auto;
+					z-index: 1000;
+					@include transition(top 1s);
+
+					li {
+						display: block;
+						margin: 0;
+						white-space: nowrap;
+
+						a {
+							border-bottom: 1px solid #292929;
+							border-left: none;
+							display: block;
+							font-size: 95%;
+							padding: 8px 12px;
+
+							&:hover, &:focus {}
+						}
+
+
+			            &.first-item {}
+
+			            &.last-item {
+							a {
+								border-bottom: none;
+							}
+						}
+
+			            &:hover, &:focus {}
+
+						&.menu-item-no-children {}
+
+						&.menu-item-has-children {}
+
+						/* Grand Children */
+						ul.sub-menu {
+							left: 99.9%;
+							top: 0;
+						}
+					}
+				}
+
+			} /* end .menu li */
+
+			/* Show the child ul */
+			li:hover > ul {
+				display: table;
+			}
+
+		} /* end ul.menu */
+		
+	} /* end #main-navigation */
+}
+
+/* DESKTOP */
+@media only screen and (min-width: $screen-md-min) {}
+
+/* FULL VIEWING SIZE */
+@media only screen and (min-width: $screen-lg-min) {
+
+	#main-navigation {
+
+	    ul.menu {
+
+			li {
+
+	            &.first-item {}
+
+	            &.last-item {
+
+		            /* Children */
+					ul.sub-menu {
+						left: 0;
+						right: auto;
+
+						li {
+
+							/* Grand Children */
+							ul.sub-menu {
+								left: 99.9%;
+								right: auto;
+							}
+						}
+					}
+	            }
+				
+			} /* end .menu li */
+			
+		} /* end ul.menu */
+		
+	} /* end #main-navigation */
+
+}

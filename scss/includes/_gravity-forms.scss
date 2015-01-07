@@ -1,7 +1,12 @@
-/* 
- * Responsive Gravity Forms Styles
- * Usage: be sure to uncheck the box in Gravity Forms Settings to "Not" Output default CSS
------------------------------------ */
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Responsive Gravity Forms Styles
+
+Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
+
+******************************************************************/
 
 /* Import Other Styles */
 @import "gform_styles/_ready_classes";
@@ -20,13 +25,15 @@
 */
 .gform_wrapper {
 	li.has-select {
-		overflow: visible;
 		height: 384px;
+		overflow: visible;
 		
 		.ginput_complex {
 			overflow: visible;
 			
-			.ginput_left, .ginput_right, .ginput_full {
+			.ginput_left, 
+			.ginput_right, 
+			.ginput_full {
 				overflow: visible;
 			}
 		}
@@ -34,13 +41,21 @@
 	
 	li.has-select.gfield_error {
 		.chosen-single {
-			border-color: #c0392b !important;
 			background: #FFDFE0 !important;
+			border-color: #c0392b !important;
 			color: #c0392b !important;
 		}
 	}
 	
-	.chosen-single:hover, .chosen-single:focus { border-bottom: 1px solid #ccc !important; }
+	.chosen-single:hover { 
+		border-bottom: 1px solid #ddd !important; 
+	}
+	
+    .chosen-single:focus, 
+	.chosen-container-active .chosen-single:hover { 
+		border-bottom: 1px solid #666 !important; 
+	}
+	
 	.chosen-container:focus+label, 
 	.chosen-container:active+label,
 	.chosen-container-active+label {

@@ -6,203 +6,231 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
-/* Browser Specific */
+/**
+* Placeholders
+*/
 
 ::-webkit-input-placeholder {
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
 }
+
 :-moz-placeholder {
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
 }
+
 ::-moz-placeholder {
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
 }
+
 :-ms-input-placeholder {
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
 }
 
-input, textarea {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-}
 
-/* LABEL */
+/**
+* Labels
+*/
 
 label {
 	font-weight: bold;
 }
 
-/* INPUTS */
+
+/**
+* Inputs
+*/
 
 textarea,
-input[type=text],
-input[type=url],
-input[type=email],
-input[type=tel],
-input[type=number],
-input[type=password] {
-	outline: none;
-	background:#FFF;
-	border:1px solid #CCC;
+select,
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"] {
+	background: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 0;
 	color: #444;
 	font-size: .9em;
 	letter-spacing: normal;
+	outline: none;
 	padding: 8px 1%;
 	@include transition(all 0.25s ease-in-out);
-	border-radius: 0;
-	
+	width: 100%;
+
 	&:focus {
-		border:1px solid #333;
+		border: 1px solid #333;
 	}
 }
 
-input[type=image] {
+input[type="image"] {
+	border: none;
 	padding: 0;
-	border: none !important;
-	padding: 0 !important;
-	width: auto !important;
+	width: auto;
 }
 
 textarea {
 	resize: none;
 }
 
-select { // Default select if Javascript is disabled
+select {
 	font-size: 1em;
 	font-family: inherit;
-	padding: 5px 0 5px 0;
 	letter-spacing: normal;
+	padding: 5px 0 5px 0;
 
 	option {
-		padding: 2px 2px;
 		display: block;
+		padding: 2px 2px;
 	}
 }
 
-input[type=submit],
-input[type=button] {
-	display: inline-block;
-	width: 100%;
-	padding: 0.5em 0;
-	margin-bottom: 0;
-	font-size: 1.125em;
-	font-weight: 700;
-	color: #FFF;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	background: #444;
+
+/**
+* Submit & Buttons
+*/
+
+input[type="submit"],
+input[type="button"] {
+	background: #222;
 	border: 0;
 	border-radius: 0;
+	color: #FFF;
+	cursor: pointer;
+	display: inline-block;
 	font-family: $sans;
-	@include transition(all 0.25s ease-in-out);
-	
-	&:hover, &:focus, &:active, .active, .disabled, [disabled] {
+	font-size: 1.125em;
+	font-weight: 700;
+	margin-bottom: 0;
+	padding: 0.75em 0;
+	text-align: center;
+	@include transition(all 0.25s ease-in);
+	vertical-align: middle;
+	width: 100%;
+
+	&:hover, 
+	&:focus, 
+	&:active, 
+	.active, 
+	.disabled, 
+	[disabled] {
+		background: #000;
 		color: #FFF;
-		background: darken(#444, 5%);
 		text-decoration: none;
 	}
-	
+
 	&:focus {
 		outline: thin dotted #333 !important;
 		outline: 5px auto -webkit-focus-ring-color;
 		outline-offset: -2px;
 	}
-	
+
 	&:active {
 		outline: 0;
 	}
-	
-	&.disabled, [disabled] {
-		cursor: default;
+
+	&.disabled, 
+	[disabled] {
 		background-image: none;
-		opacity: 0.65;
+		cursor: default;
 		filter: alpha(opacity=65);
+		opacity: 0.65;
 		@include box-shadow(none);
 	}
-	
+
 	&:first-child {
 		*margin-left: 0;
 	}
 }
 
+
 /************************
- * SearchForm Styles
+ * SEARCH FORM STYLES
  ************************/
- 
-#searchform{
+
+ #searchform {
 
 	label {
-		display:none;
+		display: none;
 		/* Style to show label in line with text field
-		display:inline-block;
-		*display:inline;*/
-		font-size:0.750em;
+		display: inline-block;
+		*display: inline;*/
+		font-size: 0.750em;
+		font-weight: bold;
 		text-transform: uppercase;
-		width:20%;
+		width: 20%;
 	}
 
-	//Text input
-	#s {
-		outline:none;
-		background:#FFF;
-		border:1px solid #CCCCCC;
-		@include box-shadow(none);
-		@include border-radius(0);
-		color: #555555;
-		@include transition(all 0.25s ease-in-out);
-		width:75%;
-		padding:2px 1%;
-
-		&:focus {
-			border:1px solid #AAA;
-		}
-
+	#s { 
+		width: 100%; 
 	}
 
-	//Submit Button
-	#searchsubmit {
-		padding: 7px 15px;
-	}
+    #searchsubmit {
+        padding-left: 0;
+        padding-right: 0;
+		width: 100%;
+    }
 }
 
-/*Search Styles on 404 page*/
-.error404 {
-	#searchform {
-		label { font-weight: bold; }
-		#s {}
-		#searchsubmit {}
-	}
-}
 
 /************************
- * Password Form Styles
+ * PASSWORD FORM STYLES
  ************************/
- 
+
 .post-password-form {
+	
 	p {}
+	
 	label {}
-	input[type=submit] {}
+	
+	input[type="submit"] {}
 }
+
+
+/************************
+ * MEDIA QUERIES
+ ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
 
-	input[type=button],
-	input[type=submit] {
+	input[type="button"],
+	input[type="submit"] {
+		padding-left: 3em;
+        padding-right: 3em;
 		width: auto;
-		padding: 0.5em 3em;
 	}
 
 }
 
-@media only screen and (min-width: $screen-md-min) {}
+@media only screen and (min-width: $screen-md-min) {
+
+	/*Search Styles*/
+    #searchform {
+        height: 34px;
+        overflow: hidden;
+
+        #s {
+			float: left;
+            width: 70%;
+        }
+		
+        #searchsubmit {
+			float: right;
+            padding-top: 0.35em;
+            padding-bottom: 0.35em;
+			width: 30%;
+        }
+    }
+
+}
 
 @media only screen and (min-width: $screen-lg-min) {}

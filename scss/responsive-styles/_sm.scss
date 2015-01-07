@@ -7,15 +7,67 @@ Stylesheet: Tablet & Small Desktop Stylesheet
 Here's where you can start getting into the good stuff.
 This size will work on iPads, other tablets, and desktops.
 So you can start working with more styles, background images,
-and other resources. You'll also notice the grid starts to
-come into play. Have fun!
+and other resources. Have fun!
 
 ******************************************************************/
 
+/*************************
+ * TABLE OF CONTENTS
+ *************************
+ 1. General Styles
+ 2. Header Styles
+ 3. Navigation Styles
+ 4. Posts & Content Styles
+ 5. Pagination Styles
+ 6. Comment Styles
+ 7. Sidebars & Asides
+ 8. Footer Styles
+ 9. Sticky Footer Styles
+ ************************/
 
-/*********************
-STICKY FOOTER STYLES
-*********************/
+/*************************
+ * GENERAL STYLES
+ ************************/
+
+/*************************
+ * HEADER STYLES
+ ************************/
+
+/*************************
+ * NAVIGATION STYLES
+ ************************/
+
+/* Look for main menu styles in /includes/_main_navigation.scss */
+
+/*************************
+ * POSTS & CONTENT STYLES
+ ************************/
+
+/*************************
+ * PAGINATION STYLES
+ ************************/
+
+/*************************
+ * COMMENT STYLES
+ ************************/
+
+/* Look for comment styles in /includes/_comments.scss */
+
+/*************************
+ * SIDEBARS & ASIDES STYLES
+ ************************/
+
+.sidebar {
+	margin-top: 0.5em;
+}
+
+/*************************
+ * FOOTER STYLES
+ ************************/
+
+/*************************
+ * STICKY FOOTER STYLES
+ ************************/
 
 html,
 body.sticky-footer {
@@ -23,28 +75,28 @@ body.sticky-footer {
 	margin: 0;
 }
 
-body.sticky-footer {
+	body.sticky-footer {
+		#container {
+			display: table;
+			width: 100%;
+		}
 
-	#container {
-	    display: table;
-	    width: 100%;
+		#container .header,
+		#main-navigation,
+		#container .banner-wrap,
+		#content,
+		#container .footer {
+			display: table-row;
+			height: 1px;
+			overflow: hidden;
+		}
+
+	} /* end body.sticky-footer */
+
+	html>body.sticky-footer #container {
+		height: 100%;
 	}
 
-	#container .header,
-	#main-navigation,
-	#container .banner-wrap,
-	#content,
-	#container .footer {
-	    display: table-row;
-	    height: 1px;
-	    overflow: hidden;
+	html>body.sticky-footer #content {
+		height: auto;
 	}
-}
-
-html>/**/body.sticky-footer #container {
-    height: 100%;
-}
-
-html>body.sticky-footer #content {
-    height: auto;
-}

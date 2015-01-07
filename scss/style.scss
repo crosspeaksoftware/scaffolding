@@ -3,6 +3,7 @@ Site Name:
 Author:
 
 Stylesheet: Main Stylesheet
+
 ******************************************************************/
 
 // STEP 1: Import reset
@@ -12,14 +13,14 @@ Stylesheet: Main Stylesheet
 @import "includes/variables";
 @import "includes/typography";
 @import "includes/mixins";
+@import "includes/main-navigation";
 @import "includes/forms";
-@import "includes/offcanvas-nav";
+@import "includes/comments";
+@import "includes/gravity-forms"; // gravity forms styles - uncheck box to NOT output default CSS
 
 // STEP 3: Import all our libraries
-//@import "includes/gravity-forms"; /* gravity forms styles - uncheck box to NOT output default CSS */
-@import "libs/chosenjs"; /* better cross browser select inputs - see https://github.com/harvesthq/chosen for more info */
-@import "libs/magnific-popup"; /* magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info */
-@import "libs/icheck"; /* better radio and checkbox inputs - see http://fronteed.com/iCheck/ for more info; there are several different skins to choose from (a default is currently enabled) */
+@import "libs/chosenjs"; // better cross browser select inputs - see https://github.com/harvesthq/chosen for more info
+@import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
 // STEP 4: Import our grid
 @import "includes/bootstrap-grid";
@@ -63,18 +64,22 @@ This applies to the retina iPhone (4s) and iPad (2+) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+/*@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 	only screen and (min--moz-device-pixel-ratio: 1.5),
 	only screen and (min-device-pixel-ratio: 1.5) {
-	//@import "includes/retina";
-}
+		@import "includes/retina";
+}*/
 
 /*
 iPHONE 5 MEDIA QUERY
 Want to get fancy for no good reason? Knock yourself out.
 */
 @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  // iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
+	// iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
+	input, textarea {
+  		-webkit-appearance: none;
+  		-webkit-border-radius: 0;
+	}
 }
 
 /*

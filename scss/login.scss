@@ -4,9 +4,8 @@ Author:
 
 Stylesheet: Login Stylesheet
 
-This stylesheet is loaded (if admin.php is setup in your
-functions file) on the login page. This way you can style
-the login page. It won't affect any other page, admin or front-end.
+This stylesheet is loaded on the login page for custom styling. 
+It won't affect any other page, admin or front-end.
 
 For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
@@ -17,57 +16,56 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 body.login {}
 
-
 #login {} /* the form box */
 
 /*
-This is the Wordpress logo in the admin area.
-You'll have to load your own images and mess
-with the width and height.
-*/
+ * This is the Wordpress logo in the admin area.
+ * You'll have to load your own images and mess
+ * with the width and height.
+ */
 .login h1 a {
-	/* Add a logo file in and update these lines
+	/* Add a logo file and update these lines
 	background: url(../images/login-logo.png) no-repeat top center;
 	width: 320px;
 	height: 67px;
 	*/
-	text-indent: 100%;
-	white-space: nowrap;
+	display: block;
 	overflow: hidden;
 	padding-bottom: 15px;
-	display: block;
+	text-indent: 100%;
+	white-space: nowrap;
 }
 
 form {
-	margin-left: 8px;
-	padding: 26px 24px 46px;
-	font-weight: normal;
 	background: white;
 	border: 1px solid #E5E5E5;
 	@include border-radius(3px);
 	@include box-shadow(none);
+	font-weight: normal;
+	margin-left: 8px;
+	padding: 26px 24px 46px;
 }
 
 body form .input {
-	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
-	font-weight: 200;
-	font-size: 24px;
-	width: 97%;
-	padding: 3px;
-	margin-top: 2px;
-	margin-right: 6px;
-	margin-bottom: 16px;
-	border: 1px solid #E5E5E5;
 	background: #FBFBFB;
-	outline: none;
+	border: 1px solid #E5E5E5;
 	-webkit-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
-	   -moz-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
-			box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+	-moz-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+	box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+	font-size: 24px;
+	font-weight: 200;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: none;
+	padding: 3px;
+	width: 97%;
 }
 
 /*
-You'll have to override some of the default styles
-but since we're referencing the id, it should be easy.
-*/
+ * You'll have to override some of the default styles
+ * but since we're referencing the id, it should be easy.
+ */
 #wp-submit {} /* login button*/
 

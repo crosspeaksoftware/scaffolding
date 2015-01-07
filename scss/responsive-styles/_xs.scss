@@ -11,88 +11,96 @@ and will be used across all viewports.
 
 ******************************************************************/
 
-/*
-CONTENTS:
-1. General Styles
-3. Header Styles
-4. Navigation Styles
-5. Posts & Content Styles
-6. Page Navigation Styles
-7. Comments & Comment Form Styles
-8. Sidebars & Asides
-9. Footer Styles
-*/
+/*************************
+ * TABLE OF CONTENTS
+ *************************
+ 1. General Styles
+ 2. Header Styles
+ 3. Navigation Styles
+ 4. Posts & Content Styles
+ 5. Pagination Styles
+ 6. Comment Styles
+ 7. Sidebars & Asides
+ 8. Footer Styles
+ ************************/
 
-/*********************
-GENERAL STYLES
-*********************/
+/*************************
+ * GENERAL STYLES
+ ************************/
+
 html {
-	height:100%;
+	height: 100%;
 	overflow-x: hidden;
 }
 
 body {
-	height:auto;
+	height: auto;
     overflow-x: hidden;
 
-    #container{
-		height:100%;
-		/*styles for mobile nav slide in*/
-		position:relative;
+    #container {
+		height: 100%;
+		/* styles for mobile nav slide in */
+		position: relative;
 		@include transition(all 0.25s ease-in-out);
     }
 }
 
-/*********************
-HEADER SYTLES
-*********************/
+/*************************
+ * HEADER STYLES
+ ************************/
 
 /* Ensure that there is no gap between the header and the admin bar for WordPress versions before 3.8. */
-#wpadminbar { min-height: 32px; }
+#wpadminbar { 
+	min-height: 32px; 
+}
 
-.header {}
-	#logo {}
+#masthead {
+	padding: 1em 0;
+}
+
+	#logo {
+		&.h1 {
+			margin: 0;
+		}
+	}
+
 	#banner {
-
-		background-position:top center;
-		background-repeat:no-repeat;
+		background-position: top center;
+		background-repeat: no-repeat;
 		background-size: cover;
 
 		.spacer {
 			padding-top: 26%; // change this value based on the aspect ratio of your header image
 		}
-	}
+	} /* end .banner */
 	
-/*********************
-NAVIGATION STYLES
-*********************/
+/*************************
+ * NAVIGATION STYLES
+ ************************/
 
-/* Look for menu styles in /includes/_offcanvas-nav.scss */
+/* Look for main menu styles in /includes/_main_navigation.scss */
 
-/*********************
-POSTS & CONTENT STYLES
-*********************/
+/*************************
+ * POSTS & CONTENT STYLES
+ ************************/
+
 #content {
 	margin: 2em 0;
+}
 
-	#inner-content{
+	#inner-content {
+		
+		/* headers */
+		.page-header {}
+		.article-header {}
 
-		.hentry {
-
-			header {}
-
-			footer {}
-
-		} /* end .hentry */
-
-		.entry-content {} /* general title class */
-
-		.page-title {}
-
-		.single-title {}
-
-		.archive-title {}
-
+		/* titles */
+		.page-title,
+		.archive-title,
+		.single-title { 
+			margin-top: 0; 
+		}
+		
 		.search-title {}
 
 		/* want to style individual post classes? Booya! */
@@ -108,73 +116,77 @@ POSTS & CONTENT STYLES
 		/* post meta */
 		.byline {
 			color: #999;
-			margin: -1em 0 1em;
-
+			margin: -1em 0 0;
 			time {}
 		}
+		
+		.tags {}
+		.categories {}
 
 		/* entry content */
-		.entry-content {
+		.page-content {}
+		.entry-content {}
+		
+		/* footers */
+		.page-footer {}
+		.article-footer {}
+		
+	} /* end #inner-content */
 
-			p {}
+	/* Style individual templates */
+	.home {}
+	.blog {}
+	.archive {}
+	.search {}
+	.error404 {}
 
+	.blog, 
+	.archive, 
+	.search {
+		#inner-content {
+			article {
+				border-bottom: 1px solid #EEE;
+				margin-bottom: 1em;
+				padding-bottom: 1em;
 
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
+				&.last-post, 
+				&.only-post {
+					border-bottom: 0;
+					margin-bottom: 0;
+					padding-bottom: 0;
+				}
 			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			blockquote {
-
-				&:before {}
-
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {}
 		}
 	}
 
-}
+	.single {
+		#inner-content {
+			.byline {
+				margin: -1em 0 1em;
+			}
+		}
+	}
 
-/******************************************************************
-PAGE NAVIGATION STYLES
-******************************************************************/
+/*************************
+ * PAGINATION STYLES
+ ************************/
 
 .page-navigation,
 .wp-prev-next {}
 
     .scaffolding_page_navi {
-        margin:1em 0;
+        margin: 1em 0;
 
         li {
             float: left;
-            margin:0;
+            margin: 0;
 
             a {
+				color: #333;
                 display: block;
-                color:#333;
-                text-decoration: none;
-                padding: 3px 10px;
+				padding: 3px 10px;
                 position: relative;
+                text-decoration: none;
 
                 &:hover,
                 &:focus {
@@ -182,13 +194,12 @@ PAGE NAVIGATION STYLES
                     text-decoration: underline;
                 }
             }
-
         }
 
         /* current page link */
         li.bpn-current {
-            background-color:#f5f5f5;
-            color:$link-color;
+            background-color: #f5f5f5;
+            color: $link-color;
             padding: 3px 10px;
             position: relative;
 
@@ -196,12 +207,10 @@ PAGE NAVIGATION STYLES
                 /* hovering on current page link */
                 &:hover,
                 &:focus {
-                    color:#333;
+                    color: #333;
                 }
-
             }
-
-        } /* end .scaffolding_page_navi .bpn-current */
+        }
 
         /* common styles for page-navi links */
         li.bpn-prev-link,
@@ -209,11 +218,11 @@ PAGE NAVIGATION STYLES
             font-weight: 700;
 
             a {
-                color:$link-color;
+                color: $link-color;
 
                 &:hover,
                 &:focus {
-                    color:#333;
+                    color: #333;
                 }
             }
         }
@@ -275,17 +284,16 @@ PAGE NAVIGATION STYLES
 
     } /* end .wp-prev-next */
 
-/******************************************************************
-COMMENTS & COMMENT FORM STYLES
-******************************************************************/
+/*************************
+ * COMMENT STYLES
+ ************************/
 
-// styles in _base_comments.scss
-@import "includes/base_comments";
+/* Look for comment styles in /includes/_comments.scss */
 
+/*************************
+ * SIDEBARS & ASIDES
+ ************************/
 
-/*********************
-SIDEBARS & ASIDES
-*********************/
 .sidebar {
 	margin-top: 2em;
 }
@@ -296,30 +304,49 @@ SIDEBARS & ASIDES
 	}
 
 	.widget {
-		padding: 0 10px;
 		margin: 2.2em 0;
+		padding: 0;
 
 		&.first-widget {
 			margin: 0 0 2.2em;
+			
+			.widgettitle {
+				margin-top: 0;
+			}
+		}
+		
+		&.only-widget {
+			margin: 0;
+			
+			.widgettitle {
+				margin-top: 0;
+			}
+		}
+		
+		&.last-widget {
+			margin: 2.2em 0 0;
 		}
 
-		ul {
+		/* list styles */
+		ul, 
+		ol {
 			li {
 				margin-bottom: 0.75em;
 
 				&:first-child {}
 				&:last-child {}
+				
 				a {}
+				
 				/* deep nesting */
-
-				ul {
+				ul,
+				ol {
 					margin-top: 0.75em;
 					padding-left: 1em;
 				}
 			}
 		}
-	}
-
+	} /* end .widget */
 
 	/* links widget */
 	.widget_links {}
@@ -408,58 +435,63 @@ SIDEBARS & ASIDES
 	.widget_text {}
 	.textwidget p {}
 
-/*********************
-FOOTER STYLES
-*********************/
+/*************************
+ * FOOTER STYLES
+ ************************/
 
 #colophon {
+	background-color: #111;
 	clear: both;
-	background-color:#111;
-	color:#999;
-	padding:1em 0;
+	color: #999;
+	padding: 2em 0;
 }
 
 	ul.footer-menu {
-		display:inline-block;
-		text-align:right;
-		margin:0;
-		padding:0;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		text-align: center;
 
 		li {
-			display:inline-block;
-			margin:0 0 0 -4px;
-			padding:0;
+			display: inline-block;
+			margin: 0 0 0 -3px;
+			padding: 0;
 
-			a{
-				border-left:1px solid #ccc;
-				color:#999;
-				line-height:normal;
-				padding:0 1em;
+			a {
+				border-left: 1px solid #ccc;
+				color: #999;
+				display: block;
+				line-height: 1;
+				padding: 0 0.875em;
 			}
 
-			&:first-child a{
-				border-left:none;
+			&:first-child a {
+				border-left: none;
 			}
 		}
 	} /* end .footer-menu */
 
-	.copyright {}
+	.copyright {
+		margin-bottom: 0;
+		text-align: center;
+	}
 
+	/* scroll to top link */
 	#back-top {
-		position: fixed;
 		bottom: 10px;
 		margin-right: 30px;
+		position: fixed;
 		right: 0;
 		z-index: 9999;
 
 		a {
-			width: 40px;
-			display: block;
-			text-decoration: none;
-			opacity: .2;
 			background: #000;
-			@include transition(all 1s ease-in-out);
 			@include border-radius(500px);
+			display: block;
+			opacity: .2;
+			text-decoration: none;
+			@include transition(all 1s ease-in-out);
+			width: 40px;
 
 			&:hover, &:focus {
 				color: #000;
@@ -467,14 +499,15 @@ FOOTER STYLES
 			}
 		}
 
-		i {
-			width: 40px;
-			height: 40px;
-			display: block;
-			margin-bottom: 7px;
-			font-size: 1.5em;
-			line-height: 35px;
+		.fa {
 			color: #FFF;
+			display: block;
+			font-size: 1.5em;
+			height: 40px;
+			line-height: 35px;
+			margin-bottom: 7px;
 			text-align: center;
+			width: 40px;
 		}
-	}
+		
+	} /* end #back-top */

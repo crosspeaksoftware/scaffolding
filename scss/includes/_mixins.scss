@@ -14,107 +14,162 @@ A WORD OF WARNING: It's very easy to overdo it here. Be careful and
 remember less is more.
 
 ******************************************************************/
+
 @import "variables";
 
-/*********************
-CLEARFIX - http://nicolasgallagher.com/micro-clearfix-hack/
-*********************/
+/*************************
+ * TABLE OF CONTENTS
+ *************************
+ 1. Clearfix
+ 2. Wrap
+ 3. Images
+ 4. Typography
+ 5. Utililty Styles
+ 6. Transition
+ 7. Animation
+ 8. Vertical Align Dynamic Height
+ 9. Text Truncation
+ 10. Grayscale
+ 11. Transparent Background Color
+ 12. Gradients
+ ************************/
+
+/*************************
+ * CLEARFIX
+ * http://nicolasgallagher.com/micro-clearfix-hack/
+ ************************/
 
 .clearfix {
   zoom: 1;
-	&:before, &:after { content: " "; display: table; }
-	&:after { clear: both; }
+	
+	&:after,
+	&:before { 
+		content: " "; 
+		display: table; 
+	}
+	
+	&:after { 
+		clear: both; 
+	}
 }
 
-/*********************
-IMAGES
-*********************/
+@mixin clearfix() {
+	&:after,
+	&:before {
+		content: " ";
+		display: table;
+	}
+	
+	&:after {
+		clear: both;
+	}
+}
+
+/*************************
+ * WRAP
+ ************************/
+
+@mixin wrap() {
+	@include clearfix();
+	margin-left: auto;
+	margin-right: auto;
+  	max-width: 90%;
+}
+
+/*************************
+ * IMAGES
+ ************************/
 
 .img-border {
-    border:1px solid #CCC;
-    padding:5px;
+    border: 1px solid #CCC;
+    padding: 5px;
 }
 
 .img-rounded {
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+	@include border-radius(6px);
 }
 
 .img-polaroid {
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	@include box-shadow(0 1px 3px rgba(0,0,0,0.1));
+	padding: 4px;
 }
 
 .img-circle {
-  -webkit-border-radius: 500px;
-     -moz-border-radius: 500px;
-          border-radius: 500px;
+	@include border-radius(500px);
 }
 
-/*********************
-TYPOGRAPHY
-*********************/
+/*************************
+ * TYPOGRAPHY
+ ************************/
+
 /*
 use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
 span.amp {
-  font-family: Arial, serif !important;
-  font-style: italic;
+	font-family: Arial, serif !important;
+	font-style: italic;
 }
 
 // alerts and notices  -  *You'll need to be using Sass 3.2+ for these to work.
 %alert {
+	border: 1px solid;
 	margin: 10px;
 	padding: 5px 18px;
-	border: 1px solid;
 }
 
-.alert-help {
-	@extend %alert;
-	border-color: darken($alert-yellow, 5%);
-	background: $alert-yellow;
-}
+	.alert-help {
+		@extend %alert;
+		background: $alert-yellow;
+		border-color: darken($alert-yellow, 5%);
+	}
 
-.alert-info {
-	@extend %alert;
-	border-color: darken($alert-blue, 5%);
-	background: $alert-blue;
-}
+	.alert-info {
+		@extend %alert;
+		background: $alert-blue;
+		border-color: darken($alert-blue, 5%);
+	}
 
-.alert-error {
-	@extend %alert;
-	border-color: darken($alert-red, 5%);
-	background: $alert-red;
-}
+	.alert-error {
+		@extend %alert;
+		background: $alert-red;
+		border-color: darken($alert-red, 5%);
+	}
 
-.alert-success {
-	@extend %alert;
-	border-color: darken($alert-green, 5%);
-	background: $alert-green;
-}
+	.alert-success {
+		@extend %alert;
+		background: $alert-green;
+		border-color: darken($alert-green, 5%);
+	}
 
 
 // Responsive utilities
 @mixin responsive-visibility($parent) {
-  #{$parent} { display: block !important; }
-  tr#{$parent} { display: table-row !important; }
-  th#{$parent},
-  td#{$parent} { display: table-cell !important; }
+	#{$parent} { 
+		display: block !important; 
+	}
+	
+	tr#{$parent} { 
+		display: table-row !important; 
+	}
+	
+	th#{$parent},
+	td#{$parent} { 
+		display: table-cell !important; 
+	}
 }
 
 // [converter] $parent hack
 @mixin responsive-invisibility($parent) {
-    #{$parent},
-  tr#{$parent},
-  th#{$parent},
-  td#{$parent} { display: none !important; }
+	#{$parent},
+	tr#{$parent},
+	th#{$parent},
+	td#{$parent} { 
+		display: none !important; 
+	}
 }
 
 // Device-specific hide/show classes. Written in reverse logic for IE compatibility
@@ -129,34 +184,52 @@ span.amp {
 }
 
 @include responsive-invisibility('.tablet-only');
-@media only screen and (min-width:480px) and (max-width: 768px) {
+@media only screen and (min-width: 480px) and (max-width: 768px) {
     @include responsive-visibility('.tablet-only');
 }
 
 @include responsive-visibility('.tablet-hide');
-@media only screen and (min-width:480px) and (max-width: 768px) {
+@media only screen and (min-width: 480px) and (max-width: 768px) {
     @include responsive-invisibility('.tablet-hide');
 }
 
 @include responsive-invisibility('.desktop-only');
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
     @include responsive-visibility('.desktop-only');
 }
 
 @include responsive-visibility('.desktop-hide');
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
     @include responsive-invisibility('.desktop-hide');
 }
 
-/******************************************************************
- UTILITY STYLES
-******************************************************************/
-.float-left{float:left;}
-.float-none{float:none;}
-.float-right{float:right;}
-.clear-left{clear:left;}
-.clear-both{clear:both;}
-.clear-right{clear:right;}
+/*************************
+ * UTILITY STYLES
+ ************************/
+
+.float-left	{ 
+	float: left; 
+}
+
+.float-none { 
+	float: none; 
+}
+
+.float-right { 
+	float: right; 
+}
+
+.clear-left { 
+	clear: left; 
+}
+
+.clear-both { 
+	clear: both; 
+}
+
+.clear-right { 
+	clear: right; 
+}
 
 /* Image replacement */
 .ir {
@@ -165,19 +238,19 @@ span.amp {
     overflow: hidden;
     /* IE 6/7 fallback */
     *text-indent: -9999px;
-}
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
+
+	&:before {
+		content: "";
+		display: block;
+		height: 150%;
+		width: 0;
+	}
 }
 
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-
-.hidden {
+.scaffolding-hidden {
     display: none !important;
     visibility: hidden;
 }
@@ -185,8 +258,7 @@ span.amp {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-
-.visuallyhidden {
+.scaffolding-visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -201,9 +273,8 @@ span.amp {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.scaffolding-visuallyhidden.focusable:active,
+.scaffolding-visuallyhidden.focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
@@ -213,66 +284,70 @@ span.amp {
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
-
-.invisible {
+.scaffolding-invisible {
     visibility: hidden;
 }
 
-/*********************
-TRANSITION
-*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include transition(all 0.2s ease-in-out);
-*********************/
+/*************************
+ * TRANSITION
+ * I totally rewrote this to be cleaner and easier to use.
+ * You'll need to be using Sass 3.2+ for these to work.
+ * Thanks to @anthonyshort for the inspiration on these.
+ * USAGE: @include transition(all 0.2s ease-in-out);
+ ************************/
+
 @mixin transition($transition...) {
 	// defining prefixes so we can use them in mixins below
 	$prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
-  @each $prefix in $prefixes {
-    #{$prefix}-transition: $transition;
-  }
-
-  transition: $transition;
+  	@each $prefix in $prefixes {
+    	#{$prefix}-transition: $transition;
+  	}
+	transition: $transition;
 }
 
-/*********************
-ANIMATION
-*
-Compass CSS3 mixins don't yet handle vendor prefixes for CSS animations, so this is a very simple mixin to simulate that functionality.
-*********************/
+/*************************
+ * ANIMATION
+ * Compass CSS3 mixins don't yet handle vendor prefixes 
+ * for CSS animations, so this is a very simple mixin to 
+ * simulate that functionality.
+ ************************/
+
 @mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
-  // There is a FF bug that requires all time values to have units, even 0 !!!!!!
-  -webkit-animation: $name $duration $iterations $timing-function $delay;
-  -moz-animation: $name $duration $iterations $timing-function $delay;
-  -o-animation: $name $duration $iterations $timing-function $delay;
-  animation: $name $duration $iterations $timing-function $delay;
+	// There is a FF bug that requires all time values to have units, even 0 !!!!!!
+	-webkit-animation: $name $duration $iterations $timing-function $delay;
+	-moz-animation: $name $duration $iterations $timing-function $delay;
+	-o-animation: $name $duration $iterations $timing-function $delay;
+	animation: $name $duration $iterations $timing-function $delay;
 }
 
-/*********************
-VERTICAL ALIGN DYNAMIC HEIGHT - http://css-tricks.com/centering-in-the-unknown/
-*********************/
+/*************************
+ * VERTICAL ALIGN DYNAMIC HEIGHT
+ * http://css-tricks.com/centering-in-the-unknown/
+ ************************/
+
 @mixin dynamicVerticalAlign(){
-  &:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%; width: .1px;
-  }
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%; width: .1px;
+	}
 }
 
-/*********************
-TEXT TRUNCATION
-*********************/
+/*************************
+ * TEXT TRUNCATION
+ ************************/
+
 @mixin truncateText($overflow: ellipsis){
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: $overflow; // values are: clip, ellipsis, or a string
+	overflow: hidden;
+	text-overflow: $overflow; // values are: clip, ellipsis, or a string
+	white-space: nowrap;
 }
 
-/*********************
-GRAYSCALE
-*********************/
+/*************************
+ * GRAYSCALE
+ ************************/
+
 @mixin grayscale {
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
     filter: gray; /* IE6-9 */
@@ -281,14 +356,15 @@ GRAYSCALE
     -webkit-backface-visibility: hidden; /* Fix for transition flickering */
 
 	&:hover {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
-    -webkit-filter: grayscale(0%);
+    	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    	-webkit-filter: grayscale(0%);
 	}
 }
 
-/*********************
-TRANSPARENT BG-COLOR
-*********************/
+/*************************
+ * TRANSPARENT BG-COLOR
+ ************************/
+
 @mixin transparent($color, $alpha) {
     $rgba: rgba($color, $alpha);
     $ie-hex-str: ie-hex-str($rgba);
@@ -298,13 +374,13 @@ TRANSPARENT BG-COLOR
     zoom: 1;
 }
 
-/*********************
-CSS3 GRADIENTS
-*
-Be careful with these since they can
-really slow down your CSS. Don't overdue it.
-USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
-*********************/
+/*************************
+ * GRADIENTS
+ * Be careful with these since they can really slow 
+ * down your CSS. Don't overdue it.
+ * USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
+ ************************/
+
 @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
 	background-color: $to;
 	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));

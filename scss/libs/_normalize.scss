@@ -1,8 +1,17 @@
-/*! normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
+/******************************************************************
+Site Name:
+Author: 
 
-/* ==========================================================================
-   HTML5 display definitions
-   ========================================================================== */
+Stylesheet: Magnific Popup Stylesheet
+
+http://github.com/necolas/normalize.css
+
+******************************************************************/
+
+
+/******************************
+ * HTML5 DISPLAY DEFINITIONS
+ *****************************/
 
 /*
  * Corrects `block` display not defined in IE6/7/8/9 & FF3.
@@ -53,15 +62,14 @@ audio:not([controls]) {
 	display: none;
 }
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
+
+/******************************
+ * BASE
+ *****************************/
 
 /*
- * 1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using
- *	`em` units.
- * 2. Prevents iOS text size adjust after orientation change, without disabling
- *	user zoom.
+ * 1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using 'em' units.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling user zoom.
  */
 
 html {
@@ -71,8 +79,7 @@ html {
 }
 
 /*
- * Addresses `font-family` inconsistency between `textarea` and other form
- * elements.
+ * Addresses `font-family` inconsistency between `textarea` and other form elements.
  */
 
 html,
@@ -91,9 +98,10 @@ body {
 	margin: 0;
 }
 
-/* ==========================================================================
-   Links
-   ========================================================================== */
+
+/******************************
+ * LINKS
+ *****************************/
 
 /*
  * Addresses `outline` inconsistency between Chrome and other browsers.
@@ -113,9 +121,10 @@ a:hover {
 	outline: 0;
 }
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
+
+/******************************
+ * TYPOGRAPHY
+ *****************************/
 
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome.
@@ -231,9 +240,10 @@ sub {
 	bottom: -0.25em;
 }
 
-/* ==========================================================================
-   Lists
-   ========================================================================== */
+
+/******************************
+ * LISTS
+ *****************************/
 
 /*
  * Addresses margins set differently in IE6/7.
@@ -270,14 +280,15 @@ nav ol {
 	list-style-image: none;
 }
 
-/* ==========================================================================
-   Embedded content
-   ========================================================================== */
+
+/******************************
+ * EMBEDDED CONTENT
+ *****************************/
 
 /*
  * 1. Removes border when inside `a` element in IE6/7/8/9, FF3.
  * 2. Improves image quality when scaled in IE7.
- *	code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ *	  code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 
 img {
@@ -293,9 +304,10 @@ svg:not(:root) {
 	overflow: hidden;
 }
 
-/* ==========================================================================
-   Figures
-   ========================================================================== */
+
+/******************************
+ * FIGURE
+ *****************************/
 
 /*
  * Addresses margin not present in IE6/7/8/9, S5, O11.
@@ -305,9 +317,10 @@ figure {
 	margin: 0;
 }
 
-/* ==========================================================================
-   Forms
-   ========================================================================== */
+
+/******************************
+ * FORMS
+ *****************************/
 
 /*
  * Corrects margin displayed oddly in IE6/7.
@@ -367,13 +380,11 @@ input {
 }
 
 /*
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *	and `video` controls.
- * 2. Corrects inability to style clickable `input` types in iOS.
- * 3. Improves usability and consistency of cursor style between image-type
- *	`input` and others.
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native 'audio' and 'video' controls.
+ * 2. Corrects inability to style clickable 'input' types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type 'input' and others.
  * 4. Removes inner spacing in IE7 without affecting normal text inputs.
- *	Known issue: inner spacing remains in IE6.
+ *	  Known issue: inner spacing remains in IE6.
  */
 
 button,
@@ -409,9 +420,8 @@ input[type="radio"] {
 }
 
 /*
- * 1. Addresses `appearance` set to `searchfield` in S5, Chrome.
- * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
- *	to future-proof).
+ * 1. Addresses 'appearance' set to 'searchfield' in S5, Chrome.
+ * 2. Addresses 'box-sizing' set to 'border-box' in S5, Chrome (include '-moz' to future-proof).
  */
 
 input[type="search"] {
@@ -450,9 +460,10 @@ textarea {
 	vertical-align: top; /* 2 */
 }
 
-/* ==========================================================================
-   Tables
-   ========================================================================== */
+
+/******************************
+ * TABLES
+ *****************************/
 
 /*
  * Remove most spacing between table cells.
@@ -464,11 +475,11 @@ table {
 }
 
 /******************************************************************
-CUSTOMIZED RESET VALUES
-I added these extra styles as a more personalized reset. Feel free
-to remove them if you like or add your own. If you want to update
-the normalize styles, make sure to edit from this point up.
-******************************************************************/
+ * CUSTOMIZED RESET VALUES
+ * I added these extra styles as a more personalized reset. Feel free
+ * to remove them if you like or add your own. If you want to update
+ * the normalize styles, make sure to edit from this point up.
+ ******************************************************************/
 
 // proper formatting (http://blog.fontdeck.com/post/9037028497/hyphens)
 p {
@@ -495,7 +506,8 @@ small,
 	font-size: 75%;
 }
 
-ul, ol {
+ul, 
+ol {
 	padding: 0;
 	list-style-type: none;
 }
