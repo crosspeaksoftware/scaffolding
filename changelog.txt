@@ -16,7 +16,6 @@
 * Removed iCheck, too many problems
 * Improved magnific popup script in scripts.js to work with built-in WordPress gallery
 * Improved main navigation functionality and styles
-* Major typography improvements including the addition of Molten Leading script
 * Responsive style improvements
 * Form style improvements
 * Added templates folder
