@@ -1,13 +1,15 @@
-/*
-scaffolding Scripts File
-Author: Eddie Machado
+/******************************************************************
+Site Name:
+Author:
+
+Name: Scaffolding Scripts
 
 This file should contain any js scripts you want to add to the site.
 Instead of calling it in the header or throwing it inside wp_head()
 this file will be called automatically in the footer so as not to
 slow the page load.
 
-*/
+******************************************************************/
 
 // IE8 ployfill for GetComputed Style (for Responsive Script below)
 if (!window.getComputedStyle) {
@@ -27,7 +29,7 @@ if (!window.getComputedStyle) {
 	}
 }
 
-//Calculate the width of the scroll bar so css media queries and js widow.width match
+// Calculate the width of the scroll bar so css media queries and js widow.width match
 function getScrollBarWidth () {
 	var inner = document.createElement('p');
 	inner.style.width = "100%";
@@ -54,29 +56,44 @@ function getScrollBarWidth () {
 	return (w1 - w2);
 };
 
-// as the page loads, call these scripts
+// As the page loads, call these scripts
 jQuery(document).ready(function($) {
 
-	//ChosenJs Select Input - https://github.com/harvesthq/chosen for more info
-	$("select").chosen({no_results_text: "Oops, nothing found!", width: "99.5%"});
+	// ChosenJs Select Input - https://github.com/harvesthq/chosen for more info
+	if ($.fn.chosen) {
+		$("select").chosen({no_results_text: "Oops, nothing found!", width: "100%"});
+	}
 
-	//Lightbox - http://dimsemenov.com/plugins/magnific-popup/
-	if($.fn.magnificPopup) {
-		$('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').magnificPopup({
-			type: 'image'
+	// Lightbox - http://dimsemenov.com/plugins/magnific-popup/
+	if ($.fn.magnificPopup) {
+		$image_selector = 'a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]';
+
+		// single image popup
+		$($image_selector).each(function(){
+			if ($(this).parents('.gallery').length == 0) {
+				$(this).magnificPopup({type:'image'});
+			}
+		});
+
+		// gallery popup
+		$('.gallery').each(function() {
+			$(this).magnificPopup({
+				type: 'image',
+				delegate: $image_selector,
+				gallery: {
+					enabled: true,
+					preload: [1,2]
+				},
+				image: {
+					titleSrc: function(item) {
+						return item.el.parents('.gallery-item').find('.gallery-caption').text();
+					}
+				}
+			});
 		});
 	}
 
-	//iCheck - http://fronteed.com/iCheck/
-	if($.fn.iCheck) {
-		$('input').iCheck({
-			checkboxClass: 'icheckbox_square',
-			radioClass: 'iradio_square',
-			increaseArea: '20%' // optional
-		});
-	}
-
-	//Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" ),
 	$fluidEl = $("figure");
 
@@ -114,35 +131,36 @@ jQuery(document).ready(function($) {
 		$('body').toggleClass('menu-open');
 	});
 
+	$('#mobile-menu-button').on('click', function(e) {
+		$('body').toggleClass('menu-open');
+	});
+	
 	$('.menu-item > .menu-button').on('click', function(e) {
-		//$("ul.sub-menu").removeClass("sub-menu-open");
 		$(this).next('.sub-menu').addClass('sub-menu-open');
 	});
 
 	$('.sub-menu .menu-back-button').on('click', function(e) {
-		$(this).parent("li").parent('ul').removeClass("sub-menu-open");
+		$(this).parent('li').parent('ul').removeClass('sub-menu-open');
 	});
 
 	$(window).resize(function(e) {
-		if(Modernizr && Modernizr.touch) {
+		if (Modernizr && Modernizr.touch) {
 			e.preventDefault();
-		}
-		else {
+		} else {
 			responsive_viewport = $(window).width() + getScrollBarWidth();
-			if(responsive_viewport >= 768) {
+			if (responsive_viewport >= 768) {
 				$('body').removeClass('menu-open');
-			}
-			else if(responsive_viewport < 768 && !menu.is(':hidden')) {
+			} else if (responsive_viewport < 768 && !menu.is(':hidden')) {
 				$('body').removeClass('menu-open');
 			}
 		}
 	});
-	/*end responsive nav */
+	/* end responsive nav */
 
 	/* if is below 481px */
 	if (responsive_viewport < 481) {
 		// if mobile device and not on the home page scroll to the content on page load
-		if (!$('body').hasClass("home")){
+		if (!$('body').hasClass("home")) {
 			var new_position = jQuery('#main').offset();
 			if (typeof new_position != 'undefined') {
 				jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
@@ -193,7 +211,8 @@ jQuery(document).ready(function($) {
 	});
 
 
-/*  // Released under MIT license: http://www.opensource.org/licenses/mit-license.php
+/*  
+    // Released under MIT license: http://www.opensource.org/licenses/mit-license.php
 	$('[placeholder]').focus(function() {
 		var input = $(this);
 		if (input.val() == input.attr('placeholder')) {
