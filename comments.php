@@ -1,14 +1,18 @@
 <?php
 /**
- * The template for displaying Comments.
+ * Comments Template
  *
- * The area of the page that contains both current comments
- * and the comment form.
+ * The area of the page that contains both current comments and the comment form.
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Scaffolding
+ * @since Scaffolding 1.0
  */
 
 // Do not delete these lines
-if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) {
-	die ('Please do not load this page directly. Thanks!');
+if ( !empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
+	die ( 'Please do not load this page directly. Thanks!' );
 }
 
 /*
@@ -18,7 +22,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
  */
 if ( post_password_required() ) { ?>
 	<div class="alert help">
-	<p class="nocomments"><?php _e("This post is password protected. Enter the password to view comments.", "scaffolding"); ?></p>
+	   <p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view comments.', 'scaffolding' ); ?></p>
 	</div>
 	<?php
 	return;
@@ -29,7 +33,7 @@ if ( post_password_required() ) { ?>
  if ( have_comments() ) : ?>
  <div id="comments" class="comments-area">
 
-	<h3 class="h2 comments"><?php comments_number(__('<span>No</span> Responses', 'scaffolding'), __('<span>One</span> Response', 'scaffolding'), _n('<span>%</span> Response', '<span>%</span> Responses', get_comments_number(),'scaffolding') );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+	<h3 class="h2 comments"><?php comments_number( __( '<span>No</span> Responses', 'scaffolding' ), __( '<span>One</span> Response', 'scaffolding' ), _n( '<span>%</span> Response', '<span>%</span> Responses', get_comments_number(), 'scaffolding' ) ); ?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	<nav class="comment-nav">
 		<ul class="clearfix">
@@ -39,7 +43,7 @@ if ( post_password_required() ) { ?>
 	</nav>
 
 	<ol class="commentlist">
-		<?php wp_list_comments('type=comment&callback=scaffolding_comments'); ?>
+		<?php wp_list_comments( 'type=comment&callback=scaffolding_comments' ); ?>
 	</ol>
 
 	<nav class="comment-nav">
@@ -58,7 +62,7 @@ if ( post_password_required() ) { ?>
 	<?php else : // comments are closed ?>
 
 		<!-- If comments are closed. -->
-		<!--p class="nocomments"><?php _e("Comments are closed.", "scaffolding"); ?></p-->
+		<!--p class="nocomments"><?php _e( 'Comments are closed.', 'scaffolding' ); ?></p-->
 
 	<?php endif; ?>
 
@@ -69,15 +73,15 @@ if ( post_password_required() ) { ?>
 
 	<section class="respond-form">
 
-		<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
+		<?php if ( get_option( 'comment_registration' ) && !is_user_logged_in() ) : ?>
 
 			<div class="alert help">
-				<p><?php printf( __('You must be %1$slogged in%2$s to post a comment.', 'scaffolding'), '<a href="<?php echo wp_login_url( get_permalink() ); ?>">', '</a>' ); ?></p>
+				<p><?php printf( __( 'You must be %1$slogged in%2$s to post a comment.', 'scaffolding' ), '<a href="<?php echo wp_login_url( get_permalink() ); ?>">', '</a>' ); ?></p>
 			</div>
 
 		<?php else : ?>
 
-			<!--<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">-->
+			<!--<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform">-->
 
 			<?php comment_form(); ?>
 

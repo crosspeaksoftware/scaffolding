@@ -1,0 +1,29 @@
+# Changelog
+
+## Version 1.1
+
+* Added this file
+* Cleaned and organized all theme templates and files
+* Implemented coding best practices as outlined by the WordPress codex
+* Added more documentation and comments to code
+* Updated scripts to latest versions in functions.php
+* Fixed related posts function to work properly in base-functions.php
+* Added new function for adding first and last classes to menus in base-functions.php, now works with nested ul items
+* Updated and added new tinymce functions for ease of customization
+* Added theme page to Appearances menu
+* Updated pre_get_posts functions for use only on the frontend
+* Updated custom-post-type.php example with new constants, and functions for interaction messages and contextual help
+* Removed iCheck, too many problems
+* Improved magnific popup script in scripts.js to work with built-in WordPress gallery
+* Improved main navigation functionality and styles
+* Major typography improvements including the addition of Molten Leading script
+* Responsive style improvements
+* Form style improvements
+* Added templates folder
+* Added sidebar.php
+* Various other tweaks and improvements
+
+
+## Version 1.0
+
+* Initial version

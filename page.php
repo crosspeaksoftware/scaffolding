@@ -1,40 +1,53 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Default Page Template
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Scaffolding
+ * @since Scaffolding 1.0
+ */ 
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+get_header(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-						<header class="article-header">
+                        <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-							<h1 class="entry-title page-title"><?php the_title(); ?></h1>
+                            <header class="page-header">
 
-						</header>
+                                <h1 class="page-title"><?php the_title(); ?></h1>
 
-						<section class="entry-content clearfix">
-							<?php the_content(); ?>
-							<?php wp_link_pages( array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-								'after'       => '</div>',
-								'link_before' => '<span>',
-								'link_after'  => '</span>',
-							) ); ?>
-						</section>
+                            </header>
 
-						<?php
-							// If comments are open or we have at least one comment, load up the comment template
-							if ( comments_open() || '0' != get_comments_number() ) :
-								comments_template();
-							endif;
-						?>
+                            <section class="page-content clearfix">
 
-					</article>
+                                <?php the_content(); ?>
 
-				<?php endwhile; ?>
+                                <?php wp_link_pages( array(
+                                    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+                                    'after'       => '</div>',
+                                    'link_before' => '<span>',
+                                    'link_after'  => '</span>',
+                                ) ); ?>
 
-			<?php else : ?>
+                            </section>
 
-			<?php get_template_part('includes/template','error'); // WordPress template error message ?>
+                            <?php
+                                // If comments are open or we have at least one comment, load up the comment template
+                                if ( comments_open() || '0' != get_comments_number() ) :
+                                    comments_template();
+                                endif;
+                            ?>
 
-			<?php endif; ?>
+                        </article>
+
+                    <?php endwhile; ?>
+
+                <?php else : ?>
+
+                    <?php get_template_part( 'templates/include', 'error' ); // WordPress template error message ?>
+
+                <?php endif; ?>
 
 <?php get_footer();

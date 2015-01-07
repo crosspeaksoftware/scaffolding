@@ -1,10 +1,13 @@
-<?php
+<?php 
 /**
- * The template for displaying the header.
+ * Header Template
  *
- * Contains the opening tag for the page structure
- */
-?><!DOCTYPE html>
+ * @see http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Scaffolding
+ * @since Scaffolding 1.0
+ *
+ */ ?><!DOCTYPE html>
 <!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
@@ -43,20 +46,20 @@
 
 			<div id="inner-header" class="wrap clearfix">
 
-				<?php // to use a image just replace the bloginfo('name') with <img> ?>
-				<div id="logo" class="h1"><a href="<?php  echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
+				<?php // to use an image just replace the bloginfo('name') with <img> ?>
+				<div id="logo" class="h1"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
 
 				<?php // if you'd like to use the site description you can un-comment it below
-				// echo '<p class="site-description">'. bloginfo( "description" ) .'</p>' ?>
+				// echo '<p class="site-description">' . bloginfo( "description" ) . '</p>' ?>
 
 			</div>
 
 		</header>
 
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'test' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'scaffolding' ); ?></a>
 
-		<nav id="main-navigation" class="clearfix" role="navigation">
-
+		<nav id="main-navigation" class="clearfix" role="navigation" aria-label="<?php _e( 'Primary Navigation', 'scaffolding' ); ?>">
+			
 			<?php scaffolding_main_nav(); ?>
 
 		</nav>
@@ -73,18 +76,17 @@
 			<div id="inner-content" class="wrap clearfix">
 
 				<?php // Test for active sidebars to set the main content width
-					if(is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //both sidebars
+					if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) : // both sidebars
 						$main_class = 'col-sm-6 col-sm-push-3';
-					}
-					elseif(is_active_sidebar( 'left-sidebar' ) && !is_active_sidebar( 'right-sidebar' )) { //left sidebar
+					elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) : // left sidebar
 						$main_class = 'col-sm-9 col-sm-push-3';
-					}
-					elseif(!is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' )) { //right sidebar
+					elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) : // right sidebar
 						$main_class = 'col-sm-9';
-					}
-					else { //no sidebar
-						$main_class = 'col-sm-12';
-					}
+					else : // no sidebar
+						$main_class = 'col-xs-12';
+					endif;
 				?>
+				
+				<div class="row">
 
-				<div id="main" class="<?php echo $main_class;?> clearfix" role="main">
+					<div id="main" class="<?php echo $main_class; ?> clearfix" role="main">
