@@ -15,6 +15,7 @@
 * Updated custom-post-type.php example with new constants, and functions for interaction messages and contextual help
 * Removed iCheck, too many problems
 * Improved magnific popup script in scripts.js to work with built-in WordPress gallery
+* Added "equal height" div script
 * Improved main navigation functionality and styles
 * Responsive style improvements
 * Form style improvements

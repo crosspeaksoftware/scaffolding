@@ -181,7 +181,7 @@ function scaffolding_first_last_menu_classes( $objects, $args ) {
     $parent_ids = array();
     $top_ids    = array();
 	
-	if ( ! emtpy( $objects ) ) {
+	if ( ! empty( $objects ) ) {
     
 		foreach ( $objects as $i => $object ) {
 			// If there is no menu item parent, store the ID and skip over the object.

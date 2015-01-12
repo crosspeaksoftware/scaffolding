@@ -31,8 +31,10 @@ get_header(); ?>
 						</section>
 
 						<footer class="article-footer">
-
-							<p class="tags"><?php the_tags( '<span class="tags-title">' . __( 'Tags:', 'scaffolding' ) . '</span> ', ', ', '' ); ?></p>
+							
+							<?php if ( get_the_tag_list() ) :
+								echo get_the_tag_list( '<p class="tags"><span class="meta-title">Tags:</span> ', ', ', '</p>' );
+							endif; ?>
 
 						</footer>
 

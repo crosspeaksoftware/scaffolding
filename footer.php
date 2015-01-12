@@ -19,7 +19,7 @@
 
 	</div><?php // END #content ?>
 
-	<footer id="colophon" class="footer" role="content-info">
+	<footer id="colophon" class="footer" role="contentinfo">
 
 		<div id="inner-footer" class="wrap clearfix">
 
