@@ -68,7 +68,7 @@ get_header(); ?>
                     */
 
                     elseif ( is_tax() ) :
-                        $current_taxonomy = single_term_title( '', 'scaffolding' );
+                        $current_taxonomy = single_term_title( '', false );
                         printf( __( 'Term: %s', 'scaffolding' ), $current_taxonomy );
 
                     else :
