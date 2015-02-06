@@ -73,7 +73,7 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
 	
 	// Google Font - Open Sans
-	wp_enqueue_style( 'wasco-font', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700,600', array(), '' );
+	wp_enqueue_style( 'scaffolding-font', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700,600', array(), '' );
     
     // Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
 	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
