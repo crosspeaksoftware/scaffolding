@@ -585,7 +585,7 @@ add_filter( 'gform_tabindex', 'scaffolding_gform_tabindexer' );
  *
  * @since Scaffolding 1.0
  */
-function fixed_img_caption_shortcode( $attr, $content = null ) {
+function scaffolding_fix_img_caption_shortcode( $attr, $content = null ) {
 	if ( ! isset( $attr['caption'] ) ) {
 		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
 			$content = $matches[1];
@@ -604,8 +604,8 @@ function fixed_img_caption_shortcode( $attr, $content = null ) {
 	if ( $id ) $id = 'id="' . esc_attr( $id ) . '" ';
 	return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
 }
-add_shortcode( 'wp_caption', 'scaffolding_fixed_img_caption_shortcode' );
-add_shortcode( 'caption', 'scaffolding_fixed_img_caption_shortcode' );
+add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
+add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
 
 
 /************************************
