@@ -19,7 +19,7 @@ Stylesheet: Main Stylesheet
 @import "includes/gravity-forms"; // gravity forms styles - uncheck box to NOT output default CSS
 
 // STEP 3: Import all our libraries
-@import "libs/chosenjs"; // better cross browser select inputs - see https://github.com/harvesthq/chosen for more info
+@import "libs/select2"; // better cross browser select input - see https://select2.github.io/
 @import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
 // STEP 4: Import our grid

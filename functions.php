@@ -98,8 +98,8 @@ function scaffolding_scripts_and_styles() {
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
 
-	// Chosen - http://harvesthq.github.io/chosen/
-    wp_enqueue_script( 'scaffolding-chosenjs', '//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js', array( 'jquery' ), '1.1.0', true );
+	// Select2 - https://select2.github.io/
+	wp_enqueue_script( 'scaffolding-select2', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js', array( 'jquery' ), '3.5.2', true );
 
 	// Comment reply script for threaded comments
 	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1) ) {
@@ -431,7 +431,7 @@ function scaffolding_wpsearch( $form ) {
 	$form = '<form role="search" method="get" id="searchform" class="clearfix" action="' . home_url( '/' ) . '" >
 	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffolding') . '</label>
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__( 'Search the Site&hellip;', 'scaffolding' ).'" />
-	<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+	<input type="submit" id="searchsubmit" value="'. esc_attr__('Go') .'" />
 	</form>';
 	return $form;
 } // end scaffolding_wpsearch()

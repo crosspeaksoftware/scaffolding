@@ -305,7 +305,7 @@ COMMENT STYLES
 
 	/* comment reply link */
 	.comment-reply-link {
-		color: $link-color;
+		color: $color__link;
 		float: right;
 		font-size: 0.9em;
 		font-weight: 400;
@@ -315,7 +315,7 @@ COMMENT STYLES
 
 		&:hover,
 		&:focus {
-			color: $link-hover-color;
+			color: $color__link-hover;
 			text-decoration: none;
 		}
 

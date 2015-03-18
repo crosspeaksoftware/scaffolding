@@ -59,9 +59,9 @@ function getScrollBarWidth () {
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
 
-	// ChosenJs Select Input - https://github.com/harvesthq/chosen for more info
-	if ($.fn.chosen) {
-		$("select").chosen({no_results_text: "Oops, nothing found!", width: "100%"});
+	// Select2 - https://select2.github.io/
+	if ($.fn.select2) {
+		$('select').select2();
 	}
 
 	// Lightbox - http://dimsemenov.com/plugins/magnific-popup/

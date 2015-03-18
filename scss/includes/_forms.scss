@@ -56,19 +56,22 @@ input[type="email"],
 input[type="tel"],
 input[type="number"],
 input[type="password"] {
-	background: #FFF;
-	border: 1px solid #DDD;
+	background: $input__background-color;
+	border: 1px solid $input__border-color;
 	border-radius: 0;
 	color: #444;
 	font-size: .9em;
+	height: 39px;
 	letter-spacing: normal;
 	outline: none;
 	padding: 8px 1%;
 	@include transition(all 0.25s ease-in-out);
 	width: 100%;
 
-	&:focus {
-		border: 1px solid #333;
+	&:focus,
+	&:active {
+		background: $input__background-focus-color;
+		border: 1px solid $input__border-focus-color;
 	}
 }
 
@@ -83,7 +86,7 @@ textarea {
 }
 
 select {
-	font-size: 1em;
+	font-size: 0.9em;
 	font-family: inherit;
 	letter-spacing: normal;
 	padding: 5px 0 5px 0;
@@ -107,7 +110,7 @@ input[type="button"] {
 	color: #FFF;
 	cursor: pointer;
 	display: inline-block;
-	font-family: $sans;
+	font-family: $font__sans;
 	font-size: 1.125em;
 	font-weight: 700;
 	margin-bottom: 0;
@@ -157,28 +160,46 @@ input[type="button"] {
  * SEARCH FORM STYLES
  ************************/
 
- #searchform {
+.error-404 {
+	#searchform {
+		max-width: 481px;
+	}
+}
+
+#searchform {
+	height: 39px;
+	overflow: hidden;
+	position: relative;
 
 	label {
 		display: none;
-		/* Style to show label in line with text field
-		display: inline-block;
-		*display: inline;*/
-		font-size: 0.750em;
-		font-weight: bold;
-		text-transform: uppercase;
-		width: 20%;
 	}
 
-	#s { 
+	#s {
+		padding-right: 12%;
 		width: 100%; 
 	}
 
-    #searchsubmit {
-        padding-left: 0;
-        padding-right: 0;
-		width: 100%;
-    }
+	#searchsubmit {
+		background: #222;
+		color: #FFF;
+		font-size: 1em;
+		font-weight: 300;
+		height: 37px;
+		line-height: 37px;
+		padding: 0;
+		position: absolute;
+		right: 1px;
+		text-align: center;
+		text-transform: uppercase;
+		top: 1px;
+		width: 12%;
+		
+		&:hover,
+		&:focus {
+			background: darken(#222, 10%);
+		}
+	}
 }
 
 
@@ -211,26 +232,6 @@ input[type="button"] {
 
 }
 
-@media only screen and (min-width: $screen-md-min) {
-
-	/*Search Styles*/
-    #searchform {
-        height: 34px;
-        overflow: hidden;
-
-        #s {
-			float: left;
-            width: 70%;
-        }
-		
-        #searchsubmit {
-			float: right;
-            padding-top: 0.35em;
-            padding-bottom: 0.35em;
-			width: 30%;
-        }
-    }
-
-}
+@media only screen and (min-width: $screen-md-min) {}
 
 @media only screen and (min-width: $screen-lg-min) {}

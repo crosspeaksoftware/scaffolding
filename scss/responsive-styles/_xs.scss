@@ -190,7 +190,7 @@ body {
 
                 &:hover,
                 &:focus {
-                    color: $link-color;
+                    color: $color__link;
                     text-decoration: underline;
                 }
             }
@@ -199,7 +199,7 @@ body {
         /* current page link */
         li.bpn-current {
             background-color: #f5f5f5;
-            color: $link-color;
+            color: $color__link;
             padding: 3px 10px;
             position: relative;
 
@@ -218,7 +218,7 @@ body {
             font-weight: 700;
 
             a {
-                color: $link-color;
+                color: $color__link;
 
                 &:hover,
                 &:focus {

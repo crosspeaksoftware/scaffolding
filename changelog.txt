@@ -22,6 +22,7 @@
 * Added templates folder
 * Added sidebar.php
 * Various other tweaks and improvements
+* Replaced ChosenJS with Select2
 
 
 ## Version 1.0

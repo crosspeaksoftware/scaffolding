@@ -123,26 +123,26 @@ span.amp {
 
 	.alert-help {
 		@extend %alert;
-		background: $alert-yellow;
-		border-color: darken($alert-yellow, 5%);
+		background: $color__alert-yellow;
+		border-color: darken($color__alert-yellow, 5%);
 	}
 
 	.alert-info {
 		@extend %alert;
-		background: $alert-blue;
-		border-color: darken($alert-blue, 5%);
+		background: $color__alert-blue;
+		border-color: darken($color__alert-blue, 5%);
 	}
 
 	.alert-error {
 		@extend %alert;
-		background: $alert-red;
-		border-color: darken($alert-red, 5%);
+		background: $color__alert-red;
+		border-color: darken($color__alert-red, 5%);
 	}
 
 	.alert-success {
 		@extend %alert;
-		background: $alert-green;
-		border-color: darken($alert-green, 5%);
+		background: $color__alert-green;
+		border-color: darken($color__alert-green, 5%);
 	}
 
 
