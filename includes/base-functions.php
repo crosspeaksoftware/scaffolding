@@ -28,6 +28,7 @@
  *    5.1 - Extend user role capabilities
  *    5.2 - Remove powered by WPEngine Widget
  *    5.3 - Remove select admin bar links
+ *	  5.4 - Remove theme/plugin editor pages from menu
  * 6.0 - Custom Login
  *    6.1 - Add styles to login page
  *    6.2 - Change logo link
@@ -59,6 +60,7 @@ function scaffolding_build() {
 	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );				// clean up comment styles in the head
 	add_filter( 'gallery_style', 'scaffolding_gallery_style' );							// clean up gallery output in wp
 	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );			// enqueue base scripts and styles
+	//scaffolding_add_image_sizes();													// add additional image sizes 
 	scaffolding_theme_support();														// launching this stuff after theme setup
 	add_action( 'widgets_init', 'scaffolding_register_sidebars' );						// adding sidebars to Wordpress (these are created in functions.php)
 	add_filter( 'get_search_form', 'scaffolding_wpsearch' ); 							// adding the scaffolding search form (created in functions.php)
@@ -80,8 +82,8 @@ add_action( 'after_setup_theme', 'scaffolding_build', 16 );
  * @since Scaffolding 1.0
  */
 function scaffolding_head_cleanup() {
-	// remove_action( 'wp_head', 'feed_links_extra', 3 );						        // category feeds
-	// remove_action( 'wp_head', 'feed_links', 2 );								        // post and comment feeds
+	//remove_action( 'wp_head', 'feed_links_extra', 3 );						        // category feeds
+	//remove_action( 'wp_head', 'feed_links', 2 );								        // post and comment feeds
 	remove_action( 'wp_head', 'rsd_link' );										        // EditURI link
 	remove_action( 'wp_head', 'wlwmanifest_link' );								        // windows live writer
 	remove_action( 'wp_head', 'index_rel_link' );								        // index link

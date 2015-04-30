@@ -351,10 +351,25 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
  * 5.0 - IMAGES & HEADERS
  ************************************/
 
-// Add additional thumbnail sizes
-//add_image_size( 'scaffolding-thumb-600', 600, 150, true );
+/**
+ * Add additional image sizes
+ *
+ * Function called in scaffolding_build() in base-functions.php.
+ * Currently commented out.
+ * 
+ * @since Scaffolding 1.0
+ */
+/*
+function scaffolding_add_image_sizes() {
+	add_image_size( 'scaffolding-thumb-600', 600, 150, true );
+}
+*/
 
-// Custom Page Headers
+/**
+ * Register custom image headers
+ *
+ * @since Scaffolding 1.0
+ */
 register_default_headers( array(
 	'default' => array(
 		'url'             => get_template_directory_uri() . '/images/headers/default.jpg',
