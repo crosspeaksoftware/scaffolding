@@ -437,6 +437,7 @@ function scaffolding_page_navi( $before = '', $after = '' ) {
  *    5.1 - Extend user role capabilities
  *    5.2 - Remove powered by WPEngine Widget
  *    5.3 - Remove select admin bar links
+ *	  5.4 - Remove theme/plugin editor pages from menu
 *************************************/
 
 /**
@@ -482,6 +483,17 @@ function scaffolding_remove_admin_bar_links() {
 	$wp_admin_bar->remove_menu( 'wpseo-menu' );    // Remove SEO from Admin Bar
 }
 add_action( 'wp_before_admin_bar_render', 'scaffolding_remove_admin_bar_links' );
+
+/**
+* Remove plugin and theme editor pages from menu
+*
+* @since Scaffolding 1.1
+*/
+function scaffolding_hide_editors() {
+	remove_submenu_page( 'themes.php', 'theme-editor.php' );
+	remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+}
+add_action( 'admin_init', 'scaffolding_hide_editors' );
 
 
 /************************************
