@@ -50,7 +50,7 @@
  * Scaffolding Setup
  *
  * All of these functions are defined below or in functions.php.
- * 
+ *
  * @since Scaffolding 1.0
  */
 function scaffolding_build() {
@@ -60,7 +60,7 @@ function scaffolding_build() {
 	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );				// clean up comment styles in the head
 	add_filter( 'gallery_style', 'scaffolding_gallery_style' );							// clean up gallery output in wp
 	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );			// enqueue base scripts and styles
-	//scaffolding_add_image_sizes();													// add additional image sizes 
+	//scaffolding_add_image_sizes();													// add additional image sizes
 	scaffolding_theme_support();														// launching this stuff after theme setup
 	add_action( 'widgets_init', 'scaffolding_register_sidebars' );						// adding sidebars to Wordpress (these are created in functions.php)
 	add_filter( 'get_search_form', 'scaffolding_wpsearch' ); 							// adding the scaffolding search form (created in functions.php)
@@ -102,8 +102,8 @@ function scaffolding_head_cleanup() {
  *
  * @since Scaffolding 1.0
  */
-function scaffolding_rss_version() { 
-    return ''; 
+function scaffolding_rss_version() {
+    return '';
 }
 
 /**
@@ -182,9 +182,9 @@ function scaffolding_first_last_menu_classes( $objects, $args ) {
     $ids        = array();
     $parent_ids = array();
     $top_ids    = array();
-	
+
 	if ( ! empty( $objects ) ) {
-    
+
 		foreach ( $objects as $i => $object ) {
 			// If there is no menu item parent, store the ID and skip over the object.
 			if ( 0 == $object->menu_item_parent ) {
@@ -359,53 +359,53 @@ function scaffolding_page_navi( $before = '', $after = '' ) {
 	$paged             = intval( get_query_var( 'paged' ) );
 	$numposts          = $wp_query->found_posts;
 	$max_page          = $wp_query->max_num_pages;
-    
-	if ( $numposts <= $posts_per_page ) { 
-        return; 
+
+	if ( $numposts <= $posts_per_page ) {
+        return;
     }
-    
+
 	if ( empty( $paged ) || 0 == $paged ) {
 		$paged = 1;
 	}
-    
+
 	$pages_to_show         = 7;
 	$pages_to_show_minus_1 = $pages_to_show-1;
 	$half_page_start       = floor($pages_to_show_minus_1/2);
 	$half_page_end         = ceil($pages_to_show_minus_1/2);
 	$start_page            = $paged - $half_page_start;
-    
+
 	if ( $start_page <= 0 ) {
 		$start_page = 1;
 	}
-    
+
 	$end_page = $paged + $half_page_end;
-    
+
 	if ( ( $end_page - $start_page ) != $pages_to_show_minus_1 ) {
 		$end_page = $start_page + $pages_to_show_minus_1;
 	}
-    
+
 	if ( $end_page > $max_page ) {
 		$start_page = $max_page - $pages_to_show_minus_1;
 		$end_page = $max_page;
 	}
-    
+
 	if ( $start_page <= 0 ) {
 		$start_page = 1;
 	}
-    
+
 	echo $before.'<nav class="page-navigation"><ol class="scaffolding_page_navi clearfix">'."";
-    
+
 	if ( 2 >= $start_page && $pages_to_show < $max_page ) {
 		$first_page_text = __( "First", 'scaffolding' );
 		echo '<li class="bpn-first-page-link"><a rel="prev" href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
 	}
-    
+
 	echo '<li class="bpn-prev-link">';
-    
+
 	previous_posts_link('<i class="fa fa-angle-double-left"></i>');
-    
+
 	echo '</li>';
-    
+
 	for ( $i = $start_page; $i <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
 			echo '<li class="bpn-current">' . $i . '</li>';
@@ -417,20 +417,20 @@ function scaffolding_page_navi( $before = '', $after = '' ) {
 			echo '<li><a href="' . get_pagenum_link( $i ) . '" title="View Page ' . $i . '">' . $i . '</a></li>';
 		}
 	}
-    
+
 	echo '<li class="bpn-next-link">';
-    
+
 	next_posts_link( '<i class="fa fa-angle-double-right"></i>' );
-    
+
 	echo '</li>';
-    
+
 	if ( $end_page < $max_page ) {
 		$last_page_text = __( "Last", 'scaffolding' );
 		echo '<li class="bpn-last-page-link"><a rel="next" href="' . get_pagenum_link( $max_page ) . '" title="' . $last_page_text . '">' . $last_page_text . '</a></li>';
 	}
-    
+
 	echo '</ol></nav>' . $after . "";
-    
+
 } // end scaffolding_page_navi()
 
 
@@ -452,14 +452,14 @@ function scaffolding_page_navi( $before = '', $after = '' ) {
 function scaffolding_increase_capabilities() {
 	$editor = get_role( 'editor' );
     $shop_manager = get_role( 'shop_manager' );
-    
+
     if ( ! empty( $editor ) ) {
         $editor->add_cap( 'edit_theme_options' );           // Gives editors access to themes, menus, widgets, etc.
         if ( is_plugin_active( 'gravity-forms' ) ) {
             $editor->add_cap( 'gform_full_access' );        // Gives editors access to Gravity Forms
         }
     }
-    
+
     if ( ! empty( $shop_manager ) ) {
         $shop_manager->add_cap( 'edit_theme_options' );     // Gives shop managers access to themes, menus, widgets, etc.
         if ( is_plugin_active( 'gravity-forms' ) ) {
@@ -520,8 +520,8 @@ add_action( 'login_head', 'scaffolding_login_css' );
  *
  * @since Scaffolding 1.0
  */
-function scaffolding_login_url() {  
-    return home_url(); 
+function scaffolding_login_url() {
+    return home_url();
 }
 add_filter( 'login_headerurl', 'scaffolding_login_url' );
 
@@ -530,8 +530,8 @@ add_filter( 'login_headerurl', 'scaffolding_login_url' );
  *
  * @since Scaffolding 1.0
  */
-function scaffolding_login_title() { 
-    return get_option( 'blogname' ); 
+function scaffolding_login_title() {
+    return get_option( 'blogname' );
 }
 add_filter( 'login_headertitle', 'scaffolding_login_title' );
 
@@ -587,7 +587,7 @@ function scaffolding_filter_ptags_on_images( $content ){
  * @link http://gravitywiz.com/2013/01/28/fix-gravity-form-tabindex-conflicts/
  *
  * @since Scaffolding 1.0
- */ 
+ */
 function scaffolding_gform_tabindexer() {
 	$starting_index = 1000; // if you need a higher tabindex, update this number
 	return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
@@ -730,7 +730,7 @@ function scaffolding_register_required_plugins() {
 			'slug'		=> 'wordpress-seo',
 			'required'	=> false
 		),
-		
+
 		array(
 			'name'		=> 'SEO Editor', // http://wordpress.org/plugins/seo-editor/
 			'slug'		=> 'seo-editor',
