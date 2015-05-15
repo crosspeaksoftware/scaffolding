@@ -626,6 +626,8 @@ add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
  * 8.0 RECOMMENDED/REQUIRED PLUGIN ACTIVATION
  ************************************/
 
+if ( current_user_can( 'install_plugins' ) ) :
+
 /**
  * @package    TGM-Plugin-Activation
  * @subpackage Example
@@ -824,3 +826,5 @@ function scaffolding_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
+
+endif; // current_user_can( 'install_plugins' )
