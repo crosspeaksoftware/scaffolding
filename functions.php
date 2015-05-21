@@ -102,8 +102,8 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_script( 'scaffolding-select2', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js', array( 'jquery' ), '3.5.2', true );
 
 	// Comment reply script for threaded comments
-	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1) ) {
-		wp_enqueue_script( 'scaffolding-comment-reply' );
+	if ( is_singular() && comments_open() && ( get_option('thread_comments' ) == 1) ) {
+		wp_enqueue_script( 'comment-reply' );
 	}
 
 	// Add Scaffolding scripts file in the footer
@@ -594,7 +594,7 @@ function scaffolding_get_the_author_posts_link() {
 	$link = sprintf(
 		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
+		esc_attr( sprintf( __( 'Posts by %s', 'scaffolding' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
 		get_the_author()
 	);
 	return $link;
@@ -690,7 +690,8 @@ add_action( 'wp_dashboard_setup', 'scaffolding_wp_admin_dashboard_add_news_feed_
  *
  * @since Scaffolding 1.0
  * @global menu, submenu
- 
+ */
+/*
 function scaffolding_change_post_menu_label() {
 	global $menu;
 	global $submenu;
@@ -711,7 +712,8 @@ add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
  *
  * @since Scaffolding 1.0
  * @global wp_post_types
- 
+ */
+/*
 function scaffolding_change_post_object_label() {
 	global $wp_post_types;
 	$labels                        = &$wp_post_types['post']->labels;
