@@ -1,6 +1,8 @@
 Responsive Design Scaffolding for WordPress
 =======
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/hallme/scaffolding?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Responsive Wordpress Base Theme based off bones, Foundation, Bootstrap (+ more)
 
 scaffolding is designed to make the life of developers easier. It is
