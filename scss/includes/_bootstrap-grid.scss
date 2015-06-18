@@ -6,8 +6,6 @@ Stylesheet: Bootstrap Grid Stylesheet
 
 ******************************************************************/
 
-@import "mixins";
-
 * {
 	@include box-sizing(border-box);
 }

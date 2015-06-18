@@ -11,8 +11,8 @@ Stylesheet: Main Stylesheet
 
 // STEP 2: Import all our resources
 @import "includes/variables";
-@import "includes/typography";
 @import "includes/mixins";
+@import "includes/typography";
 @import "includes/main-navigation";
 @import "includes/forms";
 @import "includes/comments";
