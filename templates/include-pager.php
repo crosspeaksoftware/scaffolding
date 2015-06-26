@@ -8,7 +8,7 @@
 ?>
 				<?php if ( function_exists( 'scaffolding_page_navi' ) ) : ?>
 
-					<?php scaffolding_page_navi( '', '', $wp_query ); ?>
+					<?php global $wp_query; scaffolding_page_navi( '', '', $wp_query ); ?>
 
 				<?php else : ?>
 

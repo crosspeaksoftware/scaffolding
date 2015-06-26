@@ -450,7 +450,7 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
  */
 function scaffolding_increase_capabilities() {
 	$editor = get_role( 'editor' );
-    $shop_manager = get_role( 'shop_manager' );
+	$shop_manager = get_role( 'shop_manager' );
 
     if ( ! empty( $editor ) ) {
         $editor->add_cap( 'edit_theme_options' );           // Gives editors access to themes, menus, widgets, etc.
@@ -466,7 +466,7 @@ function scaffolding_increase_capabilities() {
         }
     }
 }
-add_action( 'admin_init', 'scaffolding_increase_capabilities' );
+add_action( 'admin_head', 'scaffolding_increase_capabilities' );
 
 // Removes the Powered By WPEngine widget
 wp_unregister_sidebar_widget( 'wpe_widget_powered_by' );
