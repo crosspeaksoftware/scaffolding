@@ -331,12 +331,14 @@ add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
  * @since Scaffolding 1.0
  */
 function scaffolding_make_blank_search( $query ) {
-	global $wp_query;
-	if ( isset( $_GET['s'] ) && '' == $_GET['s'] ) {  // if search parameter is blank, do not return false
-		$wp_query->set( 's', ' ' );
-		$wp_query->is_search = true;
+	if ( ! is_admin() ) {
+		global $wp_query;
+		if ( isset( $_GET['s'] ) && '' == $_GET['s'] ) {  // if search parameter is blank, do not return false
+			$wp_query->set( 's', ' ' );
+			$wp_query->is_search = true;
+		}
+		return $query;
 	}
-	return $query;
 }
 add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 
