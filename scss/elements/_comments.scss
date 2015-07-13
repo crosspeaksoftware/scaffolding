@@ -4,16 +4,11 @@ Author:
 
 Stylesheet: Comments Stylesheet
 
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylesheet
-and will be used across all viewports.
-
 ******************************************************************/
 
-/*********************
-COMMENT FORM STYLES
-*********************/
+/************************
+ * COMMENT FORM
+ ************************/
 
 .respond-form, 
 .comment-respond {
@@ -121,9 +116,9 @@ COMMENT FORM STYLES
 
 }
 
-/*********************
-COMMENT STYLES
-*********************/
+/************************
+ * COMMENTS
+ ************************/
 
 /* h3 comment title */
 #comments {
@@ -144,7 +139,6 @@ COMMENT STYLES
 
 	}
 }
-
 
 .commentlist {
 	margin: 0;
@@ -224,7 +218,6 @@ COMMENT STYLES
 			margin-left: 50px;
 
 			.url {}
-
 		}
 
 		time {
@@ -240,9 +233,7 @@ COMMENT STYLES
 				&:hover {
 					text-decoration: underline;
 				}
-
 			}
-
 		}
 
 		.photo {}
@@ -262,15 +253,11 @@ COMMENT STYLES
 
 	/* comment meta */
 	.comment-meta {
-
 		a {}
-
 	}
 
 	.commentmetadata {
-
 		a {}
-
 	}
 
 	.alert.info {
@@ -328,14 +315,3 @@ COMMENT STYLES
 	} /* end .commentlist .comment-reply-link */
 
 } /* end .commentlist */
-
-
-/************************
- * MEDIA QUERIES
- ************************/
-
-@media only screen and (min-width: $screen-sm-min) {}
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

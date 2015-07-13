@@ -15,8 +15,6 @@ remember less is more.
 
 ******************************************************************/
 
-@import "compass";
-
 /*************************
  * TABLE OF CONTENTS
  *************************
@@ -34,13 +32,15 @@ remember less is more.
  12. Gradients
  ************************/
 
+@import "compass";
+
 /*************************
  * CLEARFIX
  * http://nicolasgallagher.com/micro-clearfix-hack/
  ************************/
 
 .clearfix {
-  zoom: 1;
+  	zoom: 1;
 	
 	&:after,
 	&:before { 
@@ -53,15 +53,17 @@ remember less is more.
 	}
 }
 
-@mixin clearfix() {
+@mixin clearfix {
+	zoom: 1;
+	
 	&:after,
-	&:before {
-		content: " ";
-		display: table;
+	&:before { 
+		content: " "; 
+		display: table; 
 	}
 	
-	&:after {
-		clear: both;
+	&:after { 
+		clear: both; 
 	}
 }
 
@@ -69,11 +71,15 @@ remember less is more.
  * WRAP
  ************************/
 
-@mixin wrap() {
-	@include clearfix();
+@mixin wrap {
+	@include clearfix;
 	margin-left: auto;
 	margin-right: auto;
   	max-width: 90%;
+	
+	@media only screen and (min-width: $screen-lg-min) {
+		max-width: $container-lg;	
+	}
 }
 
 /*************************
@@ -223,7 +229,8 @@ span.amp {
 	clear: left; 
 }
 
-.clear-both { 
+.clear-both,
+.clear { 
 	clear: both; 
 }
 
@@ -325,7 +332,7 @@ span.amp {
  * http://css-tricks.com/centering-in-the-unknown/
  ************************/
 
-@mixin dynamicVerticalAlign(){
+@mixin dynamicVerticalAlign() {
 	&:before {
 		content: '';
 		display: inline-block;
@@ -338,7 +345,7 @@ span.amp {
  * TEXT TRUNCATION
  ************************/
 
-@mixin truncateText($overflow: ellipsis){
+@mixin truncateText($overflow: ellipsis) {
 	overflow: hidden;
 	text-overflow: $overflow; // values are: clip, ellipsis, or a string
 	white-space: nowrap;

@@ -74,4 +74,4 @@ $screen-sm-max: ($screen-md-min - 1) !default;
 $screen-md-max: ($screen-lg-min - 1) !default;
 
 // Our plugin path
-$plugins-path: '/wp-content/plugins/';
+$plugins-path: 'http://localhost:8888/scaffolding/wp-content/plugins/';

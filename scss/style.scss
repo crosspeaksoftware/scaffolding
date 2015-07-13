@@ -4,48 +4,64 @@ Author:
 
 Stylesheet: Main Stylesheet
 
+Here you can easily toggle on/off modules and files.
+
 ******************************************************************/
 
-// STEP 1: Import reset
+/** STEP 1: Reset **/
 @import "libs/normalize";
 
-// STEP 2: Import all our resources
-@import "includes/variables";
-@import "includes/mixins";
-@import "includes/typography";
-@import "includes/main-navigation";
-@import "includes/forms";
-@import "includes/comments";
-@import "includes/gravity-forms"; // gravity forms styles - uncheck box to NOT output default CSS
+/** STEP 2: Utilities **/
+@import "utilities/variables";
+@import "utilities/mixins";
+@import "utilities/accessibility";
 
-// STEP 3: Import all our libraries
+/** STEP 3: Elements **/
+@import "elements/typography";
+@import "elements/main-navigation";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/media";
+@import "elements/tables";
+@import "elements/forms";
+@import "elements/bootstrap-grid";
+@import "elements/pagination";
+@import "elements/comments";
+@import "elements/widgets";
+
+/** STEP 5: Plugins **/
+@import "plugins/gravity-forms/gravity-forms"; // gravity forms styles - uncheck box to NOT output default CSS
+
+/** STEP 6: Libraries **/
 @import "libs/select2"; // better cross browser select input - see https://select2.github.io/
 @import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
-// STEP 4: Import our grid
-@import "includes/bootstrap-grid";
-
-// STEP 5: Import our responsive stylesheets (where you'll put your styles)
+/** STEP 7: Media Queries **/
 
 /*
 BASE (MOBILE) STYLES
 This is where you add the majority of your styles. These will be loaded on all devices, so make sure this holds the bare minimum any device needs to view your site.
 */
-@import "responsive-styles/xs";
+@import "media-queries/xs";
 
 /*
 TABLET & SMALLER LAPTOPS
 Here you can begin to add more resource-intensive styles.
 */
 @media only screen and (min-width: $screen-sm-min) {
-	@import "responsive-styles/sm";
+	
+	@import "media-queries/sm";
+	
 }
 
 /*
 DESKTOP
 */
 @media only screen and (min-width: $screen-md-min) {
-	@import "responsive-styles/md";
+	
+	@import "media-queries/md";
+	//@import "modules/sticky-footer";
+	
 }
 
 /*
@@ -53,10 +69,10 @@ FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
 @media only screen and (min-width: $screen-lg-min) {
-	@import "responsive-styles/lg";
+	
+	@import "media-queries/lg";
+	
 }
-
-// STEP 4: Add in styles for retina devices, iPhone 5, and Print
 
 /*
 RETINA (2x RESOLUTION DEVICES)
@@ -67,7 +83,7 @@ query for retina AND a certain size if you want. Go Nuts.
 /*@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 	only screen and (min--moz-device-pixel-ratio: 1.5),
 	only screen and (min-device-pixel-ratio: 1.5) {
-		@import "includes/retina";
+		@import "media-queries/retina";
 }*/
 
 /*
@@ -89,5 +105,7 @@ sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
 */
 @media print {
-	@import "includes/print";
+	
+	@import "media-queries/print";
+	
 }

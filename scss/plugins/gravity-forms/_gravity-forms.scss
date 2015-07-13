@@ -9,10 +9,10 @@ Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 ******************************************************************/
 
 /* Import Other Styles */
-@import "gform_styles/_ready_classes";
-@import "gform_styles/_submission_and_errors";
-@import "gform_styles/_other_fields";
-@import "gform_styles/_credit_cards";
+@import "ready_classes";
+@import "submission_and_errors";
+@import "other_fields";
+@import "credit_cards";
 
 /* Standard Fields */
 

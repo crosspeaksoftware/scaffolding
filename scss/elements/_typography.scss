@@ -1,0 +1,215 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Typography Stylesheet
+
+******************************************************************/
+
+body {
+	font-family: $font__sans;
+	font-size: $size__font-default;
+	color: $color__body-text;
+	line-height: 1.55;
+}
+
+p {
+	-webkit-hyphens: manual;
+	-epub-hyphens: manual;
+	-moz-hyphens: manual;
+	hyphens: manual;
+}
+
+b, 
+strong, 
+.strong {
+	font-weight: bold;
+}
+
+cite, 
+dfn, 
+em, 
+i, 
+.em {
+	font-style: italic;
+}
+
+small, 
+.small {
+	font-size: 75%;
+}
+
+abbr[title],
+abbr[data-original-title] {
+	border-bottom: 1px dotted #999;
+	cursor: help;
+}
+
+blockquote {
+	border-left: 5px solid #EEE;
+	margin: 0 0 20px;
+	padding: 0 0 0 15px;
+	
+	p {
+		font-size: 17.5px;
+		font-weight: 300;
+		line-height: 1.25;
+		margin-bottom: 0;
+	}
+
+	small {
+		color: #999999;
+		display: block;
+		line-height: 20px;
+
+		:before {
+			content: '\2014 \00A0';
+		}
+	}
+}
+
+	q:before,
+	q:after,
+	blockquote:before,
+	blockquote:after {
+		content: "";
+	}
+
+address {
+	display: block;
+	font-style: normal;
+	line-height: 1.3;
+	margin-bottom: 1em;
+}
+
+code,
+pre {
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	font-size: 12px;
+	color: #333;
+	border-radius: 0;
+	padding: 0 3px 2px;
+}
+
+	code {
+		background-color: #F7F7F7;
+		border: 1px solid #E1E1E8;
+		color: #D14;
+		display: inline-block;
+		padding: 2px 4px;
+		white-space: pre-wrap;
+	}
+
+	pre {
+		background-color: #F5F5F5;
+		border: 1px solid #CCC;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 0;
+		display: block;
+		font-size: 13px;
+		line-height: 1.3;
+		margin: 0 0 10px;
+		padding: 9.5px;
+		white-space: pre;
+		white-space: pre-wrap;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+
+	pre code {
+		background-color: transparent;
+		border: 0;
+		color: inherit;
+		padding: 0;
+		white-space: pre;
+		white-space: pre-wrap;
+	}
+
+hr {
+	clear: both;
+	border: 0;
+	border-bottom: 1px solid #FFF;
+	border-top: 1px solid #EEE;
+	margin: 1.429em 0;
+}
+
+/*************************
+ * HEADING
+ ************************/
+
+h1, .h1, 
+h2, .h2, 
+h3, .h3, 
+h4, .h4, 
+h5, .h5 {
+	font-weight: 500;
+	text-rendering: optimizelegibility;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+	h1, .h1 {
+		font-size: 2em;
+		line-height: 1.2;
+		margin: 0.67em 0;
+	}
+
+	h2, .h2 {
+		font-size: 1.75em;
+		line-height: 1.3;
+		margin: 0.83em 0;
+	}
+
+	h3, .h3 {
+		font-size: 1.25em;
+		line-height: 1.4;
+		margin: 1em 0;
+	}
+
+	h4, .h4 {
+		font-size: 1.1em;
+		line-height: 1.5;
+		margin: 1.33em 0;
+	}
+
+	h5, .h5 {
+		font-size: 0.846em;
+		line-height: 1.5;
+		margin: 1.67em 0;
+	}
+
+	h6, .h6 {
+		font-size: 0.746em;
+		line-height: 1.55;
+		margin: 2.33em 0;
+	}
+
+/*************************
+ * TINYMCE
+ ************************/
+
+.underline { 
+	text-decoration: underline; 
+}
+
+.italic { 
+	font-style: italic; 
+}
+
+.bold { 
+	font-weight: bold; 
+}
+
+.text-left { 
+	text-align: left; 
+}
+
+.text-center { 
+	text-align: center; 
+}
+
+.text-right { 
+	text-align: right; 
+}

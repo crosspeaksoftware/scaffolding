@@ -1,0 +1,326 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Media Stylesheet
+
+******************************************************************/
+
+/* Image Sizes */
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail,
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+video {
+	height: auto !important;
+	width: 100% !important;
+}
+
+/* Image Alignment */
+img.alignleft,
+.alignleft {
+	float: left;
+	margin: 0 15px 10px 0;
+}
+
+img.alignright,
+.alignright {
+	float: right;
+	margin: 0 0 10px 15px;
+}
+
+img.aligncenter,
+.aligncenter {
+	display: block;
+	margin: 0 auto 10px auto;
+}
+
+img.alignnone,
+.alignnone {
+	display: block;
+	margin: 0 0 10px 0;
+}
+
+img.aligncenter,
+img.alignnone,
+.aligncenter, 
+.alignnone {
+	clear: both;
+	margin: 10px 0;
+}
+
+/* Image Caption */
+.wp-caption {
+	background: #EEE;
+	max-width: 100%!important;
+	padding: 5px;
+
+	/* images inside wp-caption */
+	img {
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
+
+}
+
+/* Image Gallery */
+.gallery {
+
+    .gallery-item {
+        display: inline-block;
+        margin: 1%;
+        overflow: hidden;
+        position: relative;
+
+        .gallery-icon {
+            text-align: center;
+
+            a {
+                img {
+					vertical-align: bottom;
+				}
+            }
+        }
+    }
+
+    & > br { 
+		display: none; 
+	}
+}
+
+.gallery-caption {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.7);
+	bottom: 0;
+    color: #FFF;
+	display: none;
+    font-size: 0.8em;
+	left: 0;
+	line-height: 1;
+	margin: 0;
+	max-height: 50%;
+    opacity: 0;
+    padding: 3px 5px;
+    position: absolute;
+	text-align: left;
+    width: 100%;   
+}
+
+	.gallery-caption:before {
+		content: "";
+		height: 100%;
+		min-height: 49px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.gallery-item:hover .gallery-caption {
+		opacity: 1;
+	}
+
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9 {
+	.gallery-caption {
+		display: none;
+	}
+}
+
+.gallery-columns-1 {
+	.gallery-item {
+		width: 98%;
+	}
+}
+.gallery-columns-2 {
+	.gallery-item {
+		width: 48%;
+	}
+}
+.gallery-columns-3 {
+	.gallery-item {
+		width: 31.3%;
+	}
+}
+
+/* Galleries no more then 4 to a row on small screens */
+.gallery-columns-4,
+.gallery-columns-5,
+.gallery-columns-6,
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9 {
+	.gallery-item {
+		width: 23%;
+	}
+}
+
+/* Change gallery to proper spacing on larger screens */
+@media only screen and (min-width: $screen-sm-min) {
+	.gallery-columns-5 {
+		.gallery-item {
+			width: 18%;
+		}
+	}
+	.gallery-columns-6 {
+		.gallery-item {
+			width: 14.6%;
+		}
+	}
+	.gallery-columns-7 {
+		.gallery-item {
+			width: 12.2%;
+		}
+	}
+	.gallery-columns-8 {
+		.gallery-item {
+			width: 10.5%;
+		}
+	}
+	.gallery-columns-9 {
+		.gallery-item {
+			width: 9.1%;
+		}
+	}
+}
+
+/* Core Media Player */
+.mejs-container {}
+
+	.mejs-controls {
+		.mejs-button {}
+		
+		.mejs-playpause-button {}
+		.mejs-play {}
+		.mejs-pause {}
+		
+		.mejs-time {}
+		.mejs-currenttime-container {}
+		.mejs-duration-container {}
+		.mejs-time-rail {}
+		
+		.mejs-volume-button {}
+		.mejs-mute {}
+		.mejs-unmute {}
+		
+		.mejs-fullscreen-button {}
+		.mejs-fullscreen {}
+		.mejs-unfullscreen {}
+	}
+
+/* Video Player */
+.wp-video {
+	margin: 1em 0;
+}
+
+	.mejs-video {
+		height: auto !important;
+		padding-top: 57%;
+		width: 100% !important;
+
+		.mejs-inner {
+			.mejs-mediaelement {
+				video {
+					bottom: 0;
+					height: 100% !important;
+					left: 0;
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 100% !important;
+				}
+			}
+
+			.mejs-layers {
+				.mejs-layer {
+					.mejs-overlay-loading {}
+					.mejs-overlay-error {}
+					.mejs-overlay-button {}
+				}
+
+				.mejs-poster {
+					height: 100% !important;
+					width: 100% !important;
+				}
+			}
+
+			.mejs-overlay {}
+
+			.mejs-overlay-play {
+				height: 100% !important;
+				width: 100% !important;
+			}
+
+			.mejs-controls {}
+		}
+	}
+
+/* Audio Player */
+.mejs-audio {
+	.mejs-inner {
+		.mejs-mediaelement {
+			audio {}
+		}
+
+		.mejs-layers {
+			.mejs-layer {}
+			.mejs-poster {}
+		}
+
+		.mejs-controls {
+			.mejs-horizontal-volume-slider {
+				.mejs-horizontal-volume-total {}
+				.mejs-horizontal-volume-current {}
+				.mejs-horizontal-volume-handle {}
+			}
+
+			.mejs-mute {}
+			.mejs-unmute {}
+		}
+	}
+}
+
+/* Audio Playlist */
+.wp-playlist {
+	overflow: hidden;
+
+	.wp-playlist-current-item {
+		img {}
+
+		.wp-playlist-caption {
+			.wp-playlist-item-title {}
+			.wp-playlist-item-artist {}
+		}
+	}
+
+	.wp-playlist-next {}
+	.wp-playlist-prev {}
+	
+	.wp-playlist-tracks {
+		.wp-playlist-item {
+			&.wp-playlist-playing {}
+			.wp-playlist-caption {
+				display: block;
+
+				.wp-playlist-item-title { 
+					@include truncateText(ellipsis); 
+				}
+			}
+
+			.wp-playlist-item-length {}
+		}
+	}
+}

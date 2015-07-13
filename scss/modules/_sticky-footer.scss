@@ -1,0 +1,41 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Sticky Footer Stylesheet
+
+You must add sticky-footer to the body class in header.php.
+
+******************************************************************/
+
+html,
+body.sticky-footer {
+	height: 100%;
+	margin: 0;
+}
+
+body.sticky-footer {
+	#container {
+		display: table;
+		width: 100%;
+	}
+
+	#container .header,
+	#main-navigation,
+	#container .banner-wrap,
+	#content,
+	#container .footer {
+		display: table-row;
+		height: 1px;
+		overflow: hidden;
+	}
+
+}
+
+html>body.sticky-footer #container {
+	height: 100%;
+}
+
+html>body.sticky-footer #content {
+	height: auto;
+}

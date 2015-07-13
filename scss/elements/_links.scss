@@ -1,0 +1,32 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Links Stylesheet
+
+******************************************************************/
+
+a, 
+a:visited {
+	color: $color__link;
+	text-decoration: none;
+}
+
+/* on hover and focus */
+a:hover, 
+a:focus {
+	color: $color__link-hover;
+	text-decoration: underline;
+}
+
+/* on click */
+a:active {}
+
+a:link {
+	-webkit-tap-highlight-color: rgba( 0, 0, 0, 0.3 );
+}
+
+/* read more link */
+.read-more {
+    white-space: nowrap;
+}

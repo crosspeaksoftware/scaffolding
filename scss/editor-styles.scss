@@ -10,15 +10,15 @@ custom styles here.
 
 ******************************************************************/
 
-// Import Resources
-@import "includes/variables";
-@import "includes/mixins";
+@import "utilities/variables";
+@import "utilities/mixins";
 
-// Import Typography Styles
-@import "includes/typography";
-
-// Import Grid Styles
-@import "includes/bootstrap-grid";
+@import "elements/typography";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/media";
+@import "elements/tables";
+@import "elements/bootstrap-grid";
 
 .mceContentBody {
 	background-color: #FDFDFD;

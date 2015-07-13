@@ -288,10 +288,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 
 .container-fluid,
 .wrap {
-  	margin-right: auto;
-  	margin-left: auto;
-	@include clearfix();
-  	max-width: 90%;
+  	@include wrap;
 }
 
 

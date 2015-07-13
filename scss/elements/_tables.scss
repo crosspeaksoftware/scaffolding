@@ -1,0 +1,47 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tables Stylesheet
+
+******************************************************************/
+
+table {
+	border-collapse: separate;
+	border-spacing: 1px;
+	margin: 1em 0;
+	text-align: left;
+	width: 100%;
+}
+
+	thead {
+		text-align: center;
+	}
+
+	th {
+		background-color: #EEE;
+		border: 1px solid #DDD;
+		color: #444;
+		font-weight: bold;
+		padding: 4px;
+		text-align: center;
+	}
+
+	td {
+		border: solid 1px #DDD;
+		color: #444;
+		padding: 4px;
+		vertical-align: top;
+	}
+	
+	tr:nth-child(even),
+	tr.even {
+		background-color: #FFF;
+	}
+	
+	tr:nth-child(odd),
+	tr.odd {
+		background-color: #F5F5F5;
+	}
+
+	tr:hover{}

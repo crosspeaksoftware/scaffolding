@@ -1,0 +1,51 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Lists Stylesheet
+
+******************************************************************/
+
+ul, 
+ol {
+	margin: 1em 0;
+	padding: 0;
+}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+		ul li > ul,
+		ul li > ol,
+		ol li > ol,
+		ol li > ul {
+			margin-top: 5px;
+		}
+
+			ul ul,
+			ul ol,
+			ol ul,
+			ol ol {
+				margin: 0 .5em;
+			}
+
+	li {
+		margin-bottom: .5em;
+		margin-left: 2em;
+	}
+
+dl {}
+
+dt {}
+
+dd {
+	color: #787878;
+	font-size: 0.9em;
+	margin-bottom: 1.5em;
+	margin-left: 0;
+}
