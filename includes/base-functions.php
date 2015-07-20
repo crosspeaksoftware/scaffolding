@@ -440,7 +440,8 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
  *    5.1 - Extend user role capabilities
  *    5.2 - Remove powered by WPEngine Widget
  *    5.3 - Remove select admin bar links
- *	  5.4 - Remove theme/plugin editor pages from menu
+ *	  5.4 - Disable support for Emojis
+ *	  5.5 - Remove theme/plugin editor pages from menu
 *************************************/
 
 /**
@@ -486,6 +487,38 @@ function scaffolding_remove_admin_bar_links() {
 	$wp_admin_bar->remove_menu( 'wpseo-menu' );    // Remove SEO from Admin Bar
 }
 add_action( 'wp_before_admin_bar_render', 'scaffolding_remove_admin_bar_links' );
+
+/**
+ * Disable the emoji's
+ *
+ * @since Scaffolding 1.1
+ */
+function scaffolding_disable_emojis() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );	
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+}
+add_action( 'init', 'scaffolding_disable_emojis' );
+
+/**
+ * Filter function used to remove the tinymce emoji plugin.
+ *
+ * @since Scaffolding 1.1
+ * @param    array  $plugins  
+ * @return   array  Difference between the two arrays
+ */
+function disable_emojis_tinymce( $plugins ) {
+	if ( is_array( $plugins ) ) {
+		return array_diff( $plugins, array( 'wpemoji' ) );
+	} else {
+		return array();
+	}
+}
 
 /**
 * Remove plugin and theme editor pages from menu
