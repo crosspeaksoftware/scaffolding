@@ -155,7 +155,6 @@ function scaffolding_theme_support() {
 		)
 	);
     
-    /* Feature Currently Disabled
     // HTML5
     add_theme_support( 'html5', array( 
         'comment-list', 
@@ -164,7 +163,6 @@ function scaffolding_theme_support() {
         'gallery', 
         'caption', 
     ) );
-    */
     
     /* Feature Currently Disabled
     // Title Tag
