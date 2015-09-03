@@ -38,7 +38,6 @@
  *    7.2 - Remove p tags from images
  *    7.3 - Fix tabindex for Gravity Forms
  *    7.4 - Filter hard coded dimensions on captions
- * 8.0 - Recommended/Required Plugin Activation
 */
 
 
@@ -360,53 +359,53 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
 	$paged             = intval( get_query_var( 'paged' ) );
 	$numposts          = $query->found_posts;
 	$max_page          = $query->max_num_pages;
-    
-	if ( $numposts <= $posts_per_page ) { 
-        return; 
+
+	if ( $numposts <= $posts_per_page ) {
+        return;
     }
-    
+
 	if ( empty( $paged ) || 0 == $paged ) {
 		$paged = 1;
 	}
-    
+
 	$pages_to_show         = 7;
 	$pages_to_show_minus_1 = $pages_to_show-1;
 	$half_page_start       = floor($pages_to_show_minus_1/2);
 	$half_page_end         = ceil($pages_to_show_minus_1/2);
 	$start_page            = $paged - $half_page_start;
-    
+
 	if ( $start_page <= 0 ) {
 		$start_page = 1;
 	}
-    
+
 	$end_page = $paged + $half_page_end;
-    
+
 	if ( ( $end_page - $start_page ) != $pages_to_show_minus_1 ) {
 		$end_page = $start_page + $pages_to_show_minus_1;
 	}
-    
+
 	if ( $end_page > $max_page ) {
 		$start_page = $max_page - $pages_to_show_minus_1;
 		$end_page = $max_page;
 	}
-    
+
 	if ( $start_page <= 0 ) {
 		$start_page = 1;
 	}
-	
+
 	echo $before.'<nav class="page-navigation"><ol class="scaffolding_page_navi wrap clearfix">'."";
-    
+
 	if ( 2 >= $start_page && $pages_to_show < $max_page ) {
 		$first_page_text = __( "First", 'scaffolding' );
 		echo '<li class="bpn-first-page-link"><a rel="prev" href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
 	}
-    
+
 	echo '<li class="bpn-prev-link">';
-    
+
 	previous_posts_link('<i class="fa fa-angle-double-left"></i> Previous Page');
-    
+
 	echo '</li>';
-    
+
 	for ( $i = $start_page; $i <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
 			echo '<li class="bpn-current">' . $i . '</li>';
@@ -418,20 +417,20 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
 			echo '<li><a href="' . get_pagenum_link( $i ) . '" title="View Page ' . $i . '">' . $i . '</a></li>';
 		}
 	}
-    
+
 	echo '<li class="bpn-next-link">';
-    
+
 	next_posts_link( 'Next Page <i class="fa fa-angle-double-right"></i>' );
-    
+
 	echo '</li>';
-    
+
 	if ( $end_page < $max_page ) {
 		$last_page_text = __( "Last", 'scaffolding' );
 		echo '<li class="bpn-last-page-link"><a rel="next" href="' . get_pagenum_link( $max_page ) . '" title="' . $last_page_text . '">' . $last_page_text . '</a></li>';
 	}
-    
+
 	echo '</ol></nav>' . $after . "";
-    
+
 } // end scaffolding_page_navi()
 
 
@@ -497,9 +496,9 @@ function scaffolding_disable_emojis() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );	
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 }
@@ -509,7 +508,7 @@ add_action( 'init', 'scaffolding_disable_emojis' );
  * Filter function used to remove the tinymce emoji plugin.
  *
  * @since Scaffolding 1.1
- * @param    array  $plugins  
+ * @param    array  $plugins
  * @return   array  Difference between the two arrays
  */
 function disable_emojis_tinymce( $plugins ) {
@@ -654,211 +653,3 @@ function scaffolding_fix_img_caption_shortcode( $attr, $content = null ) {
 }
 add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
 add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
-
-
-/************************************
- * 8.0 RECOMMENDED/REQUIRED PLUGIN ACTIVATION
- ************************************/
-
-if ( current_user_can( 'install_plugins' ) ) :
-
-/**
- * @package    TGM-Plugin-Activation
- * @subpackage Example
- * @version    2.5.0-alpha
- * @author     Thomas Griffin
- * @author     Gary Jones
- * @copyright  Copyright (c) 2011, Thomas Griffin
- * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
- * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
- */
-
-/**
- * Include the TGM_Plugin_Activation class.
- */
-require_once ( SCAFFOLDING_INCLUDE_PATH.'class-tgm-plugin-activation.php' );
-
-add_action( 'tgmpa_register', 'scaffolding_register_required_plugins' );
-/**
- * Register the required plugins for this theme.
- *
- * In this example, we register two plugins - one included with the TGMPA library
- * and one from the .org repo.
- *
- * The variable passed to tgmpa_register_plugins() should be an array of plugin
- * arrays.
- *
- * This function is hooked into tgmpa_init, which is fired within the
- * TGM_Plugin_Activation class constructor.
- */
-function scaffolding_register_required_plugins() {
-
-	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
-	$plugins = array(
-
-		// This is an example of how to include a plugin pre-packaged with a theme.
-		/*
-		array(
-			'name'               => 'TGM Example Plugin', // The plugin name.
-			'slug'               => 'tgm-example-plugin', // The plugin slug (typically the folder name).
-			'source'             => get_stylesheet_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source.
-			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-		),
-		*/
-
-		// This is an example of how to include a plugin from an arbitrary external source in your theme.
-		/*
-		array(
-			'name'         => 'TGM New Media Plugin', // The plugin name.
-			'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
-			'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
-			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
-			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
-		),
-		*/
-
-		// This is an example of how to include a plugin from a GitHub repository in your theme.
-		// This presumes that the plugin code is based in the root of the GitHub repository
-		// and not in a subdirectory ('/src') of the repository.
-		/*
-		array(
-			'name'      => 'Adminbar Link Comments to Pending',
-			'slug'      => 'adminbar-link-comments-to-pending',
-			'source'    => 'https://github.com/jrfnl/WP-adminbar-comments-to-pending/archive/master.zip',
-			'required'  => false,
-		),
-		*/
-
-		// Include a plugin from the WordPress Plugin Repository.
-		array(
-			'name' 		=> 'Advanced Custom Fields', // http://wordpress.org/plugins/codepress-admin-columns/
-			'slug' 		=> 'advanced-custom-fields',
-			'required' 	=> false
-		),
-
-		array(
-			'name' 		=> 'Codepress Admin Columns', // http://wordpress.org/plugins/codepress-admin-columns/
-			'slug' 		=> 'codepress-admin-columns',
-			'required' 	=> false
-		),
-
-		array(
-			'name'		=> 'Mailgun for WordPress', // http://wordpress.org/plugins/mailgun/
-			'slug'		=> 'mailgun',
-			'required'	=> false
-		),
-
-		array(
-			'name'		=> 'Relevanssi', // http://wordpress.org/plugins/relevanssi/
-			'slug'		=> 'relevanssi',
-			'required'	=> false
-		),
-
-		array(
-			'name'		=> 'WordPress SEO', // http://wordpress.org/plugins/wordpress-seo/
-			'slug'		=> 'wordpress-seo',
-			'required'	=> false
-		),
-
-		array(
-			'name'		=> 'SEO Editor', // http://wordpress.org/plugins/seo-editor/
-			'slug'		=> 'seo-editor',
-			'required'	=> false
-		)
-
-	);
-
-	/*
-	 * Array of configuration settings. Amend each line as needed.
-	 * If you want the default strings to be available under your own theme domain,
-	 * leave the strings uncommented.
-	 * Some of the strings are wrapped in a sprintf(), so see the comments at the
-	 * end of each line for what each argument will be.
-	 */
-	$config = array(
-		'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'parent_slug'  => 'themes.php',            // Parent menu slug.
-		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-		'has_notices'  => true,                    // Show admin notices or not.
-		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
-		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'scaffolding' ),
-			'menu_title'                      => __( 'Install Plugins', 'scaffolding' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'scaffolding' ), // %s = plugin name.
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'scaffolding' ),
-			'notice_can_install_required'     => _n_noop(
-				'This theme requires the following plugin: %1$s.',
-				'This theme requires the following plugins: %1$s.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_can_install_recommended'  => _n_noop(
-				'This theme recommends the following plugin: %1$s.',
-				'This theme recommends the following plugins: %1$s.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_cannot_install'           => _n_noop(
-				'Sorry, but you do not have the correct permissions to install the %s plugin.',
-				'Sorry, but you do not have the correct permissions to install the %s plugins.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_can_activate_required'    => _n_noop(
-				'The following required plugin is currently inactive: %1$s.',
-				'The following required plugins are currently inactive: %1$s.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_can_activate_recommended' => _n_noop(
-				'The following recommended plugin is currently inactive: %1$s.',
-				'The following recommended plugins are currently inactive: %1$s.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_cannot_activate'          => _n_noop(
-				'Sorry, but you do not have the correct permissions to activate the %s plugin.',
-				'Sorry, but you do not have the correct permissions to activate the %s plugins.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_ask_to_update'            => _n_noop(
-				'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
-				'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'notice_cannot_update'            => _n_noop(
-				'Sorry, but you do not have the correct permissions to update the %s plugin.',
-				'Sorry, but you do not have the correct permissions to update the %s plugins.',
-				'scaffolding'
-			), // %1$s = plugin name(s).
-			'install_link'                    => _n_noop(
-				'Begin installing plugin',
-				'Begin installing plugins',
-				'scaffolding'
-			),
-			'activate_link'                   => _n_noop(
-				'Begin activating plugin',
-				'Begin activating plugins',
-				'scaffolding'
-			),
-			'return'                          => __( 'Return to Required Plugins Installer', 'scaffolding' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'scaffolding' ),
-			'complete'                        => __( 'All plugins installed and activated successfully. %s', 'scaffolding' ), // %s = dashboard link.
-			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'scaffolding' ),
-
-			'nag_type'                        => 'updated', // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-		)
-	);
-
-	tgmpa( $plugins, $config );
-
-}
-
-endif; // current_user_can( 'install_plugins' )
