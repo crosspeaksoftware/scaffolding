@@ -118,11 +118,11 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php get_template_part( 'templates/include', 'pager' ); // WordPress template pager/pagination ?>
+				<?php get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination ?>
 
 			<?php else : ?>
 
-				<?php get_template_part( 'templates/include', 'error' ); // WordPress template error message ?>
+				<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
 
 			<?php endif; ?>
 

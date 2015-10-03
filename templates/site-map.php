@@ -218,7 +218,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 
 	<?php else : ?>
 
-		<?php get_template_part( 'templates/include', 'error' ); // WordPress template error message ?>
+		<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
 
 	<?php endif; ?>
 
