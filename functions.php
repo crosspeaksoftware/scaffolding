@@ -492,7 +492,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
 				?>
 				<img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=32" class="load-gravatar avatar avatar-48 photo" height="32" width="32" src="<?php echo get_template_directory_uri(); ?>/images/nothing.gif" />
 				<?php printf( __( '<cite class="fn">%s</cite>', 'scaffolding' ), get_comment_author_link() ) ?>
-				<time datetime="<?php echo comment_time( 'Y-m-j' ); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a></time>
+				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a></time>
 				<?php edit_comment_link( __( '(Edit)', 'scaffolding'),'  ','' ) ?>
 			</header>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
