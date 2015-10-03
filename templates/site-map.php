@@ -58,9 +58,14 @@ foreach( $types as $type ) {
 	}
 }
 
-$excluded_posts_IDs[] = get_the_ID(); // add the current sitemap page id
+// Add the current sitemap page id
+$excluded_posts_IDs[] = get_the_ID();
 
-$excluded_IDs = implode( ',', $excluded_posts_IDs ); // convert to a comma (,) separated string
+// Convert to a comma (,) separated string
+$excluded_IDs = implode( ',', $excluded_posts_IDs );
+
+// Get number of posts per page in settings
+$read_settings_num_posts = get_option('posts_per_page');
 
 /**
  * Build display for taxonomy terms
@@ -102,7 +107,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 	$pt = get_post_type_object( $post_type ); // Get post type object for name label
 	$count_posts = wp_count_posts( $post_type ); // Count number of posts in db
 	$published_posts = $count_posts->publish; // Count number of published posts, only show those
-	$read_settings_num_posts = get_option('posts_per_page'); // Collect number of posts per page in settings
+	$read_settings_num_posts = get_option('posts_per_page'); // Get number of posts per page in settings
 
 	// Get archive link to add "View all" link
 	if ( $post_type == 'post' ) {
@@ -117,7 +122,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 	// Get our posts
 	$posts = get_posts( $param );
 
-	if ( $count_posts > 0 ) {
+	if ( $published_posts > 0 ) {
 		echo '<ul>';
 		foreach ( $posts as $post ) {
 			echo '<li><a href="' . get_permalink( $post->ID ) . '" title="';
