@@ -154,26 +154,34 @@ jQuery(document).ready(function($) {
 	that works for you best.
 	*/
 
-	/* getting viewport width */
+	// getting viewport width
 	var responsive_viewport = $(window).width() + getScrollBarWidth();
-	var menu = $('#main-navigation > ul');
-
-	/* responsive nav */
-	$('#main-navigation > .menu-button').on('click', function(e) {
-		$('body').toggleClass('menu-open');
-	});
-
-	$('#mobile-menu-button').on('click', function(e) {
-		$('body').toggleClass('menu-open');
-	});
 	
-	$('.menu-item > .menu-button').on('click', function(e) {
-		$(this).next('.sub-menu').addClass('sub-menu-open');
-	});
+	/*
+	Mobile Navigation
+	*/
+	var menu = $('#main-navigation > ul');
+	
+	$(function() {
+		$('#mobile-menu-button').on('click', function(e) {
+			$('body').toggleClass('menu-open');
+		});
 
-	$('.sub-menu .menu-back-button').on('click', function(e) {
-		$(this).parent('li').parent('ul').removeClass('sub-menu-open');
-	});
+		$('#main-navigation .menu-item > .menu-button').on('click', function(e) {
+			$(this).next('.sub-menu').addClass('sub-menu-open');
+		});
+
+		$('#main-navigation .sub-menu .menu-back-button').on('click', function(e) {
+			$(this).parent('li').parent('ul').removeClass('sub-menu-open');
+		});
+		
+		/*
+		Fixes bug on touch devices
+		opens ul on first tap
+		accepts anchor and opens page on second tap
+		*/
+		$('#main-navigation .menu-item-has-children').doubleTapToGo();
+	})
 
 	$(window).resize(function(e) {
 		if (Modernizr && Modernizr.touch) {
@@ -187,9 +195,9 @@ jQuery(document).ready(function($) {
 			}
 		}
 	});
-	/* end responsive nav */
+	// end responsive nav
 
-	/* if is below 481px */
+	// if is smaller than 481px
 	if (responsive_viewport < 481) {
 		// if mobile device and not on the home page scroll to the content on page load
 		if (!$('body').hasClass("home")) {
@@ -198,25 +206,23 @@ jQuery(document).ready(function($) {
 				jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
 			}
 		}
-	} /* end smallest screen */
-
-	/* if is smaller than 481px */
-	if (responsive_viewport < 481) {}
-	/* if is larger than 481px */
+	}
+	
+	// if is larger than 481px
 	if (responsive_viewport >= 481){}
 
-	/* if is larger to 768px */
-	if (responsive_viewport >= 767) {
-		/* load gravatars */
+	// if is larger than or equal to 768px
+	if (responsive_viewport >= 768) {
+		// load gravatars
 		$('.comment img[data-gravatar]').each(function() {
 			$(this).attr('src',$(this).attr('data-gravatar'));
 		});
 	}
 
-	/* off the bat smaller screen actions */
+	// if is smaller than 1024px
 	if (responsive_viewport < 1024) {}
 
-	/* off the bat large screen actions */
+	// if is larger than or equal to 1024px
 	if (responsive_viewport >= 1024) {}
 
 	// hide #back-top first
@@ -242,8 +248,7 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-
-/*  
+	/*  
     // Released under MIT license: http://www.opensource.org/licenses/mit-license.php
 	$('[placeholder]').focus(function() {
 		var input = $(this);
@@ -265,9 +270,48 @@ jQuery(document).ready(function($) {
 			}
 		})
 	});
-*/
+	*/
+	
 }); /* end of as page load scripts */
 
+/*
+By Osvaldas Valutis, www.osvaldas.info
+Available for use under the MIT License
+Fixes navigation bug on touch devices
+*/
+
+;(function( $, window, document, undefined ) {
+	$.fn.doubleTapToGo = function(params) {
+		if ( ! ( 'ontouchstart' in window ) &&
+			! navigator.msMaxTouchPoints &&
+			! navigator.userAgent.toLowerCase().match( /windows phone os 7/i ) ) return false;
+
+		this.each( function() {
+			var curItem = false;
+
+			$( this ).on( 'click', function(e) {
+				var item = $( this );
+				if ( item[ 0 ] != curItem[ 0 ] ) {
+					e.preventDefault();
+					curItem = item;
+				}
+			});
+
+			$( document ).on( 'click touchstart MSPointerDown', function(e) {
+				var resetItem = true,
+					parents	  = $( e.target ).parents();
+
+				for ( var i = 0; i < parents.length; i++ )
+					if ( parents[ i ] == curItem[ 0 ] )
+						resetItem = false;
+
+				if ( resetItem )
+					curItem = false;
+			});
+		});
+		return this;
+	};
+})( jQuery, window, document );
 
 /*! A fix for the iOS orientationchange zoom bug.
  Script by @scottjehl, rebound by @wilto.
