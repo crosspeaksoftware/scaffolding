@@ -60,37 +60,37 @@ require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
  *
  * @since Scaffolding 1.0
  * @global wp_styles
- */ 
+ */
 function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-    
+
     /**
      * Add to wp_head()
      */
 
 	// Main stylesheet
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
-	
+
 	// Google Font - Open Sans
 	wp_enqueue_style( 'scaffolding-font', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700,600', array(), '' );
-    
+
     // Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
 	wp_enqueue_style( 'scaffolding-font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
 
 	// IE-only stylesheet
 	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-    
+
     // Modernizr - http://modernizr.com/
 	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', false, null );
 
 	// Respond - https://github.com/scottjehl/Respond
 	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
-    
+
     /**
      * Add to wp_footer()
      */
-	
+
 	// Retina.js - http://imulus.github.io/retinajs/
 	wp_enqueue_script( 'scaffolding-retinajs', '//cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js', array(), '1.3.0', true );
 
@@ -107,7 +107,7 @@ function scaffolding_scripts_and_styles() {
 
 	// Add Scaffolding scripts file in the footer
 	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
-	
+
 } // end scaffolding_scripts_and_styles()
 
 
@@ -153,21 +153,21 @@ function scaffolding_theme_support() {
 		'admin-preview-callback'  => '',
 		)
 	);
-    
+
     // HTML5
-    add_theme_support( 'html5', array( 
-        'comment-list', 
-        'comment-form', 
-        'search-form', 
-        'gallery', 
-        'caption', 
+    add_theme_support( 'html5', array(
+        'comment-list',
+        'comment-form',
+        'search-form',
+        'gallery',
+        'caption',
     ) );
-    
+
     /* Feature Currently Disabled
     // Title Tag
     add_theme_support( 'title-tag' );
     */
-    
+
     /*  Feature Currently Disabled
 	// WP custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background', array(
@@ -204,10 +204,10 @@ function scaffolding_theme_support() {
 			'footer-nav' => __( 'Footer Menu', 'scaffolding' ),   // secondary nav in footer
 		)
 	);
-    
+
     // Add styles for use in visual editor
     add_editor_style( 'css/editor-styles.css' );
-	
+
 } // end scaffolding_theme_support()
 
 
@@ -219,7 +219,7 @@ function scaffolding_theme_support() {
 * Two menus included - main menu in header and footer menu
 *
 * Add any additional menus here. Register new menu in scaffolding_theme_support() above.
-* 
+*
 * @see scaffolding_walker_nav_menu
 * @since Scaffolding 1.0
 */
@@ -280,7 +280,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 				'menu-depth-' . $display_depth
 			);
 		$class_names = implode( ' ', $classes );
-        
+
 		// build html
 		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
 	}
@@ -293,7 +293,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		// set li classes
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		if ( ! $args->has_children ) $classes[] = 'menu-item-no-children';
-        
+
 		// combine the class array into a string
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
@@ -353,7 +353,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
  *
  * Function called in scaffolding_build() in base-functions.php.
  * Currently commented out.
- * 
+ *
  * @since Scaffolding 1.0
  */
 /*
@@ -462,7 +462,7 @@ function scaffolding_noindex_filter( $query ) {
         $query->set( 'meta_compare', 'NOT EXISTS' );
     }
     return $query;
-} 
+}
 add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
 
 
@@ -517,7 +517,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
  *     9.3 - Modified author post link
 *************************************/
 
-/** 
+/**
  * Related Posts Function
  *
  * @since Scaffolding 1.0
@@ -564,25 +564,25 @@ function scaffolding_related_posts() {
 	wp_reset_query();
 } // end scaffolding_related_posts()
 
-/** 
+/**
  * Removes the annoying […] to a Read More link
  *
  * @since Scaffolding 1.0
  * @global post
- */ 
+ */
 function scaffolding_excerpt_more( $more ) {
 	global $post;
 	return '...  <a class="read-more" href="'. get_permalink( $post->ID ) . '" title="'. __('Read ', 'scaffolding') . get_the_title( $post->ID ).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
 } // end scaffolding_excerpt_more()
 
-/** 
+/**
  * Modifies author post link which just returns the link
  *
  * This is necessary to allow usage of the usual l10n process with printf().
  *
  * @since Scaffolding 1.0
  * @global authordata
- */ 
+ */
 function scaffolding_get_the_author_posts_link() {
 	global $authordata;
 	if ( ! is_object( $authordata ) ) {
@@ -613,7 +613,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 474;
 }
 
-/** 
+/**
  * Adjust content_width value for image attachment template
  *
  * @since Scaffolding 1.0
@@ -649,39 +649,7 @@ function scaffolding_disable_default_dashboard_widgets() {
 add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
 
 /**
- * Settings for news feed widget
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_dashboard_site_feed_output() {
-	echo '<div>';
-		wp_widget_rss_output( array(
-			'url'            => 'http://www.hallme.com/feed/',
-			'title'          => 'Hall Internet Marketing Blog',
-			'items'          => 3,
-			'show_summary'   => 1,
-			'show_author'    => 1,
-			'show_date'      => 1,
-		) );
-	echo '</div>';
-}
-
-/**
- * Adds a news feed widget to the dashboard
- *
- * @global wp_meta_boxes
- * @see scaffolding_dashboard_site_feed_output
- * @since Scaffolding 1.0
- */
-function scaffolding_wp_admin_dashboard_add_news_feed_widget() {
-	global $wp_meta_boxes;
-	// Our new dashboard widget
-	wp_add_dashboard_widget( 'scaffolding_dashboard_site_feed', 'Hall Internet Marketing Blog', 'scaffolding_dashboard_site_feed_output' );
-}
-add_action( 'wp_dashboard_setup', 'scaffolding_wp_admin_dashboard_add_news_feed_widget' );
-
-/**
- * Change name of "Posts" menu 
+ * Change name of "Posts" menu
  *
  * This is useful for improving UX in the WP backend.
  *
@@ -703,7 +671,7 @@ add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
 */
 
 /**
- * Change labels for "Posts" 
+ * Change labels for "Posts"
  *
  * This is useful for improving UX in the WP backend.
  *
