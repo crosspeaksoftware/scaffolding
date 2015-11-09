@@ -61,7 +61,13 @@ jQuery(document).ready(function($) {
 
 	// Select2 - https://select2.github.io/
 	if ($.fn.select2) {
-		$('select').select2();
+		var setup_select2 = function() {
+			$('select').each(function(){
+				$(this).select2();
+			})
+		};
+        $(document).ajaxComplete(setup_select2);
+        setup_select2();
 	}
 
 	// Lightbox - http://dimsemenov.com/plugins/magnific-popup/
@@ -180,7 +186,10 @@ jQuery(document).ready(function($) {
 		opens ul on first tap
 		accepts anchor and opens page on second tap
 		*/
-		$('#main-navigation .menu-item-has-children').doubleTapToGo();
+		responsive_viewport = $(window).width() + getScrollBarWidth();
+		if (responsive_viewport >= 768) {
+			$('#main-navigation .menu-item-has-children').doubleTapToGo();
+		}
 	})
 
 	$(window).resize(function(e) {
@@ -279,7 +288,6 @@ By Osvaldas Valutis, www.osvaldas.info
 Available for use under the MIT License
 Fixes navigation bug on touch devices
 */
-
 ;(function( $, window, document, undefined ) {
 	$.fn.doubleTapToGo = function(params) {
 		if ( ! ( 'ontouchstart' in window ) &&
