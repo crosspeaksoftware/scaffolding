@@ -41,8 +41,6 @@ get_header(); ?>
 									echo get_the_tag_list( '<p class="tags"><span class="meta-title">Tags:</span> ', ', ', '</p>' );
 								endif; ?>
 
-								<?php echo scaffolding_related_posts(); ?>
-
 							</footer><?php // END .article-footer ?>
 
 							<?php // If comments are open or we have at least one comment, load up the comment template

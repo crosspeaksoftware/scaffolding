@@ -24,16 +24,14 @@
  * 7.0 - Search Functions
  * 8.0 - Comment Layout
  * 9.0 - Utility Functions
- *    9.1 - Related posts function
- *    9.2 - Removes […] from read more
- *    9.3 - Modified author post link
+ *    9.1 - Removes […] from read more
+ *    9.2 - Modified author post link
  * 10.0 - Admin Customization
  *    10.1 - Set content width
  *    10.2 - Set image attachment width
  *    10.3 - Disable default dashboard widgets
- *    10.4 - Add news feed widget
- *    10.5 - Change name of "Posts" in admin menu
- *    10.6 - Customize footer
+ *    10.4 - Change name of "Posts" in admin menu
+ *    10.5 - Customize footer
  * 11.0 - Custom/Additional Functions
  */
 
@@ -512,57 +510,9 @@ function scaffolding_comments( $comment, $args, $depth ) {
 
 /************************************
  * 9.0 - UTILITY FUNCTIONS
- *     9.1 - Related posts function
- *     9.2 - Removes […] from read more
- *     9.3 - Modified author post link
+ *     9.1 - Removes […] from read more
+ *     9.2 - Modified author post link
 *************************************/
-
-/**
- * Related Posts Function
- *
- * @since Scaffolding 1.0
- * @global post
- */
-function scaffolding_related_posts() {
-	global $post;
-	$tags = wp_get_post_tags( $post->ID );
-	if ( $tags ) { ?>
-		<section id="scaffolding-related-posts">
-            <h3><?php _e( 'Related Posts', 'scaffolding' ); ?></h3>
-            <?php
-            foreach ( $tags as $tag ) {
-                $tag_arr = $tag->slug . ',';
-            }
-            $args = array(
-                'tag'            => $tag_arr,
-                'numberposts'    => 5,           // you can change this to show more
-                'post__not_in'   => array($post->ID)
-            );
-            $related_posts = get_posts( $args );
-            echo '<ul>';
-            if ( $related_posts ) {
-                foreach ( $related_posts as $post ) {
-                    setup_postdata( $post ); ?>
-                    <li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>"><?php the_title() ?></a></li>
-                <?php
-                }
-            } else { ?>
-                <li class="no_related_post"><?php _e( 'No Related Posts Yet!', 'scaffolding' ); ?></li>
-            <?php
-            }
-            echo '</ul>'; ?>
-		</section>
-    <?php
-	} else {
-		if ( current_user_can( 'publish_posts' ) ) { ?>
-			<section id="scaffolding-no-related-posts">
-				<p><?php printf( __( 'Related posts are only visible when tags are defined. <a href="%1$s">Get started here</a>.', 'scaffolding' ), esc_url( admin_url( 'edit-tags.php' ) ) ); ?></p>
-			</section>
-		<?php
-		}
-	}
-	wp_reset_query();
-} // end scaffolding_related_posts()
 
 /**
  * Removes the annoying […] to a Read More link
@@ -603,9 +553,8 @@ function scaffolding_get_the_author_posts_link() {
  *     10.1 - Set content width
  *     10.2 - Set image attachment width
  *     10.3 - Disable default dashboard widgets
- *     10.4 - Add news feed widget
- *     10.5 - Change name of "Posts" in admin menu
- *     10.6 - Customize footer
+ *     10.4 - Change name of "Posts" in admin menu
+ *     10.5 - Customize footer
  ************************************/
 
 // Set up the content width value based on the theme's design
