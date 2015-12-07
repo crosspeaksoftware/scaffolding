@@ -80,23 +80,24 @@ function scaffolding_scripts_and_styles() {
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
     // Modernizr - http://modernizr.com/
-	wp_enqueue_script( 'scaffolding-modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', false, null );
+	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/js/lib/custom-modernizr.min.js', false, null );
 
 	// Respond - https://github.com/scottjehl/Respond
-	wp_enqueue_script( 'scaffolding-respondjs', '//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js', false, null );
+	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/js/lib/respond.min.js', false, null );
+	$wp_styles->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
     /**
      * Add to wp_footer()
      */
 
 	// Retina.js - http://imulus.github.io/retinajs/
-	wp_enqueue_script( 'scaffolding-retinajs', '//cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js', array(), '1.3.0', true );
+	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/js/lib/retina.min.js', array(), '1.4.2', true );
 
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/
-	wp_enqueue_script( 'scaffolding-magnific-popup-js', '//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/jquery.magnific-popup.min.js', array( 'jquery' ), '0.9.9', true );
+	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/js/lib/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0.0', true );
 
 	// Select2 - https://select2.github.io/
-	wp_enqueue_script( 'scaffolding-select2', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js', array( 'jquery' ), '3.5.2', true );
+	wp_enqueue_script( 'scaffolding-select2', get_stylesheet_directory_uri() . '/js/lib/select2.min.js', array( 'jquery' ), '3.5.4', true );
 
 	// Comment reply script for threaded comments
 	if ( is_singular() && comments_open() && ( get_option('thread_comments' ) == 1) ) {
