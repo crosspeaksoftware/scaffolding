@@ -28,12 +28,17 @@ Stylesheet: Forms Stylesheet
 	font-weight: 400;
 }
 
-:-ms-input-placeholder {
+:-ms-input-placeholder { /* IE 10-11 */
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
 }
 
+::-ms-input-placeholder { /* IE EDGE */
+	color: #CCC;
+	font-style: italic;
+	font-weight: 400;
+}
 
 /**
 * Labels
