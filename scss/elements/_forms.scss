@@ -120,11 +120,11 @@ input[type="button"] {
 	vertical-align: middle;
 	width: 100%;
 
-	&:hover, 
-	&:focus, 
-	&:active, 
-	.active, 
-	.disabled, 
+	&:hover,
+	&:focus,
+	&:active,
+	.active,
+	.disabled,
 	[disabled] {
 		background: #000;
 		color: #FFF;
@@ -141,7 +141,7 @@ input[type="button"] {
 		outline: 0;
 	}
 
-	&.disabled, 
+	&.disabled,
 	[disabled] {
 		background-image: none;
 		cursor: default;
@@ -177,7 +177,7 @@ input[type="button"] {
 
 	#s {
 		padding-right: 12%;
-		width: 100%; 
+		width: 100%;
 	}
 
 	#searchsubmit {
@@ -194,7 +194,7 @@ input[type="button"] {
 		text-transform: uppercase;
 		top: 1px;
 		width: 12%;
-		
+
 		&:hover,
 		&:focus {
 			background: darken(#222, 10%);
@@ -208,11 +208,11 @@ input[type="button"] {
  ************************/
 
 .post-password-form {
-	
+
 	p {}
-	
+
 	label {}
-	
+
 	input[type="submit"] {}
 }
 
@@ -226,7 +226,7 @@ input[type="button"] {
 	input[type="button"],
 	input[type="submit"] {
 		padding-left: 3em;
-        padding-right: 3em;
+		padding-right: 3em;
 		width: auto;
 	}
 
