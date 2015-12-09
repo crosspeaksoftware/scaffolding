@@ -125,7 +125,6 @@ textarea.textarea {
 	
 	li.gfield.gf_left_half,
 	li.gfield.gf_right_half {
-		margin: 0 0 8px 0;
 		width: 100%;
 		
 		input.medium,
@@ -183,7 +182,6 @@ textarea.textarea {
 	li.gfield.gf_left_third,
 	li.gfield.gf_middle_third,
 	li.gfield.gf_right_third {
-		margin: 0 0 8px 0;
 		width: 100%;
 	}
 
@@ -312,7 +310,7 @@ li.gfield.gf_list_height_150 {
 
 /* radio/checkbox inline list */
 
-li.gf_list_inline {
+li.gfield.gf_list_inline {
 	ul.gfield_checkbox li
 	ul.gfield_radio li {
 		width: auto !important;
@@ -555,17 +553,27 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		}
 	
 		input.small,
-		select.small {
+		select.small,
+		.select2-container.small {
 			width: 25%;
 		}
 
 		input.medium,
-		select.medium {
+		select.medium,
+		.select2-container.medium {
 			width: 49%;
 		}
-
-		input.medium {
-			padding-right: 2px;
+		
+		li.gf_list_inline {
+			ul.gfield_radio,
+			ul.gfield_checkbox {
+				li {
+					display: inline-block;
+					label {
+						margin-right: 2em;
+					}
+				}
+			}
 		}
 		
 		li.gfield.gf_left_half,
@@ -586,12 +594,17 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		li.gfield.gf_right_half {
 			float: right;
 			clear: right !important;
-			
+		}
+		
+		li.gfield.gf_left_half,
+		li.gfield.gf_right_half {
 			input.large,
 			select.large,
+			.select2-container.large,
 			textarea.textarea,
 			input.medium,
-			select.medium {
+			select.medium,
+			.select2-container.medium {
 				width: 100% !important;
 			}
 		}
@@ -604,7 +617,9 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 			input.medium,
 			input.large,
 			select.medium,
-			select.large {
+			select.large,
+			.select2-container.medium,
+			.select2-container.large {
 				width: 100%;
 			}
 		}

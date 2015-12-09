@@ -14,55 +14,6 @@ Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 @import "other_fields";
 @import "credit_cards";
 
-/* Standard Fields */
-
-/* 
- * Get Chosen Js to Work with all Select Inputs
- * How: don't use the built-in checkbox "enable enhanced user interface"
- * Advanced Fields with Select: add a class under the advanced tab like "has-select"
- * Normal Select: set a class to keep it from spanning full width
- *
-*/
-.gform_wrapper {
-	li.has-select {
-		height: 384px;
-		overflow: visible;
-		
-		.ginput_complex {
-			overflow: visible;
-			
-			.ginput_left, 
-			.ginput_right, 
-			.ginput_full {
-				overflow: visible;
-			}
-		}
-	}
-	
-	li.has-select.gfield_error {
-		.chosen-single {
-			background: #FFDFE0 !important;
-			border-color: #c0392b !important;
-			color: #c0392b !important;
-		}
-	}
-	
-	.chosen-single:hover { 
-		border-bottom: 1px solid #ddd !important; 
-	}
-	
-    .chosen-single:focus, 
-	.chosen-container-active .chosen-single:hover { 
-		border-bottom: 1px solid #666 !important; 
-	}
-	
-	.chosen-container:focus+label, 
-	.chosen-container:active+label,
-	.chosen-container-active+label {
-		font-weight: bold;
-	}
-}
-
 /* GForm Wrapper */
 
 .gform_wrapper {
@@ -143,7 +94,7 @@ ul.gfield_radio {
 		width: 100%;
 	}
 	
-	.name_prefix {
+	/*.name_prefix {
 		float: left;
 		width: 13%;
 	}
@@ -164,7 +115,7 @@ ul.gfield_radio {
 		float: right;
 		width: 23%;
 		margin-left: 4%;
-	}
+	}*/
 	
 	input[type=text],
 	input[type=url],
@@ -237,7 +188,7 @@ h3.gform_title {
 	width: 100%;
 }
 
-.description,
+.gform_wrapper .description,
 .gfield_description,
 .gsection_description,
 .instruction {
@@ -437,73 +388,104 @@ form {
 	}
 	
 	.ginput_complex {
-		.ginput_left {
-			input[type=text],
-			input[type=url],
-			input[type=email],
-			input[type=tel],
-			input[type=number],
-			input[type=password] {
-				width: 100%;
+		.name_last {
+			clear: none;
+		}
+		
+		&.has_prefix.has_first_name.has_middle_name.has_last_name.has_suffix {
+			.name_prefix,
+			.name_first,
+			.name_middle,
+			.name_last {
+				float: left;
+			}
+			.name_suffix {
+				float: right;
+			}
+			.name_prefix,
+			.name_suffix {
+				width: 10%;
+			}
+			.name_prefix {
+				margin-right: 2%;
+			}
+			.name_first,
+			.name_middle,
+			.name_last {
+				margin-right: 2%;
+				width: 24%;
 			}
 		}
 		
-		.ginput_right {
-			input[type=text],
-			input[type=url],
-			input[type=email],
-			input[type=tel],
-			input[type=number],
-			input[type=password] {
-				width: 100%;
+		&.no_prefix.has_first_name.has_middle_name.has_last_name.no_suffix {
+			.name_first,
+			.name_middle,
+			.name_last {
+				width: 32%;
+			}
+			.name_first,
+			.name_middle {
+				float: left;
+				margin-right: 2%;
+			}
+			.name_last {
+				float: right;
+			}
+		}
+		
+		&.no_prefix.has_first_name.no_middle_name.has_last_name.no_suffix {
+			.name_first {
+				float: left;
+				width: 49%;
+			}
+			.name_last {
+				float: right;
+				width: 49%;
+			}
+		}
+		
+		&.has_prefix.has_first_name.no_middle_name.has_last_name.no_suffix {
+			.name_prefix {
+				float: left;
+				margin-right: 2%;
+				width: 20%;
+			}
+			.name_first {
+				float: left;
+				margin-right: 2%;
+				width: 38%;
+			}
+			.name_last {
+				float: right;
+				width: 38%;
+			}
+		}
+		
+		&.no_prefix.has_first_name.no_middle_name.has_last_name.has_suffix {
+			.name_first,
+			.name_last {
+				float: left;
+				margin-right: 2%;
+				width: 38%;
+			}
+			.name_suffix {
+				float: right;
+				width: 20%;
 			}
 		}
 		
 		.ginput_full {
-			input[type=text],
-			input[type=url],
-			input[type=email],
-			input[type=tel],
-			input[type=number],
-			input[type=password] {
-				width: 100%;
-			}
+			clear: both;
 		}
-	
-		.ginput_left  {
-			width: 49%;
+		
+		.ginput_left {
 			float: left;
+			width: 49%;
 		}
-
+		
 		.ginput_right {
-			width: 49%;
 			float: right;
-		}
-		
-		.name_prefix {
-			float: left;
-			width: 8%;
-		}
-		
-		.name_suffix {
-			float: left;
-			width: 11%;
-			margin-left: 2%;
-		}
-		
-		.name_first,
-		.name_last {
-			float: left;
-			width: 36%;
-		}
-		
-		.name_first {
-			margin-left: 2%;
-		}
-		
-		.name_last {
-			clear: none;
-			margin-left: 2%;
+			width: 49%;
 		}
 	}
 	
