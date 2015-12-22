@@ -26,32 +26,25 @@ video {
 img.alignleft,
 .alignleft {
 	float: left;
-	margin: 0 15px 10px 0;
+	margin: 15px 20px 15px 0;
 }
 
 img.alignright,
 .alignright {
 	float: right;
-	margin: 0 0 10px 15px;
+	margin: 15px 0 15px 20px;
 }
 
 img.aligncenter,
 .aligncenter {
 	display: block;
-	margin: 0 auto 10px auto;
+	margin: 0 auto;
 }
 
 img.alignnone,
-.alignnone {
-	display: block;
-	margin: 0 0 10px 0;
-}
-
-img.aligncenter,
-img.alignnone,
-.aligncenter, 
 .alignnone {
 	clear: both;
+	margin: 15px 0;
 }
 
 /* Image Caption */
@@ -66,7 +59,7 @@ img.alignnone,
 		width: 100%;
 	}
 
-	p.wp-caption-text {
+	.wp-caption-text {
 		font-size: 0.85em;
 		margin: 4px 0 7px;
 		text-align: center;
