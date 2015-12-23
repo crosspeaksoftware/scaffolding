@@ -31,7 +31,6 @@
  *    10.2 - Set image attachment width
  *    10.3 - Disable default dashboard widgets
  *    10.4 - Change name of "Posts" in admin menu
- *    10.5 - Customize footer
  * 11.0 - Custom/Additional Functions
  */
 
@@ -555,7 +554,6 @@ function scaffolding_get_the_author_posts_link() {
  *     10.2 - Set image attachment width
  *     10.3 - Disable default dashboard widgets
  *     10.4 - Change name of "Posts" in admin menu
- *     10.5 - Customize footer
  ************************************/
 
 // Set up the content width value based on the theme's design
@@ -645,16 +643,6 @@ function scaffolding_change_post_object_label() {
 }
 add_action( 'init', 'scaffolding_change_post_object_label' );
 */
-
-/**
- * Custom admin footer
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="//www.hallme.com/" target="_blank">Hall Internet Marketing</a></span>. Built using <a href="//github.com/hallme/scaffolding" target="_blank">scaffolding</a>, a fork of <a href="//themble.com/bones" target="_blank">bones</a>.';
-}
-add_filter( 'admin_footer_text', 'scaffolding_custom_admin_footer' );
 
 
 /************************************

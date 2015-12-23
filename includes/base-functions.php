@@ -24,20 +24,15 @@
  *    3.6 - Add title attribute to wp_list_pages
  *    3.7 - Allow for blank search
  * 4.0 - Page Navi
- * 5.0 - Client UX Functions
- *    5.1 - Extend user role capabilities
- *    5.2 - Remove powered by WPEngine Widget
- *    5.3 - Remove select admin bar links
- *	  5.4 - Remove theme/plugin editor pages from menu
- * 6.0 - Custom Login
- *    6.1 - Add styles to login page
- *    6.2 - Change logo link
- *    6.3 - Change alt attribute on logo
- * 7.0 - Visitor UX Functions
- *    7.1 - Filter hard coded dimensions on images
- *    7.2 - Remove p tags from images
- *    7.3 - Fix tabindex for Gravity Forms
- *    7.4 - Filter hard coded dimensions on captions
+ * 5.0 - Custom Login
+ *    5.1 - Add styles to login page
+ *    5.2 - Change logo link
+ *    5.3 - Change alt attribute on logo
+ * 6.0 - Visitor UX Functions
+ *    6.1 - Filter hard coded dimensions on images
+ *    6.2 - Remove p tags from images
+ *    6.3 - Fix tabindex for Gravity Forms
+ *    6.4 - Filter hard coded dimensions on captions
 */
 
 
@@ -435,107 +430,10 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
 
 
 /************************************
- * 5.0 - CLIENT UX FUNCTIONS
- *    5.1 - Extend user role capabilities
- *    5.2 - Remove powered by WPEngine Widget
- *    5.3 - Remove select admin bar links
- *	  5.4 - Disable support for Emojis
- *	  5.5 - Remove theme/plugin editor pages from menu
-*************************************/
-
-/**
- * Extend user role capabilities
- *
- * Intended for client account. Allows for full Gravity Form access, theme options, and WooCommerce.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_increase_capabilities() {
-	$editor = get_role( 'editor' );
-	$shop_manager = get_role( 'shop_manager' );
-
-    if ( ! empty( $editor ) ) {
-        $editor->add_cap( 'edit_theme_options' );           // Gives editors access to themes, menus, widgets, etc.
-        if ( is_plugin_active( 'gravity-forms' ) ) {
-            $editor->add_cap( 'gform_full_access' );        // Gives editors access to Gravity Forms
-        }
-    }
-
-    if ( ! empty( $shop_manager ) ) {
-        $shop_manager->add_cap( 'edit_theme_options' );     // Gives shop managers access to themes, menus, widgets, etc.
-        if ( is_plugin_active( 'gravity-forms' ) ) {
-            $shop_manager->add_cap( 'gform_full_access' );  // Gives shop managers access to Gravity Forms
-        }
-    }
-}
-add_action( 'admin_head', 'scaffolding_increase_capabilities' );
-
-// Removes the Powered By WPEngine widget
-wp_unregister_sidebar_widget( 'wpe_widget_powered_by' );
-
-/**
- * Remove select admin bar links
- *
- * Helps minimize client confusion. KISS.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_remove_admin_bar_links() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu( 'wp-logo' );       // Remove Wordpress Logo From Admin Bar
-	$wp_admin_bar->remove_menu( 'wpseo-menu' );    // Remove SEO from Admin Bar
-}
-add_action( 'wp_before_admin_bar_render', 'scaffolding_remove_admin_bar_links' );
-
-/**
- * Disable the emoji's
- *
- * @since Scaffolding 1.1
- */
-function scaffolding_disable_emojis() {
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );
-	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
-}
-add_action( 'init', 'scaffolding_disable_emojis' );
-
-/**
- * Filter function used to remove the tinymce emoji plugin.
- *
- * @since Scaffolding 1.1
- * @param    array  $plugins
- * @return   array  Difference between the two arrays
- */
-function disable_emojis_tinymce( $plugins ) {
-	if ( is_array( $plugins ) ) {
-		return array_diff( $plugins, array( 'wpemoji' ) );
-	} else {
-		return array();
-	}
-}
-
-/**
-* Remove plugin and theme editor pages from menu
-*
-* @since Scaffolding 1.1
-*/
-function scaffolding_hide_editors() {
-	remove_submenu_page( 'themes.php', 'theme-editor.php' );
-	remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
-}
-add_action( 'admin_init', 'scaffolding_hide_editors' );
-
-
-/************************************
- * 6.0 - CUSTOM LOGIN
- *    6.1 - Add styles to login page
- *    6.2 - Change logo link
- *    6.3 - Change alt attribute on logo
+ * 5.0 - CUSTOM LOGIN
+ *    5.1 - Add styles to login page
+ *    5.2 - Change logo link
+ *    5.3 - Change alt attribute on logo
 *************************************/
 
 /**
@@ -570,11 +468,11 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
 
 
 /************************************
- * 7.0 - VISITOR/USER UX FUNCTIONS
- *    7.1 - Filter hard coded dimensions on images
- *    7.2 - Remove p tags from images
- *    7.3 - Fix tabindex for Gravity Forms
- *    7.4 - Filter hard coded dimensions on captions
+ * 6.0 - VISITOR/USER UX FUNCTIONS
+ *    6.1 - Filter hard coded dimensions on images
+ *    6.2 - Remove p tags from images
+ *    6.3 - Fix tabindex for Gravity Forms
+ *    6.4 - Filter hard coded dimensions on captions
 *************************************/
 
 /**
