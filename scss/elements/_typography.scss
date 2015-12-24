@@ -68,12 +68,12 @@ blockquote {
 	}
 }
 
-	q:before,
-	q:after,
-	blockquote:before,
-	blockquote:after {
-		content: "";
-	}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+	content: "";
+}
 
 address {
 	display: block;
@@ -91,39 +91,39 @@ pre {
 	padding: 0 3px 2px;
 }
 
-	code {
-		background-color: #F7F7F7;
-		border: 1px solid #E1E1E8;
-		color: #D14;
-		display: inline-block;
-		padding: 2px 4px;
-		white-space: pre-wrap;
-	}
+code {
+	background-color: #F7F7F7;
+	border: 1px solid #E1E1E8;
+	color: #D14;
+	display: inline-block;
+	padding: 2px 4px;
+	white-space: pre-wrap;
+}
 
-	pre {
-		background-color: #F5F5F5;
-		border: 1px solid #CCC;
-		border: 1px solid rgba(0, 0, 0, 0.15);
-		border-radius: 0;
-		display: block;
-		font-size: 13px;
-		line-height: 1.3;
-		margin: 0 0 10px;
-		padding: 9.5px;
-		white-space: pre;
-		white-space: pre-wrap;
-		word-break: break-all;
-		word-wrap: break-word;
-	}
+pre {
+	background-color: #F5F5F5;
+	border: 1px solid #CCC;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 0;
+	display: block;
+	font-size: 13px;
+	line-height: 1.3;
+	margin: 0 0 10px;
+	padding: 9.5px;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+}
 
-	pre code {
-		background-color: transparent;
-		border: 0;
-		color: inherit;
-		padding: 0;
-		white-space: pre;
-		white-space: pre-wrap;
-	}
+pre code {
+	background-color: transparent;
+	border: 0;
+	color: inherit;
+	padding: 0;
+	white-space: pre;
+	white-space: pre-wrap;
+}
 
 hr {
 	clear: both;
@@ -150,41 +150,41 @@ h5, .h5 {
 	}
 }
 
-	h1, .h1 {
-		font-size: 2em;
-		line-height: 1.2;
-		margin: 0.67em 0;
-	}
+h1, .h1 {
+	font-size: 2em;
+	line-height: 1.2;
+	margin: 0.67em 0;
+}
 
-	h2, .h2 {
-		font-size: 1.75em;
-		line-height: 1.3;
-		margin: 0.83em 0;
-	}
+h2, .h2 {
+	font-size: 1.75em;
+	line-height: 1.3;
+	margin: 0.83em 0;
+}
 
-	h3, .h3 {
-		font-size: 1.25em;
-		line-height: 1.4;
-		margin: 1em 0;
-	}
+h3, .h3 {
+	font-size: 1.25em;
+	line-height: 1.4;
+	margin: 1em 0;
+}
 
-	h4, .h4 {
-		font-size: 1.1em;
-		line-height: 1.5;
-		margin: 1.33em 0;
-	}
+h4, .h4 {
+	font-size: 1.1em;
+	line-height: 1.5;
+	margin: 1.33em 0;
+}
 
-	h5, .h5 {
-		font-size: 0.846em;
-		line-height: 1.5;
-		margin: 1.67em 0;
-	}
+h5, .h5 {
+	font-size: 0.846em;
+	line-height: 1.5;
+	margin: 1.67em 0;
+}
 
-	h6, .h6 {
-		font-size: 0.746em;
-		line-height: 1.55;
-		margin: 2.33em 0;
-	}
+h6, .h6 {
+	font-size: 0.746em;
+	line-height: 1.55;
+	margin: 2.33em 0;
+}
 
 /*************************
  * TINYMCE

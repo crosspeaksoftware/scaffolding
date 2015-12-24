@@ -60,7 +60,7 @@ DESKTOP
 @media only screen and (min-width: $screen-md-min) {
 	
 	@import "media-queries/md";
-	//@import "modules/sticky-footer";
+	//@import "modules/sticky-footer"; // need to add sticky-footer class to the body
 	
 }
 

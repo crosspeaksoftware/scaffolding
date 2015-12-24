@@ -15,6 +15,8 @@ body.sticky-footer {
 }
 
 body.sticky-footer {
+	overflow-x: visible;
+	
 	#container {
 		display: table;
 		width: 100%;
@@ -32,10 +34,7 @@ body.sticky-footer {
 
 }
 
-html>body.sticky-footer #container {
-	height: 100%;
-}
-
+html>body.sticky-footer #container,
 html>body.sticky-footer #content {
-	height: auto;
+	height: 100%;
 }

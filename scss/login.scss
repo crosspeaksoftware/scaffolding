@@ -49,9 +49,7 @@ form {
 body form .input {
 	background: #FBFBFB;
 	border: 1px solid #E5E5E5;
-	-webkit-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
-	-moz-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
-	box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+	@include box-shadow(rgba(200, 200, 200, 0.2) 1px 1px 2px inset);
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 	font-size: 24px;
 	font-weight: 200;
