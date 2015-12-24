@@ -39,7 +39,8 @@ a[href^="#"]:after {
 	content: "";
 }
 
-pre, blockquote {
+pre, 
+blockquote {
 	border: 1px solid #999;
 	page-break-inside: avoid;
 }
@@ -48,7 +49,8 @@ thead {
 	display: table-header-group;
 }
 
-tr, img {
+tr, 
+img {
 	page-break-inside: avoid;
 }
 
@@ -60,7 +62,9 @@ img {
 	margin: 0.5cm;
 }
 
-p, h2, h3 {
+p, 
+h2, 
+h3 {
 	orphans: 3;
 	widows: 3;
 }

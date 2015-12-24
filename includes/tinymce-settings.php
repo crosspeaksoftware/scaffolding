@@ -9,8 +9,8 @@
  */
 
 // TinyMCE: First line toolbar customizations
-if ( !function_exists( 'scaffolding_extended_editor_mce_buttons' ) ) {
-	function scaffolding_extended_editor_mce_buttons( $buttons ) {
+if ( ! function_exists( 'scaffolding_extended_editor_mce_buttons' ) ) {
+	function scaffolding_extended_editor_mce_buttons ( $buttons ) {
 		// The settings are returned in this array. Customize to suite your needs.
 		return array(
             'bold', 'italic', 'strikethrough', 'bullist', 'numlist', 'blockquote', 'hr', 
@@ -28,8 +28,8 @@ if ( !function_exists( 'scaffolding_extended_editor_mce_buttons' ) ) {
 }
 
 // TinyMCE: Second line toolbar customizations
-if ( !function_exists( 'scaffolding_extended_editor_mce_buttons_2' ) ) {
-	function scaffolding_extended_editor_mce_buttons_2( $buttons ) {
+if ( ! function_exists( 'scaffolding_extended_editor_mce_buttons_2' ) ) {
+	function scaffolding_extended_editor_mce_buttons_2 ( $buttons ) {
 		// The settings are returned in this array. Customize to suite your needs. An empty array is used here because I remove the second row of icons.
 		return array(
             'styleselect', 'underline', 'alignull', 'forecolor', 'pastetext', 'pasteword', 'removeformat', 'media', 'charmap', 

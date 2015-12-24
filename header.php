@@ -76,15 +76,15 @@
 			<div id="inner-content" class="wrap clearfix">
 
 				<?php // Test for active sidebars to set the main content width
-					if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) : // both sidebars
+					if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) { // both sidebars
 						$main_class = 'col-sm-6 col-sm-push-3';
-					elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) : // left sidebar
+					} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) { // left sidebar
 						$main_class = 'col-sm-9 col-sm-push-3';
-					elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) : // right sidebar
+					} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) { // right sidebar
 						$main_class = 'col-sm-9';
-					else : // no sidebar
+					} else { // no sidebar
 						$main_class = 'col-xs-12';
-					endif;
+					}
 				?>
 				
 				<div class="row">

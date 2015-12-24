@@ -110,19 +110,19 @@ img.alignnone,
     width: 100%;   
 }
 
-	.gallery-caption:before {
-		content: "";
-		height: 100%;
-		min-height: 49px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-	}
+.gallery-caption:before {
+	content: "";
+	height: 100%;
+	min-height: 49px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
 
-	.gallery-item:hover .gallery-caption {
-		opacity: 1;
-	}
+.gallery-item:hover .gallery-caption {
+	opacity: 1;
+}
 
 .gallery-columns-7,
 .gallery-columns-8,
@@ -192,73 +192,73 @@ img.alignnone,
 /* Core Media Player */
 .mejs-container {}
 
-	.mejs-controls {
-		.mejs-button {}
-		
-		.mejs-playpause-button {}
-		.mejs-play {}
-		.mejs-pause {}
-		
-		.mejs-time {}
-		.mejs-currenttime-container {}
-		.mejs-duration-container {}
-		.mejs-time-rail {}
-		
-		.mejs-volume-button {}
-		.mejs-mute {}
-		.mejs-unmute {}
-		
-		.mejs-fullscreen-button {}
-		.mejs-fullscreen {}
-		.mejs-unfullscreen {}
-	}
+.mejs-controls {
+	.mejs-button {}
+
+	.mejs-playpause-button {}
+	.mejs-play {}
+	.mejs-pause {}
+
+	.mejs-time {}
+	.mejs-currenttime-container {}
+	.mejs-duration-container {}
+	.mejs-time-rail {}
+
+	.mejs-volume-button {}
+	.mejs-mute {}
+	.mejs-unmute {}
+
+	.mejs-fullscreen-button {}
+	.mejs-fullscreen {}
+	.mejs-unfullscreen {}
+}
 
 /* Video Player */
 .wp-video {
 	margin: 1em 0;
 }
 
-	.mejs-video {
-		height: auto !important;
-		padding-top: 57%;
-		width: 100% !important;
+.mejs-video {
+	height: auto !important;
+	padding-top: 57%;
+	width: 100% !important;
 
-		.mejs-inner {
-			.mejs-mediaelement {
-				video {
-					bottom: 0;
-					height: 100% !important;
-					left: 0;
-					position: absolute;
-					right: 0;
-					top: 0;
-					width: 100% !important;
-				}
+	.mejs-inner {
+		.mejs-mediaelement {
+			video {
+				bottom: 0;
+				height: 100% !important;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 100% !important;
+			}
+		}
+
+		.mejs-layers {
+			.mejs-layer {
+				.mejs-overlay-loading {}
+				.mejs-overlay-error {}
+				.mejs-overlay-button {}
 			}
 
-			.mejs-layers {
-				.mejs-layer {
-					.mejs-overlay-loading {}
-					.mejs-overlay-error {}
-					.mejs-overlay-button {}
-				}
-
-				.mejs-poster {
-					height: 100% !important;
-					width: 100% !important;
-				}
-			}
-
-			.mejs-overlay {}
-
-			.mejs-overlay-play {
+			.mejs-poster {
 				height: 100% !important;
 				width: 100% !important;
 			}
-
-			.mejs-controls {}
 		}
+
+		.mejs-overlay {}
+
+		.mejs-overlay-play {
+			height: 100% !important;
+			width: 100% !important;
+		}
+
+		.mejs-controls {}
 	}
+}
 
 /* Audio Player */
 .mejs-audio {

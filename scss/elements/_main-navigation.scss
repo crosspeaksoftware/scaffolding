@@ -21,7 +21,9 @@ It currently slides out from the right.
 	white-space: nowrap;
 	@include transition(all 0.25s ease-in-out);
 
-	&:hover, &:active, &:focus {
+	&:hover, 
+	&:active, 
+	&:focus {
 		text-decoration: none;
 	}
 	
@@ -64,7 +66,8 @@ It currently slides out from the right.
 		        width: 80%;
                 @include transition(all 0.25s ease-in-out);
 
-				&:hover, &:focus {
+				&:hover, 
+				&:focus {
 	                background-color: #222;
 					color: #CCC;
                 }
@@ -81,7 +84,8 @@ It currently slides out from the right.
                 width: 20%;
                 @include transition(all 0.25s ease-in-out);
 
-                &:hover, &:focus {}
+                &:hover, 
+				&:focus {}
             }
 
             a.menu-back-button {
@@ -93,10 +97,12 @@ It currently slides out from the right.
 				width: 100%;
                 @include transition(all 0.25s ease-in-out);
 
-                &:hover, &:focus {}
+                &:hover, 
+				&:focus {}
             }
 			
-			&:hover, &:focus {}
+			&:hover, 
+			&:focus {}
 
             &.first-item {}
 
@@ -112,7 +118,8 @@ It currently slides out from the right.
 				> a {
 					background-color: #292929;
 					
-					&:hover, &:focus {
+					&:hover, 
+					&:focus {
 						background-color: #222;
 					}
 				}
@@ -209,7 +216,8 @@ body.menu-open {
 					padding: 10px 20px;
 					width: auto;
 
-					&:hover, &:focus {}
+					&:hover, 
+					&:focus {}
 				}
 				
 	            a.menu-button {
@@ -221,7 +229,8 @@ body.menu-open {
 	            }
 				
 				/* maintain hover state on dropdown */
-	            &:hover, &:focus {
+	            &:hover, 
+				&:focus {
 					background-color: #222;
 					
 					&.current-menu-ancestor {
@@ -294,7 +303,8 @@ body.menu-open {
 							font-size: 95%;
 							padding: 8px 12px;
 
-							&:hover, &:focus {}
+							&:hover, 
+							&:focus {}
 						}
 
 
@@ -306,7 +316,8 @@ body.menu-open {
 							}
 						}
 
-			            &:hover, &:focus {}
+			            &:hover, 
+						&:focus {}
 
 						&.menu-item-no-children {}
 

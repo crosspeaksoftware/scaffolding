@@ -92,7 +92,8 @@ Want to get fancy for no good reason? Knock yourself out.
 */
 @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
 	// iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
-	input, textarea {
+	input, 
+	textarea {
   		-webkit-appearance: none;
   		-webkit-border-radius: 0;
 	}

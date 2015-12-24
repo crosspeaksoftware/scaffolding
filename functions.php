@@ -99,7 +99,7 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_script( 'scaffolding-select2', get_stylesheet_directory_uri() . '/js/lib/select2.min.js', array( 'jquery' ), '3.5.4', true );
 
 	// Comment reply script for threaded comments
-	if ( is_singular() && comments_open() && ( get_option('thread_comments' ) == 1) ) {
+	if ( is_singular() && comments_open() && ( 1 == get_option('thread_comments' ) ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
@@ -238,7 +238,7 @@ function scaffolding_main_nav() {
 		'depth'           => 0,							      // limit the depth of the nav
 		'fallback_cb'     => '',	                          // fallback function
 		'items_wrap'      => '<a href="#" id="mobile-menu-button" title="Click to open menu"><i class="fa"></i> Menu</a><ul id="%1$s" class="%2$s">%3$s</ul>',
-		'walker'          => new scaffolding_walker_nav_menu,
+		'walker'          => new Scaffolding_Walker_Nav_Menu,
 	));
 } // end scaffolding_main_nav()
 
@@ -266,7 +266,7 @@ function scaffolding_footer_nav() {
  *
  * @since Scaffolding 1.0
  */
-class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
+class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	// add classes to ul sub-menus
 	function start_lvl( &$output, $depth = 0, $args = Array() ) {
 		// depth dependent classes
@@ -283,7 +283,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
 	}
 
-	function start_el( &$output, $item, $depth = 0, $args = Array(), $id = 0 ) {
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$class_names = $value = '';
@@ -325,11 +325,11 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
-	function end_el( &$output, $item, $depth=0, $args=array() ) {
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</li>\n";
 	}
 
-   function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+   function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 
 		//Set custom arg to tell if item has children
 		$id_field = $this->db_fields['id'];
@@ -339,7 +339,7 @@ class scaffolding_walker_nav_menu extends Walker_Nav_Menu {
 
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
-} // end scaffolding_walker_nav_menu()
+} // end Scaffolding_Walker_Nav_Menu()
 
 
 /************************************

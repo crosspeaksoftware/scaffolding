@@ -99,6 +99,7 @@ body {
 	.byline {
 		color: #999;
 		margin: -1em 0 0;
+		
 		time {}
 	}
 
@@ -222,7 +223,6 @@ body {
 }
 
 ul.footer-menu {
-	display: inline-block;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -244,6 +244,10 @@ ul.footer-menu {
 			border-left: none;
 		}
 	}
+	
+	ul.sub-menu {
+		display: none; // hide child ul as design does not support it
+	}
 } /* end .footer-menu */
 
 .copyright {
@@ -263,12 +267,13 @@ ul.footer-menu {
 		background: #000;
 		@include border-radius(500px);
 		display: block;
-		opacity: .2;
+		opacity: 0.2;
 		text-decoration: none;
 		@include transition(all 1s ease-in-out);
 		width: 40px;
 
-		&:hover, &:focus {
+		&:hover, 
+		&:focus {
 			color: #000;
 			opacity: 1;
 		}
