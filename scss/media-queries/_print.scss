@@ -4,7 +4,7 @@ Author:
 
 Stylesheet: Print Stylesheet
 
-This is the print stylesheet. There are probably not a lot of reasons 
+This is the print stylesheet. There are probably not a lot of reasons
 to edit this stylesheet. If you want to though, go for it.
 
 ******************************************************************/
@@ -17,7 +17,7 @@ to edit this stylesheet. If you want to though, go for it.
 	-ms-filter: none !important;
 }
 
-a, 
+a,
 a:visited {
 	color: #444 !important;
 	text-decoration: underline;
@@ -39,7 +39,7 @@ a[href^="#"]:after {
 	content: "";
 }
 
-pre, 
+pre,
 blockquote {
 	border: 1px solid #999;
 	page-break-inside: avoid;
@@ -49,7 +49,7 @@ thead {
 	display: table-header-group;
 }
 
-tr, 
+tr,
 img {
 	page-break-inside: avoid;
 }
@@ -62,8 +62,8 @@ img {
 	margin: 0.5cm;
 }
 
-p, 
-h2, 
+p,
+h2,
 h3 {
 	orphans: 3;
 	widows: 3;

@@ -10,7 +10,7 @@ Stylesheet: Comments Stylesheet
  * COMMENT FORM
  ************************/
 
-.respond-form, 
+.respond-form,
 .comment-respond {
 
 	#reply-title {
@@ -75,7 +75,7 @@ Stylesheet: Comments Stylesheet
 			font-weight: bold;
 			line-height: 1.3em;
 			margin: 10px 0 4px 0;
-			
+
 			.required {
 				color: #AF3124;
 			}
@@ -151,7 +151,7 @@ Stylesheet: Comments Stylesheet
 		overflow: hidden;
 		padding: 0;
 		position: relative;
-		
+
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -238,7 +238,7 @@ Stylesheet: Comments Stylesheet
 
 		.photo {}
 
-		.avatar, 
+		.avatar,
 		.photo {
 			border: 1px solid #DDD;
 			left: 0;
@@ -270,7 +270,7 @@ Stylesheet: Comments Stylesheet
 	/* comment content */
 	.comment_content {
 		border: 1px solid #DDD;
-		clear: both; 
+		clear: both;
 		margin-top: 1em;
 		padding: 0.5em 0.5em 0.5em 1.5em;
 
@@ -280,7 +280,7 @@ Stylesheet: Comments Stylesheet
 			margin: 1em 0;
 		}
 
-		ul, 
+		ul,
 		ol {
 			li {
 				list-style-type: inherit;
@@ -297,7 +297,7 @@ Stylesheet: Comments Stylesheet
 		font-size: 0.9em;
 		font-weight: 400;
 		margin: 0.5em 0 1em 0;
-		padding: 5px 15px;		
+		padding: 5px 15px;
 		text-decoration: none;
 
 		&:hover,

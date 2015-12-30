@@ -5,7 +5,7 @@
  * @package Scaffolding
  * @since Scaffolding 1.1
  */
- 
+
 get_header();
 
 // Add post types to include in site map
@@ -24,12 +24,12 @@ $excluded_term_IDs = array();
 foreach( $taxes as $tax ) {
 	// Get yoast taxonomy meta
 	$yoast_tax_meta = get_option('wpseo_taxonomy_meta');
-	
+
 	// Check if taxonomy exists in array
-	if ( is_array( $yoast_tax_meta[$tax] ) ) {
+	if ( is_array( $yoast_tax_meta[ $tax ] ) ) {
 		foreach( $terms as $term ) {
 			// Check if each term exists in array and is excluded from sitemap
-			if ( is_array( $yoast_tax_meta[$tax][$term] ) && $yoast_tax_meta[$tax][$term]['wpseo_sitemap_include'] == 'never' ) {
+			if ( is_array( $yoast_tax_meta[ $tax ][ $term ] ) && 'never' == $yoast_tax_meta[ $tax ][ $term ]['wpseo_sitemap_include'] ) {
 				$excluded_term_IDs[] = $term;
 			}
 		}
@@ -39,11 +39,11 @@ foreach( $taxes as $tax ) {
 // Collect all excluded posts for the listed post types
 foreach( $types as $type ) {
 	$args = array(
-		'numberposts'		=> -1, // get all
-		'meta_key'     		=> '_yoast_wpseo_meta-robots-noindex', // remove post with noindex
-		'meta_compare' 		=> 'EXISTS',
-		'post_type'		=> $type,
-		'post_status'		=> 'publish',
+		'numberposts'  => -1, // get all
+		'meta_key'     => '_yoast_wpseo_meta-robots-noindex', // remove post with noindex
+		'meta_compare' => 'EXISTS',
+		'post_type'    => $type,
+		'post_status'  => 'publish',
 	);
 	$excluded_{$type} = get_posts( $args );
 }
@@ -71,13 +71,13 @@ $read_settings_num_posts = get_option('posts_per_page');
  * Build display for taxonomy terms
  */
 function scaffolding_list_terms( $param, $tax ) {
-	
+
 	// Collect our excluded term ids
 	$excluded_term_IDs = $param['exclude'];
-	
+
 	// Get our terms
 	$terms = get_terms( $tax, $param );
-	
+
 	if ( $terms ) {
 		echo '<ul>';
 		foreach ( $terms as $term ) {
@@ -96,21 +96,21 @@ function scaffolding_list_terms( $param, $tax ) {
 		}
 		echo '</ul>';
 	}
-	
+
 }
 
 /**
  * Build display for posts by post type
  */
 function scaffolding_list_posts( $param, $post_type ) {
-	
+
 	$pt = get_post_type_object( $post_type ); // Get post type object for name label
 	$count_posts = wp_count_posts( $post_type ); // Count number of posts in db
 	$published_posts = $count_posts->publish; // Count number of published posts, only show those
 	$read_settings_num_posts = get_option('posts_per_page'); // Get number of posts per page in settings
 
 	// Get archive link to add "View all" link
-	if ( $post_type == 'post' ) {
+	if ( 'post' == $post_type ) {
 		$archive_link = get_permalink( get_option('page_for_posts') );
 	} else {
 		$archive_link = get_post_type_archive_link( $post_type );
@@ -144,11 +144,11 @@ function scaffolding_list_posts( $param, $post_type ) {
 	} else {
 		echo sprintf( __( 'There are currently no %s.', 'scaffolding' ), $pt->labels->name );
 	}
-	
-}
-?>
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+}
+
+
+	if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
@@ -162,7 +162,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 
 					<?php the_content(); ?>
 
-					<?php wp_link_pages( 
+					<?php wp_link_pages(
 						array(
 							'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
 							'after'       => '</div>',
@@ -186,7 +186,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 							</ul>
 
 						</div><?php // END #pages ?>
-						
+
 						<div id="posts" class="col-sm-6">
 
 							<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
@@ -200,7 +200,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 							);
 							scaffolding_list_posts( $params, 'post' );
 							?>
-							
+
 							<?php
 							/* Example: List Product Categories
 							$params = array(

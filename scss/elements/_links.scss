@@ -6,14 +6,14 @@ Stylesheet: Links Stylesheet
 
 ******************************************************************/
 
-a, 
+a,
 a:visited {
 	color: $color__link;
 	text-decoration: none;
 }
 
 /* on hover and focus */
-a:hover, 
+a:hover,
 a:focus {
 	color: $color__link-hover;
 	text-decoration: underline;
@@ -28,5 +28,5 @@ a:link {
 
 /* read more link */
 .read-more {
-    white-space: nowrap;
+	white-space: nowrap;
 }

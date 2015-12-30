@@ -61,31 +61,31 @@ require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
 function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
-    /**
-     * Add to wp_head()
-     */
+	/**
+	 * Add to wp_head()
+	 */
 
 	// Main stylesheet
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
 
 
-    // Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
+// Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
 	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.5.0' );
 
 	// IE-only stylesheet
 	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-    // Modernizr - http://modernizr.com/
+// Modernizr - http://modernizr.com/
 	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), false );
 
 	// Respond - https://github.com/scottjehl/Respond
 	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), false );
 	$wp_styles->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-    /**
-     * Add to wp_footer()
-     */
+	/**
+	 * Add to wp_footer()
+	 */
 
 	// Retina.js - http://imulus.github.io/retinajs/
 	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '1.4.2', true );
@@ -124,13 +124,13 @@ function scaffolding_theme_support() {
 	// Make theme available for translation
 	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
 
-    // Support for thumbnails
+	// Support for thumbnails
 	add_theme_support( 'post-thumbnails' );
 
-    // Set default thumbnail size
+	// Set default thumbnail size
 	set_post_thumbnail_size( 125, 125, true );
 
-    // Support for RSS
+	// Support for RSS
 	add_theme_support( 'automatic-feed-links' );
 
 	// Support for custom headers
@@ -150,29 +150,29 @@ function scaffolding_theme_support() {
 		)
 	);
 
-    // HTML5
-    add_theme_support( 'html5', array(
-        'comment-list',
-        'comment-form',
-        'search-form',
-        'gallery',
-        'caption',
-    ) );
+	// HTML5
+	add_theme_support( 'html5', array(
+		'comment-list',
+		'comment-form',
+		'search-form',
+		'gallery',
+		'caption',
+	) );
 
-    /* Feature Currently Disabled
-    // Title Tag
-    add_theme_support( 'title-tag' );
-    */
+	/* Feature Currently Disabled
+	// Title Tag
+	add_theme_support( 'title-tag' );
+	*/
 
-    /*  Feature Currently Disabled
+	/*  Feature Currently Disabled
 	// WP custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background', array(
-        'default-color'           => '',      // background color default (dont add the #)
+		'default-color'           => '',      // background color default (dont add the #)
 		'default-image'           => '',      // background image default
 		'wp-head-callback'        => '_custom_background_cb',
 		'admin-head-callback'     => '',
 		'admin-preview-callback'  => '',
-    ) );
+	) );
 	*/
 
 	/* Feature Currently Disabled
@@ -187,7 +187,7 @@ function scaffolding_theme_support() {
 			'video',			// video
 			'audio',			// audio
 			'chat',				// chat transcript
-    ) );
+	) );
 	*/
 
 	// Support for menus
@@ -201,8 +201,8 @@ function scaffolding_theme_support() {
 		)
 	);
 
-    // Add styles for use in visual editor
-    add_editor_style( 'css/editor-styles.css' );
+	// Add styles for use in visual editor
+	add_editor_style( 'css/editor-styles.css' );
 
 } // end scaffolding_theme_support()
 
@@ -452,12 +452,12 @@ function scaffolding_wpsearch( $form ) {
  * @since Scaffolding 1.1
  */
 function scaffolding_noindex_filter( $query ) {
-    if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
-        $query->set( 'meta_key', '_yoast_wpseo_meta-robots-noindex' );
-        $query->set( 'meta_value', '' );
-        $query->set( 'meta_compare', 'NOT EXISTS' );
-    }
-    return $query;
+	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
+		$query->set( 'meta_key', '_yoast_wpseo_meta-robots-noindex' );
+		$query->set( 'meta_value', '' );
+		$query->set( 'meta_compare', 'NOT EXISTS' );
+	}
+	return $query;
 }
 add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
 
@@ -472,7 +472,7 @@ add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
  * @since Scaffolding 1.0
  */
 function scaffolding_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
+	$GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<header class="comment-author vcard">
@@ -492,9 +492,9 @@ function scaffolding_comments( $comment, $args, $depth ) {
 				<?php edit_comment_link( __( '(Edit)', 'scaffolding'),'  ','' ) ?>
 			</header>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
-	   			<div class="alert info">
-		  			<p><?php _e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
-		  		</div>
+				<div class="alert info">
+					<p><?php _e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
+				</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
 				<?php comment_text() ?>
@@ -510,7 +510,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
  * 9.0 - UTILITY FUNCTIONS
  *     9.1 - Removes […] from read more
  *     9.2 - Modified author post link
-*************************************/
+ ************************************/
 
 /**
  * Removes the annoying […] to a Read More link

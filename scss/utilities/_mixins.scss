@@ -40,30 +40,30 @@ remember less is more.
  ************************/
 
 .clearfix {
-  	zoom: 1;
-	
+	zoom: 1;
+
 	&:after,
-	&:before { 
-		content: " "; 
-		display: table; 
+	&:before {
+		content: " ";
+		display: table;
 	}
-	
-	&:after { 
-		clear: both; 
+
+	&:after {
+		clear: both;
 	}
 }
 
 @mixin clearfix {
 	zoom: 1;
-	
+
 	&:after,
-	&:before { 
-		content: " "; 
-		display: table; 
+	&:before {
+		content: " ";
+		display: table;
 	}
-	
-	&:after { 
-		clear: both; 
+
+	&:after {
+		clear: both;
 	}
 }
 
@@ -75,10 +75,10 @@ remember less is more.
 	@include clearfix;
 	margin-left: auto;
 	margin-right: auto;
-  	max-width: 90%;
-	
+	max-width: 90%;
+
 	@media only screen and (min-width: $screen-lg-min) {
-		max-width: $container-lg;	
+		max-width: $container-lg;
 	}
 }
 
@@ -87,8 +87,8 @@ remember less is more.
  ************************/
 
 .img-border {
-    border: 1px solid #CCC;
-    padding: 5px;
+	border: 1px solid #CCC;
+	padding: 5px;
 }
 
 .img-rounded {
@@ -154,17 +154,17 @@ span.amp {
 
 // Responsive utilities
 @mixin responsive-visibility($parent) {
-	#{$parent} { 
-		display: block !important; 
+	#{$parent} {
+		display: block !important;
 	}
-	
-	tr#{$parent} { 
-		display: table-row !important; 
+
+	tr#{$parent} {
+		display: table-row !important;
 	}
-	
+
 	th#{$parent},
-	td#{$parent} { 
-		display: table-cell !important; 
+	td#{$parent} {
+		display: table-cell !important;
 	}
 }
 
@@ -173,78 +173,78 @@ span.amp {
 	#{$parent},
 	tr#{$parent},
 	th#{$parent},
-	td#{$parent} { 
-		display: none !important; 
+	td#{$parent} {
+		display: none !important;
 	}
 }
 
 // Device-specific hide/show classes. Written in reverse logic for IE compatibility
 @include responsive-invisibility('.mobile-only');
 @media only screen and (max-width: $screen-xs-max) {
-    @include responsive-visibility('.mobile-only');
+	@include responsive-visibility('.mobile-only');
 }
 
 @include responsive-visibility('.mobile-hide');
 @media only screen and (max-width: $screen-xs-max) {
-    @include responsive-invisibility('.mobile-hide');
+	@include responsive-invisibility('.mobile-hide');
 }
 
 @include responsive-invisibility('.tablet-only');
 @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    @include responsive-visibility('.tablet-only');
+	@include responsive-visibility('.tablet-only');
 }
 
 @include responsive-visibility('.tablet-hide');
 @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    @include responsive-invisibility('.tablet-hide');
+	@include responsive-invisibility('.tablet-hide');
 }
 
 @include responsive-invisibility('.desktop-only');
 @media only screen and (min-width: $screen-md-min) {
-    @include responsive-visibility('.desktop-only');
+	@include responsive-visibility('.desktop-only');
 }
 
 @include responsive-visibility('.desktop-hide');
 @media only screen and (min-width: $screen-md-min) {
-    @include responsive-invisibility('.desktop-hide');
+	@include responsive-invisibility('.desktop-hide');
 }
 
 /*************************
  * UTILITY STYLES
  ************************/
 
-.float-left	{ 
-	float: left; 
+.float-left	{
+	float: left;
 }
 
-.float-none { 
-	float: none; 
+.float-none {
+	float: none;
 }
 
-.float-right { 
-	float: right; 
+.float-right {
+	float: right;
 }
 
-.clear-left { 
-	clear: left; 
+.clear-left {
+	clear: left;
 }
 
 .clear-both,
-.clear { 
-	clear: both; 
+.clear {
+	clear: both;
 }
 
-.clear-right { 
-	clear: right; 
+.clear-right {
+	clear: right;
 }
 
 /* Image replacement */
 .ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    /* IE 6/7 fallback */
-    *text-indent: -9999px;
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	/* IE 6/7 fallback */
+	*text-indent: -9999px;
 
 	&:before {
 		content: "";
@@ -258,22 +258,22 @@ span.amp {
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
 .scaffolding-hidden {
-    display: none !important;
-    visibility: hidden;
+	display: none !important;
+	visibility: hidden;
 }
 
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
 .scaffolding-visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 /*
@@ -282,17 +282,17 @@ span.amp {
  */
 .scaffolding-visuallyhidden.focusable:active,
 .scaffolding-visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
 .scaffolding-invisible {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 /*************************
@@ -306,16 +306,16 @@ span.amp {
 @mixin transition($transition...) {
 	// defining prefixes so we can use them in mixins below
 	$prefixes:      ("-webkit", "-moz", "-ms", "-o",  "");
-  	@each $prefix in $prefixes {
-    	#{$prefix}-transition: $transition;
-  	}
+	@each $prefix in $prefixes {
+		#{$prefix}-transition: $transition;
+	}
 	transition: $transition;
 }
 
 /*************************
  * ANIMATION
- * Compass CSS3 mixins don't yet handle vendor prefixes 
- * for CSS animations, so this is a very simple mixin to 
+ * Compass CSS3 mixins don't yet handle vendor prefixes
+ * for CSS animations, so this is a very simple mixin to
  * simulate that functionality.
  ************************/
 
@@ -356,15 +356,15 @@ span.amp {
  ************************/
 
 @mixin grayscale {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
-    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
-    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+	filter: gray; /* IE6-9 */
+	-webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+	-webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+	-webkit-backface-visibility: hidden; /* Fix for transition flickering */
 
 	&:hover {
-    	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
-    	-webkit-filter: grayscale(0%);
+		filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+		-webkit-filter: grayscale(0%);
 	}
 }
 
@@ -373,17 +373,17 @@ span.amp {
  ************************/
 
 @mixin transparent($color, $alpha) {
-    $rgba: rgba($color, $alpha);
-    $ie-hex-str: ie-hex-str($rgba);
-    background-color: transparent;
-    background-color: $rgba;
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
-    zoom: 1;
+	$rgba: rgba($color, $alpha);
+	$ie-hex-str: ie-hex-str($rgba);
+	background-color: transparent;
+	background-color: $rgba;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+	zoom: 1;
 }
 
 /*************************
  * GRADIENTS
- * Be careful with these since they can really slow 
+ * Be careful with these since they can really slow
  * down your CSS. Don't overdue it.
  * USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
  ************************/

@@ -122,11 +122,11 @@ textarea.textarea {
 	} /* end li.gfield.gf_inline */
 
 	/* 2 column */
-	
+
 	li.gfield.gf_left_half,
 	li.gfield.gf_right_half {
 		width: 100%;
-		
+
 		input.medium,
 		input.large,
 		select.medium,
@@ -137,11 +137,11 @@ textarea.textarea {
 		select.large {
 			width: 100%;
 		}
-		
+
 		textarea {
 			width: 100%;
 		}
-		
+
 		input.small {
 			width: 100%;
 		}
@@ -204,7 +204,7 @@ textarea.textarea {
 	li.gfield.gf_right_third+.gform_footer {
 		clear: both;
 	}
-	
+
 } /* end .top_label */
 
 /* radio/checkbox sub-column */
@@ -336,11 +336,11 @@ li.gsection.gf_scroll_text {
 	overflow: auto;
 	border: 1px solid #CCC;
 	border-bottom: 1px solid #CCC !important;
-	
+
 	h2.gsection_title {
 		margin: 10px 10px 0 10px !important;
 	}
-	
+
 	.gsection_description {
 		margin: 10px;
 		font-size: 0.8em;
@@ -353,7 +353,7 @@ form div.gform_ul.gform_fields li.gfield.gsection.gf_scroll_text div.gsection_de
 		list-style-type: disc !important;
 		margin: 1em 0 1em 1.5em;
 		padding-left: 0;
-		
+
 		li {
 			margin: 0 0 0.5em;
 			overflow: visible;
@@ -365,15 +365,15 @@ form div.gform_ul.gform_fields li.gfield.gsection.gf_scroll_text div.gsection_de
 		list-style-type: decimal!important;
 		margin: 1em 0 1.5em 2.0em;
 		padding-left: 0;
-		
+
 		li {
 			overflow:visible;
 			margin: 0 0 0.5em;
 			padding-left: 0;
-			
+
 			ul {
 				margin: 1em 0 1em 1.5em;
-				
+
 				li {
 					padding-left: 0;
 					margin: 0 0 0.5em;
@@ -386,11 +386,11 @@ form div.gform_ul.gform_fields li.gfield.gsection.gf_scroll_text div.gsection_de
 div.gform_ul.gform_fields li.gfield.gsection.gf_scroll_text div.gsection_description dl {
 	margin: 0 0 1.5em 0;
 	padding-left: 0;
-	
+
 	dt {
 		font-weight: bold;
 	}
-	
+
 	dd {
 		margin: 0 0 1em 1.5em;
 	}
@@ -472,15 +472,15 @@ div.gform_confirmation_wrapper.gf_confirmation_yellow_gradient {
 	margin: 30px 0;
 	border: 1px solid #E6DB55;
 	@include box-shadow(0 0 5px rgba(221,215,131,0.75));
-	
+
 	div#gforms_confirmation_message {
 		margin: 0;
 		padding: 40px;
 		max-width: 99%;
 		font-size: 1.8em;
 		border-top: 2px solid #FFF;
-		border-bottom: 1px solid #E6DB55; 
-		background-color:#FFFBCC; 
+		border-bottom: 1px solid #E6DB55;
+		background-color:#FFFBCC;
 		color:#424242;
 		background: #fffce5;
 		background: -moz-linear-gradient(top,  #fffce5 0%, #fff9bf 100%);
@@ -499,7 +499,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	margin: 30px 0;
 	border: 1px solid #a7c37c;
 	@include box-shadow(0 0 5px rgba(86,122,86,0.4));
-	
+
 	div#gforms_confirmation_message {
 		margin: 0;
 		padding: 40px;
@@ -507,7 +507,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		font-size: 1.8em;
 		border-top: 2px solid #effade;
 		border-bottom: 1px solid #a7c37c;
-		background-color:#FFFBCC; 
+		background-color:#FFFBCC;
 		text-shadow: #DFB 1px 1px;
 		color: #030;
 		background: rgb(219,242,183);
@@ -524,19 +524,19 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 div.gform_confirmation_wrapper.gf_confirmation_yellow_gradient
 div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	&:before, &:after {
-		z-index: -1; 
-		position: absolute; 
+		z-index: -1;
+		position: absolute;
 		content: "";
 		bottom: 15px;
 		left: 10px;
-		width: 50%; 
+		width: 50%;
 		top: 80%;
 		max-width:40%;
-		background: rgba(0, 0, 0, 0.2); 
+		background: rgba(0, 0, 0, 0.2);
 		@include box-shadow(0 15px 10px rgba(0,0,0,0.2));
 		@include transform(rotate(-3deg));
 	}
-	
+
 	&:after {
 		@include transform(rotate(3deg));
 		right: 10px;
@@ -551,7 +551,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		textarea.textarea {
 			width: 100%;
 		}
-	
+
 		input.small,
 		select.small,
 		.select2-container.small {
@@ -563,7 +563,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		.select2-container.medium {
 			width: 49%;
 		}
-		
+
 		li.gf_list_inline {
 			ul.gfield_radio,
 			ul.gfield_checkbox {
@@ -575,17 +575,17 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 				}
 			}
 		}
-		
+
 		li.gfield.gf_left_half,
 		li.gfield.gf_right_half,
 		li.gfield_medium {
 			width: 49%;
-			
+
 			input.small {
 				width: 35%;
 			}
 		}
-		
+
 		li.gfield.gf_left_half {
 			float: left;
 			clear: left !important;
@@ -595,7 +595,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 			float: right;
 			clear: right !important;
 		}
-		
+
 		li.gfield.gf_left_half,
 		li.gfield.gf_right_half {
 			input.large,
@@ -608,12 +608,12 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 				width: 100% !important;
 			}
 		}
-		
+
 		li.gfield.gf_left_third,
 		li.gfield.gf_middle_third,
 		li.gfield.gf_right_third {
 			width: 32%;
-			
+
 			input.medium,
 			input.large,
 			select.medium,
@@ -650,7 +650,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 			clear: right !important;
 		}
 	} /* end .top_label */
-	
+
 	li.gfield.gf_list_2col,
 	li.gfield.gf_list_3col,
 	li.gfield.gf_list_4col,
@@ -659,7 +659,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 			margin-bottom: 10px;
 		}
 	}
-	
+
 	li.gfield.gf_list_2col ul.gfield_checkbox li,
 	li.gfield.gf_list_2col ul.gfield_radio li,
 	li.gfield.gf_2col ul.gfield_checkbox li,

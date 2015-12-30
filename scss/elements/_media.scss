@@ -70,44 +70,44 @@ img.alignnone,
 /* Image Gallery */
 .gallery {
 
-    .gallery-item {
-        display: inline-block;
-        margin: 1%;
-        overflow: hidden;
-        position: relative;
+	.gallery-item {
+		display: inline-block;
+		margin: 1%;
+		overflow: hidden;
+		position: relative;
 
-        .gallery-icon {
-            text-align: center;
+		.gallery-icon {
+			text-align: center;
 
-            a {
-                img {
+			a {
+				img {
 					vertical-align: bottom;
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 
-    & > br { 
-		display: none; 
+	& > br {
+		display: none;
 	}
 }
 
 .gallery-caption {
-    background-color: #000;
-    background-color: rgba(0, 0, 0, 0.7);
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.7);
 	bottom: 0;
-    color: #FFF;
+	color: #FFF;
 	display: none;
-    font-size: 0.8em;
+	font-size: 0.8em;
 	left: 0;
 	line-height: 1;
 	margin: 0;
 	max-height: 50%;
-    opacity: 0;
-    padding: 3px 5px;
-    position: absolute;
+	opacity: 0;
+	padding: 3px 5px;
+	position: absolute;
 	text-align: left;
-    width: 100%;   
+	width: 100%;
 }
 
 .gallery-caption:before {
@@ -300,15 +300,15 @@ img.alignnone,
 
 	.wp-playlist-next {}
 	.wp-playlist-prev {}
-	
+
 	.wp-playlist-tracks {
 		.wp-playlist-item {
 			&.wp-playlist-playing {}
 			.wp-playlist-caption {
 				display: block;
 
-				.wp-playlist-item-title { 
-					@include truncateText(ellipsis); 
+				.wp-playlist-item-title {
+					@include truncateText(ellipsis);
 				}
 			}
 

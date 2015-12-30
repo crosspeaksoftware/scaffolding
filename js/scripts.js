@@ -66,8 +66,8 @@ jQuery(document).ready(function($) {
 				$(this).select2();
 			})
 		};
-        $(document).ajaxComplete(setup_select2);
-        setup_select2();
+		$(document).ajaxComplete(setup_select2);
+		setup_select2();
 	}
 
 	// Lightbox - http://dimsemenov.com/plugins/magnific-popup/
@@ -120,38 +120,38 @@ jQuery(document).ready(function($) {
 			.height(newWidth * $el.attr('data-aspectRatio'));
 		});
 	}).resize();
-	
+
 	// Equal Height Divs - http://css-tricks.com/equal-height-blocks-in-rows/
-    equalheight = function(container){
- 
-        var currentTallest = 0,
-        currentRowStart = 0,
-        rowDivs = new Array(),
-        $el,
-        topPosition = 0;
- 
-        $(container).each(function() {
-            $el = $(this);
-            $($el).height('auto')
-            topPostion = $el.position().top;
- 
-            if (currentRowStart != topPostion) {
-                for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-                    rowDivs[currentDiv].height(currentTallest);
-                }
-                rowDivs.length = 0; // empty the array
-                currentRowStart = topPostion;
-                currentTallest = $el.height();
-                rowDivs.push($el);
-            } else {
-                rowDivs.push($el);
-                currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-            }
-            for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-                rowDivs[currentDiv].height(currentTallest);
-            }
-        });
-    }
+	equalheight = function(container){
+
+		var currentTallest = 0,
+		currentRowStart = 0,
+		rowDivs = new Array(),
+		$el,
+		topPosition = 0;
+
+		$(container).each(function() {
+			$el = $(this);
+			$($el).height('auto')
+			topPostion = $el.position().top;
+
+			if (currentRowStart != topPostion) {
+				for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+					rowDivs[currentDiv].height(currentTallest);
+				}
+				rowDivs.length = 0; // empty the array
+				currentRowStart = topPostion;
+				currentTallest = $el.height();
+				rowDivs.push($el);
+			} else {
+				rowDivs.push($el);
+				currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+			}
+			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+				rowDivs[currentDiv].height(currentTallest);
+			}
+		});
+	}
 
 	/*
 	Responsive jQuery is a tricky thing.
@@ -162,12 +162,12 @@ jQuery(document).ready(function($) {
 
 	// getting viewport width
 	var responsive_viewport = $(window).width() + getScrollBarWidth();
-	
+
 	/*
 	Mobile Navigation
 	*/
 	var menu = $('#main-navigation > ul');
-	
+
 	$(function() {
 		$('#mobile-menu-button').on('click', function(e) {
 			$('body').toggleClass('menu-open');
@@ -180,7 +180,7 @@ jQuery(document).ready(function($) {
 		$('#main-navigation .sub-menu .menu-back-button').on('click', function(e) {
 			$(this).parent('li').parent('ul').removeClass('sub-menu-open');
 		});
-		
+
 		/*
 		Fixes bug on touch devices
 		opens ul on first tap
@@ -216,7 +216,7 @@ jQuery(document).ready(function($) {
 			}
 		}
 	}
-	
+
 	// if is larger than 481px
 	if (responsive_viewport >= 481){}
 
@@ -257,8 +257,8 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-	/*  
-    // Released under MIT license: http://www.opensource.org/licenses/mit-license.php
+	/*
+	// Released under MIT license: http://www.opensource.org/licenses/mit-license.php
 	$('[placeholder]').focus(function() {
 		var input = $(this);
 		if (input.val() == input.attr('placeholder')) {
@@ -280,7 +280,7 @@ jQuery(document).ready(function($) {
 		})
 	});
 	*/
-	
+
 }); /* end of as page load scripts */
 
 /*

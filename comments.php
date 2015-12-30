@@ -22,7 +22,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SER
  */
 if ( post_password_required() ) { ?>
 	<div class="alert help">
-	   <p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view comments.', 'scaffolding' ); ?></p>
+		<p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view comments.', 'scaffolding' ); ?></p>
 	</div>
 	<?php
 	return;
@@ -30,7 +30,7 @@ if ( post_password_required() ) { ?>
 ?>
 
 <?php // You can start editing here -- including this comment!
- if ( have_comments() ) : ?>
+if ( have_comments() ) : ?>
 
 	<div id="comments" class="comments-area">
 
@@ -57,15 +57,18 @@ if ( post_password_required() ) { ?>
 	</div>
 
 <?php // this is displayed if there are no comments so far
-else : ?>
+else :
+?>
 
 	<?php if ( ! comments_open() ) : ?>
-		
+
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'scaffolding' ); ?></p>
 
 	<?php endif; ?>
 
-<?php endif; ?>
+<?php
+endif;
+?>
 
 <?php  // if you delete this the sky will fall on your head
 if ( comments_open() ) : ?>
@@ -89,4 +92,5 @@ if ( comments_open() ) : ?>
 
 	</section>
 
-<?php endif; ?>
+<?php
+endif;

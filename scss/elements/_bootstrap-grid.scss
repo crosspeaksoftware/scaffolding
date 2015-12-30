@@ -74,25 +74,25 @@ Stylesheet: Bootstrap Grid Stylesheet
 	@media (min-width: $screen-sm-min) {
 		float: left;
 		width: percentage(($columns / $grid-columns));
-  	}
+	}
 }
 
 @mixin make-sm-column-offset($columns) {
 	@media (min-width: $screen-sm-min) {
-    	margin-left: percentage(($columns / $grid-columns));
-  	}
+		margin-left: percentage(($columns / $grid-columns));
+	}
 }
 
 @mixin make-sm-column-push($columns) {
 	@media (min-width: $screen-sm-min) {
-    	left: percentage(($columns / $grid-columns));
-  	}
+		left: percentage(($columns / $grid-columns));
+	}
 }
 
 @mixin make-sm-column-pull($columns) {
 	@media (min-width: $screen-sm-min) {
-    	right: percentage(($columns / $grid-columns));
-  	}
+		right: percentage(($columns / $grid-columns));
+	}
 }
 
 // Generate the medium columns
@@ -228,22 +228,22 @@ Stylesheet: Bootstrap Grid Stylesheet
 @mixin calc-grid($index, $class, $type) {
 	@if ($type == width) and ($index > 0) {
 		.col-#{$class}-#{$index} {
-	  		width: percentage(($index / $grid-columns));
+			width: percentage(($index / $grid-columns));
 		}
 	}
 	@if ($type == push) {
 		.col-#{$class}-push-#{$index} {
-	  		left: percentage(($index / $grid-columns));
+			left: percentage(($index / $grid-columns));
 		}
 	}
 	@if ($type == pull) {
 		.col-#{$class}-pull-#{$index} {
-	  		right: percentage(($index / $grid-columns));
+			right: percentage(($index / $grid-columns));
 		}
 	}
 	@if ($type == offset) {
 		.col-#{$class}-offset-#{$index} {
-	  		margin-left: percentage(($index / $grid-columns));
+			margin-left: percentage(($index / $grid-columns));
 		}
 	}
 }
@@ -288,7 +288,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 
 .container-fluid,
 .wrap {
-  	@include wrap;
+	@include wrap;
 }
 
 
@@ -346,7 +346,7 @@ Stylesheet: Bootstrap Grid Stylesheet
 * Medium grid
 *
 * Columns, offsets, pushes, and pulls for the desktop device range.
-*/ 
+*/
 
 @media (min-width: $screen-md-min) {
 	@include make-grid-columns-float(md);

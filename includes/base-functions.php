@@ -48,18 +48,18 @@
  * @since Scaffolding 1.0
  */
 function scaffolding_build() {
-	add_action( 'init', 'scaffolding_head_cleanup' );                                   // launching operation cleanup
-	add_filter( 'the_generator', 'scaffolding_rss_version' );						    // remove WP version from RSS
-	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 );	// remove pesky injected css for recent comments widget
-	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );				// clean up comment styles in the head
-	add_filter( 'gallery_style', 'scaffolding_gallery_style' );							// clean up gallery output in wp
-	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );			// enqueue base scripts and styles
-	//scaffolding_add_image_sizes();													// add additional image sizes
-	scaffolding_theme_support();														// launching this stuff after theme setup
-	add_action( 'widgets_init', 'scaffolding_register_sidebars' );						// adding sidebars to Wordpress (these are created in functions.php)
-	add_filter( 'get_search_form', 'scaffolding_wpsearch' ); 							// adding the scaffolding search form (created in functions.php)
-	add_filter( 'the_content', 'scaffolding_filter_ptags_on_images' ); 					// cleaning up random code around images
-	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );						    // cleaning up excerpt
+	add_action( 'init', 'scaffolding_head_cleanup' );                                 // launching operation cleanup
+	add_filter( 'the_generator', 'scaffolding_rss_version' );                         // remove WP version from RSS
+	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 ); // remove pesky injected css for recent comments widget
+	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );           // clean up comment styles in the head
+	add_filter( 'gallery_style', 'scaffolding_gallery_style' );                       // clean up gallery output in wp
+	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );	       // enqueue base scripts and styles
+	//scaffolding_add_image_sizes();                                                  // add additional image sizes
+	scaffolding_theme_support();                                                      // launching this stuff after theme setup
+	add_action( 'widgets_init', 'scaffolding_register_sidebars' );                    // adding sidebars to Wordpress (these are created in functions.php)
+	add_filter( 'get_search_form', 'scaffolding_wpsearch' );                          // adding the scaffolding search form (created in functions.php)
+	add_filter( 'the_content', 'scaffolding_filter_ptags_on_images' );                // cleaning up random code around images
+	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );                         // cleaning up excerpt
 }
 add_action( 'after_setup_theme', 'scaffolding_build', 16 );
 
@@ -76,17 +76,17 @@ add_action( 'after_setup_theme', 'scaffolding_build', 16 );
  * @since Scaffolding 1.0
  */
 function scaffolding_head_cleanup() {
-	//remove_action( 'wp_head', 'feed_links_extra', 3 );						        // category feeds
-	//remove_action( 'wp_head', 'feed_links', 2 );								        // post and comment feeds
-	remove_action( 'wp_head', 'rsd_link' );										        // EditURI link
-	remove_action( 'wp_head', 'wlwmanifest_link' );								        // windows live writer
-	remove_action( 'wp_head', 'index_rel_link' );								        // index link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );					        // previous link
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );					        // start link
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );		        // links for adjacent posts
-	remove_action( 'wp_head', 'wp_generator' );									        // WP version
-	add_filter( 'style_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );	        // remove WP version from css
-	add_filter( 'script_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );        // remove WP version from scripts
+	//remove_action( 'wp_head', 'feed_links_extra', 3 );                         // category feeds
+	//remove_action( 'wp_head', 'feed_links', 2 );                               // post and comment feeds
+	remove_action( 'wp_head', 'rsd_link' );                                      // EditURI link
+	remove_action( 'wp_head', 'wlwmanifest_link' );                              // windows live writer
+	remove_action( 'wp_head', 'index_rel_link' );                                // index link
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );                   // previous link
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );                    // start link
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );        // links for adjacent posts
+	remove_action( 'wp_head', 'wp_generator' );                                  // WP version
+	add_filter( 'style_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );  // remove WP version from css
+	add_filter( 'script_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 ); // remove WP version from scripts
 }
 
 /**
@@ -97,7 +97,7 @@ function scaffolding_head_cleanup() {
  * @since Scaffolding 1.0
  */
 function scaffolding_rss_version() {
-    return '';
+	return '';
 }
 
 /**
@@ -108,8 +108,9 @@ function scaffolding_rss_version() {
  * @since Scaffolding 1.0
  */
 function scaffolding_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) )
+	if ( strpos( $src, 'ver=' ) ) {
 		$src = remove_query_arg( 'ver', $src );
+	}
 	return $src;
 }
 
@@ -172,10 +173,10 @@ function scaffolding_gallery_style( $css ) {
  */
 function scaffolding_first_last_menu_classes( $objects, $args ) {
 
-    // Add first/last classes to nested menu items.
-    $ids        = array();
-    $parent_ids = array();
-    $top_ids    = array();
+	// Add first/last classes to nested menu items.
+	$ids        = array();
+	$parent_ids = array();
+	$top_ids    = array();
 
 	if ( ! empty( $objects ) ) {
 
@@ -349,15 +350,15 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
  * @since Scaffolding 1.0
  */
 function scaffolding_page_navi( $before = '', $after = '', $query ) {
-	$request           = $query->request;
-	$posts_per_page    = intval( get_query_var( 'posts_per_page' ) );
-	$paged             = intval( get_query_var( 'paged' ) );
-	$numposts          = $query->found_posts;
-	$max_page          = $query->max_num_pages;
+	$request        = $query->request;
+	$posts_per_page = intval( get_query_var( 'posts_per_page' ) );
+	$paged          = intval( get_query_var( 'paged' ) );
+	$numposts       = $query->found_posts;
+	$max_page       = $query->max_num_pages;
 
 	if ( $numposts <= $posts_per_page ) {
-        return;
-    }
+		return;
+	}
 
 	if ( empty( $paged ) || 0 == $paged ) {
 		$paged = 1;
@@ -452,7 +453,7 @@ add_action( 'login_head', 'scaffolding_login_css' );
  * @since Scaffolding 1.0
  */
 function scaffolding_login_url() {
-    return home_url();
+	return home_url();
 }
 add_filter( 'login_headerurl', 'scaffolding_login_url' );
 
@@ -462,7 +463,7 @@ add_filter( 'login_headerurl', 'scaffolding_login_url' );
  * @since Scaffolding 1.0
  */
 function scaffolding_login_title() {
-    return get_option( 'blogname' );
+	return get_option( 'blogname' );
 }
 add_filter( 'login_headertitle', 'scaffolding_login_title' );
 

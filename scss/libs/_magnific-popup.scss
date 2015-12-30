@@ -1,6 +1,6 @@
 /******************************************************************
 Site Name:
-Author: 
+Author:
 
 Stylesheet: Magnific Popup Stylesheet
 
@@ -16,7 +16,7 @@ Stylesheet: Magnific Popup Stylesheet
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 1042; 
+	z-index: 1042;
 }
 
 .mfp-wrap {
@@ -46,12 +46,12 @@ Stylesheet: Magnific Popup Stylesheet
   		content: '';
   		display: inline-block;
   		height: 100%;
-  		vertical-align: middle; 
+  		vertical-align: middle;
 	}
 }
 
 .mfp-align-top .mfp-container:before {
-	display: none; 
+	display: none;
 }
 
 .mfp-content {
@@ -60,52 +60,52 @@ Stylesheet: Magnific Popup Stylesheet
 	position: relative;
 	text-align: left;
 	vertical-align: middle;
-	z-index: 1045; 
+	z-index: 1045;
 }
 
-.mfp-inline-holder .mfp-content, 
+.mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
 	cursor: auto;
-	width: 100%; 
+	width: 100%;
 }
 
 .mfp-ajax-cur {
-	cursor: progress; 
+	cursor: progress;
 }
 
-.mfp-zoom-out-cur, 
+.mfp-zoom-out-cur,
 .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
 	cursor: -moz-zoom-out;
 	cursor: -webkit-zoom-out;
-	cursor: zoom-out; 
+	cursor: zoom-out;
 }
 
 .mfp-zoom {
 	cursor: pointer;
 	cursor: -webkit-zoom-in;
 	cursor: -moz-zoom-in;
-	cursor: zoom-in; 
+	cursor: zoom-in;
 }
 
 .mfp-auto-cursor .mfp-content {
-	cursor: auto; 
+	cursor: auto;
 }
 
-.mfp-close, 
-.mfp-arrow, 
-.mfp-preloader, 
+.mfp-close,
+.mfp-arrow,
+.mfp-preloader,
 .mfp-counter {
 	-webkit-user-select: none;
 	-moz-user-select: none;
-	user-select: none; 
+	user-select: none;
 }
 
 .mfp-loading.mfp-figure {
-	display: none; 
+	display: none;
 }
 
 .mfp-hide {
-	display: none !important; 
+	display: none !important;
 }
 
 .mfp-preloader {
@@ -117,26 +117,26 @@ Stylesheet: Magnific Popup Stylesheet
 	text-align: center;
 	top: 50%;
 	width: auto;
-	z-index: 1044; 
+	z-index: 1044;
 
 	a {
 		color: #cccccc;
-		
+
 		&:hover {
-	  		color: white; 
+	  		color: white;
 		}
 	}
 }
 
 .mfp-s-ready .mfp-preloader {
-	display: none; 
+	display: none;
 }
 
 .mfp-s-error .mfp-content {
-	display: none; 
+	display: none;
 }
 
-button.mfp-close, 
+button.mfp-close,
 button.mfp-arrow {
 	-webkit-appearance: none;
 	background: transparent;
@@ -153,7 +153,7 @@ button.mfp-arrow {
 
 button::-moz-focus-inner {
 	padding: 0;
-	border: 0; 
+	border: 0;
 }
 
 .mfp-close {
@@ -171,28 +171,28 @@ button::-moz-focus-inner {
 	text-decoration: none;
 	top: 0;
 	width: 44px;
-	
-  	&:hover, 
+
+  	&:hover,
 	&:focus {
-    	opacity: 1; 
+    	opacity: 1;
 	}
-	
+
 	&:active {
-    	top: 1px; 
+    	top: 1px;
 	}
 }
 
 .mfp-close-btn-in .mfp-close {
-	color: #333333; 
+	color: #333333;
 }
 
-.mfp-image-holder .mfp-close, 
+.mfp-image-holder .mfp-close,
 .mfp-iframe-holder .mfp-close {
 	color: white;
 	padding-right: 6px;
 	right: -6px;
 	text-align: right;
-	width: 100%; 
+	width: 100%;
 }
 
 .mfp-counter {
@@ -201,7 +201,7 @@ button::-moz-focus-inner {
 	line-height: 18px;
 	position: absolute;
 	right: 0;
-	top: 0; 
+	top: 0;
 }
 
 .mfp-arrow {
@@ -216,17 +216,17 @@ button::-moz-focus-inner {
 	width: 90px;
 
 	&:active {
-		margin-top: -54px; 
+		margin-top: -54px;
 	}
-	
-	&:hover, 
+
+	&:hover,
 	&:focus {
-		opacity: 1; 
+		opacity: 1;
 	}
-	
+
 	&:before, &
-	:after, 
-	.mfp-b, 
+	:after,
+	.mfp-b,
 	.mfp-a {
 		border: medium inset transparent;
 		content: '';
@@ -237,17 +237,17 @@ button::-moz-focus-inner {
 		margin-top: 35px;
 		position: absolute;
 		top: 0;
-		width: 0; 
+		width: 0;
 	}
-	
-	&:after, 
+
+	&:after,
 	.mfp-a {
 		border-bottom-width: 13px;
 		border-top-width: 13px;
-		top: 8px; 
+		top: 8px;
 	}
-	
-	&:before, 
+
+	&:before,
 	.mfp-b {
 		border-bottom-width: 21px;
 		border-top-width: 21px;
@@ -255,48 +255,48 @@ button::-moz-focus-inner {
 }
 
 .mfp-arrow-left {
-	left: 0; 
-  
-	&:after, 
+	left: 0;
+
+	&:after,
 	.mfp-a {
-    	border-right: 17px solid white;
-    	margin-left: 31px; 
+		border-right: 17px solid white;
+		margin-left: 31px;
 	}
-  
+
 	&:before,
 	.mfp-b {
-    	border-right: 27px solid #3f3f3f; 
+		border-right: 27px solid #3f3f3f;
 		margin-left: 25px;
 	}
 }
 
 .mfp-arrow-right {
-	right: 0; 
-	
-	&:after, 
+	right: 0;
+
+	&:after,
 	.mfp-a {
-    	border-left: 17px solid white;
-    	margin-left: 39px; 
+		border-left: 17px solid white;
+		margin-left: 39px;
 	}
-	
-  	&:before, 
+
+	&:before,
 	.mfp-b {
-    	border-left: 27px solid #3f3f3f; 
+		border-left: 27px solid #3f3f3f;
 	}
 }
 
 .mfp-iframe-holder {
 	padding-bottom: 40px;
-  	padding-top: 40px;
-   
+	padding-top: 40px;
+
 	.mfp-content {
-    	line-height: 0;
+		line-height: 0;
 		max-width: 900px;
-    	width: 100%;
+		width: 100%;
 	}
-	
+
 	.mfp-close {
-    	top: -40px; 
+		top: -40px;
 	}
 }
 
@@ -304,7 +304,7 @@ button::-moz-focus-inner {
 	height: 0;
 	overflow: hidden;
 	padding-top: 56.25%;
-  	width: 100%;
+	width: 100%;
 
 	iframe {
 		background: black;
@@ -312,9 +312,9 @@ button::-moz-focus-inner {
 		display: block;
 		height: 100%;
 		left: 0;
-    	position: absolute;
-    	top: 0;
-    	width: 100%;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 }
 
@@ -340,7 +340,7 @@ img.mfp-img {
 		background: #444;
 		bottom: 40px;
 		box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    	content: '';
+		content: '';
 		display: block;
 		height: auto;
 		left: 0;
@@ -348,14 +348,14 @@ img.mfp-img {
 		right: 0;
 		top: 40px;
 		width: auto;
-    	z-index: -1;
+		z-index: -1;
 	}
 
 	small {
-    	color: #bdbdbd;
-    	display: block;
-    	font-size: 12px;
-    	line-height: 14px; 
+		color: #bdbdbd;
+		display: block;
+		font-size: 12px;
+		line-height: 14px;
 	}
 }
 
@@ -365,41 +365,41 @@ img.mfp-img {
 	margin-top: -36px;
 	position: absolute;
 	top: 100%;
-	width: 100%; 
+	width: 100%;
 }
 
 .mfp-title {
 	color: #f3f3f3;
 	line-height: 18px;
-	padding-right: 36px; 
+	padding-right: 36px;
 	text-align: left;
 	word-wrap: break-word;
 }
 
 .mfp-image-holder .mfp-content {
-	max-width: 100%; 
+	max-width: 100%;
 }
 
 .mfp-gallery .mfp-image-holder .mfp-figure {
-	cursor: pointer; 
+	cursor: pointer;
 }
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
 	/**
-     * Remove all paddings around the image on small screen
-     */
+	 * Remove all paddings around the image on small screen
+	 */
 	.mfp-img-mobile .mfp-image-holder {
-    	padding-left: 0;
-    	padding-right: 0; 
+		padding-left: 0;
+		padding-right: 0;
 	}
-	
+
 	.mfp-img-mobile img.mfp-img {
-    	padding: 0; 
+		padding: 0;
 	}
-	
+
 	.mfp-img-mobile {
 		.mfp-figure {
-			/* The shadow behind the image */ 
+			/* The shadow behind the image */
 			&:after {
 				bottom: 0;
 				top: 0;
@@ -407,7 +407,7 @@ img.mfp-img {
 
 			small {
 				display: inline;
-				margin-left: 5px; 
+				margin-left: 5px;
 			}
 
 			.mfp-bottom-bar {
@@ -422,16 +422,16 @@ img.mfp-img {
 				top: auto;
 
 				&:empty {
-					padding: 0; 
+					padding: 0;
 				}
 			}
 		}
-		
+
 		.mfp-counter {
-    		right: 5px;
-    		top: 3px; 
+			right: 5px;
+			top: 3px;
 		}
-		
+
 		.mfp-close {
 			background: rgba(0, 0, 0, 0.6);
 			height: 35px;
@@ -440,38 +440,38 @@ img.mfp-img {
 			position: fixed;
 			right: 0;
 			text-align: center;
-    		top: 0;
-    		width: 35px;
-		} 
+			top: 0;
+			width: 35px;
+		}
 	}
 }
 
 @media all and (max-width: 900px) {
 	.mfp-arrow {
-    	-webkit-transform: scale(0.75);
-    	transform: scale(0.75); 
+		-webkit-transform: scale(0.75);
+		transform: scale(0.75);
 	}
-	
+
 	.mfp-arrow-left {
-    	-webkit-transform-origin: 0;
-    	transform-origin: 0; 
+		-webkit-transform-origin: 0;
+		transform-origin: 0;
 	}
-	
+
 	.mfp-arrow-right {
-    	-webkit-transform-origin: 100%;
-    	transform-origin: 100%; 
+		-webkit-transform-origin: 100%;
+		transform-origin: 100%;
 	}
-	
+
 	.mfp-container {
-    	padding-left: 6px;
-    	padding-right: 6px; 
+		padding-left: 6px;
+		padding-right: 6px;
 	}
 
 	.mfp-ie7 {
 		.mfp-img {
-			padding: 0; 
+			padding: 0;
 		}
-	
+
 		.mfp-bottom-bar {
 			left: 50%;
 			margin-left: -300px;
@@ -479,19 +479,19 @@ img.mfp-img {
 			padding-bottom: 5px;
 			width: 600px;
 		}
-	
+
 		.mfp-container {
-			padding: 0; 
+			padding: 0;
 		}
-	
+
 		.mfp-content {
-			padding-top: 44px; 
+			padding-top: 44px;
 		}
-	
+
 		.mfp-close {
 			top: 0;
 			right: 0;
-			padding-top: 0; 
+			padding-top: 0;
 		}
 	}
 }

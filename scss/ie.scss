@@ -4,8 +4,8 @@ Author:
 
 Stylesheet: IE Stylesheet
 
-These styles and fixes are ONLY seen by IE, so you don't have to 
-worry about using prefixes, although it's best practice. For more 
+These styles and fixes are ONLY seen by IE, so you don't have to
+worry about using prefixes, although it's best practice. For more
 info on using Modernizr classes, check out this link:
 http://www.modernizr.com/docs/
 
@@ -44,17 +44,17 @@ header.php file to see what they are:
 
 	body.sticky-footer {
 		#container {
-		    display: block;
-		    width: auto;
+			display: block;
+			width: auto;
 		}
 
 		#container .header,
 		#container .banner-wrap,
 		#content,
 		#container .footer {
-		    display: block;
-		    height: auto;
-		    overflow: hidden;
+			display: block;
+			height: auto;
+			overflow: hidden;
 		}
 	}
 }

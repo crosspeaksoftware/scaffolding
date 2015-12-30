@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Header Template
  *
@@ -59,17 +59,17 @@
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'scaffolding' ); ?></a>
 
 		<nav id="main-navigation" class="clearfix" role="navigation" aria-label="<?php _e( 'Primary Navigation', 'scaffolding' ); ?>">
-			
+
 			<?php scaffolding_main_nav(); ?>
 
 		</nav>
 
 		<?php // Interior Header Image ?>
-        <div class="banner-wrap">
-            <div id="banner">
-                <div class="spacer"></div>
-            </div>
-        </div>
+		<div class="banner-wrap">
+			<div id="banner">
+				<div class="spacer"></div>
+			</div>
+		</div>
 
 		<div id="content">
 
@@ -86,7 +86,7 @@
 						$main_class = 'col-xs-12';
 					}
 				?>
-				
+
 				<div class="row">
 
 					<div id="main" class="<?php echo $main_class; ?> clearfix" role="main">

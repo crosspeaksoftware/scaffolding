@@ -21,12 +21,12 @@ It currently slides out from the right.
 	white-space: nowrap;
 	@include transition(all 0.25s ease-in-out);
 
-	&:hover, 
-	&:active, 
+	&:hover,
+	&:active,
 	&:focus {
 		text-decoration: none;
 	}
-	
+
 	// Font Awesome Icon
 	.fa:before {
 		content: "\f0c9"; // bars icon
@@ -36,7 +36,7 @@ It currently slides out from the right.
 // Base Mobile Styles
 #main-navigation {
 
-    ul.menu {
+	ul.menu {
 		background-color: #333;
 		bottom: 0;
 		clear: both;
@@ -48,77 +48,77 @@ It currently slides out from the right.
 		right: -70%;
 		top: 0;
 		width: 70%;
-		z-index: 1000;	
+		z-index: 1000;
 
-        li {
+		li {
 			border-bottom: 1px solid #111;
-            display: block;
-            margin: 0;
-            padding: 0;
-            @include transition(all 0.25s ease-in-out);
+			display: block;
+			margin: 0;
+			padding: 0;
+			@include transition(all 0.25s ease-in-out);
 
-            a {
+			a {
 				color: #999;
 				display: inline-block;
 				font-size: 1.125em;
 				padding: 15px 5%;
 				text-decoration: none;
-		        width: 80%;
-                @include transition(all 0.25s ease-in-out);
+				width: 80%;
+				@include transition(all 0.25s ease-in-out);
 
-				&:hover, 
+				&:hover,
 				&:focus {
-	                background-color: #222;
+					background-color: #222;
 					color: #CCC;
-                }
-            }
+				}
+			}
 
-            a.menu-button {
+			a.menu-button {
 				border-left: 1px solid #111;
 				cursor: pointer;
-                display: inline-block;
+				display: inline-block;
 				height: auto;
 				margin: 0;
-                padding: 15px 0;
-                text-align: center;
-                width: 20%;
-                @include transition(all 0.25s ease-in-out);
+				padding: 15px 0;
+				text-align: center;
+				width: 20%;
+				@include transition(all 0.25s ease-in-out);
 
-                &:hover, 
+				&:hover,
 				&:focus {}
-            }
+			}
 
-            a.menu-back-button {
+			a.menu-back-button {
 				background: #222;
 				cursor: pointer;
-                display: inline-block;
-                padding: 15px;
-                text-decoration: none;
+				display: inline-block;
+				padding: 15px;
+				text-decoration: none;
 				width: 100%;
-                @include transition(all 0.25s ease-in-out);
+				@include transition(all 0.25s ease-in-out);
 
-                &:hover, 
+				&:hover,
 				&:focus {}
-            }
-			
-			&:hover, 
+			}
+
+			&:hover,
 			&:focus {}
 
-            &.first-item {}
+			&.first-item {}
 
-            &.last-item {}
-			
+			&.last-item {}
+
 			&.current-menu-item {
 				> a {
 					color: #EEE;
 				}
 			}
-			
+
 			&.current-menu-ancestor {
 				> a {
 					background-color: #292929;
-					
-					&:hover, 
+
+					&:hover,
 					&:focus {
 						background-color: #222;
 					}
@@ -127,34 +127,34 @@ It currently slides out from the right.
 
 			&.menu-item-no-children {
 				a {
-				    width: 100%;
-			    }
+					width: 100%;
+				}
 			}
 
 			&.menu-item-has-children {}
 
-            /* sub menu - child */
-            ul.sub-menu {
+			/* sub menu - child */
+			ul.sub-menu {
 				background-color: #333;
 				bottom: 0;
-                display: block;
-                margin: 0;
+				display: block;
+				margin: 0;
 				overflow: hidden;
-                padding: 0;
+				padding: 0;
 				position: absolute;
 				right: -100%;
-                top: 0;
-                width: 100%;
-                @include transition(all 0.25s ease-in-out);
-				
-            }
-			
-            /* sub menu - child */
-            ul.sub-menu-open {
-                right: 0;
-            }
-        }
-    }
+				top: 0;
+				width: 100%;
+				@include transition(all 0.25s ease-in-out);
+
+			}
+
+			/* sub menu - child */
+			ul.sub-menu-open {
+				right: 0;
+			}
+		}
+	}
 }
 
 /* Opening Menu */
@@ -164,16 +164,16 @@ body.menu-open {
 			display: block;
 		}
 	}
-	
+
 	#mobile-menu-button {
 		.fa:before {
 			content: "\f00d"; // times icon
 		}
 	}
-	
-    #container {
-        left: -70%;
-    }
+
+	#container {
+		left: -70%;
+	}
 }
 
 /* LARGER MOBILE DEVICES */
@@ -181,7 +181,7 @@ body.menu-open {
 
 /* TABLET & SMALLER LAPTOPS */
 @media only screen and (min-width: $screen-sm-min) {
-	
+
 	#mobile-menu-button {
 		display: none !important;
 	}
@@ -190,23 +190,23 @@ body.menu-open {
 		background-color: #333;
 		white-space: nowrap;
 
-	    ul.menu {
+		ul.menu {
 			bottom: auto;
 			box-shadow: none;
-            display: block;
+			display: block;
 			margin: 0 auto;
 			overflow: visible;
 			padding: 0;
 			position: relative;
 			right: auto;
-		    text-align: center;
+			text-align: center;
 			top: auto;
-	        width: auto;
+			width: auto;
 
 			li {
 				border-bottom: none;
 				display: inline-block;
-	            margin-left: -6px;
+				margin-left: -6px;
 				position: relative;
 				z-index: 1000;
 
@@ -216,39 +216,39 @@ body.menu-open {
 					padding: 10px 20px;
 					width: auto;
 
-					&:hover, 
+					&:hover,
 					&:focus {}
 				}
-				
-	            a.menu-button {
-	                display: none !important;
-	            }
+
+				a.menu-button {
+					display: none !important;
+				}
 
 				a.menu-back-button {
-	                display: none !important;
-	            }
-				
+					display: none !important;
+				}
+
 				/* maintain hover state on dropdown */
-	            &:hover, 
+				&:hover,
 				&:focus {
 					background-color: #222;
-					
+
 					&.current-menu-ancestor {
 						> a {
-							background-color: #222;	
+							background-color: #222;
 						}
 					}
 				}
 
-	            &.first-item {
+				&.first-item {
 					a {
 						border-left: none;
 					}
-	            }
+				}
 
-	            &.last-item  {
+				&.last-item {
 
-		            /* Children */
+					/* Children */
 					ul.sub-menu {
 						left: auto;
 						right: 0;
@@ -262,16 +262,16 @@ body.menu-open {
 							}
 						}
 					}
-	            }
-				
+				}
+
 				&.current-menu-item {}
-				
+
 				&.current-menu-ancestor {}
 
 				&.menu-item-no-children {
 					a {
-					    width: auto;
-				    }
+						width: auto;
+					}
 				}
 
 				&.menu-item-has-children {}
@@ -283,7 +283,7 @@ body.menu-open {
 					display: none;
 					left: 0;
 					min-width: 120%;
-                    overflow: visible;
+					overflow: visible;
 					position: absolute;
 					text-align: left;
 					top: 99.9%;
@@ -303,20 +303,20 @@ body.menu-open {
 							font-size: 95%;
 							padding: 8px 12px;
 
-							&:hover, 
+							&:hover,
 							&:focus {}
 						}
 
 
-			            &.first-item {}
+						&.first-item {}
 
-			            &.last-item {
+						&.last-item {
 							a {
 								border-bottom: none;
 							}
 						}
 
-			            &:hover, 
+						&:hover,
 						&:focus {}
 
 						&.menu-item-no-children {}
@@ -339,7 +339,7 @@ body.menu-open {
 			}
 
 		} /* end ul.menu */
-		
+
 	} /* end #main-navigation */
 }
 
@@ -351,15 +351,15 @@ body.menu-open {
 
 	#main-navigation {
 
-	    ul.menu {
+		ul.menu {
 
 			li {
 
-	            &.first-item {}
+				&.first-item {}
 
-	            &.last-item {
+				&.last-item {
 
-		            /* Children */
+					/* Children */
 					ul.sub-menu {
 						left: 0;
 						right: auto;
@@ -373,12 +373,12 @@ body.menu-open {
 							}
 						}
 					}
-	            }
-				
+				}
+
 			} /* end .menu li */
-			
+
 		} /* end ul.menu */
-		
+
 	} /* end #main-navigation */
 
 }

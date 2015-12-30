@@ -22,14 +22,14 @@ html {
 
 body {
 	height: auto;
-    overflow-x: hidden;
+	overflow-x: hidden;
 
-    #container {
+	#container {
 		height: 100%;
 		/* styles for mobile nav slide in */
 		position: relative;
 		@include transition(all 0.25s ease-in-out);
-    }
+	}
 }
 
 /*************************
@@ -37,8 +37,8 @@ body {
  ************************/
 
 /* Ensure that there is no gap between the header and the admin bar for WordPress versions before 3.8. */
-#wpadminbar { 
-	min-height: 32px; 
+#wpadminbar {
+	min-height: 32px;
 }
 
 #masthead {}
@@ -79,8 +79,8 @@ body {
 	/* titles */
 	.page-title,
 	.archive-title,
-	.single-title { 
-		margin-top: 0; 
+	.single-title {
+		margin-top: 0;
 	}
 
 	.search-title {}
@@ -99,7 +99,7 @@ body {
 	.byline {
 		color: #999;
 		margin: -1em 0 0;
-		
+
 		time {}
 	}
 
@@ -123,8 +123,8 @@ body {
 .search {}
 .error404 {}
 
-.blog, 
-.archive, 
+.blog,
+.archive,
 .search {
 	#inner-content {
 		article {
@@ -132,7 +132,7 @@ body {
 			margin-bottom: 1em;
 			padding-bottom: 1em;
 
-			&.last-post, 
+			&.last-post,
 			&.only-post {
 				border-bottom: 0;
 				margin-bottom: 0;
@@ -188,7 +188,7 @@ body {
 	}
 
 	/* list styles */
-	ul, 
+	ul,
 	ol {
 		li {
 			margin-bottom: 0.75em;
@@ -244,7 +244,7 @@ ul.footer-menu {
 			border-left: none;
 		}
 	}
-	
+
 	ul.sub-menu {
 		display: none; // hide child ul as design does not support it
 	}
@@ -272,7 +272,7 @@ ul.footer-menu {
 		@include transition(all 1s ease-in-out);
 		width: 40px;
 
-		&:hover, 
+		&:hover,
 		&:focus {
 			color: #000;
 			opacity: 1;

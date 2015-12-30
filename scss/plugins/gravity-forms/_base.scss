@@ -21,19 +21,19 @@ Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 	margin: 15px auto;
 	width: 100%;
 	font-family: $font__sans;
-	
+
 	&:focus {
 		outline: 0;
 	}
 }
-	
+
 /* REQUIRED */
 
 .gfield_required {
 	color: #AF3124;
 	margin-left: 4px;
 }
-	
+
 /* INPUTS */
 
 textarea.small {
@@ -47,7 +47,7 @@ textarea.medium {
 textarea.large {
 	height: 250px;
 }
-	
+
 /* RADIO & CHECKBOXES */
 
 ul.gfield_checkbox,
@@ -75,12 +75,12 @@ ul.gfield_radio {
 
 .ginput_complex {
 	overflow: hidden;
-	
+
 	.field_name_first,
 	.field_name_last {
 		width: 100%;
 	}
-	
+
 	.ginput_left,
 	.ginput_right,
 	.ginput_full {
@@ -88,35 +88,35 @@ ul.gfield_radio {
 		display: block;
 		overflow: hidden;
 	}
-	
+
 	.ginput_left,
 	.ginput_right  {
 		width: 100%;
 	}
-	
+
 	/*.name_prefix {
 		float: left;
 		width: 13%;
 	}
-	
+
 	.name_first {
 		float: left;
 		width: 83%;
 		margin-left: 4%;
 	}
-	
+
 	.name_last {
 		clear: both;
 		float: left;
 		width: 73%;
 	}
-	
+
 	.name_suffix {
 		float: right;
 		width: 23%;
 		margin-left: 4%;
 	}*/
-	
+
 	input[type=text],
 	input[type=url],
 	input[type=email],
@@ -124,7 +124,7 @@ ul.gfield_radio {
 	input[type=number],
 	input[type=password] {
 		width: 100%;
-		
+
 		&:focus+label {
 			font-weight: bold;
 		}
@@ -234,7 +234,7 @@ form {
 	ul {
 		margin: 0 !important;
 		list-style-type: none;
-		
+
 		li.gfield {
 			clear: both;
 		}
@@ -317,7 +317,7 @@ form {
 	}
 }
 
-.left_label { 
+.left_label {
 	.gfield_label {
 		float: left;
 		margin: 0 15px 0 0;
@@ -365,7 +365,7 @@ form {
 		max-width: 100%;
 		margin: 10px 0;
 	}
-		
+
 	textarea {
 		width: 100% !important;
 	}
@@ -378,20 +378,20 @@ form {
 	.field_name_last {
 		width: 49%;
 	}
-	
+
 	.field_name_first {
 		float: left;
 	}
-	
+
 	.field_name_last {
 		float: right;
 	}
-	
+
 	.ginput_complex {
 		.name_last {
 			clear: none;
 		}
-		
+
 		&.has_prefix.has_first_name.has_middle_name.has_last_name.has_suffix {
 			.name_prefix,
 			.name_first,
@@ -416,7 +416,7 @@ form {
 				width: 24%;
 			}
 		}
-		
+
 		&.no_prefix.has_first_name.has_middle_name.has_last_name.no_suffix {
 			.name_first,
 			.name_middle,
@@ -432,7 +432,7 @@ form {
 				float: right;
 			}
 		}
-		
+
 		&.no_prefix.has_first_name.no_middle_name.has_last_name.no_suffix {
 			.name_first {
 				float: left;
@@ -443,7 +443,7 @@ form {
 				width: 49%;
 			}
 		}
-		
+
 		&.has_prefix.has_first_name.no_middle_name.has_last_name.no_suffix {
 			.name_prefix {
 				float: left;
@@ -460,7 +460,7 @@ form {
 				width: 38%;
 			}
 		}
-		
+
 		&.no_prefix.has_first_name.no_middle_name.has_last_name.has_suffix {
 			.name_first,
 			.name_last {
@@ -473,26 +473,26 @@ form {
 				width: 20%;
 			}
 		}
-		
+
 		.ginput_full {
 			clear: both;
 		}
-		
+
 		.ginput_left {
 			float: left;
 			width: 49%;
 		}
-		
+
 		.ginput_right {
 			float: right;
 			width: 49%;
 		}
 	}
-	
+
 	li.has-select {
 		height: 234px;
 	}
-	
+
 	li.has-select.gfield_error {
 		height: 300px;
 	}

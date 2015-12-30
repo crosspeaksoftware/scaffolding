@@ -20,21 +20,21 @@ p {
 	hyphens: manual;
 }
 
-b, 
-strong, 
+b,
+strong,
 .strong {
 	font-weight: bold;
 }
 
-cite, 
-dfn, 
-em, 
-i, 
+cite,
+dfn,
+em,
+i,
 .em {
 	font-style: italic;
 }
 
-small, 
+small,
 .small {
 	font-size: 75%;
 }
@@ -49,7 +49,7 @@ blockquote {
 	border-left: 5px solid #EEE;
 	margin: 0 0 20px;
 	padding: 0 0 0 15px;
-	
+
 	p {
 		font-size: 17.5px;
 		font-weight: 300;
@@ -137,10 +137,10 @@ hr {
  * HEADING
  ************************/
 
-h1, .h1, 
-h2, .h2, 
-h3, .h3, 
-h4, .h4, 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
 h5, .h5 {
 	font-weight: 500;
 	text-rendering: optimizelegibility;
@@ -150,42 +150,42 @@ h5, .h5 {
 	}
 }
 
-h1, 
+h1,
 .h1 {
 	font-size: 2em;
 	line-height: 1.2;
 	margin: 0.67em 0;
 }
 
-h2, 
+h2,
 .h2 {
 	font-size: 1.75em;
 	line-height: 1.3;
 	margin: 0.83em 0;
 }
 
-h3, 
+h3,
 .h3 {
 	font-size: 1.25em;
 	line-height: 1.4;
 	margin: 1em 0;
 }
 
-h4, 
+h4,
 .h4 {
 	font-size: 1.1em;
 	line-height: 1.5;
 	margin: 1.33em 0;
 }
 
-h5, 
+h5,
 .h5 {
 	font-size: 0.846em;
 	line-height: 1.5;
 	margin: 1.67em 0;
 }
 
-h6, 
+h6,
 .h6 {
 	font-size: 0.746em;
 	line-height: 1.55;
@@ -196,26 +196,26 @@ h6,
  * TINYMCE
  ************************/
 
-.underline { 
-	text-decoration: underline; 
+.underline {
+	text-decoration: underline;
 }
 
-.italic { 
-	font-style: italic; 
+.italic {
+	font-style: italic;
 }
 
-.bold { 
-	font-weight: bold; 
+.bold {
+	font-weight: bold;
 }
 
-.text-left { 
-	text-align: left; 
+.text-left {
+	text-align: left;
 }
 
-.text-center { 
-	text-align: center; 
+.text-center {
+	text-align: center;
 }
 
-.text-right { 
-	text-align: right; 
+.text-right {
+	text-align: right;
 }
