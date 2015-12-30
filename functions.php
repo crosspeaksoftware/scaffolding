@@ -77,10 +77,10 @@ function scaffolding_scripts_and_styles() {
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
     // Modernizr - http://modernizr.com/
-	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/js/lib/custom-modernizr.min.js', false, null );
+	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), false );
 
 	// Respond - https://github.com/scottjehl/Respond
-	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/js/lib/respond.min.js', false, null );
+	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), false );
 	$wp_styles->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
     /**
@@ -88,13 +88,13 @@ function scaffolding_scripts_and_styles() {
      */
 
 	// Retina.js - http://imulus.github.io/retinajs/
-	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/js/lib/retina.min.js', array(), '1.4.2', true );
+	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '1.4.2', true );
 
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/
-	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/js/lib/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0.0', true );
 
 	// Select2 - https://select2.github.io/
-	wp_enqueue_script( 'scaffolding-select2', get_stylesheet_directory_uri() . '/js/lib/select2.min.js', array( 'jquery' ), '3.5.4', true );
+	wp_enqueue_script( 'scaffolding-select2', get_stylesheet_directory_uri() . '/libs/js/select2.min.js', array( 'jquery' ), '3.5.4', true );
 
 	// Comment reply script for threaded comments
 	if ( is_singular() && comments_open() && ( 1 == get_option('thread_comments' ) ) ) {
