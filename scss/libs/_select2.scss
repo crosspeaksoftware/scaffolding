@@ -40,14 +40,14 @@ Select2 gives you a customizable select box with support for searching, tagging,
 
 .select2-container .select2-choice {
 	display: block;
-	height: 39px;
+	height: $input__height;
 	padding: 0 0 0 8px;
 	overflow: hidden;
 	position: relative;
 	@include transition(all 0.25s ease-in-out);
 	border: 1px solid $input__border-color;
 	white-space: nowrap;
-	line-height: 39px;
+	line-height: $input__height;
 	color: #444;
 	text-decoration: none;
 	background-clip: padding-box;
@@ -209,6 +209,7 @@ html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
 .select2-search input {
 	width: 100%;
 	height: auto !important;
+	line-height: normal;
 	min-height: 26px;
 	padding: 4px 20px 4px 5px;
 	margin: 0;

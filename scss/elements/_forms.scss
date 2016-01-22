@@ -65,11 +65,9 @@ input[type="password"] {
 	border: 1px solid $input__border-color;
 	border-radius: 0;
 	color: #444;
-	font-size: .9em;
-	height: 39px;
+	font-size: 1em;
 	letter-spacing: normal;
 	outline: none;
-	padding: 8px 1%;
 	@include transition(all 0.25s ease-in-out);
 	width: 100%;
 
@@ -80,6 +78,18 @@ input[type="password"] {
 	}
 }
 
+select,
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"] {
+	line-height: $input__height;
+	height: $input__height;
+	padding: 0 8px;
+}
+
 input[type="image"] {
 	border: none;
 	padding: 0;
@@ -88,17 +98,31 @@ input[type="image"] {
 
 textarea {
 	resize: none;
+	padding: 8px
 }
 
+// Default select if Javascript is disabled
 select {
-	font-size: 0.9em;
+	font-size: 1em;
 	font-family: inherit;
+	padding: 5px !important;
+	overflow: hidden;
 	letter-spacing: normal;
-	padding: 5px 0 5px 0;
+	border: 0;
+	outline: 1px ridge $input__border-color;
+	-webkit-border-radius: 0;
+	-webkit-appearance: menulist-button;
 
 	option {
+		padding: 2px 10px !important;
 		display: block;
-		padding: 2px 2px;
+	}
+	
+	&:focus {
+		border: 0;
+		outline: 1px ridge $input__border-focus-color;
+		-webkit-border-radius: 0;
+		-webkit-appearance: menulist-button;
 	}
 }
 
