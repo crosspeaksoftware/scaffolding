@@ -1,0 +1,28 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Responsive WooCommerce Styles
+
+******************************************************************/
+
+$green:         	#7ad03a;
+$red:           	#a00;
+$orange:        	#ffba00;
+$blue:          	#2ea2cc;
+
+$primary:           #3498db;                               		// Primary colour for buttons (alt)
+$primarytext:       #FFF;    									// Text on primary colour bg
+
+$secondary:         #95a5a6;    								// Secondary buttons
+$secondarytext:     #ecf0f1;   									// Text on secondary colour bg
+
+$highlight:         #2c3e50;		                			// Prices, In stock labels, sales flash
+$highlightext:      desaturate(lighten($highlight, 50%), 18%);  // Text on highlight colour bg
+
+$contentbg:         #fff;                                       // Content BG - Tabs (active state)
+$subtext:           #777;                                       // small, breadcrumbs etc
+
+$star: 				#E8C142;
+
+

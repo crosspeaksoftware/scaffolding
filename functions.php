@@ -42,6 +42,11 @@
 // Add any additional files to include here
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
+
+if ( function_exists( 'is_woocommerce' ) ) {
+	require_once( SCAFFOLDING_INCLUDE_PATH . 'woocommerce-overrides.php' );
+}
+
 //require_once( SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php' );
 //require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
 

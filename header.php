@@ -63,6 +63,13 @@
 		</div>
 
 		<div id="content">
+			
+			<?php 
+				// WooCommerce Breadcrumbs
+				if ( function_exists( 'woocommerce_breadcrumb' ) && ! is_front_page() ) {
+					woocommerce_breadcrumb();
+				} 
+			?>
 
 			<div id="inner-content" class="wrap clearfix">
 
