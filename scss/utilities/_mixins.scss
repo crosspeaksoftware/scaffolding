@@ -396,3 +396,123 @@ span.amp {
 	background-image: -o-linear-gradient(top, $from, $to);
 	background-image: linear-gradient(to bottom, $from, $to);
 }
+
+/*************************
+ * FLEXBOX
+ * Values: flex | inline-flex
+ * Default: flex
+ * USAGE: @include flexbox(flex);
+ ************************/
+
+@mixin flexbox($value: flex) {
+	@if $value == inline-flex {
+		display: -webkit-inline-box;
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+	} @else {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+}
+
+/*************************
+ * FLEXBOX WRAP
+ * Values: nowrap | wrap | wrap-reverse
+ * Default: nowrap
+ * USAGE: @include flex-wrap(nowrap)
+ ************************/
+
+@mixin flex-wrap($value: nowrap) {
+	// No Webkit Box fallback.
+	-webkit-flex-wrap: $value;
+	-moz-flex-wrap: $value;
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else { 
+		-ms-flex-wrap: $value; 
+	}
+	flex-wrap: $value;
+}
+
+/*************************
+ * FLEXBOX DIRECTION
+ * Values: row | row-reverse | column | column-reverse
+ * Default: row
+ * USAGE: @include flex-direction(row)
+ ************************/
+
+@mixin flex-direction($value: row) {
+	@if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+	-webkit-flex-direction: $value;
+	-moz-flex-direction: $value;
+	-ms-flex-direction: $value;
+	flex-direction: $value;
+}
+
+/*************************
+ * FLEXBOX JUSTIFY CONTENT
+ * Values: flex-start | flex-end | center | space-between | space-around
+ * Default: flexstart
+ * USAGE: @include justify-content(flex-start)
+ ************************/
+
+@mixin justify-content($value: flex-start) {
+	@if $value == flex-start {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+	} @else if $value == flex-end {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+	} @else if $value == space-between {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute;		
+	} @else {
+		-webkit-box-pack: $value;
+		-ms-flex-pack: $value;
+	}
+	-webkit-justify-content: $value;
+	-moz-justify-content: $value;
+	justify-content: $value;
+}
+
+/*************************
+ * FLEXBOX ALIGN ITEMS
+ * Values: flex-start | flex-end | center | baseline | stretch
+ * Default: stretch
+ * USAGE: @include align-items(stretch)
+ ************************/
+
+@mixin align-items($value: stretch) {
+	@if $value == flex-start {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+	} @else if $value == flex-end {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+	} @else {
+		-webkit-box-align: $value;
+		-ms-flex-align: $value;
+	}
+	-webkit-align-items: $value;
+	-moz-align-items: $value;
+	align-items: $value;
+}
