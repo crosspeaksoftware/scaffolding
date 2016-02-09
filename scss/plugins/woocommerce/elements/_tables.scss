@@ -155,13 +155,13 @@ Stylesheet: Responsive WooCommerce Styles
 	 */
 	.group_table {
 		td.label {
-			padding-right: 1em;
-			padding-left: 1em;
+			padding-right: 15px;
+			padding-left: 15px;
 		}
 
 		td {
 			vertical-align: top;
-			padding-bottom: .5em;
+			padding-bottom: 8px;
 			border: 0;
 		}
 	}
@@ -216,6 +216,13 @@ Stylesheet: Responsive WooCommerce Styles
 				margin: 0.5em 0.5em 0.5em 0;
 			}
 		}
+	}
+	
+	/**
+	 * Checkout Order
+	 */
+	.woocommerce-checkout-review-order-table {
+		table-layout: fixed;
 	}
 
 }
@@ -340,7 +347,7 @@ Stylesheet: Responsive WooCommerce Styles
 					position: absolute;
 					left: 0;
 					bottom: 0;
-					padding: 1em 0.5em;
+					padding: 15px 8px;
 				}
 				
 				&.product-name,
@@ -356,22 +363,22 @@ Stylesheet: Responsive WooCommerce Styles
 				}
 
 				&.product-name {
-					padding-top: 1em;
-					padding-right: 1em;
-					padding-bottom: 0.5em;
+					padding-top: 15px;
+					padding-right: 15px;
+					padding-bottom: 8px;
 				}
 
 				&.product-subtotal {
-					padding-top: 0.5em;
-					padding-right: 1em;
-					padding-bottom: 1em;
+					padding-top: 8px;
+					padding-right: 15px;
+					padding-bottom: 15px;
 				}
 
 				&.product-price,
 				&.product-quantity {
-					padding-top: 0.5em;
-					padding-bottom: 1em;
-					padding-right: 0.5em;
+					padding-top: 8px;
+					padding-bottom: 15px;
+					padding-right: 8px;
 				}
 
 				&.actions {
@@ -435,12 +442,12 @@ Stylesheet: Responsive WooCommerce Styles
 			th {
 				border-left: 0;
 				border-right: 0;
-				padding: 1em;
+				padding: 15px;
 			}
 
 			td.product-remove {
-				padding-left: 0.5em;
-				padding-right: 0.5em;
+				padding-left: 8px;
+				padding-right: 8px;
 				width: 30px;
 				border-right: 0;
 				vertical-align: middle;
@@ -459,8 +466,8 @@ Stylesheet: Responsive WooCommerce Styles
 			}
 
 			td.product-name {
-				padding-left: 1em;
-				padding-right: 2em;
+				padding-left: 15px;
+				padding-right: 30px;
 			}
 
 			td.product-price,
@@ -471,12 +478,12 @@ Stylesheet: Responsive WooCommerce Styles
 
 			td.actions {
 				text-align: right;
-				padding-top: 1em;
-				padding-bottom: 1em;
+				padding-top: 15px;
+				padding-bottom: 15px;
 
 				.coupon {
 					float: left;
-					width: 70%;
+					width: 68%;
 				}
 
 				.input-text {
@@ -484,23 +491,21 @@ Stylesheet: Responsive WooCommerce Styles
 					float: left;
 				}
 
-				.button[name="apply_coupon"] {
+				input[name="apply_coupon"] {
+					padding-left: 0.5em;
+					padding-right: 0.5em;
 					max-width: 200px;
 					float: left;
 					margin-left: 1%;
 					width: 39%;
-					padding: 0;
-					height: $input__height;
-					line-height: $input__height;
 				}
 
-				.button[name="update_cart"] {
+				input[name="update_cart"] {
+					padding-left: 0.5em;
+					padding-right: 0.5em;
 					max-width: 200px;
 					float: right;
 					width: 30%;
-					padding: 0;
-					height: $input__height;
-					line-height: $input__height;
 				}
 			}
 		}
@@ -508,7 +513,7 @@ Stylesheet: Responsive WooCommerce Styles
 		.cart_totals table {
 			th,
 			td {
-				padding: 1em;
+				padding: 15px;
 			}
 		}
 
@@ -518,7 +523,7 @@ Stylesheet: Responsive WooCommerce Styles
 		table.my_account_orders {
 			th,
 			td {
-				padding: 0.5em 1em;
+				padding: 8px 15px;
 				vertical-align: middle;
 			}
 		}

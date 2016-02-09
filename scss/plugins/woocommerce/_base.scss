@@ -55,6 +55,7 @@ Stylesheet: Responsive WooCommerce Styles
 
 /**
  * Messaging
+ * TODO integrate alert colors with default and gravity forms
  */
 .woocommerce-message,
 .woocommerce-error,
@@ -203,28 +204,7 @@ Stylesheet: Responsive WooCommerce Styles
 	button.button,
 	input.button,
 	#respond input#submit {
-		display: inline-block;
-		font-size: 100%;
-		font-weight: 600;
-		margin: 0;
-		cursor: pointer;
 		position: relative;
-		font-family: inherit;
-		text-align: center;
-		text-transform: uppercase;
-		text-decoration: none;
-		overflow: visible;
-		border-radius: 0;
-		border: 0;
-		background-image: none;
-		box-shadow: none;
-		-webkit-box-shadow: none;
-		text-shadow: none;
-		@include transition(all 0.25s ease-in-out);
-		
-		&:focus {
-			outline: none;
-		}
 		
 		&:after {
 			font-family: "FontAwesome";
@@ -241,9 +221,7 @@ Stylesheet: Responsive WooCommerce Styles
 				content: "\f110";
 				position: absolute;
 				right: 1em;
-				-webkit-animation: spin 2s linear infinite;
-			    -moz-animation: spin 2s linear infinite;
-			    animation: spin 2s linear infinite;
+				@include animation(spin, 2s, infinite, linear);
 			}
 		}
 		
@@ -253,39 +231,22 @@ Stylesheet: Responsive WooCommerce Styles
 				margin-left: 0.53em;
 			}
 		}
-		
-		&:disabled,
-		&.disabled,
-		&:disabled[disabled] {
-			color: inherit;
-			cursor: not-allowed;
-			opacity: 0.5;
-		}
 	}
-		
-	// Primary Buttons
-	a.add_to_cart_button,
-	button.single_add_to_cart_button,
-	a.checkout-button,
-	#place_order,
-	input.button[name="login"],
-	input.button[name="register"],
-	a.alt,
-	button.alt,
-	input.alt {
-		background-color: $primary;
-		color: $primarytext;
-
-		&:hover,
-		&:focus {
-			background-color: darken($primary, 10%);
-			color: $primarytext;
-		}
+	
+	// Set Height Buttons
+	form.cart a.add_to_cart_button,
+	form.cart button.single_add_to_cart_button {
+		height: $input__height;
+		line-height: $input__height;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		width: auto;
 	}
 
 	// Secondary Buttons
 	input[name="apply_coupon"],
 	input[name="update_cart"],
+	button[name="calc_shipping"],
 	a.view,
 	.cross-sells a.add_to_cart_button,
 	.woocommerce-message .button,
@@ -317,29 +278,29 @@ Stylesheet: Responsive WooCommerce Styles
 	}
 	
 	// Small Buttons
-	//a.wc-forward,
 	a.view,
 	a.add_to_cart_button,
 	.woocommerce-message .button,
 	.woocommerce-error .button,
 	.woocommerce-info .button {
 		font-size: 0.875em;
-		padding: 0.5em 1em;
+		padding: 0.675em 1em;
+		width: auto;
 	}
 
 	a.added_to_cart {
-		padding-top: 0.5em;
 		white-space: nowrap;
 		display: inline-block;
+		margin-bottom: 1em;
 	}
 
 	a.remove {
 		display: block;
 		font-size: 1.875em;
+		line-height: 30px;
 		height: 30px;
 		width: 30px;
 		text-align: center;
-		line-height: 1;
 		border-radius: 100%;
 		color: $red;
 		text-decoration: none;
@@ -423,6 +384,7 @@ Stylesheet: Responsive WooCommerce Styles
 }
 
 // Import templates
+@import "elements/tabs";
 @import "elements/tables";
 @import "elements/widgets";
 @import "elements/reviews";

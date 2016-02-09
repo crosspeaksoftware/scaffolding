@@ -22,7 +22,7 @@ table {
 	}
 
 	th {
-		background-color: $table__th-color;
+		background-color: $table__bg-th-color;
 		border: 1px solid $table__border-color;
 		color: $color__body-text;
 		font-weight: bold;
@@ -37,12 +37,12 @@ table {
 
 	tr:nth-child(even),
 	tr.even {
-		background-color: $table__even-color;
+		background-color: $table__bg-even-color;
 	}
 
 	tr:nth-child(odd),
 	tr.odd {
-		background-color: $table__odd-color;
+		background-color: $table__bg-odd-color;
 	}
 
 	tr:hover{}

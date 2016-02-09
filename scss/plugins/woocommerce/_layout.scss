@@ -296,6 +296,42 @@ Stylesheet: Responsive WooCommerce Styles
 			float: right;
 		}
 	}
+	
+	/**
+	 * Checkout
+	 */
+	.woocommerce-checkout {
+		.checkout_coupon {
+			@include clearfix;
+			
+			.form-row-first {
+				float: left;
+				width: 70%;
+			}
+			
+			.form-row-last {
+				float: right;
+				width: 30%;
+			}
+		}
+		
+		.login {
+			@include clearfix;
+			
+			.form-row-first,
+			.form-row-last {
+				width: 49% !important;
+			}
+
+			.form-row-first {
+				float: left;
+			}
+
+			.form-row-last {
+				float: right;
+			}
+		}
+	}
 
 }
 
