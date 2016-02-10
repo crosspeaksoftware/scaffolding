@@ -16,7 +16,17 @@ Stylesheet: Responsive WooCommerce Styles
 .admin-bar {
 	&.woocommerce-demo-store {
 		.demo_store {
-			top: 32px;
+			top: 46px;
+		}
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	.admin-bar {
+		&.woocommerce-demo-store {
+			.demo_store {
+				top: 32px;
+			}
 		}
 	}
 }

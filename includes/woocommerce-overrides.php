@@ -56,9 +56,8 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 
  * Customize breadcrumb args
   */
 function scaffolding_woocommerce_breadcrumb_defaults( $defaults ) {
-	$defaults['delimiter'] = ' / ';
-	$defaults['wrap_before'] = '<div class="breadcrumb-wrapper clearfix"><p class="woocommerce-breadcrumb wrap" itemprop="breadcrumb">';
-	$defaults['wrap_after'] = '</p></div>';
+	$defaults['wrap_before'] = '<div class="breadcrumb-wrapper clearfix"><nav class="woocommerce-breadcrumb wrap" ' . ( is_single() ? 'itemprop="breadcrumb"' : '' ) . '>';
+	$defaults['wrap_after'] = '</nav></div>';
 	return $defaults;
 }
 add_filter( 'woocommerce_breadcrumb_defaults', 'scaffolding_woocommerce_breadcrumb_defaults' );

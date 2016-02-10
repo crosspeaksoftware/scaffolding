@@ -134,7 +134,7 @@ Stylesheet: Responsive WooCommerce Styles
 	.woocommerce-message {
 		padding-bottom: 4.25em;
 
-		.button {
+		a.button {
 			position: absolute;
 			float: none;
 			margin-left: 0;
@@ -840,6 +840,10 @@ Stylesheet: Responsive WooCommerce Styles
 			}
 		}
 	}
+	
+	.customer_details {
+		margin-bottom: 2em;
+	}
 }
 
 /*************************
@@ -867,7 +871,7 @@ Stylesheet: Responsive WooCommerce Styles
 		.woocommerce-message {
 			padding: 1em 10em 1em 3.5em;
 
-			.button {
+			a.button {
 				position: absolute;
 				bottom: 0;
 				left: auto;
@@ -985,6 +989,15 @@ Stylesheet: Responsive WooCommerce Styles
 				li.product {
 					margin-bottom: 1em;
 				}
+			}
+		}
+		
+		/**
+		 * Product Loops
+		 */
+		ul.products {
+			li.product {
+				max-width: none;
 			}
 		}
 		
