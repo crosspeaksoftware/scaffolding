@@ -92,7 +92,7 @@ Stylesheet: Responsive WooCommerce Styles
 
 					&:before {
 						@include iconbefore( "\f00d" );
-						color: $red;
+						color: $color__alert-red;
 					}
 				}
 			}

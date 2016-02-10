@@ -151,18 +151,64 @@ Stylesheet: Responsive WooCommerce Styles
 	}
 
 	/**
-	 * Group Product Type
+	 * Single Product
 	 */
 	.group_table {
-		td.label {
-			padding-right: 15px;
-			padding-left: 15px;
-		}
+		border-top: 1px solid $table__border-color;
+		margin-top: 0;
+		margin-bottom: 1.5em;
 
 		td {
-			vertical-align: top;
-			padding-bottom: 8px;
+			vertical-align: middle;
+			padding-left: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;
 			border: 0;
+			border-bottom: 1px solid $table__border-color;
+			
+			&.label {
+				padding-right: 15px;
+				padding-left: 15px;
+			}
+		}
+		
+		label {
+			margin-bottom: 0;
+		}
+
+		div.quantity {
+			float: none;
+			margin: 0;
+		}
+
+		small.stock {
+			display: block;
+			float: none;
+		}
+	}
+	
+	table.variations {
+		margin-top: 0;
+		margin-bottom: 1.5em;
+		
+		td {
+			&.label {
+				width: 30%;
+			}
+			
+			&.value {
+				width: 70%;
+			}
+		}
+
+		label {
+			margin-bottom: 0;
+		}
+
+		select,
+		.select2-container {
+			margin-bottom: 4px;
+			width: 100%;
 		}
 	}
 

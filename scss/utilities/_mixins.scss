@@ -120,37 +120,25 @@ span.amp {
 	font-style: italic;
 }
 
-// alerts and notices  -  *You'll need to be using Sass 3.2+ for these to work.
-%alert {
-	border: 1px solid;
-	margin: 10px;
-	padding: 5px 18px;
+// alerts and notices
+@mixin alert {
+	position: relative;
+	padding: 1em 2em 1em 3.5em;
+	margin: 0 0 2em;
+	background-color: #EEE;
+	border-top-width: 3px;
+	border-top-style: solid;
+	width: auto;
+	
+	&:before {
+		font-family: "FontAwesome";
+		display: inline-block;
+		position: absolute;
+		top: 0.5em;
+		left: 0.675em;
+		font-size: 1.5em;
+	}
 }
-
-	.alert-help {
-		@extend %alert;
-		background: $color__alert-yellow;
-		border-color: darken($color__alert-yellow, 5%);
-	}
-
-	.alert-info {
-		@extend %alert;
-		background: $color__alert-blue;
-		border-color: darken($color__alert-blue, 5%);
-	}
-
-	.alert-error {
-		@extend %alert;
-		background: $color__alert-red;
-		border-color: darken($color__alert-red, 5%);
-	}
-
-	.alert-success {
-		@extend %alert;
-		background: $color__alert-green;
-		border-color: darken($color__alert-green, 5%);
-	}
-
 
 // Responsive utilities
 @mixin responsive-visibility($parent) {

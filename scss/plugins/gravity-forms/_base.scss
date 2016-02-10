@@ -30,7 +30,7 @@ Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 /* REQUIRED */
 
 .gfield_required {
-	color: #AF3124;
+	color: $color__alert-red;
 	margin-left: 4px;
 }
 

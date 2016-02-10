@@ -235,30 +235,12 @@ Stylesheet: Responsive WooCommerce Styles
 		}
 
 		form.cart {
-			margin-bottom: 2em;
+			margin: 1.5em 0;
 			@include clearfix;
 
 			div.quantity {
 				display: inline-block;
 				margin: 0 12px 0 0;
-			}
-
-			table {
-				border-width: 0 0 1px 0;
-
-				td {
-					padding-left: 0;
-				}
-
-				div.quantity {
-					float: none;
-					margin: 0;
-				}
-
-				small.stock {
-					display: block;
-					float: none;
-				}
 			}
 
 			.single_variation {
@@ -276,25 +258,14 @@ Stylesheet: Responsive WooCommerce Styles
 
 			.woocommerce-variation-description {
 				p {
-					margin: 0;
+					margin: 0 0 0.5em;
 				}
 			}
-
-			.variations {
-				margin-bottom: 1em;
-
-				label {
-					display: block;
-					font-weight: 700;
-				}
-
-				select {
-					width: 100%;
-					float: left;
-				}
-
-				.variation {
-					margin-bottom: 0.5em;
+			
+			.woocommerce-variation-availability {
+				p {
+					margin: 0;
+					font-size: 0.875em;
 				}
 			}
 
@@ -442,6 +413,10 @@ Stylesheet: Responsive WooCommerce Styles
 		
 		.lost_password {
 			margin-top: -0.5em;
+			
+			a {
+				color: $subtext;
+			}
 		}
 	}
 }
@@ -472,6 +447,12 @@ Stylesheet: Responsive WooCommerce Styles
 	}
 
 	.checkout {
+		.woocommerce-error,
+		.woocommerce-info,
+		.woocommerce-message {
+			margin-bottom: 2em !important;
+		}
+		
 		.col-2 {
 			h3#ship-to-different-address {
 				float: left;
@@ -491,6 +472,10 @@ Stylesheet: Responsive WooCommerce Styles
 
 			.form-row-first {
 				clear: left;
+			}
+			
+			.form-row:first-of-type {
+				margin-top: 0;
 			}
 		}
 

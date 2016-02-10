@@ -26,7 +26,7 @@ Stylesheet: Responsive WooCommerce Styles
 				display: block;
 				padding: 0.5em 1em;
 				font-weight: 300;
-				color: $color__body-text;
+				color: $highlight;
 				text-decoration: none;
 
 				&:hover {
@@ -64,7 +64,7 @@ Stylesheet: Responsive WooCommerce Styles
 	.panel {
 		border: 1px solid #DDD;
 		margin: 0 0 2em;
-		padding: 1em 2em;
+		padding: 0.5em 1em;
 	}
 }
 
@@ -109,7 +109,7 @@ Stylesheet: Responsive WooCommerce Styles
 		}
 		
 		.panel {
-			padding: 2em;
+			padding: 1em 2em;
 			margin: -1px 0 2em;
 		}
 	}

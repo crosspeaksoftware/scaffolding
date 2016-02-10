@@ -48,6 +48,8 @@ Stylesheet: Responsive WooCommerce Styles
  */
 .woocommerce-breadcrumb {
 	@include clearfix;
+	margin-top: 1em;
+	margin-bottom: 1em;
 	padding: 0;
 	font-size: 0.92em;
 	color: $subtext;
@@ -60,25 +62,12 @@ Stylesheet: Responsive WooCommerce Styles
 .woocommerce-message,
 .woocommerce-error,
 .woocommerce-info {
-	position: relative;
-	padding: 1em 2em 1em 3.5em;
+	@include alert;
 	margin: 0 0 2em;
-	position: relative;
-	background-color: #EEE;
 	color: #444;
-	border-top: 3px solid $blue;
 	list-style: none outside;
 	@include clearfix;
 	width: auto;
-
-	&:before {
-		font-family: "FontAwesome";
-		display: inline-block;
-		position: absolute;
-		top: 0.5em;
-		left: 0.675em;
-		font-size: 1.5em;
-	}
 
 	.button {
 		float: right;
@@ -93,32 +82,41 @@ Stylesheet: Responsive WooCommerce Styles
 		margin-left: 0;
 		margin-bottom: 0;
 	}
+	
+	a:not(.button) {
+		color: $subtext;
+		text-decoration: underline;
+		
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .woocommerce-message {
-	border-top-color: $green;
+	border-top-color: $color__alert-green;
 
 	&:before {
 		content: "\f164"; // thumbs-up
-		color: $green;
+		color: $color__alert-green;
 	}
 }
 
 .woocommerce-info {
-	border-top-color: $orange;
+	border-top-color: $color__alert-yellow;
 
 	&:before {
-		color: $orange;
+		color: $color__alert-yellow;
 		content: "\f05a"; // info-circle
 	}
 }
 
 .woocommerce-error {
-	border-top-color: $red;
+	border-top-color: $color__alert-red;
 
 	&:before {
 		content: "\f071"; // exclamation-triangle
-		color: $red;
+		color: $color__alert-red;
 	}
 }
 
@@ -128,22 +126,22 @@ Stylesheet: Responsive WooCommerce Styles
 .woocommerce-invalid {
 	.select2-container .select2-choice,
 	input.input-text {
-		border-color: $red;
+		border-color: $color__alert-red;
 	}
 
 	select {
-		outline: 1px ridge $red;
+		outline: 1px ridge $color__alert-red;
 	}
 }
 
 .woocommerce-validated {
 	.select2-container .select2-choice,
 	input.input-text {
-		border-color: $green - #111;
+		border-color: $color__alert-green;
 	}
 
 	select {
-		outline: 1px ridge $green - #111;
+		outline: 1px ridge $color__alert-green;
 	}
 }
 
@@ -195,6 +193,10 @@ Stylesheet: Responsive WooCommerce Styles
 		background: none;
 		color: inherit;
 		font-weight: 400;
+	}
+	
+	.required {
+		color: $color__alert-red;
 	}
 	
 	/**
@@ -279,7 +281,7 @@ Stylesheet: Responsive WooCommerce Styles
 	
 	// Small Buttons
 	a.view,
-	a.add_to_cart_button,
+	ul.products li.product a.button,
 	.woocommerce-message .button,
 	.woocommerce-error .button,
 	.woocommerce-info .button {
@@ -302,14 +304,14 @@ Stylesheet: Responsive WooCommerce Styles
 		width: 30px;
 		text-align: center;
 		border-radius: 100%;
-		color: $red;
+		color: $color__alert-red;
 		text-decoration: none;
 		font-weight: 700;
 		border: 0;
 
 		&:hover {
 			color: #fff !important;
-			background: $red;
+			background: $color__alert-red;
 		}
 	}
 
