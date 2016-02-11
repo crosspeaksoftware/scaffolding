@@ -139,6 +139,10 @@ Stylesheet: Responsive WooCommerce Styles
 		border-color: $color__alert-red;
 	}
 
+	.select2-container-active .select2-choice {
+		border-color: darken( $color__alert-red, 15% );						
+	}
+
 	select {
 		outline: 1px ridge $color__alert-red;
 	}
@@ -148,6 +152,10 @@ Stylesheet: Responsive WooCommerce Styles
 	.select2-container .select2-choice,
 	input.input-text {
 		border-color: $color__alert-green;
+	}
+
+	.select2-container-active .select2-choice {
+		border-color: darken( $color__alert-green, 15% );						
 	}
 
 	select {
