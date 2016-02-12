@@ -65,6 +65,12 @@ if ( function_exists( 'is_woocommerce' ) ) {
  */
 function scaffolding_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+	
+	// Dequeue Select2 styles added by ACF
+	wp_dequeue_style( 'select2' );
+
+	// Dequeue Select2 script added by ACF
+	wp_dequeue_script( 'select2' );
 
 	/**
 	 * Add to wp_head()
