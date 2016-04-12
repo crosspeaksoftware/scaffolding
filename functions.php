@@ -59,7 +59,9 @@ require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
  * @global wp_styles
  */
 function scaffolding_scripts_and_styles() {
-	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+	// get global variables to add conditional wrappers around styles and scripts
+	global $wp_styles;
+	global $wp_scripts;
 
 	/**
 	 * Add to wp_head()
@@ -81,7 +83,7 @@ function scaffolding_scripts_and_styles() {
 
 	// Respond - https://github.com/scottjehl/Respond
 	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), false );
-	$wp_styles->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+	$wp_scripts->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
 	/**
 	 * Add to wp_footer()
