@@ -100,8 +100,7 @@ jQuery(document).ready(function($) {
 	}
 
 	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" ),
-	$fluidEl = $("figure");
+	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" );
 
 	$allVideos.each(function() {
 		$(this)
@@ -112,9 +111,9 @@ jQuery(document).ready(function($) {
 		.removeAttr('width');
 	});
 	$(window).resize(function() {
-		var newWidth = $fluidEl.width();
 		$allVideos.each(function() {
 			var $el = $(this);
+			var newWidth = $el.closest("figure").width();
 			$el
 			.width(newWidth)
 			.height(newWidth * $el.attr('data-aspectRatio'));
