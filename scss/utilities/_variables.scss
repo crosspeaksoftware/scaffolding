@@ -30,10 +30,10 @@ $color__dark-gray: #444;
 $color__link: #008CBA;
 $color__link-hover: #007BA1;
 
-$color__alert-yellow: #ebe16f;
-$color__alert-red: #fbe3e4;
-$color__alert-green: #e6efc2;
-$color__alert-blue: #d5edf8;
+$color__alert-yellow: #f1c40f;
+$color__alert-red: #c0392b;
+$color__alert-green: #7ad03a;
+$color__alert-blue: #2ea2cc;
 
 /* Social Media - http://www.paulund.co.uk/social-media-colours */
 $color__facebook: #3B5998;
@@ -44,14 +44,23 @@ $color__youtube: #bb0000;
 
 /**************
  * Forms
- * Integrated with select2 and gravity forms
+ * Integrated with Select2 and Gravity Forms
  **************/
 
 $input__height: 42px;
 $input__border-color: #DDD;
 $input__border-focus-color: #999;
-$input__background-color: #F9F9F9;
-$input__background-focus-color: #FFF;
+$input__bg-color: #F9F9F9;
+$input__bg-focus-color: #FFF;
+
+/**************
+ * Tables
+ **************/
+
+$table__border-color: #DDD;
+$table__bg-th-color: #EEE;
+$table__bg-even-color: #FFF;
+$table__bg-odd-color: #F0F0F0;
 
 /**************
  * Grid Stuff

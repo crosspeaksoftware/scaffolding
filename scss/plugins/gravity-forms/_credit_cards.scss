@@ -4,8 +4,6 @@ Author:
 
 Stylesheet: Credit Card Styles for Gravity Forms
 
-Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
-
 ******************************************************************/
 
 .gform_card_icon_container {
@@ -236,6 +234,10 @@ div.gform_card_icon {
 	display: inline-block;
 	zoom: 1;
 }
+
+/************************
+ * MEDIA QUERIES
+ ************************/
 
 @media only screen and (min-width: $screen-sm-min) {}
 

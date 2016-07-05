@@ -40,11 +40,37 @@ Stylesheet: Forms Stylesheet
 	font-weight: 400;
 }
 
+[placeholder]:focus::-webkit-input-placeholder {
+	-webkit-transition: opacity 0.5s 0.5s ease;
+	transition: opacity 0.5s 0.5s ease;
+	opacity: 0;
+}
+
+[placeholder]:focus:-moz-placeholder {
+	-moz-transition: opacity 0.5s 0.5s ease;
+	transition: opacity 0.5s 0.5s ease;
+	opacity: 0;
+}
+
+[placeholder]:focus::-moz-placeholder {
+	-moz-transition: opacity 0.5s 0.5s ease;
+	transition: opacity 0.5s 0.5s ease;
+	opacity: 0;
+}
+
+[placeholder]:focus:-ms-placeholder {
+	-ms-transition: opacity 0.5s 0.5s ease;
+	transition: opacity 0.5s 0.5s ease;
+	opacity: 0;
+}
+
 /**
 * Labels
 */
 
 label {
+	display: inline-block;
+	margin-bottom: 5px;
 	font-weight: bold;
 }
 
@@ -61,7 +87,7 @@ input[type="email"],
 input[type="tel"],
 input[type="number"],
 input[type="password"] {
-	background: $input__background-color;
+	background: $input__bg-color;
 	border: 1px solid $input__border-color;
 	border-radius: 0;
 	color: #444;
@@ -73,7 +99,7 @@ input[type="password"] {
 
 	&:focus,
 	&:active {
-		background: $input__background-focus-color;
+		background: $input__bg-focus-color;
 		border: 1px solid $input__border-focus-color;
 	}
 }
@@ -132,8 +158,11 @@ select {
 */
 
 input[type="submit"],
-input[type="button"] {
-	background: #222;
+input[type="button"],
+button[type="submit"],
+a.button {
+	background-color: #34495e;
+	background-image: none;
 	border: 0;
 	border-radius: 0;
 	color: #FFF;
@@ -143,8 +172,12 @@ input[type="button"] {
 	font-size: 1.125em;
 	font-weight: 700;
 	margin-bottom: 0;
-	padding: 0.75em 0;
+	padding-top: 0.675em;
+	padding-bottom: 0.675em;
+	padding-left: 1em;
+	padding-right: 1em;
 	text-align: center;
+	text-transform: uppercase;
 	@include transition(all 0.25s ease-in);
 	vertical-align: middle;
 	width: 100%;
@@ -152,10 +185,8 @@ input[type="button"] {
 	&:hover,
 	&:focus,
 	&:active,
-	.active,
-	.disabled,
-	[disabled] {
-		background: #000;
+	&.active {
+		background-color: #2c3e50;
 		color: #FFF;
 		text-decoration: none;
 	}
@@ -170,13 +201,17 @@ input[type="button"] {
 		outline: 0;
 	}
 
+	&:disabled,
 	&.disabled,
-	[disabled] {
-		background-image: none;
-		cursor: default;
+	&:disabled[disabled] {
+		cursor: not-allowed;
 		filter: alpha(opacity=65);
 		opacity: 0.65;
-		@include box-shadow(none);
+		
+		&:hover {
+			color: #FFF;
+			background-color: #2c3e50;
+		}
 	}
 
 	&:first-child {
@@ -191,12 +226,13 @@ input[type="button"] {
 
 .error-404 {
 	#searchform {
+		margin: 1em 0;
 		max-width: 481px;
 	}
 }
 
 #searchform {
-	height: 39px;
+	height: $input__height;
 	overflow: hidden;
 	position: relative;
 
@@ -210,24 +246,14 @@ input[type="button"] {
 	}
 
 	#searchsubmit {
-		background: #222;
-		color: #FFF;
 		font-size: 1em;
-		font-weight: 300;
-		height: 37px;
-		line-height: 37px;
+		height: $input__height;
+		line-height: $input__height;
 		padding: 0;
 		position: absolute;
-		right: 1px;
-		text-align: center;
-		text-transform: uppercase;
-		top: 1px;
+		right: 0;
+		top: 0;
 		width: 12%;
-
-		&:hover,
-		&:focus {
-			background: darken(#222, 10%);
-		}
 	}
 }
 
@@ -237,12 +263,14 @@ input[type="button"] {
  ************************/
 
 .post-password-form {
-
-	p {}
-
-	label {}
-
-	input[type="submit"] {}
+	label {
+		display: block;
+	}
+	
+	input[type="password"] {
+		margin-top: 4px;
+		margin-bottom: 1em;
+	}
 }
 
 
@@ -251,14 +279,23 @@ input[type="button"] {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
-
+	
+	input[type="submit"],
 	input[type="button"],
-	input[type="submit"] {
-		padding-left: 3em;
-		padding-right: 3em;
+	button[type="submit"],
+	a.button {
+		padding-left: 2em;
+		padding-right: 2em;
 		width: auto;
 	}
-
+	
+	.post-password-form {
+		input[type="password"] {
+			display: block;
+			width: 50%;
+		}
+	}
+	
 }
 
 @media only screen and (min-width: $screen-md-min) {}

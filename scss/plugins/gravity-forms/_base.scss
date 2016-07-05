@@ -6,6 +6,8 @@ Stylesheet: Responsive Gravity Forms Styles
 
 Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 
+Last reviewed with plugin Version 2.0.2.
+
 ******************************************************************/
 
 /* Import Other Styles */
@@ -18,9 +20,8 @@ Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 
 .gform_wrapper {
 	overflow: inherit;
-	margin: 15px auto;
+	margin: 1em auto;
 	width: 100%;
-	font-family: $font__sans;
 
 	&:focus {
 		outline: 0;
@@ -30,7 +31,7 @@ Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
 /* REQUIRED */
 
 .gfield_required {
-	color: #AF3124;
+	color: $color__alert-red;
 	margin-left: 4px;
 }
 
@@ -53,7 +54,8 @@ textarea.large {
 ul.gfield_checkbox,
 ul.gfield_radio {
 	li {
-		label, input {
+		label, 
+		input {
 			margin-left: 5px;
 		}
 	}
@@ -87,35 +89,13 @@ ul.gfield_radio {
 		min-height: 43px;
 		display: block;
 		overflow: hidden;
+		margin-bottom: 0.5em;
 	}
 
 	.ginput_left,
 	.ginput_right  {
 		width: 100%;
 	}
-
-	/*.name_prefix {
-		float: left;
-		width: 13%;
-	}
-
-	.name_first {
-		float: left;
-		width: 83%;
-		margin-left: 4%;
-	}
-
-	.name_last {
-		clear: both;
-		float: left;
-		width: 73%;
-	}
-
-	.name_suffix {
-		float: right;
-		width: 23%;
-		margin-left: 4%;
-	}*/
 
 	input[type=text],
 	input[type=url],
@@ -139,7 +119,7 @@ ul.gfield_radio {
 
 .gform_heading {
 	width: 100%;
-	margin-bottom: 15px;
+	margin-bottom: 1em;
 }
 
 /* BODY */
@@ -149,22 +129,16 @@ ul.gfield_radio {
 /* FOOTER */
 
 .gform_footer {
-	margin: 25px 0 15px 0;
+	margin: 1.5em 0 1em 0;
 	clear: both;
-	text-align: center;
-
-	&.right_label,
-	&.left_label {
-		padding: 16px 0 10px 31%;
-	}
 }
 
 /* TITLES & DESCRIPTIONS */
 
 h2.gsection_title {
-	margin: 0 !important;
-	padding: 0 !important;
-	letter-spacing: normal !important;
+	margin: 0;
+	padding: 0;
+	letter-spacing: normal;
 }
 
 h2.gsection_title,
@@ -174,7 +148,7 @@ h3.gform_title {
 }
 
 h3.gform_title {
-	letter-spacing: normal !important;
+	letter-spacing: normal;
 	margin: 10px 0 6px 0;
 }
 
@@ -188,36 +162,34 @@ h3.gform_title {
 	width: 100%;
 }
 
-.gform_wrapper .description,
+.description,
 .gfield_description,
 .gsection_description,
-.instruction {
+.gform_wrapper .instruction {
 	font-size: 0.85em;
 	line-height: 1.5em;
 	clear: both;
 	letter-spacing: normal;
 }
 
-.description,
-.gfield_description,
-.gsection_description {
-	padding: 4px 0 8px 0;
+.field_description_above {
+	.description,
+	.gfield_description,
+	.gsection_description {
+		padding: 4px 0 8px 0;
+	}
 }
 
-.left_label .gfield_description,
-.right_label .gfield_description {
-	width: 63%;
+.field_description_below {
+	.description,
+	.gfield_description,
+	.gsection_description {
+		padding: 4px 0 0 0;
+	}
 }
 
 .gfield_date_year+.gfield_description {
 	padding: 0;
-}
-
-.right_label .gfield_description,
-.left_label .gfield_description,
-.left_label .instruction,
-.right_label .instruction {
-	margin-left: 31%;
 }
 
 .left_label .gsection .gsection_description,
@@ -232,23 +204,23 @@ h3.gform_title {
 
 form {
 	ul {
-		margin: 0 !important;
+		margin: 0;
 		list-style-type: none;
+		
+		li {
+			margin-left: 0;
+			list-style-type: none;
+			list-style-image: none;
+			list-style: none;
+			overflow: visible;
 
-		li.gfield {
-			clear: both;
+			&.gfield {
+				clear: both;
+				margin-bottom: 1em;
+			}
 		}
 	}
 }
-
-form li {
-	margin-left: 0 !important;
-	list-style-type: none !important;
-	list-style-image: none !important;
-	list-style: none !important;
-	overflow: visible;
-}
-
 
 ul.gfield_radio li,
 ul.gfield_checkbox li {
@@ -283,6 +255,13 @@ form {
 
 /* LABELS */
 
+ul.gfield_radio,
+ul.gfield_checkbox {
+	label {
+		font-weight: normal;
+	}
+}
+
 .ginput_complex {
 	.ginput_left,
 	.ginput_right,
@@ -290,6 +269,36 @@ form {
 		input:focus+label {
 			font-weight: bold;
 		}
+	}
+}
+
+.form_sublabel_below {
+	.ginput_complex label,
+	.gfield_time_hour label,
+	.gfield_time_minute label,
+	.gfield_date_month label,
+	.gfield_date_day label,
+	.gfield_date_year label,
+	.instruction {
+		margin: 3px 0 0;
+	}
+	
+	.ginput_complex + .description, 
+	.ginput_complex + .gfield_description, 
+	.ginput_complex + .gsection_description {
+		margin-top: 0.3em;
+	}
+}
+
+.form_sublabel_above {
+	.ginput_complex label,
+	.gfield_time_hour label,
+	.gfield_time_minute label,
+	.gfield_date_month label,
+	.gfield_date_day label,
+	.gfield_date_year label,
+	.instruction {
+		margin: 0 0 3px;
 	}
 }
 
@@ -301,47 +310,21 @@ form {
 .gfield_date_year label,
 .instruction {
 	display: block;
-	margin: 3px 0;
-	font-size: 11px;
-	letter-spacing: 0.5pt;
+	font-size: 0.7em;
+	font-weight: normal;
+	letter-spacing: 1px;
 }
 
-.top_label {
+.top_label,
+.left_label,
+.right_label {
 	.gfield_label {
-		margin: 10px 0 4px 0;
-		font-weight: bold;
+		margin: 10px 0 5px 0;
 		display: -moz-inline-stack;
 		display: inline-block;
 		line-height: 1.3em;
 		clear: both;
 	}
-}
-
-.left_label {
-	.gfield_label {
-		float: left;
-		margin: 0 15px 0 0;
-		width: 29%;
-		font-weight: bold;
-	}
-}
-
-.right_label {
-	.gfield_label {
-		float: left;
-		margin: 0 15px 0 0;
-		width: 29%;
-		font-weight: bold;
-		text-align: right;
-	}
-}
-
-.left_label ul.gfield_checkbox,
-.right_label ul.gfield_checkbox,
-.left_label ul.gfield_radio,
-.right_label ul.gfield_radio {
-	margin-left: 32%;
-	overflow: hidden;
 }
 
 .gsection .gfield_label {
@@ -352,22 +335,23 @@ form {
 /* SECTIONS */
 
 .gsection {
-	border-bottom: 1px dotted #CCC;
-	padding: 0 0 8px 0;
-	margin: 16px 0;
+	border-bottom: 1px solid #CCC;
+	padding: 2em 0 0.5em 0;
+	margin: 0 0 1em;
 	clear: both;
 }
 
+/************************
+ * MEDIA QUERIES
+ ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
-
-	.gform_wrapper {
-		max-width: 100%;
-		margin: 10px 0;
-	}
-
-	textarea {
-		width: 100% !important;
+	
+	.gform_footer {
+		&.right_label,
+		&.left_label {
+			padding: 16px 0 10px 31%;
+		}
 	}
 
 	.gform_heading {
@@ -377,6 +361,43 @@ form {
 	.field_name_first,
 	.field_name_last {
 		width: 49%;
+	}
+	
+	.left_label {
+		.gfield_label {
+			float: left;
+			margin: 0 2% 0 0;
+			width: 29%;
+		}
+	}
+
+	.right_label {
+		.gfield_label {
+			float: left;
+			margin: 0 2% 0 0;
+			width: 29%;
+			text-align: right;
+		}
+	}
+	
+	.left_label .gfield_description,
+	.right_label .gfield_description {
+		width: 69%;
+	}
+	
+	.left_label ul.gfield_checkbox,
+	.right_label ul.gfield_checkbox,
+	.left_label ul.gfield_radio,
+	.right_label ul.gfield_radio {
+		margin-left: 32%;
+		overflow: hidden;
+	}
+	
+	.right_label .gfield_description,
+	.left_label .gfield_description,
+	.left_label .instruction,
+	.right_label .instruction {
+		margin-left: 31%;
 	}
 
 	.field_name_first {
@@ -399,16 +420,20 @@ form {
 			.name_last {
 				float: left;
 			}
+			
 			.name_suffix {
 				float: right;
 			}
+			
 			.name_prefix,
 			.name_suffix {
 				width: 10%;
 			}
+			
 			.name_prefix {
 				margin-right: 2%;
 			}
+			
 			.name_first,
 			.name_middle,
 			.name_last {
@@ -423,11 +448,13 @@ form {
 			.name_last {
 				width: 32%;
 			}
+			
 			.name_first,
 			.name_middle {
 				float: left;
 				margin-right: 2%;
 			}
+			
 			.name_last {
 				float: right;
 			}
@@ -438,6 +465,7 @@ form {
 				float: left;
 				width: 49%;
 			}
+			
 			.name_last {
 				float: right;
 				width: 49%;
@@ -450,11 +478,13 @@ form {
 				margin-right: 2%;
 				width: 20%;
 			}
+			
 			.name_first {
 				float: left;
 				margin-right: 2%;
 				width: 38%;
 			}
+			
 			.name_last {
 				float: right;
 				width: 38%;
@@ -468,6 +498,7 @@ form {
 				margin-right: 2%;
 				width: 38%;
 			}
+			
 			.name_suffix {
 				float: right;
 				width: 20%;
@@ -487,14 +518,6 @@ form {
 			float: right;
 			width: 49%;
 		}
-	}
-
-	li.has-select {
-		height: 234px;
-	}
-
-	li.has-select.gfield_error {
-		height: 300px;
 	}
 
 }

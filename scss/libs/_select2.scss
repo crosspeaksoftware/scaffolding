@@ -56,7 +56,7 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	   -moz-user-select: none;
 	    -ms-user-select: none;
 	        user-select: none;
-	background-color: $input__background-color;
+	background-color: $input__bg-color;
 }
 
 html[dir="rtl"] .select2-container .select2-choice {
@@ -72,8 +72,8 @@ html[dir="rtl"] .select2-container .select2-choice {
 }
 
 .select2-container .select2-choice > .select2-chosen {
-	font-size: 0.9em;
-	line-height: 35px;
+	font-size: 1em;
+	line-height: $input__height - 2;
 	margin-right: 30px;
 	display: block;
 	overflow: hidden;
@@ -98,7 +98,7 @@ html[dir="rtl"] .select2-container .select2-choice > .select2-chosen {
 	font-size: 1px;
 	text-decoration: none;
 	border: 0;
-	background: url('../images/select2.png') right top no-repeat;
+	background: url('../libs/images/select2.png') right top no-repeat;
 	cursor: pointer;
 	outline: 0;
 }
@@ -187,7 +187,7 @@ html[dir="rtl"] .select2-container .select2-choice .select2-arrow {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: url('../images/select2.png') no-repeat 7px 5px;
+	background: url('../libs/images/select2.png') no-repeat 7px 5px;
 }
 
 html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
@@ -217,18 +217,18 @@ html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
 	font-family: sans-serif;
 	font-size: 1em;
 	border: 1px solid $input__border-color;
-	background: #fff url('../images/select2.png') no-repeat 100% -22px;
+	background: #fff url('../libs/images/select2.png') no-repeat 100% -22px;
 	@include transition(none);
 
 	&:focus,
 	&:active {
-		background: #fff url('../images/select2.png') no-repeat 100% -22px !important;
+		background: #fff url('../libs/images/select2.png') no-repeat 100% -22px !important;
 	}
 }
 
 html[dir="rtl"] .select2-search input {
 	padding: 4px 5px 4px 20px;
-	background: #fff url('../images/select2.png') no-repeat -37px -22px;
+	background: #fff url('../libs/images/select2.png') no-repeat -37px -22px;
 }
 
 .select2-drop.select2-drop-above .select2-search input {
@@ -236,7 +236,7 @@ html[dir="rtl"] .select2-search input {
 }
 
 .select2-search input.select2-active {
-	background: #fff url('../images/select2-spinner.gif') no-repeat 100%;
+	background: #fff url('../libs/images/select2-spinner.gif') no-repeat 100%;
 }
 
 .select2-container:focus .select2-choice,
@@ -245,13 +245,13 @@ html[dir="rtl"] .select2-search input {
 .select2-container:active .select2-choices,
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
-	background: $input__background-focus-color;
+	background: $input__bg-focus-color;
 	border: 1px solid $input__border-focus-color;
 	outline: none;
 }
 
 .select2-dropdown-open .select2-choice {
-	background-color: $input__background-focus-color;
+	background-color: $input__bg-focus-color;
 }
 
 .select2-dropdown-open.select2-drop-above .select2-choice,
@@ -324,7 +324,7 @@ html[dir="rtl"] .select2-results {
 }
 
 .select2-results .select2-result-label {
-	font-size: 0.9em;
+	font-size: 1em;
 	padding: 3px 7px 4px;
 	margin: 0;
 	cursor: pointer;
@@ -387,7 +387,7 @@ html[dir="rtl"] .select2-results {
 .select2-results .select2-searching,
 .select2-results .select2-ajax-error,
 .select2-results .select2-selection-limit {
-	font-size: 0.9em;
+	font-size: 1em;
 	background: #f4f4f4;
 	display: list-item;
 	padding-left: 5px;
@@ -413,7 +413,7 @@ html[dir="rtl"] .select2-results {
 }
 
 .select2-more-results.select2-active {
-	background: #f4f4f4 url('../images/select2-spinner.gif') no-repeat 100%;
+	background: #f4f4f4 url('../libs/images/select2-spinner.gif') no-repeat 100%;
 }
 
 .select2-results .select2-ajax-error {
@@ -449,7 +449,7 @@ html[dir="rtl"] .select2-results {
 .select2-container-multi.select2-container-active .select2-choices,
 .select2-container-multi:focus .select2-choices,
 .select2-container-multi:active .select2-choices {
-	background-color: $input__background-focus-color;
+	background-color: $input__bg-focus-color;
 }
 
 .select2-container-multi .select2-choices {
@@ -461,7 +461,7 @@ html[dir="rtl"] .select2-results {
 	border: 1px solid $input__border-color;
 	cursor: text;
 	overflow: hidden;
-	background-color: $input__background-color;
+	background-color: $input__bg-color;
 }
 
 html[dir="rtl"] .select2-container-multi .select2-choices {
@@ -508,7 +508,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li {
 }
 
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-	background: #fff url('../images/select2-spinner.gif') no-repeat 100% !important;
+	background: #fff url('../libs/images/select2-spinner.gif') no-repeat 100% !important;
 }
 
 .select2-default {
@@ -516,7 +516,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li {
 }
 
 .select2-container-multi .select2-choices .select2-search-choice {
-	font-size: 0.9em;
+	font-size: 1em;
 	padding: 3px 5px 3px 18px;
 	margin: 5px 0 3px 8px;
 	position: relative;
@@ -530,7 +530,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices li {
 	   -moz-user-select: none;
 	    -ms-user-select: none;
 	        user-select: none;
-	background-color: $input__background-focus-color;
+	background-color: $input__bg-focus-color;
 }
 
 html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice {
@@ -555,7 +555,7 @@ html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice
 	top: 4px;
 	font-size: 1px;
 	outline: none;
-	background: url('../images/select2.png') right top no-repeat;
+	background: url('../libs/images/select2.png') right top no-repeat;
 }
 
 html[dir="rtl"] .select2-search-choice-close {
@@ -643,7 +643,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 	.select2-search-choice-close,
 	.select2-container .select2-choice abbr,
 	.select2-container .select2-choice .select2-arrow b {
-		background-image: url('../images/select2x2.png') !important;
+		background-image: url('../libs/images/select2x2.png') !important;
 		background-repeat: no-repeat !important;
 		background-size: 60px 40px !important;
 	}

@@ -4,26 +4,9 @@ Author:
 
 Stylesheet: Submission and Error Styles for Gravity Forms
 
-Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS
-
 ******************************************************************/
 
 /* ERRORS */
-
-.gform_wrapper.gform_validation_error {
-	::-webkit-input-placeholder {
-		color: #c0392b;
-	}
-	:-moz-placeholder {
-		color: #c0392b;
-	}
-	::-moz-placeholder {
-		color: #c0392b;
-	}
-	:-ms-input-placeholder {
-		color: #c0392b;
-	}
-}
 
 li.gfield.gfield_error,
 li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
@@ -41,7 +24,7 @@ li.gfield.gfield_creditcard_warning {
 }
 
 li.gfield.gfield_creditcard_warning div.gfield_creditcard_warning_message {
-	font-size:1em;
+	font-size: 1em;
 	font-family: $font__sans;
 	padding: 10px 20px 10px 45px;
 	min-height: 25px;
@@ -76,35 +59,33 @@ li.gfield.gfield_error.gfield_contains_required div.ginput_container  {
 }
 
 div.validation_error {
-	color: #a00;
-	border: 1px solid #a00;
-	background: #FFDFE0;
-	font-size: 1.2em;
+	@include alert;
 	font-weight: bold;
 	margin-bottom: 1.6em;
-	padding: .5em .5em .5em 1em;
-	//-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-	//-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-	//box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	border-top-color: $color__alert-red;
+
+	&:before {
+		content: "\f071"; // exclamation-triangle
+		color: $color__alert-red;
+	}
 }
 
 div.gf_page_steps+div.validation_error {
 	margin-top: 16px;
 }
 
-div.gfield_description.validation_error {
-	color: #AF3124;
+/*div.gfield_description.validation_error {
+	color: $color__alert-red;
 	font-weight: bold;
 	font-size: 0.85em;
+	letter-spacing: normal;
 	line-height: 1.2em;
 	margin-bottom: 16px;
 }
 
-.validation_message {
-	color: #a00;
-	font-weight: bold !important;
-	letter-spacing: normal;
-}
+div.gfield_description.validation_message {
+	color: $color__alert-red;
+}*/
 
 li.gfield_error {
 	input[type=text],
@@ -116,21 +97,18 @@ li.gfield_error {
 	textarea,
 	input,
 	.select2-container .select2-choice {
-		border: 1px solid lighten(#a00, 20%);
-		//border: 1px solid #a00;
-		//background: #FFDFE0;
-
+		border: 1px solid $color__alert-red;
+		
 		&:focus {
-			border: 1px solid #a00;
-			//background: #FFF;
+			border: 1px solid $color__alert-red;
 		}
 	}
 }
 
-li.gfield_error div.ginput_complex.ginput_container label,
+li.gfield_error .ginput_complex.ginput_container label,
 li.gfield_error ul.gfield_checkbox,
 li.gfield_error ul.gfield_radio {
-	color: #a00;
+	//color: $color__alert-red;
 }
 
 .top_label .gfield_description.validation_message,
@@ -243,6 +221,10 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
 	position: absolute !important;
 	left: -9000px;
 }
+
+/************************
+ * MEDIA QUERIES
+ ************************/
 
 @media only screen and (min-width: $screen-sm-min) {}
 
