@@ -695,6 +695,15 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_2col ul.gfield_radio li {
 		width: 50%;
 		float: left;
+		padding-right: 1em;
+		
+		&:nth-child(2n) {
+			clear: right;
+		}
+		
+		&:nth-child(2n+1) {
+			clear: left;
+		}
 	}
 
 	li.gfield.gf_list_3col ul.gfield_checkbox li,
@@ -703,18 +712,45 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_3col ul.gfield_radio li {
 		width: 33%;
 		float: left;
+		padding-right: 1em;
+		
+		&:nth-child(3n) {
+			clear: right;
+		}
+		
+		&:nth-child(3n+1) {
+			clear: left;
+		}
 	}
 
 	li.gfield.gf_list_4col ul.gfield_checkbox li,
 	li.gfield.gf_list_4col ul.gfield_radio li {
 		width: 25%;
 		float: left;
+		padding-right: 1em;
+		
+		&:nth-child(4n) {
+			clear: right;
+		}
+		
+		&:nth-child(4n+1) {
+			clear: left;
+		}
 	}
 
 	li.gfield.gf_list_5col ul.gfield_checkbox li,
 	li.gfield.gf_list_5col ul.gfield_radio li {
 		width: 20%;
 		float: left;
+		padding-right: 1em;
+		
+		&:nth-child(5n) {
+			clear: right;
+		}
+		
+		&:nth-child(5n+1) {
+			clear: left;
+		}
 	}
 }
 

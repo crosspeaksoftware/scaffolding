@@ -54,10 +54,37 @@ textarea.large {
 
 ul.gfield_checkbox,
 ul.gfield_radio {
+	margin: 0.5em 0 0;
+	
 	li {
+		position: relative;
+		
 		label, 
 		input {
 			margin-left: 5px;
+		}
+		
+		input[type="radio"],
+		input[type="checkbox"] {
+			position: absolute;
+			top: 0.3em;
+			
+			&[value="gf_other_choice"] {
+				line-height: $input__height;
+				height: $input__height;
+				top: 0;
+				left: 0;
+			}
+		}
+		
+		label {
+			display: inline-block;
+			padding-left: 23px;
+		}
+		
+		input[type="text"] {
+			margin-left: 28px;
+			width: auto;
 		}
 	}
 }
@@ -120,7 +147,7 @@ ul.gfield_radio {
 
 .gform_heading {
 	width: 100%;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 /* BODY */
@@ -336,10 +363,14 @@ ul.gfield_checkbox {
 /* SECTIONS */
 
 .gsection {
-	border-bottom: 1px solid #CCC;
+	border-bottom: 4px double #CCC;
 	padding: 2em 0 0.5em 0;
 	margin: 0 0 1em;
 	clear: both;
+	
+	&:first-of-type {
+		padding: 0 0 0.5em 0;
+	}
 }
 
 /************************
