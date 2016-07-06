@@ -58,15 +58,18 @@ function getScrollBarWidth () {
 
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
-
+	
 	// Select2 - https://select2.github.io/
 	if ($.fn.select2) {
 		var setup_select2 = function() {
 			$('select').each(function(){
-				$(this).select2();
+				$(this).select2({
+					minimumResultsForSearch: 20,
+				});
 			})
 		};
 		$(document).ajaxComplete(setup_select2);
+		$(document).bind('gform_post_render', setup_select2);
 		setup_select2();
 	}
 
