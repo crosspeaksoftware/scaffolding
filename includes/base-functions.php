@@ -520,5 +520,5 @@ function scaffolding_fix_img_caption_shortcode( $attr, $content = null ) {
 	if ( $id ) $id = 'id="' . esc_attr( $id ) . '" ';
 	return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
-add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
-add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
+//add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
+//add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
