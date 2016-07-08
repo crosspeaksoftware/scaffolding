@@ -17,8 +17,12 @@ get_header(); ?>
 		</header>
 
 		<div class="page-content">
+			
+			<p><?php _e( 'It looks like nothing was found at this location. This may be due to the page being moved, renamed or deleted.', 'scaffolding' ); ?></p>
 
-			<?php _e( '<p>It looks like nothing was found at this location. This may be due to the page being moved, renamed or deleted.</p><ul><li>Check the URL in the address bar above;</li><li>Look for the page in the main navigation above or on the <a href="/site-map/" title="Site Map Page">Site Map</a> page;</li><li>Or try using the Search below.</li></ul>' ); ?>
+			<ul>
+				<?php _e( '<li>Check the URL in the address bar above;</li><li>Look for the page in the main navigation above or on the <a href="/site-map/" title="Site Map Page">Site Map</a> page;</li><li>Or try using the Search below.</li>', 'scaffolding' ); ?>
+			</ul>
 
 			<?php get_search_form(); ?>
 

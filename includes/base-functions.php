@@ -31,8 +31,7 @@
  * 6.0 - Visitor UX Functions
  *    6.1 - Filter hard coded dimensions on images
  *    6.2 - Remove p tags from images
- *    6.3 - Fix tabindex for Gravity Forms
- *    6.4 - Filter hard coded dimensions on captions
+ *    6.3 - Filter hard coded dimensions on captions
 */
 
 
@@ -52,9 +51,8 @@ function scaffolding_build() {
 	add_filter( 'the_generator', 'scaffolding_rss_version' );                         // remove WP version from RSS
 	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 ); // remove pesky injected css for recent comments widget
 	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );           // clean up comment styles in the head
-	add_filter( 'gallery_style', 'scaffolding_gallery_style' );                       // clean up gallery output in wp
-	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );	       // enqueue base scripts and styles
-	//scaffolding_add_image_sizes();                                                  // add additional image sizes
+	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );	      // enqueue base scripts and styles
+	scaffolding_add_image_sizes();                                                    // add additional image sizes
 	scaffolding_theme_support();                                                      // launching this stuff after theme setup
 	add_action( 'widgets_init', 'scaffolding_register_sidebars' );                    // adding sidebars to Wordpress (these are created in functions.php)
 	add_filter( 'get_search_form', 'scaffolding_wpsearch' );                          // adding the scaffolding search form (created in functions.php)
@@ -80,9 +78,6 @@ function scaffolding_head_cleanup() {
 	//remove_action( 'wp_head', 'feed_links', 2 );                               // post and comment feeds
 	remove_action( 'wp_head', 'rsd_link' );                                      // EditURI link
 	remove_action( 'wp_head', 'wlwmanifest_link' );                              // windows live writer
-	remove_action( 'wp_head', 'index_rel_link' );                                // index link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );                   // previous link
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );                    // start link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );        // links for adjacent posts
 	remove_action( 'wp_head', 'wp_generator' );                                  // WP version
 	add_filter( 'style_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );  // remove WP version from css
@@ -139,17 +134,6 @@ function scaffolding_remove_recent_comments_style() {
 	if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
 		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 	}
-}
-
-/**
- * Remove injected CSS from gallery
- *
- * This function is called in scaffolding_build().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_gallery_style( $css ) {
-	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 }
 
 
@@ -472,8 +456,7 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
  * 6.0 - VISITOR/USER UX FUNCTIONS
  *    6.1 - Filter hard coded dimensions on images
  *    6.2 - Remove p tags from images
- *    6.3 - Fix tabindex for Gravity Forms
- *    6.4 - Filter hard coded dimensions on captions
+ *    6.3 - Filter hard coded dimensions on captions
 *************************************/
 
 /**
@@ -514,19 +497,6 @@ function scaffolding_filter_ptags_on_images( $content ){
 }
 
 /**
- * Fix Gravity Form Tabindex Conflicts
- *
- * @link http://gravitywiz.com/2013/01/28/fix-gravity-form-tabindex-conflicts/
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_gform_tabindexer() {
-	$starting_index = 1000; // if you need a higher tabindex, update this number
-	return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
-}
-add_filter( 'gform_tabindex', 'scaffolding_gform_tabindexer' );
-
-/**
  * Filter out hard-coded width, height attributes on all captions (wp-caption class)
  *
  * @since Scaffolding 1.0
@@ -550,5 +520,5 @@ function scaffolding_fix_img_caption_shortcode( $attr, $content = null ) {
 	if ( $id ) $id = 'id="' . esc_attr( $id ) . '" ';
 	return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
-add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
-add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
+//add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
+//add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );

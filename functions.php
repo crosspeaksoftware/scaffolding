@@ -64,13 +64,9 @@ if ( function_exists( 'is_woocommerce' ) ) {
  * @global wp_styles
  */
 function scaffolding_scripts_and_styles() {
-	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-	
-	// Dequeue Select2 styles added by ACF
-	wp_dequeue_style( 'select2' );
-
-	// Dequeue Select2 script added by ACF
-	wp_dequeue_script( 'select2' );
+	// get global variables to add conditional wrappers around styles and scripts
+	global $wp_styles;
+	global $wp_scripts;
 
 	/**
 	 * Add to wp_head()
@@ -91,7 +87,7 @@ function scaffolding_scripts_and_styles() {
 
 	// Respond - https://github.com/scottjehl/Respond
 	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), false );
-	$wp_styles->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+	$wp_scripts->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around respond script
 
 	/**
 	 * Add to wp_footer()
@@ -356,15 +352,11 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
  * Add additional image sizes
  *
  * Function called in scaffolding_build() in base-functions.php.
- * Currently commented out.
+ * Ex. add_image_size( 'scaffolding-thumb-600', 600, 150, true );
  *
  * @since Scaffolding 1.0
  */
-/*
-function scaffolding_add_image_sizes() {
-	add_image_size( 'scaffolding-thumb-600', 600, 150, true );
-}
-*/
+function scaffolding_add_image_sizes() {}
 
 /**
  * Register custom image headers
@@ -447,7 +439,7 @@ function scaffolding_wpsearch( $form ) {
 	$form = '<form role="search" method="get" id="searchform" class="clearfix" action="' . home_url( '/' ) . '" >
 	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffolding') . '</label>
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__( 'Search the Site&hellip;', 'scaffolding' ).'" />
-	<input type="submit" id="searchsubmit" value="'. esc_attr__('Go') .'" />
+	<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Go', 'scaffolding' ) .'" />
 	</form>';
 	return $form;
 } // end scaffolding_wpsearch()
@@ -528,7 +520,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
  */
 function scaffolding_excerpt_more( $more ) {
 	global $post;
-	return '...  <a class="read-more" href="'. get_permalink( $post->ID ) . '" title="'. __('Read ', 'scaffolding') . get_the_title( $post->ID ).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
+	return '&hellip; <a class="read-more" href="'. get_permalink( $post->ID ) . '" title="'. __('Read ', 'scaffolding') . get_the_title( $post->ID ).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
 } // end scaffolding_excerpt_more()
 
 /**

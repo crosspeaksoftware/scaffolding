@@ -58,15 +58,18 @@ function getScrollBarWidth () {
 
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
-
+	
 	// Select2 - https://select2.github.io/
 	if ($.fn.select2) {
 		var setup_select2 = function() {
 			$('select').each(function(){
-				$(this).select2();
+				$(this).select2({
+					minimumResultsForSearch: 20,
+				});
 			})
 		};
 		$(document).ajaxComplete(setup_select2);
+		$(document).bind('gform_post_render', setup_select2);
 		setup_select2();
 	}
 
@@ -100,8 +103,7 @@ jQuery(document).ready(function($) {
 	}
 
 	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" ),
-	$fluidEl = $("figure");
+	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" );
 
 	$allVideos.each(function() {
 		$(this)
@@ -112,9 +114,9 @@ jQuery(document).ready(function($) {
 		.removeAttr('width');
 	});
 	$(window).resize(function() {
-		var newWidth = $fluidEl.width();
 		$allVideos.each(function() {
 			var $el = $(this);
+			var newWidth = $el.closest("figure").width();
 			$el
 			.width(newWidth)
 			.height(newWidth * $el.attr('data-aspectRatio'));
