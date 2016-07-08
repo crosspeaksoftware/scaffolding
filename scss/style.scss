@@ -30,6 +30,7 @@ Here you can easily toggle on/off modules and files.
 @import "elements/widgets";
 
 /** STEP 5: Plugins **/
+@import "plugins/woocommerce/base"; // woocommerce styles
 @import "plugins/gravity-forms/base"; // gravity forms styles - uncheck box to NOT output default CSS
 
 /** STEP 6: Libraries **/
