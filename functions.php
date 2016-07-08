@@ -42,11 +42,6 @@
 // Add any additional files to include here
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
-
-if ( function_exists( 'is_woocommerce' ) ) {
-	require_once( SCAFFOLDING_INCLUDE_PATH . 'woocommerce-overrides.php' );
-}
-
 //require_once( SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php' );
 //require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
 
@@ -74,6 +69,7 @@ function scaffolding_scripts_and_styles() {
 
 	// Main stylesheet
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
+
 
 	// Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
 	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.5.0' );
