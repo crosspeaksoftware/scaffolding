@@ -65,8 +65,8 @@
 							<h3><strong>Functions</strong></h3>
 							<p>We have two functions files -</p>
 							<ul>
-								<li><em>functions.php</em>: Contains scripts &amp; enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
-								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, and ux/seo functions.</li>
+								<li><em>functions.php</em>: Contains scripts &amp; enqueueing, sidebars, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
+								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff and ux/seo functions.</li>
 							</ul>
 <div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/**
  * Return the search results page even if the query is empty
@@ -93,7 +93,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 						<section>
 							<h3><strong>Template Structure</strong></h3>
 							<p>Post formats are rarely used in client websites, so we've commented out support for them by default.</p>
-							<p>We have two folders for organizing our files, separate from the required theme files.</p>
+							<p>We have two folders for organizing our files separate from the required theme files.</p>
 							<ul>
 								<li><em>/templates/</em>: Keep all your page templates organized here. We've included a sitemap page template to get started.</li>
 								<li><em>/template-parts/</em>: This is where we've put files that are used throughout the theme like pagination and error messaging.</li>
@@ -113,7 +113,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 									<ul>
 										<li><em>_bootstrap-grid.scss</em>: Responsive <a href="http://getbootstrap.com/css/#grid" target="_blank" title="Twitter Bootstrap">Bootstrap Grid</a> - This should remain untouched in most instances.</li>
 										<li><em>_comments.scss</em>: Comment form and comments</li>
-										<li><em>_forms.scss</em>: Simple form elements. Compatible with our Gravity Forms styles.</li>
+										<li><em>_forms.scss</em>: Simple form elements &ndash; compatible with our Gravity Forms styles.</li>
 										<li><em>_links.scss</em>: Text or button links</li>
 										<li><em>_lists.scss</em>: Ordered, unordered or definition lists</li>
 										<li><em>_main-navigation.scss</em>: Specific to the main navigation including mobile and tablet.</li>
@@ -163,7 +163,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 								<li><em>/utilities/</em>
 									<ul>
 										<li><em>_variables.scss</em>: Set all your colors, fonts, sizes, grid settings and other variables here.</li>
-										<li><em>_mixins.scss</em>: Helpful set of mixins like Flexbox and utility classes for rapid development.</li>
+										<li><em>_mixins.scss</em>: Helpful set of mixins like <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" title="Visual Guide to CSS3 Flexbox Properties">Flexbox</a> and utility classes for rapid development.</li>
 										<li><em>_accessibility.scss</em>: Support for screen readers and other things along those lines.</li>
 									</ul>
 								</li>
