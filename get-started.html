@@ -63,34 +63,41 @@
 
 						<section>
 							<h3><strong>Functions</strong></h3>
-							<p>We have 2 functions files -</p>
+							<p>We have two functions files -</p>
 							<ul>
 								<li><em>functions.php</em>: Contains scripts &amp; enqueueing, sidebars, custom post type includes, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
-								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, dashboard widgets, ux functions, recommended and required plugins that we've provided.</li>
+								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff, and ux/seo functions.</li>
 							</ul>
-<div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/********************************************
-13. ADD FIRST AND LAST CLASSES TO POSTS
-********************************************/
-
-function scaffolding_post_classes( $classes ) {
-	global $wp_query;
-	if($wp_query->current_post == 0) {
-		$classes[] = 'first-post';
-	} elseif(($wp_query->current_post + 1) == $wp_query->post_count) {
-		$classes[] = 'last-post';
+<div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/**
+ * Return the search results page even if the query is empty
+ *
+ * @link http://vinayp.com.np/how-to-show-blank-search-on-wordpress
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_make_blank_search( $query ) {
+	if ( ! is_admin() ) {
+		global $wp_query;
+		if ( isset( $_GET['s'] ) && '' == $_GET['s'] ) {  // if search parameter is blank, do not return false
+			$wp_query->set( 's', ' ' );
+			$wp_query->is_search = true;
+		}
+		return $query;
 	}
-
-	return $classes;
 }
-add_filter( 'post_class', 'scaffolding_post_classes' );
+add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 </code></pre>
 						</section>
 
 
 						<section>
 							<h3><strong>Template Structure</strong></h3>
-							<p>Post formats are rarely used in client websites, so we've removed support for them by default. If you would like to use post formats on a project, the method used in <a href="http://underscores.me" id="underscores" target="_blank">underscores (_s)</a> could easily be integrated.</p>
-							<p>Our recommendation is to use the structure <em>tmpl-templatename.php</em> for custom templates to avoid namespace issues and create easily-accessible body classes for styling.</p>
+							<p>Post formats are rarely used in client websites, so we've commented out support for them by default.</p>
+							<p>We have two folders for organizing our files, separate from the required theme files.</p>
+							<ul>
+								<li><em>/templates/</em>: Keep all your page templates organized here. We've included a sitemap page template to get started.</li>
+								<li><em>/template-parts/</em>: This is where we've put files that are used throughout the theme like pagination and error messaging.</li>
+							</ul>
 							<p>Reference: <a href="https://codex.wordpress.org/Template_Hierarchy" id="template-hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
 						</section>
 
@@ -98,19 +105,66 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 							<h3><strong>Styles</strong></h3>
 							<p>All of your styles are in the <em>/scss/</em> folder.</p>
 							<ul>
+								<li><em>style.scss</em>: This is a setup file that builds your stylesheet.</li>
 								<li><em>login.scss</em>: Customize the admin login screen.</li>
 								<li><em>editor-styles.scss</em>: Set specific styles for the wysiwyg editor.</li>
 								<li><em>ie.scss</em>: Set overrides for Internet Explorer.</li>
-								<li><em>print.scss</em>: Strips out all unnecessary elements for optimal printing.</li>
-								<li><em>style.scss</em>: This is a setup file that builds your stylesheet.</li>
-								<li><em>/includes/_variables.scss</em>: Set all your colors, fonts, and other variables here. Default grid settings are also here.</li>
-								<li><em>/includes/_mixins.scss</em>: We've included a lot of useful mixins and utility classes for rapid development.</li>
-								<li><em>/scss/responsive-styles/</em>: This folder contains your main stylesheets. These load in according to your default settings from /includes/_variables.scss
+								<li><em>/elements/</em>
+									<ul>
+										<li><em>_bootstrap-grid.scss</em>: Responsive <a href="http://getbootstrap.com/css/#grid" target="_blank" title="Twitter Bootstrap">Bootstrap Grid</a> - This should remain untouched in most instances.</li>
+										<li><em>_comments.scss</em>: Comment form and comments</li>
+										<li><em>_forms.scss</em>: Simple form elements. Compatible with our Gravity Forms styles.</li>
+										<li><em>_links.scss</em>: Text or button links</li>
+										<li><em>_lists.scss</em>: Ordered, unordered or definition lists</li>
+										<li><em>_main-navigation.scss</em>: Specific to the main navigation including mobile and tablet.</li>
+										<li><em>_media.scss</em>: Images, galleries and videos</li>
+										<li><em>_pagination.scss</em>: Next/previous post link and full pagination</li>
+										<li><em>_tables.scss</em>: Simple table reset</li>
+										<li><em>_typography.scss</em>: Set sizes, colors or margins for paragraphs, headings and other copy.</li>
+										<li><em>_widgets.scss</em>: Default widgets or custom widgets</li>
+									</ul>
+								</li>
+								<li><em>/libs/</em>
+									<ul>
+										<li><em>_magnific-popup.scss</em>: <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank" title="Magnific Popup">Magnific Popup</a> image/video lightbox.</li>
+										<li><em>_normalize.scss</em>: <a href="http://necolas.github.io/normalize.css/" target="_blank" title="">Normalize</a> your CSS across all browsers.</li>
+										<li><em>_select2.scss</em>: Better form dropdowns with <a href="https://select2.github.io/" target="_blank" title="Select2">Select2</a>.</li>
+									</ul>
+								</li>
+								<li><em>/media-queries/</em>
 									<ul>
 										<li><em>_xs.scss</em>: The majority of your styles go here. This sheet is loaded on all devices by default.</li>
-										<li><em>_sm.scss</em>: Small devices (tablets) with a min-width of 768px.</li>
-										<li><em>_md.scss</em>: Medium devices (desktops) with a min-width of 992px.</li>
-										<li><em>_lg.scss</em>: Large devices (desktops) with a min-width of 1200px.</li>
+										<li><em>_sm.scss</em>: Small devices (tablets).</li>
+										<li><em>_md.scss</em>: Medium devices (desktops).</li>
+										<li><em>_lg.scss</em>: Large devices (desktops).</li>
+										<li><em>_custom.scss</em>: Define custom media queries outside of the grid breakpoints.</li>
+										<li><em>_print.scss</em>: Strips out all unnecessary elements for optimal printing.</li>
+										<li><em>_retina.scss</em>: Specific to retina devices.</li>
+									</ul>
+								</li>
+								<li><em>/modules/</em>
+									<ul>
+										<li><em>_sticky-footer.scss</em>: Just add the "sticky-footer" class to the body.</li>
+									</ul>
+								</li>
+								<li><em>/plugins/</em>
+									<ul>
+										<li><em>/gravity-forms/</em>
+											<ul>
+												<li><em>_base.scss</em>: General styles and common form fields.</li>
+												<li><em>_other_fields.scss</em>: Less common form fields such as date picker and multi-file upload.</li>
+												<li><em>_ready_classes.scss</em>: Built-in "<a href="https://www.gravityhelp.com/documentation/article/css-ready-classes/" target="_blank" title="Gravity Forms Ready Classes">ready classes</a>" included in Gravity Forms out-of-the-box.</li>
+												<li><em>_credit_cards.scss</em>: Compatible with payment add-ons.</li>
+												<li><em>_submission_and_errors.scss</em>: Validation handling.</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><em>/utilities/</em>
+									<ul>
+										<li><em>_variables.scss</em>: Set all your colors, fonts, sizes, grid settings and other variables here.</li>
+										<li><em>_mixins.scss</em>: Helpful set of mixins like Flexbox and utility classes for rapid development.</li>
+										<li><em>_accessibility.scss</em>: Support for screen readers and other things along those lines.</li>
 									</ul>
 								</li>
 							</ul>
@@ -129,12 +183,20 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 								<li><a href="http://mhs.github.io/scout-app/" title="Scout" target="_blank">Scout</a></li>
 							</ul>
 						</section>
+						
+						<section>
+							<h3><strong>Libraries</strong></h3>
+							<p>All of your third-party libraries are stored in the <em>/libs/</em> folder. This includes css, javascript, fonts and images.</p>
+							<ul>
+								<li>Where applicable we have included compressed and uncompressed versions of the files for debugging.</li>
+							</ul>
+						</section>
 
 						<section>
 							<h3><strong>Scripts</strong></h3>
-							<p>All of your javascript files are in the <em>/js/</em> folder.</p>
+							<p>All of our custom javascript files are in the <em>/js/</em> folder.</p>
 							<ul>
-								<li><em>scripts.js</em>: Customized mobile and tablet functionality, included js library functions (ie. Magnific Popup, iCheck, Chosen), and other included scripts are defined here.</li>
+								<li><em>scripts.js</em>: Here we initialize our third-party scripts and define functionality for making the theme responsive (ie. mobile/tablet navigation, responsive iFrames).</li>
 							</ul>
 						</section>
 
@@ -147,7 +209,7 @@ add_filter( 'post_class', 'scaffolding_post_classes' );
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-6 col-sm-7">
-						Scaffolding v1.0
+						Scaffolding v2.0
 					</div>
 					<div class="col-xs-6 col-sm-3 menu">
 						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>

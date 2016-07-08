@@ -1,8 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,400italic,700italic,300,400,700);
 
+html {
+	overflow-x: hidden;
+}
+
 body {
-  font:14px/1.6 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight:300;
+  font: 14px/1.6 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
 ::-webkit-input-placeholder {
@@ -59,6 +63,10 @@ a, em {
 	font-weight: 400;
 }
 
+label {
+	margin-bottom: 2px;
+}
+
 .bluebtn {
 	display: inline-block;
 	padding: 0.4em 1em;
@@ -86,16 +94,23 @@ a, em {
 	text-align: center;
 	width: 180px;
 	line-height: 1;
-	margin: 1em auto 1.5em auto;
+	margin: 1em auto 0.5em auto;
 	padding: 0.5em 0 0.6em 0;
 	transition: background-color 0.5s ease;
 }
 
-	.formbtn:hover, .formbtn:focus {
+	.formbtn:hover, 
+	.formbtn:focus {
 		background: #0078A1;
 		color: #FFF;
 		text-decoration: none;
 		border: 1px solid #0078A1;
+	}
+
+	.formbtn:focus {
+		outline: thin dotted #333 !important;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
 	}
 
 em {
@@ -299,21 +314,26 @@ em {
 	}
 	
 	#download {
-		background: #F0F0F0;
+		background: #EEE;
 	}
 	
 		#download .control-label {
-			font-size: 15px;
+			font-size: 0.9em;
 		}
 		
 		#download .help-block {
-			font-size: 13px;
+			font-size: 0.75em;
 			margin-bottom: 0;
 			font-style: italic;
+			line-height: 1.45;
 		}
 		
 		#download .form-group {
-			margin-bottom: 0;
+			margin-bottom: 0.35em;
+		}
+
+		#download .exclude-build {
+			margin-top: 1em;
 		}
 		
 		#download .form-control {
@@ -322,6 +342,7 @@ em {
 			border-radius: 0;
 			border: 1px solid #CCC;
 			font-weight: 300;
+			box-shadow: none;
 		}
 		
 			#download .form-control:focus {
@@ -330,14 +351,29 @@ em {
 			}
 		
 		#download form {
-			max-width: 800px;
+			max-width: 600px;
 			margin: 0 auto;
 		}
 	
 	#secondary {}
 	
 		body.home #secondary.content {
-			padding: 2em 0 2.5em 0;
+			padding: 2em 0 1.5em 0;
+		}
+
+		body.home #secondary strong {
+			color: #EEE;
+			display: block;
+			margin-bottom: 0.5em;
+		}
+
+		body.home #secondary span {
+			color: #AAA;
+			font-weight: 300;
+		}
+
+		body.home #secondary ul {
+			margin-bottom: 1.35em;
 		}
 
 		#secondary h2 {
@@ -363,7 +399,6 @@ em {
 
 			#secondary li a:hover {
 				text-decoration: none;
-				//color: #27ae60;
 				color: #0085B2;
 			}
 
@@ -395,6 +430,16 @@ em {
 
 		#tertiary h2 {
 			margin: 0 0 .5em;
+		}
+
+		#tertiary .row {
+			margin-left: -30px;
+			margin-right: -30px;
+		}
+
+		#tertiary .tertiary-column {
+			padding-left: 30px;
+			padding-right: 30px;
 		}
 
 	#fourth {}
@@ -502,6 +547,80 @@ pre code {
 	white-space: pre-wrap;
 	background-color: transparent;
 	border-radius: 0;
+}
+
+.checkbox-fields {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+	.checkbox-fields li {
+		position: relative;
+	}
+
+/* Hide original check and radio buttons */
+input[type="radio"],
+input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  	transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    z-index: 2;
+    width: 18px;
+    height: 18px;
+}
+
+input[type="radio"] + label, 
+input[type="checkbox"] + label {
+	font-weight: normal;
+    padding-left: 28px;
+	font-size: 0.8em !important;
+}
+
+/* Custom radio and check boxes */
+input[type="radio"] + label:before,
+input[type="radio"] + label:after,
+input[type="checkbox"] + label:before,
+input[type="checkbox"] + label:after {
+	background: #FFF;;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -8px;
+    width: 18px;
+    height: 18px;
+}
+
+input[type="radio"] + label:before,
+input[type="checkbox"] + label:before {
+    border: 1px solid #CCC;
+}
+
+input[type="radio"] + label:after,
+input[type="checkbox"] + label:after {
+    display: none;
+}
+
+input[type="radio"]:focus + label:before,
+input[type="checkbox"]:focus + label:before {
+    border: 1px solid #333;
+	background: #FFF;
+}
+
+input[type="radio"]:checked + label:after,
+input[type="checkbox"]:checked + label:after {
+    display: block;
+	background: #FFF;
+	border: 7px solid #0078A1;
 }
 		
 @media only screen and (min-width: 768px) {

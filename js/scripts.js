@@ -39,7 +39,7 @@ $(function() {
 		_paq.push(['trackEvent', 'button', 'click', 'Download']);
 	});
 	// Customize Button
-	$("#customize button").click(function() {
+	$("formsubmit").click(function() {
 		ga('send', 'event', 'button', 'click', 'Customize');
 		_paq.push(['trackEvent', 'button', 'click', 'Customize']);
 	});
