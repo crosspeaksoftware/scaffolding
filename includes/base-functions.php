@@ -94,20 +94,6 @@ function scaffolding_rss_version() {
 }
 
 /**
- * Remove WP version from scripts
- *
- * This function is called in scaffolding_head_cleanup().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) ) {
-		$src = remove_query_arg( 'ver', $src );
-	}
-	return $src;
-}
-
-/**
  * Remove injected CSS for recent comments widget
  *
  * This function is called in scaffolding_build().
