@@ -80,8 +80,6 @@ function scaffolding_head_cleanup() {
 	remove_action( 'wp_head', 'wlwmanifest_link' );                              // windows live writer
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );        // links for adjacent posts
 	remove_action( 'wp_head', 'wp_generator' );                                  // WP version
-	add_filter( 'style_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 );  // remove WP version from css
-	add_filter( 'script_loader_src', 'scaffolding_remove_wp_ver_css_js', 9999 ); // remove WP version from scripts
 }
 
 /**
