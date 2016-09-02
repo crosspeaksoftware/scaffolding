@@ -32,6 +32,8 @@
 <body <?php body_class(); ?>>
 
 	<div id="container">
+		
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'scaffolding' ); ?></a>
 
 		<header id="masthead" class="header" role="banner">
 
@@ -42,17 +44,15 @@
 
 				<?php // if you'd like to use the site description you can un-comment it below
 				// echo '<p class="site-description">' . bloginfo( "description" ) . '</p>' ?>
+				
+				<button id="mobile-menu-button"><?php _e( 'Menu', 'scaffolding' ); ?></button>
 
 			</div>
 
 		</header>
 
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'scaffolding' ); ?></a>
-
 		<nav id="main-navigation" class="clearfix" role="navigation" aria-label="<?php _e( 'Primary Navigation', 'scaffolding' ); ?>">
-
 			<?php scaffolding_main_nav(); ?>
-
 		</nav>
 
 		<?php // Interior Header Image ?>

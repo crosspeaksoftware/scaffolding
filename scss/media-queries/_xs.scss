@@ -48,6 +48,8 @@ body {
 }
 
 #logo {
+	float: left;
+	
 	&.h1 {
 		margin: 0;
 	}
