@@ -24,27 +24,44 @@ video {
 
 /* Image Alignment */
 img.alignleft,
-.alignleft {
-	float: left;
-	margin: 15px 20px 15px 0;
-}
-
+.alignleft,
 img.alignright,
-.alignright {
-	float: right;
-	margin: 15px 0 15px 20px;
-}
-
+.alignright,
 img.aligncenter,
-.aligncenter {
-	display: block;
-	margin: 0 auto;
-}
-
+.aligncenter,
 img.alignnone,
 .alignnone {
-	clear: both;
-	margin: 15px 0;
+	display: block;
+	margin: 15px auto;
+}
+
+// Add image alignment for larger screens only
+@media only screen and (min-width: 600px) {
+	
+	img.alignleft,
+	.alignleft {
+		float: left;
+		margin: 5px 20px 15px 0;
+	}
+
+	img.alignright,
+	.alignright {
+		float: right;
+		margin: 5px 0 15px 20px;
+	}
+
+	img.aligncenter,
+	.aligncenter {
+		display: block;
+		margin: 15px auto;
+	}
+
+	img.alignnone,
+	.alignnone {
+		clear: both;
+		margin: 15px 0;
+	}
+	
 }
 
 /* Image Caption */
