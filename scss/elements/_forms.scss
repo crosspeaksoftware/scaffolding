@@ -154,68 +154,25 @@ select {
 
 
 /**
-* Submit & Buttons
+* Submit
+* see _links for button styles
 */
 
 input[type="submit"],
 input[type="button"],
-button[type="submit"],
-a.button {
-	background-color: #34495e;
+button[type="submit"] {
+	@extend button.sc-btn-primary;
+	@extend button.sc-btn--lg;
+	@extend button.sc-btn--wide;
 	background-image: none;
-	border: 0;
 	border-radius: 0;
-	color: #FFF;
 	cursor: pointer;
-	display: inline-block;
 	font-family: $font__sans;
-	font-size: 1.125em;
-	font-weight: 700;
-	margin-bottom: 0;
-	padding-top: 0.675em;
-	padding-bottom: 0.675em;
-	padding-left: 1em;
-	padding-right: 1em;
-	text-align: center;
-	text-transform: uppercase;
-	@include transition(all 0.25s ease-in);
-	vertical-align: middle;
-	width: 100%;
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active {
-		background-color: #2c3e50;
-		color: #FFF;
-		text-decoration: none;
-	}
 
 	&:focus {
 		outline: thin dotted #333 !important;
 		outline: 5px auto -webkit-focus-ring-color;
 		outline-offset: -2px;
-	}
-
-	&:active {
-		outline: 0;
-	}
-
-	&:disabled,
-	&.disabled,
-	&:disabled[disabled] {
-		cursor: not-allowed;
-		filter: alpha(opacity=65);
-		opacity: 0.65;
-		
-		&:hover {
-			color: #FFF;
-			background-color: #2c3e50;
-		}
-	}
-
-	&:first-child {
-		*margin-left: 0;
 	}
 }
 
@@ -279,15 +236,6 @@ a.button {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
-	
-	input[type="submit"],
-	input[type="button"],
-	button[type="submit"],
-	a.button {
-		padding-left: 2em;
-		padding-right: 2em;
-		width: auto;
-	}
 	
 	.post-password-form {
 		input[type="password"] {

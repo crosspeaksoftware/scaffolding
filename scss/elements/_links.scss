@@ -12,21 +12,145 @@ a:visited {
 	text-decoration: none;
 }
 
-/* on hover and focus */
 a:hover,
 a:focus {
 	color: $color__link-hover;
 	text-decoration: underline;
 }
 
-/* on click */
 a:active {}
 
 a:link {
-	-webkit-tap-highlight-color: rgba( 0, 0, 0, 0.3 );
+	-webkit-tap-highlight-color: rgba(0,0,0,0.3);
 }
 
-/* read more link */
-.read-more {
+a.read-more {
 	white-space: nowrap;
+}
+
+// button styles - using a namespace to avoid plugin conflict
+// usage: for each button add a class for color, size and width
+
+// button colors
+a.sc-btn-primary,
+a.sc-btn-secondary,
+button.sc-btn-primary,
+button.sc-btn-secondary {
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: 0;
+	outline: 0;
+	@include transition(background-color 0.25s ease-in-out);
+	
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		text-decoration: none;
+	}
+	
+	&:disabled,
+	&.disabled,
+	&:disabled[disabled] {
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		opacity: 0.65;
+	}
+}
+
+a.sc-btn-primary,
+button.sc-btn-primary {
+	background-color: $color__primary;
+	color: #FFF;
+	
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: darken($color__primary, 10%);
+		color: #FFF;
+	}
+	
+	&:active,
+	&.active {
+		background-color: darken($color__primary, 20%);
+	}
+	
+	&:disabled,
+	&.disabled,
+	&:disabled[disabled] {
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $color__primary;
+		}
+	}
+}
+
+a.sc-btn-secondary,
+button.sc-btn-secondary {
+	background-color: $color__secondary;
+	color: #FFF;
+	
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: darken($color__secondary, 10%);
+		color: #FFF;
+	}
+	
+	&:active,
+	&.active {
+		background-color: darken($color__secondary, 20%);
+	}
+	
+	&:disabled,
+	&.disabled,
+	&:disabled[disabled] {
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $color__secondary;
+		}
+	}
+}
+
+// button sizes
+a.sc-btn--sm,
+button.sc-btn--sm {
+	font-size: 1em;
+	padding-top: 0.675em;
+	padding-bottom: 0.675em;
+}
+
+a.sc-btn--lg,
+button.sc-btn--lg {
+	font-size: 1.25em;
+	padding-top: 0.875em;
+	padding-bottom: 0.875em;
+}
+
+// button widths
+a.sc-btn--narrow,
+button.sc-btn--narrow {
+	display: inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+a.sc-btn--wide,
+button.sc-btn--wide {
+	display: inline-block;
+	padding-left: 3em;
+	padding-right: 3em;
+}
+
+a.sc-btn--full,
+button.sc-btn--full {
+	display: block;
+	padding-left: 1em;
+	padding-right: 1em;
 }
