@@ -70,9 +70,8 @@ function scaffolding_scripts_and_styles() {
 	// Main stylesheet
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
 
-
 	// Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
-	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.5.0' );
+	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
 
 	// IE-only stylesheet
 	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
