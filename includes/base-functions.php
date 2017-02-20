@@ -323,16 +323,16 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
 	$numposts       = $query->found_posts;
 	$max_page       = $query->max_num_pages;
 
-	if ( $numposts <= $posts_per_page ) {
+	if ( $numposts <= $posts_per_page || $max_page <= 1 ) {
 		return;
 	}
-
+	
 	if ( empty( $paged ) || 0 == $paged ) {
 		$paged = 1;
 	}
 
-	$pages_to_show         = 7;
-	$pages_to_show_minus_1 = $pages_to_show-1;
+	$pages_to_show         = ( wp_is_mobile() ) ? 2 : 5;
+	$pages_to_show_minus_1 = $pages_to_show - 1;
 	$half_page_start       = floor( $pages_to_show_minus_1 / 2 );
 	$half_page_end         = ceil( $pages_to_show_minus_1 / 2 );
 	$start_page            = $paged - $half_page_start;
@@ -356,22 +356,22 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
 		$start_page = 1;
 	}
 
-	echo $before . '<nav class="page-navigation"><ol class="scaffolding_page_navi wrap clearfix">' . "";
+	echo $before . '<nav class="page-navigation clearfix"><ol class="scaffolding-page-navi clearfix">' . "";
 
-	if ( 2 >= $start_page && $pages_to_show < $max_page ) {
+	if ( $start_page > 1 && $pages_to_show < $max_page ) {
 		$first_page_text = __( "First", 'scaffolding' );
-		echo '<li class="bpn-first-page-link"><a rel="prev" href="' . get_pagenum_link() . '" title="' . $first_page_text . '">' . $first_page_text . '</a></li>';
+		echo '<li class="sc-first-link"><a rel="prev" href="' . get_pagenum_link() . '" title="' . $first_page_text . '">' . $first_page_text . '</a></li>';
 	}
 
-	echo '<li class="bpn-prev-link">';
-
-	previous_posts_link( '<i class="fa fa-angle-double-left"></i> Previous Page' );
-
-	echo '</li>';
+	if ( $paged > 1 ) {
+		echo '<li class="sc-prev-link">';
+			previous_posts_link( '<i class="fa fa-angle-double-left"></i> Previous Page' );
+		echo '</li>';
+	}
 
 	for ( $i = $start_page; $i <= $end_page; $i++ ) {
 		if ( $i == $paged ) {
-			echo '<li class="bpn-current">' . $i . '</li>';
+			echo '<li class="sc-current"><span>' . $i . '</span></li>';
 		} elseif ( $i == ( $paged - 1 ) ) {
 			echo '<li><a rel="prev" href="' . get_pagenum_link( $i ) . '" title="View Page ' . $i . '">' . $i . '</a></li>';
 		} elseif ( $i == ( $paged + 1 ) ) {
@@ -381,15 +381,15 @@ function scaffolding_page_navi( $before = '', $after = '', $query ) {
 		}
 	}
 
-	echo '<li class="bpn-next-link">';
-
-	next_posts_link( 'Next Page <i class="fa fa-angle-double-right"></i>' );
-
-	echo '</li>';
+	if ( $end_page < $max_page ) {
+		echo '<li class="sc-next-link">';
+			next_posts_link( 'Next Page <i class="fa fa-angle-double-right"></i>' );
+		echo '</li>';
+	}
 
 	if ( $end_page < $max_page ) {
 		$last_page_text = __( 'Last', 'scaffolding' );
-		echo '<li class="bpn-last-page-link"><a rel="next" href="' . get_pagenum_link( $max_page ) . '" title="' . $last_page_text . '">' . $last_page_text . '</a></li>';
+		echo '<li class="sc-last-link"><a rel="next" href="' . get_pagenum_link( $max_page ) . '" title="' . $last_page_text . '">' . $last_page_text . '</a></li>';
 	}
 
 	echo '</ol></nav>' . $after . "";

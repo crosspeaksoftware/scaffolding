@@ -263,9 +263,12 @@ v3.3.7 (http://getbootstrap.com)
  * width for fluid, full width layouts.
  */
 
-.container-fluid,
-.wrap {
+.container-fluid {
 	@include container-fixed;
+}
+
+.wrap {
+	@include wrap;
 }
 
 
