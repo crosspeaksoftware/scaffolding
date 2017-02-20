@@ -424,22 +424,6 @@ function scaffolding_register_sidebars() {
  ************************************/
 
 /**
- * Search Form
- *
- * Call using get_search_form().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_wpsearch( $form ) {
-	$form = '<form role="search" method="get" id="searchform" class="clearfix" action="' . home_url( '/' ) . '" >
-	<label class="screen-reader-text" for="s">' . __('Search for:', 'scaffolding') . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__( 'Search the Site&hellip;', 'scaffolding' ).'" />
-	<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Go', 'scaffolding' ) .'" />
-	</form>';
-	return $form;
-} // end scaffolding_wpsearch()
-
-/**
  * Filter posts from query that are set to 'noindex'
  *
  * This function is dependent on Yoast SEO Plugin.
