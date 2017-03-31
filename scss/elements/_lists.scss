@@ -15,6 +15,10 @@ ol {
 ul.list-style--none,
 ol.list-style--none {
 	list-style-type: none;
+	
+	li {
+		margin-left: 0;
+	}
 }
 
 ul {
