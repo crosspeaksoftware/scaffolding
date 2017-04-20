@@ -33,25 +33,32 @@
 
 	<div id="container">
 		
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'scaffolding' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'scaffolding' ); ?></a>
 
 		<header id="masthead" class="header" role="banner">
 
 			<div id="inner-header" class="wrap clearfix">
 
 				<?php // to use an image just replace the bloginfo('name') with <img> ?>
-				<div id="logo" class="h1"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></div>
+				<div id="logo" class="h1">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
+						<?php bloginfo( 'name' ); ?>
+					</a>
+				</div>
 
-				<?php // if you'd like to use the site description you can un-comment it below
-				// echo '<p class="site-description">' . bloginfo( "description" ) . '</p>' ?>
+				<?php 
+					/* if you'd like to use the site description you can un-comment this block
+					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+					*/
+				?>
 				
-				<button id="mobile-menu-button"><?php _e( 'Menu', 'scaffolding' ); ?></button>
+				<button id="mobile-menu-button"><?php esc_html_e( 'Menu', 'scaffolding' ); ?></button>
 
 			</div>
 
 		</header>
 
-		<nav id="main-navigation" class="clearfix" role="navigation" aria-label="<?php _e( 'Primary Navigation', 'scaffolding' ); ?>">
+		<nav id="main-navigation" class="clearfix" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'scaffolding' ); ?>">
 			<?php scaffolding_main_nav(); ?>
 		</nav>
 

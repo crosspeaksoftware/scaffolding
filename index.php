@@ -16,13 +16,13 @@ get_header(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-				<header class="article-header">
+				<header class="entry-header">
 
 					<h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
 
-					<p class="byline vcard"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
+					<p class="entry-meta vcard"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
 
-				</header><?php // END .article-header ?>
+				</header>
 
 				<section class="entry-content clearfix" itemprop="articleBody">
 
@@ -35,13 +35,13 @@ get_header(); ?>
 						'link_after'  => '</span>',
 					) ); ?>
 
-				</section><?php // END .entry-content ?>
-
-				<footer class="article-footer">
+				</section>
+				
+				<footer class="entry-footer">
 
 					<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
 
-				</footer><?php // END .article-footer ?>
+				</footer>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template
@@ -50,7 +50,7 @@ get_header(); ?>
 					endif;
 				?>
 
-			</article><?php // END article ?>
+			</article>
 
 		<?php endwhile; ?>
 

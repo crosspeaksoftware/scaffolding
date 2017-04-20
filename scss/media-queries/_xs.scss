@@ -80,7 +80,6 @@ body {
 
 	/* titles */
 	.page-title,
-	.archive-title,
 	.single-title {
 		margin-top: 0;
 	}
@@ -98,7 +97,7 @@ body {
 	.tag-slug {}        /* style by tag (i.e. tag-news) */
 
 	/* post meta */
-	.byline {
+	.entry-meta {
 		color: #999;
 		margin: -1em 0 0;
 
@@ -111,10 +110,11 @@ body {
 	/* entry content */
 	.page-content {}
 	.entry-content {}
+	.archive-description {}
 
 	/* footers */
 	.page-footer {}
-	.article-footer {}
+	.entry-footer {}
 
 } /* end #inner-content */
 
@@ -146,7 +146,7 @@ body {
 
 .single {
 	#inner-content {
-		.byline {
+		.entry-meta {
 			margin: -1em 0 1em;
 		}
 	}
