@@ -29,9 +29,8 @@
  *    5.2 - Change logo link
  *    5.3 - Change alt attribute on logo
  * 6.0 - Visitor UX Functions
- *    6.1 - Filter hard coded dimensions on images
- *    6.2 - Remove p tags from images
- *    6.3 - Filter hard coded dimensions on captions
+ *    6.1 - Remove p tags from images
+ *    6.2 - Filter hard coded dimensions on captions
 */
 
 
@@ -437,34 +436,9 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
 
 /************************************
  * 6.0 - VISITOR/USER UX FUNCTIONS
- *    6.1 - Filter hard coded dimensions on images
- *    6.2 - Remove p tags from images
- *    6.3 - Filter hard coded dimensions on captions
+ *    6.1 - Remove p tags from images
+ *    6.2 - Filter hard coded dimensions on captions
 *************************************/
-
-/**
- * Filter out hard-coded dimensions on all images in WordPress
- *
- * @link https://gist.github.com/4557917
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_remove_img_dimensions( $html ) {
-	// Loop through all <img> tags
-	if ( preg_match( '/<img[^>]+>/ims', $html, $matches ) ) {
-		foreach ( $matches as $match ) {
-			// Replace all occurences of width/height
-			$clean = preg_replace( '/(width|height)=["\'\d%\s]+/ims', "", $match );
-			// Replace with result within html
-			$html = str_replace( $match, $clean, $html );
-		}
-	}
-	return $html;
-}
-add_filter( 'post_thumbnail_html', 'scaffolding_remove_img_dimensions', 10 );
-add_filter( 'get_avatar','scaffolding_remove_img_dimensions', 10 );
-/* Currently commented out so clients can still edit image sizes in the editor
-add_filter( 'the_content', 'scaffolding_remove_img_dimensions', 10 ); */
 
 /**
  * Remove the p from around imgs
