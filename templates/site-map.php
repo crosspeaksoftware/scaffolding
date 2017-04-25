@@ -12,7 +12,7 @@ get_header();
 $types = array( 'page', 'post' );
 
 // Add taxonomies to include in site map
-$taxes = array();
+$taxes = array( 'category', 'post_tag' );
 
 // Collect all term ids for the listed taxonomies
 $terms = get_terms( $taxes, array('fields' => 'ids') );
@@ -20,17 +20,20 @@ $terms = get_terms( $taxes, array('fields' => 'ids') );
 // Collect all the excluded term ids
 $excluded_term_IDs = array();
 
-// Collect all excluded terms by taxonomy
-foreach( $taxes as $tax ) {
-	// Get yoast taxonomy meta
-	$yoast_tax_meta = get_option('wpseo_taxonomy_meta');
+// Get yoast taxonomy meta
+$yoast_tax_meta = get_option( 'wpseo_taxonomy_meta', array() );
 
-	// Check if taxonomy exists in array
-	if ( is_array( $yoast_tax_meta[ $tax ] ) ) {
-		foreach( $terms as $term ) {
-			// Check if each term exists in array and is excluded from sitemap
-			if ( is_array( $yoast_tax_meta[ $tax ][ $term ] ) && 'never' == $yoast_tax_meta[ $tax ][ $term ]['wpseo_sitemap_include'] ) {
-				$excluded_term_IDs[] = $term;
+// Collect all excluded terms by taxonomy
+if ( ! empty( $yoast_tax_meta ) ) {
+	foreach( $taxes as $tax ) {
+		// Check if taxonomy exists in array
+		if ( array_key_exists( $tax, $yoast_tax_meta ) ) {
+			foreach( $terms as $term ) {
+				$term_seo = ( array_key_exists( $term, $yoast_tax_meta[ $tax ] ) ) ? $yoast_tax_meta[ $tax ][ $term ] : '';
+				// Check if each term exists in array and is excluded from sitemap
+				if ( $term_seo && ( 'never' == $term_seo['wpseo_sitemap_include'] || 'noindex' == $term_seo['wpseo_noindex'] ) ) {
+					$excluded_term_IDs[] = $term;
+				}
 			}
 		}
 	}
@@ -88,9 +91,9 @@ function scaffolding_list_terms( $param, $tax ) {
 			echo '</a>';
 			scaffolding_list_terms( array(
 				'sort_column'	=> 'title',
-				'parent'	=> $term->term_id,
+				'parent'		=> $term->term_id,
 				'hierarchical'	=> 0,
-				'exclude'	=> $excluded_term_IDs
+				'exclude'		=> $excluded_term_IDs
 			), $tax );
 			echo '</li>';
 		}
@@ -203,15 +206,18 @@ function scaffolding_list_posts( $param, $post_type ) {
 							scaffolding_list_posts( $params, 'post' );
 							?>
 
-							<?php
-							/* Example: List Product Categories
+							<?php 
+							// Example with term list
+							/*
+							<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
 							$params = array(
 								'sort_column'	=> 'title',
 								'exclude'		=> $excluded_term_IDs,
 								'parent' 		=> 0
 							);
-							scaffolding_list_terms( $params, 'product_cat' );
-							*/ ?>
+							scaffolding_list_terms( $params, 'category' );
+							*/
+							?>
 
 						</div>
 
