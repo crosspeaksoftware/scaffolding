@@ -12,7 +12,9 @@
 
 get_header(); ?>
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) : ?>
+	
+		<?php while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -37,11 +39,15 @@ get_header(); ?>
 
 				</section>
 				
-				<footer class="entry-footer">
+				<?php if ( get_the_tag_list() ) : ?>
 
-					<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+					<footer class="entry-footer clearfix">
 
-				</footer>
+						<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+
+					</footer>
+				
+				<?php endif; ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

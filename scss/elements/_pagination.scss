@@ -33,7 +33,7 @@ Stylesheet: Pagination Stylesheet
 		span {
 			display: block;
 			padding: 0.675em;
-			border: 1px solid $color__tertiary;
+			border: 1px solid #DDD;
 		}
 
 		a {
@@ -51,7 +51,7 @@ Stylesheet: Pagination Stylesheet
 	// current page link
 	li.sc-current {
 		span {
-			background-color: $color__tertiary;
+			background-color: #EEE;
 		}
 	}
 

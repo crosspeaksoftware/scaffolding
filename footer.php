@@ -11,7 +11,7 @@
 
 					</div><?php // END #main ?>
 
-				<?php get_sidebar(); ?>
+					<?php get_sidebar(); ?>
 
 				</div><?php // END .row ?>
 
@@ -24,9 +24,7 @@
 			<div id="inner-footer" class="wrap clearfix">
 
 				<nav role="navigation" aria-label="<?php _e( 'Footer Navigation', 'scaffolding' ); ?>">
-
 					<?php scaffolding_footer_nav(); ?>
-
 				</nav>
 
 				<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
@@ -41,9 +39,7 @@
 
 	</div><?php // END #container ?>
 
-<?php
-wp_footer();
-?>
+<?php wp_footer(); ?>
 
 </body>
 </html>

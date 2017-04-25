@@ -17,7 +17,7 @@ get_header(); ?>
 		<header class="page-header">
 			
 			<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
-			<?php the_archive_description( '<div class="archive-description>', '</div>' ); ?>
+			<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
 
 		</header>
 
@@ -33,20 +33,13 @@ get_header(); ?>
 
 				</header>
 
-				<section class="entry-content clearfix">
-
-					<?php //the_post_thumbnail(); ?>
+				<div class="entry-content clearfix">
 
 					<?php the_excerpt(); ?>
 
-				</section>
+				</div>
 
-				<?php /* Hidden By Default - no content
-				<footer class="entry-footer">
-				</footer>
-				*/ ?>
-
-			</article><?php // END post article ?>
+			</article>
 
 		<?php endwhile; ?>
 

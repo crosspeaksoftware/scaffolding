@@ -12,7 +12,9 @@
 
 get_header(); ?>
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) : ?>
+
+		<?php while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
@@ -29,14 +31,16 @@ get_header(); ?>
 					<?php the_content('Read More...'); ?>
 
 				</section>
+				
+				<?php if ( get_the_tag_list() ) : ?>
 
-				<footer class="entry-footer">
+					<footer class="entry-footer clearfix">
 
-					<?php if ( get_the_tag_list() ) :
-						echo get_the_tag_list( '<p class="tags"><span class="meta-title">Tags:</span> ', ', ', '</p>' );
-					endif; ?>
+						<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
 
-				</footer>
+					</footer>
+				
+				<?php endif; ?>
 
 			</article>
 

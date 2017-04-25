@@ -25,10 +25,10 @@ $size__font-default: 16px;
 
 /* Color Scheme */
 $color__body-text: #111;
-$color__dark-gray: #444;
 $color__primary: #34495e;
 $color__secondary: #9b59b6;
-$color__tertiary: #EEE;
+$color__tertiary-dark: #444;
+$color__tertiary-light: #EEE;
 
 $color__link: #3498db;
 $color__link-hover: #2980b9;
@@ -63,7 +63,7 @@ $input__bg-focus-color: #FFF;
 $table__border-color: #DDD;
 $table__bg-th-color: #EEE;
 $table__bg-even-color: #FFF;
-$table__bg-odd-color: #F0F0F0;
+$table__bg-odd-color: #f1f4f7;
 
 /**************
  * Grid Stuff

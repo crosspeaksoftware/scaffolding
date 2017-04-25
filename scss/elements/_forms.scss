@@ -7,8 +7,8 @@ Stylesheet: Forms Stylesheet
 ******************************************************************/
 
 /**
-* Placeholders
-*/
+ * Placeholders
+ */
 
 ::-webkit-input-placeholder {
 	color: #CCC;
@@ -65,8 +65,8 @@ Stylesheet: Forms Stylesheet
 }
 
 /**
-* Labels
-*/
+ * Labels
+ */
 
 label {
 	display: inline-block;
@@ -76,8 +76,8 @@ label {
 
 
 /**
-* Inputs
-*/
+ * Inputs
+ */
 
 textarea,
 select,
@@ -154,16 +154,17 @@ select {
 
 
 /**
-* Submit
-* see _links for button styles
-*/
+ * Submit
+ * see _links for button styles
+ */
 
 input[type="submit"],
 input[type="button"],
 button[type="submit"] {
-	@extend button.sc-btn-primary;
-	@extend button.sc-btn--lg;
-	@extend button.sc-btn--wide;
+	@include button;
+	@include button-color( $color__primary, #FFF ); 
+	@include button-lg;
+	@include button-wide;
 	background-image: none;
 	border-radius: 0;
 	cursor: pointer;

@@ -146,9 +146,11 @@ function scaffolding_list_posts( $param, $post_type ) {
 	}
 
 }
+?>
 
+	<?php if ( have_posts() ) : ?>
 
-	if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
@@ -173,21 +175,21 @@ function scaffolding_list_posts( $param, $post_type ) {
 
 					<div class="row">
 
-						<div id="pages" class="col-sm-6">
+						<div class="col-sm-6">
 
 							<h3><?php _e( 'Pages', 'scaffolding' ); ?></h3>
 							<ul>
 								<?php // List Pages
 								wp_list_pages( array(
 									'sort_column'	=> 'post_title',
-									'title_li'	=> '',
-									'exclude'	=> $excluded_IDs
+									'title_li'		=> '',
+									'exclude'		=> $excluded_IDs
 								) ); ?>
 							</ul>
 
-						</div><?php // END #pages ?>
+						</div>
 
-						<div id="posts" class="col-sm-6">
+						<div class="col-sm-6">
 
 							<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
 							<?php
@@ -195,8 +197,8 @@ function scaffolding_list_posts( $param, $post_type ) {
 							$params = array(
 								'numberposts'	=> $read_settings_num_posts,
 								'sort_column'	=> 'title',
-								'exclude' 	=> $excluded_IDs,
-								'post_type'	=> 'post'
+								'exclude' 		=> $excluded_IDs,
+								'post_type'		=> 'post'
 							);
 							scaffolding_list_posts( $params, 'post' );
 							?>
@@ -205,13 +207,13 @@ function scaffolding_list_posts( $param, $post_type ) {
 							/* Example: List Product Categories
 							$params = array(
 								'sort_column'	=> 'title',
-								'exclude'	=> $excluded_term_IDs,
-								'parent' 	=> 0
+								'exclude'		=> $excluded_term_IDs,
+								'parent' 		=> 0
 							);
 							scaffolding_list_terms( $params, 'product_cat' );
 							*/ ?>
 
-						</div><?php // END #posts ?>
+						</div>
 
 					</div><?php // END .row ?>
 

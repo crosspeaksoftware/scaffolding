@@ -535,7 +535,7 @@ function scaffolding_get_the_author_posts_link() {
 
 // Set up the content width value based on the theme's design
 if ( ! isset( $content_width ) ) {
-	$content_width = 474;
+	$content_width = 1170;
 }
 
 /**

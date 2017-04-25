@@ -12,9 +12,11 @@ get_header(); ?>
 
 	<div itemscope itemtype="http://schema.org/SearchResultsPage">
 
-		<h1 class="page-title"><span>Search Results for:</span> <?php echo esc_attr( get_search_query() ); ?></h1>
+		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'scaffolding' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) : ?>
+		
+			<?php while ( have_posts() ) : the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
@@ -30,16 +32,11 @@ get_header(); ?>
 
 					</header>
 
-					<section class="entry-content" itemprop="description">
+					<div class="entry-content" itemprop="description">
 
-						<?php the_excerpt('<span class="read-more">Read more &raquo;</span>'); ?>
+						<?php the_excerpt(); ?>
 
-					</section>
-
-					<?php /* Hidden By Default - no content
-					<footer class="entry-footer">
-					</footer>
-					*/ ?>
+					</div>
 
 				</article>
 
