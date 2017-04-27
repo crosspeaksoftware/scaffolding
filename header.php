@@ -75,16 +75,16 @@
 
 				<?php // Test for active sidebars to set the main content width
 					if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) { // both sidebars
-						$main_class = 'col-sm-6 col-sm-push-3';
+						$main_class = 'col-sm-6 col-sm-push-3 has-both-sidebars';
 					} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) { // left sidebar
-						$main_class = 'col-sm-9 col-sm-push-3';
+						$main_class = 'col-sm-9 col-sm-push-3 has-left-sidebar';
 					} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) { // right sidebar
-						$main_class = 'col-sm-9';
+						$main_class = 'col-sm-9 has-right-sidebar';
 					} else { // no sidebar
-						$main_class = 'col-xs-12';
+						$main_class = 'col-xs-12 no-sidebars';
 					}
 				?>
 
-				<div class="row">
+				<div class="row row-main">
 
 					<div id="main" class="<?php echo $main_class; ?> clearfix" role="main">
