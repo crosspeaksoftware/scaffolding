@@ -127,7 +127,7 @@ em {
 }
 
 #header {
-	background: url('../images/scaffolding-header.jpg') no-repeat;
+	background: url('../images/scaffolding-header-new.jpg') no-repeat;
 	background-position: top left;
 	height: 500px;
 	font-weight: 300;
@@ -413,7 +413,7 @@ em {
 			}
 
 	#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') no-repeat;
+		background: url('../images/scaffolding-bg-graphic-new.jpg') no-repeat;
 		background-position: top;
 		height: 700px;
 		position: relative;
@@ -625,7 +625,7 @@ input[type="checkbox"]:checked + label:after {
 		
 @media only screen and (min-width: 768px) {
 	#header {
-		background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+		background: url('../images/scaffolding-header-new.jpg') no-repeat fixed;
 		background-position: top;
 		height: 700px;
 		font-weight: 300;
@@ -682,6 +682,7 @@ input[type="checkbox"]:checked + label:after {
 	ul.inline-buttons li.only-item {
 		width: 48%;
 	}
+	
 	ul.inline-buttons li a {
 		font-size: 1.2em;
 	}
@@ -705,6 +706,7 @@ input[type="checkbox"]:checked + label:after {
 			float: right;
 			margin: 0;
 		}
+	
 	#footer {
 		font-size: 1em;
 	}
@@ -716,8 +718,9 @@ input[type="checkbox"]:checked + label:after {
 	#footer .col-sm-2 {
 		width: 16.666667%;
 	}
+	
 	#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') no-repeat;
+		background: url('../images/scaffolding-bg-graphic-new.jpg') no-repeat;
 		background-position: top;
 		height: 700px;
 		position: relative;
@@ -726,7 +729,7 @@ input[type="checkbox"]:checked + label:after {
 
 @media only screen and (min-width: 1024px) {
 	#header {
-		background: url('../images/scaffolding-header.jpg') no-repeat fixed;
+		background: url('../images/scaffolding-header-new.jpg') no-repeat fixed;
 		background-size: cover;
 		background-position: top;
 		height: 700px;
@@ -751,8 +754,9 @@ input[type="checkbox"]:checked + label:after {
 	#footer .col-sm-2 {
 		width: 13.666667%;
 	}
-		#secondary-image-separator {
-		background: url('../images/scaffolding-bg-graphic.jpg') top right fixed;
+	
+	#secondary-image-separator {
+		background: url('../images/scaffolding-bg-graphic-new.jpg') top right fixed;
 		background-size: cover;
 		background-repeat: no-repeat;
 		height: 700px;
