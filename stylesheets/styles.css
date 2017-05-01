@@ -268,7 +268,7 @@ em {
 		line-height: 1;
 		color: #FFF;
 		text-align: center;
-		background: rgba(0,0,0,0.1);
+		background: rgba(0,0,0,0.2);
 		text-shadow: 1px 3px 5px rgba(0,0,0,0.5);
 		padding: 0.5em;
 	}
