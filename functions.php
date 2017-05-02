@@ -128,9 +128,6 @@ function scaffolding_theme_support() {
 	// Support for thumbnails
 	add_theme_support( 'post-thumbnails' );
 
-	// Set default thumbnail size
-	set_post_thumbnail_size( 125, 125, true );
-
 	// Support for RSS
 	add_theme_support( 'automatic-feed-links' );
 
