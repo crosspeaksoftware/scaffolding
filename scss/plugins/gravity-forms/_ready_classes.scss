@@ -33,7 +33,7 @@ li.gf_inline div.ginput_container {
 	textarea.large {
 		width: 100%;
 	}
-	
+
 }
 
 .top_label {
@@ -530,7 +530,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
-	
+
 	.right_label input.small,
 	.right_label select.small,
 	.right_label .select2-container.small,
@@ -568,9 +568,9 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	.left_label .ginput_complex {
 		width: 69%;
 	}
-	
+
 	.top_label {
-		
+
 		input.large,
 		select.large,
 		.select2-container.large,
@@ -580,15 +580,13 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 
 		input.small,
 		select.small,
-		.select2-container.small,
-		textarea.small {
+		.select2-container.small {
 			width: 25%;
 		}
 
 		input.medium,
 		select.medium,
-		.select2-container.medium,
-		textarea.medium {
+		.select2-container.medium{
 			width: 49%;
 		}
 
@@ -641,7 +639,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		li.gfield.gf_left_third,
 		li.gfield.gf_middle_third,
 		li.gfield.gf_right_third {
-			width: 32%;
+			width: 33.3%;
 
 			input.medium,
 			input.large,
@@ -666,7 +664,6 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 
 		li.gfield.gf_middle_third {
 			float: left;
-			margin-left: 2% !important;
 			clear: none !important;
 		}
 
@@ -696,11 +693,11 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		width: 50%;
 		float: left;
 		padding-right: 1em;
-		
+
 		&:nth-child(2n) {
 			clear: right;
 		}
-		
+
 		&:nth-child(2n+1) {
 			clear: left;
 		}
@@ -713,11 +710,11 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		width: 33%;
 		float: left;
 		padding-right: 1em;
-		
+
 		&:nth-child(3n) {
 			clear: right;
 		}
-		
+
 		&:nth-child(3n+1) {
 			clear: left;
 		}
@@ -728,11 +725,11 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		width: 25%;
 		float: left;
 		padding-right: 1em;
-		
+
 		&:nth-child(4n) {
 			clear: right;
 		}
-		
+
 		&:nth-child(4n+1) {
 			clear: left;
 		}
@@ -743,11 +740,11 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		width: 20%;
 		float: left;
 		padding-right: 1em;
-		
+
 		&:nth-child(5n) {
 			clear: right;
 		}
-		
+
 		&:nth-child(5n+1) {
 			clear: left;
 		}
