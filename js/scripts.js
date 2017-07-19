@@ -58,18 +58,18 @@ function getScrollBarWidth () {
 
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
-	
+
 	// Select2 - https://select2.github.io/
 	if ($.fn.select2) {
 		var setup_select2 = function() {
 			// Add search only if results exceed number
 			var search = 20;
-			
+
 			// Disable search on touch devices for cleaner UX
 			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 				search = -1;
 			}
-			
+
 			$('select').select2({
 				minimumResultsForSearch: search,
 			});
@@ -264,30 +264,6 @@ jQuery(document).ready(function($) {
 			return false;
 		});
 	});
-
-	/*
-	// Released under MIT license: http://www.opensource.org/licenses/mit-license.php
-	$('[placeholder]').focus(function() {
-		var input = $(this);
-		if (input.val() == input.attr('placeholder')) {
-			input.val('');
-			input.removeClass('placeholder');
-		}
-	}).blur(function() {
-		var input = $(this);
-		if (input.val() == '' || input.val() == input.attr('placeholder')) {
-			input.addClass('placeholder');
-			input.val(input.attr('placeholder'));
-		}
-	}).blur().parents('form').submit(function() {
-		$(this).find('[placeholder]').each(function() {
-			var input = $(this);
-			if (input.val() == input.attr('placeholder')) {
-				input.val('');
-			}
-		})
-	});
-	*/
 
 }); /* end of as page load scripts */
 
