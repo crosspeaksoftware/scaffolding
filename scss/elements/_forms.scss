@@ -10,58 +10,48 @@ Stylesheet: Forms Stylesheet
  * Placeholders
  */
 
-::-webkit-input-placeholder {
+@mixin placeholder {
+	::-webkit-input-placeholder {@content}
+	:-moz-placeholder           {@content}
+	::-moz-placeholder          {@content}
+	:-ms-input-placeholder      {@content}
+	::-ms-input-placeholder		{@content}
+
+	[placeholder]:focus::-webkit-input-placeholder {
+		-webkit-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+
+	[placeholder]:focus:-moz-placeholder {
+		-moz-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+
+	[placeholder]:focus::-moz-placeholder {
+		-moz-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+
+	[placeholder]:focus:-ms-placeholder {
+		-ms-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+	
+	[placeholder]:focus::-ms-placeholder {
+		-ms-transition: opacity 0.5s 0.5s ease;
+		transition: opacity 0.5s 0.5s ease;
+		opacity: 0;
+	}
+}
+
+@include placeholder {
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
-}
-
-:-moz-placeholder {
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-
-::-moz-placeholder {
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-
-:-ms-input-placeholder { /* IE 10-11 */
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-
-::-ms-input-placeholder { /* IE EDGE */
-	color: #CCC;
-	font-style: italic;
-	font-weight: 400;
-}
-
-[placeholder]:focus::-webkit-input-placeholder {
-	-webkit-transition: opacity 0.5s 0.5s ease;
-	transition: opacity 0.5s 0.5s ease;
-	opacity: 0;
-}
-
-[placeholder]:focus:-moz-placeholder {
-	-moz-transition: opacity 0.5s 0.5s ease;
-	transition: opacity 0.5s 0.5s ease;
-	opacity: 0;
-}
-
-[placeholder]:focus::-moz-placeholder {
-	-moz-transition: opacity 0.5s 0.5s ease;
-	transition: opacity 0.5s 0.5s ease;
-	opacity: 0;
-}
-
-[placeholder]:focus:-ms-placeholder {
-	-ms-transition: opacity 0.5s 0.5s ease;
-	transition: opacity 0.5s 0.5s ease;
-	opacity: 0;
 }
 
 /**
@@ -96,6 +86,7 @@ input[type="password"] {
 	outline: none;
 	@include transition(all 0.25s ease-in-out);
 	width: 100%;
+	@include placeholder;
 
 	&:focus,
 	&:active {
@@ -111,7 +102,7 @@ input[type="email"],
 input[type="tel"],
 input[type="number"],
 input[type="password"] {
-	line-height: $input__height;
+	vartical-align: middle;
 	height: $input__height;
 	padding: 0 8px;
 }
@@ -123,7 +114,7 @@ input[type="image"] {
 }
 
 textarea {
-	resize: none;
+	resize: vertical;
 	padding: 8px
 }
 
