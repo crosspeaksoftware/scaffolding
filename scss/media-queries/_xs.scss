@@ -151,13 +151,13 @@ body {
 				margin-bottom: 1em;
 			}
 			
-			&.first-post {
+			&:first-child {
 				.entry-header {
 					margin-top: 0;
 				}
 			}
 
-			&.only-post {
+			&:only-child {
 				border-bottom: 0;
 			}
 		}

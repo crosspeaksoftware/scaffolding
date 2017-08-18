@@ -110,9 +110,9 @@ It currently slides out from the right.
 			&:hover,
 			&:focus {}
 
-			&.first-item {}
+			&:first-child {}
 
-			&.last-item {}
+			&:last-child {}
 
 			&.current-menu-item {
 				> a {
@@ -246,13 +246,13 @@ body.menu-open {
 					}
 				}
 
-				&.first-item {
+				&:first-child {
 					a {
 						border-left: none;
 					}
 				}
 
-				&.last-item {
+				&:last-child {
 
 					/* Children */
 					ul.sub-menu {
@@ -314,9 +314,9 @@ body.menu-open {
 						}
 
 
-						&.first-item {}
+						&:first-child {}
 
-						&.last-item {
+						&:last-child {
 							a {
 								border-bottom: none;
 							}
@@ -361,9 +361,9 @@ body.menu-open {
 
 			li {
 
-				&.first-item {}
+				&:first-child {}
 
-				&.last-item {
+				&:last-child {
 
 					/* Children */
 					ul.sub-menu {

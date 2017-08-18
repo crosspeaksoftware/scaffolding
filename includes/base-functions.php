@@ -16,13 +16,10 @@
  * 1.0 - Initiating Scaffolding
  * 2.0 - Cleaning Up wp_head
  * 3.0 - Front-End Improvements
- *    3.1 - Add classes to menus
- *    3.2 - Add classes to widgets
- *    3.3 - Add classes to posts
- *    3.4 - Add attributes to next post link
- *    3.5 - Add attributes to previous post link
- *    3.6 - Add title attribute to wp_list_pages
- *    3.7 - Allow for blank search
+ *    3.1 - Add attributes to next post link
+ *    3.2 - Add attributes to previous post link
+ *    3.3 - Add title attribute to wp_list_pages
+ *    3.4 - Allow for blank search
  * 4.0 - Page Navi
  * 5.0 - Custom Login
  *    5.1 - Add styles to login page
@@ -121,135 +118,11 @@ function scaffolding_remove_recent_comments_style() {
 
 /************************************
  * 3.0 - FRONT-END IMPROVEMENTS
- *    3.1 - Add classes to menus
- *    3.2 - Add classes to widgets
- *    3.3 - Add classes to posts
- *    3.4 - Add attributes to next post link
- *    3.5 - Add attributes to previous post link
- *    3.6 - Add title attribute to wp_list_pages
- *    3.7 - Allow for blank search
+ *    3.1 - Add attributes to next post link
+ *    3.2 - Add attributes to previous post link
+ *    3.3 - Add title attribute to wp_list_pages
+ *    3.4 - Allow for blank search
 *************************************/
-
-/**
- * Add first and last menu classes
- *
- * This now works with nested uls.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_first_last_menu_classes( $objects, $args ) {
-
-	// Add first/last classes to nested menu items.
-	$ids        = array();
-	$parent_ids = array();
-	$top_ids    = array();
-
-	if ( ! empty( $objects ) ) {
-
-		foreach ( $objects as $i => $object ) {
-			// If there is no menu item parent, store the ID and skip over the object.
-			if ( 0 == $object->menu_item_parent ) {
-				$top_ids[ $i ] = $object;
-				continue;
-			}
-
-			// Add first item class to nested menus.
-			if ( ! in_array( $object->menu_item_parent, $ids ) ) {
-				$objects[ $i ]->classes[] = 'first-item';
-				$ids[] = $object->menu_item_parent;
-			}
-
-			// If we have just added the first menu item class, skip over adding the ID.
-			if ( in_array( 'first-item', $object->classes ) ) {
-				continue;
-			}
-
-			// Store the menu parent IDs in an array.
-			$parent_ids[ $i ] = $object->menu_item_parent;
-		}
-
-		// Remove any duplicate values and pull out the last menu item.
-		$sanitized_parent_ids = array_unique( array_reverse( $parent_ids, true ) );
-
-		// Loop through the IDs and add the last menu item class to the appropriate objects.
-		foreach ( $sanitized_parent_ids as $i => $id ) {
-			$objects[ $i ]->classes[] = 'last-item';
-		}
-
-		// Finish it off by adding classes to the top level menu items.
-		$objects[1]->classes[] = 'first-item'; // We can be assured 1 will be the first item in the menu. :-)
-		$keys = array_keys( $top_ids );
-		$objects[end( $keys )]->classes[] = 'last-item';
-
-		// Return the menu objects.
-		return $objects;
-	}
-}
-add_filter( 'wp_nav_menu_objects', 'scaffolding_first_last_menu_classes', 10, 2 );
-
-/**
- * Add classes on widgets
- *
- * Add first and last classes to dynamic sidebar widgets. Also adds numeric index class for each widget (widget-1, widget-2, etc.)
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_widget_classes( $params ) {
-
-	global $my_widget_num; // Global a counter array
-	$this_id = $params[0]['id']; // Get the id for the current sidebar we're processing
-	$arr_registered_widgets = wp_get_sidebars_widgets(); // Get an array of ALL registered widgets
-
-	if ( ! $my_widget_num ) {// If the counter array doesn't exist, create it
-		$my_widget_num = array();
-	}
-
-	if ( ! isset( $arr_registered_widgets[ $this_id ] ) || ! is_array( $arr_registered_widgets[ $this_id ] ) ) { // Check if the current sidebar has no widgets
-		return $params; // No widgets in this sidebar... bail early.
-	}
-
-	if ( isset( $my_widget_num[ $this_id ] ) ) { // See if the counter array has an entry for this sidebar
-		$my_widget_num[ $this_id ] ++;
-	} else { // If not, create it starting with 1
-		$my_widget_num[ $this_id ] = 1;
-	}
-
-	$class = 'class="widget-' . $my_widget_num[ $this_id ] . ' '; // Add a widget number class for additional styling options
-
-	if ( 1 == $my_widget_num[ $this_id ] && $my_widget_num[ $this_id ] == count( $arr_registered_widgets[ $this_id ] ) ) { // If this is the first widget
-		$class .= 'only-widget ';
-	} elseif ( 1 == $my_widget_num[ $this_id ] && $my_widget_num[ $this_id ] != count( $arr_registered_widgets[ $this_id ] ) ) {
-		$class .= 'first-widget ';
-	} elseif ( $my_widget_num[ $this_id ] == count( $arr_registered_widgets[ $this_id ] ) ) { // If this is the last widget
-		$class .= 'last-widget ';
-	}
-
-	$params[0]['before_widget'] = str_replace( 'class="', $class, $params[0]['before_widget'] ); // Insert our new classes into "before widget"
-
-	return $params;
-}
-add_filter( 'dynamic_sidebar_params', 'scaffolding_widget_classes' );
-
-/**
- * Add first and last classes to posts
- *
- * Useful on archive and search pages.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_post_classes( $classes ) {
-	global $wp_query;
-	if ( 0 == $wp_query->current_post && 1 == $wp_query->post_count ) {
-		$classes[] = 'only-post';
-	} elseif ( 0 == $wp_query->current_post && 1 != $wp_query->post_count ) {
-		$classes[] = 'first-post';
-	} elseif ( ( 1 + $wp_query->current_post ) == $wp_query->post_count ) {
-		$classes[] = 'last-post';
-	}
-
-	return $classes;
-}
-add_filter( 'post_class', 'scaffolding_post_classes' );
 
 /**
  * Add rel and title attribute to next pagination link

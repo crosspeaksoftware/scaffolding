@@ -10,24 +10,24 @@ Stylesheet: Widgets Stylesheet
 	margin: 2.2em 0;
 	padding: 0;
 
-	&.first-widget {
+	&:first-child {
 		margin: 0 0 2.2em;
 
 		.widgettitle {
 			margin-top: 0;
 		}
 	}
+	
+	&:last-child {
+		margin: 2.2em 0 0;
+	}
 
-	&.only-widget {
+	&:only-child {
 		margin: 0;
 
 		.widgettitle {
 			margin-top: 0;
 		}
-	}
-
-	&.last-widget {
-		margin: 2.2em 0 0;
 	}
 	
 	.widgettitle {
