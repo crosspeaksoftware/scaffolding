@@ -291,10 +291,11 @@ ul.gfield_checkbox {
 }
 
 .ginput_complex {
-	.ginput_left,
-	.ginput_right,
-	.ginput_full {
-		input:focus+label {
+	span {
+		input:focus+label,
+		select:focus+label,
+		textarea:focus+label,
+		.select2-container--focus~label {
 			font-weight: bold;
 		}
 	}

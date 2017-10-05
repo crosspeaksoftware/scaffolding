@@ -21,15 +21,15 @@ li.gf_inline div.ginput_container {
 
 	input.small,
 	select.small,
-	.select2-container.small,
+	select.small + .select2-container,
 	textarea.small,
 	input.medium,
 	select.medium,
-	.select2-container.medium,
+	select.medium + .select2-container,
 	textarea.medium,
 	input.large,
 	select.large,
-	.select2-container.large,
+	select.large + .select2-container,
 	textarea.large {
 		width: 100%;
 	}
@@ -114,8 +114,8 @@ li.gf_inline div.ginput_container {
 		input.large,
 		select.medium,
 		select.large,
-		.select2-container.medium,
-		.select2-container.large {
+		select.medium + .select2-container,
+		select.large + .select2-container {
 			width: 100%;
 		}
 
@@ -533,33 +533,33 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	
 	.right_label input.small,
 	.right_label select.small,
-	.right_label .select2-container.small,
+	.right_label select.small + .select2-container,
 	.right_label textarea.small,
 	.left_label input.small,
 	.left_label select.small,
-	.left_label .select2-container.small,
+	.left_label select.small + .select2-container,
 	.left_label textarea.small {
 		width: 15%;
 	}
 
 	.right_label input.medium,
 	.right_label select.medium,
-	.right_label .select2-container.medium,
+	.right_label select.medium + .select2-container,
 	.right_label textarea.medium,
 	.left_label input.medium,
 	.left_label select.medium,
-	.left_label .select2-container.medium,
+	.left_label select.medium + .select2-container,
 	.left_label textarea.medium {
 		width: 35%;
 	}
 
 	.right_label input.large,
 	.right_label select.large,
-	.right_label .select2-container.large,
+	.right_label select.large + .select2-container,
 	.right_label textarea.large,
 	.left_label input.large,
 	.left_label select.large,
-	.left_label .select2-container.large,
+	.left_label select.large + .select2-container,
 	.left_label textarea.large {
 		width: 69%;
 	}
@@ -573,22 +573,22 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		
 		input.large,
 		select.large,
-		.select2-container.large,
-		textarea.large {
+		select.large + .select2-container,
+		textarea.large,
+		textarea.medium,
+		textarea.small {
 			width: 100%;
 		}
 
 		input.small,
 		select.small,
-		.select2-container.small,
-		textarea.small {
+		select.small + .select2-container {
 			width: 25%;
 		}
 
 		input.medium,
 		select.medium,
-		.select2-container.medium,
-		textarea.medium {
+		select.medium + .select2-container {
 			width: 49%;
 		}
 
@@ -597,6 +597,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 			ul.gfield_checkbox {
 				li {
 					display: inline-block;
+					
 					label {
 						margin-right: 2em;
 					}
@@ -628,11 +629,11 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		li.gfield.gf_right_half {
 			input.large,
 			select.large,
-			.select2-container.large,
+			select.large + .select2-container,
 			textarea.large,
 			input.medium,
 			select.medium,
-			.select2-container.medium,
+			select.medium + .select2-container,
 			textarea.medium {
 				width: 100% !important;
 			}
@@ -647,8 +648,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 			input.large,
 			select.medium,
 			select.large,
-			.select2-container.medium,
-			.select2-container.large {
+			select.medium + .select2-container,
+			select.large + .select2-container {
 				width: 100%;
 			}
 		}

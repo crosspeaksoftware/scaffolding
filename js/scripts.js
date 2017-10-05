@@ -59,24 +59,19 @@ function getScrollBarWidth () {
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
 	
-	// Select2 - https://select2.github.io/
-	if ($.fn.select2) {
-		var setup_select2 = function() {
-			// Add search only if results exceed number
-			var search = 20;
-			
-			// Disable search on touch devices for cleaner UX
-			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-				search = -1;
-			}
-			
-			$('select').select2({
-				minimumResultsForSearch: search,
+	// SelectWoo - https://github.com/woocommerce/selectWoo
+	if ($.fn.selectWoo) {
+		var setup_selectWoo = function() {
+			$('select').each(function(){
+				$(this).selectWoo({
+					minimumResultsForSearch: 20,
+					width: 'null',
+				});
 			});
 		};
-		$(document).ajaxComplete(setup_select2);
-		$(document).bind('gform_post_render', setup_select2);
-		setup_select2();
+		$(document).ajaxComplete(setup_selectWoo);
+		$(document).bind('gform_post_render', setup_selectWoo);
+		setup_selectWoo();
 	}
 
 	// Lightbox - http://dimsemenov.com/plugins/magnific-popup/

@@ -33,7 +33,7 @@ Here you can easily toggle on/off modules and files.
 @import "plugins/gravity-forms/base"; // gravity forms styles - uncheck box to NOT output default CSS
 
 /** STEP 6: Libraries **/
-@import "libs/select2"; // better cross browser select input - see https://select2.github.io/
+@import "libs/selectWoo"; // better cross browser select input - see https://github.com/woocommerce/selectWoo
 @import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
 
 /** STEP 7: Media Queries **/
