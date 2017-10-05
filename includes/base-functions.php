@@ -27,7 +27,6 @@
  *    5.3 - Change alt attribute on logo
  * 6.0 - Visitor UX Functions
  *    6.1 - Remove p tags from images
- *    6.2 - Filter hard coded dimensions on captions
 */
 
 
@@ -325,30 +324,3 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
 function scaffolding_filter_ptags_on_images( $content ){
 	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 }
-
-/**
- * Filter out hard-coded width, height attributes on all captions (wp-caption class)
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_fix_img_caption_shortcode( $attr, $content = null ) {
-	if ( ! isset( $attr['caption'] ) ) {
-		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
-			$content = $matches[1];
-			$attr['caption'] = trim( $matches[2] );
-		}
-	}
-	$output = apply_filters( 'img_caption_shortcode', '', $attr, $content );
-	if ( $output != '' ) return $output;
-	extract( shortcode_atts( array(
-		'id' => '',
-		'align' => 'alignnone',
-		'width' => '',
-		'caption' => ''
-	), $attr ) );
-	if ( 1 > (int) $width || empty( $caption ) ) return $content;
-	if ( $id ) $id = 'id="' . esc_attr( $id ) . '" ';
-	return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >' . do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
-}
-//add_shortcode( 'wp_caption', 'scaffolding_fix_img_caption_shortcode' );
-//add_shortcode( 'caption', 'scaffolding_fix_img_caption_shortcode' );
