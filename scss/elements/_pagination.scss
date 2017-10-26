@@ -13,7 +13,7 @@ Stylesheet: Pagination Stylesheet
 	list-style: none;
 	text-align: center;
 	margin: 2em -2px 1em;
-	
+
 	&:empty {
 		display: none;
 		margin: 0;
@@ -23,12 +23,12 @@ Stylesheet: Pagination Stylesheet
 		display: inline-block;
 		margin: 2px;
 		width: 48%;
-		
+
 		&:empty {
 			display: none;
 			margin: 0;
 		}
-		
+
 		a,
 		span {
 			display: block;
@@ -38,6 +38,7 @@ Stylesheet: Pagination Stylesheet
 
 		a {
 			color: $color__body-text;
+
 			@include transition(all 0.25s ease-in-out);
 
 			&:hover,
@@ -62,7 +63,7 @@ Stylesheet: Pagination Stylesheet
 			color: #FFF;
 			background-color: $color__primary;
 			border-color: $color__primary;
-			
+
 			&:hover,
 			&:focus {
 				background-color: darken($color__primary, 10%);
@@ -78,7 +79,7 @@ Stylesheet: Pagination Stylesheet
 			color: #FFF;
 			background-color: $color__secondary;
 			border-color: $color__secondary;
-			
+
 			&:hover,
 			&:focus {
 				background-color: darken($color__secondary, 10%);
@@ -86,12 +87,10 @@ Stylesheet: Pagination Stylesheet
 			}
 		}
 	}
-
 }
 
 // fallback previous & next links
 .wp-prev-next {
-
 	ul {}
 
 	.prev-link {
@@ -101,7 +100,6 @@ Stylesheet: Pagination Stylesheet
 	.next-link {
 		float: right;
 	}
-
 }
 
 /**
@@ -109,19 +107,14 @@ Stylesheet: Pagination Stylesheet
  */
 
 @media only screen and (min-width: 481px) {
-	
 	.scaffolding-page-navi {
-		
-        li {
+		li {
 			width: auto;
 
-            a,
+			a,
 			span {
 				padding: 0.5em 1.25em;
-				
 			}
-        }
-
-    }
-	
+		}
+	}
 }

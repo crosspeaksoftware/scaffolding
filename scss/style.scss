@@ -49,19 +49,16 @@ TABLET & SMALLER LAPTOPS
 Here you can begin to add more resource-intensive styles.
 */
 @media only screen and (min-width: $screen-sm-min) {
-
 	@import "media-queries/sm";
-
 }
 
 /*
 DESKTOP
 */
 @media only screen and (min-width: $screen-md-min) {
-
 	@import "media-queries/md";
-	//@import "modules/sticky-footer"; // need to add sticky-footer class to the body
 
+	//@import "modules/sticky-footer"; // need to add sticky-footer class to the body
 }
 
 /*
@@ -69,9 +66,7 @@ FULL VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 */
 @media only screen and (min-width: $screen-lg-min) {
-
 	@import "media-queries/lg";
-
 }
 
 /*
@@ -99,7 +94,5 @@ sense to print at the bottom. Things like nav, ads, and forms should
 be set to display none.
 */
 @media print {
-
 	@import "media-queries/print";
-
 }

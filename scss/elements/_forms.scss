@@ -11,11 +11,25 @@ Stylesheet: Forms Stylesheet
  */
 
 @mixin placeholder {
-	::-webkit-input-placeholder {@content}
-	:-moz-placeholder           {@content}
-	::-moz-placeholder          {@content}
-	:-ms-input-placeholder      {@content}
-	::-ms-input-placeholder		{@content}
+	::-webkit-input-placeholder {
+		@content;
+	}
+
+	:-moz-placeholder {
+		@content;
+	}
+
+	::-moz-placeholder {
+		@content;
+	}
+
+	:-ms-input-placeholder {
+		@content;
+	}
+
+	::-ms-input-placeholder {
+		@content;
+	}
 
 	[placeholder]:focus::-webkit-input-placeholder {
 		-webkit-transition: opacity 0.3s ease;
@@ -40,7 +54,7 @@ Stylesheet: Forms Stylesheet
 		transition: opacity 0.3s ease;
 		opacity: 0;
 	}
-	
+
 	[placeholder]:focus::-ms-placeholder {
 		-ms-transition: opacity 0.5s 0.5s ease;
 		transition: opacity 0.5s 0.5s ease;
@@ -54,6 +68,7 @@ Stylesheet: Forms Stylesheet
 	font-weight: 400;
 }
 
+
 /**
  * Labels
  */
@@ -63,7 +78,6 @@ label {
 	margin-bottom: 5px;
 	font-weight: bold;
 }
-
 
 /**
  * Inputs
@@ -84,8 +98,11 @@ input[type="password"] {
 	font-size: 1em;
 	letter-spacing: normal;
 	outline: none;
+
 	@include transition(all 0.25s ease-in-out);
+
 	width: 100%;
+
 	@include placeholder;
 
 	&:focus,
@@ -115,7 +132,7 @@ input[type="image"] {
 
 textarea {
 	resize: vertical;
-	padding: 8px
+	padding: 8px;
 }
 
 // Default select if Javascript is disabled
@@ -134,7 +151,7 @@ select {
 		padding: 2px 10px !important;
 		display: block;
 	}
-	
+
 	&:focus {
 		border: 0;
 		outline: 1px ridge $input__border-focus-color;
@@ -142,7 +159,6 @@ select {
 		-webkit-appearance: menulist-button;
 	}
 }
-
 
 /**
  * Submit
@@ -153,9 +169,10 @@ input[type="submit"],
 input[type="button"],
 button[type="submit"] {
 	@include button;
-	@include button-color( $color__primary, #FFF ); 
+	@include button-color($color__primary, #FFF);
 	@include button-lg;
 	@include button-wide;
+
 	background-image: none;
 	border-radius: 0;
 	cursor: pointer;
@@ -167,7 +184,6 @@ button[type="submit"] {
 		outline-offset: -2px;
 	}
 }
-
 
 /************************
  * SEARCH FORM STYLES
@@ -206,7 +222,6 @@ button[type="submit"] {
 	}
 }
 
-
 /************************
  * PASSWORD FORM STYLES
  ************************/
@@ -215,27 +230,24 @@ button[type="submit"] {
 	label {
 		display: block;
 	}
-	
+
 	input[type="password"] {
 		margin-top: 4px;
 		margin-bottom: 1em;
 	}
 }
 
-
 /************************
  * MEDIA QUERIES
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
-	
 	.post-password-form {
 		input[type="password"] {
 			display: block;
 			width: 50%;
 		}
 	}
-	
 }
 
 @media only screen and (min-width: $screen-md-min) {}

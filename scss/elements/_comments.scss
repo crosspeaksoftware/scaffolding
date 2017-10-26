@@ -26,7 +26,6 @@ Stylesheet: Comments Stylesheet
 		}
 
 		ul {
-
 			margin: 0;
 
 			li {
@@ -114,7 +113,6 @@ Stylesheet: Comments Stylesheet
 	.nocomments {
 		margin: 0 20px 1.1em;
 	}
-
 }
 
 /************************
@@ -123,10 +121,8 @@ Stylesheet: Comments Stylesheet
 
 /* h3 comment title */
 #comments {
-
 	/* number of comments span */
 	span {}
-
 }
 
 #comment-nav-above {
@@ -140,7 +136,7 @@ Stylesheet: Comments Stylesheet
 
 .comment-navigation {
 	@include clearfix;
-	
+
 	.nav-previous {
 		float: left;
 	}
@@ -176,15 +172,24 @@ Stylesheet: Comments Stylesheet
 
 			/* variations */
 			.comment {}
-			.alt {}
-			.odd {}
-			.even {}
-			.depth-1 {}           /* change number for different depth */
-			.byuser {}
-			.bypostauthor {}
-			.comment-author-admin {}
 
-		} /* end .commentlist li ul.children */
+			.alt {}
+
+			.odd {}
+
+			.even {}
+
+			.depth-1 {}
+
+			/* change number for different depth */
+			.byuser {}
+
+			.bypostauthor {}
+
+			.comment-author-admin {}
+		}
+
+		/* end .commentlist li ul.children */
 	}
 
 	li[class*=depth-] {
@@ -197,23 +202,38 @@ Stylesheet: Comments Stylesheet
 	}
 
 	li.depth-2 {}
+
 	li.depth-3 {}
+
 	li.depth-4 {}
+
 	li.depth-5 {}
 
 	/* general comment classes */
 	.alt {}
+
 	.odd {}
+
 	.even {}
+
 	.parent {}
+
 	.comment {}
+
 	.children {}
+
 	.pingback {}
+
 	.bypostauthor {}
+
 	.comment-author {}
+
 	.comment-author-admin {}
+
 	.thread-alt {}
+
 	.thread-odd {}
+
 	.thread-even {}
 
 	/* vcard */
@@ -256,11 +276,12 @@ Stylesheet: Comments Stylesheet
 			margin: 0;
 			position: absolute;
 			top: 0;
+
 			@include border-radius(50%);
 		}
+	}
 
-	} /* end .commentlist .vcard */
-
+	/* end .commentlist .vcard */
 
 	/* comment meta */
 	.comment-meta {
@@ -298,8 +319,9 @@ Stylesheet: Comments Stylesheet
 				overflow: visible;
 			}
 		}
+	}
 
-	} /* end .commentlist .comment_content */
+	/* end .commentlist .comment_content */
 
 	/* comment reply link */
 	.comment-reply-link {
@@ -322,7 +344,9 @@ Stylesheet: Comments Stylesheet
 			font-family: "FontAwesome";
 			padding-left: 5px;
 		}
+	}
 
-	} /* end .commentlist .comment-reply-link */
+	/* end .commentlist .comment-reply-link */
+}
 
-} /* end .commentlist */
+/* end .commentlist */
