@@ -4,7 +4,7 @@ Author:
 
 Stylesheet: Responsive Gravity Forms Styles
 
-Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS. 
+Usage: Uncheck box in Gravity Forms Settings to "Not" Output default CSS.
 Do not enable option "Enable enhanced user interface" on dropdowns - we're using Select2 rather than Chosen.
 
 Last reviewed with plugin Version 2.0.2.
@@ -358,6 +358,27 @@ ul.gfield_checkbox {
 	font-size: 1.3em;
 }
 
+.gform_wrapper {
+	.hidden_label {
+		.gfield_label {
+			clip: rect(1px, 1px, 1px, 1px);
+			position: absolute !important;
+			height: 1px;
+			width: 1px;
+			overflow: hidden;
+		}
+	}
+	
+	.top_label {
+		.hidden_label {
+			.ginput_container {
+				padding-top: 10px;
+			}
+		}
+	}
+}
+
+
 /* SECTIONS */
 
 .gsection {
@@ -376,6 +397,7 @@ ul.gfield_checkbox {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
+
 	.gform_footer {
 		&.right_label,
 		&.left_label {
@@ -548,6 +570,7 @@ ul.gfield_checkbox {
 			width: 49%;
 		}
 	}
+  
 }
 
 @media only screen and (min-width: $screen-md-min) {}

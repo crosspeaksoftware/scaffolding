@@ -534,6 +534,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
+
 	.right_label input.small,
 	.right_label select.small,
 	.right_label select.small + .select2-container,
@@ -644,7 +645,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		li.gfield.gf_left_third,
 		li.gfield.gf_middle_third,
 		li.gfield.gf_right_third {
-			width: 32%;
+			width: 33.3%;
 
 			input.medium,
 			input.large,
@@ -669,7 +670,6 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 
 		li.gfield.gf_middle_third {
 			float: left;
-			margin-left: 2% !important;
 			clear: none !important;
 		}
 

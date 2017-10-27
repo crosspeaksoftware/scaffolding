@@ -11,61 +11,28 @@ Stylesheet: Forms Stylesheet
  */
 
 @mixin placeholder {
-	::-webkit-input-placeholder {
-		@content;
-	}
-
-	:-moz-placeholder {
-		@content;
-	}
-
-	::-moz-placeholder {
-		@content;
-	}
-
-	:-ms-input-placeholder {
-		@content;
-	}
-
-	::-ms-input-placeholder {
-		@content;
-	}
-
-	[placeholder]:focus::-webkit-input-placeholder {
-		-webkit-transition: opacity 0.3s ease;
-		transition: opacity 0.3s ease;
-		opacity: 0;
-	}
-
-	[placeholder]:focus:-moz-placeholder {
-		-moz-transition: opacity 0.3s ease;
-		transition: opacity 0.3s ease;
-		opacity: 0;
-	}
-
-	[placeholder]:focus::-moz-placeholder {
-		-moz-transition: opacity 0.3s ease;
-		transition: opacity 0.3s ease;
-		opacity: 0;
-	}
-
-	[placeholder]:focus:-ms-placeholder {
-		-ms-transition: opacity 0.3s ease;
-		transition: opacity 0.3s ease;
-		opacity: 0;
-	}
-
-	[placeholder]:focus::-ms-placeholder {
-		-ms-transition: opacity 0.5s 0.5s ease;
-		transition: opacity 0.5s 0.5s ease;
-		opacity: 0;
-	}
+	::-webkit-input-placeholder {@content}
+	:-moz-placeholder           {@content}
+	::-moz-placeholder          {@content}
+	:-ms-input-placeholder      {@content}
 }
 
 @include placeholder {
 	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
+}
+
+@mixin placeholder-focus {
+	[placeholder]:focus::-webkit-input-placeholder {@content}
+	[placeholder]:focus:-moz-placeholder 		   {@content}
+	[placeholder]:focus::-moz-placeholder		   {@content}
+	[placeholder]:focus:-ms-placeholder			   {@content}
+}
+
+@include placeholder-focus {
+	@include transition(opacity 0.25s ease-in-out);
+	opacity: 0;
 }
 
 
@@ -98,12 +65,8 @@ input[type="password"] {
 	font-size: 1em;
 	letter-spacing: normal;
 	outline: none;
-
 	@include transition(all 0.25s ease-in-out);
-
 	width: 100%;
-
-	@include placeholder;
 
 	&:focus,
 	&:active {
@@ -242,12 +205,14 @@ button[type="submit"] {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
+
 	.post-password-form {
 		input[type="password"] {
 			display: block;
 			width: 50%;
 		}
 	}
+
 }
 
 @media only screen and (min-width: $screen-md-min) {}
