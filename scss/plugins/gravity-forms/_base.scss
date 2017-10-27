@@ -360,13 +360,23 @@ ul.gfield_checkbox {
 	font-size: 1.3em;
 }
 
-.gform_wrapper .hidden_label {
-	.gfield_label {
-	    clip: rect(1px, 1px, 1px, 1px);
-	    position: absolute !important;
-	    height: 1px;
-	    width: 1px;
-	    overflow: hidden;
+.gform_wrapper {
+	.hidden_label {
+		.gfield_label {
+			clip: rect(1px, 1px, 1px, 1px);
+			position: absolute !important;
+			height: 1px;
+			width: 1px;
+			overflow: hidden;
+		}
+	}
+	
+	.top_label {
+		.hidden_label {
+			.ginput_container {
+				padding-top: 10px;
+			}
+		}
 	}
 }
 
@@ -389,16 +399,6 @@ ul.gfield_checkbox {
  ************************/
 
 @media only screen and (min-width: $screen-sm-min) {
-
-	form {
-		ul {
-			li {
-				&.gfield {
-					padding-right: 16px;
-				}
-			}
-		}
-	}
 
 	.gform_footer {
 		&.right_label,
