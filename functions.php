@@ -99,8 +99,8 @@ function scaffolding_scripts_and_styles() {
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0.0', true );
 
-	// Select2 - https://select2.github.io/
-	wp_enqueue_script( 'scaffolding-select2', get_stylesheet_directory_uri() . '/libs/js/select2.min.js', array( 'jquery' ), '3.5.4', true );
+	// SelectWoo - https://github.com/woocommerce/selectWoo
+	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '5.0.0', true );
 
 	// Comment reply script for threaded comments
 	if ( is_singular() && comments_open() && ( 1 == get_option('thread_comments' ) ) ) {

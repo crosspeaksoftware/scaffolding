@@ -8,7 +8,7 @@ Stylesheet: Magnific Popup Stylesheet
 
 .mfp-bg {
 	background: #0b0b0b;
-	filter: alpha(opacity=80);
+	filter: alpha(opacity = 80);
 	height: 100%;
 	left: 0;
 	opacity: 0.8;
@@ -43,10 +43,10 @@ Stylesheet: Magnific Popup Stylesheet
 	width: 100%;
 
 	&:before {
-  		content: '';
-  		display: inline-block;
-  		height: 100%;
-  		vertical-align: middle;
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
 	}
 }
 
@@ -61,7 +61,7 @@ Stylesheet: Magnific Popup Stylesheet
 	text-align: left;
 	vertical-align: middle;
 	z-index: 1045;
-	
+
 	figure {
 		margin: 0;
 	}
@@ -127,7 +127,7 @@ Stylesheet: Magnific Popup Stylesheet
 		color: #cccccc;
 
 		&:hover {
-	  		color: white;
+			color: white;
 		}
 	}
 }
@@ -176,13 +176,13 @@ button::-moz-focus-inner {
 	top: 0;
 	width: 44px;
 
-  	&:hover,
+	&:hover,
 	&:focus {
-    	opacity: 1;
+		opacity: 1;
 	}
 
 	&:active {
-    	top: 1px;
+		top: 1px;
 	}
 }
 

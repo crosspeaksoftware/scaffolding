@@ -18,10 +18,9 @@ Stylesheet: Forms Stylesheet
 }
 
 @include placeholder {
-	color: #000;
+	color: #CCC;
 	font-style: italic;
 	font-weight: 400;
-	opacity: .55;
 }
 
 @mixin placeholder-focus {
@@ -36,6 +35,7 @@ Stylesheet: Forms Stylesheet
 	opacity: 0;
 }
 
+
 /**
  * Labels
  */
@@ -45,7 +45,6 @@ label {
 	margin-bottom: 5px;
 	font-weight: bold;
 }
-
 
 /**
  * Inputs
@@ -83,7 +82,7 @@ input[type="email"],
 input[type="tel"],
 input[type="number"],
 input[type="password"] {
-	line-height: $input__height;
+	vertical-align: middle;
 	height: $input__height;
 	padding: 0 8px;
 }
@@ -95,8 +94,8 @@ input[type="image"] {
 }
 
 textarea {
-	resize: none;
-	padding: 8px
+	resize: vertical;
+	padding: 8px;
 }
 
 // Default select if Javascript is disabled
@@ -124,7 +123,6 @@ select {
 	}
 }
 
-
 /**
  * Submit
  * see _links for button styles
@@ -134,9 +132,10 @@ input[type="submit"],
 input[type="button"],
 button[type="submit"] {
 	@include button;
-	@include button-color( $color__primary, #FFF );
+	@include button-color($color__primary, #FFF);
 	@include button-lg;
 	@include button-wide;
+
 	background-image: none;
 	border-radius: 0;
 	cursor: pointer;
@@ -148,7 +147,6 @@ button[type="submit"] {
 		outline-offset: -2px;
 	}
 }
-
 
 /************************
  * SEARCH FORM STYLES
@@ -187,7 +185,6 @@ button[type="submit"] {
 	}
 }
 
-
 /************************
  * PASSWORD FORM STYLES
  ************************/
@@ -202,7 +199,6 @@ button[type="submit"] {
 		margin-bottom: 1em;
 	}
 }
-
 
 /************************
  * MEDIA QUERIES

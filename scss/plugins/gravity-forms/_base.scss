@@ -121,23 +121,16 @@ ul.gfield_radio {
 	}
 
 	.ginput_left,
-	.ginput_right  {
+	.ginput_right {
 		width: 100%;
 	}
 
-	input[type=text],
-	input[type=url],
-	input[type=email],
-	input[type=tel],
-	input[type=number],
-	input[type=password] {
-		width: 100%;
-
-		&:focus+label {
-			font-weight: bold;
-		}
-	}
-
+	input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="password"],
 	select {
 		width: 100%;
 	}
@@ -190,7 +183,7 @@ h3.gform_title {
 	width: 100%;
 }
 
-.description,
+.gform_wrapper .description,
 .gfield_description,
 .gsection_description,
 .gform_wrapper .instruction {
@@ -200,23 +193,25 @@ h3.gform_title {
 	letter-spacing: normal;
 }
 
-.field_description_above {
-	.description,
-	.gfield_description,
-	.gsection_description {
-		padding: 4px 0 8px 0;
+.gform_wrapper {
+	.field_description_above {
+		.description,
+		.gfield_description,
+		.gsection_description {
+			padding: 4px 0 8px 0;
+		}
+	}
+
+	.field_description_below {
+		.description,
+		.gfield_description,
+		.gsection_description {
+			padding: 4px 0 0 0;
+		}
 	}
 }
 
-.field_description_below {
-	.description,
-	.gfield_description,
-	.gsection_description {
-		padding: 4px 0 0 0;
-	}
-}
-
-.gfield_date_year+.gfield_description {
+.gfield_date_year + .gfield_description {
 	padding: 0;
 }
 
@@ -291,42 +286,45 @@ ul.gfield_checkbox {
 }
 
 .ginput_complex {
-	.ginput_left,
-	.ginput_right,
-	.ginput_full {
-		input:focus+label {
+	span {
+		input:focus + label,
+		select:focus + label,
+		textarea:focus + label,
+		.select2-container--focus ~ label {
 			font-weight: bold;
 		}
 	}
 }
 
-.form_sublabel_below {
-	.ginput_complex label,
-	.gfield_time_hour label,
-	.gfield_time_minute label,
-	.gfield_date_month label,
-	.gfield_date_day label,
-	.gfield_date_year label,
-	.instruction {
-		margin: 3px 0 0;
+.gform_wrapper {
+	.form_sublabel_below {
+		.ginput_complex label,
+		.gfield_time_hour label,
+		.gfield_time_minute label,
+		.gfield_date_month label,
+		.gfield_date_day label,
+		.gfield_date_year label,
+		.instruction {
+			margin: 3px 0 0;
+		}
+
+		.ginput_complex + .description,
+		.ginput_complex + .gfield_description,
+		.ginput_complex + .gsection_description {
+			margin-top: 0.3em;
+		}
 	}
 
-	.ginput_complex + .description,
-	.ginput_complex + .gfield_description,
-	.ginput_complex + .gsection_description {
-		margin-top: 0.3em;
-	}
-}
-
-.form_sublabel_above {
-	.ginput_complex label,
-	.gfield_time_hour label,
-	.gfield_time_minute label,
-	.gfield_date_month label,
-	.gfield_date_day label,
-	.gfield_date_year label,
-	.instruction {
-		margin: 0 0 3px;
+	.form_sublabel_above {
+		.ginput_complex label,
+		.gfield_time_hour label,
+		.gfield_time_minute label,
+		.gfield_date_month label,
+		.gfield_date_day label,
+		.gfield_date_year label,
+		.instruction {
+			margin: 0 0 3px;
+		}
 	}
 }
 
@@ -336,7 +334,7 @@ ul.gfield_checkbox {
 .gfield_date_month label,
 .gfield_date_day label,
 .gfield_date_year label,
-.instruction {
+.gform_wrapper .instruction {
 	display: block;
 	font-size: 0.7em;
 	font-weight: normal;
@@ -572,7 +570,7 @@ ul.gfield_checkbox {
 			width: 49%;
 		}
 	}
-
+  
 }
 
 @media only screen and (min-width: $screen-md-min) {}
