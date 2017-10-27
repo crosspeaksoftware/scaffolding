@@ -3,7 +3,6 @@
  * The template for displaying search forms in Underscores.me
  *
  * @package Scaffolding
- * @since Scaffolding 1.0
  */
 ?>
 

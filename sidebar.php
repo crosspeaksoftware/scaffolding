@@ -5,7 +5,6 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Scaffolding
- * @since Scaffolding 1.0
  */
 
 // Test for active sidebars to set sidebar classes

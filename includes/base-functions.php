@@ -9,7 +9,6 @@
  * @link https://codex.wordpress.org/Theme_Development
  *
  * @package Scaffolding
- * @since Scaffolding 1.0
  *
  * Table of Contents
  *

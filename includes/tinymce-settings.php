@@ -5,8 +5,10 @@
  * These functions also handle backwards compatibility with WordPress as TinyMCE 3 and TinyMCE 4
  * handle this differently.
  *
- * http://www.kevinleary.net/customizing-tinymce-wysiwyg-editor-wordpress/
- * https://shellcreeper.com/complete-guide-to-style-format-drop-down-in-wp-editor/
+ * @link http://www.kevinleary.net/customizing-tinymce-wysiwyg-editor-wordpress/
+ * @link https://shellcreeper.com/complete-guide-to-style-format-drop-down-in-wp-editor/
+ *
+ * @package Scaffolding
  */
 
 /**

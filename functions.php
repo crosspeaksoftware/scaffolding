@@ -9,7 +9,6 @@
  * @link https://codex.wordpress.org/Theme_Development
  *
  * @package Scaffolding
- * @since Scaffolding 1.0
  *
  * @todo language support, customizer functions
  *
@@ -34,13 +33,14 @@
  * 11.0 - Custom/Additional Functions
  */
 
+define( 'SCAFFOLDING_THEME_VERSION', '20171025' );
+define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 
 /************************************
  * 1.0 - INCLUDE FILES
  ************************************/
 
 // Add any additional files to include here
-define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 require_once( SCAFFOLDING_INCLUDE_PATH . 'base-functions.php' );
 require_once( SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php' );
 //require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
@@ -73,20 +73,20 @@ function scaffolding_scripts_and_styles() {
 	 */
 
 	// Main stylesheet
-	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), '', 'all' );
+	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), SCAFFOLDING_THEME_VERSION );
 
 	// Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
 	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
 
 	// IE-only stylesheet
-	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), '' );
+	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), SCAFFOLDING_THEME_VERSION );
 	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
 	// Modernizr - http://modernizr.com/
-	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), false );
+	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.2.0', false );
 
 	// Respond - https://github.com/scottjehl/Respond
-	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), false );
+	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), '1.4.2', false );
 	$wp_scripts->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around respond script
 
 	/**
@@ -94,7 +94,7 @@ function scaffolding_scripts_and_styles() {
 	 */
 
 	// Retina.js - http://imulus.github.io/retinajs/
-	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '1.4.2', true );
+	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '1.3.0', true );
 
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0.0', true );
@@ -108,7 +108,7 @@ function scaffolding_scripts_and_styles() {
 	}
 
 	// Add Scaffolding scripts file in the footer
-	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), SCAFFOLDING_THEME_VERSION, true );
 
 } // end scaffolding_scripts_and_styles()
 
@@ -128,7 +128,7 @@ function scaffolding_scripts_and_styles() {
 function scaffolding_theme_support() {
 
 	// Make theme available for translation
-	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
+	//load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
 
 	// Support for thumbnails
 	add_theme_support( 'post-thumbnails' );

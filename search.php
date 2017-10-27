@@ -5,16 +5,15 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Scaffolding
- * @since Scaffolding 1.0
  */
 
 get_header(); ?>
 
 	<div itemscope itemtype="http://schema.org/SearchResultsPage">
-
-		<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'scaffolding' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-
+		
 		<?php if ( have_posts() ) : ?>
+
+			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'scaffolding' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		
 			<?php while ( have_posts() ) : the_post(); ?>
 
