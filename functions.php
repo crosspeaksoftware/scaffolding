@@ -46,7 +46,7 @@ require_once( SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php' );
 //require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
 
 // Gravity Forms Customizations
-if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+if ( class_exists( 'GFForms' ) ) {
 	require_once( SCAFFOLDING_INCLUDE_PATH . 'gf-customizations.php' );
 }
 
