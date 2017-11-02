@@ -33,7 +33,7 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20171025' );
+define( 'SCAFFOLDING_THEME_VERSION', '20171102' );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 
 /************************************

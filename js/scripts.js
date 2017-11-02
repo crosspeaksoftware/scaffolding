@@ -193,35 +193,15 @@ jQuery(document).ready(function($) {
 		if (responsive_viewport >= 768) {
 			$('#main-navigation .menu-item-has-children').doubleTapToGo();
 		}
-	})
+	});
 
 	$(window).resize(function(e) {
-		if (Modernizr && Modernizr.touch) {
-			e.preventDefault();
-		} else {
-			responsive_viewport = $(window).width() + getScrollBarWidth();
-			if (responsive_viewport >= 768) {
-				$('body').removeClass('menu-open');
-			} else if (responsive_viewport < 768 && !menu.is(':hidden')) {
-				$('body').removeClass('menu-open');
-			}
+		responsive_viewport = $(window).width() + getScrollBarWidth();
+		if (responsive_viewport >= 768 && $('body').hasClass('menu-open')) {
+			$('body').removeClass('menu-open');
 		}
 	});
 	// end responsive nav
-
-	// if is smaller than 481px
-	if (responsive_viewport < 481) {
-		// if mobile device and not on the home page scroll to the content on page load
-		if (!$('body').hasClass("home")) {
-			var new_position = jQuery('#main').offset();
-			if (typeof new_position != 'undefined') {
-				jQuery('html, body').animate({scrollTop:new_position.top}, 2000);
-			}
-		}
-	}
-
-	// if is larger than 481px
-	if (responsive_viewport >= 481){}
 
 	// if is larger than or equal to 768px
 	if (responsive_viewport >= 768) {
@@ -230,12 +210,6 @@ jQuery(document).ready(function($) {
 			$(this).attr('src',$(this).attr('data-gravatar'));
 		});
 	}
-
-	// if is smaller than 1024px
-	if (responsive_viewport < 1024) {}
-
-	// if is larger than or equal to 1024px
-	if (responsive_viewport >= 1024) {}
 
 	// hide #back-top first
 	$("#back-top").hide();
