@@ -214,7 +214,7 @@ div.gform_card_icon {
 }
 
 .ginput_complex .ginput_cardinfo_left select.ginput_card_expiration.ginput_card_expiration_month,
-.ginput_complex .ginput_cardinfo_left select.ginput_card_expiration.ginput_card_expiration_month + select2-container {
+.ginput_complex .ginput_cardinfo_left select.ginput_card_expiration.ginput_card_expiration_month + .select2-container {
 	margin-right: 4px;
 }
 
