@@ -203,14 +203,6 @@ jQuery(document).ready(function($) {
 	});
 	// end responsive nav
 
-	// if is larger than or equal to 768px
-	if (responsive_viewport >= 768) {
-		// load gravatars
-		$('.comment img[data-gravatar]').each(function() {
-			$(this).attr('src',$(this).attr('data-gravatar'));
-		});
-	}
-
 	// hide #back-top first
 	$("#back-top").hide();
 

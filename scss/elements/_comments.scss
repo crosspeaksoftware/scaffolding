@@ -16,6 +16,12 @@ Stylesheet: Comments Stylesheet
 
 	#reply-title {
 		font-weight: bold;
+		
+		small {
+			display: block;
+			font-weight: normal;
+			margin-top: 1em;
+		}
 	}
 
 	form {
@@ -154,7 +160,7 @@ Stylesheet: Comments Stylesheet
 	li {
 		clear: both;
 		list-style-type: none;
-		margin-bottom: 1.5em;
+		margin-bottom: 1em;
 		overflow: hidden;
 		padding: 0;
 		position: relative;
@@ -252,13 +258,16 @@ Stylesheet: Comments Stylesheet
 		}
 
 		time {
-			float: right;
-			margin-left: 10px;
-
+			display: block;
+			margin-left: 50px;
+			
 			a {
-				color: #999;
-				font-size: 1.25em;
+				font-size: 0.9em;
 				font-weight: 300;
+			}
+
+			.comment-date-link {
+				color: #999;
 				text-decoration: none;
 
 				&:hover {
@@ -278,6 +287,11 @@ Stylesheet: Comments Stylesheet
 			top: 0;
 
 			@include border-radius(50%);
+		}
+		
+		.comment-edit-link {
+			margin-left: 0.5em;
+			font-size: 0.875em;
 		}
 	}
 
