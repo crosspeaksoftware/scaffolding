@@ -13,6 +13,9 @@ Stylesheet: Pagination Stylesheet
 	list-style: none;
 	text-align: center;
 	margin: 2em -2px 1em;
+	@include flexbox(flex);
+	@include flex-wrap(wrap);
+	@include justify-content(center);
 
 	&:empty {
 		display: none;
@@ -22,7 +25,7 @@ Stylesheet: Pagination Stylesheet
 	li {
 		display: inline-block;
 		margin: 2px;
-		width: 48%;
+		min-width: 3em;
 
 		&:empty {
 			display: none;
@@ -34,11 +37,11 @@ Stylesheet: Pagination Stylesheet
 			display: block;
 			padding: 0.675em;
 			border: 1px solid #DDD;
+			text-align: center;
 		}
 
 		a {
 			color: $color__body-text;
-
 			@include transition(all 0.25s ease-in-out);
 
 			&:hover,
@@ -59,6 +62,8 @@ Stylesheet: Pagination Stylesheet
 	// previous and next page links
 	li.sc-prev-link,
 	li.sc-next-link {
+		display: none;
+		
 		a {
 			color: #FFF;
 			background-color: $color__primary;
@@ -105,16 +110,25 @@ Stylesheet: Pagination Stylesheet
 /**
  * Large Mobile Devices
  */
-
 @media only screen and (min-width: 481px) {
 	.scaffolding-page-navi {
 		li {
-			width: auto;
-
 			a,
 			span {
 				padding: 0.5em 1.25em;
 			}
+		}
+	}
+}
+
+/**
+ * Large Mobile Devices
+ */
+@media only screen and (min-width: $screen-sm-min) {
+	.scaffolding-page-navi {
+		li.sc-prev-link,
+		li.sc-next-link {
+			display: inline-block;
 		}
 	}
 }
