@@ -81,7 +81,7 @@ label {
 	font-weight: 300;
 	text-transform: uppercase;
 	background: #0085B2;
-	color: #FFF;
+	color: #FFF !important;
 	font-size: 2em;
 	border: 1px solid #0085B2;
 	transition: background-color 0.5s ease;
@@ -89,7 +89,7 @@ label {
 
 .bluebtn:hover, .bluebtn:focus {
 	background: #0085B2;
-	color: #FFF;
+	color: #FFF !important;
 	text-decoration: none;
 }
 	
