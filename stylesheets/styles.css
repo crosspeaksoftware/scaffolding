@@ -104,7 +104,7 @@ label {
 	width: 180px;
 	line-height: 1;
 	margin: 1em auto 0.5em auto;
-	padding: 0.5em 0 0.6em 0;
+	padding: 0.5em 0;
 	transition: background-color 0.5s ease;
 }
 
