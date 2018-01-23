@@ -9,7 +9,8 @@
 		<link rel="icon" href="favicon.ico">
 
 		<!-- Bootstrap -->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap-4/css/bootstrap-reboot.min.css" rel="stylesheet">
+		<link href="bootstrap-4/css/bootstrap-grid.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="stylesheets/styles.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,15 +42,15 @@
 	</head>
 	<body class="get-started">
 		<header id="header" class="skrollable skrollable-between">
-			<div class="container">
+			<div class="header-container container">
 				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7">
+					<div class="col-6 col-md-5 col-lg-6">
+						<h1><a href="/" title="Scaffolding">Scaffolding.io</a></h1>
+					</div>
+					<div class="col-6 col-md-7 col-lg-6">
 						<ul class="inline-buttons">
 							<li class="only-item"><a href="https://github.com/hallme/scaffolding" id="forkongithub_btn" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
 						</ul>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5 logo">
-						<h1><a href="http://scaffolding.io" title="Scaffolding"><img src="images/scaffolding-logo.png" alt="Scaffolding.io Logo"></a></h1>
 					</div>
 				</div>
 			</div>
@@ -58,7 +59,7 @@
 		<div id="main" class="content">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-12">
 						<h2 class="page-title">Quick Start Guide</h2>
 
 						<section>
@@ -128,7 +129,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 									<ul>
 										<li><em>_magnific-popup.scss</em>: <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank" title="Magnific Popup">Magnific Popup</a> modal windows.</li>
 										<li><em>_normalize.scss</em>: <a href="http://necolas.github.io/normalize.css/" target="_blank" title="">Normalize</a> CSS across all browsers.</li>
-										<li><em>_select2.scss</em>: Better form dropdowns with <a href="https://select2.github.io/" target="_blank" title="Select2">Select2</a>.</li>
+										<li><em>_selectWoo.scss</em>: Better form dropdowns with <a href="https://github.com/woocommerce/selectWoo" target="_blank" title="SelectWoo">SelectWoo</a>.</li>
 									</ul>
 								</li>
 								<li><em>/media-queries/</em>
@@ -220,14 +221,14 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6 col-sm-7">
+					<div class="col-6 col-md-7">
 						Scaffolding v2.0
 					</div>
-					<div class="col-xs-6 col-sm-3 menu">
-						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
+					<div class="col-6 col-md-3 menu">
+						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="https://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
 					</div>
-					<div class="col-xs-12 col-sm-2">
-						<a class="hall-logo" href="http://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
+					<div class="col-12 col-md-2">
+						<a class="hall-logo" href="https://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
 					</div>
 				</div>
 			</div>
@@ -235,7 +236,6 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
-		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/js/scripts.js"></script>
 		<noscript><p><img src="http://hallmonitor.us/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
 	</body>

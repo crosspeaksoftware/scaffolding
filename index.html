@@ -9,7 +9,8 @@
 		<link rel="icon" href="favicon.ico">
 
 		<!-- Bootstrap -->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap-4/css/bootstrap-reboot.min.css" rel="stylesheet">
+		<link href="bootstrap-4/css/bootstrap-grid.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="stylesheets/styles.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,23 +42,23 @@
 	</head>
 	<body class="home">
 		<header id="header" class="skrollable skrollable-between">
-			<div class="container">
+			<div class="header-container container">
 				<div class="row">
-					<div class="col-xs-12 col-sm-6 col-sm-push-6 col-md-5 col-md-push-7">
+					<div class="col-12 col-md-7 push-md-5 col-lg-6 push-lg-6">
 						<ul class="inline-buttons">
 							<li class="first-item"><a href="get-started.html" id="getstarted_btn" title="Scaffolding Documentation">Get Started</a>
 							<li class="last-item"><a href="https://github.com/hallme/scaffolding" id="forkongithub_btn" title="Scaffolding Github Repo" target="_blank">Fork on Github</a></li>
 						</ul>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-sm-pull-6 col-md-7 col-md-pull-5">
-						<h1><a href="http://scaffolding.io" title="Scaffolding"><img src="images/scaffolding-logo.png" alt="Scaffolding.io Logo"></a></h1>
+					<div class="col-12 col-md-5 pull-md-7 col-lg-6 pull-lg-6">
+						<h1><a href="/" title="Scaffolding">Scaffolding.io</a></h1>
 					</div>
 				</div>
-				<div class="headline-wrapper">
-					<div class="headline">
-						<span class="larger">Responsive Framework</span>
-						<span class="smaller">for WordPress</span>
-					</div>
+			</div>
+			<div class="headline-wrapper">
+				<div class="headline">
+					<span class="larger">Responsive Framework</span>
+					<span class="smaller">for WordPress</span>
 				</div>
 			</div>
 		</header>
@@ -65,7 +66,7 @@
 		<div id="main" class="content">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-12">
 						<h2 class="section-title">Don't Learn Another Framework.</h2>
 						<p>Scaffolding is designed to utilize all the best tools across the web &ndash; <br>from the <a href="http://underscores.me/" title="Underscores theme framework" target="_blank">_s</a> starter theme by Automattic, to <a href="http://getbootstrap.com/css/#grid" target="_blank" title="Twitter Bootstrap">Bootstrap's grid structures</a>, and common WordPress helper functions.</p>
 						<p>Working with Scaffolding streamlines your existing process rather than reinventing it.</p>
@@ -75,12 +76,10 @@
 		</div>
 
 		<div id="secondary" class="content dark">
+			<h2>What's In The Box?</h2>
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-12">
-						<h2>What's In The Box?</h2>
-					</div>
-					<div class="col-sm-5 col-sm-offset-2">
+					<div class="col-md-5 offset-md-1">
 						<strong>Architecture</strong>
 						<ul>
 							<li><span><a href="http://underscores.me/" target="_blank" title="Underscores theme framework">_s theme framework</a></span>
@@ -91,6 +90,8 @@
 								<small><em>Organized SASS files for rapid development</em></small></li>
 							<li><span><a href="https://make.wordpress.org/core/handbook/coding-standards/" target="_blank" title="Wordpress Coding Standards">WordPress Best Practices</a></span>
 								<small><em>Clean, tested, and well commented code</em></small></li>
+							<li><span><a href="https://gulpjs.com/" target="_blank" title="Gulp">Gulp</a></span>
+								<small><em>Task runners for enhanced workflow</em></small></li>
 						</ul>
 						<strong>Plugin Support</strong>
 						<ul>
@@ -100,7 +101,7 @@
 								<small><em>Built with SEO in mind</em></small></li>
 						</ul>
 					</div>
-					<div class="col-sm-5">
+					<div class="col-md-5 offset-md-1">
 						<strong>Includes</strong>
 						<ul>
 							<li><span><a href="http://necolas.github.io/normalize.css/" target="_blank" title="Normalize CSS">Normalize</a></span>
@@ -115,7 +116,7 @@
 								<small><em>Responsive Lightbox</em></small></li>
 							<li><span><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" title="Font Awesome">Font Awesome</a></span>
 								<small><em>Icon font</em></small></li>
-							<li><span><a href="https://select2.github.io/" target="_blank" title="Select2">Select2</a></span>
+							<li><span><a href="https://github.com/woocommerce/selectWoo" target="_blank" title="SelectWoo">SelectWoo</a></span>
 								<small><em>Better select inputs</em></small></li>
 						</ul>
 					</div>
@@ -126,14 +127,14 @@
 		<div id="secondary-image-separator" class="skrollable skrollable-between">
 			<div class="download-wrapper">
 				<h2>Download Scaffolding Now!</h2>
-				<a href="http://download.scaffolding.io/?version=2.0" id="download-link" class="bluebtn">Download 2.0</a>
+				<a href="http://download.scaffolding.io/?version=2.1" id="download-link" class="bluebtn">Download 2.1</a>
 			</div>
 		</div>
 
 		<div id="download" class="content">
 			<div class="container">
 				<div class="row">
-					<div id="customize" class="col-xs-12">
+					<div id="customize" class="col-12">
 						<h2>Customize it!</h2>
 						<form id="customize-download" action="http://download.scaffolding.io/?version=2.0" method="POST">
 							<div class="form-group">
@@ -173,11 +174,11 @@
 		<div id="tertiary" class="content">
 			<div class="container">
 				<div class="row">
-					<div class="tertiary-column col-xs-12 col-md-6">
+					<div class="tertiary-column col-12 col-lg-6">
 						<h2>Tuned for Client Work</h2>
 						<p>Scaffolding is designed specifically for building client websites. We've refined it over a year of development on real projects to determine the best ways to streamline development.</p>
 					</div>
-					<div class="tertiary-column col-xs-12 col-md-6">
+					<div class="tertiary-column col-12 col-lg-6">
 						<h2>Optimized for SEO</h2>
 						<p>Scaffolding was built with direct input from search marketers, tested extensively with <a href="https://wordpress.org/plugins/wordpress-seo/" title="Yoast SEO Plugin" target="_blank">Yoast</a>, and reviewed for technical search features.</p>
 					</div>
@@ -188,14 +189,14 @@
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6 col-sm-7">
-						Scaffolding v2.0
+					<div class="col-6 col-md-7">
+						Scaffolding v2.1
 					</div>
-					<div class="col-xs-6 col-sm-3 menu">
-						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="http://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
+					<div class="col-6 col-md-3 menu">
+						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="https://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
 					</div>
-					<div class="col-xs-12 col-sm-2">
-						<a class="hall-logo" href="http://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
+					<div class="col-12 col-md-2">
+						<a class="hall-logo" href="https://www.hallme.com" target="_blank" title="Hall Internet Marketing"><img src="images/hall-logo-no-bg.png" alt="Hall Internet Marketing Logo"></a>
 					</div>
 				</div>
 			</div>
@@ -203,7 +204,6 @@
 
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
-		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/js/scripts.js"></script>
 		<noscript><p><img src="http://hallmonitor.us/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
 	</body>
