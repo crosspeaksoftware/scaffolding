@@ -32,11 +32,11 @@
 			_paq.push(['trackPageView']);
 			_paq.push(['enableLinkTracking']);
 			(function() {
-			var u=(("https:" == document.location.protocol) ? "https" : "http") + "://hallmonitor.us/";
-			_paq.push(['setTrackerUrl', u+'piwik.php']);
-			_paq.push(['setSiteId', 4]);
-			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-			g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+				var u="//hallmonitor.us/";
+				_paq.push(['setTrackerUrl', u+'piwik.php']);
+				_paq.push(['setSiteId', '4']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
 			})();
 		</script>
 	</head>
@@ -184,7 +184,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 								<li><a href="http://mhs.github.io/scout-app/" title="Scout" target="_blank">Scout</a></li>
 							</ul>
 						</section>
-						
+
 						<section>
 							<h3><strong>Libraries</strong></h3>
 							<p>All of our third-party libraries are stored in the <em>/libs/</em> folder. This includes css, javascript, fonts and images.</p>
@@ -200,7 +200,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 								<li><em>scripts.js</em>: Here we initialize our third-party scripts and define functionality for making the theme responsive (ie. mobile/tablet navigation, responsive iFrames).</li>
 							</ul>
 						</section>
-						
+
 						<section>
 							<h3><strong>Recommended Plugins</strong></h3>
 							<p>Here is a list of plugins we've used on nearly every project.</p>
@@ -237,6 +237,6 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.22/skrollr.min.js"></script>
 		<script type="text/javascript" src="/js/scripts.js"></script>
-		<noscript><p><img src="http://hallmonitor.us/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
+		<noscript><p><img src="//hallmonitor.us/piwik.php?idsite=4&rec=1" style="border:0;" alt="" /></p></noscript>
 	</body>
 </html>
