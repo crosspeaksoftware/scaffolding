@@ -378,14 +378,19 @@ register_default_headers( array(
  *
  * @since Scaffolding 1.0
  */
-function scaffolding_custom_headers_callback() { ?>
-	<style type="text/css">
-		#banner {
-			background-image: url( <?php header_image(); ?> );
-			-ms-behavior: url( <?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc );
-		}
-	</style>
-	<?php
+function scaffolding_custom_headers_callback() {
+
+	if ( has_header_image() ) {
+		?>
+		<style type="text/css">
+			#banner {
+				display: block;
+				background-image: url( <?php header_image(); ?> );
+				-ms-behavior: url( <?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc );
+			}
+		</style>
+		<?php
+	}
 } // end scaffolding_custom_headers_callback()
 
 
