@@ -559,7 +559,6 @@ section {
 .hall-logo img {
 	display: block;
 	margin: 0 auto;
-	height: 50px;
 }
 		
 .pre-title {
@@ -755,11 +754,9 @@ input[type="checkbox"]:checked + label:after {
 	.hall-logo {
 		margin-top: 0;
 		position: relative;
-		top: -10px;
 	}
 		
 	.hall-logo img {
-		height: 40px;
 		float: right;
 		margin: 0;
 	}
