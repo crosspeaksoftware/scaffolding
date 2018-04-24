@@ -9,133 +9,113 @@ It currently slides out from the right.
 
 ******************************************************************/
 
-// Menu Toggle
-#mobile-menu-button {
-	display: block;
-	float: right;
-	font-size: 1.125em;
-	line-height: 1;
-	padding: 0.675em 0;
-	margin: 0;
-	outline: 0;
-	border: 0;
-	background: none;
-	overflow: hidden;
-	white-space: nowrap;
-
-	@include transition(all 0.25s ease-in-out);
-
-	&:hover,
-	&:active,
-	&:focus {
-		text-decoration: none;
+// DEFAULTS
+// all breakpoints
+#main-navigation {
+	ul {
+		clear: both;
+		margin: 0;
+		padding: 0;
 	}
-
-	// Font Awesome Icon
-	&:before {
-		font-family: "FontAwesome";
-		content: "\f0c9";
-
-		// bars icon
-		display: inline;
-		margin-right: 5px;
+	
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	button {
+		border: 0;
+		border-radius: 0;
+		outline: 0;
+		cursor: pointer;
 	}
 }
 
-// Base Mobile Styles
-#main-navigation {
-	ul.menu {
-		background-color: #333;
-		bottom: 0;
-		clear: both;
-		display: none;
+// MOBILE ONLY
+@include media-breakpoint-down('sm', $breakpoints: $grid-breakpoints) {
+
+	// Menu Toggle
+	#mobile-menu-button {
+		display: block;
+		color: #FFF;
+		font-size: 0.875em;
+		background: $color__primary;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-decoration: none;
+		line-height: 1;
+		padding: 0.65em;
 		margin: 0;
+		outline: 0;
+		border: 0;
 		overflow: hidden;
-		padding: 0;
-		position: absolute;
-		right: -70%;
-		top: 0;
-		width: 70%;
-		z-index: 1000;
+		white-space: nowrap;
 
-		li {
-			border-bottom: 1px solid #111;
-			display: block;
+		// Font Awesome Icon
+		&:before {
+			font-family: "FontAwesome";
+			content: "\f0c9"; // bars icon
+			display: inline-block;
+			margin-right: 5px;
+			width: 1em;
+			text-rendering: auto;
+  			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+
+	// Mobile Styles
+	#main-navigation {
+		display: none;
+
+		button.menu-button {
+			border-left: 1px solid #111;
+			background-color: inherit;
+			color: #999;
+			font-size: 1.5em;
+			display: inline-block;
 			margin: 0;
-			padding: 0;
+			padding: 15px 0;
+			text-align: center;
+			width: 25%;
+		}
 
-			@include transition(all 0.25s ease-in-out);
-
+		button.menu-back-button {
+			background-color: #222;
+			color: #999;
+			display: inline-block;
+			text-align: left;
+			padding: 15px;
+			width: 100%;
+		}
+		
+		ul {
+			background-color: #333;
+			position: absolute;
+			right: -70%;
+			top: 0;
+			bottom: 0;
+			width: 70%;
+			z-index: 1000;
+		}
+		
+		li {
+			display: block;
+			border-bottom: 1px solid #111;
+			
 			a {
 				color: #999;
 				display: inline-block;
 				font-size: 1.125em;
-				padding: 15px 5%;
-				text-decoration: none;
-				width: 80%;
-
-				@include transition(all 0.25s ease-in-out);
-
-				&:hover,
-				&:focus {
-					background-color: #222;
-					color: #CCC;
-				}
-			}
-
-			a.menu-button {
-				border-left: 1px solid #111;
-				cursor: pointer;
-				display: inline-block;
-				height: auto;
-				margin: 0;
-				padding: 15px 0;
-				text-align: center;
-				width: 20%;
-
-				@include transition(all 0.25s ease-in-out);
-
-				&:hover,
-				&:focus {}
-			}
-
-			a.menu-back-button {
-				background: #222;
-				cursor: pointer;
-				display: inline-block;
 				padding: 15px;
 				text-decoration: none;
-				width: 100%;
-
-				@include transition(all 0.25s ease-in-out);
-
-				&:hover,
-				&:focus {}
+				width: 75%;
 			}
+			
+			&.current-menu-item {}
 
-			&:hover,
-			&:focus {}
-
-			&:first-child {}
-
-			&:last-child {}
-
-			&.current-menu-item {
-				> a {
-					color: #EEE;
-				}
-			}
-
-			&.current-menu-ancestor {
-				> a {
-					background-color: #292929;
-
-					&:hover,
-					&:focus {
-						background-color: #222;
-					}
-				}
-			}
+			&.current-menu-ancestor {}
 
 			&.menu-item-no-children {
 				a {
@@ -144,130 +124,131 @@ It currently slides out from the right.
 			}
 
 			&.menu-item-has-children {}
+		}
 
-			// sub menu - child
-			ul.sub-menu {
-				background-color: #333;
-				bottom: 0;
-				display: block;
-				margin: 0;
-				overflow: hidden;
-				padding: 0;
-				position: absolute;
-				right: -100%;
-				top: 0;
-				width: 100%;
-
-				@include transition(all 0.25s ease-in-out);
-			}
-
-			// sub menu - child
-			ul.sub-menu-open {
-				right: 0;
+		ul.sub-menu {
+			display: block;
+			right: -100%;
+			overflow: hidden;
+			width: 100%;
+			@include transition(all 0.25s ease-in-out);
+			
+			li {
+				a {
+					font-size: 1em;
+				}
 			}
 		}
+		
+		ul.sub-menu-open {
+			right: 0;
+		}
 	}
-}
 
-// Opening Menu
-body.menu-open {
-	#main-navigation {
-		ul.menu {
+	// Opening Menu
+	body.menu-open {
+		#main-navigation {
 			display: block;
 		}
-	}
 
-	#mobile-menu-button {
-		&:before {
-			content: "\f00d";
-
-			// times icon
-	
+		#mobile-menu-button {
+			&:before {
+				content: "\f00d"; // times icon
+			}
+		}
+		
+		#container {
+			left: -70%;
 		}
 	}
-
-	#container {
-		left: -70%;
-	}
+	
 }
 
-// LARGER MOBILE DEVICES
-@media only screen and (min-width: 481px) {}
+// TABLET
+@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
 
-// TABLET & SMALLER LAPTOPS
-@media only screen and (min-width: $screen-sm-min) {
-	
+	#mobile-menu-toggle,
 	#mobile-menu-button {
 		display: none !important;
 	}
 
 	#main-navigation {
+		display: block;
 		background-color: #333;
 		white-space: nowrap;
-
+		position: relative;
+		
+		button.menu-button,
+		button.menu-back-button {
+			display: none !important;
+		}
+		
 		ul.menu {
-			bottom: auto;
-			box-shadow: none;
-			display: block;
+			display: flex;
+			flex-wrap: nowrap;
 			margin: 0 auto;
-			overflow: visible;
-			padding: 0;
-			position: relative;
-			right: auto;
 			text-align: center;
-			top: auto;
-			width: auto;
+			max-width: map-get($container-max-widths, 'xl');
+			padding-right: ($grid-gutter-width / 2);
+			padding-left: ($grid-gutter-width / 2);
 
 			li {
-				border-bottom: none;
+				flex: 1 1 auto;
 				display: inline-block;
-				margin-left: -6px;
 				position: relative;
 				z-index: 1000;
 
-				a {
-					border-left: 2px solid #222;
+				&.menu-item-has-children {
+					> a:after {
+						content: "\f107";
+						font-family: "FontAwesome";
+						text-rendering: auto;
+						-webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+						padding-left: 0.5em;
+					}
+				}
+
+				> a {
+					font-size: 1em;
+					color: #FFF;
 					display: block;
-					padding: 10px 20px;
+					border-left: 1px solid #111;
+					padding-top: 0.5em;
+					padding-bottom: 0.5em;
+					padding-left: 12px;
+					padding-right: 12px;
+					text-align: center;
 					width: auto;
 
 					&:hover,
-					&:focus {}
-				}
-
-				a.menu-button {
-					display: none !important;
-				}
-
-				a.menu-back-button {
-					display: none !important;
+					&:focus {
+						text-decoration: none;
+					}
 				}
 
 				// maintain hover state on dropdown
 				&:hover,
 				&:focus {
-					background-color: #222;
-
-					&.current-menu-ancestor {
-						> a {
-							background-color: #222;
-						}
-					}
-				}
-
-				&:first-child {
 					a {
-						border-left: none;
+						background-color: #222;
 					}
 				}
+				
+				&:first-child {}
 
 				&:last-child {
+					> a {
+						border-right: 1px solid #111;
+					}
+
 					// Children
 					ul.sub-menu {
 						left: auto;
 						right: 0;
 
 						li {
+
 							// Grand Children
 							ul.sub-menu {
 								left: auto;
@@ -276,118 +257,108 @@ body.menu-open {
 						}
 					}
 				}
+				
+				&.menu-item-no-children {}
 
-				&.current-menu-item {}
+				&.menu-item-has-children {}
+			}
+			
+		}
 
-				&.current-menu-ancestor {}
+		// Children
+		ul.sub-menu {
+			background-color: #333;
+			display: none;
+			min-width: 120%;
+			position: absolute;
+			text-align: left;
+			top: 99.9%;
+			bottom: auto;
+			left: 0;
+			width: auto;
+			z-index: 1000;
 
-				&.menu-item-no-children {
-					a {
-						width: auto;
+			li {
+				display: block;
+				margin: 0;
+				white-space: nowrap;
+
+				a {
+					display: block;
+					padding-top: 8px;
+					padding-bottom: 8px;
+					padding-left: 12px;
+					padding-right: 12px;
+					text-align: left;
+					font-size: 0.75em;
+					text-transform: none;
+
+					&:hover,
+					&:focus {
+						text-decoration: underline;
 					}
 				}
+				
+				&:hover,
+				&:focus {}
+
+				&:first-child {}
+
+				&:last-child {}
+
+				&.menu-item-no-children {}
 
 				&.menu-item-has-children {}
 
-				// Children
+				// Grand Children
 				ul.sub-menu {
-					background-color: #222;
-					bottom: auto;
-					display: none;
-					left: 0;
-					min-width: 120%;
-					overflow: visible;
-					position: absolute;
-					text-align: left;
-					top: 99.9%;
-					width: auto;
-					z-index: 1000;
-
-					@include transition(top 1s);
-
-					li {
-						display: block;
-						margin: 0;
-						white-space: nowrap;
-
-						a {
-							border-bottom: 1px solid #292929;
-							border-left: none;
-							display: block;
-							font-size: 95%;
-							padding: 8px 12px;
-
-							&:hover,
-							&:focus {}
-						}
-
-						&:first-child {}
-
-						&:last-child {
-							a {
-								border-bottom: none;
-							}
-						}
-
-						&:hover,
-						&:focus {}
-
-						&.menu-item-no-children {}
-
-						&.menu-item-has-children {}
-
-						// Grand Children
-						ul.sub-menu {
-							left: 99.9%;
-							top: 0;
-						}
-					}
+					left: 99.9%;
+					top: 0;
 				}
 			}
-			// end .menu li
-
-			// Show the child ul
-			li:hover > ul {
-				display: table;
-			}
 		}
-		// end ul.menu */
+		
+		// Show the child ul
+		li:hover > ul {
+			display: table;
+		}
 	}
-	// end #main-navigation
-	
+
 }
 
 // DESKTOP
-
-@media only screen and (min-width: $screen-md-min) {}
-
-// FULL VIEWING SIZE
-
-@media only screen and (min-width: $screen-lg-min) {
+@include media-breakpoint-up('lg', $breakpoints: $grid-breakpoints) {
 	
 	#main-navigation {
 		ul.menu {
 			li {
-				&:first-child {}
-
-				&:last-child {
-					// Children
-					ul.sub-menu {
-						left: 0;
-						right: auto;
-
-						li {
-							// Grand Children
-							ul.sub-menu {
-								left: 99.9%;
-								right: auto;
-							}
-						}
-					}
+				> a {
+					font-size: 1.125em;
+					padding-top: 0.675em;
+					padding-bottom: 0.675em;
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+			}
+		}
+		
+		// Children
+		ul.sub-menu {
+			li {
+				a {
+					font-size: 0.95em;
+					padding-left: 20px;
+					padding-right: 20px;
 				}
 			}
 		}
 	}
-	// end #main-navigation
+	
+}
+
+// LARGE DESKTOP
+@include media-breakpoint-up('xl', $breakpoints: $grid-breakpoints) {
+	
+	#main-navigation {}
 	
 }

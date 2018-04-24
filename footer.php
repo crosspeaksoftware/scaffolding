@@ -20,7 +20,7 @@
 
 		<footer id="colophon" class="footer" role="contentinfo">
 
-			<div id="inner-footer" class="wrap clearfix">
+			<div id="inner-footer" class="container">
 
 				<nav role="navigation" aria-label="<?php _e( 'Footer Navigation', 'scaffolding' ); ?>">
 					<?php scaffolding_footer_nav(); ?>

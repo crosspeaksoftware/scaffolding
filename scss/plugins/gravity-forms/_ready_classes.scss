@@ -528,7 +528,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
  * MEDIA QUERIES
  ************************/
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
 
 	.right_label input.small,
 	.right_label select.small,
@@ -752,7 +752,3 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		}
 	}
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

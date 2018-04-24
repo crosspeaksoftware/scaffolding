@@ -10,6 +10,7 @@ custom styles here.
 
 ******************************************************************/
 
+@import "utilities/functions";
 @import "utilities/variables";
 @import "utilities/mixins";
 
@@ -22,5 +23,5 @@ custom styles here.
 
 .mceContentBody {
 	background-color: #FDFDFD;
-	max-width: $container-lg;
+	max-width: map-get($grid-breakpoints, 'xl');
 }

@@ -11,24 +11,6 @@ slow the page load.
 
 ******************************************************************/
 
-// IE8 ployfill for GetComputed Style (for Responsive Script below)
-if (!window.getComputedStyle) {
-	window.getComputedStyle = function(el, pseudo) {
-		this.el = el;
-		this.getPropertyValue = function(prop) {
-			var re = /(\-([a-z]){1})/g;
-			if (prop == 'float') prop = 'styleFloat';
-			if (re.test(prop)) {
-				prop = prop.replace(re, function () {
-					return arguments[2].toUpperCase();
-				});
-			}
-			return el.currentStyle[prop] ? el.currentStyle[prop] : null;
-		}
-		return this;
-	}
-}
-
 // Calculate the width of the scroll bar so css media queries and js widow.width match
 function getScrollBarWidth () {
 	var inner = document.createElement('p');
@@ -58,6 +40,9 @@ function getScrollBarWidth () {
 
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
+	
+	// getting viewport width
+	var responsive_viewport = $(window).width() + getScrollBarWidth();
 	
 	// SelectWoo - https://github.com/woocommerce/selectWoo
 	if ($.fn.selectWoo) {
@@ -124,38 +109,6 @@ jQuery(document).ready(function($) {
 		});
 	}).resize();
 
-	// Equal Height Divs - http://css-tricks.com/equal-height-blocks-in-rows/
-	equalheight = function(container){
-
-		var currentTallest = 0,
-		currentRowStart = 0,
-		rowDivs = new Array(),
-		$el,
-		topPosition = 0;
-
-		$(container).each(function() {
-			$el = $(this);
-			$($el).height('auto')
-			topPostion = $el.position().top;
-
-			if (currentRowStart != topPostion) {
-				for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-					rowDivs[currentDiv].height(currentTallest);
-				}
-				rowDivs.length = 0; // empty the array
-				currentRowStart = topPostion;
-				currentTallest = $el.height();
-				rowDivs.push($el);
-			} else {
-				rowDivs.push($el);
-				currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-			}
-			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-				rowDivs[currentDiv].height(currentTallest);
-			}
-		});
-	}
-
 	/*
 	Responsive jQuery is a tricky thing.
 	There's a bunch of different ways to handle
@@ -163,14 +116,9 @@ jQuery(document).ready(function($) {
 	that works for you best.
 	*/
 
-	// getting viewport width
-	var responsive_viewport = $(window).width() + getScrollBarWidth();
-
 	/*
 	Mobile Navigation
 	*/
-	var menu = $('#main-navigation > ul');
-
 	$(function() {
 		$('#mobile-menu-button').on('click', function(e) {
 			$('body').toggleClass('menu-open');

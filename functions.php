@@ -230,7 +230,7 @@ function scaffolding_main_nav() {
 		'container'       => '',						 	  // remove nav container
 		'container_class' => '',		 			          // class of container (should you choose to use it)
 		'menu'            => '',						      // nav name
-		'menu_class'      => 'menu main-menu wrap clearfix',  // adding custom nav class
+		'menu_class'      => 'menu main-menu',  	  		  // adding custom nav class
 		'theme_location'  => 'main-nav',			 		  // where it's located in the theme
 		'before'          => '',		                      // before the menu
 		'after'           => '',						      // after the menu
@@ -249,7 +249,7 @@ function scaffolding_footer_nav() {
 		'container'       => '',
 		'container_class' => '',
 		'menu'            => '',
-		'menu_class'      => 'menu footer-menu clearfix',
+		'menu_class'      => 'menu footer-menu',
 		'theme_location'  => 'footer-nav',
 		'before'          => '',
 		'after'           => '',
@@ -281,7 +281,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$class_names = implode( ' ', $classes );
 
 		// build html
-		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
+		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><button class="menu-back-button" type="button"><i class="fa fa-chevron-left"></i> Back</button></li>' . "\n";
 	}
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -312,7 +312,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		// Add menu button links to items with children
 		if ( $args->has_children ) {
-			$menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
+			$menu_pull_link = '<button class="menu-button" type="button"><i class="fa fa-chevron-right"></i></button>';
 		} else {
 			$menu_pull_link = '';
 		}

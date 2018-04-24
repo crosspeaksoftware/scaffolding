@@ -177,7 +177,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 
 					<div class="row">
 
-						<div class="col-sm-6">
+						<div class="col-md-6">
 
 							<h3><?php _e( 'Pages', 'scaffolding' ); ?></h3>
 							<ul>
@@ -191,7 +191,7 @@ function scaffolding_list_posts( $param, $post_type ) {
 
 						</div>
 
-						<div class="col-sm-6">
+						<div class="col-md-6">
 
 							<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
 							<?php

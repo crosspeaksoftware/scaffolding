@@ -111,7 +111,7 @@ Stylesheet: Pagination Stylesheet
  * MEDIA QUERIES
  ************************/
 
-@media only screen and (min-width: 481px) {
+@include media-breakpoint-up('sm', $breakpoints: $grid-breakpoints) {
 	
 	.scaffolding-page-navi {
 		li {
@@ -120,13 +120,7 @@ Stylesheet: Pagination Stylesheet
 				padding: 0.5em 1.25em;
 			}
 		}
-	}
-	
-}
 
-@media only screen and (min-width: $screen-sm-min) {
-	
-	.scaffolding-page-navi {
 		li.sc-prev-link,
 		li.sc-next-link {
 			display: inline-block;

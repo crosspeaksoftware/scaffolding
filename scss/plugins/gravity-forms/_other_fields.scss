@@ -718,7 +718,8 @@ div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
  * MEDIA QUERIES
  ************************/
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+	
 	.gform_save_link {
 		display: inline-block;
 		margin-left: 1em;
@@ -739,8 +740,5 @@ div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 	.right_label li.gfield_html_formatted {
 		margin-left: 32%;
 	}
+	
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

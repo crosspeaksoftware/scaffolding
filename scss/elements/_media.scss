@@ -17,6 +17,24 @@ img {
 	max-width: 100%;
 }
 
+svg {
+	width: 100%;
+}
+
+.responsive-svg {
+	height: 0;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
 video {
 	height: auto !important;
 	width: 100% !important;
@@ -40,7 +58,8 @@ img.alignnone,
 }
 
 // Add image alignment for larger screens only
-@media only screen and (min-width: 600px) {
+@include media-breakpoint-up('sm', $breakpoints: $grid-breakpoints) {
+	
 	img.alignleft,
 	.alignleft {
 		float: left;
@@ -64,6 +83,7 @@ img.alignnone,
 		clear: both;
 		margin: 15px 0;
 	}
+	
 }
 
 // Image Caption
@@ -151,7 +171,8 @@ img.alignnone,
 }
 
 // Change gallery to proper spacing on larger screens
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+	
 	.gallery-columns-4 {
 		.gallery-item {
 			width: 25%;
@@ -163,6 +184,7 @@ img.alignnone,
 			width: 20%;
 		}
 	}
+	
 }
 
 // Core Media Player

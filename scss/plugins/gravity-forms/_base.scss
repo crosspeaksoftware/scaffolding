@@ -396,7 +396,7 @@ ul.gfield_checkbox {
  * MEDIA QUERIES
  ************************/
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
 
 	.gform_footer {
 		&.right_label,
@@ -572,7 +572,3 @@ ul.gfield_checkbox {
 	}
   
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

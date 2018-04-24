@@ -15,29 +15,10 @@ remember less is more.
 
 ******************************************************************/
 
-/*************************
- * TABLE OF CONTENTS
- *************************
- 1. Clearfix
- 2. Wrap
- 3. Images
- 4. Typography
- 5. Utililty Styles
- 6. Transition
- 7. Animation
- 8. Vertical Align Dynamic Height
- 9. Text Truncation
- 10. Grayscale
- 11. Transparent Background Color
- 12. Gradients
- ************************/
-
 @import "compass";
 
-/*************************
- * CLEARFIX
- * http://nicolasgallagher.com/micro-clearfix-hack/
- ************************/
+// CLEARFIX
+// http://nicolasgallagher.com/micro-clearfix-hack/
 
 .clearfix {
 	zoom: 1;
@@ -67,25 +48,7 @@ remember less is more.
 	}
 }
 
-/*************************
- * WRAP
- ************************/
-
-@mixin wrap {
-	@include clearfix;
-
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 90%;
-
-	@media only screen and (min-width: $screen-lg-min) {
-		max-width: $container-lg;
-	}
-}
-
-/*************************
- * IMAGES
- ************************/
+// IMAGES
 
 .img-border {
 	border: 1px solid #CCC;
@@ -100,9 +63,7 @@ remember less is more.
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border: 1px solid rgba(0, 0, 0, 0.2);
-
 	@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
-
 	padding: 4px;
 }
 
@@ -110,14 +71,10 @@ remember less is more.
 	@include border-radius(500px);
 }
 
-/*************************
- * TYPOGRAPHY
- ************************/
+// TYPOGRAPHY
 
-/*
-use the best ampersand
-http://simplebits.com/notebook/2008/08/14/ampersands-2/
-*/
+// use the best ampersand
+// http://simplebits.com/notebook/2008/08/14/ampersands-2/
 span.amp {
 	font-family: Arial, serif !important;
 	font-style: italic;
@@ -143,80 +100,82 @@ span.amp {
 	}
 }
 
-// Responsive utilities
-@mixin responsive-visibility($parent) {
-	#{$parent} {
-		display: block !important;
-	}
+// MEDIA QUERIES
 
-	tr#{$parent} {
-		display: table-row !important;
-	}
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
 
-	th#{$parent},
-	td#{$parent} {
-		display: table-cell !important;
-	}
-}
-
-// [converter] $parent hack
-@mixin responsive-invisibility($parent) {
-	#{$parent},
-	tr#{$parent},
-	th#{$parent},
-	td#{$parent} {
-		display: none !important;
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
 	}
 }
 
-// Device-specific hide/show classes. Written in reverse logic for IE compatibility
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
 
-// mobile visibility
-
-@include responsive-invisibility(".mobile-only");
-
-@media only screen and (max-width: $screen-xs-max) {
-	@include responsive-visibility(".mobile-only");
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+	$max: breakpoint-max($name, $breakpoints);
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
 }
 
-@include responsive-visibility(".mobile-hide");
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
 
-@media only screen and (max-width: $screen-xs-max) {
-	@include responsive-invisibility(".mobile-hide");
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($lower, $breakpoints);
+	$max: breakpoint-max($upper, $breakpoints);
+
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max == null {
+		@include media-breakpoint-up($lower, $breakpoints) {
+			@content;
+		}
+	} @else if $min == null {
+		@include media-breakpoint-down($upper, $breakpoints) {
+			@content;
+		}
+	}
 }
 
-// tablet visibility
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
 
-@include responsive-invisibility(".tablet-only");
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	$max: breakpoint-max($name, $breakpoints);
 
-@media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-	@include responsive-visibility(".tablet-only");
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max == null {
+		@include media-breakpoint-up($name, $breakpoints) {
+			@content;
+		}
+	} @else if $min == null {
+		@include media-breakpoint-down($name, $breakpoints) {
+			@content;
+		}
+	}
 }
 
-@include responsive-visibility(".tablet-hide");
-
-@media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-	@include responsive-invisibility(".tablet-hide");
-}
-
-// desktop visibility
-
-@include responsive-invisibility(".desktop-only");
-
-@media only screen and (min-width: $screen-md-min) {
-	@include responsive-visibility(".desktop-only");
-}
-
-@include responsive-visibility(".desktop-hide");
-
-@media only screen and (min-width: $screen-md-min) {
-	@include responsive-invisibility(".desktop-hide");
-}
-
-/*************************
- * UTILITY STYLES
- ************************/
-
+// UTILITY STYLES
 .float-left {
 	float: left;
 }
@@ -291,13 +250,9 @@ span.amp {
 	visibility: hidden;
 }
 
-/*************************
- * TRANSITION
- * I totally rewrote this to be cleaner and easier to use.
- * You'll need to be using Sass 3.2+ for these to work.
- * Thanks to @anthonyshort for the inspiration on these.
- * USAGE: @include transition(all 0.2s ease-in-out);
- ************************/
+// TRANSITION
+// Thanks to @anthonyshort for the inspiration on these.
+// USAGE: @include transition(all 0.2s ease-in-out);
 
 @mixin transition($transition...) {
 	// defining prefixes so we can use them in mixins below
@@ -308,12 +263,8 @@ span.amp {
 	transition: $transition;
 }
 
-/*************************
- * ANIMATION
- * Compass CSS3 mixins don't yet handle vendor prefixes
- * for CSS animations, so this is a very simple mixin to
- * simulate that functionality.
- ************************/
+// ANIMATION
+// Compass CSS3 mixins don't yet handle vendor prefixes for CSS animations, so this is a very simple mixin to simulate that functionality.
 
 @mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
 	// There is a FF bug that requires all time values to have units, even 0 !!!!!!
@@ -323,10 +274,8 @@ span.amp {
 	animation: $name $duration $iterations $timing-function $delay;
 }
 
-/*************************
- * VERTICAL ALIGN DYNAMIC HEIGHT
- * http://css-tricks.com/centering-in-the-unknown/
- ************************/
+// VERTICAL ALIGN DYNAMIC HEIGHT
+// http://css-tricks.com/centering-in-the-unknown/
 
 @mixin dynamicVerticalAlign {
 	&:before {
@@ -338,20 +287,16 @@ span.amp {
 	}
 }
 
-/*************************
- * TEXT TRUNCATION
- ************************/
-
+// TEXT TRUNCATION
 // values are: clip, ellipsis, or a string
+
 @mixin truncateText($overflow: ellipsis) {
 	overflow: hidden;
 	text-overflow: $overflow;
 	white-space: nowrap;
 }
 
-/*************************
- * GRAYSCALE
- ************************/
+// GRAYSCALE
 
 @mixin grayscale {
 	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
@@ -372,9 +317,7 @@ span.amp {
 	}
 }
 
-/*************************
- * TRANSPARENT BG-COLOR
- ************************/
+// TRANSPARENT BG-COLOR
 
 @mixin transparent($color, $alpha) {
 	$rgba: rgba($color, $alpha);
@@ -385,12 +328,10 @@ span.amp {
 	zoom: 1;
 }
 
-/*************************
- * GRADIENTS
- * Be careful with these since they can really slow
- * down your CSS. Don't overdue it.
- * USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
- ************************/
+// GRADIENTS
+// Be careful with these since they can really slow
+// down your CSS. Don't overdue it.
+// USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
 
 @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
 	background-color: $to;
@@ -401,12 +342,11 @@ span.amp {
 	background-image: linear-gradient(to bottom, $from, $to);
 }
 
-/*************************
- * FLEXBOX
- * Values: flex | inline-flex
- * Default: flex
- * USAGE: @include flexbox(flex);
- ************************/
+// FLEXBOX
+// Mixins provided by: https://github.com/mastastealth/sass-flex-mixin/blob/master/_flex.scss
+// Values: flex | inline-flex
+// Default: flex
+// USAGE: @include flexbox(flex);
 
 @mixin flexbox($value: flex) {
 	@if $value == inline-flex {
@@ -415,8 +355,7 @@ span.amp {
 		display: -moz-inline-flex;
 		display: -ms-inline-flexbox;
 		display: inline-flex;
-	}
-	@else {
+	} @else {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -425,12 +364,10 @@ span.amp {
 	}
 }
 
-/*************************
- * FLEXBOX WRAP
- * Values: nowrap | wrap | wrap-reverse
- * Default: nowrap
- * USAGE: @include flex-wrap(nowrap)
- ************************/
+// FLEXBOX WRAP
+// Values: nowrap | wrap | wrap-reverse
+// Default: nowrap
+// USAGE: @include flex-wrap(nowrap)
 
 @mixin flex-wrap($value: nowrap) {
 	// No Webkit Box fallback.
@@ -438,34 +375,28 @@ span.amp {
 	-moz-flex-wrap: $value;
 	@if $value == nowrap {
 		-ms-flex-wrap: none;
-	}
-	@else {
-		-ms-flex-wrap: $value;
+	} @else { 
+		-ms-flex-wrap: $value; 
 	}
 	flex-wrap: $value;
 }
 
-/*************************
- * FLEXBOX DIRECTION
- * Values: row | row-reverse | column | column-reverse
- * Default: row
- * USAGE: @include flex-direction(row)
- ************************/
+// FLEXBOX DIRECTION
+// Values: row | row-reverse | column | column-reverse
+// Default: row
+// USAGE: @include flex-direction(row)
 
 @mixin flex-direction($value: row) {
 	@if $value == row-reverse {
 		-webkit-box-direction: reverse;
 		-webkit-box-orient: horizontal;
-	}
-	@else if $value == column {
+	} @else if $value == column {
 		-webkit-box-direction: normal;
 		-webkit-box-orient: vertical;
-	}
-	@else if $value == column-reverse {
+	} @else if $value == column-reverse {
 		-webkit-box-direction: reverse;
 		-webkit-box-orient: vertical;
-	}
-	@else {
+	} @else {
 		-webkit-box-direction: normal;
 		-webkit-box-orient: horizontal;
 	}
@@ -475,30 +406,24 @@ span.amp {
 	flex-direction: $value;
 }
 
-/*************************
- * FLEXBOX JUSTIFY CONTENT
- * Values: flex-start | flex-end | center | space-between | space-around
- * Default: flexstart
- * USAGE: @include justify-content(flex-start)
- ************************/
+// FLEXBOX JUSTIFY CONTENT
+// Values: flex-start | flex-end | center | space-between | space-around
+// Default: flexstart
+// USAGE: @include justify-content(flex-start)
 
 @mixin justify-content($value: flex-start) {
 	@if $value == flex-start {
 		-webkit-box-pack: start;
 		-ms-flex-pack: start;
-	}
-	@else if $value == flex-end {
+	} @else if $value == flex-end {
 		-webkit-box-pack: end;
 		-ms-flex-pack: end;
-	}
-	@else if $value == space-between {
+	} @else if $value == space-between {
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
-	}
-	@else if $value == space-around {
-		-ms-flex-pack: distribute;
-	}
-	@else {
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute;		
+	} @else {
 		-webkit-box-pack: $value;
 		-ms-flex-pack: $value;
 	}
@@ -507,23 +432,19 @@ span.amp {
 	justify-content: $value;
 }
 
-/*************************
- * FLEXBOX ALIGN ITEMS
- * Values: flex-start | flex-end | center | baseline | stretch
- * Default: stretch
- * USAGE: @include align-items(stretch)
- ************************/
+// FLEXBOX ALIGN ITEMS
+// Values: flex-start | flex-end | center | baseline | stretch
+// Default: stretch
+// USAGE: @include align-items(stretch)
 
 @mixin align-items($value: stretch) {
 	@if $value == flex-start {
 		-webkit-box-align: start;
 		-ms-flex-align: start;
-	}
-	@else if $value == flex-end {
+	} @else if $value == flex-end {
 		-webkit-box-align: end;
 		-ms-flex-align: end;
-	}
-	@else {
+	} @else {
 		-webkit-box-align: $value;
 		-ms-flex-align: $value;
 	}
@@ -532,12 +453,50 @@ span.amp {
 	align-items: $value;
 }
 
-/*************************
- * FLEXBOX GROW
- * Values: positive integer
- * Default: 0
- * USAGE: @include flex-grow(0)
- ************************/
+// FLEXBOX ALIGN SELF
+// Values: auto | flex-start | flex-end | center | baseline | stretch
+// Default: auto
+// USAGE: @include align-self(auto)
+
+@mixin align-self($value: auto) {
+	// No Webkit Box Fallback.
+	-webkit-align-self: $value;
+	-moz-align-self: $value;
+	@if $value == flex-start {
+		-ms-flex-item-align: start;
+	} @else if $value == flex-end {
+		-ms-flex-item-align: end;
+	} @else {
+		-ms-flex-item-align: $value;
+	}
+	align-self: $value;
+}
+
+// FLEXBOX FLEX (shorthand)
+// Values: Values: none | <flex-grow> <flex-shrink> || <flex-basis>
+// Default: See individual properties (1 1 0).
+// USAGE: @include flex(1, 1, auto)
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+	// Set a variable to be used by box-flex properties
+	$fg-boxflex: $fg;
+	// Box-Flex only supports a flex-grow value so let's grab the
+	// first item in the list and just return that.
+	@if type-of($fg) == 'list' {
+		$fg-boxflex: nth($fg, 1);
+	}
+	-webkit-box-flex: $fg-boxflex;
+	-webkit-flex: $fg $fs $fb;
+	-moz-box-flex: $fg-boxflex;
+	-moz-flex: $fg $fs $fb;
+	-ms-flex: $fg $fs $fb;
+	flex: $fg $fs $fb;
+}
+
+// FLEXBOX GROW
+// Values: positive integer
+// Default: 0
+// USAGE: @include flex-grow(0)
 
 @mixin flex-grow($int: 0) {
 	-webkit-box-flex: $int;
@@ -545,4 +504,29 @@ span.amp {
 	-moz-flex-grow: $int;
 	-ms-flex-positive: $int;
 	flex-grow: $int;
+}
+
+// FLEXBOX SHRINK
+// Values: positive integer
+// Default: 1
+// USAGE: @include flex-shrink(1)
+
+@mixin flex-shrink($int: 1) {
+	-webkit-flex-shrink: $int;
+	-moz-flex-shrink: $int;
+	-ms-flex-shrink: $int;
+	flex-shrink: $int;
+}
+
+// FLEXBOX ORDER
+// Values: integer
+// Default: 0
+// USAGE: @include order(0)
+
+@mixin order($int: 0) {
+	-webkit-box-ordinal-group: $int + 1;
+	-webkit-order: $int;
+	-moz-order: $int;
+	-ms-flex-order: $int;
+	order: $int;
 }

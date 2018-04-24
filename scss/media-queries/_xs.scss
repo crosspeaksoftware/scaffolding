@@ -2,12 +2,7 @@
 Site Name:
 Author:
 
-Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylesheet
-and will be used across all viewports.
+Stylesheet: Base Mobile
 
 ******************************************************************/
 
@@ -39,14 +34,17 @@ body {
 #masthead {}
 
 #inner-header {
-	padding: 1em 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 #logo {
-	float: left;
-
 	&.h1 {
 		margin: 0;
+	}
+	
+	a {
+		text-decoration: none;
 	}
 }
 
@@ -68,7 +66,8 @@ body {
 #content {}
 
 #inner-content {
-	padding: 2em 0;
+	padding-top: 2em;
+	padding-bottom: 2em;
 
 	// headers
 	
@@ -226,7 +225,8 @@ body {
 }
 
 #inner-footer {
-	padding: 2em 0;
+	padding-top: 2em;
+	padding-bottom: 2em;
 }
 
 ul.footer-menu {
