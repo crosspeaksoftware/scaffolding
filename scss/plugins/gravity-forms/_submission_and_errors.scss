@@ -6,18 +6,16 @@ Stylesheet: Submission and Error Styles for Gravity Forms
 
 ******************************************************************/
 
-/* ERRORS */
+// ERRORS
 
-/*
-li.gfield.gfield_error,
-li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
-	background-color: #FFDFE0;
-	margin-bottom: 6px !important;
-	padding: 6px 6px 4px 6px !important;
-	border-top: 1px solid #C89797;
-	border-bottom: 1px solid #C89797;
-}
-*/
+//li.gfield.gfield_error,
+//li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+//	background-color: #FFDFE0;
+//	margin-bottom: 6px !important;
+//	padding: 6px 6px 4px 6px !important;
+//	border-top: 1px solid #C89797;
+//	border-bottom: 1px solid #C89797;
+//}
 
 li.gfield.gfield_creditcard_warning {
 	margin-bottom: 6px !important;
@@ -46,18 +44,16 @@ li.gfield + li.gfield.gfield_creditcard_warning {
 }
 
 .gfield_error {
-	/*
-	.gfield_label {
-		color: $color__alert-red;
-	}
-	*/
+	//.gfield_label {
+	//	color: $color__alert-red;
+	//}
 
-	input[type=text],
-	input[type=url],
-	input[type=email],
-	input[type=tel],
-	input[type=number],
-	input[type=password],
+	input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="password"],
 	textarea,
 	input,
 	.select2-container .select2-selection {
@@ -73,32 +69,25 @@ li.gfield + li.gfield.gfield_creditcard_warning {
 	}
 }
 
-/*
-li.gfield.gfield_error.gfield_contains_required {
-	margin-top: 12px;
-	margin-bottom: 12px !important;
-	padding-left: 10px !important;
-}
-*/
+//li.gfield.gfield_error.gfield_contains_required {
+//	margin-top: 12px;
+//	margin-bottom: 12px !important;
+//	padding-left: 10px !important;
+//}
 
-/*
-li.gfield.gfield_error.gfield_contains_required label.gfield_label,
-li.gfield.gfield_error.gfield_contains_required div.ginput_container  {
-	margin-top: 12px;
-}
-*/
+//li.gfield.gfield_error.gfield_contains_required label.gfield_label,
+//li.gfield.gfield_error.gfield_contains_required div.ginput_container  {
+//	margin-top: 12px;
+//}
 
 div.validation_error {
 	@include alert;
-
 	font-weight: bold;
 	margin-bottom: 1.6em;
 	border-top-color: $color__alert-red;
 
 	&:before {
-		content: "\f071";
-
-		// exclamation-triangle
+		content: "\f071"; // exclamation-triangle
 		color: $color__alert-red;
 	}
 }
@@ -107,59 +96,49 @@ div.gf_page_steps + div.validation_error {
 	margin-top: 16px;
 }
 
-/*
-div.gfield_description.validation_error {
-	color: $color__alert-red;
-	font-weight: bold;
-	font-size: 0.85em;
-	letter-spacing: normal;
-	line-height: 1.2em;
-	margin-bottom: 16px;
-}
-*/
+//div.gfield_description.validation_error {
+//	color: $color__alert-red;
+//	font-weight: bold;
+//	font-size: 0.85em;
+//	letter-spacing: normal;
+//	line-height: 1.2em;
+//	margin-bottom: 16px;
+//}
 
 div.gfield_description.validation_message {
 	color: $color__alert-red;
 }
 
-/*
-li.gfield_error .ginput_complex.ginput_container label,
-li.gfield_error ul.gfield_checkbox,
-li.gfield_error ul.gfield_radio {
-	color: $color__alert-red;
-}
-*/
+//li.gfield_error .ginput_complex.ginput_container label,
+//li.gfield_error ul.gfield_checkbox,
+//li.gfield_error ul.gfield_radio {
+//	color: $color__alert-red;
+//}
 
-/*
-.top_label .gfield_description.validation_message,
-.gfield_description.validation_message {
-	padding: 10px 0 !important;
-}
-*/
+//.top_label .gfield_description.validation_message,
+//.gfield_description.validation_message {
+//	padding: 10px 0 !important;
+//}
 
-/*
-.ginput_container + .gfield_description.validation_message {
-	margin-top: 6px;
-}
-*/
+//.ginput_container + .gfield_description.validation_message {
+//	margin-top: 6px;
+//}
 
-/*
-.gfield_description + .gform_wrapper .gfield_description.validation_message {
-	margin-top: 6px;
-}
-*/
+//.gfield_description + .gform_wrapper .gfield_description.validation_message {
+//	margin-top: 6px;
+//}
 
 .ginput_container.ginput_list + .gfield_description.validation_message {
 	margin-top: 0;
 }
 
-/* AJAX FORMS */
+// AJAX FORMS
 
 .gform_ajax_spinner {
 	padding-left: 10px;
 }
 
-/* CAPTCHA */
+// CAPTCHA
 
 .gfield_captcha_input_container {
 	padding-top: 3px;
@@ -194,7 +173,7 @@ li.gfield_error ul.gfield_radio {
 	padding: 0 !important;
 }
 
-/* MATH CHALLENGE */
+// MATH CHALLENGE
 
 .math_small input {
 	width: 69px;
@@ -217,7 +196,7 @@ li.gfield_error ul.gfield_radio {
 	margin-left: 32%;
 }
 
-/* HIDDEN FIELDS */
+// HIDDEN FIELDS
 
 input[type=hidden],
 input.gform_hidden,
@@ -234,7 +213,7 @@ input.gform_hidden,
 	display: none !important;
 }
 
-/* HIDE HONEYPOT */
+// HIDE HONEYPOT
 
 .gform_validation_container,
 .gform_wrapper .gform_validation_container,

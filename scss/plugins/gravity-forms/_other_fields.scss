@@ -6,7 +6,7 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 
 ******************************************************************/
 
-/* DATE & TIME */
+// DATE & TIME
 
 .gfield_time_hour,
 .gfield_time_minute,
@@ -61,7 +61,7 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 	width: 70% !important;
 }
 
-/* DATE PICKER */
+// DATE PICKER
 
 .datepicker {
 	width: 100px !important;
@@ -95,13 +95,9 @@ input.datepicker.datepicker_with_icon {
 
 .ui-datepicker-header {
 	background-color: #666;
-
-	/* set the header background color */
 	color: #e0e0e0;
 	font-weight: bold;
-
 	@include box-shadow(inset 0 1px 1px 0 rgba(250, 250, 250, 0.2));
-
 	filter: dropshadow(color = #000, offx = 1, offy = -1);
 	line-height: 40px;
 	min-height: 30px !important;
@@ -235,14 +231,8 @@ input.datepicker.datepicker_with_icon {
 
 .ui-datepicker-calendar .ui-state-active {
 	background: #FFF2AA;
-
-	/* set the active date background color */
 	border: 1px solid #c19163;
-
-	/* set the active date border color */
 	color: #666;
-
-	/* set the active date font color */
 	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
@@ -284,7 +274,7 @@ body div#ui-datepicker-div[style] {
 	z-index: 9999 !important;
 }
 
-/* TEXTAREA CHARACTER COUNT */
+// TEXTAREA CHARACTER COUNT
 
 div.charleft {
 	font-size: 11px;
@@ -306,14 +296,14 @@ li.gf_hide_charleft div.charleft {
 	display: none !important;
 }
 
-/* SUBMISSION LIMIT MESSAGE */
+// SUBMISSION LIMIT MESSAGE
 
 .gf_submission_limit_message {
 	color: #790000;
 	font-size: 1.4em;
 }
 
-/* PRICING FIELDS */
+// PRICING FIELDS
 
 .ginput_price {
 	filter: alpha(opacity = 70);
@@ -348,7 +338,7 @@ input.ginput_quantity {
 	width: 40px;
 }
 
-/* MULTI PAGE */
+// MULTI PAGE
 
 .gform_page_footer {
 	margin: 20px 0;
@@ -507,7 +497,7 @@ input.ginput_quantity {
 	overflow: hidden;
 }
 
-/* PASSWORD STRENGTH INDICATOR */
+// PASSWORD STRENGTH INDICATOR
 
 .gfield_password_strength {
 	border: 1px solid #DDD;
@@ -539,7 +529,7 @@ input.ginput_quantity {
 	}
 }
 
-/* LIST FIELDS */
+// LIST FIELDS
 
 table.gfield_list,
 table.gfield_list caption,
@@ -620,7 +610,7 @@ table.gfield_list td.gfield_list_icons {
 	min-width: 45px !important;
 }
 
-/* MULTI-FILE UPLOAD */
+// MULTI-FILE UPLOAD
 
 .gform_fileupload_multifile {
 	.gform_drop_area {
@@ -661,7 +651,7 @@ table.gfield_list td.gfield_list_icons {
 	}
 }
 
-/* HTML */
+// HTML
 
 div.gform_body ul.gform_fields li.gfield.gfield_html ul li,
 form div.gform_body ul.gform_fields li.gfield.gfield_html ul li {

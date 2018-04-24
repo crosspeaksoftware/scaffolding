@@ -28,11 +28,9 @@ Select2 gives you a customizable select box with support for searching, tagging,
 .select2-search__field,
 .select2-dropdown,
 .select2-selection--multiple .select2-selection__rendered {
-	/*
-	Force border-box so that % widths fit the parent
-	container without overlap because of margin/padding.
-	More Info : http://www.quirksmode.org/css/box.html
-	*/
+	// Force border-box so that % widths fit the parent
+	// container without overlap because of margin/padding.
+	// More Info : http://www.quirksmode.org/css/box.html
 	@include box-sizing(border-box);
 }
 

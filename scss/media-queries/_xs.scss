@@ -26,10 +26,8 @@ body {
 
 	#container {
 		height: 100%;
-
 		// styles for mobile nav slide in
 		position: relative;
-
 		@include transition(all 0.25s ease-in-out);
 	}
 }
@@ -59,10 +57,7 @@ body {
 	background-size: cover;
 
 	.spacer {
-		padding-top: 26%;
-
-		// change this value based on the aspect ratio of your header image
-
+		padding-top: 26%; // change this value based on the aspect ratio of your header image
 	}
 }
 
@@ -76,11 +71,13 @@ body {
 	padding: 2em 0;
 
 	// headers
+	
 	.page-header {}
 
 	.article-header {}
 
 	// titles
+	
 	.page-title,
 	.single-title {
 		margin-top: 0;
@@ -88,33 +85,26 @@ body {
 
 	.search-title {}
 
-	// want to style individual post classes? Booya!
+	// individual post classes
+	
 	.post-id {}
 
-	// post by id (i.e. post-3)
 	.post {}
 
-	// general post style
 	.page {}
 
-	// general article on a page style
 	.attachment {}
 
-	// general style on an attatchment
 	.sticky {}
 
-	// sticky post style
 	.hentry {}
 
-	// hentry class
 	.category-slug {}
 
-	// style by category (i.e. category-videos)
 	.tag-slug {}
 
-	// style by tag (i.e. tag-news)
-
-	/* post meta */
+	// post meta
+	
 	.entry-meta {
 		color: #999;
 
@@ -130,6 +120,7 @@ body {
 	.categories {}
 
 	// entry content
+	
 	.page-content {}
 
 	.entry-content {}
@@ -137,6 +128,7 @@ body {
 	.archive-description {}
 
 	// footers
+	
 	.page-footer {}
 
 	.entry-footer {}
@@ -270,10 +262,7 @@ ul.footer-menu {
 	}
 
 	ul.sub-menu {
-		display: none;
-
-		// hide child ul as design does not support it
-
+		display: none; // hide child ul as design does not support it
 	}
 }
 
@@ -287,15 +276,11 @@ ul.footer-menu {
 
 	a {
 		background: #000;
-
 		@include border-radius(500px);
-
 		display: block;
 		opacity: 0.2;
 		text-decoration: none;
-
 		@include transition(all 1s ease-in-out);
-
 		width: 40px;
 
 		&:hover,

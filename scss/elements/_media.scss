@@ -6,7 +6,7 @@ Stylesheet: Media Stylesheet
 
 ******************************************************************/
 
-/* Image Sizes */
+// Image Sizes
 .size-auto,
 .size-full,
 .size-large,
@@ -26,7 +26,7 @@ figure {
 	margin: 1em 0;
 }
 
-/* Image Alignment */
+// Image Alignment
 img.alignleft,
 .alignleft,
 img.alignright,
@@ -66,12 +66,12 @@ img.alignnone,
 	}
 }
 
-/* Image Caption */
+// Image Caption
 .wp-caption {
 	background: #EEE;
 	padding: 6px;
 
-	/* images inside wp-caption */
+	// images inside wp-caption
 	img {
 		margin-bottom: 6px;
 		width: 100%;
@@ -86,7 +86,7 @@ img.alignnone,
 	font-style: italic;
 }
 
-/* Image Gallery */
+// Image Gallery
 .gallery {
 	margin-top: 30px;
 	margin-left: -15px;
@@ -137,7 +137,7 @@ img.alignnone,
 	}
 }
 
-/* Galleries no more then 3 to a row on small screens */
+// Galleries no more then 3 to a row on small screens
 .gallery-columns-3,
 .gallery-columns-4,
 .gallery-columns-5,
@@ -150,7 +150,7 @@ img.alignnone,
 	}
 }
 
-/* Change gallery to proper spacing on larger screens */
+// Change gallery to proper spacing on larger screens
 @media only screen and (min-width: $screen-sm-min) {
 	.gallery-columns-4 {
 		.gallery-item {
@@ -165,7 +165,7 @@ img.alignnone,
 	}
 }
 
-/* Core Media Player */
+// Core Media Player
 .mejs-container {}
 
 .mejs-controls {
@@ -198,7 +198,7 @@ img.alignnone,
 	.mejs-unfullscreen {}
 }
 
-/* Video Player */
+// Video Player
 .wp-video {
 	margin: 1em 0;
 }
@@ -247,7 +247,7 @@ img.alignnone,
 	}
 }
 
-/* Audio Player */
+// Audio Player
 .mejs-audio {
 	.mejs-inner {
 		.mejs-mediaelement {
@@ -276,7 +276,7 @@ img.alignnone,
 	}
 }
 
-/* Audio Playlist */
+// Audio Playlist
 .wp-playlist {
 	overflow: hidden;
 

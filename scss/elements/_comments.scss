@@ -55,7 +55,7 @@ Stylesheet: Comments Stylesheet
 
 			&:focus {}
 
-			/* form validation */
+			// form validation
 			&:invalid {
 				background-color: #f6e7eb;
 				border-color: #fbc2c4;
@@ -88,23 +88,23 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* comment submit button */
+	// comment submit button
 	#submit {}
 
-	/* comment form title */
+	// comment form title
 	#comment-form-title {
 		margin: 0 0 1.1em;
 	}
 
-	/* cancel comment reply link */
+	// cancel comment reply link
 	#cancel-comment-reply {
 		a {}
 	}
 
-	/* logged in comments */
+	// logged in comments
 	.comments-logged-in-as {}
 
-	/* allowed tags */
+	// allowed tags
 	.form-allowed-tags {
 		margin: 1em 0 1.675em 0;
 
@@ -115,7 +115,7 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* no comments */
+	// no comments
 	.nocomments {
 		margin: 0 20px 1.1em;
 	}
@@ -125,9 +125,10 @@ Stylesheet: Comments Stylesheet
  * COMMENTS
  ************************/
 
-/* h3 comment title */
+// h3 comment title
 #comments {
-	/* number of comments span */
+	
+	// number of comments span
 	span {}
 }
 
@@ -176,7 +177,7 @@ Stylesheet: Comments Stylesheet
 				margin-left: 0 0 0 3em;
 			}
 
-			/* variations */
+			// variations
 			.comment {}
 
 			.alt {}
@@ -187,15 +188,13 @@ Stylesheet: Comments Stylesheet
 
 			.depth-1 {}
 
-			/* change number for different depth */
+			// change number for different depth
 			.byuser {}
 
 			.bypostauthor {}
 
 			.comment-author-admin {}
 		}
-
-		/* end .commentlist li ul.children */
 	}
 
 	li[class*=depth-] {
@@ -215,7 +214,8 @@ Stylesheet: Comments Stylesheet
 
 	li.depth-5 {}
 
-	/* general comment classes */
+	// general comment classes
+	
 	.alt {}
 
 	.odd {}
@@ -242,7 +242,7 @@ Stylesheet: Comments Stylesheet
 
 	.thread-even {}
 
-	/* vcard */
+	// vcard
 	.vcard {
 		height: auto;
 		min-height: 32px;
@@ -285,7 +285,6 @@ Stylesheet: Comments Stylesheet
 			margin: 0;
 			position: absolute;
 			top: 0;
-
 			@include border-radius(50%);
 		}
 		
@@ -295,9 +294,7 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* end .commentlist .vcard */
-
-	/* comment meta */
+	// comment meta
 	.comment-meta {
 		a {}
 	}
@@ -313,7 +310,7 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* comment content */
+	// comment content
 	.comment_content {
 		border: 1px solid #DDD;
 		clear: both;
@@ -335,9 +332,7 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* end .commentlist .comment_content */
-
-	/* comment reply link */
+	// comment reply link
 	.comment-reply-link {
 		color: $color__link;
 		float: right;
@@ -359,8 +354,4 @@ Stylesheet: Comments Stylesheet
 			padding-left: 5px;
 		}
 	}
-
-	/* end .commentlist .comment-reply-link */
 }
-
-/* end .commentlist */

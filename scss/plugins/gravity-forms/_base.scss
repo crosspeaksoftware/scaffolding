@@ -11,13 +11,13 @@ Last reviewed with plugin Version 2.0.2.
 
 ******************************************************************/
 
-/* Import Other Styles */
+// Import Other Styles
 @import "ready_classes";
 @import "submission_and_errors";
 @import "other_fields";
 @import "credit_cards";
 
-/* GForm Wrapper */
+// GForm Wrapper
 
 .gform_wrapper {
 	overflow: inherit;
@@ -29,14 +29,14 @@ Last reviewed with plugin Version 2.0.2.
 	}
 }
 
-/* REQUIRED */
+// REQUIRED
 
 .gfield_required {
 	color: $color__alert-red;
 	margin-left: 4px;
 }
 
-/* INPUTS */
+// INPUTS
 
 textarea.small {
 	height: 80px;
@@ -50,7 +50,7 @@ textarea.large {
 	height: 250px;
 }
 
-/* RADIO & CHECKBOXES */
+// RADIO & CHECKBOXES
 
 ul.gfield_checkbox,
 ul.gfield_radio {
@@ -89,7 +89,7 @@ ul.gfield_radio {
 	}
 }
 
-/* HOVER & FOCUS */
+// HOVER & FOCUS
 
 .field_hover {
 	border: 1px dashed #2175A9;
@@ -101,7 +101,7 @@ ul.gfield_radio {
 	border: 1px solid #C2D7EF;
 }
 
-/* CUSTOM FIELDS */
+// CUSTOM FIELDS
 
 .ginput_complex {
 	overflow: hidden;
@@ -136,25 +136,25 @@ ul.gfield_radio {
 	}
 }
 
-/* HEADER */
+// HEADER
 
 .gform_heading {
 	width: 100%;
 	margin-bottom: 2em;
 }
 
-/* BODY */
+// BODY
 
 .gform_body {}
 
-/* FOOTER */
+// FOOTER
 
 .gform_footer {
 	margin: 1.5em 0 1em 0;
 	clear: both;
 }
 
-/* TITLES & DESCRIPTIONS */
+// TITLES & DESCRIPTIONS
 
 h2.gsection_title {
 	margin: 0;
@@ -223,7 +223,7 @@ h3.gform_title {
 	line-height: 1.5em;
 }
 
-/* LISTS */
+// LISTS
 
 form {
 	ul {
@@ -276,7 +276,7 @@ form {
 	}
 }
 
-/* LABELS */
+// LABELS
 
 ul.gfield_radio,
 ul.gfield_checkbox {
@@ -379,7 +379,7 @@ ul.gfield_checkbox {
 }
 
 
-/* SECTIONS */
+// SECTIONS
 
 .gsection {
 	border-bottom: 4px double #CCC;

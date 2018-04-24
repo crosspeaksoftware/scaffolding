@@ -107,10 +107,12 @@ Stylesheet: Pagination Stylesheet
 	}
 }
 
-/**
- * Large Mobile Devices
- */
+/************************
+ * MEDIA QUERIES
+ ************************/
+
 @media only screen and (min-width: 481px) {
+	
 	.scaffolding-page-navi {
 		li {
 			a,
@@ -119,16 +121,16 @@ Stylesheet: Pagination Stylesheet
 			}
 		}
 	}
+	
 }
 
-/**
- * Large Mobile Devices
- */
 @media only screen and (min-width: $screen-sm-min) {
+	
 	.scaffolding-page-navi {
 		li.sc-prev-link,
 		li.sc-next-link {
 			display: inline-block;
 		}
 	}
+	
 }

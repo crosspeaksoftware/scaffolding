@@ -6,9 +6,7 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
-/**
- * Placeholders
- */
+// Placeholders
 
 @mixin placeholder {
 	::-webkit-input-placeholder {@content}
@@ -36,9 +34,7 @@ Stylesheet: Forms Stylesheet
 }
 
 
-/**
- * Labels
- */
+// Labels
 
 label {
 	display: inline-block;
@@ -46,9 +42,7 @@ label {
 	font-weight: bold;
 }
 
-/**
- * Inputs
- */
+// Inputs
 
 textarea,
 select,
@@ -123,11 +117,8 @@ select {
 	}
 }
 
-/**
- * Submit
- * see _links for button styles
- */
-
+// Submit
+// see _links for button styles
 input[type="submit"],
 input[type="button"],
 button[type="submit"] {
@@ -148,10 +139,7 @@ button[type="submit"] {
 	}
 }
 
-/************************
- * SEARCH FORM STYLES
- ************************/
-
+// Search form
 .error-404 {
 	#searchform {
 		margin: 1em 0;
@@ -185,10 +173,7 @@ button[type="submit"] {
 	}
 }
 
-/************************
- * PASSWORD FORM STYLES
- ************************/
-
+// Password form for private pages
 .post-password-form {
 	label {
 		display: block;
@@ -206,6 +191,7 @@ button[type="submit"] {
 
 @media only screen and (min-width: $screen-sm-min) {
 
+	// Password form for private pages
 	.post-password-form {
 		input[type="password"] {
 			display: block;

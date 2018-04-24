@@ -77,20 +77,18 @@ Stylesheet: Widgets Stylesheet
  * DEFAULT WIDGETS
  ************************/
 
-/* Archives */
+// Archives
 .widget_archive {
 	select {}
 
 	option {}
 }
 
-/* Calendar */
+// Calendar
 .widget_calendar {}
 
 #calendar_wrap {
-	overflow-x: auto;
-
-	// make sure table doesn't overflow
+	overflow-x: auto; // make sure table doesn't overflow
 }
 
 #wp-calendar {
@@ -140,14 +138,14 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/* Categories */
+// Categories
 .widget_categories {
 	select {}
 
 	option {}
 }
 
-/* Custom Menu */
+// Custom Menu
 .widget_nav_menu {
 	ul {
 		li {
@@ -156,7 +154,7 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/* Meta */
+// Meta
 .widget_meta {
 	ul {
 		li {
@@ -165,7 +163,7 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/* Pages */
+// Pages
 .widget_pages {
 	ul {
 		li {
@@ -174,7 +172,7 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/* Recent Comments */
+// Recent Comments
 .widget_recent_comments {
 	#recentcomments {}
 
@@ -185,7 +183,7 @@ Stylesheet: Widgets Stylesheet
 	.comment-author-link {}
 }
 
-/* Recent Posts */
+// Recent Posts
 .widget_recent_entries {
 	ul {
 		li {
@@ -201,7 +199,7 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/* RSS */
+// RSS
 .widget_rss {
 	ul {
 		li {
@@ -228,7 +226,7 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/* Search */
+// Search
 .widget_search {
 	#searchform {}
 
@@ -239,14 +237,14 @@ Stylesheet: Widgets Stylesheet
 	#searchsubmit {}
 }
 
-/* Tag Cloud */
+// Tag Cloud
 .widget_tag_cloud {
 	.tagcloud {}
 
 	a {}
 }
 
-/* Text */
+// Text
 .widget_text {
 	.textwidget {}
 

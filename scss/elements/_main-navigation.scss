@@ -145,7 +145,7 @@ It currently slides out from the right.
 
 			&.menu-item-has-children {}
 
-			/* sub menu - child */
+			// sub menu - child
 			ul.sub-menu {
 				background-color: #333;
 				bottom: 0;
@@ -161,7 +161,7 @@ It currently slides out from the right.
 				@include transition(all 0.25s ease-in-out);
 			}
 
-			/* sub menu - child */
+			// sub menu - child
 			ul.sub-menu-open {
 				right: 0;
 			}
@@ -169,7 +169,7 @@ It currently slides out from the right.
 	}
 }
 
-/* Opening Menu */
+// Opening Menu
 body.menu-open {
 	#main-navigation {
 		ul.menu {
@@ -191,11 +191,12 @@ body.menu-open {
 	}
 }
 
-/* LARGER MOBILE DEVICES */
+// LARGER MOBILE DEVICES
 @media only screen and (min-width: 481px) {}
 
-/* TABLET & SMALLER LAPTOPS */
+// TABLET & SMALLER LAPTOPS
 @media only screen and (min-width: $screen-sm-min) {
+	
 	#mobile-menu-button {
 		display: none !important;
 	}
@@ -242,7 +243,7 @@ body.menu-open {
 					display: none !important;
 				}
 
-				/* maintain hover state on dropdown */
+				// maintain hover state on dropdown
 				&:hover,
 				&:focus {
 					background-color: #222;
@@ -261,13 +262,13 @@ body.menu-open {
 				}
 
 				&:last-child {
-					/* Children */
+					// Children
 					ul.sub-menu {
 						left: auto;
 						right: 0;
 
 						li {
-							/* Grand Children */
+							// Grand Children
 							ul.sub-menu {
 								left: auto;
 								right: 99.9%;
@@ -288,7 +289,7 @@ body.menu-open {
 
 				&.menu-item-has-children {}
 
-				/*Children*/
+				// Children
 				ul.sub-menu {
 					background-color: #222;
 					bottom: auto;
@@ -335,7 +336,7 @@ body.menu-open {
 
 						&.menu-item-has-children {}
 
-						/* Grand Children */
+						// Grand Children
 						ul.sub-menu {
 							left: 99.9%;
 							top: 0;
@@ -343,39 +344,40 @@ body.menu-open {
 					}
 				}
 			}
+			// end .menu li
 
-			/* end .menu li */
-
-			/* Show the child ul */
+			// Show the child ul
 			li:hover > ul {
 				display: table;
 			}
 		}
-
-		/* end ul.menu */
+		// end ul.menu */
 	}
-
-	/* end #main-navigation */
+	// end #main-navigation
+	
 }
 
-/* DESKTOP */
+// DESKTOP
+
 @media only screen and (min-width: $screen-md-min) {}
 
-/* FULL VIEWING SIZE */
+// FULL VIEWING SIZE
+
 @media only screen and (min-width: $screen-lg-min) {
+	
 	#main-navigation {
 		ul.menu {
 			li {
 				&:first-child {}
 
 				&:last-child {
-					/* Children */
+					// Children
 					ul.sub-menu {
 						left: 0;
 						right: auto;
 
 						li {
-							/* Grand Children */
+							// Grand Children
 							ul.sub-menu {
 								left: 99.9%;
 								right: auto;
@@ -384,12 +386,8 @@ body.menu-open {
 					}
 				}
 			}
-
-			/* end .menu li */
 		}
-
-		/* end ul.menu */
 	}
-
-	/* end #main-navigation */
+	// end #main-navigation
+	
 }
