@@ -51,12 +51,15 @@ html {
 		@include media-breakpoint-up($breakpoint, $breakpoints) {
 			// Provide basic `.col-{bp}` classes for equal-width flexbox columns
 			.col#{$infix} {
-				flex-basis: 0;
-				flex-grow: 1;
+				@include flex-basis(0);
+				@include flex-grow(1);
+				//flex-basis: 0;
+				//flex-grow: 1;
 				max-width: 100%;
 			}
 			.col#{$infix}-auto {
-				flex: 0 0 auto;
+				@include flex(0 0 auto);
+				//flex: 0 0 auto;
 				width: auto;
 				max-width: none; // Reset earlier grid tiers
 			}
@@ -110,8 +113,10 @@ html {
 }
 
 @mixin make-row() {
-	display: flex;
-	flex-wrap: wrap;
+	@include flexbox(flex);
+	@include flex-wrap(wrap);
+	//display: flex;
+	//flex-wrap: wrap;
 	margin-right: ($grid-gutter-width / -2);
 	margin-left: ($grid-gutter-width / -2);
 }
@@ -128,7 +133,8 @@ html {
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
-	flex: 0 0 percentage($size / $columns);
+	@include flex(0 0 percentage($size / $columns));
+	//flex: 0 0 percentage($size / $columns);
 	// Add a `max-width` to ensure content within each column does not blow out
 	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
 	// do not appear to require this.
@@ -203,50 +209,51 @@ html {
 	@include media-breakpoint-up($breakpoint) {
 		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-		.flex#{$infix}-row            { flex-direction: row !important; }
-		.flex#{$infix}-column         { flex-direction: column !important; }
-		.flex#{$infix}-row-reverse    { flex-direction: row-reverse !important; }
-		.flex#{$infix}-column-reverse { flex-direction: column-reverse !important; }
+		.flex#{$infix}-row 			  { @include flex-direction(row !important); }
+		.flex#{$infix}-column         { @include flex-direction(column !important); }
+		.flex#{$infix}-row-reverse    { @include flex-direction(row-reverse !important); }
+		.flex#{$infix}-column-reverse { @include flex-direction(column-reverse !important); }
 
-		.flex#{$infix}-wrap         { flex-wrap: wrap !important; }
-		.flex#{$infix}-nowrap       { flex-wrap: nowrap !important; }
-		.flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse !important; }
-		.flex#{$infix}-fill         { flex: 1 1 auto !important; }
-		.flex#{$infix}-grow-0       { flex-grow: 0 !important; }
-    	.flex#{$infix}-grow-1       { flex-grow: 1 !important; }
-    	.flex#{$infix}-shrink-0     { flex-shrink: 0 !important; }
-    	.flex#{$infix}-shrink-1     { flex-shrink: 1 !important; }
+		.flex#{$infix}-wrap         { @include flex-wrap(wrap !important); }
+		.flex#{$infix}-nowrap       { @include flex-wrap(nowrap !important); }
+		.flex#{$infix}-wrap-reverse { @include flex-wrap(wrap-reverse !important); }
+		.flex#{$infix}-fill         { @include flex(1 1 auto !important); }
+		.flex#{$infix}-grow-0       { @include flex-grow(0 !important); }
+    	.flex#{$infix}-grow-1       { @include flex-grow(1 !important); }
+    	.flex#{$infix}-shrink-0     { @include flex-shrink(0 !important);}
+    	.flex#{$infix}-shrink-1     { @include flex-shrink(1 !important); }
 
-		.justify-content#{$infix}-start   { justify-content: flex-start !important; }
-		.justify-content#{$infix}-end     { justify-content: flex-end !important; }
-		.justify-content#{$infix}-center  { justify-content: center !important; }
-		.justify-content#{$infix}-between { justify-content: space-between !important; }
-		.justify-content#{$infix}-around  { justify-content: space-around !important; }
+		.justify-content#{$infix}-start   { @include justify-content(flex-start !important); }
+		.justify-content#{$infix}-end     { @include justify-content(flex-end !important); }
+		.justify-content#{$infix}-center  { @include justify-content(center !important); }
+		.justify-content#{$infix}-between { @include justify-content(space-between !important); }
+		.justify-content#{$infix}-around  { @include justify-content(space-around !important); }
 
-		.align-items#{$infix}-start    { align-items: flex-start !important; }
-		.align-items#{$infix}-end      { align-items: flex-end !important; }
-		.align-items#{$infix}-center   { align-items: center !important; }
-		.align-items#{$infix}-baseline { align-items: baseline !important; }
-		.align-items#{$infix}-stretch  { align-items: stretch !important; }
+		.align-items#{$infix}-start    { @include align-items(flex-start !important); }
+		.align-items#{$infix}-end      { @include align-items(flex-end !important); }
+		.align-items#{$infix}-center   { @include align-items(center !important); }
+		.align-items#{$infix}-baseline { @include align-items(baseline !important); }
+		.align-items#{$infix}-stretch  { @include align-items(stretch !important); }
 
-		.align-content#{$infix}-start   { align-content: flex-start !important; }
-		.align-content#{$infix}-end     { align-content: flex-end !important; }
-		.align-content#{$infix}-center  { align-content: center !important; }
-		.align-content#{$infix}-between { align-content: space-between !important; }
-		.align-content#{$infix}-around  { align-content: space-around !important; }
-		.align-content#{$infix}-stretch { align-content: stretch !important; }
+		.align-content#{$infix}-start   { @include align-content(flex-start !important); }
+		.align-content#{$infix}-end     { @include align-content(flex-end !important); }
+		.align-content#{$infix}-center  { @include align-content(center !important); }
+		.align-content#{$infix}-between { @include align-content(space-between !important); }
+		.align-content#{$infix}-around  { @include align-content(space-around !important); }
+		.align-content#{$infix}-stretch { @include align-content(stretch !important); }
 
-		.align-self#{$infix}-auto     { align-self: auto !important; }
-		.align-self#{$infix}-start    { align-self: flex-start !important; }
-		.align-self#{$infix}-end      { align-self: flex-end !important; }
-		.align-self#{$infix}-center   { align-self: center !important; }
-		.align-self#{$infix}-baseline { align-self: baseline !important; }
-		.align-self#{$infix}-stretch  { align-self: stretch !important; }
+		.align-self#{$infix}-auto     { @include align-self(auto !important); }
+		.align-self#{$infix}-start    { @include align-self(flex-start !important); }
+		.align-self#{$infix}-end      { @include align-self(flex-end !important); }
+		.align-self#{$infix}-center   { @include align-self(center !important); }
+		.align-self#{$infix}-baseline { @include align-self(baseline !important); }
+		.align-self#{$infix}-stretch  { @include align-self(stretch !important); }
 	}
 }
 
 //
 // Utilities for common `display` values
+// https://stackoverflow.com/questions/35351353/missing-visible-and-hidden-in-bootstrap-v4
 //
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -260,11 +267,10 @@ html {
 		.d#{$infix}-table        { display: table !important; }
 		.d#{$infix}-table-row    { display: table-row !important; }
 		.d#{$infix}-table-cell   { display: table-cell !important; }
-		.d#{$infix}-flex         { display: flex !important; }
-		.d#{$infix}-inline-flex  { display: inline-flex !important; }
+		.d#{$infix}-flex         { @include flexbox(flex !important); }
+		.d#{$infix}-inline-flex  { @include flexbox(inline-flex !important); }
 	}
 }
-
 
 //
 // Utilities for toggling `display` in print
@@ -278,6 +284,6 @@ html {
 	.d-print-table        { display: table !important; }
 	.d-print-table-row    { display: table-row !important; }
 	.d-print-table-cell   { display: table-cell !important; }
-	.d-print-flex         { display: flex !important; }
-	.d-print-inline-flex  { display: inline-flex !important; }
+	.d-print-flex         { @include flexbox(flex !important); }
+	.d-print-inline-flex  { @include flexbox(inline-flex !important); }
 }
