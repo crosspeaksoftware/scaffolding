@@ -518,6 +518,18 @@ span.amp {
 	flex-shrink: $int;
 }
 
+// FLEXBOX BASIS
+// Values: An absolute <length>, a <percentage> of the parent flex container's main size property, or the keyword auto. Negative values are invalid.
+// Default: auto
+// USAGE: @include flex-basis($width)
+
+@mixin flex-basis($width: auto) {
+	-webkit-flex-basis: $width;
+	-moz-flex-basis: $width;
+	-ms-flex-basis: $width;
+	flex-basis: $width;
+}
+
 // FLEXBOX ORDER
 // Values: integer
 // Default: 0
