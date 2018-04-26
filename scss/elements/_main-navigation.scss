@@ -24,10 +24,16 @@ It currently slides out from the right.
 		padding: 0;
 	}
 	
-	button {
-		border: 0;
+	// reset button styles
+	button,
+	button[type="button"] {
+		background: none;
+		color: inherit;
+		font: inherit;
+		padding: 0;
+		border: none;
 		border-radius: 0;
-		outline: 0;
+		outline: none;
 		cursor: pointer;
 	}
 }
@@ -71,7 +77,6 @@ It currently slides out from the right.
 
 		button.menu-button {
 			border-left: 1px solid #111;
-			background-color: inherit;
 			color: #999;
 			font-size: 1.5em;
 			display: inline-block;
@@ -82,7 +87,7 @@ It currently slides out from the right.
 		}
 
 		button.menu-back-button {
-			background-color: #222;
+			background: #222;
 			color: #999;
 			display: inline-block;
 			text-align: left;
@@ -111,6 +116,11 @@ It currently slides out from the right.
 				padding: 15px;
 				text-decoration: none;
 				width: 75%;
+				
+				&:hover,
+				&:focus {
+					background-color: inherit;
+				}
 			}
 			
 			&.current-menu-item {}
@@ -192,7 +202,7 @@ It currently slides out from the right.
 			padding-right: ($grid-gutter-width / 2);
 			padding-left: ($grid-gutter-width / 2);
 
-			li {
+			> li.menu-item {
 				flex: 1 1 auto;
 				display: inline-block;
 				position: relative;
@@ -209,7 +219,7 @@ It currently slides out from the right.
 					}
 				}
 
-				> a {
+				a {
 					font-size: 1em;
 					color: #FFF;
 					display: block;
@@ -247,8 +257,7 @@ It currently slides out from the right.
 						left: auto;
 						right: 0;
 
-						li {
-
+						li.menu-item {
 							// Grand Children
 							ul.sub-menu {
 								left: auto;
@@ -278,7 +287,7 @@ It currently slides out from the right.
 			width: auto;
 			z-index: 1000;
 
-			li {
+			li.menu-item {
 				display: block;
 				margin: 0;
 				white-space: nowrap;
@@ -331,8 +340,8 @@ It currently slides out from the right.
 	
 	#main-navigation {
 		ul.menu {
-			li {
-				> a {
+			li.menu-item {
+				a {
 					font-size: 1.125em;
 					padding-top: 0.675em;
 					padding-bottom: 0.675em;
@@ -344,7 +353,7 @@ It currently slides out from the right.
 		
 		// Children
 		ul.sub-menu {
-			li {
+			li.menu-item {
 				a {
 					font-size: 0.95em;
 					padding-left: 20px;

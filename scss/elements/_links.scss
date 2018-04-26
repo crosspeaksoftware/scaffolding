@@ -39,7 +39,6 @@ a.read-more {
 	text-transform: uppercase;
 	border: 0;
 	outline: 0;
-
 	@include transition(background-color 0.25s ease-in-out);
 
 	&:hover,

@@ -44,7 +44,7 @@
 					?>
 					
 					<div id="mobile-menu-toggle" class="col-auto">
-						<button id="mobile-menu-button"><?php esc_html_e( 'Menu', 'scaffolding' ); ?></button>
+						<button id="mobile-menu-button" type="button"><?php esc_html_e( 'Menu', 'scaffolding' ); ?></button>
 					</div>
 					
 				</div>
