@@ -73,8 +73,6 @@ It currently slides out from the right.
 
 	// Mobile Styles
 	#main-navigation {
-		display: none;
-
 		button.menu-button {
 			border-left: 1px solid #111;
 			color: #999;
@@ -98,11 +96,15 @@ It currently slides out from the right.
 		ul {
 			background-color: #333;
 			position: absolute;
-			right: -70%;
 			top: 0;
 			bottom: 0;
-			width: 70%;
 			z-index: 1000;
+		}
+		
+		ul.main-menu {
+			display: none;
+			right: -70%;
+			width: 70%;
 		}
 		
 		li {
@@ -141,7 +143,7 @@ It currently slides out from the right.
 			right: -100%;
 			overflow: hidden;
 			width: 100%;
-			@include transition(all 0.25s ease-in-out);
+			@include transition(right 0.25s ease-in-out);
 			
 			li {
 				a {
@@ -155,12 +157,8 @@ It currently slides out from the right.
 		}
 	}
 
-	// Opening Menu
+	// Open Menu
 	body.menu-open {
-		#main-navigation {
-			display: block;
-		}
-
 		#mobile-menu-button {
 			&:before {
 				content: "\f00d"; // times icon
@@ -170,6 +168,12 @@ It currently slides out from the right.
 		#container {
 			left: -70%;
 		}
+	}
+	
+	#container {
+		position: relative;
+		left: 0;
+		@include transition(left 0.25s ease-in-out);
 	}
 	
 }

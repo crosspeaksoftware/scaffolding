@@ -33,7 +33,7 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20171102' );
+define( 'SCAFFOLDING_THEME_VERSION', '20180511' );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 
 /************************************
@@ -373,22 +373,14 @@ register_default_headers( array(
 /**
  * Set header image as a BG
  *
- * Includes IE8 polyfill to allow image to span full width of screen.
  * This is a callback function defined in scaffolding_theme_support() 'custom-header'.
  *
  * @since Scaffolding 1.0
  */
 function scaffolding_custom_headers_callback() {
-
 	if ( has_header_image() ) {
 		?>
-		<style type="text/css">
-			#banner {
-				display: block;
-				background-image: url( <?php header_image(); ?> );
-				-ms-behavior: url( <?php echo get_template_directory_uri() ?>/includes/backgroundsize.min.htc );
-			}
-		</style>
+<style type="text/css">#banner { display: block; background-image: url(<?php header_image(); ?>); }</style>
 		<?php
 	}
 } // end scaffolding_custom_headers_callback()

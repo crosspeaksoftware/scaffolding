@@ -121,7 +121,15 @@ jQuery(document).ready(function($) {
 	*/
 	$(function() {
 		$('#mobile-menu-button').on('click', function(e) {
-			$('body').toggleClass('menu-open');
+			if ( ! $('body').hasClass('menu-open') ) {
+				$('#main-navigation > ul.main-menu').css('display','block');
+				$('body').toggleClass('menu-open');
+			} else {
+				$('body').toggleClass('menu-open');
+				setTimeout( function(){
+					$('#main-navigation > ul.main-menu').css('display','none');
+				},500);
+			}
 		});
 
 		$('#main-navigation .menu-item > .menu-button').on('click', function(e) {
