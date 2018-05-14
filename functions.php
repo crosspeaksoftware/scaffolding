@@ -433,9 +433,22 @@ function scaffolding_register_sidebars() {
  */
 function scaffolding_noindex_filter( $query ) {
 	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
-		$query->set( 'meta_key', '_yoast_wpseo_meta-robots-noindex' );
-		$query->set( 'meta_value', '' );
-		$query->set( 'meta_compare', 'NOT EXISTS' );
+		$meta_query = $query->get('meta_query');
+		if ( is_array( $meta_query ) ) {
+			$meta_query[] = array(
+				'key' 		=> '_yoast_wpseo_meta-robots-noindex',
+				'compare'	=> 'NOT EXISTS',
+			);
+			$query->set( 'meta_query', $meta_query );
+		} else {
+			$meta_query = array(
+				array(
+					'key' 		=> '_yoast_wpseo_meta-robots-noindex',
+					'compare'	=> 'NOT EXISTS',
+				)
+			);
+			$query->set( 'meta_query', $meta_query );	
+		}
 	}
 	return $query;
 }
