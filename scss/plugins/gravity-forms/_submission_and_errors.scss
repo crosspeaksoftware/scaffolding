@@ -20,7 +20,7 @@ Stylesheet: Submission and Error Styles for Gravity Forms
 li.gfield.gfield_creditcard_warning {
 	margin-bottom: 6px !important;
 	padding: 6px 6px 4px 6px !important;
-	border: 1px dashed #a00;
+	border: 1px dashed $color__alert-red;
 }
 
 li.gfield.gfield_creditcard_warning div.gfield_creditcard_warning_message {
@@ -31,8 +31,8 @@ li.gfield.gfield_creditcard_warning div.gfield_creditcard_warning_message {
 	background-image: url("#{$plugins-path}gravityforms/images/stopbanner.png");
 	background-repeat: no-repeat;
 	background-position: 0 0;
-	background-color: #a00;
-	border-bottom: 1px solid #620101;
+	background-color: $color__alert-red;
+	border-bottom: 1px solid darken($color__alert-red, 20%);
 	color: #FFF;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 	line-height: 1.3em;

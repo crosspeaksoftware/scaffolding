@@ -16,7 +16,7 @@ Stylesheet: Forms Stylesheet
 }
 
 @include placeholder {
-	color: #CCC;
+	color: $color__placeholder-text;
 	font-style: italic;
 	font-weight: 400;
 }
@@ -55,7 +55,7 @@ input[type="password"] {
 	background: $input__bg-color;
 	border: 1px solid $input__border-color;
 	border-radius: 0;
-	color: #444;
+	color: $color__body-text;
 	font-size: 1em;
 	letter-spacing: normal;
 	outline: none;
@@ -151,10 +151,6 @@ button[type="submit"] {
 	height: $input__height;
 	overflow: hidden;
 	position: relative;
-
-	label {
-		display: none;
-	}
 
 	#s {
 		padding-right: 12%;

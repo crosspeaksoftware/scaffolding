@@ -33,7 +33,7 @@ global $sc_layout_class;
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-						<header class="entry-header">
+						<header class="entry-header clearfix">
 
 							<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
@@ -46,6 +46,16 @@ global $sc_layout_class;
 							<?php the_excerpt(); ?>
 
 						</div>
+						
+						<?php if ( get_the_tag_list() ) : ?>
+
+							<footer class="entry-footer clearfix">
+
+								<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+
+							</footer>
+
+						<?php endif; ?>
 
 					</article>
 

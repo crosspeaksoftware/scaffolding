@@ -55,7 +55,7 @@ body {
 	background-size: cover;
 
 	.spacer {
-		padding-top: 26%; // change this value based on the aspect ratio of your header image
+		padding-top: 26.32%; // change this value based on the aspect ratio of your header image
 	}
 }
 
@@ -105,14 +105,15 @@ body {
 	// post meta
 	
 	.entry-meta {
-		color: #999;
+		color: $color__tertiary-med;
+		font-style: italic;
 
 		time {}
 	}
 
 	.tags {
 		.tags-title {
-			color: #999;
+			color: $color__tertiary-med;
 		}
 	}
 
@@ -148,13 +149,17 @@ body {
 .archive,
 .search {
 	#inner-content {
+		.page-header {
+			margin-bottom: 1em;
+		}
+		
 		article {
 			border-bottom: 1px solid #DDD;
 			padding-top: 1em;
 			padding-bottom: 1em;
 
 			.entry-header {
-				margin-top: 2em;
+				margin-top: 1em;
 				margin-bottom: 1em;
 			}
 
@@ -173,10 +178,9 @@ body {
 				margin: 0.5em 0 0;
 			}
 
-			.entry-content,
-			.entry-footer {
+			.entry-header + .entry-content,
+			.entry-content + .entry-footer {
 				margin-top: -1em;
-				margin-bottom: 1em;
 			}
 
 			&:first-child {
@@ -213,14 +217,18 @@ body {
  ************************/
 
 #colophon {
-	background-color: #111;
+	background-color: $color__tertiary-dark;
 	clear: both;
-	color: #999;
+	color: $color__tertiary-med;
 	font-size: 0.875em;
 
 	.copyright {
 		margin-bottom: 0;
 		text-align: center;
+	}
+	
+	a {
+		color: $color__tertiary-med;
 	}
 }
 
@@ -240,8 +248,8 @@ ul.footer-menu {
 		padding: 0;
 
 		a {
-			border-left: 1px solid #999;
-			color: #999;
+			border-left: 1px solid $color__tertiary-med;
+			color: $color__tertiary-med;
 			display: block;
 			line-height: 1;
 			padding: 0 0.675em;
@@ -276,7 +284,7 @@ ul.footer-menu {
 
 	a {
 		background: #000;
-		@include border-radius(500px);
+		border-radius: 500px;
 		display: block;
 		opacity: 0.2;
 		text-decoration: none;

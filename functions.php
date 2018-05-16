@@ -504,7 +504,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
  */
 function scaffolding_excerpt_more( $more ) {
 	global $post;
-	return '&hellip; <a class="read-more" href="'. get_permalink( $post->ID ) . '" title="'. __('Read ', 'scaffolding') . get_the_title( $post->ID ).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
+	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
 }
 
 /**

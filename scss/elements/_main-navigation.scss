@@ -23,19 +23,19 @@ It currently slides out from the right.
 		margin: 0;
 		padding: 0;
 	}
-	
-	// reset button styles
-	button,
-	button[type="button"] {
-		background: none;
-		color: inherit;
-		font: inherit;
-		padding: 0;
-		border: none;
-		border-radius: 0;
-		outline: none;
-		cursor: pointer;
-	}
+}
+
+// reset button styles
+#main-navigation button,
+#mobile-menu-button {
+	background: none;
+	color: inherit;
+	font: inherit;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	cursor: pointer;
 }
 
 // MOBILE ONLY
@@ -53,8 +53,6 @@ It currently slides out from the right.
 		line-height: 1;
 		padding: 0.65em;
 		margin: 0;
-		outline: 0;
-		border: 0;
 		overflow: hidden;
 		white-space: nowrap;
 
@@ -74,8 +72,8 @@ It currently slides out from the right.
 	// Mobile Styles
 	#main-navigation {
 		button.menu-button {
-			border-left: 1px solid #111;
-			color: #999;
+			border-left: 1px solid darken($color__primary, 10%);
+			color: #FFF;
 			font-size: 1.5em;
 			display: inline-block;
 			margin: 0;
@@ -85,8 +83,8 @@ It currently slides out from the right.
 		}
 
 		button.menu-back-button {
-			background: #222;
-			color: #999;
+			background: lighten($color__primary, 10%);
+			color: #FFF;
 			display: inline-block;
 			text-align: left;
 			padding: 15px;
@@ -94,7 +92,7 @@ It currently slides out from the right.
 		}
 		
 		ul {
-			background-color: #333;
+			background-color: $color__primary;
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -109,10 +107,10 @@ It currently slides out from the right.
 		
 		li {
 			display: block;
-			border-bottom: 1px solid #111;
+			border-bottom: 1px solid darken($color__primary, 10%);
 			
 			a {
-				color: #999;
+				color: #FFF;
 				display: inline-block;
 				font-size: 1.125em;
 				padding: 15px;
@@ -188,7 +186,7 @@ It currently slides out from the right.
 
 	#main-navigation {
 		display: block;
-		background-color: #333;
+		background-color: $color__tertiary-dark;
 		white-space: nowrap;
 		position: relative;
 		
@@ -227,7 +225,7 @@ It currently slides out from the right.
 					font-size: 1em;
 					color: #FFF;
 					display: block;
-					border-left: 1px solid #111;
+					border-left: 1px solid darken($color__tertiary-dark, 5%);
 					padding-top: 0.5em;
 					padding-bottom: 0.5em;
 					padding-left: 12px;
@@ -245,7 +243,7 @@ It currently slides out from the right.
 				&:hover,
 				&:focus {
 					a {
-						background-color: #222;
+						background-color: $color__tertiary-dark;
 					}
 				}
 				
@@ -253,7 +251,7 @@ It currently slides out from the right.
 
 				&:last-child {
 					> a {
-						border-right: 1px solid #111;
+						border-right: 1px solid darken($color__tertiary-dark, 5%);
 					}
 
 					// Children
@@ -280,7 +278,7 @@ It currently slides out from the right.
 
 		// Children
 		ul.sub-menu {
-			background-color: #333;
+			background-color: $color__tertiary-dark;
 			display: none;
 			min-width: 120%;
 			position: absolute;

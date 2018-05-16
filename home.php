@@ -40,7 +40,7 @@ global $sc_layout_class;
 								the_content( sprintf(
 									wp_kses(
 										/* translators: %s: Name of current post. Only visible to screen readers */
-										__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', '_s' ),
+										__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'scaffolding' ),
 										array(
 											'span' => array(
 												'class' => array(),
@@ -51,7 +51,7 @@ global $sc_layout_class;
 								) );
 
 								wp_link_pages( array(
-									'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),
+									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'scaffolding' ),
 									'after'  => '</div>',
 								) );
 							?>

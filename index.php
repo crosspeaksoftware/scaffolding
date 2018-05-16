@@ -26,7 +26,7 @@ global $sc_layout_class;
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-						<header class="entry-header">
+						<header class="entry-header clearfix">
 
 							<h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
 

@@ -20,7 +20,7 @@
 					<?php scaffolding_footer_nav(); ?>
 				</nav>
 
-				<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
+				<p class="source-org copyright"><?php echo sprintf( __( '&copy; %1$s %2$s.', 'scaffolding' ), date('Y'), get_bloginfo('name') ); ?></p>
 
 			</div>
 
