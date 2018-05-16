@@ -7,6 +7,8 @@
 
 get_header();
 
+global $sc_layout_class;
+
 /**
  * Return array of excluded term IDs
  * Yoast settings - term meta set to noindex
@@ -175,79 +177,91 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 }
 ?>
 
-	<?php if ( have_posts() ) : ?>
+<div id="inner-content" class="container">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+	<div class="row <?php echo $sc_layout_class['row']; ?>">
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-				<header class="page-header">
+			<?php if ( have_posts() ) : ?>
 
-					<h1 class="page-title"><?php the_title(); ?></h1>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-				</header>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-				<section class="page-content clearfix">
+						<header class="page-header">
 
-					<?php the_content(); ?>
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
-					<?php wp_link_pages(
-						array(
-							'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-							'after'       => '</div>',
-							'link_before' => '<span>',
-							'link_after'  => '</span>',
-						)
-					); ?>
+						</header>
 
-					<div class="row">
+						<section class="page-content clearfix">
 
-						<div class="col-md-6">
+							<?php the_content(); ?>
 
-							<h3><?php _e( 'Pages', 'scaffolding' ); ?></h3>
-							<ul>
-								<?php 
-								$page_args = array(
-									'sort_column' 	=> 'post_title',
-									'title_li'		=> ''
-								);
-								$excluded_page_IDs = scaffolding_excluded_posts('page');
-								if ( ! empty( $excluded_page_IDs ) ) {
-									$page_args['exclude'] = $excluded_page_IDs;
-								}
-								wp_list_pages( $page_args ); 
-								?>
-							</ul>
+							<?php wp_link_pages(
+								array(
+									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+									'after'       => '</div>',
+									'link_before' => '<span>',
+									'link_after'  => '</span>',
+								)
+							); ?>
 
-						</div>
+							<div class="row">
 
-						<div class="col-md-6">
+								<div class="col-md-6">
 
-							<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
-							<?php scaffolding_list_posts('post'); ?>
+									<h3><?php _e( 'Pages', 'scaffolding' ); ?></h3>
+									<ul>
+										<?php 
+										$page_args = array(
+											'sort_column' 	=> 'post_title',
+											'title_li'		=> ''
+										);
+										$excluded_page_IDs = scaffolding_excluded_posts('page');
+										if ( ! empty( $excluded_page_IDs ) ) {
+											$page_args['exclude'] = $excluded_page_IDs;
+										}
+										wp_list_pages( $page_args ); 
+										?>
+									</ul>
 
-							<?php 
-							// Example with term list
-							/*
-							<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
-							<?php scaffolding_list_terms('category'); ?>
-							*/
-							?>
+								</div>
 
-						</div>
+								<div class="col-md-6">
 
-					</div><?php // END .row ?>
+									<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
+									<?php scaffolding_list_posts('post'); ?>
 
-				</section>
+									<?php 
+									// Example with term list
+									/*
+									<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
+									<?php scaffolding_list_terms('category'); ?>
+									*/
+									?>
 
-			</article>
+								</div>
 
-		<?php endwhile; ?>
+							</div><?php // END .row ?>
 
-	<?php else : ?>
+						</section>
 
-		<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+					</article>
 
-	<?php endif; ?>
+				<?php endwhile; ?>
+
+			<?php else : ?>
+
+				<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+
+			<?php endif; ?>
+			
+		<?php get_sidebar(); ?>
+		
+	</div><?php // END .row ?>
+	
+</div><?php // END #inner-content ?>
 
 <?php get_footer();

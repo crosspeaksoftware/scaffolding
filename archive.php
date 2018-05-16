@@ -9,45 +9,62 @@
  * @package Scaffolding
  */
 
-get_header(); ?>
+get_header(); 
 
-	<?php if ( have_posts() ) : ?>
+global $sc_layout_class;
+?>
 
-		<header class="page-header">
-			
-			<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
-			<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
+<div id="inner-content" class="container">
 
-		</header>
+	<div class="row <?php echo $sc_layout_class['row']; ?>">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+			<?php if ( have_posts() ) : ?>
 
-				<header class="entry-header">
+				<header class="page-header">
 
-					<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-
-					<p class="entry-meta"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
+					<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+					<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
 
 				</header>
 
-				<div class="entry-content clearfix">
+				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php the_excerpt(); ?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-				</div>
+						<header class="entry-header">
 
-			</article>
+							<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
-		<?php endwhile; ?>
+							<p class="entry-meta"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
 
-		<?php get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination ?>
+						</header>
 
-	<?php else : ?>
+						<div class="entry-content clearfix">
 
-		<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+							<?php the_excerpt(); ?>
 
-	<?php endif; ?>
+						</div>
+
+					</article>
+
+				<?php endwhile; ?>
+
+				<?php get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination ?>
+
+			<?php else : ?>
+
+				<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+
+			<?php endif; ?>
+			
+		</div><?php // END #main ?>
+		
+		<?php get_sidebar(); ?>
+		
+	</div><?php // END .row ?>
+	
+</div><?php // END #inner-content ?>
 
 <?php get_footer();

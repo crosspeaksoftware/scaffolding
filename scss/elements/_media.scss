@@ -90,6 +90,7 @@ img.alignnone,
 .wp-caption {
 	background: #EEE;
 	padding: 6px;
+	max-width: 100%;
 
 	// images inside wp-caption
 	img {
@@ -102,7 +103,6 @@ img.alignnone,
 .wp-caption-text {
 	font-size: 0.85em;
 	text-align: center;
-	background: #EEE;
 	font-style: italic;
 }
 

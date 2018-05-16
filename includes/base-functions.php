@@ -308,7 +308,6 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
 /************************************
  * 6.0 - VISITOR/USER UX FUNCTIONS
  *    6.1 - Remove p tags from images
- *    6.2 - Filter hard coded dimensions on captions
 *************************************/
 
 /**

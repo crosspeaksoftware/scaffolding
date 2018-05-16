@@ -65,26 +65,5 @@
 		</div>
 
 		<div id="content">
-
-			<div id="inner-content" class="container">
-
-				<?php 
-					// Test for active sidebars to set the main content width
-					if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-						$row_class = 'row-main has-both-sidebars';
-						$main_class = 'col-lg-6 order-lg-2';
-					} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
-						$row_class = 'row-main has-left-sidebar';
-						$main_class = 'col-md-9 order-md-2';
-					} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-						$row_class = 'row-main has-right-sidebar';
-						$main_class = 'col-md-9 order-md-1';
-					} else {
-						$row_class = 'row-main no-sidebars';
-						$main_class = 'col-12';
-					}
-				?>
-
-				<div class="row <?php echo $row_class; ?>">
-
-					<div id="main" class="<?php echo $main_class; ?> clearfix" role="main">
+			
+			<?php do_action( 'scaffolding_after_content_begin' ); ?>

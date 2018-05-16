@@ -25,6 +25,7 @@
  * 9.0 - Utility Functions
  *    9.1 - Removes […] from read more
  *    9.2 - Modified author post link
+ *	  9.3 - Add layout classes
  * 10.0 - Admin Customization
  *    10.1 - Set content width
  *    10.2 - Set image attachment width
@@ -33,7 +34,7 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20180511' );
+define( 'SCAFFOLDING_THEME_VERSION', '20180516' );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
 
 /************************************
@@ -504,7 +505,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
 function scaffolding_excerpt_more( $more ) {
 	global $post;
 	return '&hellip; <a class="read-more" href="'. get_permalink( $post->ID ) . '" title="'. __('Read ', 'scaffolding') . get_the_title( $post->ID ).'">'. __('Read more &raquo;', 'scaffolding') .'</a>';
-} // end scaffolding_excerpt_more()
+}
 
 /**
  * Modifies author post link which just returns the link
@@ -527,6 +528,71 @@ function scaffolding_get_the_author_posts_link() {
 	);
 	return $link;
 }
+
+/**
+ * Set grid classes based on sidebars
+ *
+ * @since Scaffolding 3.0
+ */
+function scaffolding_set_layout_classes( $type ) {
+	
+	if ( '' == $type || ( 'content' != $type && 'sidebar' != $type ) ) {
+		return;
+	}
+	
+	if ( 'content' == $type ) {
+		
+		$class = array();
+		
+		// Test for active sidebars to set the main content width
+		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['row'] = 'row-main has-both-sidebars';
+			$class['main'] = 'col-lg-6 order-lg-2';
+		} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
+			$class['row'] = 'row-main has-left-sidebar';
+			$class['main'] = 'col-md-9 order-md-2';
+		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['row'] = 'row-main has-right-sidebar';
+			$class['main'] = 'col-md-9 order-md-1';
+		} else {
+			$class['row'] = 'row-main no-sidebars';
+			$class['main'] = 'col-12';
+		}
+		
+	} elseif ( 'sidebar' == $type ) {
+		
+		$class = array();
+		
+		// Test for active sidebars to set sidebar classes
+		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['left'] = 'col-md-6 order-md-1 col-lg-3';
+			$class['right'] = 'col-md-6 order-md-3 col-lg-3';
+		} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
+			$class['left'] = 'col-md-3 order-md-1';
+		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['right'] = 'col-md-3 order-md-2';
+		}
+		
+	}
+	
+	return $class;
+}
+
+/**
+ * Set globals for layout classes
+ *
+ * @since Scaffolding 3.0
+ */
+function scaffolding_layout_classes_globals() {
+	if ( function_exists( 'scaffolding_set_layout_classes' ) ) {
+		$GLOBALS['sc_sidebar_class'] = scaffolding_set_layout_classes( 'sidebar' );
+		$GLOBALS['sc_layout_class'] = scaffolding_set_layout_classes( 'content' );
+	} else {
+		$GLOBALS['sc_sidebar_class'] = array( 'left' => '', 'right' => '' );
+		$GLOBALS['sc_layout_class'] = array( 'row' => 'row-main no-sidebars', 'main' => 'col-12' );
+	}
+}
+add_action( 'after_setup_theme', 'scaffolding_layout_classes_globals', 0 );
 
 
 /************************************

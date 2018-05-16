@@ -8,13 +8,7 @@
  */
 ?>
 
-					</div><?php // END #main ?>
-
-					<?php get_sidebar(); ?>
-
-				</div><?php // END .row ?>
-
-			</div><?php // END #inner-content ?>
+			<?php do_action( 'scaffolding_before_content_end' ); ?>
 
 		</div><?php // END #content ?>
 
