@@ -79,19 +79,9 @@ function scaffolding_scripts_and_styles() {
 	// Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
 	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
 
-	// IE-only stylesheet
-	/* Not currently in use
-	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), SCAFFOLDING_THEME_VERSION );
-	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-	*/
-
 	// Modernizr - http://modernizr.com/
 	// update this to include only what you need to test or remove if not using
 	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
-
-	// Respond - https://github.com/scottjehl/Respond
-	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), '1.4.2', false );
-	$wp_scripts->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around respond script
 
 	/**
 	 * Add to wp_footer()
