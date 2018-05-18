@@ -44,6 +44,11 @@ jQuery(document).ready(function($) {
 	// getting viewport width
 	var responsive_viewport = $(window).width() + getScrollBarWidth();
 	
+	// Initialize Retinajs - https://github.com/strues/retinajs
+	if (jQuery.fn.retinajs) {
+		retinajs();
+	}
+	
 	// SelectWoo - https://github.com/woocommerce/selectWoo
 	if ($.fn.selectWoo) {
 		var setup_selectWoo = function() {
@@ -155,6 +160,7 @@ jQuery(document).ready(function($) {
 		responsive_viewport = $(window).width() + getScrollBarWidth();
 		if (responsive_viewport >= 768 && $('body').hasClass('menu-open')) {
 			$('body').removeClass('menu-open');
+			$('#main-navigation > ul.main-menu').removeAttr('style');
 		}
 	});
 	// end responsive nav
