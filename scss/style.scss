@@ -40,7 +40,8 @@ Here you can easily toggle on/off modules and files.
 // STEP 5: Libraries
 
 @import "libs/selectWoo"; // better cross browser select input - see https://github.com/woocommerce/selectWoo
-@import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup for more info
+@import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup
+@import "libs/retinajs"; // retinajs mixin for adding retina images - see http://imulus.github.io/retinajs/
 
 // STEP 6: Media Queries
 
