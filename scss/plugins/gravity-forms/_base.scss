@@ -131,7 +131,8 @@ ul.gfield_radio {
 	input[type="tel"],
 	input[type="number"],
 	input[type="password"],
-	select {
+	select,
+	.select2-container {
 		width: 100%;
 	}
 }
