@@ -47,7 +47,7 @@ if ( have_comments() ) : ?>
 				wp_list_comments( array(
 					'type' 		=> 'comment',
 					'style'		=> 'ol',
-					'callback'	=> scaffolding_comments,
+					'callback'	=> 'scaffolding_comments',
 				) ); 
 			?>
 		</ol>
