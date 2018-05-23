@@ -142,7 +142,7 @@ button.sc-btn--narrow {
 	padding-left: 1em;
 	padding-right: 1em;
 
-	@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+	@include media-breakpoint-up('md') {
 		padding-left: 3em;
 		padding-right: 3em;
 	}

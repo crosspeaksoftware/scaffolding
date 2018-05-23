@@ -39,7 +39,7 @@ It currently slides out from the right.
 }
 
 // MOBILE ONLY
-@include media-breakpoint-down('sm', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-down('sm') {
 
 	// Menu Toggle
 	#mobile-menu-button {
@@ -177,7 +177,7 @@ It currently slides out from the right.
 }
 
 // TABLET
-@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('md') {
 
 	#mobile-menu-toggle,
 	#mobile-menu-button {
@@ -338,7 +338,7 @@ It currently slides out from the right.
 }
 
 // DESKTOP
-@include media-breakpoint-up('lg', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('lg') {
 	
 	#main-navigation {
 		ul.menu {
@@ -368,7 +368,7 @@ It currently slides out from the right.
 }
 
 // LARGE DESKTOP
-@include media-breakpoint-up('xl', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('xl') {
 	
 	#main-navigation {}
 	

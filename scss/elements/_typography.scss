@@ -197,7 +197,7 @@ h6,
 	margin: 2.33em 0;
 }
 
-@media only screen and (min-width: map-get($grid-breakpoints, 'lg')) {
+@include media-breakpoint-up('lg') {
 
 	h1,
 	.h1 {

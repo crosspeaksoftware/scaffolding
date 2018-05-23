@@ -111,7 +111,7 @@ Stylesheet: Pagination Stylesheet
  * MEDIA QUERIES
  ************************/
 
-@include media-breakpoint-up('sm', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('sm') {
 	
 	.scaffolding-page-navi {
 		li {

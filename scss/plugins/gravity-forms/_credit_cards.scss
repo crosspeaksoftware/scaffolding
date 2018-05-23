@@ -240,7 +240,7 @@ div.gform_card_icon {
  * MEDIA QUERIES
  ************************/
 
-@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('md') {
 	
 	.ginput_complex .ginput_cardinfo_left,
 	.ginput_complex .ginput_cardinfo_right {

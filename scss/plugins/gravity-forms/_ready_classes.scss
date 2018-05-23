@@ -528,7 +528,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
  * MEDIA QUERIES
  ************************/
 
-@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('md') {
 
 	.right_label input.small,
 	.right_label select.small,

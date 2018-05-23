@@ -185,7 +185,7 @@ button[type="submit"] {
  * MEDIA QUERIES
  ************************/
 
-@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('md') {
 
 	// Password form for private pages
 	.post-password-form {

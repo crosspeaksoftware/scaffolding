@@ -58,7 +58,7 @@ img.alignnone,
 }
 
 // Add image alignment for larger screens only
-@include media-breakpoint-up('sm', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('sm') {
 	
 	img.alignleft,
 	.alignleft {
@@ -171,7 +171,7 @@ img.alignnone,
 }
 
 // Change gallery to proper spacing on larger screens
-@include media-breakpoint-up('md', $breakpoints: $grid-breakpoints) {
+@include media-breakpoint-up('md') {
 	
 	.gallery-columns-4 {
 		.gallery-item {
@@ -190,35 +190,7 @@ img.alignnone,
 // Core Media Player
 .mejs-container {}
 
-.mejs-controls {
-	.mejs-button {}
-
-	.mejs-playpause-button {}
-
-	.mejs-play {}
-
-	.mejs-pause {}
-
-	.mejs-time {}
-
-	.mejs-currenttime-container {}
-
-	.mejs-duration-container {}
-
-	.mejs-time-rail {}
-
-	.mejs-volume-button {}
-
-	.mejs-mute {}
-
-	.mejs-unmute {}
-
-	.mejs-fullscreen-button {}
-
-	.mejs-fullscreen {}
-
-	.mejs-unfullscreen {}
-}
+.mejs-controls {}
 
 // Video Player
 .wp-video {
@@ -244,91 +216,31 @@ img.alignnone,
 		}
 
 		.mejs-layers {
-			.mejs-layer {
-				.mejs-overlay-loading {}
-
-				.mejs-overlay-error {}
-
-				.mejs-overlay-button {}
-			}
-
 			.mejs-poster {
 				height: 100% !important;
 				width: 100% !important;
 			}
 		}
 
-		.mejs-overlay {}
-
 		.mejs-overlay-play {
 			height: 100% !important;
 			width: 100% !important;
 		}
-
-		.mejs-controls {}
 	}
 }
 
 // Audio Player
-.mejs-audio {
-	.mejs-inner {
-		.mejs-mediaelement {
-			audio {}
-		}
-
-		.mejs-layers {
-			.mejs-layer {}
-
-			.mejs-poster {}
-		}
-
-		.mejs-controls {
-			.mejs-horizontal-volume-slider {
-				.mejs-horizontal-volume-total {}
-
-				.mejs-horizontal-volume-current {}
-
-				.mejs-horizontal-volume-handle {}
-			}
-
-			.mejs-mute {}
-
-			.mejs-unmute {}
-		}
-	}
-}
+.mejs-audio {}
 
 // Audio Playlist
 .wp-playlist {
 	overflow: hidden;
+	
+	.wp-playlist-caption {
+		display: block;
 
-	.wp-playlist-current-item {
-		img {}
-
-		.wp-playlist-caption {
-			.wp-playlist-item-title {}
-
-			.wp-playlist-item-artist {}
-		}
-	}
-
-	.wp-playlist-next {}
-
-	.wp-playlist-prev {}
-
-	.wp-playlist-tracks {
-		.wp-playlist-item {
-			&.wp-playlist-playing {}
-
-			.wp-playlist-caption {
-				display: block;
-
-				.wp-playlist-item-title {
-					@include truncateText(ellipsis);
-				}
-			}
-
-			.wp-playlist-item-length {}
+		.wp-playlist-item-title {
+			@include truncateText(ellipsis);
 		}
 	}
 }
