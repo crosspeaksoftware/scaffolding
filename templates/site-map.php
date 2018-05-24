@@ -258,6 +258,8 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 
 			<?php endif; ?>
 			
+		</div><?php // END #main ?>
+			
 		<?php get_sidebar(); ?>
 		
 	</div><?php // END .row ?>

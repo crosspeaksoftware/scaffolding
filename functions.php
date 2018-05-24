@@ -562,6 +562,9 @@ function scaffolding_set_layout_classes( $type ) {
 			$class['left'] = 'col-md-3 order-md-1';
 		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$class['right'] = 'col-md-3 order-md-2';
+		} else {
+			$class['left'] = '';
+			$class['right'] = '';
 		}
 		
 	}
@@ -583,7 +586,7 @@ function scaffolding_layout_classes_globals() {
 		$GLOBALS['sc_layout_class'] = array( 'row' => 'row-main no-sidebars', 'main' => 'col-12' );
 	}
 }
-add_action( 'after_setup_theme', 'scaffolding_layout_classes_globals', 0 );
+add_action( 'cascobaylines_after_content_begin', 'scaffolding_layout_classes_globals', 0 );
 
 
 /************************************
