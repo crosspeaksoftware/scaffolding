@@ -158,7 +158,7 @@ jQuery(document).ready(function($) {
 
 	$(window).resize(function(e) {
 		responsive_viewport = $(window).width() + getScrollBarWidth();
-		if (responsive_viewport >= 768 && $('body').hasClass('menu-open')) {
+		if (responsive_viewport >= 768) {
 			$('body').removeClass('menu-open');
 			$('#main-navigation > ul.main-menu').removeAttr('style');
 		}
