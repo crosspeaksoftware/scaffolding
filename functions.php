@@ -464,14 +464,14 @@ function scaffolding_comments( $comment, $args, $depth ) {
 			<header class="comment-author vcard">
 				<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() ); ?>
 				<?php printf( __( '<cite class="fn">%s</cite>', 'scaffolding' ), get_comment_author_link() ) ?>
-				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a class="comment-date-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a> <em><?php edit_comment_link( __( '(Edit)', 'scaffolding'),'  ','' ) ?></em></time>
+				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a class="comment-date-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a> <?php edit_comment_link( __( '(Edit)', 'scaffolding'), '<em>', '</em>' ); ?></time>
 			</header>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 				<div class="alert info">
 					<p><?php _e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
 				</div>
 			<?php endif; ?>
-			<section class="comment_content clearfix">
+			<section class="comment-content clearfix">
 				<?php comment_text() ?>
 			</section>
 			<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
@@ -586,7 +586,7 @@ function scaffolding_layout_classes_globals() {
 		$GLOBALS['sc_layout_class'] = array( 'row' => 'row-main no-sidebars', 'main' => 'col-12' );
 	}
 }
-add_action( 'cascobaylines_after_content_begin', 'scaffolding_layout_classes_globals', 0 );
+add_action( 'scaffolding_after_content_begin', 'scaffolding_layout_classes_globals', 0 );
 
 
 /************************************
