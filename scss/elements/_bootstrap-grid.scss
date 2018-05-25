@@ -4,7 +4,11 @@ Author:
 
 Stylesheet: Bootstrap Grid Stylesheet
 
-v4.1.0 https://getbootstrap.com/docs/4.1/layout/grid/
+Version: 4.1.0 
+
+Resources:
+	* https://getbootstrap.com/docs/4.1/layout/grid/
+	* https://getbootstrap.com/docs/4.1/utilities/flex/
 
 ******************************************************************/
 
@@ -53,13 +57,10 @@ html {
 			.col#{$infix} {
 				@include flex-basis(0);
 				@include flex-grow(1);
-				//flex-basis: 0;
-				//flex-grow: 1;
 				max-width: 100%;
 			}
 			.col#{$infix}-auto {
 				@include flex(0 0 auto);
-				//flex: 0 0 auto;
 				width: auto;
 				max-width: none; // Reset earlier grid tiers
 			}
@@ -115,8 +116,6 @@ html {
 @mixin make-row() {
 	@include flexbox(flex);
 	@include flex-wrap(wrap);
-	//display: flex;
-	//flex-wrap: wrap;
 	margin-right: ($grid-gutter-width / -2);
 	margin-left: ($grid-gutter-width / -2);
 }
