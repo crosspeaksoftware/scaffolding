@@ -76,11 +76,11 @@ function scaffolding_scripts_and_styles() {
 	// Main stylesheet
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), SCAFFOLDING_THEME_VERSION );
 
-	// Font Awesome (icon set) - http://fortawesome.github.io/Font-Awesome/
-	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
+	// Font Awesome (icon set) - https://fontawesome.com/
+	wp_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.1.3' );
 
 	// Modernizr - http://modernizr.com/
-	// update this to include only what you need to test or remove if not using
+	// update this to include only what you need to test
 	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
 
 	/**
@@ -198,6 +198,7 @@ function scaffolding_theme_support() {
 
 	// Add styles for use in visual editor
 	add_editor_style( 'css/editor-styles.css' );
+	add_editor_style( 'css/libs/fontawesome/fontawesome-all.css' );
 
 } // end scaffolding_theme_support()
 
