@@ -6,7 +6,9 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 
 ******************************************************************/
 
+// 
 // DATE & TIME
+//
 
 .gfield_time_hour,
 .gfield_time_minute,
@@ -61,7 +63,9 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 	width: 70% !important;
 }
 
+// 
 // DATE PICKER
+//
 
 .datepicker {
 	width: 100px !important;
@@ -274,7 +278,9 @@ body div#ui-datepicker-div[style] {
 	z-index: 9999 !important;
 }
 
+// 
 // TEXTAREA CHARACTER COUNT
+//
 
 div.charleft {
 	font-size: 11px;
@@ -296,14 +302,18 @@ li.gf_hide_charleft div.charleft {
 	display: none !important;
 }
 
+// 
 // SUBMISSION LIMIT MESSAGE
+//
 
 .gf_submission_limit_message {
 	color: #790000;
 	font-size: 1.4em;
 }
 
+// 
 // PRICING FIELDS
+//
 
 .ginput_price {
 	filter: alpha(opacity = 70);
@@ -338,7 +348,9 @@ input.ginput_quantity {
 	width: 40px;
 }
 
+// 
 // MULTI PAGE
+// 
 
 .gform_page_footer {
 	margin: 20px 0;
@@ -497,7 +509,9 @@ input.ginput_quantity {
 	overflow: hidden;
 }
 
+// 
 // PASSWORD STRENGTH INDICATOR
+//
 
 .gfield_password_strength {
 	border: 1px solid #DDD;
@@ -529,7 +543,9 @@ input.ginput_quantity {
 	}
 }
 
+// 
 // LIST FIELDS
+//
 
 table.gfield_list,
 table.gfield_list caption,
@@ -610,7 +626,9 @@ table.gfield_list td.gfield_list_icons {
 	min-width: 45px !important;
 }
 
+// 
 // MULTI-FILE UPLOAD
+//
 
 .gform_fileupload_multifile {
 	.gform_drop_area {
@@ -651,7 +669,9 @@ table.gfield_list td.gfield_list_icons {
 	}
 }
 
+// 
 // HTML
+//
 
 div.gform_body ul.gform_fields li.gfield.gfield_html ul li,
 form div.gform_body ul.gform_fields li.gfield.gfield_html ul li {
@@ -714,9 +734,9 @@ div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 	margin-top: 10px;
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+//
+// MEDIA QUERIES
+//
 
 @include media-breakpoint-up('md') {
 	

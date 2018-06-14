@@ -8,21 +8,24 @@ Here you can easily toggle on/off modules and files.
 
 ******************************************************************/
 
+//
 // STEP 1: Reset
+//
 
 @import "libs/normalize";
 
+//
 // STEP 2: Utilities
+//
 
-@import "utilities/functions";
-@import "utilities/variables";
-@import "utilities/mixins";
-@import "utilities/accessibility";
+@import "utilities/all-utilities";
 
 @import "libs/fontawesome/variables";
 @import "libs/fontawesome/mixins";
 
+// 
 // STEP 3: Elements
+//
 
 @import "elements/typography";
 @import "elements/main-navigation";
@@ -36,25 +39,29 @@ Here you can easily toggle on/off modules and files.
 @import "elements/comments";
 @import "elements/widgets";
 
+//
 // STEP 4: Plugins
+//
 
 @import "plugins/gravity-forms/base"; // gravity forms styles - uncheck box to NOT output default CSS
 
+// 
 // STEP 5: Libraries
+//
 
 @import "libs/selectWoo"; // better cross browser select input - see https://github.com/woocommerce/selectWoo
 @import "libs/magnific-popup"; // magnific lightbox styles - see https://github.com/dimsemenov/Magnific-Popup
 @import "libs/retinajs"; // retinajs mixin for adding retina images - see http://imulus.github.io/retinajs/
 
+//
 // STEP 6: Media Queries
+//
 
 // BASE (MOBILE) STYLES
 // This is where you add the majority of your styles. These will be loaded on all devices, so make sure this holds the bare minimum any device needs to view your site.
-
 @import "media-queries/xs";
 
 // SMALL MOBILE STYLES
-
 @media only screen and (min-width: map-get($grid-breakpoints, 'sm')) {
 	
 	@import "media-queries/sm";
@@ -62,7 +69,6 @@ Here you can easily toggle on/off modules and files.
 }
 
 // TABLET
-
 @media only screen and (min-width: map-get($grid-breakpoints, 'md')) {
 	
 	@import "media-queries/md";
@@ -71,7 +77,6 @@ Here you can easily toggle on/off modules and files.
 }
 
 // DESKTOP
-
 @media only screen and (min-width: map-get($grid-breakpoints, 'lg')) {
 	
 	@import "media-queries/lg";
@@ -79,7 +84,6 @@ Here you can easily toggle on/off modules and files.
 }
 
 // LARGE DESKTOP
-
 @media only screen and (min-width: map-get($grid-breakpoints, 'xl')) {
 
 	@import "media-queries/xl";
@@ -88,12 +92,10 @@ Here you can easily toggle on/off modules and files.
 
 // CUSTOM
 // This is where you have custom breakpoints.
-
 // @import "media-queries/custom";
 
 // RETINA (2x RESOLUTION DEVICES)
 // This applies to the retina iPhone (4s) and iPad (2+) along with other displays with a 2x resolution. 
-
 // @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 //	only screen and (min--moz-device-pixel-ratio: 1.5),
 //	only screen and (min-device-pixel-ratio: 1.5) {
@@ -102,7 +104,6 @@ Here you can easily toggle on/off modules and files.
 
 // PRINT STYLESHEET
 // Remember to remove things that do not make sense for print (ie. nav, ads, and forms should).
-
 @media print {
 	
 	@import "media-queries/print";

@@ -6,7 +6,14 @@ Stylesheet: Media Stylesheet
 
 ******************************************************************/
 
-// Image Sizes
+figure {
+	margin: 1em 0;
+}
+
+// 
+// Images
+//
+
 .size-auto,
 .size-full,
 .size-large,
@@ -15,33 +22,6 @@ Stylesheet: Media Stylesheet
 img {
 	height: auto;
 	max-width: 100%;
-}
-
-svg {
-	width: 100%;
-}
-
-.responsive-svg {
-	height: 0;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	
-	svg {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-}
-
-video {
-	height: auto !important;
-	width: 100% !important;
-}
-
-figure {
-	margin: 1em 0;
 }
 
 // Image Alignment
@@ -187,6 +167,37 @@ img.alignnone,
 	
 }
 
+//
+// SVG
+//
+
+svg {
+	width: 100%;
+}
+
+.responsive-svg {
+	height: 0;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+//
+// Video
+//
+
+video {
+	height: auto !important;
+	width: 100% !important;
+}
+
 // Core Media Player
 .mejs-container {}
 
@@ -228,6 +239,10 @@ img.alignnone,
 		}
 	}
 }
+
+//
+// Audio
+//
 
 // Audio Player
 .mejs-audio {}

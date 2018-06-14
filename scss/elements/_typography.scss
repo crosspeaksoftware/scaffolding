@@ -138,9 +138,10 @@ hr {
 //	background: #fffa65;
 //}
 
-/*************************
- * HEADING
- ************************/
+
+//
+// HEADINGS
+//
 
 h1, .h1,
 h2, .h2,
@@ -209,32 +210,4 @@ h6,
 		font-size: 1.75em;
 	}
 
-}
-
-/*************************
- * TINYMCE
- ************************/
-
-.underline {
-	text-decoration: underline;
-}
-
-.italic {
-	font-style: italic;
-}
-
-.bold {
-	font-weight: bold;
-}
-
-.text-left {
-	text-align: left;
-}
-
-.text-center {
-	text-align: center;
-}
-
-.text-right {
-	text-align: right;
 }

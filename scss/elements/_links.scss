@@ -28,9 +28,12 @@ a.read-more {
 	white-space: nowrap;
 }
 
+//
+// Buttons
+//
+
 // button styles - using a namespace to avoid plugin conflict
 // usage: for each button add the default class and one for color, size and width
-
 @mixin button {
 	cursor: pointer;
 	text-align: center;

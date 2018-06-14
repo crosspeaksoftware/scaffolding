@@ -6,7 +6,9 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
+// 
 // Placeholders
+//
 
 @mixin placeholder {
 	::-webkit-input-placeholder {@content}
@@ -34,7 +36,9 @@ Stylesheet: Forms Stylesheet
 }
 
 
+// 
 // Labels
+//
 
 label {
 	display: inline-block;
@@ -42,7 +46,9 @@ label {
 	font-weight: bold;
 }
 
+// 
 // Inputs
+//
 
 textarea,
 select,
@@ -117,6 +123,11 @@ select {
 	}
 }
 
+
+//
+// Submit Buttons
+//
+
 // Submit
 // see _links for button styles
 input[type="submit"],
@@ -138,6 +149,11 @@ button[type="submit"] {
 		outline-offset: -2px;
 	}
 }
+
+
+//
+// Custom Forms
+//
 
 // Search form
 .error-404 {
@@ -181,9 +197,10 @@ button[type="submit"] {
 	}
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+
+//
+// MEDIA QUERIES
+//
 
 @include media-breakpoint-up('md') {
 

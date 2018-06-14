@@ -6,7 +6,9 @@ Stylesheet: Submission and Error Styles for Gravity Forms
 
 ******************************************************************/
 
+// 
 // ERRORS
+//
 
 //li.gfield.gfield_error,
 //li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
@@ -132,13 +134,17 @@ div.gfield_description.validation_message {
 	margin-top: 0;
 }
 
+// 
 // AJAX FORMS
+//
 
 .gform_ajax_spinner {
 	padding-left: 10px;
 }
 
+// 
 // CAPTCHA
+//
 
 .gfield_captcha_input_container {
 	padding-top: 3px;
@@ -173,7 +179,9 @@ div.gfield_description.validation_message {
 	padding: 0 !important;
 }
 
+// 
 // MATH CHALLENGE
+//
 
 .math_small input {
 	width: 69px;
@@ -196,7 +204,9 @@ div.gfield_description.validation_message {
 	margin-left: 32%;
 }
 
+// 
 // HIDDEN FIELDS
+//
 
 input[type=hidden],
 input.gform_hidden,
@@ -213,7 +223,9 @@ input.gform_hidden,
 	display: none !important;
 }
 
+// 
 // HIDE HONEYPOT
+//
 
 .gform_validation_container,
 .gform_wrapper .gform_validation_container,

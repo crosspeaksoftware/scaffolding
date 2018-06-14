@@ -9,8 +9,11 @@ It currently slides out from the right.
 
 ******************************************************************/
 
+// 
 // DEFAULTS
 // all breakpoints
+//
+
 #main-navigation {
 	ul {
 		clear: both;
@@ -38,7 +41,10 @@ It currently slides out from the right.
 	cursor: pointer;
 }
 
+// 
 // MOBILE ONLY
+//
+
 @include media-breakpoint-down('sm') {
 
 	// Menu Toggle
@@ -176,7 +182,10 @@ It currently slides out from the right.
 	
 }
 
+// 
 // TABLET
+//
+
 @include media-breakpoint-up('md') {
 
 	#mobile-menu-toggle,
@@ -337,7 +346,10 @@ It currently slides out from the right.
 
 }
 
+// 
 // DESKTOP
+//
+
 @include media-breakpoint-up('lg') {
 	
 	#main-navigation {
@@ -367,7 +379,10 @@ It currently slides out from the right.
 	
 }
 
+// 
 // LARGE DESKTOP
+//
+
 @include media-breakpoint-up('xl') {
 	
 	#main-navigation {}

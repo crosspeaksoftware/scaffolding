@@ -6,6 +6,11 @@ Stylesheet: Widgets Stylesheet
 
 ******************************************************************/
 
+//
+// DEFAULTS
+// all widgets
+//
+
 .widget {
 	margin: 2.2em 0;
 	padding: 0;
@@ -73,9 +78,9 @@ Stylesheet: Widgets Stylesheet
 	}
 }
 
-/*************************
- * DEFAULT WIDGETS
- ************************/
+//
+// WP WIDGETS
+//
 
 // Archives
 .widget_archive {
