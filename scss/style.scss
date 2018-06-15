@@ -40,13 +40,19 @@ Here you can easily toggle on/off modules and files.
 @import "elements/widgets";
 
 //
-// STEP 4: Plugins
+// STEP 4: Modules
+//
+
+@import "modules/sticky-footer"; // need to add sticky-footer class to the body
+
+//
+// STEP 5: Plugins
 //
 
 @import "plugins/gravity-forms/base"; // gravity forms styles - uncheck box to NOT output default CSS
 
 // 
-// STEP 5: Libraries
+// STEP 6: Libraries
 //
 
 @import "libs/selectWoo"; // better cross browser select input - see https://github.com/woocommerce/selectWoo
@@ -54,7 +60,7 @@ Here you can easily toggle on/off modules and files.
 @import "libs/retinajs"; // retinajs mixin for adding retina images - see http://imulus.github.io/retinajs/
 
 //
-// STEP 6: Media Queries
+// STEP 7: Media Queries
 //
 
 // BASE (MOBILE) STYLES
@@ -72,7 +78,6 @@ Here you can easily toggle on/off modules and files.
 @media only screen and (min-width: map-get($grid-breakpoints, 'md')) {
 	
 	@import "media-queries/md";
-	//@import "modules/sticky-footer"; // need to add sticky-footer class to the body
 	
 }
 

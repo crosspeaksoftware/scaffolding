@@ -205,8 +205,8 @@ It currently slides out from the right.
 		}
 		
 		ul.menu {
-			display: flex;
-			flex-wrap: nowrap;
+			@include flexbox(flex);
+			@include flex-wrap(nowrap);
 			margin: 0 auto;
 			text-align: center;
 			max-width: map-get($container-max-widths, 'xl');
@@ -214,7 +214,7 @@ It currently slides out from the right.
 			padding-left: ($grid-gutter-width / 2);
 
 			> li.menu-item {
-				flex: 1 1 auto;
+				@include flex(1 1 auto);
 				display: inline-block;
 				position: relative;
 				z-index: 1000;

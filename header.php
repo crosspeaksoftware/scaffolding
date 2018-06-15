@@ -18,7 +18,7 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('sticky-footer'); ?>>
 
 	<div id="container">
 		
@@ -58,11 +58,13 @@
 		</nav>
 
 		<?php // Interior Header Image ?>
+<!--
 		<div class="banner-wrap">
 			<div id="banner">
 				<div class="spacer"></div>
 			</div>
 		</div>
+-->
 
 		<div id="content">
 			

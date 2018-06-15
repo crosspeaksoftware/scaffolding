@@ -15,25 +15,16 @@ body.sticky-footer {
 }
 
 body.sticky-footer {
+	min-height: 100vh;
 	overflow-x: visible;
 
 	#container {
-		display: table;
-		width: 100%;
+		min-height: 100vh;
+		@include flexbox(flex);
+		@include flex-direction(column);
 	}
 
-	#container .header,
-	#main-navigation,
-	#container .banner-wrap,
-	#content,
-	#container .footer {
-		display: table-row;
-		height: 1px;
-		overflow: hidden;
+	#content {
+		@include flex(1 0 auto);
 	}
-}
-
-html > body.sticky-footer #container,
-html > body.sticky-footer #content {
-	height: 100%;
 }
