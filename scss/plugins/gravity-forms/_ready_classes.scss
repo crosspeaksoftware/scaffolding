@@ -9,7 +9,9 @@ https://wordpress.org/plugins/gravity-forms-css-ready-selector/
 
 ******************************************************************/
 
-// inline fields
+// 
+// Inline fields
+//
 
 li.gf_inline div.ginput_container {
 	white-space: nowrap !important;
@@ -301,13 +303,17 @@ li.gfield.gf_list_inline {
 	}
 }
 
+// 
 // hide am/pm field
+//
 
 li.gf_hide_ampm div.gfield_time_ampm {
 	display: none !important;
 }
 
+// 
 // scrolling text section break
+//
 
 li.gsection.gf_scroll_text {
 	height: 180px;
@@ -375,7 +381,9 @@ div.gform_ul.gform_fields li.gfield.gsection.gf_scroll_text div.gsection_descrip
 	}
 }
 
+// 
 // HTML field alert style
+//
 
 li.gfield.gfield_html.gf_alert_green,
 li.gfield.gfield_html.gf_alert_red,
@@ -421,7 +429,9 @@ li.gfield.gfield_html.gf_alert_blue {
 	color: #314475;
 }
 
-// confirmation styles
+// 
+// Confirmation Styles
+//
 
 div.gform_confirmation_wrapper.gf_confirmation_simple_yellow {
 	margin: 30px 0;
@@ -524,9 +534,9 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	}
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+//
+// MEDIA QUERIES
+//
 
 @include media-breakpoint-up('md') {
 
