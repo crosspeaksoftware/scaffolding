@@ -134,9 +134,9 @@ function scaffolding_theme_support() {
 	add_theme_support( 'custom-header', array(
 		'default-image'           => '%s/images/headers/default.jpg',
 		'random-default'          => false,
-		'width'                   => 1140,    // Make sure to set this
-		'height'                  => 250,     // Make sure to set this
-		'flex-height'             => false,
+		'width'                   => 1800,    // Make sure to set this
+		'height'                  => 350,     // Make sure to set this
+		'flex-height'             => true,
 		'flex-width'              => false,
 		'default-text-color'      => 'ffffff',
 		'header-text'             => false,
