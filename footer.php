@@ -27,7 +27,7 @@
 		</footer>
 
 		<p id="back-top">
-			<a href="#top"><i class="fa fa-angle-up"></i></a>
+			<a href="#top"><i class="fas fa-angle-up"></i></a>
 		</p>
 
 	</div><?php // END #container ?>

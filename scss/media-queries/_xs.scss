@@ -285,28 +285,20 @@ ul.footer-menu {
 
 	a {
 		background: #000;
-		border-radius: 500px;
-		display: block;
-		opacity: 0.2;
-		text-decoration: none;
-		@include transition(all 1s ease-in-out);
-		width: 40px;
-
-		&:hover,
-		&:focus {
-			color: #000;
-			opacity: 1;
-		}
-	}
-
-	.fa {
 		color: #FFF;
 		display: block;
 		font-size: 1.5em;
-		height: 40px;
-		line-height: 35px;
-		margin-bottom: 7px;
+		line-height: 1.675em;
 		text-align: center;
-		width: 40px;
+		text-decoration: none;
+		width: 1.675em;
+		border-radius: 500px;
+		opacity: 0.2;
+		@include transition(opacity 0.5s ease-in-out);
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
 	}
 }
