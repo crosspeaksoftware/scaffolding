@@ -136,7 +136,7 @@ function scaffolding_theme_support() {
 		'random-default'          => false,
 		'width'                   => 1800,    // Make sure to set this
 		'height'                  => 350,     // Make sure to set this
-		'flex-height'             => true,
+		'flex-height'             => false,
 		'flex-width'              => false,
 		'default-text-color'      => 'ffffff',
 		'header-text'             => false,
