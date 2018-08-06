@@ -4,17 +4,12 @@
  *
  * @package Scaffolding
  */
-?>
 
-<?php if ( function_exists( 'scaffolding_page_navi' ) ) : ?>
-
-	<?php 
-		global $wp_query; 
-		scaffolding_page_navi( '', '', $wp_query ); 
+if ( function_exists( 'scaffolding_page_navi' ) ) :
+	global $wp_query;
+	scaffolding_page_navi( '', '', $wp_query );
+else :
 	?>
-
-<?php else : ?>
-
 	<nav class="wp-prev-next">
 		<ul class="clearfix">
 			<li class="prev-link">
@@ -26,4 +21,5 @@
 		</ul>
 	</nav>
 
-<?php endif;
+	<?php
+endif;

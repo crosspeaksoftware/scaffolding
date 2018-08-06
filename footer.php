@@ -6,17 +6,17 @@
  *
  * @package Scaffolding
  */
-?>
 
-					</div><?php // END #main ?>
+?>
+					</div><?php // END #main. ?>
 
 					<?php get_sidebar(); ?>
 
-				</div><?php // END .row ?>
+				</div><?php // END .row. ?>
 
-			</div><?php // END #inner-content ?>
+			</div><?php // END #inner-content. ?>
 
-		</div><?php // END #content ?>
+		</div><?php // END #content. ?>
 
 		<footer id="colophon" class="footer" role="contentinfo">
 
@@ -26,7 +26,7 @@
 					<?php scaffolding_footer_nav(); ?>
 				</nav>
 
-				<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
+				<p class="source-org copyright">&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>.</p>
 
 			</div>
 
@@ -36,7 +36,7 @@
 			<a href="#top"><i class="fa fa-angle-up"></i></a>
 		</p>
 
-	</div><?php // END #container ?>
+	</div><?php // END #container. ?>
 
 <?php wp_footer(); ?>
 
