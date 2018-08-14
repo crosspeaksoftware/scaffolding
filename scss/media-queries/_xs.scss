@@ -276,28 +276,31 @@ ul.footer-menu {
 
 // scroll to top link
 #back-top {
-	bottom: 10px;
-	margin-right: 30px;
+	margin: 0;
+	bottom: 25px;
+	right: 30px;
 	position: fixed;
-	right: 0;
 	z-index: 9999;
 
 	a {
-		background: #000;
+		background-color: rgba(0,0,0,0.55);
 		color: #FFF;
 		display: block;
-		font-size: 1.5em;
-		line-height: 1.675em;
+		font-size: 1.675em;
+		height: 1.675em;
 		text-align: center;
 		text-decoration: none;
 		width: 1.675em;
 		border-radius: 500px;
-		opacity: 0.2;
-		@include transition(opacity 0.5s ease-in-out);
+		@include transition(background-color 0.5s ease-in-out);
 
 		&:hover,
 		&:focus {
-			opacity: 1;
+			background-color: #000;
 		}
+	}
+	
+	.fas {
+		line-height: 1.675em;
 	}
 }

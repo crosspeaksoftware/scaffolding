@@ -34,8 +34,9 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20180614' );
+define( 'SCAFFOLDING_THEME_VERSION', '20180814' );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname(__FILE__) . '/includes/' );
+
 
 /************************************
  * 1.0 - INCLUDE FILES
@@ -534,7 +535,10 @@ function scaffolding_set_layout_classes( $type ) {
 	
 	if ( 'content' == $type ) {
 		
-		$class = array();
+		$class = array( 
+			'row' 	=> 'row-main no sidebars',
+			'main'	=> 'col-12',
+		);
 		
 		// Test for active sidebars to set the main content width
 		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
@@ -546,14 +550,14 @@ function scaffolding_set_layout_classes( $type ) {
 		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$class['row'] = 'row-main has-right-sidebar';
 			$class['main'] = 'col-md-9 order-md-1';
-		} else {
-			$class['row'] = 'row-main no-sidebars';
-			$class['main'] = 'col-12';
 		}
 		
 	} elseif ( 'sidebar' == $type ) {
 		
-		$class = array();
+		$class = array(
+			'left'	=> '',
+			'right'	=> '',
+		);
 		
 		// Test for active sidebars to set sidebar classes
 		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
@@ -563,9 +567,6 @@ function scaffolding_set_layout_classes( $type ) {
 			$class['left'] = 'col-md-3 order-md-1';
 		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$class['right'] = 'col-md-3 order-md-2';
-		} else {
-			$class['left'] = '';
-			$class['right'] = '';
 		}
 		
 	}

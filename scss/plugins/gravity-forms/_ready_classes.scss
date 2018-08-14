@@ -42,38 +42,36 @@ li.gf_inline div.ginput_container {
 		width: auto !important;
 		margin-right: 14px;
 		float: none !important;
-		display: -moz-inline-stack;
 		display: inline-block;
-		zoom: 1;
 
-		input[type=text].large,
-		input[type=url].large,
-		input[type=email].large,
-		input[type=tel].large,
-		input[type=number].large,
-		input[type=password].large {
+		input[type="text"].large,
+		input[type="url"].large,
+		input[type="email"].large,
+		input[type="tel"].large,
+		input[type="number"].large,
+		input[type="password"].large {
 			width: 25.4em !important;
 		}
 
-		input[type=text].medium,
-		input[type=url].medium,
-		input[type=email].medium,
-		input[type=tel].medium,
-		input[type=number].medium,
-		input[type=password].medium {
+		input[type="text"].medium,
+		input[type="url"].medium,
+		input[type="email"].medium,
+		input[type="tel"].medium,
+		input[type="number"].medium,
+		input[type="password"].medium {
 			width: 18.7em !important;
 		}
 
-		input[type=text].datepicker.medium {
+		input[type="text"].datepicker.medium {
 			width: 6em !important;
 		}
 
-		input[type=text].small,
-		input[type=url].small,
-		input[type=email].small,
-		input[type=tel].small,
-		input[type=number].small,
-		input[type=password].small {
+		input[type="text"].small,
+		input[type="url"].small,
+		input[type="email"].small,
+		input[type="tel"].small,
+		input[type="number"].small,
+		input[type="password"].small {
 			width: 5em !important;
 		}
 
@@ -85,8 +83,8 @@ li.gf_inline div.ginput_container {
 			width: 95% !important;
 		}
 
-		div.gfield_time_hour input[type=text],
-		div.gfield_time_minute input[type=text] {
+		div.gfield_time_hour input[type="text"],
+		div.gfield_time_minute input[type="text"] {
 			width: 70% !important;
 		}
 
@@ -126,11 +124,6 @@ li.gf_inline div.ginput_container {
 		input.small {
 			width: 100%;
 		}
-	}
-
-	li.gfield.gf_left_half + li.gsection,
-	li.gfield.gf_right_half + li.gsection {
-		padding: 16px 0 8px 0;
 	}
 
 	li.gfield.gf_left_half + li.gfield.gsection.gf_left_half,
@@ -188,63 +181,6 @@ li.gf_inline div.ginput_container {
 }
 // end .top_label
 
-// radio/checkbox sub-column
-
-li.gfield.gf_list_2col ul.gfield_checkbox li,
-li.gfield.gf_list_2col ul.gfield_radio li,
-li.gfield.gf_2col ul.gfield_checkbox li,
-li.gfield.gf_2col ul.gfield_radio li {
-	width: 100%;
-	margin: 0 0 8px 0;
-	min-height: 1.8em;
-}
-
-li.gfield.gf_list_3col ul.gfield_checkbox li,
-li.gfield.gf_list_3col ul.gfield_radio li,
-li.gfield.gf_3col ul.gfield_checkbox li,
-li.gfield.gf_3col ul.gfield_radio li {
-	width: 100%;
-	margin: 0 0 8px 0;
-	min-height: 1.8em;
-}
-
-li.gfield.gf_list_4col ul.gfield_checkbox li,
-li.gfield.gf_list_4col ul.gfield_radio li {
-	width: 100%;
-	margin: 0 0 8px 0;
-	min-height: 1.8em;
-}
-
-li.gfield.gf_list_5col ul.gfield_checkbox li,
-li.gfield.gf_list_5col ul.gfield_radio li {
-	width: 100%;
-	float: left;
-	margin: 0 0 8px 0;
-	min-height: 1.8em;
-}
-
-li.gfield.gf_list_2col,
-li.gfield.gf_list_3col,
-li.gfield.gf_list_4col,
-li.gfield.gf_list_5col,
-li.gfield.gf_2col,
-li.gfield.gf_3col {
-	ul.gfield_checkbox,
-	ul.gfield_radio {
-		overflow: hidden;
-	}
-}
-
-li.gfield.gf_list_2col,
-li.gfield.gf_list_3col,
-li.gfield.gf_list_4col,
-li.gfield.gf_list_5col,
-li.gfield.gf_list_inline {
-	label.gfield_label {
-		margin: 10px 0 10px 0;
-	}
-}
-
 // optional height settings for the radio/checkbox columns
 
 li.gfield.gf_list_height_25 {
@@ -297,9 +233,7 @@ li.gfield.gf_list_inline {
 		width: auto !important;
 		float: none !important;
 		margin: 0 10px 10px 0;
-		display: -moz-inline-stack;
 		display: inline-block;
-		zoom: 1;
 	}
 }
 
@@ -472,13 +406,8 @@ div.gform_confirmation_wrapper.gf_confirmation_yellow_gradient {
 		background-color: #FFFBCC;
 		color: #424242;
 		background: #fffce5;
-		background: -moz-linear-gradient(top, #fffce5 0%, #fff9bf 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fffce5), color-stop(100%, #fff9bf));
 		background: -webkit-linear-gradient(top, #fffce5 0%, #fff9bf 100%);
-		background: -o-linear-gradient(top, #fffce5 0%, #fff9bf 100%);
-		background: -ms-linear-gradient(top, #fffce5 0%, #fff9bf 100%);
 		background: linear-gradient(to bottom, #fffce5 0%, #fff9bf 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffce5', endColorstr='#fff9bf',GradientType=0 );
 	}
 }
 
@@ -500,13 +429,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		text-shadow: #DFB 1px 1px;
 		color: #030;
 		background: rgb(219, 242, 183);
-		background: -moz-linear-gradient(top, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(219, 242, 183, 1)), color-stop(100%, rgba(180, 208, 136, 1)));
 		background: -webkit-linear-gradient(top, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
-		background: -o-linear-gradient(top, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
-		background: -ms-linear-gradient(top, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
 		background: linear-gradient(to bottom, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbf2b7', endColorstr='#b4d088',GradientType=0 );
 	}
 }
 
@@ -693,8 +617,15 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_list_3col,
 	li.gfield.gf_list_4col,
 	li.gfield.gf_list_5col {
-		label {
-			margin-bottom: 10px;
+		ul.gfield_checkbox,
+		ul.gfield_radio {
+			@include flexbox(flex);
+			@include flex-wrap(wrap);
+			
+			li {
+				float: left;
+				padding-right: 1em;
+			}
 		}
 	}
 
@@ -702,9 +633,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_list_2col ul.gfield_radio li,
 	li.gfield.gf_2col ul.gfield_checkbox li,
 	li.gfield.gf_2col ul.gfield_radio li {
-		width: 50%;
-		float: left;
-		padding-right: 1em;
+		max-width: 50%;
+		@include flex(0 0 50%);
 
 		&:nth-child(2n) {
 			clear: right;
@@ -719,9 +649,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_list_3col ul.gfield_radio li,
 	li.gfield.gf_3col ul.gfield_checkbox li,
 	li.gfield.gf_3col ul.gfield_radio li {
-		width: 33%;
-		float: left;
-		padding-right: 1em;
+		max-width: 33.333%;
+		@include flex(0 0 33.333%);
 
 		&:nth-child(3n) {
 			clear: right;
@@ -734,9 +663,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 
 	li.gfield.gf_list_4col ul.gfield_checkbox li,
 	li.gfield.gf_list_4col ul.gfield_radio li {
-		width: 25%;
-		float: left;
-		padding-right: 1em;
+		max-width: 25%;
+		@include flex(0 0 25%);
 
 		&:nth-child(4n) {
 			clear: right;
@@ -749,9 +677,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 
 	li.gfield.gf_list_5col ul.gfield_checkbox li,
 	li.gfield.gf_list_5col ul.gfield_radio li {
-		width: 20%;
-		float: left;
-		padding-right: 1em;
+		max-width: 20%;
+		@include flex(0 0 20%);
 
 		&:nth-child(5n) {
 			clear: right;

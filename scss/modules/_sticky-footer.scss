@@ -15,13 +15,19 @@ body.sticky-footer {
 }
 
 body.sticky-footer {
-	min-height: 100vh;
+	min-height: 100%;
+	@include flexbox(flex);
+	@include flex-direction(column);
 	overflow-x: visible;
 
 	#container {
 		min-height: 100vh;
 		@include flexbox(flex);
 		@include flex-direction(column);
+	}
+	
+	.banner-wrap {
+		@include flex-shrink(0);
 	}
 
 	#content {

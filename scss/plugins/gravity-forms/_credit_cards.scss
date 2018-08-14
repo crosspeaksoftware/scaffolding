@@ -167,7 +167,7 @@ div.gform_card_icon {
 
 // CREDIT CARD FIELDS
 
-.gform_card_icon_container input[type=radio]#gform_payment_method_creditcard {
+.gform_card_icon_container input[type="radio"]#gform_payment_method_creditcard {
 	float: left;
 	position: relative;
 	top: 4px !important;
@@ -192,9 +192,7 @@ div.gform_card_icon {
 .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year,
 .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year + .select2-container {
 	width: 49% !important;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
 .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year,
@@ -231,9 +229,7 @@ div.gform_card_icon {
 	position: relative;
 	top: -1px;
 	left: 6px;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
 //
