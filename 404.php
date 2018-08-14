@@ -5,7 +5,8 @@
  * @package Scaffolding
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<section class="error-404 not-found clearfix">
 
@@ -16,7 +17,7 @@ get_header(); ?>
 		</header>
 
 		<div class="page-content">
-			
+
 			<p><?php esc_html_e( 'It looks like nothing was found at this location. This may be due to the page being moved, renamed or deleted.', 'scaffolding' ); ?></p>
 
 			<ul>
@@ -31,4 +32,5 @@ get_header(); ?>
 
 	</section>
 
-<?php get_footer();
+<?php
+get_footer();

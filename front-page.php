@@ -10,41 +10,46 @@
  * @package Scaffolding
  */
 
-get_header(); ?>
+get_header();
+if ( have_posts() ) :
+	while ( have_posts() ) :
+		the_post();
+		?>
 
-	<?php if ( have_posts() ) : ?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+			<header class="page-header">
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+				<h1 class="page-title"><?php the_title(); ?></h1>
 
-				<header class="page-header">
+			</header>
 
-					<h1 class="page-title"><?php the_title(); ?></h1>
+			<section class="page-content clearfix">
 
-				</header>
+				<?php
+				the_content();
 
-				<section class="page-content clearfix">
-
-					<?php the_content(); ?>
-
-					<?php wp_link_pages( array(
+				wp_link_pages(
+					array(
 						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
 						'after'       => '</div>',
 						'link_before' => '<span>',
 						'link_after'  => '</span>',
-					) ); ?>
+					)
+				);
+				?>
 
-				</section>
+			</section>
 
-			</article>
+		</article>
 
-		<?php endwhile; ?>
+		<?php
+	endwhile;
 
-	<?php else : ?>
+else :
 
-		<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+	get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-	<?php endif; ?>
+endif;
 
-<?php get_footer();
+get_footer();

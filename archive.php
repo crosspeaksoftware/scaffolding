@@ -9,45 +9,49 @@
  * @package Scaffolding
  */
 
-get_header(); ?>
+get_header();
+if ( have_posts() ) :
+	?>
 
-	<?php if ( have_posts() ) : ?>
+	<header class="page-header">
 
-		<header class="page-header">
-			
-			<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
-			<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
+		<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+		<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
 
-		</header>
+	</header>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-				<header class="entry-header">
+			<header class="entry-header">
 
-					<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+				<h3 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
-					<p class="entry-meta"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
+				<p class="entry-meta"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
 
-				</header>
+			</header>
 
-				<div class="entry-content clearfix">
+			<div class="entry-content clearfix">
 
-					<?php the_excerpt(); ?>
+				<?php the_excerpt(); ?>
 
-				</div>
+			</div>
 
-			</article>
+		</article>
 
-		<?php endwhile; ?>
+		<?php
+	endwhile;
 
-		<?php get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination ?>
+	get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination.
 
-	<?php else : ?>
+else :
 
-		<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+	get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-	<?php endif; ?>
+endif;
 
-<?php get_footer();
+get_footer();
