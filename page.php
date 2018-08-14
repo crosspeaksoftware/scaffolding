@@ -7,53 +7,74 @@
  * @package Scaffolding
  */
 
-get_header();
+get_header(); 
 
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-		?>
+global $sc_layout_class;
+?>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+<div id="inner-content" class="container">
 
-			<header class="page-header">
+	<div class="row <?php echo $sc_layout_class['row']; ?>">
 
-				<h1 class="page-title"><?php the_title(); ?></h1>
+		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-			</header>
+			<?php 
+			if ( have_posts() ) :
+				while ( have_posts() ) : 
+					the_post(); 
+					?>
 
-			<section class="page-content clearfix">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-				<?php
-				the_content();
+						<header class="page-header">
 
-				wp_link_pages(
-					array(
-						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-						'after'       => '</div>',
-						'link_before' => '<span>',
-						'link_after'  => '</span>',
-					)
-				);
-				?>
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
-			</section>
+						</header>
 
-			<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || '0' != get_comments_number() ) :
-					comments_template();
-					endif;
+						<section class="page-content clearfix">
+
+							<?php 
+							the_content();
+
+							wp_link_pages( 
+								array(
+									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+									'after'       => '</div>',
+									'link_before' => '<span>',
+									'link_after'  => '</span>',
+								) 
+							);
+							?>
+
+						</section>
+
+						<?php
+							// If comments are open or we have at least one comment, load up the comment template.
+							if ( comments_open() || '0' != get_comments_number() ) :
+								comments_template();
+							endif;
+						?>
+
+					</article>
+
+					<?php 
+				endwhile;
+
+			else :
+
+				get_template_part( 'template-parts/error' ); // WordPress template error message.
+
+			endif; 
 			?>
 
-		</article>
+		</div><?php // END #main ?>
 
-		<?php
-	endwhile;
-else :
+		<?php get_sidebar(); ?>
 
-	get_template_part( 'template-parts/error' ); // WordPress template error message.
+	</div><?php // END .row ?>
 
-endif;
+</div><?php // END #inner-content ?>
 
+<?php
 get_footer();

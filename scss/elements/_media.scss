@@ -6,7 +6,14 @@ Stylesheet: Media Stylesheet
 
 ******************************************************************/
 
-/* Image Sizes */
+figure {
+	margin: 1em 0;
+}
+
+// 
+// Images
+//
+
 .size-auto,
 .size-full,
 .size-large,
@@ -17,16 +24,7 @@ img {
 	max-width: 100%;
 }
 
-video {
-	height: auto !important;
-	width: 100% !important;
-}
-
-figure {
-	margin: 1em 0;
-}
-
-/* Image Alignment */
+// Image Alignment
 img.alignleft,
 .alignleft,
 img.alignright,
@@ -40,7 +38,8 @@ img.alignnone,
 }
 
 // Add image alignment for larger screens only
-@media only screen and (min-width: 600px) {
+@include media-breakpoint-up('sm') {
+	
 	img.alignleft,
 	.alignleft {
 		float: left;
@@ -64,14 +63,16 @@ img.alignnone,
 		clear: both;
 		margin: 15px 0;
 	}
+	
 }
 
-/* Image Caption */
+// Image Caption
 .wp-caption {
 	background: #EEE;
 	padding: 6px;
+	max-width: 100%;
 
-	/* images inside wp-caption */
+	// images inside wp-caption
 	img {
 		margin-bottom: 6px;
 		width: 100%;
@@ -82,11 +83,10 @@ img.alignnone,
 .wp-caption-text {
 	font-size: 0.85em;
 	text-align: center;
-	background: #EEE;
 	font-style: italic;
 }
 
-/* Image Gallery */
+// Image Gallery
 .gallery {
 	margin-top: 30px;
 	margin-left: -15px;
@@ -137,7 +137,7 @@ img.alignnone,
 	}
 }
 
-/* Galleries no more then 3 to a row on small screens */
+// Galleries no more then 3 to a row on small screens
 .gallery-columns-3,
 .gallery-columns-4,
 .gallery-columns-5,
@@ -150,8 +150,9 @@ img.alignnone,
 	}
 }
 
-/* Change gallery to proper spacing on larger screens */
-@media only screen and (min-width: $screen-sm-min) {
+// Change gallery to proper spacing on larger screens
+@include media-breakpoint-up('md') {
+	
 	.gallery-columns-4 {
 		.gallery-item {
 			width: 25%;
@@ -163,42 +164,46 @@ img.alignnone,
 			width: 20%;
 		}
 	}
+	
 }
 
-/* Core Media Player */
+//
+// SVG
+//
+
+svg {
+	width: 100%;
+}
+
+.responsive-svg {
+	height: 0;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	
+	svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+//
+// Video
+//
+
+video {
+	height: auto !important;
+	width: 100% !important;
+}
+
+// Core Media Player
 .mejs-container {}
 
-.mejs-controls {
-	.mejs-button {}
+.mejs-controls {}
 
-	.mejs-playpause-button {}
-
-	.mejs-play {}
-
-	.mejs-pause {}
-
-	.mejs-time {}
-
-	.mejs-currenttime-container {}
-
-	.mejs-duration-container {}
-
-	.mejs-time-rail {}
-
-	.mejs-volume-button {}
-
-	.mejs-mute {}
-
-	.mejs-unmute {}
-
-	.mejs-fullscreen-button {}
-
-	.mejs-fullscreen {}
-
-	.mejs-unfullscreen {}
-}
-
-/* Video Player */
+// Video Player
 .wp-video {
 	margin: 1em 0;
 }
@@ -222,91 +227,35 @@ img.alignnone,
 		}
 
 		.mejs-layers {
-			.mejs-layer {
-				.mejs-overlay-loading {}
-
-				.mejs-overlay-error {}
-
-				.mejs-overlay-button {}
-			}
-
 			.mejs-poster {
 				height: 100% !important;
 				width: 100% !important;
 			}
 		}
 
-		.mejs-overlay {}
-
 		.mejs-overlay-play {
 			height: 100% !important;
 			width: 100% !important;
 		}
-
-		.mejs-controls {}
 	}
 }
 
-/* Audio Player */
-.mejs-audio {
-	.mejs-inner {
-		.mejs-mediaelement {
-			audio {}
-		}
+//
+// Audio
+//
 
-		.mejs-layers {
-			.mejs-layer {}
+// Audio Player
+.mejs-audio {}
 
-			.mejs-poster {}
-		}
-
-		.mejs-controls {
-			.mejs-horizontal-volume-slider {
-				.mejs-horizontal-volume-total {}
-
-				.mejs-horizontal-volume-current {}
-
-				.mejs-horizontal-volume-handle {}
-			}
-
-			.mejs-mute {}
-
-			.mejs-unmute {}
-		}
-	}
-}
-
-/* Audio Playlist */
+// Audio Playlist
 .wp-playlist {
 	overflow: hidden;
+	
+	.wp-playlist-caption {
+		display: block;
 
-	.wp-playlist-current-item {
-		img {}
-
-		.wp-playlist-caption {
-			.wp-playlist-item-title {}
-
-			.wp-playlist-item-artist {}
-		}
-	}
-
-	.wp-playlist-next {}
-
-	.wp-playlist-prev {}
-
-	.wp-playlist-tracks {
-		.wp-playlist-item {
-			&.wp-playlist-playing {}
-
-			.wp-playlist-caption {
-				display: block;
-
-				.wp-playlist-item-title {
-					@include truncateText(ellipsis);
-				}
-			}
-
-			.wp-playlist-item-length {}
+		.wp-playlist-item-title {
+			@include truncateText(ellipsis);
 		}
 	}
 }

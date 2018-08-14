@@ -10,8 +10,10 @@ custom styles here.
 
 ******************************************************************/
 
-@import "utilities/variables";
-@import "utilities/mixins";
+@import "utilities/all-utilities";
+
+@import "libs/fontawesome/variables";
+@import "libs/fontawesome/mixins";
 
 @import "elements/typography";
 @import "elements/links";
@@ -22,5 +24,5 @@ custom styles here.
 
 .mceContentBody {
 	background-color: #FDFDFD;
-	max-width: $container-lg;
+	max-width: map-get($container-max-widths, 'xl');
 }

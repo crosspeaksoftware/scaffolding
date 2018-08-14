@@ -10,46 +10,67 @@
  * @package Scaffolding
  */
 
-get_header();
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-		?>
+get_header(); 
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+global $sc_layout_class;
+?>
 
-			<header class="page-header">
+<div id="inner-content" class="container">
 
-				<h1 class="page-title"><?php the_title(); ?></h1>
+	<div class="row <?php echo $sc_layout_class['row']; ?>">
 
-			</header>
+		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-			<section class="page-content clearfix">
+			<?php 
+			if ( have_posts() ) :
+				while ( have_posts() ) : 
+					the_post(); 
+					?>
 
-				<?php
-				the_content();
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-				wp_link_pages(
-					array(
-						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-						'after'       => '</div>',
-						'link_before' => '<span>',
-						'link_after'  => '</span>',
-					)
-				);
-				?>
+						<header class="page-header">
 
-			</section>
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
-		</article>
+						</header>
 
-		<?php
-	endwhile;
+						<section class="page-content clearfix">
 
-else :
+							<?php 
+							the_content();
 
-	get_template_part( 'template-parts/error' ); // WordPress template error message.
+							wp_link_pages( 
+								array(
+									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+									'after'       => '</div>',
+									'link_before' => '<span>',
+									'link_after'  => '</span>',
+								) 
+							); 
+							?>
 
-endif;
+						</section>
 
+					</article>
+
+					<?php 
+				endwhile;
+
+			else :
+
+				get_template_part( 'template-parts/error' ); // WordPress template error message.
+
+			endif; 
+			?>
+			
+		</div><?php // END #main ?>
+		
+		<?php get_sidebar(); ?>
+		
+	</div><?php // END .row ?>
+	
+</div><?php // END #inner-content ?>
+
+<?php
 get_footer();

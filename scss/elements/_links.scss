@@ -28,9 +28,12 @@ a.read-more {
 	white-space: nowrap;
 }
 
+//
+// Buttons
+//
+
 // button styles - using a namespace to avoid plugin conflict
 // usage: for each button add the default class and one for color, size and width
-
 @mixin button {
 	cursor: pointer;
 	text-align: center;
@@ -39,7 +42,6 @@ a.read-more {
 	text-transform: uppercase;
 	border: 0;
 	outline: 0;
-
 	@include transition(background-color 0.25s ease-in-out);
 
 	&:hover,
@@ -143,7 +145,7 @@ button.sc-btn--narrow {
 	padding-left: 1em;
 	padding-right: 1em;
 
-	@media only screen and (min-width: $screen-md-min) {
+	@include media-breakpoint-up('md') {
 		padding-left: 3em;
 		padding-right: 3em;
 	}

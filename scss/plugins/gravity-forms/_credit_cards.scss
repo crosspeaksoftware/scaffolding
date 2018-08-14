@@ -165,9 +165,9 @@ div.gform_card_icon {
 	background-position: -180px -256px;
 }
 
-/* CREDIT CARD FIELDS */
+// CREDIT CARD FIELDS
 
-.gform_card_icon_container input[type=radio]#gform_payment_method_creditcard {
+.gform_card_icon_container input[type="radio"]#gform_payment_method_creditcard {
 	float: left;
 	position: relative;
 	top: 4px !important;
@@ -192,9 +192,7 @@ div.gform_card_icon {
 .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year,
 .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year + .select2-container {
 	width: 49% !important;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
 .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year,
@@ -231,16 +229,15 @@ div.gform_card_icon {
 	position: relative;
 	top: -1px;
 	left: 6px;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+//
+// MEDIA QUERIES
+//
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md') {
+	
 	.ginput_complex .ginput_cardinfo_left,
 	.ginput_complex .ginput_cardinfo_right {
 		min-height: 43px;
@@ -254,8 +251,5 @@ div.gform_card_icon {
 		margin-bottom: 0;
 		max-width: 400px;
 	}
+	
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

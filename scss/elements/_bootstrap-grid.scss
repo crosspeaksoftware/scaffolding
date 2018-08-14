@@ -4,334 +4,291 @@ Author:
 
 Stylesheet: Bootstrap Grid Stylesheet
 
-v3.3.7 (http://getbootstrap.com)
+Version: 4.1.0 
+
+Resources:
+	* https://getbootstrap.com/docs/4.1/layout/grid/
+	* https://getbootstrap.com/docs/4.1/utilities/flex/
 
 ******************************************************************/
 
-* {
-	@include box-sizing(border-box);
+html {
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
 }
 
-*:before,
-*:after {
-	@include box-sizing(border-box);
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
 }
 
-/**
- * Framework grid generation
- *
- * Used only by Bootstrap to generate the correct number of grid classes given
- * any value of `$grid-columns`.
- */
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
 
-// [converter] This is defined recursively in LESS, but Sass supports real loops
-@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
-	@for $i from 1 + 1 through $grid-columns {
-		$list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
-	}
-
-	#{$list} {
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+	// Common properties for all breakpoints
+	%grid-column {
 		position: relative;
+		width: 100%;
+		min-height: 1px; // Prevent columns from collapsing when empty
+		padding-right: ($gutter / 2);
+		padding-left: ($gutter / 2);
+	}
 
-		// Prevent columns from collapsing when empty
-		min-height: 1px;
+	@each $breakpoint in map-keys($breakpoints) {
+		$infix: breakpoint-infix($breakpoint, $breakpoints);
 
-		// Inner gutter via padding
-		padding-left: ceil($grid-gutter-width / 2);
-		padding-right: floor($grid-gutter-width / 2);
+		// Allow columns to stretch full width below their breakpoints
+		@for $i from 1 through $columns {
+			.col#{$infix}-#{$i} {
+				@extend %grid-column;
+			}
+		}
+		.col#{$infix},
+		.col#{$infix}-auto {
+			@extend %grid-column;
+		}
+
+		@include media-breakpoint-up($breakpoint, $breakpoints) {
+			// Provide basic `.col-{bp}` classes for equal-width flexbox columns
+			.col#{$infix} {
+				@include flex-basis(0);
+				@include flex-grow(1);
+				max-width: 100%;
+			}
+			.col#{$infix}-auto {
+				@include flex(0 0 auto);
+				width: auto;
+				max-width: none; // Reset earlier grid tiers
+			}
+
+			@for $i from 1 through $columns {
+				.col#{$infix}-#{$i} {
+					@include make-col($i, $columns);
+				}
+			}
+
+			.order#{$infix}-first { 
+				@include order(-1); 
+			}
+
+			.order#{$infix}-last { 
+				@include order($columns + 1); 
+			}
+
+			@for $i from 0 through $columns {
+				.order#{$infix}-#{$i} { 
+					@include order($i); 
+				}
+			}
+
+			// `$columns - 1` because offsetting by the width of an entire row isn't possible
+			@for $i from 0 through ($columns - 1) {
+				@if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+					.offset#{$infix}-#{$i} {
+						@include make-col-offset($i, $columns);
+					}
+				}
+			}
+		}
 	}
 }
 
-// [converter] This is defined recursively in LESS, but Sass supports real loops
-@mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
-	@for $i from 1 + 1 through $grid-columns {
-		$list: "#{$list}, .col-#{$class}-#{$i}";
-	}
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
 
-	#{$list} {
-		float: left;
-	}
-}
-
-@mixin calc-grid-column($index, $class, $type) {
-	@if $type == width and $index > 0 {
-		.col-#{$class}-#{$index} {
-			width: percentage($index / $grid-columns);
-		}
-	}
-
-	@if $type == push and $index > 0 {
-		.col-#{$class}-push-#{$index} {
-			left: percentage($index / $grid-columns);
-		}
-	}
-
-	@if $type == push and $index == 0 {
-		.col-#{$class}-push-0 {
-			left: auto;
-		}
-	}
-
-	@if $type == pull and $index > 0 {
-		.col-#{$class}-pull-#{$index} {
-			right: percentage($index / $grid-columns);
-		}
-	}
-
-	@if $type == pull and $index == 0 {
-		.col-#{$class}-pull-0 {
-			right: auto;
-		}
-	}
-
-	@if $type == offset {
-		.col-#{$class}-offset-#{$index} {
-			margin-left: percentage($index / $grid-columns);
-		}
-	}
-}
-
-// [converter] This is defined recursively in LESS, but Sass supports real loops
-@mixin loop-grid-columns($columns, $class, $type) {
-	@for $i from 0 through $columns {
-		@include calc-grid-column($i, $class, $type);
-	}
-}
-
-// Create grid for specific class
-@mixin make-grid($class) {
-	@include float-grid-columns($class);
-	@include loop-grid-columns($grid-columns, $class, width);
-	@include loop-grid-columns($grid-columns, $class, pull);
-	@include loop-grid-columns($grid-columns, $class, push);
-	@include loop-grid-columns($grid-columns, $class, offset);
-}
-
-/**
- * Grid system
- * Generate semantic grid columns with these mixins.
- */
-
-// Centered container element
-@mixin container-fixed($gutter: $grid-gutter-width) {
+@mixin make-container() {
+	width: 100%;
+	padding-right: ($grid-gutter-width / 2);
+	padding-left: ($grid-gutter-width / 2);
 	margin-right: auto;
 	margin-left: auto;
-	padding-left: floor($gutter / 2);
-	padding-right: ceil($gutter / 2);
-
-	@include clearfix;
 }
 
-// Creates a wrapper for a series of columns
-@mixin make-row($gutter: $grid-gutter-width) {
-	margin-left: ceil($gutter / -2);
-	margin-right: floor($gutter / -2);
 
-	@include clearfix;
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+	@each $breakpoint, $container-max-width in $max-widths {
+		@include media-breakpoint-up($breakpoint, $breakpoints) {
+			max-width: $container-max-width;
+		}
+	}
 }
 
-// Generate the extra small columns
-@mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
+@mixin make-row() {
+	@include flexbox(flex);
+	@include flex-wrap(wrap);
+	margin-right: ($grid-gutter-width / -2);
+	margin-left: ($grid-gutter-width / -2);
+}
+
+@mixin make-col-ready() {
 	position: relative;
-	float: left;
-	width: percentage($columns / $grid-columns);
-	min-height: 1px;
-	padding-left: $gutter / 2;
-	padding-right: $gutter / 2;
+	// Prevent columns from becoming too narrow when at smaller grid tiers by
+	// always setting `width: 100%;`. This works because we use `flex` values
+	// later on to override this initial width.
+	width: 100%;
+	min-height: 1px; // Prevent collapsing
+	padding-right: ($grid-gutter-width / 2);
+	padding-left: ($grid-gutter-width / 2);
 }
 
-@mixin make-xs-column-offset($columns) {
-	margin-left: percentage($columns / $grid-columns);
+@mixin make-col($size, $columns: $grid-columns) {
+	@include flex(0 0 percentage($size / $columns));
+	//flex: 0 0 percentage($size / $columns);
+	// Add a `max-width` to ensure content within each column does not blow out
+	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+	// do not appear to require this.
+	max-width: percentage($size / $columns);
 }
 
-@mixin make-xs-column-push($columns) {
-	left: percentage($columns / $grid-columns);
+@mixin make-col-offset($size, $columns: $grid-columns) {
+	$num: $size / $columns;
+	margin-left: if($num == 0, 0, percentage($num));
 }
 
-@mixin make-xs-column-pull($columns) {
-	right: percentage($columns / $grid-columns);
-}
-
-// Generate the small columns
-@mixin make-sm-column($columns, $gutter: $grid-gutter-width) {
-	position: relative;
-	min-height: 1px;
-	padding-left: $gutter / 2;
-	padding-right: $gutter / 2;
-
-	@media (min-width: $screen-sm-min) {
-		float: left;
-		width: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-sm-column-offset($columns) {
-	@media (min-width: $screen-sm-min) {
-		margin-left: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-sm-column-push($columns) {
-	@media (min-width: $screen-sm-min) {
-		left: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-sm-column-pull($columns) {
-	@media (min-width: $screen-sm-min) {
-		right: percentage($columns / $grid-columns);
-	}
-}
-
-// Generate the medium columns
-@mixin make-md-column($columns, $gutter: $grid-gutter-width) {
-	position: relative;
-	min-height: 1px;
-	padding-left: $gutter / 2;
-	padding-right: $gutter / 2;
-
-	@media (min-width: $screen-md-min) {
-		float: left;
-		width: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-md-column-offset($columns) {
-	@media (min-width: $screen-md-min) {
-		margin-left: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-md-column-push($columns) {
-	@media (min-width: $screen-md-min) {
-		left: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-md-column-pull($columns) {
-	@media (min-width: $screen-md-min) {
-		right: percentage($columns / $grid-columns);
-	}
-}
-
-// Generate the large columns
-@mixin make-lg-column($columns, $gutter: $grid-gutter-width) {
-	position: relative;
-	min-height: 1px;
-	padding-left: $gutter / 2;
-	padding-right: $gutter / 2;
-
-	@media (min-width: $screen-lg-min) {
-		float: left;
-		width: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-lg-column-offset($columns) {
-	@media (min-width: $screen-lg-min) {
-		margin-left: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-lg-column-push($columns) {
-	@media (min-width: $screen-lg-min) {
-		left: percentage($columns / $grid-columns);
-	}
-}
-
-@mixin make-lg-column-pull($columns) {
-	@media (min-width: $screen-lg-min) {
-		right: percentage($columns / $grid-columns);
-	}
-}
-
-/**
- * Container widths
- * Set the container width, and override it for fixed navbars in media queries.
- */
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
 
 .container {
-	@include container-fixed;
-
-	@media (min-width: $screen-sm-min) {
-		width: $container-sm;
-	}
-
-	@media (min-width: $screen-md-min) {
-		width: $container-md;
-	}
-
-	@media (min-width: $screen-lg-min) {
-		width: $container-lg;
-	}
+	@include make-container();
+	@include make-container-max-widths();
 }
 
-/**
- * Fluid container
- *
- * Utilizes the mixin meant for fixed width containers, but without any defined
- * width for fluid, full width layouts.
- */
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but with 100% width for
+// fluid, full width layouts.
 
 .container-fluid {
-	@include container-fixed;
+	@include make-container();
 }
 
-.wrap {
-	@include wrap;
-}
-
-/** 
- * Row
- *
- * Rows contain and clear the floats of your columns.
- */
+// Row
+//
+// Rows contain and clear the floats of your columns.
 
 .row {
-	@include make-row;
+	@include make-row();
 }
 
-/**
- * Columns
- * Common styles for small and large grid columns
- */
+// Remove the negative margin from default .row, then the horizontal padding
+// from all immediate children columns (to prevent runaway style inheritance).
+.no-gutters {
+	margin-right: 0;
+	margin-left: 0;
 
-@include make-grid-columns;
-
-/**
- * Extra small grid
- *
- * Columns, offsets, pushes, and pulls for extra small devices like smartphones.
- */
-
-@include make-grid(xs);
-
-/**
- * Small grid
- *
- * Columns, offsets, pushes, and pulls for the small device range, from phones to tablets.
- */
-
-@media (min-width: $screen-sm-min) {
-	@include make-grid(sm);
+	> .col,
+	> [class*="col-"] {
+		padding-right: 0;
+		padding-left: 0;
+	}
 }
 
-/**
- * Medium grid
- *
- * Columns, offsets, pushes, and pulls for the desktop device range.
- */
-
-@media (min-width: $screen-md-min) {
-	@include make-grid(md);
+.no-padding {
+	padding-left: 0;
+	padding-right: 0;
 }
 
-/**
- * Large grid
- *
- * Columns, offsets, pushes, and pulls for the large desktop device range.
- */
+.no-margin {
+	margin-left: 0;
+	margin-right: 0;
+}
 
-@media (min-width: $screen-lg-min) {
-	@include make-grid(lg);
+// Columns
+//
+// Common styles for small and large grid columns
+
+@include make-grid-columns();
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		.flex#{$infix}-row 			  { @include flex-direction(row !important); }
+		.flex#{$infix}-column         { @include flex-direction(column !important); }
+		.flex#{$infix}-row-reverse    { @include flex-direction(row-reverse !important); }
+		.flex#{$infix}-column-reverse { @include flex-direction(column-reverse !important); }
+
+		.flex#{$infix}-wrap         { @include flex-wrap(wrap !important); }
+		.flex#{$infix}-nowrap       { @include flex-wrap(nowrap !important); }
+		.flex#{$infix}-wrap-reverse { @include flex-wrap(wrap-reverse !important); }
+		.flex#{$infix}-fill         { @include flex(1 1 auto !important); }
+		.flex#{$infix}-grow-0       { @include flex-grow(0 !important); }
+    	.flex#{$infix}-grow-1       { @include flex-grow(1 !important); }
+    	.flex#{$infix}-shrink-0     { @include flex-shrink(0 !important);}
+    	.flex#{$infix}-shrink-1     { @include flex-shrink(1 !important); }
+
+		.justify-content#{$infix}-start   { @include justify-content(flex-start !important); }
+		.justify-content#{$infix}-end     { @include justify-content(flex-end !important); }
+		.justify-content#{$infix}-center  { @include justify-content(center !important); }
+		.justify-content#{$infix}-between { @include justify-content(space-between !important); }
+		.justify-content#{$infix}-around  { @include justify-content(space-around !important); }
+
+		.align-items#{$infix}-start    { @include align-items(flex-start !important); }
+		.align-items#{$infix}-end      { @include align-items(flex-end !important); }
+		.align-items#{$infix}-center   { @include align-items(center !important); }
+		.align-items#{$infix}-baseline { @include align-items(baseline !important); }
+		.align-items#{$infix}-stretch  { @include align-items(stretch !important); }
+
+		.align-content#{$infix}-start   { @include align-content(flex-start !important); }
+		.align-content#{$infix}-end     { @include align-content(flex-end !important); }
+		.align-content#{$infix}-center  { @include align-content(center !important); }
+		.align-content#{$infix}-between { @include align-content(space-between !important); }
+		.align-content#{$infix}-around  { @include align-content(space-around !important); }
+		.align-content#{$infix}-stretch { @include align-content(stretch !important); }
+
+		.align-self#{$infix}-auto     { @include align-self(auto !important); }
+		.align-self#{$infix}-start    { @include align-self(flex-start !important); }
+		.align-self#{$infix}-end      { @include align-self(flex-end !important); }
+		.align-self#{$infix}-center   { @include align-self(center !important); }
+		.align-self#{$infix}-baseline { @include align-self(baseline !important); }
+		.align-self#{$infix}-stretch  { @include align-self(stretch !important); }
+	}
+}
+
+//
+// Utilities for common `display` values
+// https://stackoverflow.com/questions/35351353/missing-visible-and-hidden-in-bootstrap-v4
+//
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		.d#{$infix}-none         { display: none !important; }
+		.d#{$infix}-inline       { display: inline !important; }
+		.d#{$infix}-inline-block { display: inline-block !important; }
+		.d#{$infix}-block        { display: block !important; }
+		.d#{$infix}-table        { display: table !important; }
+		.d#{$infix}-table-row    { display: table-row !important; }
+		.d#{$infix}-table-cell   { display: table-cell !important; }
+		.d#{$infix}-flex         { @include flexbox(flex !important); }
+		.d#{$infix}-inline-flex  { @include flexbox(inline-flex !important); }
+	}
+}
+
+//
+// Utilities for toggling `display` in print
+//
+
+@media print {
+	.d-print-none         { display: none !important; }
+	.d-print-inline       { display: inline !important; }
+	.d-print-inline-block { display: inline-block !important; }
+	.d-print-block        { display: block !important; }
+	.d-print-table        { display: table !important; }
+	.d-print-table-row    { display: table-row !important; }
+	.d-print-table-cell   { display: table-cell !important; }
+	.d-print-flex         { @include flexbox(flex !important); }
+	.d-print-inline-flex  { @include flexbox(inline-flex !important); }
 }

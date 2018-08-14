@@ -11,13 +11,15 @@ Last reviewed with plugin Version 2.0.2.
 
 ******************************************************************/
 
-/* Import Other Styles */
+// Import Other Styles
 @import "ready_classes";
 @import "submission_and_errors";
 @import "other_fields";
 @import "credit_cards";
 
-/* GForm Wrapper */
+// 
+// GForm Wrapper
+//
 
 .gform_wrapper {
 	overflow: inherit;
@@ -29,14 +31,19 @@ Last reviewed with plugin Version 2.0.2.
 	}
 }
 
-/* REQUIRED */
+// 
+// REQUIRED
+//
 
 .gfield_required {
 	color: $color__alert-red;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	margin-left: 4px;
 }
 
-/* INPUTS */
+// 
+// INPUTS
+//
 
 textarea.small {
 	height: 80px;
@@ -50,46 +57,52 @@ textarea.large {
 	height: 250px;
 }
 
-/* RADIO & CHECKBOXES */
+// 
+// RADIO & CHECKBOXES
+//
 
 ul.gfield_checkbox,
 ul.gfield_radio {
-	margin: 0.5em 0 0;
+	margin: 0.5em 0 -0.5em;
 
 	li {
 		position: relative;
-
-		label,
-		input {
-			margin-left: 5px;
-		}
-
-		input[type="radio"],
-		input[type="checkbox"] {
-			position: absolute;
-			top: 0.3em;
-
-			&[value="gf_other_choice"] {
-				line-height: $input__height;
-				height: $input__height;
-				top: 0;
-				left: 0;
-			}
-		}
-
+		width: 100%;
+		@include flexbox(inline-flex);
+		@include align-items(center);
+		margin-bottom: 0.5em;
+		
 		label {
-			display: inline-block;
-			padding-left: 23px;
+			margin-bottom: 0;
 		}
 
 		input[type="text"] {
-			margin-left: 28px;
 			width: auto;
 		}
 	}
 }
 
-/* HOVER & FOCUS */
+ul.gfield_checkbox {
+	li {
+		input[type="checkbox"] {
+			margin-left: 5px;
+			margin-right: 10px;
+		}
+	}
+}
+
+ul.gfield_radio {
+	li {
+		input[type="radio"] {
+			margin-left: 5px;
+			margin-right: 10px;
+		}
+	}
+}
+
+// 
+// HOVER & FOCUS
+//
 
 .field_hover {
 	border: 1px dashed #2175A9;
@@ -101,7 +114,9 @@ ul.gfield_radio {
 	border: 1px solid #C2D7EF;
 }
 
-/* CUSTOM FIELDS */
+// 
+// CUSTOM FIELDS
+//
 
 .ginput_complex {
 	overflow: hidden;
@@ -131,30 +146,39 @@ ul.gfield_radio {
 	input[type="tel"],
 	input[type="number"],
 	input[type="password"],
-	select {
+	select,
+	.select2-container {
 		width: 100%;
 	}
 }
 
-/* HEADER */
+// 
+// HEADER
+//
 
 .gform_heading {
 	width: 100%;
 	margin-bottom: 2em;
 }
 
-/* BODY */
+// 
+// BODY
+//
 
 .gform_body {}
 
-/* FOOTER */
+// 
+// FOOTER
+//
 
 .gform_footer {
 	margin: 1.5em 0 1em 0;
 	clear: both;
 }
 
-/* TITLES & DESCRIPTIONS */
+// 
+// TITLES & DESCRIPTIONS
+//
 
 h2.gsection_title {
 	margin: 0;
@@ -223,7 +247,9 @@ h3.gform_title {
 	line-height: 1.5em;
 }
 
-/* LISTS */
+// 
+// LISTS
+//
 
 form {
 	ul {
@@ -276,7 +302,9 @@ form {
 	}
 }
 
-/* LABELS */
+// 
+// LABELS
+//
 
 ul.gfield_radio,
 ul.gfield_checkbox {
@@ -379,7 +407,9 @@ ul.gfield_checkbox {
 }
 
 
-/* SECTIONS */
+// 
+// SECTIONS
+//
 
 .gsection {
 	border-bottom: 4px double #CCC;
@@ -392,11 +422,11 @@ ul.gfield_checkbox {
 	}
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+//
+// MEDIA QUERIES
+//
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md') {
 
 	.gform_footer {
 		&.right_label,
@@ -572,7 +602,3 @@ ul.gfield_checkbox {
 	}
   
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

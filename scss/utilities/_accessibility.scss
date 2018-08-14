@@ -14,13 +14,10 @@ Stylesheet: Accessibility Stylesheet
 	overflow: hidden;
 	word-wrap: normal !important;
 
-	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
-
+	// Many screen reader and browser combinations announce broken words as they would appear visually.
 	&:focus {
 		background-color: #f1f1f1;
-
 		@include border-radius(3px);
-
 		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 		clip: auto !important;
 		color: $color__body-text;
@@ -34,12 +31,10 @@ Stylesheet: Accessibility Stylesheet
 		top: 5px;
 		width: auto;
 		z-index: 100000;
-
-		/* Above WP toolbar */
 	}
 }
 
-/* Do not show the outline on the skip link target. */
+// Do not show the outline on the skip link target.
 #content[tabindex="-1"]:focus {
 	outline: 0;
 }

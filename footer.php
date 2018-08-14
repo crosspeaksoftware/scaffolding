@@ -8,32 +8,26 @@
  */
 
 ?>
-					</div><?php // END #main. ?>
-
-					<?php get_sidebar(); ?>
-
-				</div><?php // END .row. ?>
-
-			</div><?php // END #inner-content. ?>
+			<?php do_action( 'scaffolding_before_content_end' ); ?>
 
 		</div><?php // END #content. ?>
 
 		<footer id="colophon" class="footer" role="contentinfo">
 
-			<div id="inner-footer" class="wrap clearfix">
+			<div id="inner-footer" class="container">
 
 				<nav role="navigation" aria-label="<?php _e( 'Footer Navigation', 'scaffolding' ); ?>">
 					<?php scaffolding_footer_nav(); ?>
 				</nav>
 
-				<p class="source-org copyright">&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>.</p>
+				<p class="source-org copyright"><?php echo sprintf( __( '&copy; %1$s %2$s.', 'scaffolding' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?></p>
 
 			</div>
 
 		</footer>
 
 		<p id="back-top">
-			<a href="#top"><i class="fa fa-angle-up"></i></a>
+			<a href="#top"><i class="fas fa-angle-up"></i></a>
 		</p>
 
 	</div><?php // END #container. ?>

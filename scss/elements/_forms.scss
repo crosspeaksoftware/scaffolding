@@ -6,9 +6,9 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
-/**
- * Placeholders
- */
+// 
+// Placeholders
+//
 
 @mixin placeholder {
 	::-webkit-input-placeholder {@content}
@@ -18,7 +18,7 @@ Stylesheet: Forms Stylesheet
 }
 
 @include placeholder {
-	color: #CCC;
+	color: $color__placeholder-text;
 	font-style: italic;
 	font-weight: 400;
 }
@@ -36,9 +36,9 @@ Stylesheet: Forms Stylesheet
 }
 
 
-/**
- * Labels
- */
+// 
+// Labels
+//
 
 label {
 	display: inline-block;
@@ -46,9 +46,9 @@ label {
 	font-weight: bold;
 }
 
-/**
- * Inputs
- */
+// 
+// Inputs
+//
 
 textarea,
 select,
@@ -61,7 +61,7 @@ input[type="password"] {
 	background: $input__bg-color;
 	border: 1px solid $input__border-color;
 	border-radius: 0;
-	color: #444;
+	color: $color__body-text;
 	font-size: 1em;
 	letter-spacing: normal;
 	outline: none;
@@ -123,11 +123,13 @@ select {
 	}
 }
 
-/**
- * Submit
- * see _links for button styles
- */
 
+//
+// Submit Buttons
+//
+
+// Submit
+// see _links for button styles
 input[type="submit"],
 input[type="button"],
 button[type="submit"] {
@@ -148,10 +150,12 @@ button[type="submit"] {
 	}
 }
 
-/************************
- * SEARCH FORM STYLES
- ************************/
 
+//
+// Custom Forms
+//
+
+// Search form
 .error-404 {
 	#searchform {
 		margin: 1em 0;
@@ -163,10 +167,6 @@ button[type="submit"] {
 	height: $input__height;
 	overflow: hidden;
 	position: relative;
-
-	label {
-		display: none;
-	}
 
 	#s {
 		padding-right: 12%;
@@ -185,10 +185,7 @@ button[type="submit"] {
 	}
 }
 
-/************************
- * PASSWORD FORM STYLES
- ************************/
-
+// Password form for private pages
 .post-password-form {
 	label {
 		display: block;
@@ -200,12 +197,14 @@ button[type="submit"] {
 	}
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
 
-@media only screen and (min-width: $screen-sm-min) {
+//
+// MEDIA QUERIES
+//
 
+@include media-breakpoint-up('md') {
+
+	// Password form for private pages
 	.post-password-form {
 		input[type="password"] {
 			display: block;
@@ -214,7 +213,3 @@ button[type="submit"] {
 	}
 
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

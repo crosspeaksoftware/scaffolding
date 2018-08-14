@@ -6,7 +6,9 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 
 ******************************************************************/
 
-/* DATE & TIME */
+// 
+// DATE & TIME
+//
 
 .gfield_time_hour,
 .gfield_time_minute,
@@ -15,9 +17,7 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 .gfield_date_year {
 	width: 70px;
 	vertical-align: top;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
 .gfield_date_month,
@@ -36,17 +36,13 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 .gfield_date_dropdown_day,
 .gfield_date_dropdown_year {
 	vertical-align: top;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 	margin-right: 6px;
 }
 
 .gfield_time_ampm {
 	vertical-align: top;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
 .gfield_time_ampm select {
@@ -61,7 +57,9 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 	width: 70% !important;
 }
 
-/* DATE PICKER */
+// 
+// DATE PICKER
+//
 
 .datepicker {
 	width: 100px !important;
@@ -69,9 +67,7 @@ Stylesheet: Extra Form Field Styles for Gravity Forms
 
 input.datepicker.datepicker_with_icon {
 	margin-right: 4px !important;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
 }
 
 .ui-datepicker {
@@ -95,13 +91,9 @@ input.datepicker.datepicker_with_icon {
 
 .ui-datepicker-header {
 	background-color: #666;
-
-	/* set the header background color */
 	color: #e0e0e0;
 	font-weight: bold;
-
 	@include box-shadow(inset 0 1px 1px 0 rgba(250, 250, 250, 0.2));
-
 	filter: dropshadow(color = #000, offx = 1, offy = -1);
 	line-height: 40px;
 	min-height: 30px !important;
@@ -163,13 +155,8 @@ input.datepicker.datepicker_with_icon {
 .ui-datepicker thead {
 	background: #f7f7f7;
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWYxZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #f1f1f1));
 	background: -webkit-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
-	background: -o-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
-	background: -ms-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
 	background: linear-gradient(to bottom, #f7f7f7 0%, #f1f1f1 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f1f1f1',GradientType=0 );
 	border-bottom: 1px solid #bbb;
 }
 
@@ -217,15 +204,8 @@ input.datepicker.datepicker_with_icon {
 .ui-datepicker-calendar .ui-state-default {
 	background: #ededed;
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZWRlZGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, #ededed 0%, #dedede 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(100%, #dedede));
 	background: -webkit-linear-gradient(top, #ededed 0%, #dedede 100%);
-	background: -o-linear-gradient(top, #ededed 0%, #dedede 100%);
-	background: -ms-linear-gradient(top, #ededed 0%, #dedede 100%);
 	background: linear-gradient(to bottom, #ededed 0%, #dedede 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dedede',GradientType=0 );
-	-webkit-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, 0.5);
-	-moz-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, 0.5);
 	box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, 0.5);
 }
 
@@ -235,19 +215,10 @@ input.datepicker.datepicker_with_icon {
 
 .ui-datepicker-calendar .ui-state-active {
 	background: #FFF2AA;
-
-	/* set the active date background color */
 	border: 1px solid #c19163;
-
-	/* set the active date border color */
 	color: #666;
-
-	/* set the active date font color */
-	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 	box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 	text-shadow: 0px 1px 0px #FFF;
-	filter: dropshadow(color = #FFF, offx = 0, offy = 1);
 	position: relative;
 	margin: -1px;
 }
@@ -284,7 +255,9 @@ body div#ui-datepicker-div[style] {
 	z-index: 9999 !important;
 }
 
-/* TEXTAREA CHARACTER COUNT */
+// 
+// TEXTAREA CHARACTER COUNT
+//
 
 div.charleft {
 	font-size: 11px;
@@ -306,19 +279,20 @@ li.gf_hide_charleft div.charleft {
 	display: none !important;
 }
 
-/* SUBMISSION LIMIT MESSAGE */
+// 
+// SUBMISSION LIMIT MESSAGE
+//
 
 .gf_submission_limit_message {
 	color: #790000;
 	font-size: 1.4em;
 }
 
-/* PRICING FIELDS */
+// 
+// PRICING FIELDS
+//
 
 .ginput_price {
-	filter: alpha(opacity = 70);
-	-moz-opacity: 0.7;
-	-khtml-opacity: 0.7;
 	opacity: 0.7;
 }
 
@@ -348,7 +322,9 @@ input.ginput_quantity {
 	width: 40px;
 }
 
-/* MULTI PAGE */
+// 
+// MULTI PAGE
+// 
 
 .gform_page_footer {
 	margin: 20px 0;
@@ -363,7 +339,8 @@ input.ginput_quantity {
 		padding-right: 1em;
 	}
 
-	input.gform_next_button, .button.gform_button {
+	input.gform_next_button, 
+	.button.gform_button {
 		float: right;
 		width: auto !important;
 		padding-left: 1em;
@@ -384,9 +361,6 @@ input.ginput_quantity {
 		margin: 0 0 6px 0 !important;
 		padding: 0 !important;
 		clear: both;
-		filter: alpha(opacity = 60);
-		-moz-opacity: 0.6;
-		-khtml-opacity: 0.6;
 		opacity: 0.6;
 	}
 }
@@ -477,26 +451,18 @@ input.ginput_quantity {
 	font-size: 14px;
 	height: 20px;
 	line-height: 20px !important;
-	filter: alpha(opacity = 20);
-	-moz-opacity: 0.2;
-	-khtml-opacity: 0.2;
 	opacity: 0.2;
-	font-family: arial,sans-serif;
-	display: -moz-inline-stack;
+	font-family: arial, sans-serif;
 	display: inline-block;
-	zoom: 1;
 
 	span.gf_step_number {
 		font-size: 20px;
 		float: left;
-		font-family: arial,sans-serif;
+		font-family: arial, sans-serif;
 	}
 
 	&.gf_step_active {
-		filter: alpha(opacity = 100);
-		-moz-opacity: 1.0;
-		-khtml-opacity: 1.0;
-		opacity: 1.0;
+		opacity: 1;
 	}
 }
 
@@ -507,7 +473,9 @@ input.ginput_quantity {
 	overflow: hidden;
 }
 
-/* PASSWORD STRENGTH INDICATOR */
+// 
+// PASSWORD STRENGTH INDICATOR
+//
 
 .gfield_password_strength {
 	border: 1px solid #DDD;
@@ -539,7 +507,9 @@ input.ginput_quantity {
 	}
 }
 
-/* LIST FIELDS */
+// 
+// LIST FIELDS
+//
 
 table.gfield_list,
 table.gfield_list caption,
@@ -610,9 +580,6 @@ table.gfield_list td + td {
 
 .gfield_icon_disabled {
 	cursor: default !important;
-	filter: alpha(opacity = 60);
-	-moz-opacity: 0.6;
-	-khtml-opacity: 0.6;
 	opacity: 0.6;
 }
 
@@ -620,7 +587,9 @@ table.gfield_list td.gfield_list_icons {
 	min-width: 45px !important;
 }
 
-/* MULTI-FILE UPLOAD */
+// 
+// MULTI-FILE UPLOAD
+//
 
 .gform_fileupload_multifile {
 	.gform_drop_area {
@@ -629,7 +598,7 @@ table.gfield_list td.gfield_list_icons {
 		text-align: center;
 		color: #888;
 
-		input[type=button] {
+		input[type="button"] {
 			padding: 5px 1em;
 			font-size: 0.875em;
 			margin-left: 10px;
@@ -661,7 +630,9 @@ table.gfield_list td.gfield_list_icons {
 	}
 }
 
-/* HTML */
+// 
+// HTML
+//
 
 div.gform_body ul.gform_fields li.gfield.gfield_html ul li,
 form div.gform_body ul.gform_fields li.gfield.gfield_html ul li {
@@ -724,11 +695,12 @@ div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 	margin-top: 10px;
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+//
+// MEDIA QUERIES
+//
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md') {
+	
 	.gform_save_link {
 		display: inline-block;
 		margin-left: 1em;
@@ -749,8 +721,5 @@ div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 	.right_label li.gfield_html_formatted {
 		margin-left: 32%;
 	}
+	
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}

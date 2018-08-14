@@ -25,6 +25,7 @@
  * 9.0 - Utility Functions
  *    9.1 - Removes […] from read more
  *    9.2 - Modified author post link
+ *	  9.3 - Add layout classes
  * 10.0 - Admin Customization
  *    10.1 - Set content width
  *    10.2 - Set image attachment width
@@ -33,17 +34,19 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20171102' );
+define( 'SCAFFOLDING_THEME_VERSION', '20180814' );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
+
 
 /************************************
  * 1.0 - INCLUDE FILES
- */
+ ************************************/
 
 // Add any additional files to include here.
 require_once SCAFFOLDING_INCLUDE_PATH . 'base-functions.php';
 require_once SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php';
 // require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
+
 // Gravity Forms Customizations.
 if ( class_exists( 'GFForms' ) ) {
 	require_once SCAFFOLDING_INCLUDE_PATH . 'gf-customizations.php';
@@ -74,35 +77,25 @@ function scaffolding_scripts_and_styles() {
 	// Main stylesheet.
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), SCAFFOLDING_THEME_VERSION );
 
-	// Font Awesome (icon set) - https://fontawesome.com/ .
-	wp_enqueue_style( 'scaffolding-font-awesome', get_stylesheet_directory_uri() . '/libs/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
+	// Font Awesome (icon set) - https://fontawesome.com/
+	wp_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.1.3' );
 
-	// IE-only stylesheet
-	/*
-	 Not currently in use
-	wp_enqueue_style( 'scaffolding-ie-only', get_stylesheet_directory_uri() . '/css/ie.css', array(), SCAFFOLDING_THEME_VERSION );
-	$wp_styles->add_data( 'scaffolding-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-	*/
-
-	// Modernizr - http://modernizr.com/ .
-	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.2.0', false );
-
-	// Respond - https://github.com/scottjehl/Respond .
-	wp_enqueue_script( 'scaffolding-respondjs', get_stylesheet_directory_uri() . '/libs/js/respond.min.js', array(), '1.4.2', false );
-	$wp_scripts->add_data( 'scaffolding-respondjs', 'conditional', 'lt IE 9' ); // add conditional wrapper around respond script.
+	// Modernizr - http://modernizr.com/
+	// update this to include only what you need to test
+	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
 
 	/**
 	 * Add to wp_footer()
 	 */
 
-	// Retina.js - http://imulus.github.io/retinajs/ .
-	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.1', true );
+	// Retina.js - http://imulus.github.io/retinajs/
+	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
 
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/ .
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
 
-	// SelectWoo - https://github.com/woocommerce/selectWoo .
-	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.1', true );
+	// SelectWoo - https://github.com/woocommerce/selectWoo
+	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.2', true );
 
 	// Comment reply script for threaded comments.
 	if ( is_singular() && comments_open() && ( 1 == get_option( 'thread_comments' ) ) ) {
@@ -137,21 +130,21 @@ function scaffolding_theme_support() {
 	// Support for RSS.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Support for custom headers.
-	add_theme_support(
+	// Support for custom headers
+	add_theme_support( 
 		'custom-header', array(
-			'default-image'          => '%s/images/headers/default.jpg',
-			'random-default'         => false,
-			'width'                  => 1140,    // Make sure to set this
-			'height'                 => 250,     // Make sure to set this
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'default-text-color'     => 'ffffff',
-			'header-text'            => false,
-			'uploads'                => true,
-			'wp-head-callback'       => 'scaffolding_custom_headers_callback', // callback function
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
+			'default-image'           => '%s/images/headers/default.jpg',
+			'random-default'          => false,
+			'width'                   => 1800,    // Make sure to set this
+			'height'                  => 350,     // Make sure to set this
+			'flex-height'             => false,
+			'flex-width'              => false,
+			'default-text-color'      => 'ffffff',
+			'header-text'             => false,
+			'uploads'                 => true,
+			'wp-head-callback'        => 'scaffolding_custom_headers_callback', // callback function
+			'admin-head-callback'     => '',
+			'admin-preview-callback'  => '',
 		)
 	);
 
@@ -210,6 +203,7 @@ function scaffolding_theme_support() {
 
 	// Add styles for use in visual editor.
 	add_editor_style( 'css/editor-styles.css' );
+	add_editor_style( 'css/libs/fontawesome/fontawesome-all.css' );
 
 } // end scaffolding_theme_support()
 
@@ -233,22 +227,21 @@ function scaffolding_theme_support() {
  * @return void
  */
 function scaffolding_main_nav() {
-	// Display the wp3 menu if available
 	wp_nav_menu(
 		array(
-			'container'       => '',                              // remove nav container
-			'container_class' => '',                              // class of container (should you choose to use it)
-			'menu'            => '',                              // nav name
-			'menu_class'      => 'menu main-menu wrap clearfix',  // adding custom nav class
-			'theme_location'  => 'main-nav',                      // where it's located in the theme
-			'before'          => '',                              // before the menu
-			'after'           => '',                              // after the menu
-			'link_before'     => '',                              // before each link
-			'link_after'      => '',                              // after each link
-			'depth'           => 0,                               // limit the depth of the nav
-			'fallback_cb'     => '',                              // fallback function
+			'container'       => '',						 	  // remove nav container
+			'container_class' => '',		 			          // class of container (should you choose to use it)
+			'menu'            => '',						      // nav name
+			'menu_class'      => 'menu main-menu',  	  		  // adding custom nav class
+			'theme_location'  => 'main-nav',			 		  // where it's located in the theme
+			'before'          => '',		                      // before the menu
+			'after'           => '',						      // after the menu
+			'link_before'     => '',						 	  // before each link
+			'link_after'      => '',						      // after each link
+			'depth'           => 0,							      // limit the depth of the nav
+			'fallback_cb'     => '',	                          // fallback function
 			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'walker'          => new Scaffolding_Walker_Nav_Menu(),
+			'walker'          => new Scaffolding_Walker_Nav_Menu,
 		)
 	);
 } // end scaffolding_main_nav()
@@ -264,7 +257,7 @@ function scaffolding_footer_nav() {
 			'container'       => '',
 			'container_class' => '',
 			'menu'            => '',
-			'menu_class'      => 'menu footer-menu clearfix',
+			'menu_class'      => 'menu footer-menu',
 			'theme_location'  => 'footer-nav',
 			'before'          => '',
 			'after'           => '',
@@ -297,7 +290,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$class_names   = implode( ' ', $classes );
 
 		// build html
-		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><a class="menu-back-button" title="Click to Go Back a Menu"><i class="fa fa-chevron-left"></i> Back</a></li>' . "\n";
+		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><button class="menu-back-button" type="button"><i class="fa fa-chevron-left"></i> Back</button></li>' . "\n";
 	}
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -330,7 +323,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		// Add menu button links to items with children
 		if ( $args->has_children ) {
-			$menu_pull_link = '<a class="menu-button" title="Click to Open Menu"><i class="fa fa-chevron-right"></i></a>';
+			$menu_pull_link = '<button class="menu-button" type="button"><i class="fa fa-chevron-right"></i></button>';
 		} else {
 			$menu_pull_link = '';
 		}
@@ -393,22 +386,14 @@ register_default_headers(
 /**
  * Set header image as a BG
  *
- * Includes IE8 polyfill to allow image to span full width of screen.
  * This is a callback function defined in scaffolding_theme_support() 'custom-header'.
  *
  * @since Scaffolding 1.0
  */
 function scaffolding_custom_headers_callback() {
-
 	if ( has_header_image() ) {
 		?>
-		<style type="text/css">
-			#banner {
-				display: block;
-				background-image: url( <?php header_image(); ?> );
-				-ms-behavior: url( <?php echo get_template_directory_uri(); ?>/includes/backgroundsize.min.htc );
-			}
-		</style>
+<style type="text/css">#banner { display: block; background-image: url(<?php header_image(); ?>); }</style>
 		<?php
 	}
 } // end scaffolding_custom_headers_callback()
@@ -465,9 +450,22 @@ function scaffolding_register_sidebars() {
  */
 function scaffolding_noindex_filter( $query ) {
 	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
-		$query->set( 'meta_key', '_yoast_wpseo_meta-robots-noindex' );
-		$query->set( 'meta_value', '' );
-		$query->set( 'meta_compare', 'NOT EXISTS' );
+		$meta_query = $query->get('meta_query');
+		if ( is_array( $meta_query ) ) {
+			$meta_query[] = array(
+				'key' 		=> '_yoast_wpseo_meta-robots-noindex',
+				'compare'	=> 'NOT EXISTS',
+			);
+			$query->set( 'meta_query', $meta_query );
+		} else {
+			$meta_query = array(
+				array(
+					'key' 		=> '_yoast_wpseo_meta-robots-noindex',
+					'compare'	=> 'NOT EXISTS',
+				)
+			);
+			$query->set( 'meta_query', $meta_query );	
+		}
 	}
 	return $query;
 }
@@ -490,12 +488,13 @@ function scaffolding_comments( $comment, $args, $depth ) {
 	<<?php echo $tag; ?> <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<header class="comment-author vcard">
-				<?php
+				<?php 
 				if ( 0 != $args['avatar_size'] ) {
-					echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() );}
+					echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() ); 
+				}
 				?>
 				<?php printf( __( '<cite class="fn">%s</cite>', 'scaffolding' ), get_comment_author_link() ); ?>
-				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a class="comment-date-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a> <em><?php edit_comment_link( __( '(Edit)', 'scaffolding' ), '  ', '' ); ?></em></time>
+				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a class="comment-date-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a> <?php edit_comment_link( __( '(Edit)', 'scaffolding'), '<em>', '</em>' ); ?></time>
 			</header>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 				<div class="alert info">
@@ -516,7 +515,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
 			);
 			?>
 		</article>
-	<?php /* </li> or </div> is added by WordPress automatically */ ?>
+	<?php // </li> or </div> is added by WordPress automatically. ?>
 	<?php
 } // end scaffolding_comments()
 
@@ -537,7 +536,7 @@ function scaffolding_comments( $comment, $args, $depth ) {
  */
 function scaffolding_excerpt_more( $more ) {
 	global $post;
-	return '&hellip; <a class="read-more" href="' . get_permalink( $post->ID ) . '" title="' . __( 'Read ', 'scaffolding' ) . get_the_title( $post->ID ) . '">' . __( 'Read more &raquo;', 'scaffolding' ) . '</a>';
+	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
 }
 
 /**
@@ -561,6 +560,74 @@ function scaffolding_get_the_author_posts_link() {
 	);
 	return $link;
 }
+
+/**
+ * Set grid classes based on sidebars
+ *
+ * @since Scaffolding 3.0
+ */
+function scaffolding_set_layout_classes( $type ) {
+	
+	if ( '' == $type || ( 'content' != $type && 'sidebar' != $type ) ) {
+		return;
+	}
+	
+	if ( 'content' == $type ) {
+		
+		$class = array( 
+			'row' 	=> 'row-main no sidebars',
+			'main'	=> 'col-12',
+		);
+		
+		// Test for active sidebars to set the main content width
+		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['row'] = 'row-main has-both-sidebars';
+			$class['main'] = 'col-lg-6 order-lg-2';
+		} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
+			$class['row'] = 'row-main has-left-sidebar';
+			$class['main'] = 'col-md-9 order-md-2';
+		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['row'] = 'row-main has-right-sidebar';
+			$class['main'] = 'col-md-9 order-md-1';
+		}
+		
+	} elseif ( 'sidebar' == $type ) {
+		
+		$class = array(
+			'left'	=> '',
+			'right'	=> '',
+		);
+		
+		// Test for active sidebars to set sidebar classes
+		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['left'] = 'col-md-6 order-md-1 col-lg-3';
+			$class['right'] = 'col-md-6 order-md-3 col-lg-3';
+		} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
+			$class['left'] = 'col-md-3 order-md-1';
+		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$class['right'] = 'col-md-3 order-md-2';
+		}
+		
+	}
+	
+	return $class;
+}
+
+/**
+ * Set globals for layout classes
+ *
+ * @since Scaffolding 3.0
+ */
+function scaffolding_layout_classes_globals() {
+	if ( function_exists( 'scaffolding_set_layout_classes' ) ) {
+		$GLOBALS['sc_sidebar_class'] = scaffolding_set_layout_classes( 'sidebar' );
+		$GLOBALS['sc_layout_class'] = scaffolding_set_layout_classes( 'content' );
+	} else {
+		$GLOBALS['sc_sidebar_class'] = array( 'left' => '', 'right' => '' );
+		$GLOBALS['sc_layout_class'] = array( 'row' => 'row-main no-sidebars', 'main' => 'col-12' );
+	}
+}
+add_action( 'scaffolding_after_content_begin', 'scaffolding_layout_classes_globals', 0 );
 
 
 /************************************

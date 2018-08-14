@@ -7,83 +7,95 @@
 
 get_header();
 
-// Add post types to include in site map.
-$types = array( 'page', 'post' );
+global $sc_layout_class;
 
-// Add taxonomies to include in site map.
-$taxes = array( 'category', 'post_tag' );
+/**
+ * Return array of excluded term IDs
+ * Yoast settings - term meta set to noindex
+ */
+function scaffolding_excluded_terms( $tax ) {
+	
+	$excluded_term_ids = array();
 
-// Collect all term ids for the listed taxonomies.
-$terms = get_terms( $taxes, array( 'fields' => 'ids' ) );
+	// Get yoast taxonomy meta.
+	$yoast_tax_meta = get_option( 'wpseo_taxonomy_meta', array() );
 
-// Collect all the excluded term ids.
-$excluded_term_ids = array();
-
-// Get yoast taxonomy meta.
-$yoast_tax_meta = get_option( 'wpseo_taxonomy_meta', array() );
-
-// Collect all excluded terms by taxonomy.
-if ( ! empty( $yoast_tax_meta ) ) {
-	foreach ( $taxes as $tax ) {
-		// Check if taxonomy exists in array.
+	if ( ! empty( $yoast_tax_meta ) ) {
+		
+		// Check if taxonomy exists in yoast meta.
 		if ( array_key_exists( $tax, $yoast_tax_meta ) ) {
+
+			// Collect all term ids for the taxonomy.
+			$terms = get_terms( $tax, array('fields' => 'ids') );
+
 			foreach ( $terms as $term ) {
 				$term_seo = ( array_key_exists( $term, $yoast_tax_meta[ $tax ] ) ) ? $yoast_tax_meta[ $tax ][ $term ] : '';
+				
 				// Check if each term exists in array and is excluded from sitemap.
 				if ( $term_seo && ( 'never' == $term_seo['wpseo_sitemap_include'] || 'noindex' == $term_seo['wpseo_noindex'] ) ) {
 					$excluded_term_ids[] = $term;
 				}
 			}
+
 		}
+		
 	}
+	
+	return $excluded_term_ids;
+	
 }
 
-// Collect all excluded posts for the listed post types.
-foreach ( $types as $type ) {
-	$args             = array(
-		'numberposts'  => -1, // get all
-		'meta_key'     => '_yoast_wpseo_meta-robots-noindex', // remove post with noindex.
+/**
+ * Return array of excluded post IDs
+ * Yoast settings - post meta set to noindex
+ */
+function scaffolding_excluded_posts( $post_type ) {
+	
+	$excluded_post_ids = array();
+
+	$args = array(
+		'posts_per_page'  => -1, // get all
+		'meta_key'     => '_yoast_wpseo_meta-robots-noindex', // remove post with noindex
 		'meta_compare' => 'EXISTS',
-		'post_type'    => $type,
+		'post_type'    => $post_type,
 		'post_status'  => 'publish',
 	);
-	$excluded_{$type} = get_posts( $args );
-}
+	$posts = get_posts( $args );
 
-// Collect all the excluded post ids.
-$excluded_posts_ids = array();
-
-// Collect all the ids of posts with noindex to exclude from site map.
-foreach ( $types as $type ) {
-	foreach ( $excluded_{$type} as $excluded ) {
-		$excluded_posts_ids[] = $excluded->ID;
+	foreach ( $posts as $post ) {
+		$excluded_post_ids[] = $post->ID;
 	}
+
+	// Add the current sitemap page id.
+	$excluded_post_ids[] = get_the_ID();
+
+	// Convert to a comma (,) separated string.
+	return implode( ',', $excluded_post_ids );
+	
 }
-
-// Add the current sitemap page id.
-$excluded_posts_ids[] = get_the_ID();
-
-// Convert to a comma (,) separated string.
-$excluded_ids = implode( ',', $excluded_posts_ids );
-
-// Get number of posts per page in settings.
-$read_settings_num_posts = get_option( 'posts_per_page' );
 
 /**
  * Build display for taxonomy terms
- *
- * @param array  $param Options passed in.
- * @param string $tax Taxonomy we are dealing with.
- * @return void
  */
-function scaffolding_list_terms( $param, $tax ) {
-
-	// Collect our excluded term ids.
-	$excluded_term_ids = $param['exclude'];
+function scaffolding_list_terms( $tax, $args = array() ) {
 
 	// Get our terms.
-	$terms = get_terms( $tax, $param );
+	if ( ! array_key_exists( 'sort_column', $args ) ) {
+		$args['sort_column'] = 'title';
+	}
+	if ( ! array_key_exists( 'parent', $args ) ) {
+		$args['parent'] = 0;
+	}
+	// Get list of terms to exclude via Yoast settings.
+	if ( ! array_key_exists( 'exclude', $args ) ) {
+		$excluded_term_ids = scaffolding_excluded_terms( $tax );
+		if ( ! empty( $excluded_term_ids ) ) {
+			$args['exclude'] = $excluded_term_ids;
+		}
+	}
+	$terms = get_terms( $tax, $args );
 
+	// Display our terms.
 	if ( $terms ) {
 		echo '<ul>';
 		foreach ( $terms as $term ) {
@@ -92,14 +104,9 @@ function scaffolding_list_terms( $param, $tax ) {
 			echo '">';
 			echo $term->name;
 			echo '</a>';
-			scaffolding_list_terms(
-				array(
-					'sort_column'  => 'title',
-					'parent'       => $term->term_id,
-					'hierarchical' => 0,
-					'exclude'      => $excluded_term_ids,
-				), $tax
-			);
+			$args['parent'] = $term->term_id;
+			$args['hierarchical'] = 0;
+			scaffolding_list_terms( $tax, $args );
 			echo '</li>';
 		}
 		echo '</ul>';
@@ -114,26 +121,40 @@ function scaffolding_list_terms( $param, $tax ) {
  * @param string $post_type Post type we are dealing with.
  * @return void
  */
-function scaffolding_list_posts( $param, $post_type ) {
+function scaffolding_list_posts( $post_type, $args = array() ) {
 
 	$pt                      = get_post_type_object( $post_type ); // Get post type object for name label.
 	$count_posts             = wp_count_posts( $post_type ); // Count number of posts in db.
 	$published_posts         = $count_posts->publish; // Count number of published posts, only show those.
-	$read_settings_num_posts = get_option( 'posts_per_page' ); // Get number of posts per page in settings.
+	$read_settings_num_posts = 20; // Get number of posts per page in settings.
 
-	// Get archive link to add "View all" link.
+	// Get archive url to add "View all" link.
 	if ( 'post' === $post_type ) {
 		$archive_link = get_permalink( get_option( 'page_for_posts' ) );
 	} else {
 		$archive_link = get_post_type_archive_link( $post_type );
 	}
 
-	// Collect our excluded ids.
-	$excluded_ids = $param['exclude'];
-
 	// Get our posts.
-	$posts = get_posts( $param );
+	if ( ! array_key_exists( 'post_type', $args ) ) {
+		$args['post_type'] = $post_type;
+	}
+	if ( ! array_key_exists( 'posts_per_page', $args ) ) {
+		$args['posts_per_page'] = $num_posts;
+	}
+	if ( ! array_key_exists( 'sort_column', $args ) ) {
+		$args['sort_column'] = 'title';
+	}
+	// Get list of ids to exclude via Yoast settings
+	if ( ! array_key_exists( 'exclude', $args ) ) {
+		$excluded_post_ids = scaffolding_excluded_posts( $post_type );
+		if ( ! empty( $excluded_post_ids ) ) {
+			$args['exclude'] = $excluded_post_ids;
+		}
+	}
+	$posts = get_posts( $args );
 
+	// Display our posts.
 	if ( $published_posts > 0 ) {
 		echo '<ul>';
 		foreach ( $posts as $post ) {
@@ -144,11 +165,11 @@ function scaffolding_list_posts( $param, $post_type ) {
 				echo '</a>';
 			echo '</li>';
 		}
-		if ( $published_posts > $read_settings_num_posts ) {
+		if ( $published_posts > $num_posts ) {
 			echo '<li><a href="' . $archive_link . '" title="';
-				echo sprintf( __( 'View all %s', 'scaffolding' ), $pt->labels->name );
+				echo sprintf( __( 'View All %s', 'scaffolding' ), $pt->labels->name );
 				echo '">';
-				echo sprintf( __( 'View all %s', 'scaffolding' ), $pt->labels->name );
+				echo sprintf( __( 'View All %s', 'scaffolding' ), $pt->labels->name );
 				echo '</a>';
 			echo '</li>';
 		}
@@ -158,96 +179,102 @@ function scaffolding_list_posts( $param, $post_type ) {
 	}
 
 }
+?>
 
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-		?>
+<div id="inner-content" class="container">
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+	<div class="row <?php echo $sc_layout_class['row']; ?>">
 
-			<header class="page-header">
+		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-				<h1 class="page-title"><?php the_title(); ?></h1>
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) :
+					the_post();
+					?>
 
-			</header>
+					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
-			<section class="page-content clearfix">
+						<header class="page-header">
 
-				<?php
-				the_content();
+							<h1 class="page-title"><?php the_title(); ?></h1>
 
-				wp_link_pages(
-					array(
-						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-						'after'       => '</div>',
-						'link_before' => '<span>',
-						'link_after'  => '</span>',
-					)
-				);
-				?>
+						</header>
 
-				<div class="row">
+						<section class="page-content clearfix">
 
-					<div class="col-sm-6">
-
-						<h3><?php _e( 'Pages', 'scaffolding' ); ?></h3>
-						<ul>
 							<?php
-							// List Pages
-							wp_list_pages(
+							the_content();
+
+							wp_link_pages(
 								array(
-									'sort_column' => 'post_title',
-									'title_li'    => '',
-									'exclude'     => $excluded_ids,
+									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+									'after'       => '</div>',
+									'link_before' => '<span>',
+									'link_after'  => '</span>',
 								)
 							);
 							?>
-						</ul>
 
-					</div>
+							<div class="row">
 
-					<div class="col-sm-6">
+								<div class="col-md-6">
 
-						<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
-						<?php
-						// List Posts
-						$params = array(
-							'numberposts' => $read_settings_num_posts,
-							'sort_column' => 'title',
-							'exclude'     => $excluded_ids,
-							'post_type'   => 'post',
-						);
-						scaffolding_list_posts( $params, 'post' );
-						?>
+									<h3><?php _e( 'Pages', 'scaffolding' ); ?></h3>
+									<ul>
+										<?php 
+										$page_args = array(
+											'sort_column' 	=> 'post_title',
+											'title_li'		=> ''
+										);
+										$excluded_page_ids = scaffolding_excluded_posts('page');
+										if ( ! empty( $excluded_page_ids ) ) {
+											$page_args['exclude'] = $excluded_page_ids;
+										}
+										wp_list_pages( $page_args ); 
+										?>
+									</ul>
 
-						<?php
-						// Example with term list
-						/*
-						<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
-						$params = array(
-							'sort_column'	=> 'title',
-							'exclude'		=> $excluded_term_ids,
-							'parent' 		=> 0
-						);
-						scaffolding_list_terms( $params, 'category' );
-						*/
-						?>
+								</div>
 
-					</div>
+								<div class="col-md-6">
 
-				</div><?php // END .row. ?>
+									<h3><?php _e( 'Blog Posts', 'scaffolding' ); ?></h3>
+									<?php scaffolding_list_posts('post'); ?>
 
-			</section>
+									<?php 
+									// Example with term list
+									/*
+									<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
+									<?php scaffolding_list_terms('category'); ?>
+									*/
+									?>
 
-		</article>
+								</div>
 
-		<?php
-	endwhile;
+							</div><?php // END .row ?>
 
-else :
+						</section>
 
-	get_template_part( 'template-parts/error' ); // WordPress template error message.
+					</article>
 
-endif;
+					<?php
+				endwhile;
+
+			else :
+
+				get_template_part( 'template-parts/error' ); // WordPress template error message.
+
+			endif;
+			?>
+			
+		</div><?php // END #main ?>
+			
+		<?php get_sidebar(); ?>
+		
+	</div><?php // END .row ?>
+	
+</div><?php // END #inner-content ?>
+
+<?php
 get_footer();

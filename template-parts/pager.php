@@ -10,6 +10,7 @@ if ( function_exists( 'scaffolding_page_navi' ) ) :
 	scaffolding_page_navi( '', '', $wp_query );
 else :
 	?>
+
 	<nav class="wp-prev-next">
 		<ul class="clearfix">
 			<li class="prev-link">

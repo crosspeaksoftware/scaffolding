@@ -6,14 +6,9 @@ Stylesheet: Comments Stylesheet
 
 ******************************************************************/
 
-/************************
- * COMMENT FORM
- ************************/
-
-.respond-form,
 .comment-respond {
 	@include clearfix;
-
+	
 	#reply-title {
 		font-weight: bold;
 		
@@ -25,19 +20,11 @@ Stylesheet: Comments Stylesheet
 	}
 
 	form {
-		margin: 0.75em 0;
-
-		p {
-			margin: 0 0 0.75em;
-		}
-
 		ul {
 			margin: 0;
 
 			li {
-				clear: both;
-				list-style-type: none;
-				margin-bottom: 0.7335em;
+				list-style: none;
 				margin-left: 0;
 
 				label,
@@ -53,14 +40,13 @@ Stylesheet: Comments Stylesheet
 		textarea {
 			width: 100%;
 
-			&:focus {}
-
-			/* form validation */
+			// form validation
 			&:invalid {
-				background-color: #f6e7eb;
-				border-color: #fbc2c4;
-				box-shadow: none;
-				outline: none;
+				border: 1px solid $color__alert-red;
+
+				&:focus {
+					border: 1px solid $color__alert-red;
+				}
 			}
 		}
 
@@ -74,37 +60,49 @@ Stylesheet: Comments Stylesheet
 		textarea {
 			height: 150px;
 		}
-
+		
 		label {
-			clear: both;
-			display: block;
-			font-weight: bold;
-			line-height: 1.3em;
-			margin: 10px 0 4px 0;
+			width: 100%;
+		}
 
-			.required {
-				color: #AF3124;
+		.required {
+			color: $color__alert-red;
+		}
+		
+		// this is a wp error
+		.comment-form-comment {
+			label:after {
+				content: " *";
+				color: $color__alert-red;
 			}
+		}
+		
+		.comment-form-cookies-consent {
+			position: relative;
+			min-height: 1.8em;
+			
+			input[type="checkbox"] {
+				position: absolute;
+				top: 0.3em;
+			}
+			
+			label {
+				display: inline-block;
+				padding-left: 23px;
+			}
+		}
+		
+		.form-submit {
+			margin-top: 2em;
 		}
 	}
 
-	/* comment submit button */
-	#submit {}
-
-	/* comment form title */
+	// comment form title
 	#comment-form-title {
 		margin: 0 0 1.1em;
 	}
 
-	/* cancel comment reply link */
-	#cancel-comment-reply {
-		a {}
-	}
-
-	/* logged in comments */
-	.comments-logged-in-as {}
-
-	/* allowed tags */
+	// allowed tags
 	.form-allowed-tags {
 		margin: 1em 0 1.675em 0;
 
@@ -115,33 +113,16 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* no comments */
+	// no comments
 	.nocomments {
 		margin: 0 20px 1.1em;
 	}
 }
 
-/************************
- * COMMENTS
- ************************/
-
-/* h3 comment title */
-#comments {
-	/* number of comments span */
-	span {}
-}
-
-#comment-nav-above {
-	margin-bottom: 2em;
-}
-
-#comment-nav-below {
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
 .comment-navigation {
-	@include clearfix;
+	.nav-links {
+		@include clearfix;
+	}
 
 	.nav-previous {
 		float: left;
@@ -151,6 +132,15 @@ Stylesheet: Comments Stylesheet
 		float: right;
 		text-align: right;
 	}
+}
+
+.comments-title + .comment-navigation {
+	margin-bottom: 2em;
+}
+
+.commentlist + .comment-navigation {
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .commentlist {
@@ -175,27 +165,7 @@ Stylesheet: Comments Stylesheet
 			li {
 				margin-left: 0 0 0 3em;
 			}
-
-			/* variations */
-			.comment {}
-
-			.alt {}
-
-			.odd {}
-
-			.even {}
-
-			.depth-1 {}
-
-			/* change number for different depth */
-			.byuser {}
-
-			.bypostauthor {}
-
-			.comment-author-admin {}
 		}
-
-		/* end .commentlist li ul.children */
 	}
 
 	li[class*=depth-] {
@@ -207,42 +177,7 @@ Stylesheet: Comments Stylesheet
 		margin-top: 0;
 	}
 
-	li.depth-2 {}
-
-	li.depth-3 {}
-
-	li.depth-4 {}
-
-	li.depth-5 {}
-
-	/* general comment classes */
-	.alt {}
-
-	.odd {}
-
-	.even {}
-
-	.parent {}
-
-	.comment {}
-
-	.children {}
-
-	.pingback {}
-
-	.bypostauthor {}
-
-	.comment-author {}
-
-	.comment-author-admin {}
-
-	.thread-alt {}
-
-	.thread-odd {}
-
-	.thread-even {}
-
-	/* vcard */
+	// vcard
 	.vcard {
 		height: auto;
 		min-height: 32px;
@@ -253,8 +188,6 @@ Stylesheet: Comments Stylesheet
 			font-style: normal;
 			font-size: 1.25em;
 			margin-left: 50px;
-
-			.url {}
 		}
 
 		time {
@@ -276,8 +209,6 @@ Stylesheet: Comments Stylesheet
 			}
 		}
 
-		.photo {}
-
 		.avatar,
 		.photo {
 			border: 1px solid #DDD;
@@ -285,25 +216,13 @@ Stylesheet: Comments Stylesheet
 			margin: 0;
 			position: absolute;
 			top: 0;
-
-			@include border-radius(50%);
+			border-radius: 50%;
 		}
 		
 		.comment-edit-link {
 			margin-left: 0.5em;
 			font-size: 0.875em;
 		}
-	}
-
-	/* end .commentlist .vcard */
-
-	/* comment meta */
-	.comment-meta {
-		a {}
-	}
-
-	.commentmetadata {
-		a {}
 	}
 
 	.alert.info {
@@ -313,8 +232,8 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* comment content */
-	.comment_content {
+	// comment content
+	.comment-content {
 		border: 1px solid #DDD;
 		clear: both;
 		margin-top: 1em;
@@ -335,9 +254,7 @@ Stylesheet: Comments Stylesheet
 		}
 	}
 
-	/* end .commentlist .comment_content */
-
-	/* comment reply link */
+	// comment reply link
 	.comment-reply-link {
 		color: $color__link;
 		float: right;
@@ -359,8 +276,4 @@ Stylesheet: Comments Stylesheet
 			padding-left: 5px;
 		}
 	}
-
-	/* end .commentlist .comment-reply-link */
 }
-
-/* end .commentlist */

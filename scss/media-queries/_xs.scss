@@ -2,12 +2,7 @@
 Site Name:
 Author:
 
-Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylesheet
-and will be used across all viewports.
+Stylesheet: Base Mobile
 
 ******************************************************************/
 
@@ -26,10 +21,8 @@ body {
 
 	#container {
 		height: 100%;
-
 		// styles for mobile nav slide in
 		position: relative;
-
 		@include transition(all 0.25s ease-in-out);
 	}
 }
@@ -41,14 +34,17 @@ body {
 #masthead {}
 
 #inner-header {
-	padding: 1em 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 #logo {
-	float: left;
-
 	&.h1 {
 		margin: 0;
+	}
+	
+	a {
+		text-decoration: none;
 	}
 }
 
@@ -59,10 +55,7 @@ body {
 	background-size: cover;
 
 	.spacer {
-		padding-top: 26%;
-
-		// change this value based on the aspect ratio of your header image
-
+		padding-top: 19.44%; // change this value based on the aspect ratio of your header image
 	}
 }
 
@@ -73,14 +66,17 @@ body {
 #content {}
 
 #inner-content {
-	padding: 2em 0;
+	padding-top: 2em;
+	padding-bottom: 2em;
 
 	// headers
+	
 	.page-header {}
 
 	.article-header {}
 
 	// titles
+	
 	.page-title,
 	.single-title {
 		margin-top: 0;
@@ -88,48 +84,43 @@ body {
 
 	.search-title {}
 
-	// want to style individual post classes? Booya!
+	// individual post classes
+	
 	.post-id {}
 
-	// post by id (i.e. post-3)
 	.post {}
 
-	// general post style
 	.page {}
 
-	// general article on a page style
 	.attachment {}
 
-	// general style on an attatchment
 	.sticky {}
 
-	// sticky post style
 	.hentry {}
 
-	// hentry class
 	.category-slug {}
 
-	// style by category (i.e. category-videos)
 	.tag-slug {}
 
-	// style by tag (i.e. tag-news)
-
-	/* post meta */
+	// post meta
+	
 	.entry-meta {
-		color: #999;
+		color: $color__tertiary-med;
+		font-style: italic;
 
 		time {}
 	}
 
 	.tags {
 		.tags-title {
-			color: #999;
+			color: $color__tertiary-med;
 		}
 	}
 
 	.categories {}
 
 	// entry content
+	
 	.page-content {}
 
 	.entry-content {}
@@ -137,6 +128,7 @@ body {
 	.archive-description {}
 
 	// footers
+	
 	.page-footer {}
 
 	.entry-footer {}
@@ -157,13 +149,17 @@ body {
 .archive,
 .search {
 	#inner-content {
+		.page-header {
+			margin-bottom: 1em;
+		}
+		
 		article {
 			border-bottom: 1px solid #DDD;
 			padding-top: 1em;
 			padding-bottom: 1em;
 
 			.entry-header {
-				margin-top: 2em;
+				margin-top: 1em;
 				margin-bottom: 1em;
 			}
 
@@ -182,10 +178,9 @@ body {
 				margin: 0.5em 0 0;
 			}
 
-			.entry-content,
-			.entry-footer {
+			.entry-header + .entry-content,
+			.entry-content + .entry-footer {
 				margin-top: -1em;
-				margin-bottom: 1em;
 			}
 
 			&:first-child {
@@ -222,19 +217,24 @@ body {
  ************************/
 
 #colophon {
-	background-color: #111;
+	background-color: $color__tertiary-dark;
 	clear: both;
-	color: #999;
+	color: $color__tertiary-med;
 	font-size: 0.875em;
 
 	.copyright {
 		margin-bottom: 0;
 		text-align: center;
 	}
+	
+	a {
+		color: $color__tertiary-med;
+	}
 }
 
 #inner-footer {
-	padding: 2em 0;
+	padding-top: 2em;
+	padding-bottom: 2em;
 }
 
 ul.footer-menu {
@@ -248,8 +248,8 @@ ul.footer-menu {
 		padding: 0;
 
 		a {
-			border-left: 1px solid #999;
-			color: #999;
+			border-left: 1px solid $color__tertiary-med;
+			color: $color__tertiary-med;
 			display: block;
 			line-height: 1;
 			padding: 0 0.675em;
@@ -270,49 +270,37 @@ ul.footer-menu {
 	}
 
 	ul.sub-menu {
-		display: none;
-
-		// hide child ul as design does not support it
-
+		display: none; // hide child ul as design does not support it
 	}
 }
 
 // scroll to top link
 #back-top {
-	bottom: 10px;
-	margin-right: 30px;
+	margin: 0;
+	bottom: 25px;
+	right: 30px;
 	position: fixed;
-	right: 0;
 	z-index: 9999;
 
 	a {
-		background: #000;
-
-		@include border-radius(500px);
-
+		background-color: rgba(0,0,0,0.55);
+		color: #FFF;
 		display: block;
-		opacity: 0.2;
+		font-size: 1.675em;
+		height: 1.675em;
+		text-align: center;
 		text-decoration: none;
-
-		@include transition(all 1s ease-in-out);
-
-		width: 40px;
+		width: 1.675em;
+		border-radius: 500px;
+		@include transition(background-color 0.5s ease-in-out);
 
 		&:hover,
 		&:focus {
-			color: #000;
-			opacity: 1;
+			background-color: #000;
 		}
 	}
-
-	.fa {
-		color: #FFF;
-		display: block;
-		font-size: 1.5em;
-		height: 40px;
-		line-height: 35px;
-		margin-bottom: 7px;
-		text-align: center;
-		width: 40px;
+	
+	.fas {
+		line-height: 1.675em;
 	}
 }

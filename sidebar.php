@@ -7,28 +7,24 @@
  * @package Scaffolding
  */
 
-// Test for active sidebars to set sidebar classes.
-if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) { // both sidebars.
-	$left_class  = 'col-sm-3 col-sm-pull-6';
-	$right_class = 'col-sm-3';
-} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) { // left sidebar.
-	$left_class = 'col-sm-3 col-sm-pull-9';
-} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) { // right sidebar.
-	$right_class = 'col-sm-3';
-}
+global $sc_sidebar_class;
 
-if ( is_active_sidebar( 'left-sidebar' ) ) :
+if ( is_active_sidebar( 'left-sidebar' ) ) : 
 	?>
-	<div id="left-sidebar" class="sidebar <?php echo $left_class; ?> clearfix" role="complementary">
+
+	<div id="left-sidebar" class="sidebar <?php echo $sc_sidebar_class['left']; ?>" role="complementary">
 		<?php dynamic_sidebar( 'left-sidebar' ); ?>
 	</div>
+
 	<?php
 endif;
 
-if ( is_active_sidebar( 'right-sidebar' ) ) :
+if ( is_active_sidebar( 'right-sidebar' ) ) : 
 	?>
-	<div id="right-sidebar" class="sidebar <?php echo $right_class; ?> clearfix" role="complementary">
+
+	<div id="right-sidebar" class="sidebar <?php echo $sc_sidebar_class['right']; ?>" role="complementary">
 		<?php dynamic_sidebar( 'right-sidebar' ); ?>
 	</div>
+
 	<?php
 endif;

@@ -48,19 +48,17 @@ table {
 	tr:hover {}
 }
 
-/************************
- * MEDIA QUERIES
- ************************/
+//
+// MEDIA QUERIES
+//
 
-@media only screen and (min-width: $screen-sm-min) {
+@include media-breakpoint-up('md') {
+	
 	table {
 		th,
 		td {
 			padding: 8px;
 		}
 	}
+	
 }
-
-@media only screen and (min-width: $screen-md-min) {}
-
-@media only screen and (min-width: $screen-lg-min) {}
