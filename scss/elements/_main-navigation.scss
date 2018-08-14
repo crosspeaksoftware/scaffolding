@@ -64,7 +64,8 @@ It currently slides out from the right.
 
 		// Font Awesome Icon
 		&:before {
-			font-family: "FontAwesome";
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
 			content: "\f0c9"; // bars icon
 			display: inline-block;
 			margin-right: 5px;
@@ -222,7 +223,8 @@ It currently slides out from the right.
 				&.menu-item-has-children {
 					> a:after {
 						content: "\f107";
-						font-family: "FontAwesome";
+						font-family: "Font Awesome 5 Free";
+						font-weight: 900;
 						text-rendering: auto;
 						-webkit-font-smoothing: antialiased;
 						-moz-osx-font-smoothing: grayscale;
