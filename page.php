@@ -18,9 +18,11 @@ global $sc_layout_class;
 
 		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-			<?php if ( have_posts() ) : ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php 
+			if ( have_posts() ) :
+				while ( have_posts() ) : 
+					the_post(); 
+					?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
@@ -32,40 +34,47 @@ global $sc_layout_class;
 
 						<section class="page-content clearfix">
 
-							<?php the_content(); ?>
+							<?php 
+							the_content();
 
-							<?php wp_link_pages( array(
+							wp_link_pages( 
+								array(
 									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
 									'after'       => '</div>',
 									'link_before' => '<span>',
 									'link_after'  => '</span>',
-							) ); ?>
+								) 
+							);
+							?>
 
-						 </section>
+						</section>
 
 						<?php
-							  // If comments are open or we have at least one comment, load up the comment template
-							  if ( comments_open() || '0' != get_comments_number() ) :
-									comments_template();
-							  endif;
-						 ?>
+							// If comments are open or we have at least one comment, load up the comment template.
+							if ( comments_open() || '0' != get_comments_number() ) :
+								comments_template();
+							endif;
+						?>
 
 					</article>
 
-				<?php endwhile; ?>
+					<?php 
+				endwhile;
 
-			<?php else : ?>
+			else :
 
-				<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+				get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-			<?php endif; ?>
-			
+			endif; 
+			?>
+
 		</div><?php // END #main ?>
-		
+
 		<?php get_sidebar(); ?>
-		
+
 	</div><?php // END .row ?>
-	
+
 </div><?php // END #inner-content ?>
 
-<?php get_footer();
+<?php
+get_footer();

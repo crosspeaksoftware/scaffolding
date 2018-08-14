@@ -20,7 +20,9 @@ global $sc_layout_class;
 
 		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
 
-			<?php if ( have_posts() ) : ?>
+			<?php 
+			if ( have_posts() ) : 
+				?>
 
 				<header class="page-header">
 
@@ -29,7 +31,10 @@ global $sc_layout_class;
 
 				</header>
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
@@ -59,15 +64,17 @@ global $sc_layout_class;
 
 					</article>
 
-				<?php endwhile; ?>
+					<?php 
+				endwhile;
 
-				<?php get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination ?>
+				get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination.
 
-			<?php else : ?>
+			else :
 
-				<?php get_template_part( 'template-parts/error' ); // WordPress template error message ?>
+				get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-			<?php endif; ?>
+			endif; 
+			?>
 			
 		</div><?php // END #main ?>
 		
@@ -77,4 +84,5 @@ global $sc_layout_class;
 	
 </div><?php // END #inner-content ?>
 
-<?php get_footer();
+<?php
+get_footer();

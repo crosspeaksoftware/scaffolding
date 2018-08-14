@@ -88,4 +88,5 @@ global $sc_layout_class;
 	
 </div><?php // END #inner-content ?>
 
-<?php get_footer();
+<?php
+get_footer();

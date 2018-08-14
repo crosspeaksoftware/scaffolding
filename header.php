@@ -5,23 +5,23 @@
  * @see http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Scaffolding
- *
- */ ?><!DOCTYPE html>
+ */ 
+
+?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js<?php echo ( is_user_logged_in() ) ? ' has-admin-bar' : ''; ?>">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
-
 </head>
 
 <body <?php body_class('sticky-footer'); ?>>
 
 	<div id="container">
-		
+
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'scaffolding' ); ?></a>
 
 		<header id="masthead" class="header" role="banner">
@@ -57,7 +57,7 @@
 			<?php scaffolding_main_nav(); ?>
 		</nav>
 
-		<?php // Interior Header Image ?>
+		<?php // Interior Header Image. ?>
 		<div class="banner-wrap">
 			<div id="banner">
 				<div class="spacer"></div>
