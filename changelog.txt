@@ -1,5 +1,30 @@
 # Changelog
 
+## Version 3.0
+
+* General theme cleanup - add comments and fix spacing
+* Upgrade Bootstrap Grid to version 4.1.0
+* Mobile menu updates - add animation on open/close
+* Main menu style improvements
+* Remove support for IE8
+* Fix bug with `pre_get_posts` search filter returning zero results
+* Rebuild sitemap page template functions
+* Add full width page template
+* Update Modernizr script to version 3.6.0
+* Update Retina script to version 2.1.2
+* Update SelectWoo script to version 1.0.2
+* Update Font Awesome to version 5.0.13 and add sass folder
+* Add retina sass include file
+* Comments template and style edits
+* Update sticky footer styles to use flexbox
+* Update back to top link to make it scalable
+* Update banner image
+* Cleanup Gravity Forms styles
+* Cleanup SelectWoo styles
+* Remove old css browser prefixes
+* Remove dated mixins
+* Run php CodeSniffer to format the theme
+
 ## Version 2.1
 
 * Remove filter stripping version from scripts and styles

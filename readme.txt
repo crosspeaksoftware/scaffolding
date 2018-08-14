@@ -1,6 +1,6 @@
 == Responsive Design Scaffolding for WordPress ==
 
-Contributors: Hall Internet Marketing
+Contributors: Hall
 Tags: translation-ready, microformats, rtl-language-support
 
 Requires at least: 4.0

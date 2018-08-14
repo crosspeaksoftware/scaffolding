@@ -11,10 +11,10 @@ with the goal of providing a starting point for every responsive
 WordPress theme that we build.
 
 Scaffolding.io: Customization and Documentation
-http://scaffolding.io
+https://scaffolding.io
 
-Developed by Hall Internet Marketing
-http://www.hallme.com/
+Developed by Hall
+https://www.hallme.com/
 
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
