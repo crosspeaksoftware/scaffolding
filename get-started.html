@@ -69,37 +69,17 @@
 								<li><em>functions.php</em>: Contains scripts and enqueueing, sidebars, custom walker menu, helper functions and everything else you'd normally expect to modify.</li>
 								<li><em>/includes/base-functions.php</em>: Everything useful that you probably don't need to modify on a project-by-project basis &mdash; clean up stuff and ux/seo functions.</li>
 							</ul>
-<div class="pre-title">Sample</div><pre rel="php"><code class="language-php">/**
- * Return the search results page even if the query is empty
- *
- * @link http://vinayp.com.np/how-to-show-blank-search-on-wordpress
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_make_blank_search( $query ) {
-	if ( ! is_admin() ) {
-		global $wp_query;
-		if ( isset( $_GET['s'] ) && '' == $_GET['s'] ) {  // if search parameter is blank, do not return false
-			$wp_query->set( 's', ' ' );
-			$wp_query->is_search = true;
-		}
-		return $query;
-	}
-}
-add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
-</code></pre>
 						</section>
-
 
 						<section>
 							<h3><strong>Template Structure</strong></h3>
 							<p>Post formats are rarely used in client websites, so we've commented out support for them by default.</p>
 							<p>We have two folders for organizing our files separate from the required theme files.</p>
 							<ul>
-								<li><em>/templates/</em>: Keep page templates organized here. We've included a sitemap page template to get started.</li>
-								<li><em>/template-parts/</em>: This is where we've put files that are used throughout the theme like pagination and error messaging.</li>
+								<li><em>/templates/</em>: Keep page templates organized here. We've included two templates &ndash; sitemap, and full width page templates to get started.</li>
+								<li><em>/template-parts/</em>: This is where we've put files that are reused throughout the theme like pagination and error messaging.</li>
 							</ul>
-							<p>Reference: <a href="https://codex.wordpress.org/Template_Hierarchy" id="template-hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
+							<p>Reference: <a href="https://developer.wordpress.org/themes/basics/template-hierarchy/" id="template-hierarchy" target="_blank">WordPress Template Hierarchy</a></p>
 						</section>
 
 						<section>
@@ -109,10 +89,9 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 								<li><em>style.scss</em>: Setup file that builds style.css.</li>
 								<li><em>login.scss</em>: Customize the admin login screen.</li>
 								<li><em>editor-styles.scss</em>: Set specific styles for the wysiwyg editor.</li>
-								<li><em>ie.scss</em>: Set overrides for Internet Explorer.</li>
 								<li><em>/elements/</em>
 									<ul>
-										<li><em>_bootstrap-grid.scss</em>: Responsive <a href="http://getbootstrap.com/css/#grid" target="_blank" title="Twitter Bootstrap">Bootstrap Grid</a> - This should remain untouched in most instances.</li>
+										<li><em>_bootstrap-grid.scss</em>: Responsive <a href="https://getbootstrap.com/docs/4.1/layout/grid/" target="_blank" title="Twitter Bootstrap">Bootstrap Grid</a> - This should remain untouched in most instances.</li>
 										<li><em>_comments.scss</em>: Comment form and comments list</li>
 										<li><em>_forms.scss</em>: Simple form elements &ndash; compatible with our Gravity Forms styles.</li>
 										<li><em>_links.scss</em>: Text or button links</li>
@@ -127,17 +106,20 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 								</li>
 								<li><em>/libs/</em>
 									<ul>
-										<li><em>_magnific-popup.scss</em>: <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank" title="Magnific Popup">Magnific Popup</a> modal windows.</li>
+										<li><em>/fontawesome/</em>: Easily integrate the font into the theme using variables and mixins or create a custom build based on the different styles needed. See the <a href="https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css" target="_blank" title="Font Awesome On the Web">documentation</a> for more details.</li>
+										<li><em>_magnific-popup.scss</em>: <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank" title="Magnific Popup">Magnific Popup</a> modal windows</li>
 										<li><em>_normalize.scss</em>: <a href="http://necolas.github.io/normalize.css/" target="_blank" title="">Normalize</a> CSS across all browsers.</li>
+										<li><em>_retinajs.scss</em>: Includes a mixin for adding retina images provided by </li>
 										<li><em>_selectWoo.scss</em>: Better form dropdowns with <a href="https://github.com/woocommerce/selectWoo" target="_blank" title="SelectWoo">SelectWoo</a>.</li>
 									</ul>
 								</li>
 								<li><em>/media-queries/</em>
 									<ul>
-										<li><em>_xs.scss</em>: Contains the majority of the styles. The theme is developed "mobile first".</li>
-										<li><em>_sm.scss</em>: Small devices (tablets).</li>
-										<li><em>_md.scss</em>: Medium devices (desktops).</li>
-										<li><em>_lg.scss</em>: Large devices (desktops).</li>
+										<li><em>_xs.scss</em>: Contains the base styles. The theme is developed "mobile first".</li>
+										<li><em>_sm.scss</em>: Small mobile devices</li>
+										<li><em>_md.scss</em>: Tablet devices</li>
+										<li><em>_lg.scss</em>: Desktop size</li>
+										<li><em>_xl.scss</em>: Large desktop size</li>
 										<li><em>_custom.scss</em>: Define custom media queries outside of the grid breakpoints.</li>
 										<li><em>_print.scss</em>: Strips out all unnecessary elements for optimal printing.</li>
 										<li><em>_retina.scss</em>: Specific to retina devices.</li>
@@ -154,7 +136,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 											<ul>
 												<li><em>_base.scss</em>: General styles and common form fields.</li>
 												<li><em>_other_fields.scss</em>: Less common form fields such as date picker and multi-file upload.</li>
-												<li><em>_ready_classes.scss</em>: Built-in "<a href="https://www.gravityhelp.com/documentation/article/css-ready-classes/" target="_blank" title="Gravity Forms Ready Classes">ready classes</a>" included in Gravity Forms out-of-the-box.</li>
+												<li><em>_ready_classes.scss</em>: Built-in "<a href="https://docs.gravityforms.com/css-ready-classes/" target="_blank" title="Gravity Forms Ready Classes">ready classes</a>" included in Gravity Forms out-of-the-box.</li>
 												<li><em>_credit_cards.scss</em>: Compatible with payment add-ons.</li>
 												<li><em>_submission_and_errors.scss</em>: Validation handling.</li>
 											</ul>
@@ -163,8 +145,11 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 								</li>
 								<li><em>/utilities/</em>
 									<ul>
+										<li><em>_all-utilities.scss</em>: Includes all the files below.</li>
 										<li><em>_variables.scss</em>: Define colors, fonts, sizes, grid settings and other variables.</li>
-										<li><em>_mixins.scss</em>: Helpful set of mixins like <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" title="Visual Guide to CSS3 Flexbox Properties">Flexbox</a> and utility classes for rapid development.</li>
+										<li><em>_functions.scss</em>: Bootstrap functions for the grid</li>
+										<li><em>_mixins.scss</em>: Helpful set of reusable declarations such as browser prefixes for <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" title="Visual Guide to CSS3 Flexbox Properties">Flexbox</a>.</li>
+										<li><em>_classes.scss</em>: Helpful set of classes for rapid development.</li>
 										<li><em>_accessibility.scss</em>: Support for screen readers and other things along those lines.</li>
 									</ul>
 								</li>
@@ -179,9 +164,9 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 
 							<p>If you haven't used these tools before, the best way to get started is to visit <a href="http://compass-style.org/install/" target="_blank">http://compass-style.org/install/</a> to setup your compiler, or use an app to handle it for you:</p>
 							<ul>
-								<li><a href="https://incident57.com/codekit/" title="CodeKit" target="_blank">CodeKit</a></li>
+								<li><a href="https://codekitapp.com/" title="CodeKit" target="_blank">CodeKit</a></li>
 								<li><a href="http://compass.kkbox.com/" title="Compass.app" target="_blank">Compass.app</a></li>
-								<li><a href="http://mhs.github.io/scout-app/" title="Scout" target="_blank">Scout</a></li>
+								<li><a href="https://mhs.github.io/scout-app/" title="Scout" target="_blank">Scout</a></li>
 							</ul>
 						</section>
 
@@ -222,7 +207,7 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 			<div class="container">
 				<div class="row">
 					<div class="col-6 col-md-7">
-						Scaffolding v2.0
+						Scaffolding v3.0
 					</div>
 					<div class="col-6 col-md-3 menu">
 						<a href="https://github.com/hallme/scaffolding/issues" target="_blank" title="Create a Scaffolding GitHub Issue">Contact Us</a> | <a href="https://www.hallme.com/" target="_blank" title="About Hall Internet Marketing">About Us</a>
