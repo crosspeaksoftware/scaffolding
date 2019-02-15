@@ -34,7 +34,7 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20180814' );
+define( 'SCAFFOLDING_THEME_VERSION', '20190215' );
 // Set to true to use jsdeliver.com CDN for libraries.
 define( 'SCAFFOLDING_USE_JSDELIVR_CDN', false );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
@@ -74,24 +74,27 @@ function scaffolding_scripts_and_styles() {
 	// Main stylesheet.
 	scaffolding_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), SCAFFOLDING_THEME_VERSION );
 
-	// Font Awesome (icon set) - https://fontawesome.com/
+	// Font Awesome (icon set) - https://fontawesome.com/.
 	scaffolding_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.13' );
 
-	// Modernizr - http://modernizr.com/
-	// update this to include only what you need to test
+	// Modernizr - http://modernizr.com/.
+	// update this to include only what you need to test.
 	scaffolding_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
 
 	/**
 	 * Add to wp_footer()
 	 */
 
-	// Retina.js - http://imulus.github.io/retinajs/
+	// Retina.js - http://imulus.github.io/retinajs/.
 	scaffolding_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
 
-	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/ .
+	// Doubletaptogo (dropdown nav tapping for touch devices) - https://github.com/dachcom-digital/jquery-doubletaptogo.
+	scaffolding_enqueue_script( 'scaffolding-doubletaptogo-js', get_stylesheet_directory_uri() . '/libs/js/jquery.dcd.doubletaptogo.min.js', array( 'jquery' ), '3.0.2', true );
+
+	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/.
 	scaffolding_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
 
-	// SelectWoo - https://github.com/woocommerce/selectWoo
+	// SelectWoo - https://github.com/woocommerce/selectWoo.
 	scaffolding_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.2', true );
 
 	// Comment reply script for threaded comments.
@@ -161,6 +164,9 @@ function scaffolding_enqueue_script( $handle, $src = '', $deps = array(), $ver =
 			case 'scaffolding-retinajs':
 				$src = 'https://cdn.jsdelivr.net/npm/retinajs@' . $ver . '/dist/retina.min.js';
 				break;
+			case 'scaffolding-doubletaptogo-js':
+				$src = 'https://cdn.jsdelivr.net/npm/jquery-doubletaptogo@' . $ver . '/dist/jquery.dcd.doubletaptogo.min.js';
+				break;
 			case 'scaffolding-magnific-popup-js':
 				$src = 'https://cdn.jsdelivr.net/npm/magnific-popup@' . $ver . '/dist/jquery.magnific-popup.min.js';
 				break;
@@ -195,7 +201,7 @@ function scaffolding_theme_support() {
 	// Support for RSS.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Support for custom headers
+	// Support for custom headers.
 	add_theme_support(
 		'custom-header', array(
 			'default-image'          => '%s/images/headers/default.jpg',
@@ -228,7 +234,7 @@ function scaffolding_theme_support() {
 	add_theme_support( 'title-tag' );
 
 	/*
-	  Feature Currently Disabled
+	// Feature Currently Disabled
 	// WP custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background', array(
 		'default-color'           => '',      // background color default (dont add the #)
@@ -240,7 +246,7 @@ function scaffolding_theme_support() {
 	*/
 
 	/*
-	 Feature Currently Disabled
+	// Feature Currently Disabled
 	// Support for post formats
 	add_theme_support( 'post-formats', array(
 			'aside',			// title less blurb
