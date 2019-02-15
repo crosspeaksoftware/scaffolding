@@ -16,11 +16,11 @@
 
 			<div id="inner-footer" class="container">
 
-				<nav role="navigation" aria-label="<?php _e( 'Footer Navigation', 'scaffolding' ); ?>">
+				<nav role="navigation" aria-label="<?php esc_attr_e( 'Footer Navigation', 'scaffolding' ); ?>">
 					<?php scaffolding_footer_nav(); ?>
 				</nav>
 
-				<p class="source-org copyright"><?php echo sprintf( __( '&copy; %1$s %2$s.', 'scaffolding' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?></p>
+				<p class="source-org copyright"><?php printf( esc_html__( '&copy; %1$s %2$s.', 'scaffolding' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?></p>
 
 			</div>
 

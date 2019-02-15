@@ -7,21 +7,21 @@
  * @package Scaffolding
  */
 
-get_header(); 
+get_header();
 
 global $sc_layout_class;
 ?>
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo $sc_layout_class['row']; ?>">
+	<div class="row <?php echo esc_attr( $sc_layout_class['row'] ); ?>">
 
-		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
+		<div id="main" class="<?php echo esc_attr( $sc_layout_class['main'] ); ?> clearfix" role="main">
 
-			<?php 
+			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) :
-					the_post(); 
+					the_post();
 					?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
@@ -30,23 +30,23 @@ global $sc_layout_class;
 
 							<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
-							<p class="entry-meta vcard"><?php printf(__('Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding'), get_the_time('Y-m-d'), get_the_time(get_option('date_format')), scaffolding_get_the_author_posts_link(), get_the_category_list(', ')); ?></p>
+							<p class="entry-meta vcard"><?php printf( wp_kses_post( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
 
 						</header>
 
 						<section class="entry-content clearfix" itemprop="articleBody">
 
-							<?php 
+							<?php
 							the_content();
 
-							wp_link_pages( 
+							wp_link_pages(
 								array(
 									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
 									'after'       => '</div>',
 									'link_before' => '<span>',
 									'link_after'  => '</span>',
-								) 
-							); 
+								)
+							);
 							?>
 
 						</section>
@@ -55,38 +55,38 @@ global $sc_layout_class;
 
 							<footer class="entry-footer clearfix">
 
-								<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+								<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
 
 							</footer>
 
 						<?php endif; ?>
 
 						<?php
-							// If comments are open or we have at least one comment, load up the comment template.
-							if ( comments_open() || '0' != get_comments_number() ) :
-								comments_template();
-							endif;
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || '0' !== get_comments_number() ) :
+							comments_template();
+						endif;
 						?>
 
 					</article>
 
-				 	<?php
+					<?php
 				endwhile;
 
 			else :
 
 				get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-			endif; 
+			endif;
 			?>
-			
-		</div><?php // END #main ?>
-		
+
+		</div><?php // END #main. ?>
+
 		<?php get_sidebar(); ?>
-		
-	</div><?php // END .row ?>
-	
-</div><?php // END #inner-content ?>
+
+	</div><?php // END .row. ?>
+
+</div><?php // END #inner-content. ?>
 
 <?php
 get_footer();

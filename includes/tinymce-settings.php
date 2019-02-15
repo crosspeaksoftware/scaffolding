@@ -38,13 +38,15 @@ function scaffolding_tinymce_modify_mce_buttons_1( $buttons ) {
 		'wp_fullscreen',
 		'wp_adv',
 	);
+
 	/*
-	WordPress Default
+	// WordPress Default
 	return array(
 		'bold', 'italic', 'strikethrough', bullist', 'numlist', 'blockquote', 'hr',
 		'alignleft', 'aligncenter', 'alignright', 'link', 'unlink', 'wp_more',
 		'spellchecker', 'wp_fullscreen', 'wp_adv'
-	); */
+	);
+	*/
 }
 add_filter( 'mce_buttons', 'scaffolding_tinymce_modify_mce_buttons_1', 0 );
 
@@ -73,12 +75,14 @@ function scaffolding_tinymce_modify_mce_buttons_2( $buttons ) {
 		'redo',
 		'wp_help',
 	);
+
 	/*
 	WordPress Default
 	return array(
 		'formatselect', 'underline', 'alignfull', 'pastetext', 'pasteword', 'removeformat', 'charmap',
 		'outdent', 'indent', 'undo', 'redo', 'wp_help'
-	); */
+	);
+	*/
 }
 add_filter( 'mce_buttons_2', 'scaffolding_tinymce_modify_mce_buttons_2', 0 );
 
@@ -92,16 +96,12 @@ add_filter( 'mce_buttons_2', 'scaffolding_tinymce_modify_mce_buttons_2', 0 );
 function scaffolding_tinymce_modify_styleselect( $settings ) {
 
 	// Modify default styles.
+	// Remove H1: don't want duplicates on the page.
+	// Remove H6: so small.
 	$default_styles = array(
 		array(
 			'title' => 'Headings',
 			'items' => array(
-				/*
-				array(
-					'title'   => 'Heading 1',
-					'format'  => 'h1',
-				),
-				*/
 				array(
 					'title'  => 'Heading 2',
 					'format' => 'h2',
@@ -118,12 +118,6 @@ function scaffolding_tinymce_modify_styleselect( $settings ) {
 					'title'  => 'Heading 5',
 					'format' => 'h5',
 				),
-				/*
-				array(
-					'title'   => 'Heading 6',
-					'format'  => 'h6',
-				),
-				*/
 			),
 		),
 		array(
@@ -205,39 +199,41 @@ function scaffolding_tinymce_modify_styleselect( $settings ) {
 					'format' => 'alignright',
 					'icon'   => 'alignright',
 				),
-				/*
 				array(
 					'title'   => 'Justify',
 					'format'  => 'alignjustify',
 					'icon'    => 'alignjustify',
 				),
-				*/
 			),
 		),
 	);
 
 	// Add custom styles.
 	$new_styles = array(
-		/*
 		array(
-			'title'	=> __( 'Buttons', 'scaffolding' ), // This is the title of the dropdown
-			'items'	=> array(
+			'title' => __( 'Buttons', 'scaffolding' ), // This is the title of the dropdown.
+			'items' => array(
 				array(
-					'title'    => __( 'Orange Button', 'scaffolding' ),
+					'title'    => __( 'Primary', 'scaffolding' ),
 					'selector' => 'a',
-					'classes'  => 'orange-btn',
-					'exact'    => true
+					'classes'  => 'sc-btn sc-btn--primary sc-btn--sm sc-btn--narrow',
+					'exact'    => true,
 				),
 			),
+			array(
+				'title'    => __( 'Secondary', 'scaffolding' ),
+				'selector' => 'a',
+				'classes'  => 'sc-btn sc-btn--secondary sc-btn--sm sc-btn--narrow',
+				'exact'    => true,
+			),
 		),
-		*/
 	);
 
 	// Merge styles.
 	$new_settings = array_merge( $default_styles, $new_styles );
 
 	// Add styles in tinymce config as json data.
-	$settings['style_formats'] = json_encode( $new_settings );
+	$settings['style_formats'] = wp_json_encode( $new_settings );
 
 	// Update this to include the theme's color palette and remove the defaults.
 	$default_colors             = '

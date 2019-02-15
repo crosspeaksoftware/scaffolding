@@ -10,21 +10,21 @@
  * @package Scaffolding
  */
 
-get_header(); 
+get_header();
 
 global $sc_layout_class;
 ?>
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo $sc_layout_class['row']; ?>">
+	<div class="row <?php echo esc_attr( $sc_layout_class['row'] ); ?>">
 
-		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
+		<div id="main" class="<?php echo esc_attr( $sc_layout_class['main'] ); ?> clearfix" role="main">
 
-			<?php 
+			<?php
 			if ( have_posts() ) :
-				while ( have_posts() ) : 
-					the_post(); 
+				while ( have_posts() ) :
+					the_post();
 					?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
@@ -40,37 +40,37 @@ global $sc_layout_class;
 							<?php 
 							the_content();
 
-							wp_link_pages( 
+							wp_link_pages(
 								array(
 									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
 									'after'       => '</div>',
 									'link_before' => '<span>',
 									'link_after'  => '</span>',
-								) 
-							); 
+								)
+							);
 							?>
 
 						</section>
 
 					</article>
 
-					<?php 
+					<?php
 				endwhile;
 
 			else :
 
 				get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-			endif; 
+			endif;
 			?>
-			
-		</div><?php // END #main ?>
-		
+
+		</div><?php // END #main. ?>
+
 		<?php get_sidebar(); ?>
-		
-	</div><?php // END .row ?>
-	
-</div><?php // END #inner-content ?>
+
+	</div><?php // END .row. ?>
+
+</div><?php // END #inner-content. ?>
 
 <?php
 get_footer();

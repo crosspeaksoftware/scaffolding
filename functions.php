@@ -193,8 +193,9 @@ function scaffolding_enqueue_script( $handle, $src = '', $deps = array(), $ver =
  */
 function scaffolding_theme_support() {
 
-	// Make theme available for translation
+	// Make theme available for translation.
 	// load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
+
 	// Support for thumbnails.
 	add_theme_support( 'post-thumbnails' );
 
@@ -300,17 +301,17 @@ function scaffolding_theme_support() {
 function scaffolding_main_nav() {
 	wp_nav_menu(
 		array(
-			'container'       => '',                              // remove nav container
-			'container_class' => '',                              // class of container (should you choose to use it)
-			'menu'            => '',                              // nav name
-			'menu_class'      => 'menu main-menu',                // adding custom nav class
-			'theme_location'  => 'main-nav',                      // where it's located in the theme
-			'before'          => '',                              // before the menu
-			'after'           => '',                              // after the menu
-			'link_before'     => '',                              // before each link
-			'link_after'      => '',                              // after each link
-			'depth'           => 0,                               // limit the depth of the nav
-			'fallback_cb'     => '',                              // fallback function
+			'container'       => '',                                     // remove nav container.
+			'container_class' => '',                                     // class of container (should you choose to use it).
+			'menu'            => '',                                     // nav name.
+			'menu_class'      => 'menu main-menu',                       // adding custom nav class.
+			'theme_location'  => 'main-nav',                             // where it's located in the theme.
+			'before'          => '',                                     // before the menu.
+			'after'           => '',                                     // after the menu.
+			'link_before'     => '',                                     // before each link.
+			'link_after'      => '',                                     // after each link.
+			'depth'           => 0,                                      // limit the depth of the nav.
+			'fallback_cb'     => '',                                     // fallback function.
 			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'walker'          => new Scaffolding_Walker_Nav_Menu(),
 		)
@@ -348,11 +349,19 @@ function scaffolding_footer_nav() {
  * @since Scaffolding 1.0
  */
 class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
-	// add classes to ul sub-menus
-	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		// depth dependent classes
-		$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
-		$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0
+	/**
+	 * Starts the list before the elements are added.
+	 *
+	 * @see Walker::start_lvl()
+	 *
+	 * @param string   $output Used to append additional content (passed by reference).
+	 * @param int      $depth  Depth of menu item. Used for padding.
+	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+		// depth dependent classes.
+		$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent.
+		$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0.
 		$classes       = array(
 			'sub-menu',
 			( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
@@ -360,39 +369,50 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 		);
 		$class_names   = implode( ' ', $classes );
 
-		// build html
+		// build html.
 		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><button class="menu-back-button" type="button"><i class="fa fa-chevron-left"></i> Back</button></li>' . "\n";
 	}
 
-	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	/**
+	 * Starts the element output.
+	 *
+	 * @see Walker::start_el()
+	 *
+	 * @param string   $output Used to append additional content (passed by reference).
+	 * @param WP_Post  $item   Menu item data object.
+	 * @param int      $depth  Depth of menu item. Used for padding.
+	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 * @param int      $id     Current item ID.
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		global $wp_query;
 		$indent      = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$class_names = $value = '';
 
-		// set li classes
+		// set li classes.
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		if ( ! $args->has_children ) {
 			$classes[] = 'menu-item-no-children';
 		}
 
-		// combine the class array into a string
+		// combine the class array into a string.
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
-		// set li id
+		// set li id.
 		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
 		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
-		// set outer li and its attributes
+		// set outer li and its attributes.
 		$output .= $indent . '<li' . $id . $value . $class_names . '>';
 
-		// set link attributes
+		// set link attributes.
 		$attributes  = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : ' title="' . esc_attr( strip_tags( $item->title ) ) . '"';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 
-		// Add menu button links to items with children
+		// Add menu button links to items with children.
 		if ( $args->has_children ) {
 			$menu_pull_link = '<button class="menu-button" type="button"><i class="fa fa-chevron-right"></i></button>';
 		} else {
@@ -408,13 +428,33 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
-	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+	/**
+	 * Ends the element output, if needed.
+	 *
+	 * @see Walker::end_el()
+	 *
+	 * @param string   $output Used to append additional content (passed by reference).
+	 * @param WP_Post  $item   Page data object. Not used.
+	 * @param int      $depth  Depth of page. Not Used.
+	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 */
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</li>\n";
 	}
 
-	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+	/**
+	 * Add additional arguments to use for building the markup.
+	 *
+	 * @param WP_Post  $element           Menu item data object.
+	 * @param WP_Post  $children_elements Menu item data object (passed by reference).
+	 * @param int      $max_depth         Max depth of page. Not used.
+	 * @param int      $depth             Depth of page. Not used.
+	 * @param stdClass $args              An object of wp_nav_menu() arguments.
+	 * @param string   $output            Used to append additional content (passed by reference).
+	 */
+	public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 
-		// Set custom arg to tell if item has children
+		// Set custom arg to tell if item has children.
 		$id_field = $this->db_fields['id'];
 		if ( is_object( $args[0] ) ) {
 			$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
@@ -518,6 +558,7 @@ function scaffolding_register_sidebars() {
  * This function is dependent on Yoast SEO Plugin.
  *
  * @since Scaffolding 1.1
+ * @param WP_Query $query WP_Query instance.
  */
 function scaffolding_noindex_filter( $query ) {
 	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
@@ -551,6 +592,9 @@ add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
  * Comment Layout
  *
  * @since Scaffolding 1.0
+ * @param object $comment
+ * @param array  $args
+ * @param int    $depth
  */
 function scaffolding_comments( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
@@ -560,16 +604,16 @@ function scaffolding_comments( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<header class="comment-author vcard">
 				<?php
-				if ( 0 != $args['avatar_size'] ) {
+				if ( 0 !== $args['avatar_size'] ) {
 					echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() );
 				}
 				?>
 				<?php printf( __( '<cite class="fn">%s</cite>', 'scaffolding' ), get_comment_author_link() ); ?>
 				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a class="comment-date-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a> <?php edit_comment_link( __( '(Edit)', 'scaffolding' ), '<em>', '</em>' ); ?></time>
 			</header>
-			<?php if ( '0' == $comment->comment_approved ) : ?>
+			<?php if ( '0' === $comment->comment_approved ) : ?>
 				<div class="alert info">
-					<p><?php _e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
+					<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
 				</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
@@ -578,7 +622,8 @@ function scaffolding_comments( $comment, $args, $depth ) {
 			<?php
 			comment_reply_link(
 				array_merge(
-					$args, array(
+					$args,
+					array(
 						'depth'     => $depth,
 						'max_depth' => $args['max_depth'],
 					)
@@ -586,8 +631,8 @@ function scaffolding_comments( $comment, $args, $depth ) {
 			);
 			?>
 		</article>
-	<?php // </li> or </div> is added by WordPress automatically. ?>
 	<?php
+	// </li> or </div> is added by WordPress automatically.
 } // end scaffolding_comments()
 
 
@@ -639,11 +684,11 @@ function scaffolding_get_the_author_posts_link() {
  */
 function scaffolding_set_layout_classes( $type ) {
 
-	if ( '' == $type || ( 'content' != $type && 'sidebar' != $type ) ) {
+	if ( '' === $type || ( 'content' !== $type && 'sidebar' !== $type ) ) {
 		return;
 	}
 
-	if ( 'content' == $type ) {
+	if ( 'content' === $type ) {
 
 		$class = array(
 			'row'  => 'row-main no sidebars',
@@ -661,7 +706,7 @@ function scaffolding_set_layout_classes( $type ) {
 			$class['row']  = 'row-main has-right-sidebar';
 			$class['main'] = 'col-md-9 order-md-1';
 		}
-	} elseif ( 'sidebar' == $type ) {
+	} elseif ( 'sidebar' === $type ) {
 
 		$class = array(
 			'left'  => '',
@@ -738,18 +783,18 @@ add_action( 'template_redirect', 'scaffolding_content_width' );
 function scaffolding_disable_default_dashboard_widgets() {
 	global $wp_meta_boxes;
 	// wp..
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links.
 	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'] );
 	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
 	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );         // Quick Press
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );       // Recent Drafts
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now'] );   // BBPress
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget''] );          // Yoast SEO
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );          // Quick Press.
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );        // Recent Drafts.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now'] );   // BBPress.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget''] );          // Yoast SEO.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms.
 }
 add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
 
@@ -762,6 +807,7 @@ add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets
  * @global menu, submenu
  */
 /*
+// Not currently in use.
 function scaffolding_change_post_menu_label() {
 	global $menu;
 	global $submenu;
@@ -784,6 +830,7 @@ add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
  * @global wp_post_types
  */
 /*
+// Not currently in use.
 function scaffolding_change_post_object_label() {
 	global $wp_post_types;
 	$labels                        = &$wp_post_types['post']->labels;
@@ -806,4 +853,4 @@ add_action( 'init', 'scaffolding_change_post_object_label' );
  * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
  */
 
-// Add your custom functions here
+// Add your custom functions here.

@@ -67,7 +67,7 @@ add_action( 'after_setup_theme', 'scaffolding_build', 16 );
  */
 function scaffolding_head_cleanup() {
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );                 // category feeds
-	// remove_action( 'wp_head', 'feed_links', 2 );                       // post and comment feeds
+	// remove_action( 'wp_head', 'feed_links', 2 );                       // post and comment feeds.
 	remove_action( 'wp_head', 'rsd_link' );                               // EditURI link.
 	remove_action( 'wp_head', 'wlwmanifest_link' );                       // windows live writer.
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // links for adjacent posts.
@@ -322,7 +322,7 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
 /************************************
  * 6.0 - VISITOR/USER UX FUNCTIONS
  *    6.1 - Remove p tags from images
-*************************************/
+ *************************************/
 
 /**
  * Remove the p from around imgs

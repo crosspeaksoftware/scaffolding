@@ -5,7 +5,7 @@
  * @see http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Scaffolding
- */ 
+ */
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js<?php echo ( is_user_logged_in() ) ? ' has-admin-bar' : ''; ?>">
@@ -18,7 +18,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('sticky-footer'); ?>>
+<body <?php body_class( 'sticky-footer' ); ?>>
 
 	<div id="container">
 
@@ -27,26 +27,27 @@
 		<header id="masthead" class="header" role="banner">
 
 			<div id="inner-header" class="container">
-				
+
 				<div class="row align-items-center justify-content-between">
 
-					<?php // to use an image just replace the bloginfo('name') with <img> ?>
+					<?php // to use an image just replace the bloginfo('name') with <img>. ?>
 					<div id="logo" class="col-auto h1">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
 							<?php bloginfo( 'name' ); ?>
 						</a>
 					</div>
 
-					<?php 
-						/* if you'd like to use the site description you can un-comment this block
-						<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-						*/
+					<?php
+					/*
+					// If you'd like to use the site description you can un-comment this block.
+					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+					*/
 					?>
-					
+
 					<div id="mobile-menu-toggle" class="col-auto">
 						<button id="mobile-menu-button" type="button"><?php esc_html_e( 'Menu', 'scaffolding' ); ?></button>
 					</div>
-					
+
 				</div>
 
 			</div>
@@ -65,5 +66,5 @@
 		</div>
 
 		<div id="content">
-			
+
 			<?php do_action( 'scaffolding_after_content_begin' ); ?>
