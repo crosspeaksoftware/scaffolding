@@ -19,13 +19,12 @@
  *    3.2 - Add attributes to previous post link
  *    3.3 - Add title attribute to wp_list_pages
  *    3.4 - Allow for blank search
- * 4.0 - Page Navi
- * 5.0 - Custom Login
- *    5.1 - Add styles to login page
- *    5.2 - Change logo link
- *    5.3 - Change alt attribute on logo
- * 6.0 - Visitor UX Functions
- *    6.1 - Remove p tags from images
+ * 4.0 - Custom Login
+ *    4.1 - Add styles to login page
+ *    4.2 - Change logo link
+ *    4.3 - Change alt attribute on logo
+ * 5.0 - Visitor UX Functions
+ *    5.1 - Remove p tags from images
  */
 
 /************************************
@@ -66,7 +65,7 @@ add_action( 'after_setup_theme', 'scaffolding_build', 16 );
  * @since Scaffolding 1.0
  */
 function scaffolding_head_cleanup() {
-	// remove_action( 'wp_head', 'feed_links_extra', 3 );                 // category feeds
+	// remove_action( 'wp_head', 'feed_links_extra', 3 );                 // category feeds.
 	// remove_action( 'wp_head', 'feed_links', 2 );                       // post and comment feeds.
 	remove_action( 'wp_head', 'rsd_link' );                               // EditURI link.
 	remove_action( 'wp_head', 'wlwmanifest_link' );                       // windows live writer.
@@ -186,106 +185,10 @@ add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 
 
 /************************************
- 4.0 - PAGE NAVI
- ************************************/
-
-/**
- * Numeric Page Navi
- *
- * This is built into the theme by default. Call it using scaffolding_page_navi().
- *
- * @since Scaffolding 1.0
- *
- * @param string   $before Content to include before the nav.
- * @param string   $after Content to include after the nav.
- * @param WP_Query $query Current WordPress Query.
- */
-function scaffolding_page_navi( $before = '', $after = '', $query ) {
-	$request        = $query->request;
-	$posts_per_page = intval( get_query_var( 'posts_per_page' ) );
-	$paged          = intval( get_query_var( 'paged' ) );
-	$numposts       = $query->found_posts;
-	$max_page       = $query->max_num_pages;
-
-	if ( $numposts <= $posts_per_page || $max_page <= 1 ) {
-		return;
-	}
-
-	if ( empty( $paged ) || 0 == $paged ) {
-		$paged = 1;
-	}
-
-	$pages_to_show         = ( wp_is_mobile() ) ? 2 : 5;
-	$pages_to_show_minus_1 = $pages_to_show - 1;
-	$half_page_start       = floor( $pages_to_show_minus_1 / 2 );
-	$half_page_end         = ceil( $pages_to_show_minus_1 / 2 );
-	$start_page            = $paged - $half_page_start;
-
-	if ( $start_page <= 0 ) {
-		$start_page = 1;
-	}
-
-	$end_page = $paged + $half_page_end;
-
-	if ( ( $end_page - $start_page ) != $pages_to_show_minus_1 ) {
-		$end_page = $start_page + $pages_to_show_minus_1;
-	}
-
-	if ( $end_page > $max_page ) {
-		$start_page = $max_page - $pages_to_show_minus_1;
-		$end_page   = $max_page;
-	}
-
-	if ( $start_page <= 0 ) {
-		$start_page = 1;
-	}
-
-	echo $before . '<nav class="page-navigation clearfix"><ol class="scaffolding-page-navi clearfix">' . '';
-
-	if ( $start_page > 1 && $pages_to_show < $max_page ) {
-		$first_page_text = __( 'First', 'scaffolding' );
-		echo '<li class="sc-first-link"><a rel="prev" href="' . get_pagenum_link() . '" title="' . $first_page_text . '">' . $first_page_text . '</a></li>';
-	}
-
-	if ( $paged > 1 ) {
-		echo '<li class="sc-prev-link">';
-			previous_posts_link( '<i class="fa fa-angle-double-left"></i> Previous Page' );
-		echo '</li>';
-	}
-
-	for ( $i = $start_page; $i <= $end_page; $i++ ) {
-		if ( $i == $paged ) {
-			echo '<li class="sc-current"><span>' . $i . '</span></li>';
-		} elseif ( $i == ( $paged - 1 ) ) {
-			echo '<li><a rel="prev" href="' . get_pagenum_link( $i ) . '" title="View Page ' . $i . '">' . $i . '</a></li>';
-		} elseif ( $i == ( $paged + 1 ) ) {
-			echo '<li><a rel="next" href="' . get_pagenum_link( $i ) . '" title="View Page ' . $i . '">' . $i . '</a></li>';
-		} else {
-			echo '<li><a href="' . get_pagenum_link( $i ) . '" title="View Page ' . $i . '">' . $i . '</a></li>';
-		}
-	}
-
-	if ( $end_page < $max_page ) {
-		echo '<li class="sc-next-link">';
-			next_posts_link( 'Next Page <i class="fa fa-angle-double-right"></i>' );
-		echo '</li>';
-	}
-
-	if ( $end_page < $max_page ) {
-		$last_page_text = __( 'Last', 'scaffolding' );
-		echo '<li class="sc-last-link"><a rel="next" href="' . get_pagenum_link( $max_page ) . '" title="' . $last_page_text . '">' . $last_page_text . '</a></li>';
-	}
-
-	echo '</ol></nav>' . $after . '';
-
-} // end scaffolding_page_navi()
-
-
-/************************************
- * 5.0 - CUSTOM LOGIN
- *    5.1 - Add styles to login page
- *    5.2 - Change logo link
- *    5.3 - Change alt attribute on logo
+ * 4.0 - CUSTOM LOGIN
+ *    4.1 - Add styles to login page
+ *    4.2 - Change logo link
+ *    4.3 - Change alt attribute on logo
  *************************************/
 
 /**
@@ -320,8 +223,8 @@ add_filter( 'login_headertitle', 'scaffolding_login_title' );
 
 
 /************************************
- * 6.0 - VISITOR/USER UX FUNCTIONS
- *    6.1 - Remove p tags from images
+ * 5.0 - VISITOR/USER UX FUNCTIONS
+ *    5.1 - Remove p tags from images
  *************************************/
 
 /**

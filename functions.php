@@ -34,7 +34,7 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20190215' );
+define( 'SCAFFOLDING_THEME_VERSION', '20190226' );
 // Set to true to use jsdeliver.com CDN for libraries.
 define( 'SCAFFOLDING_USE_JSDELIVR_CDN', false );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );

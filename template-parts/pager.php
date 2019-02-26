@@ -5,22 +5,28 @@
  * @package Scaffolding
  */
 
-if ( function_exists( 'scaffolding_page_navi' ) ) :
-	global $wp_query;
-	scaffolding_page_navi( '', '', $wp_query );
-else :
-	?>
+global $wp_query;
 
-	<nav class="wp-prev-next">
-		<ul class="clearfix">
-			<li class="prev-link">
-				<?php next_posts_link( __( '&laquo; Older Entries', 'scaffolding' ) ); ?>
-			</li>
-			<li class="next-link">
-				<?php previous_posts_link( __( 'Newer Entries &raquo;', 'scaffolding' ) ); ?>
-			</li>
-		</ul>
-	</nav>
+if ( $wp_query->max_num_pages <= 1 ) {
+	return;
+}
+?>
 
+<nav class="scaffolding-page-navi">
 	<?php
-endif;
+	echo paginate_links( // phpcs:ignore
+		array(
+			'base'      => esc_url_raw( str_replace( 999999999, '%#%', get_pagenum_link( 999999999, false ) ) ),
+			'format'    => '',
+			'add_args'  => false,
+			'current'   => max( 1, get_query_var( 'paged' ) ),
+			'total'     => $wp_query->max_num_pages,
+			'prev_text' => '<i class="fa fa-angle-double-left"></i> Previous Page',
+			'next_text' => 'Next Page <i class="fa fa-angle-double-right"></i>',
+			'type'      => 'list',
+			'end_size'  => 1,
+			'mid_size'  => 2,
+		)
+	);
+	?>
+</nav>

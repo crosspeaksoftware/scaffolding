@@ -6,89 +6,63 @@ Stylesheet: Pagination Stylesheet
 
 ******************************************************************/
 
-.page-navigation,
-.wp-prev-next {}
-
 .scaffolding-page-navi {
-	list-style: none;
-	text-align: center;
-	margin: 2em -2px 1em;
-	@include flexbox(flex);
-	@include flex-wrap(wrap);
-	@include justify-content(center);
-
-	&:empty {
-		display: none;
-		margin: 0;
-	}
-
-	li {
-		display: inline-block;
-		margin: 2px;
-		min-width: 3em;
+	ul {
+		list-style: none;
+		text-align: center;
+		margin: 2em 0 0.5em;
+		@include flexbox(flex);
+		@include flex-wrap(wrap);
+		@include justify-content(center);
 
 		&:empty {
 			display: none;
 			margin: 0;
 		}
 
-		a,
-		span {
-			display: block;
-			padding: 0.675em;
-			border: 1px solid #DDD;
-			text-align: center;
-		}
+		li {
+			display: inline-block;
+			margin: 0;
 
-		a {
-			color: $color__body-text;
-			@include transition(all 0.25s ease-in-out);
-
-			&:hover,
-			&:focus {
-				color: $color__link;
-				text-decoration: none;
+			&:empty {
+				display: none;
+				margin: 0;
 			}
-		}
-	}
 
-	// current page link
-	li.sc-current {
-		span {
-			background-color: #EEE;
-		}
-	}
-
-	// previous and next page links
-	li.sc-prev-link,
-	li.sc-next-link {
-		display: none;
-		
-		a {
-			color: #FFF;
-			background-color: $color__primary;
-			border-color: $color__primary;
-
-			&:hover,
-			&:focus {
-				background-color: darken($color__primary, 10%);
-				border-color: darken($color__primary, 10%);
+			a,
+			span {
+				display: block;
+				margin-left: 0.25em;
+				margin-right: 0.25em;
+				margin-bottom: 0.5em;
+				text-align: center;
 			}
-		}
-	}
 
-	// first and last page links
-	li.sc-first-link,
-	li.sc-last-link {
-		a {
-			color: #FFF;
-			background-color: $color__secondary;
-			border-color: $color__secondary;
+			a,
+			span:not(.dots) {
+				border: 1px solid $color__primary;
+				min-width: 3em;
+				padding: 0.675em;
+			}
 
-			&:hover,
-			&:focus {
-				background-color: darken($color__secondary, 10%);
-				border-color: darken($color__secondary, 10%);
+			a {
+				color: $color__primary;
+				@include transition(all 0.25s ease-in-out);
+
+				&:hover,
+				&:focus {
+					color: $color__link;
+					text-decoration: none;
+				}
+			}
+
+			span.dots {
+				padding: 0.675em 0.35em;
+			}
+
+			span.current {
+				background-color: $color__primary;
+				color: #FFF;
 			}
 		}
 	}
@@ -96,8 +70,6 @@ Stylesheet: Pagination Stylesheet
 
 // fallback previous & next links
 .wp-prev-next {
-	ul {}
-
 	.prev-link {
 		float: left;
 	}
@@ -107,23 +79,46 @@ Stylesheet: Pagination Stylesheet
 	}
 }
 
+// 
+// MOBILE ONLY
 //
-// MEDIA QUERIES
+
+@include media-breakpoint-down('sm') {
+	
+	.scaffolding-page-navi {
+		a {
+			&.next,
+			&.prev {
+				display: none;
+			}
+		}
+	}
+	
+}
+
+// 
+// LARGE MOBILE
 //
 
 @include media-breakpoint-up('sm') {
 	
 	.scaffolding-page-navi {
-		li {
-			a,
-			span {
-				padding: 0.5em 1.25em;
-			}
-		}
+		ul {
+			li {
+				a,
+				span:not(.dots) {
+					padding: 0.5em 1.25em;
+				}
+				
+				span.dots {
+					padding: 0.5em;
+				}
 
-		li.sc-prev-link,
-		li.sc-next-link {
-			display: inline-block;
+				a.next,
+				a.prev {
+					display: block;
+				}
+			}
 		}
 	}
 	
