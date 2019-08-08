@@ -30,19 +30,15 @@
 
 				<div class="row align-items-center justify-content-between">
 
-					<?php // to use an image just replace the bloginfo('name') with <img>. ?>
-					<div id="logo" class="col-auto h1">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
-							<?php bloginfo( 'name' ); ?>
-						</a>
+					<div id="logo" class="col-auto">
+						<?php if ( has_custom_logo() ) : ?>
+							<?php the_custom_logo(); ?>
+						<?php else : ?>
+							<a class="logo-txt" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" itemprop="url">
+								<span class="h1"><?php bloginfo( 'name' ); ?></span>
+							</a>
+						<?php endif; ?>
 					</div>
-
-					<?php
-					/*
-					// If you'd like to use the site description you can un-comment this block.
-					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-					*/
-					?>
 
 					<div id="mobile-menu-toggle" class="col-auto">
 						<button id="mobile-menu-button" type="button"><?php esc_html_e( 'Menu', 'scaffolding' ); ?></button>

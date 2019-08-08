@@ -10,9 +10,13 @@ figure {
 	margin: 1em 0;
 }
 
-// 
+//
 // Images
 //
+
+img {
+	vertical-align: middle;
+}
 
 .size-auto,
 .size-full,
@@ -39,7 +43,7 @@ img.alignnone,
 
 // Add image alignment for larger screens only
 @include media-breakpoint-up('sm') {
-	
+
 	img.alignleft,
 	.alignleft {
 		float: left;
@@ -63,7 +67,7 @@ img.alignnone,
 		clear: both;
 		margin: 15px 0;
 	}
-	
+
 }
 
 // Image Caption
@@ -152,19 +156,19 @@ img.alignnone,
 
 // Change gallery to proper spacing on larger screens
 @include media-breakpoint-up('md') {
-	
+
 	.gallery-columns-4 {
 		.gallery-item {
 			width: 25%;
 		}
 	}
-	
+
 	.gallery-columns-5 {
 		.gallery-item {
 			width: 20%;
 		}
 	}
-	
+
 }
 
 //
@@ -181,7 +185,7 @@ svg {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	
+
 	svg {
 		position: absolute;
 		top: 0;
@@ -250,7 +254,7 @@ video {
 // Audio Playlist
 .wp-playlist {
 	overflow: hidden;
-	
+
 	.wp-playlist-caption {
 		display: block;
 

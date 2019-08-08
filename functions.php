@@ -202,19 +202,31 @@ function scaffolding_theme_support() {
 	// Support for RSS.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Support for custom logo.
+	// @see https://developer.wordpress.org/themes/functionality/custom-logo/.
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 100,   // Make sure to set this.
+			'width'       => 216,   // Make sure to set this.
+			'flex-width'  => false,
+			'flex-height' => false,
+		)
+	);
+
 	// Support for custom headers.
 	add_theme_support(
 		'custom-header', array(
 			'default-image'          => '%s/images/headers/default.jpg',
 			'random-default'         => false,
-			'width'                  => 1800,    // Make sure to set this
-			'height'                 => 350,     // Make sure to set this
+			'width'                  => 1800,    // Make sure to set this.
+			'height'                 => 350,     // Make sure to set this.
 			'flex-height'            => false,
 			'flex-width'             => false,
 			'default-text-color'     => 'ffffff',
 			'header-text'            => false,
 			'uploads'                => true,
-			'wp-head-callback'       => 'scaffolding_custom_headers_callback', // callback function
+			'wp-head-callback'       => 'scaffolding_custom_headers_callback', // callback function.
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
 		)
