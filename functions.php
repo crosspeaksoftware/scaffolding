@@ -115,7 +115,6 @@ function scaffolding_scripts_and_styles() {
  *
  * Calls wp_enqueue_style after making any needed modifications.
  *
- *
  * @param string           $handle Name of the stylesheet. Should be unique.
  * @param string           $src    Full URL of the stylesheet, or path of the stylesheet relative to the WordPress root directory.
  *                                 Default empty.
@@ -195,7 +194,7 @@ function scaffolding_enqueue_script( $handle, $src = '', $deps = array(), $ver =
 function scaffolding_theme_support() {
 
 	// Make theme available for translation.
-	// load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
 
 	// Support for thumbnails.
 	add_theme_support( 'post-thumbnails' );
@@ -336,7 +335,7 @@ function scaffolding_footer_nav() {
 			'after'           => '',
 			'link_before'     => '',
 			'link_after'      => '',
-			'depth'           => 0,
+			'depth'           => 1,                  // only display top level items.
 			'fallback_cb'     => '__return_false',
 		)
 	);
