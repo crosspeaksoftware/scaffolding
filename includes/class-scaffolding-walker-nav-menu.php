@@ -52,7 +52,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		global $wp_query;
-		$indent      = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
 		// set li classes.
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -72,7 +72,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$output .= $indent . '<li' . $id . $class_names . '>';
 
 		// set link attributes.
-		$attributes  = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : ' title="' . esc_attr( strip_tags( $item->title ) ) . '"';
+		$attributes  = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : ' title="' . esc_attr( wp_strip_all_tags( $item->title ) ) . '"';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';

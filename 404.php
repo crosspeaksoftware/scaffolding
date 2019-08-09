@@ -30,7 +30,24 @@ global $sc_layout_class;
 
 					<ul>
 						<li><?php esc_html_e( 'Check the URL in the address bar above;', 'scaffolding' ); ?></li>
-						<li><?php printf( esc_html__( 'Look for the page in the main navigation above or on the %s page;', 'scaffolding' ), '<a href="/site-map/" title="Site Map Page">Site Map</a>' ); ?></li>
+						<li>
+							<?php
+							printf(
+								wp_kses(
+									/* translators: 1: Site Map URL, 2: Site Map name */
+									__( 'Look for the page in the main navigation above or on the <a href="%1$s">%2$s</a> page;', 'scaffolding' ),
+									array(
+										'a' => array(
+											'href'  => array(),
+											'class' => array(),
+										),
+									)
+								),
+								esc_url( home_url( '/site-map/' ) ),
+								esc_html( 'Site Map' )
+							);
+							?>
+						</li>
 						<li><?php esc_html_e( 'Or try using the Search below.', 'scaffolding' ); ?></li>
 					</ul>
 

@@ -28,19 +28,19 @@ if ( post_password_required() ) {
 
 		<h3 class="h2 comments-title">
 			<?php
-			$_s_comment_count = get_comments_number();
-			if ( '1' === $_s_comment_count ) {
+			$sc_comment_count = get_comments_number();
+			if ( '1' === $sc_comment_count ) {
 				printf(
 					/* translators: 1: title. */
 					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'scaffolding' ),
-					'<span>' . get_the_title() . '</span>'
+					'<span>' . get_the_title() . '</span>' // phpcs:ignore
 				);
 			} else {
-				printf( // WPCS: XSS OK.
+				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $_s_comment_count, 'comments title', 'scaffolding' ) ),
-					number_format_i18n( $_s_comment_count ),
-					'<span>' . get_the_title() . '</span>'
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $sc_comment_count, 'comments title', 'scaffolding' ) ),
+					number_format_i18n( $sc_comment_count ), // phpcs:ignore
+					'<span>' . get_the_title() . '</span>' // phpcs:ignore
 				);
 			}
 			?>
@@ -104,6 +104,7 @@ if ( post_password_required() ) {
 				?>
 
 				<div class="alert help">
+					<?php /* translators: 1: login opening tag, 2: login closing tag */ ?>
 					<p><?php printf( esc_html__( 'You must be %1$slogged in%2$s to post a comment.', 'scaffolding' ), '<a href="<?php echo wp_login_url( get_permalink() ); ?>">', '</a>' ); ?></p>
 				</div>
 

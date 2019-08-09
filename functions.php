@@ -25,7 +25,8 @@
  * 9.0 - Utility Functions
  *    9.1 - Removes […] from read more
  *    9.2 - Modified author post link
- *    9.3 - Add layout classes
+ *    9.3 - Posted on meta
+ *    9.4 - Set layout classes
  * 10.0 - Admin Customization
  *    10.1 - Set content width
  *    10.2 - Set image attachment width
@@ -99,7 +100,7 @@ function scaffolding_scripts_and_styles() {
 	scaffolding_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.2', true );
 
 	// Comment reply script for threaded comments.
-	if ( is_singular() && comments_open() && ( 1 == get_option( 'thread_comments' ) ) ) {
+	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
 		scaffolding_enqueue_script( 'comment-reply' );
 	}
 
@@ -216,7 +217,8 @@ function scaffolding_theme_support() {
 
 	// Support for custom headers.
 	add_theme_support(
-		'custom-header', array(
+		'custom-header',
+		array(
 			'default-image'          => '%s/images/headers/default.jpg',
 			'random-default'         => false,
 			'width'                  => 1800,    // Make sure to set this.
@@ -234,7 +236,8 @@ function scaffolding_theme_support() {
 
 	// HTML5.
 	add_theme_support(
-		'html5', array(
+		'html5',
+		array(
 			'comment-list',
 			'comment-form',
 			'search-form',
@@ -246,7 +249,7 @@ function scaffolding_theme_support() {
 	// Title Tag.
 	add_theme_support( 'title-tag' );
 
-	/*
+	/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 	// Feature Currently Disabled
 	// WP custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background', array(
@@ -258,7 +261,7 @@ function scaffolding_theme_support() {
 	) );
 	*/
 
-	/*
+	/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 	// Feature Currently Disabled
 	// Support for post formats
 	add_theme_support( 'post-formats', array(
@@ -280,8 +283,8 @@ function scaffolding_theme_support() {
 	// Register WP3+ menus.
 	register_nav_menus(
 		array(
-			'main-nav'   => __( 'Main Menu', 'scaffolding' ),    // main nav in header.
-			'footer-nav' => __( 'Footer Menu', 'scaffolding' ),   // secondary nav in footer.
+			'main-nav'   => __( 'Main Menu', 'scaffolding' ),   // main nav in header.
+			'footer-nav' => __( 'Footer Menu', 'scaffolding' ), // secondary nav in footer.
 		)
 	);
 
@@ -481,33 +484,33 @@ add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
  * Comment Layout
  *
  * @since Scaffolding 1.0
- * @param object $comment
- * @param array  $args
- * @param int    $depth
+ * @param WP_Comment $comment Comment object.
+ * @param array      $args Array of arguments.
+ * @param int        $depth Comment depth/nesting.
  */
 function scaffolding_comments( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	$tag                = ( 'div' === $args['style'] ) ? 'div' : 'li';
+	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 	?>
-	<<?php echo $tag; ?> <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
+	<<?php echo $tag; // phpcs:ignore ?> <?php comment_class(); ?>>
+		<article id="comment-<?php comment_ID(); ?>" class="comment-body clearfix">
 			<header class="comment-author vcard">
 				<?php
 				if ( 0 !== $args['avatar_size'] ) {
 					echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() );
 				}
 				?>
-				<?php printf( __( '<cite class="fn">%s</cite>', 'scaffolding' ), get_comment_author_link() ); ?>
-				<time datetime="<?php echo comment_time( 'Y-m-d' ); ?>"><a class="comment-date-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php comment_time( __( 'F jS, Y', 'scaffolding' ) ); ?> </a> <?php edit_comment_link( __( '(Edit)', 'scaffolding' ), '<em>', '</em>' ); ?></time>
+				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
+				<time datetime="<?php echo esc_attr( comment_time( 'Y-m-d' ) ); ?>">
+					<a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php comment_time( 'F jS, Y' ); ?></a>
+					<?php edit_comment_link( __( '(Edit)', 'scaffolding' ), '<em>', '</em>' ); ?>
+				</time>
 			</header>
 			<?php if ( '0' === $comment->comment_approved ) : ?>
 				<div class="alert info">
 					<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
 				</div>
 			<?php endif; ?>
-			<section class="comment_content clearfix">
-				<?php comment_text(); ?>
-			</section>
+			<div class="comment-content clearfix"><?php comment_text(); ?></div>
 			<?php
 			comment_reply_link(
 				array_merge(
@@ -529,6 +532,8 @@ function scaffolding_comments( $comment, $args, $depth ) {
  * 9.0 - UTILITY FUNCTIONS
  *     9.1 - Removes […] from read more
  *     9.2 - Modified author post link
+ *     9.3 - Posted on meta
+ *     9.4 - Set layout classes
  ************************************/
 
 /**
@@ -539,8 +544,9 @@ function scaffolding_comments( $comment, $args, $depth ) {
  * @param  string $more Initial more text.
  * @return string new more text.
  */
-function scaffolding_excerpt_more( $more ) {
+function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	global $post;
+	/* translators: 1: post permalink, 2: post title */
 	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
 }
 
@@ -560,16 +566,91 @@ function scaffolding_get_the_author_posts_link() {
 	$link = sprintf(
 		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		esc_attr( sprintf( __( 'Posts by %s', 'scaffolding' ), get_the_author() ) ), // No further l10n needed, core will take care of this one.
+		/* translators: author name */
+		esc_attr( sprintf( __( 'Posts by %s', 'scaffolding' ), get_the_author() ) ),
 		get_the_author()
 	);
 	return $link;
 }
 
 /**
+ * Build post meta
+ */
+function scaffolding_post_meta() {
+	if ( 'post' !== get_post_type() ) {
+		return;
+	}
+
+	// Posted on.
+	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+	$time_string = sprintf(
+		$time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+
+	$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
+
+	$posted_on = '
+		<span class="posted-on">' .
+		/* translators: %s: post date */
+		sprintf( __( 'Posted %s', 'scaffolding' ), $output_time_string ) .
+		'</span>';
+
+	// Author.
+	$author = sprintf(
+		'<span class="post-author">%1$s %2$s</span>',
+		__( 'by', 'scaffolding' ),
+		scaffolding_get_the_author_posts_link()
+	);
+
+	// Categories.
+	$categories = sprintf(
+		'<span class="post-categories"><span class="amp">&amp;</span> %1$s %2$s</span>',
+		__( 'filed under', 'scaffolding' ),
+		get_the_category_list( __( ', ', 'scaffolding' ) )
+	);
+
+	// Comments.
+	$comments = '';
+
+	if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
+		$comments_number = get_comments_number_text( __( 'Leave a comment', 'scaffolding' ), __( '1 Comment', 'scaffolding' ), __( '% Comments', 'scaffolding' ) );
+
+		$comments = sprintf(
+			'<span class="post-comments">&mdash; <a href="%1$s">%2$s</a></span>',
+			esc_url( get_comments_link() ),
+			$comments_number
+		);
+	}
+
+	echo '<p class="entry-meta">' . wp_kses(
+		sprintf( '%1$s %2$s %3$s %4$s', $posted_on, $author, $categories, $comments ),
+		array(
+			'span' => array(
+				'class' => array(),
+			),
+			'a'    => array(
+				'href'  => array(),
+				'title' => array(),
+				'rel'   => array(),
+			),
+			'time' => array(
+				'datetime' => array(),
+				'class'    => array(),
+			),
+		)
+	) . '</p>';
+}
+
+/**
  * Set grid classes based on sidebars
  *
  * @since Scaffolding 3.0
+ * @param string $type Content area: content, sidebar.
  */
 function scaffolding_set_layout_classes( $type ) {
 
@@ -649,7 +730,7 @@ add_action( 'scaffolding_after_content_begin', 'scaffolding_layout_classes_globa
 
 // Set up the content width value based on the theme's design.
 if ( ! isset( $content_width ) ) {
-	$content_width = 1170;
+	$content_width = 1170; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 
 /**
@@ -659,7 +740,7 @@ if ( ! isset( $content_width ) ) {
  */
 function scaffolding_content_width() {
 	if ( is_attachment() && wp_attachment_is_image() ) {
-		$GLOBALS['content_width'] = 810;
+		$GLOBALS['content_width'] = 810; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	}
 }
 add_action( 'template_redirect', 'scaffolding_content_width' );
@@ -671,7 +752,7 @@ add_action( 'template_redirect', 'scaffolding_content_width' );
  */
 function scaffolding_disable_default_dashboard_widgets() {
 	global $wp_meta_boxes;
-	// wp..
+	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity.
 	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance.
 	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments.
@@ -695,7 +776,8 @@ add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets
  * @since Scaffolding 1.0
  * @global menu, submenu
  */
-/*
+
+/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 // Not currently in use.
 function scaffolding_change_post_menu_label() {
 	global $menu;
@@ -718,7 +800,8 @@ add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
  * @since Scaffolding 1.0
  * @global wp_post_types
  */
-/*
+
+/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 // Not currently in use.
 function scaffolding_change_post_object_label() {
 	global $wp_post_types;
