@@ -6,7 +6,7 @@ Stylesheet: Forms Stylesheet
 
 ******************************************************************/
 
-// 
+//
 // Placeholders
 //
 
@@ -36,7 +36,7 @@ Stylesheet: Forms Stylesheet
 }
 
 
-// 
+//
 // Labels
 //
 
@@ -46,7 +46,7 @@ label {
 	font-weight: bold;
 }
 
-// 
+//
 // Inputs
 //
 
@@ -57,7 +57,8 @@ input[type="url"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
-input[type="password"] {
+input[type="password"],
+input[type="search"] {
 	background: $input__bg-color;
 	border: 1px solid $input__border-color;
 	border-radius: 0;
@@ -81,7 +82,8 @@ input[type="url"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
-input[type="password"] {
+input[type="password"],
+input[type="search"] {
 	vertical-align: middle;
 	height: $input__height;
 	padding: 0 8px;
@@ -91,6 +93,10 @@ input[type="image"] {
 	border: none;
 	padding: 0;
 	width: auto;
+}
+
+input[type="search"] {
+	-webkit-appearance: none;
 }
 
 textarea {
@@ -156,32 +162,19 @@ button[type="submit"] {
 //
 
 // Search form
-.error-404 {
-	#searchform {
-		margin: 1em 0;
-		max-width: 481px;
-	}
-}
+.sc-searchform {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	max-width: 481px;
 
-#searchform {
-	height: $input__height;
-	overflow: hidden;
-	position: relative;
+	@include flexbox(flex);
+	@include flex-wrap(nowrap);
 
-	#s {
-		padding-right: 12%;
-		width: 100%;
-	}
-
-	#searchsubmit {
+	button {
 		font-size: 1em;
-		height: $input__height;
-		line-height: $input__height;
-		padding: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 12%;
+		padding: 0 0.5em;
+		margin-left: 0.5em;
+		min-width: 5em;
 	}
 }
 
