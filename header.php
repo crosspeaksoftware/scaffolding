@@ -20,6 +20,14 @@
 
 <body <?php body_class( 'sticky-footer' ); ?>>
 
+	<?php
+	if ( function_exists( 'wp_body_open' ) ) {
+		wp_body_open();
+	} else {
+		do_action( 'wp_body_open' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+	}
+	?>
+
 	<div id="container">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'scaffolding' ); ?></a>
