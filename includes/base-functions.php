@@ -18,7 +18,6 @@
  *    3.1 - Add attributes to next post link
  *    3.2 - Add attributes to previous post link
  *    3.3 - Add title attribute to wp_list_pages
- *    3.4 - Allow for blank search
  * 4.0 - Custom Login
  *    4.1 - Add styles to login page
  *    4.2 - Change logo link
@@ -117,7 +116,6 @@ function scaffolding_remove_recent_comments_style() {
  *    3.1 - Add attributes to next post link
  *    3.2 - Add attributes to previous post link
  *    3.3 - Add title attribute to wp_list_pages
- *    3.4 - Allow for blank search
  *************************************/
 
 /**
@@ -161,27 +159,6 @@ function scaffolding_wp_list_pages_filter( $output ) {
 	return $output;
 }
 add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
-
-/**
- * Return the search results page even if the query is empty
- *
- * @link http://vinayp.com.np/how-to-show-blank-search-on-wordpress
- *
- * @since Scaffolding 1.0
- *
- * @param WP_Query $query Current WordPress Query.
- */
-function scaffolding_make_blank_search( $query ) {
-	if ( ! is_admin() ) {
-		global $wp_query;
-		if ( isset( $_GET['s'] ) && '' == $_GET['s'] ) {  // if search parameter is blank, do not return false.
-			$wp_query->set( 's', ' ' );
-			$wp_query->is_search = true;
-		}
-		return $query;
-	}
-}
-add_action( 'pre_get_posts', 'scaffolding_make_blank_search' );
 
 
 /************************************
