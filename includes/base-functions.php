@@ -212,14 +212,14 @@ function scaffolding_login_url() {
 add_filter( 'login_headerurl', 'scaffolding_login_url' );
 
 /**
- * Change alt text on logo to show your site name
+ * Change the link text of the header logo to show your site name
  *
  * @since Scaffolding 1.0
  */
 function scaffolding_login_title() {
 	return get_option( 'blogname' );
 }
-add_filter( 'login_headertitle', 'scaffolding_login_title' );
+add_filter( 'login_headertext', 'scaffolding_login_title' );
 
 
 /************************************
