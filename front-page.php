@@ -37,7 +37,7 @@ global $sc_layout_class;
 
 						<section class="page-content clearfix">
 
-							<?php 
+							<?php
 							the_content();
 
 							wp_link_pages(

@@ -5,7 +5,8 @@
  * @package Scaffolding
  */
 
-get_header(); ?>
+get_header();
+?>
 
 <div id="inner-content">
 
@@ -48,7 +49,7 @@ get_header(); ?>
 
 							<?php
 							// If comments are open or we have at least one comment, load up the comment template.
-							if ( comments_open() || '0' != get_comments_number() ) :
+							if ( comments_open() || '0' !== get_comments_number() ) :
 								comments_template();
 							endif;
 							?>
@@ -64,7 +65,7 @@ get_header(); ?>
 
 				endif;
 				?>
-	
+
 			</div><?php // END .container. ?>
 
 		</div><?php // END #main. ?>
