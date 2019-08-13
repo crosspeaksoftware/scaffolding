@@ -161,12 +161,16 @@ button[type="submit"] {
 // Custom Forms
 //
 
+#main {
+	.sc-searchform {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		max-width: 481px;
+	}
+}
+
 // Search form
 .sc-searchform {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	max-width: 481px;
-
 	@include flexbox(flex);
 	@include flex-wrap(nowrap);
 
