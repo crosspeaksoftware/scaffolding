@@ -35,8 +35,6 @@
  * 11.0 - Custom/Additional Functions
  */
 
-// Set to true to use jsdeliver.com CDN for libraries.
-define( 'SCAFFOLDING_USE_JSDELIVR_CDN', false );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
 
 
@@ -74,111 +72,41 @@ function scaffolding_scripts_and_styles() {
 
 	// Main stylesheet.
 	$theme_css_version = filemtime( get_theme_file_path( '/css/style.css' ) );
-	scaffolding_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
+	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
 
 	// Font Awesome (icon set) - https://fontawesome.com/.
-	scaffolding_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.13' );
+	wp_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.13' );
 
 	// Modernizr - http://modernizr.com/.
 	// update this to include only what you need to test.
-	scaffolding_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
+	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
 
 	/**
 	 * Add to wp_footer()
 	 */
 
 	// Retina.js - http://imulus.github.io/retinajs/.
-	scaffolding_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
+	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
 
 	// Doubletaptogo (dropdown nav tapping for touch devices) - https://github.com/dachcom-digital/jquery-doubletaptogo.
-	scaffolding_enqueue_script( 'scaffolding-doubletaptogo-js', get_stylesheet_directory_uri() . '/libs/js/jquery.dcd.doubletaptogo.min.js', array( 'jquery' ), '3.0.2', true );
+	wp_enqueue_script( 'scaffolding-doubletaptogo-js', get_stylesheet_directory_uri() . '/libs/js/jquery.dcd.doubletaptogo.min.js', array( 'jquery' ), '3.0.2', true );
 
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/.
-	scaffolding_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
+	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
 
 	// SelectWoo - https://github.com/woocommerce/selectWoo.
-	scaffolding_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.2', true );
+	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.2', true );
 
 	// Comment reply script for threaded comments.
 	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
-		scaffolding_enqueue_script( 'comment-reply' );
+		wp_enqueue_script( 'comment-reply' );
 	}
 
 	// Add Scaffolding scripts file in the footer.
 	$theme_js_version = filemtime( get_theme_file_path( '/js/scripts.js' ) );
-	scaffolding_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
+	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
 
 } // end scaffolding_scripts_and_styles()
-
-/**
- * Enqueue a CSS stylesheet.
- *
- * Registers the style if source provided (does NOT overwrite) and enqueues.
- *
- * Calls wp_enqueue_style after making any needed modifications.
- *
- * @param string           $handle Name of the stylesheet. Should be unique.
- * @param string           $src    Full URL of the stylesheet, or path of the stylesheet relative to the WordPress root directory.
- *                                 Default empty.
- * @param array            $deps   Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
- * @param string|bool|null $ver    Optional. String specifying stylesheet version number, if it has one, which is added to the URL
- *                                 as a query string for cache busting purposes. If version is set to false, a version
- *                                 number is automatically added equal to current installed WordPress version.
- *                                 If set to null, no version is added.
- * @param string           $media  Optional. The media for which this stylesheet has been defined.
- *                                 Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
- *                                 '(orientation: portrait)' and '(max-width: 640px)'.
- * @return void
- */
-function scaffolding_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $media = 'all' ) {
-	if ( SCAFFOLDING_USE_JSDELIVR_CDN ) {
-		switch ( $handle ) {
-			case 'scaffolding-fontawesome':
-				$src = 'https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@' . $ver . '/web-fonts-with-css/css/fontawesome-all.min.css';
-				break;
-		}
-	}
-	wp_enqueue_style( $handle, $src, $deps, $ver, $media );
-}
-
-/**
- * Enqueue a script.
- *
- * Registers the script if $src provided (does NOT overwrite), and enqueues it.
- *
- * Calls wp_enqueue_script after making any needed modifications.
- *
- * @param string           $handle    Name of the script. Should be unique.
- * @param string           $src       Full URL of the script, or path of the script relative to the WordPress root directory.
- *                                    Default empty.
- * @param array            $deps      Optional. An array of registered script handles this script depends on. Default empty array.
- * @param string|bool|null $ver       Optional. String specifying script version number, if it has one, which is added to the URL
- *                                    as a query string for cache busting purposes. If version is set to false, a version
- *                                    number is automatically added equal to current installed WordPress version.
- *                                    If set to null, no version is added.
- * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
- *                                    Default 'false'.
- * @return void
- */
-function scaffolding_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $in_footer = false ) {
-	if ( SCAFFOLDING_USE_JSDELIVR_CDN ) {
-		switch ( $handle ) {
-			case 'scaffolding-retinajs':
-				$src = 'https://cdn.jsdelivr.net/npm/retinajs@' . $ver . '/dist/retina.min.js';
-				break;
-			case 'scaffolding-doubletaptogo-js':
-				$src = 'https://cdn.jsdelivr.net/npm/jquery-doubletaptogo@' . $ver . '/dist/jquery.dcd.doubletaptogo.min.js';
-				break;
-			case 'scaffolding-magnific-popup-js':
-				$src = 'https://cdn.jsdelivr.net/npm/magnific-popup@' . $ver . '/dist/jquery.magnific-popup.min.js';
-				break;
-			case 'scaffolding-selectwoo':
-				$src = 'https://cdn.jsdelivr.net/gh/woocommerce/selectWoo@' . $ver . '/dist/js/selectWoo.full.min.js';
-				break;
-		}
-	}
-	wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
-}
 
 
 /************************************
