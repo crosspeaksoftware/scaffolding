@@ -205,7 +205,7 @@ function scaffolding_theme_support() {
 	add_theme_support( 'automatic-feed-links' );
 
 	// Support for custom logo.
-	// @see https://developer.wordpress.org/themes/functionality/custom-logo/.
+	// @link https://developer.wordpress.org/themes/functionality/custom-logo/.
 	add_theme_support(
 		'custom-logo',
 		array(
@@ -288,6 +288,24 @@ function scaffolding_theme_support() {
 			'footer-nav' => __( 'Footer Menu', 'scaffolding' ), // secondary nav in footer.
 		)
 	);
+
+	/**
+	 * Gutenberg Support
+	 *
+	 * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/.
+	 */
+
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	// Add support for Block Styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for responsive embedded content.
+	add_theme_support( 'responsive-embeds' );
+
+	// Enable editor styles for use in Gutenberg and classic editors.
+	add_theme_support( 'editor-styles' );
 
 	// Add styles for use in visual editor.
 	add_editor_style( 'css/editor-styles.css' );
