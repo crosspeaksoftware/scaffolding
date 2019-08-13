@@ -150,9 +150,11 @@ jQuery(document).ready(function($) {
 		opens ul on first tap
 		accepts anchor and opens page on second tap
 		*/
-		responsive_viewport = $(window).width() + getScrollBarWidth();
-		if (responsive_viewport >= 768) {
-			$('#main-navigation .menu-item-has-children').doubleTapToGo();
+		if ($.fn.doubleTapToGo) {
+			responsive_viewport = $(window).width() + getScrollBarWidth();
+			if (responsive_viewport >= 768) {
+				$('#main-navigation').doubleTapToGo();
+			}
 		}
 	});
 
@@ -189,44 +191,6 @@ jQuery(document).ready(function($) {
 	});
 
 }); /* end of as page load scripts */
-
-/*
-By Osvaldas Valutis, www.osvaldas.info
-Available for use under the MIT License
-Fixes navigation bug on touch devices
-*/
-;(function( $, window, document, undefined ) {
-	$.fn.doubleTapToGo = function(params) {
-		if ( ! ( 'ontouchstart' in window ) &&
-			! navigator.msMaxTouchPoints &&
-			! navigator.userAgent.toLowerCase().match( /windows phone os 7/i ) ) return false;
-
-		this.each( function() {
-			var curItem = false;
-
-			$( this ).on( 'click', function(e) {
-				var item = $( this );
-				if ( item[ 0 ] != curItem[ 0 ] ) {
-					e.preventDefault();
-					curItem = item;
-				}
-			});
-
-			$( document ).on( 'click touchstart MSPointerDown', function(e) {
-				var resetItem = true,
-					parents	  = $( e.target ).parents();
-
-				for ( var i = 0; i < parents.length; i++ )
-					if ( parents[ i ] == curItem[ 0 ] )
-						resetItem = false;
-
-				if ( resetItem )
-					curItem = false;
-			});
-		});
-		return this;
-	};
-})( jQuery, window, document );
 
 /*! A fix for the iOS orientationchange zoom bug.
  Script by @scottjehl, rebound by @wilto.

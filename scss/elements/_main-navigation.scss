@@ -9,7 +9,7 @@ It currently slides out from the right.
 
 ******************************************************************/
 
-// 
+//
 // DEFAULTS
 // all breakpoints
 //
@@ -20,7 +20,7 @@ It currently slides out from the right.
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	li {
 		list-style: none;
 		margin: 0;
@@ -41,7 +41,7 @@ It currently slides out from the right.
 	cursor: pointer;
 }
 
-// 
+//
 // MOBILE ONLY
 //
 
@@ -97,7 +97,7 @@ It currently slides out from the right.
 			padding: 15px;
 			width: 100%;
 		}
-		
+
 		ul {
 			background-color: $color__primary;
 			position: absolute;
@@ -105,17 +105,17 @@ It currently slides out from the right.
 			bottom: 0;
 			z-index: 1000;
 		}
-		
+
 		ul.main-menu {
 			display: none;
 			right: -70%;
 			width: 70%;
 		}
-		
+
 		li {
 			display: block;
 			border-bottom: 1px solid darken($color__primary, 10%);
-			
+
 			a {
 				color: #FFF;
 				display: inline-block;
@@ -123,13 +123,13 @@ It currently slides out from the right.
 				padding: 15px;
 				text-decoration: none;
 				width: 75%;
-				
+
 				&:hover,
 				&:focus {
 					background-color: inherit;
 				}
 			}
-			
+
 			&.current-menu-item {}
 
 			&.current-menu-ancestor {}
@@ -149,14 +149,14 @@ It currently slides out from the right.
 			overflow: hidden;
 			width: 100%;
 			@include transition(right 0.25s ease-in-out);
-			
+
 			li {
 				a {
 					font-size: 1em;
 				}
 			}
 		}
-		
+
 		ul.sub-menu-open {
 			right: 0;
 		}
@@ -169,21 +169,21 @@ It currently slides out from the right.
 				content: "\f00d"; // times icon
 			}
 		}
-		
+
 		#container {
 			left: -70%;
 		}
 	}
-	
+
 	#container {
 		position: relative;
 		left: 0;
 		@include transition(left 0.25s ease-in-out);
 	}
-	
+
 }
 
-// 
+//
 // TABLET
 //
 
@@ -196,15 +196,15 @@ It currently slides out from the right.
 
 	#main-navigation {
 		display: block;
-		background-color: $color__tertiary-dark;
+		background-color: $color__black;
 		white-space: nowrap;
 		position: relative;
-		
+
 		button.menu-button,
 		button.menu-back-button {
 			display: none !important;
 		}
-		
+
 		ul.menu {
 			@include flexbox(flex);
 			@include flex-wrap(nowrap);
@@ -236,7 +236,7 @@ It currently slides out from the right.
 					font-size: 1em;
 					color: #FFF;
 					display: block;
-					border-left: 1px solid lighten($color__tertiary-dark, 15%);
+					border-left: 1px solid lighten($color__black, 15%);
 					padding-top: 0.5em;
 					padding-bottom: 0.5em;
 					padding-left: 12px;
@@ -254,15 +254,15 @@ It currently slides out from the right.
 				&:hover,
 				&:focus {
 					a {
-						background-color: lighten($color__tertiary-dark, 15%);
+						background-color: lighten($color__black, 15%);
 					}
 				}
-				
+
 				&:first-child {}
 
 				&:last-child {
 					> a {
-						border-right: 1px solid lighten($color__tertiary-dark, 15%);
+						border-right: 1px solid lighten($color__black, 15%);
 					}
 
 					// Children
@@ -279,17 +279,17 @@ It currently slides out from the right.
 						}
 					}
 				}
-				
+
 				&.menu-item-no-children {}
 
 				&.menu-item-has-children {}
 			}
-			
+
 		}
 
 		// Children
 		ul.sub-menu {
-			background-color: lighten($color__tertiary-dark, 15%);
+			background-color: lighten($color__black, 15%);
 			display: none;
 			min-width: 120%;
 			position: absolute;
@@ -320,7 +320,7 @@ It currently slides out from the right.
 						text-decoration: underline;
 					}
 				}
-				
+
 				&:hover,
 				&:focus {}
 
@@ -339,7 +339,7 @@ It currently slides out from the right.
 				}
 			}
 		}
-		
+
 		// Show the child ul
 		li:hover > ul {
 			display: table;
@@ -348,12 +348,12 @@ It currently slides out from the right.
 
 }
 
-// 
+//
 // DESKTOP
 //
 
 @include media-breakpoint-up('lg') {
-	
+
 	#main-navigation {
 		ul.menu {
 			li.menu-item {
@@ -366,7 +366,7 @@ It currently slides out from the right.
 				}
 			}
 		}
-		
+
 		// Children
 		ul.sub-menu {
 			li.menu-item {
@@ -378,15 +378,15 @@ It currently slides out from the right.
 			}
 		}
 	}
-	
+
 }
 
-// 
+//
 // LARGE DESKTOP
 //
 
 @include media-breakpoint-up('xl') {
-	
+
 	#main-navigation {}
-	
+
 }

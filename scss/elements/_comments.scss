@@ -8,10 +8,10 @@ Stylesheet: Comments Stylesheet
 
 .comment-respond {
 	@include clearfix;
-	
+
 	#reply-title {
 		font-weight: bold;
-		
+
 		small {
 			display: block;
 			font-weight: normal;
@@ -60,7 +60,7 @@ Stylesheet: Comments Stylesheet
 		textarea {
 			height: 150px;
 		}
-		
+
 		label {
 			width: 100%;
 		}
@@ -68,7 +68,7 @@ Stylesheet: Comments Stylesheet
 		.required {
 			color: $color__alert-red;
 		}
-		
+
 		// this is a wp error
 		.comment-form-comment {
 			label:after {
@@ -76,22 +76,22 @@ Stylesheet: Comments Stylesheet
 				color: $color__alert-red;
 			}
 		}
-		
+
 		.comment-form-cookies-consent {
 			position: relative;
 			min-height: 1.8em;
-			
+
 			input[type="checkbox"] {
 				position: absolute;
 				top: 0.3em;
 			}
-			
+
 			label {
 				display: inline-block;
 				padding-left: 23px;
 			}
 		}
-		
+
 		.form-submit {
 			margin-top: 2em;
 		}
@@ -193,7 +193,7 @@ Stylesheet: Comments Stylesheet
 		time {
 			display: block;
 			margin-left: 50px;
-			
+
 			a {
 				font-size: 0.9em;
 				font-weight: 300;
@@ -209,8 +209,7 @@ Stylesheet: Comments Stylesheet
 			}
 		}
 
-		.avatar,
-		.photo {
+		.avatar {
 			border: 1px solid #DDD;
 			left: 0;
 			margin: 0;
@@ -218,7 +217,7 @@ Stylesheet: Comments Stylesheet
 			top: 0;
 			border-radius: 50%;
 		}
-		
+
 		.comment-edit-link {
 			margin-left: 0.5em;
 			font-size: 0.875em;

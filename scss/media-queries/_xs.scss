@@ -42,7 +42,7 @@ body {
 	&.h1 {
 		margin: 0;
 	}
-	
+
 	a {
 		text-decoration: none;
 	}
@@ -70,13 +70,13 @@ body {
 	padding-bottom: 2em;
 
 	// headers
-	
+
 	.page-header {}
 
 	.article-header {}
 
 	// titles
-	
+
 	.page-title,
 	.single-title {
 		margin-top: 0;
@@ -85,7 +85,7 @@ body {
 	.search-title {}
 
 	// individual post classes
-	
+
 	.post-id {}
 
 	.post {}
@@ -103,9 +103,9 @@ body {
 	.tag-slug {}
 
 	// post meta
-	
+
 	.entry-meta {
-		color: $color__tertiary-med;
+		color: $color__tertiary;
 		font-style: italic;
 
 		time {}
@@ -113,14 +113,14 @@ body {
 
 	.tags {
 		.tags-title {
-			color: $color__tertiary-med;
+			color: $color__tertiary;
 		}
 	}
 
 	.categories {}
 
 	// entry content
-	
+
 	.page-content {}
 
 	.entry-content {}
@@ -128,7 +128,7 @@ body {
 	.archive-description {}
 
 	// footers
-	
+
 	.page-footer {}
 
 	.entry-footer {}
@@ -152,9 +152,9 @@ body {
 		.page-header {
 			margin-bottom: 1em;
 		}
-		
+
 		article {
-			border-bottom: 1px solid #DDD;
+			border-bottom: 1px solid $color__border;
 			padding-top: 1em;
 			padding-bottom: 1em;
 
@@ -217,18 +217,18 @@ body {
  ************************/
 
 #colophon {
-	background-color: $color__tertiary-dark;
+	background-color: $color__black;
 	clear: both;
-	color: $color__tertiary-med;
+	color: $color__tertiary;
 	font-size: 0.875em;
 
 	.copyright {
 		margin-bottom: 0;
 		text-align: center;
 	}
-	
+
 	a {
-		color: $color__tertiary-med;
+		color: $color__tertiary;
 	}
 }
 
@@ -248,8 +248,8 @@ ul.footer-menu {
 		padding: 0;
 
 		a {
-			border-left: 1px solid $color__tertiary-med;
-			color: $color__tertiary-med;
+			border-left: 1px solid $color__tertiary;
+			color: $color__tertiary;
 			display: block;
 			line-height: 1;
 			padding: 0 0.675em;
@@ -299,7 +299,7 @@ ul.footer-menu {
 			background-color: #000;
 		}
 	}
-	
+
 	.fas {
 		line-height: 1.675em;
 	}

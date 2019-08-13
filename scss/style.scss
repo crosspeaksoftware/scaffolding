@@ -23,7 +23,7 @@ Here you can easily toggle on/off modules and files.
 @import "libs/fontawesome/variables";
 @import "libs/fontawesome/mixins";
 
-// 
+//
 // STEP 3: Elements
 //
 
@@ -51,7 +51,7 @@ Here you can easily toggle on/off modules and files.
 
 @import "plugins/gravity-forms/base"; // gravity forms styles - uncheck box to NOT output default CSS
 
-// 
+//
 // STEP 6: Libraries
 //
 
@@ -69,23 +69,23 @@ Here you can easily toggle on/off modules and files.
 
 // SMALL MOBILE STYLES
 @media only screen and (min-width: map-get($grid-breakpoints, 'sm')) {
-	
+
 	@import "media-queries/sm";
-	
+
 }
 
 // TABLET
 @media only screen and (min-width: map-get($grid-breakpoints, 'md')) {
-	
+
 	@import "media-queries/md";
-	
+
 }
 
 // DESKTOP
 @media only screen and (min-width: map-get($grid-breakpoints, 'lg')) {
-	
+
 	@import "media-queries/lg";
-	
+
 }
 
 // LARGE DESKTOP
@@ -100,7 +100,7 @@ Here you can easily toggle on/off modules and files.
 // @import "media-queries/custom";
 
 // RETINA (2x RESOLUTION DEVICES)
-// This applies to the retina iPhone (4s) and iPad (2+) along with other displays with a 2x resolution. 
+// This applies to the retina iPhone (4s) and iPad (2+) along with other displays with a 2x resolution.
 // @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 //	only screen and (min--moz-device-pixel-ratio: 1.5),
 //	only screen and (min-device-pixel-ratio: 1.5) {
@@ -110,7 +110,7 @@ Here you can easily toggle on/off modules and files.
 // PRINT STYLESHEET
 // Remember to remove things that do not make sense for print (ie. nav, ads, and forms should).
 @media print {
-	
+
 	@import "media-queries/print";
-	
+
 }

@@ -9,19 +9,19 @@
  * @package Scaffolding
  */
 
-get_header(); 
+get_header();
 
 global $sc_layout_class;
 ?>
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo $sc_layout_class['row']; ?>">
+	<div class="row <?php echo esc_attr( $sc_layout_class['row'] ); ?>">
 
-		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
+		<div id="main" class="<?php echo esc_attr( $sc_layout_class['main'] ); ?> clearfix" role="main">
 
-			<?php 
-			if ( have_posts() ) : 
+			<?php
+			if ( have_posts() ) :
 				?>
 
 				<header class="page-header">
@@ -40,9 +40,9 @@ global $sc_layout_class;
 
 						<header class="entry-header clearfix">
 
-							<h3 class="entry-title h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+							<h3 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
-							<p class="entry-meta"><?php printf( __( 'Posted <time class="updated" datetime="%1$s">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&amp;</span> filed under %4$s.', 'scaffolding' ), get_the_time( 'Y-m-d' ), get_the_time( get_option( 'date_format' ) ), scaffolding_get_the_author_posts_link(), get_the_category_list( ', ' ) ); ?></p>
+							<?php echo scaffolding_post_meta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 						</header>
 
@@ -51,12 +51,12 @@ global $sc_layout_class;
 							<?php the_excerpt(); ?>
 
 						</div>
-						
+
 						<?php if ( get_the_tag_list() ) : ?>
 
 							<footer class="entry-footer clearfix">
 
-								<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+								<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
 
 							</footer>
 
@@ -64,7 +64,7 @@ global $sc_layout_class;
 
 					</article>
 
-					<?php 
+					<?php
 				endwhile;
 
 				get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination.
@@ -73,16 +73,16 @@ global $sc_layout_class;
 
 				get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-			endif; 
+			endif;
 			?>
-			
-		</div><?php // END #main ?>
-		
+
+		</div><?php // END #main. ?>
+
 		<?php get_sidebar(); ?>
-		
-	</div><?php // END .row ?>
-	
-</div><?php // END #inner-content ?>
+
+	</div><?php // END .row. ?>
+
+</div><?php // END #inner-content. ?>
 
 <?php
 get_footer();

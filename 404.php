@@ -12,9 +12,9 @@ global $sc_layout_class;
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo $sc_layout_class['row']; ?>">
+	<div class="row <?php echo esc_attr( $sc_layout_class['row'] ); ?>">
 
-		<div id="main" class="<?php echo $sc_layout_class['main']; ?> clearfix" role="main">
+		<div id="main" class="<?php echo esc_attr( $sc_layout_class['main'] ); ?> clearfix" role="main">
 
 			<section class="error-404 not-found clearfix">
 
@@ -30,7 +30,24 @@ global $sc_layout_class;
 
 					<ul>
 						<li><?php esc_html_e( 'Check the URL in the address bar above;', 'scaffolding' ); ?></li>
-						<li><?php printf( esc_html__( 'Look for the page in the main navigation above or on the %s page;', 'scaffolding' ), '<a href="/site-map/" title="Site Map Page">Site Map</a>' ); ?></li>
+						<li>
+							<?php
+							printf(
+								wp_kses(
+									/* translators: 1: Site Map URL, 2: Site Map name */
+									__( 'Look for the page in the main navigation above or on the <a href="%1$s">%2$s</a> page;', 'scaffolding' ),
+									array(
+										'a' => array(
+											'href'  => array(),
+											'class' => array(),
+										),
+									)
+								),
+								esc_url( home_url( '/site-map/' ) ),
+								esc_html( 'Site Map' )
+							);
+							?>
+						</li>
 						<li><?php esc_html_e( 'Or try using the Search below.', 'scaffolding' ); ?></li>
 					</ul>
 
@@ -39,14 +56,14 @@ global $sc_layout_class;
 				</div>
 
 			</section>
-			
-		</div><?php // END #main ?>
-		
+
+		</div><?php // END #main. ?>
+
 		<?php get_sidebar(); ?>
-		
-	</div><?php // END .row ?>
-	
-</div><?php // END #inner-content ?>
+
+	</div><?php // END .row. ?>
+
+</div><?php // END #inner-content. ?>
 
 <?php
 get_footer();

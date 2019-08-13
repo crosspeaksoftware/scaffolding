@@ -24,14 +24,14 @@ table {
 	th {
 		background-color: $table__bg-th-color;
 		border: 1px solid $table__border-color;
-		color: $color__body-text;
+		color: $color__black;
 		font-weight: bold;
 		text-align: center;
 	}
 
 	td {
 		border: solid 1px $table__border-color;
-		color: $color__body-text;
+		color: $color__black;
 		vertical-align: top;
 	}
 
@@ -53,12 +53,12 @@ table {
 //
 
 @include media-breakpoint-up('md') {
-	
+
 	table {
 		th,
 		td {
 			padding: 8px;
 		}
 	}
-	
+
 }

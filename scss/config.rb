@@ -16,6 +16,7 @@ relative_assets = true
 # environment = :development
 # output_style = :expanded
 # line_comments = true
+# sourcemap = true
 
 # 4. Settings for production
 environment = :production
