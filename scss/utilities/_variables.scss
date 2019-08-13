@@ -26,17 +26,24 @@ $size__font-default: 16px;
 //
 
 // Color Scheme
-$color__body-text: #111;
-$color__primary: #34495e;
-$color__secondary: #9b59b6;
-$color__tertiary-dark: #111;
-$color__tertiary-med: #999;
-$color__tertiary-light: #DDD;
+// define the color name and purpose (as needed)
+// @link https://flatuicolors.com/palette/defo
+$color__black: #111;
+$color__wet-asphalt: #34495e;
+$color__amethyst: #9b59b6;
+$color__peter-river: #3498db;
+$color__asbestos: #7f8c8d;
+$color__silver: #bdc3c7;
+$color__clouds: #ecf0f1;
 
-$color__link: #3498db;
-$color__link-hover: #2980b9;
-
-$color__placeholder-text: #999;
+$color__body-text: $color__black;
+$color__primary: $color__wet-asphalt;
+$color__secondary: $color__amethyst;
+$color__tertiary: $color__asbestos;
+$color__border: $color__asbestos;
+$color__link: $color__peter-river;
+$color__link-hover: darken($color__peter-river, 10%);
+$color__placeholder-text: $color__asbestos;
 
 $color__alert-yellow: #f1c40f;
 $color__alert-red: #c0392b;
@@ -60,9 +67,9 @@ $color__pinterest: #bd081c;
 //
 
 $input__height: 42px;
-$input__border-color: #DDD;
-$input__border-focus-color: #999;
-$input__bg-color: #F9F9F9;
+$input__border-color: $color__silver;
+$input__border-focus-color: $color__asbestos;
+$input__bg-color: $color__clouds;
 $input__bg-focus-color: #FFF;
 
 
@@ -70,10 +77,10 @@ $input__bg-focus-color: #FFF;
 // Tables
 //
 
-$table__border-color: #DDD;
-$table__bg-th-color: #EEE;
+$table__border-color: $color__silver;
+$table__bg-th-color: $color__clouds;
 $table__bg-even-color: #FFF;
-$table__bg-odd-color: #f1f4f7;
+$table__bg-odd-color: lighten($color__clouds, 5%);
 
 
 //

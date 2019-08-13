@@ -79,12 +79,12 @@ Stylesheet: Pagination Stylesheet
 	}
 }
 
-// 
+//
 // MOBILE ONLY
 //
 
 @include media-breakpoint-down('sm') {
-	
+
 	.scaffolding-page-navi {
 		a {
 			&.next,
@@ -93,15 +93,15 @@ Stylesheet: Pagination Stylesheet
 			}
 		}
 	}
-	
+
 }
 
-// 
+//
 // LARGE MOBILE
 //
 
 @include media-breakpoint-up('sm') {
-	
+
 	.scaffolding-page-navi {
 		ul {
 			li {
@@ -109,7 +109,7 @@ Stylesheet: Pagination Stylesheet
 				span:not(.dots) {
 					padding: 0.5em 1.25em;
 				}
-				
+
 				span.dots {
 					padding: 0.5em;
 				}
@@ -121,5 +121,5 @@ Stylesheet: Pagination Stylesheet
 			}
 		}
 	}
-	
+
 }
