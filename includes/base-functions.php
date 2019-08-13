@@ -174,7 +174,8 @@ add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
  * @since Scaffolding 1.0
  */
 function scaffolding_login_css() {
-	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/login.css', array(), SCAFFOLDING_THEME_VERSION, 'screen' );
+	$login_css_version = filemtime( get_theme_file_path( '/css/login.css' ) );
+	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/login.css', array(), $login_css_version, 'screen' );
 }
 add_action( 'login_enqueue_scripts', 'scaffolding_login_css' );
 

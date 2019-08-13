@@ -35,7 +35,6 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_THEME_VERSION', '20190226' );
 // Set to true to use jsdeliver.com CDN for libraries.
 define( 'SCAFFOLDING_USE_JSDELIVR_CDN', false );
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
@@ -74,7 +73,8 @@ function scaffolding_scripts_and_styles() {
 	 */
 
 	// Main stylesheet.
-	scaffolding_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), SCAFFOLDING_THEME_VERSION );
+	$theme_css_version = filemtime( get_theme_file_path( '/css/style.css' ) );
+	scaffolding_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
 
 	// Font Awesome (icon set) - https://fontawesome.com/.
 	scaffolding_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.13' );
@@ -105,7 +105,8 @@ function scaffolding_scripts_and_styles() {
 	}
 
 	// Add Scaffolding scripts file in the footer.
-	scaffolding_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), SCAFFOLDING_THEME_VERSION, true );
+	$theme_js_version = filemtime( get_theme_file_path( '/js/scripts.js' ) );
+	scaffolding_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
 
 } // end scaffolding_scripts_and_styles()
 
