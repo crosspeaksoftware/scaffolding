@@ -172,13 +172,21 @@ button[type="submit"] {
 // Search form
 .sc-searchform {
 	@include flexbox(flex);
-	@include flex-wrap(nowrap);
+	@include flex-wrap(wrap);
+
+	.sc-searchform-field {
+		@include flex(1 1 80%);
+		width: auto;
+		max-width: 100%;
+	}
 
 	button {
 		font-size: 1em;
 		padding: 0 0.5em;
-		margin-left: 0.5em;
-		min-width: 5em;
+		@include flex(1 1 auto);
+		width: auto;
+		max-width: 100%;
+		min-height: $input__height;
 	}
 }
 
