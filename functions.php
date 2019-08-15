@@ -77,7 +77,8 @@ function scaffolding_scripts_and_styles() {
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
 
 	// Font Awesome (icon set) - https://fontawesome.com/.
-	wp_enqueue_style( 'scaffolding-fontawesome', get_stylesheet_directory_uri() . '/css/libs/fontawesome/fontawesome-all.css', array(), '5.0.13' );
+	// this may be updated to include only specific icon sets: brands, solid, regular.
+	wp_enqueue_style( 'scaffolding-fontawesome-all', get_stylesheet_directory_uri() . '/css/libs/fontawesome/all.css', array(), '5.10.1' );
 
 	// Modernizr - http://modernizr.com/.
 	// update this to include only what you need to test.
