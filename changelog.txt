@@ -1,5 +1,24 @@
 # Changelog
 
+## Version 3.1
+
+* Update jquery-doubletaptogo library and enqueue it
+* Update and format code to be more inline with WP standards
+* Properly enqueue login stylesheet
+* Update pagination to use native WP function instead
+* Move Walker nav class into separate file
+* Add EditorConfig and PHP CodeSniffer Config
+* Add theme support for custom logo
+* Add post meta utility function
+* Add `wp_body_open` hook
+* Update deprecated filter `login_headertitle`
+* Search improvements
+* Update cache busting technique to grab the modified file date instead
+* Some variable color refactoring and guidelines
+* Basic Gutenberg support
+* Add support for CommonWP plugin
+* Update Font Awesome to version 5.10.1
+
 ## Version 3.0
 
 * General theme cleanup - add comments and fix spacing
