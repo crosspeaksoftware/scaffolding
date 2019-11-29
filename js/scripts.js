@@ -40,15 +40,15 @@ function getScrollBarWidth () {
 
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
-	
+
 	// getting viewport width
 	var responsive_viewport = $(window).width() + getScrollBarWidth();
-	
+
 	// Initialize Retinajs - https://github.com/strues/retinajs
 	if (jQuery.fn.retinajs) {
 		retinajs();
 	}
-	
+
 	// SelectWoo - https://github.com/woocommerce/selectWoo
 	if ($.fn.selectWoo) {
 		var setup_selectWoo = function() {
@@ -94,7 +94,7 @@ jQuery(document).ready(function($) {
 	}
 
 	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" );
+	var $allVideos = $("iframe[src*='youtube'], iframe[src*='vimeo'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" );
 
 	$allVideos.each(function() {
 		$(this)
