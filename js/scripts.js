@@ -93,27 +93,6 @@ jQuery(document).ready(function($) {
 		});
 	}
 
-	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	var $allVideos = $("iframe[src*='youtube'], iframe[src*='vimeo'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" );
-
-	$allVideos.each(function() {
-		$(this)
-		// jQuery .data does not work on object/embed elements
-		.attr('data-aspectRatio', this.height / this.width)
-		.css({ 'max-width': this.width + 'px', 'max-height': this.height + 'px' })
-		.removeAttr('height')
-		.removeAttr('width');
-	});
-	$(window).resize(function() {
-		$allVideos.each(function() {
-			var $el = $(this);
-			var newWidth = $el.closest("figure").width();
-			$el
-			.width(newWidth)
-			.height(newWidth * $el.attr('data-aspectRatio'));
-		});
-	}).resize();
-
 	/*
 	Responsive jQuery is a tricky thing.
 	There's a bunch of different ways to handle

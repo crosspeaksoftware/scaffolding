@@ -100,6 +100,10 @@ function scaffolding_scripts_and_styles() {
 	// SelectWoo - https://github.com/woocommerce/selectWoo.
 	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.2', true );
 
+	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php.
+	// Fallback for elements outside the Gutenberg blocks (ie. using the Classic Editor).
+	wp_enqueue_script( 'scaffolding-responsive-iframes', get_stylesheet_directory_uri() . '/js/responsive-iframes.js', array( 'jquery' ), '1.0.0', true );
+
 	// Comment reply script for threaded comments.
 	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
 		wp_enqueue_script( 'comment-reply' );
