@@ -59,6 +59,7 @@ input[type="tel"],
 input[type="number"],
 input[type="password"],
 input[type="search"] {
+	font-family: $font__sans;
 	background: $input__bg-color;
 	border: 1px solid $input__border-color;
 	border-radius: 0;
