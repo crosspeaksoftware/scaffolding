@@ -100,7 +100,7 @@ $grid-breakpoints: (
 ) !default;
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints);
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 
 // Grid containers
@@ -121,6 +121,26 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 $grid-columns:			12 !default;
 $grid-gutter-width:		30px !default;
+$grid-row-columns:      6 !default;
+
+// Spacing
+//
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+	(
+		0: 0,
+		1: ($spacer * .25),
+		2: ($spacer * .5),
+		3: $spacer,
+		4: ($spacer * 1.5),
+		5: ($spacer * 3)
+	),
+	$spacers
+);
 
 
 //

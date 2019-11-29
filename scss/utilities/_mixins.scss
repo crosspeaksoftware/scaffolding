@@ -61,7 +61,7 @@ remember less is more.
 	}
 }
 
-// 
+//
 // Alignment
 //
 
@@ -162,7 +162,7 @@ remember less is more.
 	}
 }
 
-// 
+//
 // Gradients
 //
 
@@ -173,7 +173,7 @@ remember less is more.
 	background-image: linear-gradient(to bottom, $from, $to);
 }
 
-// 
+//
 // Flexbox
 // Mixins provided by: https://github.com/mastastealth/sass-flex-mixin/blob/master/_flex.scss
 //
@@ -199,7 +199,7 @@ remember less is more.
 // Default: nowrap
 // USAGE: @include flex-wrap(nowrap)
 @mixin flex-wrap($value: nowrap) {
-	-ms-flex-wrap: $value; 
+	-ms-flex-wrap: $value;
 	flex-wrap: $value;
 }
 
@@ -240,7 +240,7 @@ remember less is more.
 		-webkit-box-pack: justify;
 		-ms-flex-pack: justify;
 	} @else if $value == space-around {
-		-ms-flex-pack: distribute;		
+		-ms-flex-pack: distribute;
 	} @else {
 		-webkit-box-pack: $value;
 		-ms-flex-pack: $value;

@@ -4,11 +4,13 @@ Author:
 
 Stylesheet: Bootstrap Grid Stylesheet
 
-Version: 4.1.0 
+Version: 4.4.0
 
 Resources:
-	* https://getbootstrap.com/docs/4.1/layout/grid/
-	* https://getbootstrap.com/docs/4.1/utilities/flex/
+	* https://getbootstrap.com/docs/4.4/layout/grid/
+	* https://getbootstrap.com/docs/4.4/utilities/flex/
+	* https://getbootstrap.com/docs/4.4/utilities/display/
+	* https://getbootstrap.com/docs/4.4/utilities/spacing/
 
 ******************************************************************/
 
@@ -33,9 +35,8 @@ html {
 	%grid-column {
 		position: relative;
 		width: 100%;
-		min-height: 1px; // Prevent columns from collapsing when empty
-		padding-right: ($gutter / 2);
-		padding-left: ($gutter / 2);
+		padding-right: $gutter / 2;
+		padding-left: $gutter / 2;
 	}
 
 	@each $breakpoint in map-keys($breakpoints) {
@@ -59,10 +60,15 @@ html {
 				@include flex-grow(1);
 				max-width: 100%;
 			}
+
+			@for $i from 1 through $grid-row-columns {
+				.row-cols#{$infix}-#{$i} {
+					@include row-cols($i);
+				}
+			}
+
 			.col#{$infix}-auto {
-				@include flex(0 0 auto);
-				width: auto;
-				max-width: none; // Reset earlier grid tiers
+				@include make-col-auto();
 			}
 
 			@for $i from 1 through $columns {
@@ -71,17 +77,17 @@ html {
 				}
 			}
 
-			.order#{$infix}-first { 
-				@include order(-1); 
+			.order#{$infix}-first {
+				@include order(-1);
 			}
 
-			.order#{$infix}-last { 
-				@include order($columns + 1); 
+			.order#{$infix}-last {
+				@include order($columns + 1);
 			}
 
 			@for $i from 0 through $columns {
-				.order#{$infix}-#{$i} { 
-					@include order($i); 
+				.order#{$infix}-#{$i} {
+					@include order($i);
 				}
 			}
 
@@ -101,10 +107,10 @@ html {
 //
 // Generate semantic grid columns with these mixins.
 
-@mixin make-container() {
+@mixin make-container($gutter: $grid-gutter-width) {
 	width: 100%;
-	padding-right: ($grid-gutter-width / 2);
-	padding-left: ($grid-gutter-width / 2);
+	padding-right: $gutter / 2;
+	padding-left: $gutter / 2;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -119,36 +125,52 @@ html {
 	}
 }
 
-@mixin make-row() {
+@mixin make-row($gutter: $grid-gutter-width) {
 	@include flexbox(flex);
 	@include flex-wrap(wrap);
-	margin-right: ($grid-gutter-width / -2);
-	margin-left: ($grid-gutter-width / -2);
+	margin-right: -$gutter / 2;
+	margin-left: -$gutter / 2;
 }
 
-@mixin make-col-ready() {
+@mixin make-col-ready($gutter: $grid-gutter-width) {
 	position: relative;
 	// Prevent columns from becoming too narrow when at smaller grid tiers by
 	// always setting `width: 100%;`. This works because we use `flex` values
 	// later on to override this initial width.
 	width: 100%;
-	min-height: 1px; // Prevent collapsing
-	padding-right: ($grid-gutter-width / 2);
-	padding-left: ($grid-gutter-width / 2);
+	padding-right: $gutter / 2;
+	padding-left: $gutter / 2;
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
 	@include flex(0 0 percentage($size / $columns));
-	//flex: 0 0 percentage($size / $columns);
 	// Add a `max-width` to ensure content within each column does not blow out
 	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
 	// do not appear to require this.
 	max-width: percentage($size / $columns);
 }
 
+@mixin make-col-auto() {
+	@include flex(0 0 auto);
+	width: auto;
+	max-width: 100%; // Reset earlier grid tiers
+}
+
 @mixin make-col-offset($size, $columns: $grid-columns) {
 	$num: $size / $columns;
 	margin-left: if($num == 0, 0, percentage($num));
+}
+
+// Row columns
+//
+// Specify on a parent element(e.g., .row) to force immediate children into NN
+// numberof columns. Supports wrapping to new lines, but does not do a Masonry
+// style grid.
+@mixin row-cols($count) {
+	& > * {
+		@include flex(0 0 100% / $count);
+		max-width: 100% / $count;
+	}
 }
 
 // Container widths
@@ -167,6 +189,27 @@ html {
 
 .container-fluid {
 	@include make-container();
+}
+
+// Responsive containers that are 100% wide until a breakpoint
+@each $breakpoint, $container-max-width in $container-max-widths {
+	.container-#{$breakpoint} {
+		@extend .container-fluid;
+	}
+
+	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		%responsive-container-#{$breakpoint} {
+			max-width: $container-max-width;
+		}
+
+		@each $name, $width in $grid-breakpoints {
+			@if ($container-max-width > $width or $breakpoint == $name) {
+				.container#{breakpoint-infix($name, $grid-breakpoints)} {
+					@extend %responsive-container-#{$breakpoint};
+				}
+			}
+		}
+	}
 }
 
 // Row
@@ -258,7 +301,6 @@ html {
 
 //
 // Utilities for common `display` values
-// https://stackoverflow.com/questions/35351353/missing-visible-and-hidden-in-bootstrap-v4
 //
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -291,4 +333,78 @@ html {
 	.d-print-table-cell   { display: table-cell !important; }
 	.d-print-flex         { @include flexbox(flex !important); }
 	.d-print-inline-flex  { @include flexbox(inline-flex !important); }
+}
+
+//
+// Margin and Padding
+//
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		@each $prop, $abbrev in (margin: m, padding: p) {
+			@each $size, $length in $spacers {
+				.#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+				.#{$abbrev}t#{$infix}-#{$size},
+				.#{$abbrev}y#{$infix}-#{$size} {
+					#{$prop}-top: $length !important;
+				}
+				.#{$abbrev}r#{$infix}-#{$size},
+				.#{$abbrev}x#{$infix}-#{$size} {
+					#{$prop}-right: $length !important;
+				}
+				.#{$abbrev}b#{$infix}-#{$size},
+				.#{$abbrev}y#{$infix}-#{$size} {
+					#{$prop}-bottom: $length !important;
+				}
+				.#{$abbrev}l#{$infix}-#{$size},
+				.#{$abbrev}x#{$infix}-#{$size} {
+					#{$prop}-left: $length !important;
+				}
+			}
+		}
+
+		// Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+		@each $size, $length in $spacers {
+			@if $size != 0 {
+				.m#{$infix}-n#{$size} { margin: -$length !important; }
+				.mt#{$infix}-n#{$size},
+				.my#{$infix}-n#{$size} {
+					margin-top: -$length !important;
+				}
+				.mr#{$infix}-n#{$size},
+				.mx#{$infix}-n#{$size} {
+					margin-right: -$length !important;
+				}
+				.mb#{$infix}-n#{$size},
+				.my#{$infix}-n#{$size} {
+					margin-bottom: -$length !important;
+				}
+				.ml#{$infix}-n#{$size},
+				.mx#{$infix}-n#{$size} {
+					margin-left: -$length !important;
+				}
+			}
+		}
+
+		// Some special margin utils
+		.m#{$infix}-auto { margin: auto !important; }
+		.mt#{$infix}-auto,
+		.my#{$infix}-auto {
+			margin-top: auto !important;
+		}
+		.mr#{$infix}-auto,
+		.mx#{$infix}-auto {
+			margin-right: auto !important;
+		}
+		.mb#{$infix}-auto,
+		.my#{$infix}-auto {
+			margin-bottom: auto !important;
+		}
+		.ml#{$infix}-auto,
+		.mx#{$infix}-auto {
+			margin-left: auto !important;
+		}
+	}
 }

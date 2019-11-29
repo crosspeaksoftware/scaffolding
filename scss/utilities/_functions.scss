@@ -31,11 +31,11 @@ Stylesheet: Utility Functions
 
 // Starts at zero
 // Another grid mixin that ensures the min-width of the lowest breakpoint starts at 0.
-@mixin _assert-starts-at-zero($map) {
+@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
 	$values: map-values($map);
 	$first-value: nth($values, 1);
 	@if $first-value != 0 {
-		@warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+		@warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
 	}
 }
 
@@ -57,7 +57,7 @@ Stylesheet: Utility Functions
 //    md
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
 	$n: index($breakpoint-names, $name);
-	@return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+	@return if($n != null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
 // Minimum breakpoint width. Null for the smallest (first) breakpoint.
