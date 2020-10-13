@@ -8,7 +8,6 @@
 
 		$allVideos.each(function() {
 			$(this)
-			.wrap('<figure></figure>')
 			// jQuery .data does not work on object/embed elements
 			.attr('data-aspectRatio', this.height / this.width)
 			.css({ 'max-width': this.width + 'px', 'max-height': this.height + 'px' })
