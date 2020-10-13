@@ -174,6 +174,7 @@ function scaffolding_theme_support() {
 	add_theme_support(
 		'html5',
 		array(
+			'navigation-widgets',
 			'comment-list',
 			'comment-form',
 			'search-form',
@@ -201,15 +202,15 @@ function scaffolding_theme_support() {
 	// Feature Currently Disabled
 	// Support for post formats
 	add_theme_support( 'post-formats', array(
-			'aside',			// title less blurb
-			'gallery',			// gallery of images
-			'link',			  	// quick link to other site
-			'image',			// an image
-			'quote',			// a quick quote
-			'status',			// a Facebook like status update
-			'video',			// video
-			'audio',			// audio
-			'chat',				// chat transcript
+			'aside',            // title less blurb
+			'gallery',          // gallery of images
+			'link',             // quick link to other site
+			'image',            // an image
+			'quote',            // a quick quote
+			'status',           // a Facebook like status update
+			'video',            // video
+			'audio',            // audio
+			'chat',             // chat transcript
 	) );
 	*/
 
