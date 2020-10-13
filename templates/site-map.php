@@ -119,10 +119,10 @@ function scaffolding_list_terms( $tax, $args = array() ) {
  */
 function scaffolding_list_posts( $post_type, $args = array() ) {
 
-	$pt                      = get_post_type_object( $post_type ); // Get post type object for name label.
-	$count_posts             = wp_count_posts( $post_type ); // Count number of posts in db.
-	$published_posts         = $count_posts->publish; // Count number of published posts, only show those.
-	$read_settings_num_posts = 20; // Number of posts to display per page.
+	$pt              = get_post_type_object( $post_type ); // Get post type object for name label.
+	$count_posts     = wp_count_posts( $post_type );       // Count number of posts in db.
+	$published_posts = $count_posts->publish;              // Count number of published posts, only show those.
+	$num_posts       = 20;                                 // Number of posts to display per page.
 
 	// Get archive url to add "View all" link.
 	if ( 'post' === $post_type ) {
@@ -228,7 +228,7 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 											'title_li'    => '',
 										);
 										$sc_excluded_page_ids = scaffolding_excluded_posts( 'page' );
-										if ( ! empty( $excluded_page_ids ) ) {
+										if ( ! empty( $sc_excluded_page_ids ) ) {
 											$sc_page_args['exclude'] = $sc_excluded_page_ids;
 										}
 										wp_list_pages( $sc_page_args );
@@ -243,7 +243,6 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 									<?php scaffolding_list_posts( 'post' ); ?>
 
 									<?php
-
 									/*
 									// Example with term list.
 									<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
