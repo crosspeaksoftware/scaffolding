@@ -1,5 +1,23 @@
 # Changelog
 
+## Version 3.2
+
+* Update Bootstrap Grid to version 4.4
+* Update Font Awesome to version 5.15.1
+* Update SelectWoo to version 1.0.8
+* Add missing RetinaJS resources
+* Move responsive iframe script into separate file and enqueue and update list of streaming services supported
+* Move navigation script into separate file and enqueue separately
+* Add Bootstrap spacing utility classes
+* Add font-family to form input styles
+* Add theme support for navigation widgets added in WP 5.5
+* Fix Font Awesome scss variable font path
+* Fix main navigation child list styles
+* Fix incorrect variables in sitemap page template
+* Fix duplicate figure wrap in responsive iframe script
+* Fix sticky footer styles
+* Fix date function in footer
+
 ## Version 3.1
 
 * Update jquery-doubletaptogo library and enqueue it
