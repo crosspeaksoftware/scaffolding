@@ -24,7 +24,7 @@
 
 				<?php endif; ?>
 
-				<p class="source-org copyright"><?php echo esc_html( '&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
+				<p class="source-org copyright"><?php echo esc_html( '&copy; ' . gmdate( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
 
 			</div>
 
