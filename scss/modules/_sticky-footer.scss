@@ -10,7 +10,6 @@ You must add sticky-footer to the body class in header.php.
 
 html,
 body.sticky-footer {
-	height: 100%;
 	margin: 0;
 }
 
@@ -18,19 +17,18 @@ body.sticky-footer {
 	min-height: 100%;
 	@include flexbox(flex);
 	@include flex-direction(column);
-	overflow-x: visible;
 
 	#container {
 		min-height: 100vh;
 		@include flexbox(flex);
 		@include flex-direction(column);
 	}
-	
+
 	.banner-wrap {
 		@include flex-shrink(0);
 	}
 
 	#content {
-		@include flex(1 0 auto);
+		@include flex-grow(1)
 	}
 }

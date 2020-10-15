@@ -7,7 +7,7 @@ Stylesheet: SelectWoo Stylesheet
 * Modified to remove gradients, drop shadows, and better integration with theme
 * Includes only the default theme
 
-Version: 2.1
+Version: 1.0.8
 
 https://github.com/woocommerce/selectWoo
 
@@ -31,13 +31,14 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	// Force border-box so that % widths fit the parent
 	// container without overlap because of margin/padding.
 	// More Info : http://www.quirksmode.org/css/box.html
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 .select2-container .select2-selection--single {
 	cursor: pointer;
 	display: block;
 	height: $input__height;
+	margin: 0 0 -4px;
 	user-select: none;
 	-webkit-user-select: none;
 }
@@ -78,12 +79,13 @@ Select2 gives you a customizable select box with support for searching, tagging,
 
 .select2-container .select2-search--inline {
 	float: left;
+	padding: 0;
 }
 
 .select2-container .select2-search--inline .select2-search__field {
 	border: none;
 	font-size: 100%;
-	margin-top: 5px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -124,7 +126,6 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	outline: 0;
 }
 
 .select2-results__option {
@@ -134,9 +135,9 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	-webkit-user-select: none;
 }
 
-.select2-results__option[data-selected] {
+.select2-results__option[data-selected],
+.select2-results__option[aria-selected] {
 	cursor: pointer;
-	outline: none;
 }
 
 .select2-container--open .select2-dropdown {
@@ -154,6 +155,22 @@ Select2 gives you a customizable select box with support for searching, tagging,
 .select2-search--dropdown {
 	display: block;
 	padding: 4px;
+	position: relative;
+
+	&:after {
+		font-family: "Font Awesome 5 Free";
+		font-style: normal;
+		font-weight: 900;
+		content: "\f002";
+		position: absolute;
+		line-height: 32px;
+		text-align: center;
+		right: 5px;
+		font-size: 0.899em;
+		display: inline-block;
+		width: 2em;
+	}
+
 }
 
 .select2-search--dropdown .select2-search__field {
@@ -204,7 +221,7 @@ Select2 gives you a customizable select box with support for searching, tagging,
 }
 
 .select2-selection--single .select2-selection__rendered {
-	color: $color__black;
+	color: $color__primary;
 	line-height: $input__height;
 }
 
@@ -376,7 +393,7 @@ Select2 gives you a customizable select box with support for searching, tagging,
 }
 
 .select2-results__option[data-selected=true] {
-	background-color: $color__black;
+	background-color: $color__primary;
 	color: #FFF;
 }
 
@@ -414,7 +431,7 @@ Select2 gives you a customizable select box with support for searching, tagging,
 }
 
 .select2-results__option--highlighted[aria-selected] {
-	background-color: $color__black;
+	background-color: $color__secondary;
 	color: white;
 }
 

@@ -40,15 +40,12 @@ function getScrollBarWidth () {
 
 // As the page loads, call these scripts
 jQuery(document).ready(function($) {
-	
-	// getting viewport width
-	var responsive_viewport = $(window).width() + getScrollBarWidth();
-	
+
 	// Initialize Retinajs - https://github.com/strues/retinajs
 	if (jQuery.fn.retinajs) {
 		retinajs();
 	}
-	
+
 	// SelectWoo - https://github.com/woocommerce/selectWoo
 	if ($.fn.selectWoo) {
 		var setup_selectWoo = function() {
@@ -92,80 +89,6 @@ jQuery(document).ready(function($) {
 			});
 		});
 	}
-
-	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-	var $allVideos = $("iframe[src*='youtube'], iframe[src*='hulu'], iframe[src*='revision3'], iframe[src*='vimeo'], iframe[src*='blip'], iframe[src*='dailymotion'], iframe[src*='funnyordie'], object, embed").wrap( "<figure></figure>" );
-
-	$allVideos.each(function() {
-		$(this)
-		// jQuery .data does not work on object/embed elements
-		.attr('data-aspectRatio', this.height / this.width)
-		.css({ 'max-width': this.width + 'px', 'max-height': this.height + 'px' })
-		.removeAttr('height')
-		.removeAttr('width');
-	});
-	$(window).resize(function() {
-		$allVideos.each(function() {
-			var $el = $(this);
-			var newWidth = $el.closest("figure").width();
-			$el
-			.width(newWidth)
-			.height(newWidth * $el.attr('data-aspectRatio'));
-		});
-	}).resize();
-
-	/*
-	Responsive jQuery is a tricky thing.
-	There's a bunch of different ways to handle
-	it, so be sure to research and find the one
-	that works for you best.
-	*/
-
-	/*
-	Mobile Navigation
-	*/
-	$(function() {
-		$('#mobile-menu-button').on('click', function(e) {
-			if ( ! $('body').hasClass('menu-open') ) {
-				$('#main-navigation > ul.main-menu').css('display','block');
-				$('body').toggleClass('menu-open');
-			} else {
-				$('body').toggleClass('menu-open');
-				setTimeout( function(){
-					$('#main-navigation > ul.main-menu').css('display','none');
-				},500);
-			}
-		});
-
-		$('#main-navigation .menu-item > .menu-button').on('click', function(e) {
-			$(this).next('.sub-menu').addClass('sub-menu-open');
-		});
-
-		$('#main-navigation .sub-menu .menu-back-button').on('click', function(e) {
-			$(this).parent('li').parent('ul').removeClass('sub-menu-open');
-		});
-
-		/*
-		Fixes bug on touch devices
-		opens ul on first tap
-		accepts anchor and opens page on second tap
-		*/
-		if ($.fn.doubleTapToGo) {
-			responsive_viewport = $(window).width() + getScrollBarWidth();
-			if (responsive_viewport >= 768) {
-				$('#main-navigation').doubleTapToGo();
-			}
-		}
-	});
-
-	$(window).resize(function(e) {
-		responsive_viewport = $(window).width() + getScrollBarWidth();
-		if (responsive_viewport >= 768) {
-			$('body').removeClass('menu-open');
-			$('#main-navigation > ul.main-menu').removeAttr('style');
-		}
-	});
-	// end responsive nav
 
 	// hide #back-top first
 	$("#back-top").hide();

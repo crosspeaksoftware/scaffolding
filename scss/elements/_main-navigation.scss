@@ -9,6 +9,11 @@ It currently slides out from the right.
 
 ******************************************************************/
 
+// Remove bootstrap positioning
+#masthead [class^="col"] {
+    position: static;
+}
+
 //
 // DEFAULTS
 // all breakpoints
@@ -342,7 +347,7 @@ It currently slides out from the right.
 
 		// Show the child ul
 		li:hover > ul {
-			display: table;
+			display: block;
 		}
 	}
 
