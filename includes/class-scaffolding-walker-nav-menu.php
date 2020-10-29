@@ -24,7 +24,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
 		// depth dependent classes.
 		$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent.
 		$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0.
@@ -61,11 +61,11 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 		}
 
 		// combine the class array into a string.
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
 		// set li id.
-		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
 		// set outer li and its attributes.
@@ -86,11 +86,11 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		$item_output  = $args->before;
 		$item_output .= '<a' . $attributes . '>';
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$item_output .= '</a>';
 		$item_output .= $menu_pull_link . $args->after;
 
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 	/**
@@ -103,7 +103,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param int      $depth  Depth of page. Not Used.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
 		$output .= "</li>\n";
 	}
 
