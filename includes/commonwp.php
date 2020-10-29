@@ -15,21 +15,21 @@
  * @return array
  */
 function scaffolding_commonwp_npm_packages_scripts( $scripts ) {
-	$scripts['scaffolding-retinajs'] = [
+	$scripts['scaffolding-retinajs']          = array(
 		'package'  => 'retinajs',
 		'file'     => 'dist/retina',
 		'minified' => '.min',
-	];
-	$scripts['scaffolding-doubletaptogo-js'] = [
+	);
+	$scripts['scaffolding-doubletaptogo-js']  = array(
 		'package'  => 'jquery-doubletaptogo',
 		'file'     => 'dist/jquery.dcd.doubletaptogo',
 		'minified' => '.min',
-	];
-	$scripts['scaffolding-magnific-popup-js'] = [
+	);
+	$scripts['scaffolding-magnific-popup-js'] = array(
 		'package'  => 'magnific-popup',
 		'file'     => 'dist/jquery.magnific-popup',
 		'minified' => '.min',
-	];
+	);
 	return $scripts;
 }
 add_filter( 'npm_packages_scripts', 'scaffolding_commonwp_npm_packages_scripts', 10, 1 );
