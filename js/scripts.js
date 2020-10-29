@@ -1,16 +1,18 @@
-/******************************************************************
-Site Name:
-Author:
+/**
+ * Site Name:
+ * Author:
+ *
+ * Name: Scaffolding Scripts
+ *
+ * @package scaffolding
+ *
+ * This file should contain any js scripts you want to add to the site.
+ * Instead of calling it in the header or throwing it inside wp_head()
+ * this file will be called automatically in the footer so as not to
+ * slow the page load.
+ */
 
-Name: Scaffolding Scripts
-
-This file should contain any js scripts you want to add to the site.
-Instead of calling it in the header or throwing it inside wp_head()
-this file will be called automatically in the footer so as not to
-slow the page load.
- ******************************************************************/
-
-// Calculate the width of the scroll bar so css media queries and js widow.width match
+// Calculate the width of the scroll bar so css media queries and js widow.width match.
 function getScrollBarWidth () {
 	var inner          = document.createElement( 'p' );
 	inner.style.width  = "100%";
@@ -39,16 +41,16 @@ function getScrollBarWidth () {
 	return (w1 - w2);
 };
 
-// As the page loads, call these scripts
+// As the page loads, call these scripts.
 jQuery( document ).ready(
 	function($) {
 
-		// Initialize Retinajs - https://github.com/strues/retinajs
+		// Initialize Retinajs - https://github.com/strues/retinajs .
 		if (jQuery.fn.retinajs) {
 			retinajs();
 		}
 
-		// SelectWoo - https://github.com/woocommerce/selectWoo
+		// SelectWoo - https://github.com/woocommerce/selectWoo .
 		if ($.fn.selectWoo) {
 			var setup_selectWoo = function() {
 				$( 'select' ).each(
@@ -67,11 +69,11 @@ jQuery( document ).ready(
 			setup_selectWoo();
 		}
 
-		// Lightbox - http://dimsemenov.com/plugins/magnific-popup/
+		// Lightbox - http://dimsemenov.com/plugins/magnific-popup/ .
 		if ($.fn.magnificPopup) {
 			$image_selector = 'a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]';
 
-			// single image popup
+			// single image popup.
 			$( $image_selector ).each(
 				function(){
 					if ($( this ).parents( '.gallery' ).length == 0) {
@@ -80,7 +82,7 @@ jQuery( document ).ready(
 				}
 			);
 
-			// gallery popup
+			// gallery popup.
 			$( '.gallery' ).each(
 				function() {
 					$( this ).magnificPopup(
@@ -102,10 +104,10 @@ jQuery( document ).ready(
 			);
 		}
 
-		// hide #back-top first
+		// hide #back-top first.
 		$( "#back-top" ).hide();
 
-		// fade in #back-top
+		// fade in #back-top.
 		$(
 			function () {
 				$( window ).scroll(
@@ -118,7 +120,7 @@ jQuery( document ).ready(
 					}
 				);
 
-				// scroll body to 0px on click
+				// scroll body to 0px on click.
 				$( '#back-top a' ).click(
 					function () {
 						$( 'body,html' ).animate(
@@ -136,10 +138,11 @@ jQuery( document ).ready(
 	}
 ); /* end of as page load scripts */
 
-/*! A fix for the iOS orientationchange zoom bug.
- Script by @scottjehl, rebound by @wilto.
- MIT License.
-*/
+/*!
+ * A fix for the iOS orientationchange zoom bug.
+ * Script by @scottjehl, rebound by @wilto.
+ * MIT License.
+ */
 (function(w){
 	// This fix addresses an iOS bug, so return early if the UA claims it's something else.
 	if ( ! ( /iPhone|iPad|iPod/.test( navigator.platform ) && navigator.userAgent.indexOf( "AppleWebKit" ) > -1 ) ) {
@@ -171,7 +174,7 @@ jQuery( document ).ready(
 		x   = Math.abs( aig.x );
 		y   = Math.abs( aig.y );
 		z   = Math.abs( aig.z );
-		// If portrait orientation and in one of the danger zones
+		// If portrait orientation and in one of the danger zones.
 		if ( ! w.orientation && ( x > 7 || ( ( z > 6 && y < 8 || z < 8 && y > 6 ) && x > 5 ) ) ) {
 			if ( enabled ) {
 				disableZoom();

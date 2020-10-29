@@ -1,15 +1,17 @@
-/******************************************************************
-Site Name:
-Author:
+/**
+ * Site Name:
+ * Author:
+ *
+ * Name: Navigation Scripts
+ *
+ * @package scaffolding
+ */
 
-Name: Navigation Scripts
- ******************************************************************/
-
-// as the page loads, call these scripts
+// as the page loads, call these scripts.
 jQuery( document ).ready(
 	function($) {
 
-		// getting viewport width
+		// getting viewport width.
 		var responsive_viewport = $( window ).width() + getScrollBarWidth();
 
 		/*
