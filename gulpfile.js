@@ -1,3 +1,9 @@
+/**
+ * Name: Gulpfile
+ *
+ * @package scaffolding
+ */
+
 // Require Libraries.
 var gulp        = require( 'gulp' ),
 	path        = require( 'path' ),
