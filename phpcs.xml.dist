@@ -69,7 +69,6 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="scaffolding"/>
-				<element value="sc"/>
 			</property>
 		</properties>
 	</rule>

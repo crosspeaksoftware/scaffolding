@@ -671,14 +671,14 @@ function scaffolding_set_layout_classes( $type ) {
  */
 function scaffolding_layout_classes_globals() {
 	if ( function_exists( 'scaffolding_set_layout_classes' ) ) {
-		$GLOBALS['sc_sidebar_class'] = scaffolding_set_layout_classes( 'sidebar' );
-		$GLOBALS['sc_layout_class']  = scaffolding_set_layout_classes( 'content' );
+		$GLOBALS['scaffolding_sidebar_class'] = scaffolding_set_layout_classes( 'sidebar' );
+		$GLOBALS['scaffolding_layout_class']  = scaffolding_set_layout_classes( 'content' );
 	} else {
-		$GLOBALS['sc_sidebar_class'] = array(
+		$GLOBALS['scaffolding_sidebar_class'] = array(
 			'left'  => '',
 			'right' => '',
 		);
-		$GLOBALS['sc_layout_class']  = array(
+		$GLOBALS['scaffolding_layout_class']  = array(
 			'row'  => 'row-main no-sidebars',
 			'main' => 'col-12',
 		);
