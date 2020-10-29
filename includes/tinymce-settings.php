@@ -15,10 +15,9 @@
  * TinyMCE: First line toolbar customizations
  * There are 4 total lines that may be added
  *
- * @param array $buttons Buttons that are enabled for line 1.
  * @return array Buttons that are enabled for line 1.
  */
-function scaffolding_tinymce_modify_mce_buttons_1( $buttons ) {
+function scaffolding_tinymce_modify_mce_buttons_1() {
 	// The settings are returned in this array. Customize to suite your needs.
 	return array(
 		'bold',
@@ -39,8 +38,8 @@ function scaffolding_tinymce_modify_mce_buttons_1( $buttons ) {
 		'wp_adv',
 	);
 
-	/*
-	// WordPress Default
+	/* phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+	WordPress Default
 	return array(
 		'bold', 'italic', 'strikethrough', bullist', 'numlist', 'blockquote', 'hr',
 		'alignleft', 'aligncenter', 'alignright', 'link', 'unlink', 'wp_more',
@@ -48,16 +47,15 @@ function scaffolding_tinymce_modify_mce_buttons_1( $buttons ) {
 	);
 	*/
 }
-add_filter( 'mce_buttons', 'scaffolding_tinymce_modify_mce_buttons_1', 0 );
+add_filter( 'mce_buttons', 'scaffolding_tinymce_modify_mce_buttons_1', 0, 0 );
 
 /**
  * TinyMCE: Second line toolbar customizations
  * There are 4 total lines that may be added
  *
- * @param array $buttons Buttons that are enabled for line 2.
  * @return array Buttons that are enabled for line 2
  */
-function scaffolding_tinymce_modify_mce_buttons_2( $buttons ) {
+function scaffolding_tinymce_modify_mce_buttons_2() {
 	// The settings are returned in this array. Customize to suite your needs.
 	return array(
 		'styleselect',
@@ -76,15 +74,15 @@ function scaffolding_tinymce_modify_mce_buttons_2( $buttons ) {
 		'wp_help',
 	);
 
-	/*
-	WordPress Default
+	/* phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+	WordPress Default.
 	return array(
 		'formatselect', 'underline', 'alignfull', 'pastetext', 'pasteword', 'removeformat', 'charmap',
 		'outdent', 'indent', 'undo', 'redo', 'wp_help'
 	);
 	*/
 }
-add_filter( 'mce_buttons_2', 'scaffolding_tinymce_modify_mce_buttons_2', 0 );
+add_filter( 'mce_buttons_2', 'scaffolding_tinymce_modify_mce_buttons_2', 0, 0 );
 
 /**
  * TinyMCE: Modify 'styleselect'
@@ -200,9 +198,9 @@ function scaffolding_tinymce_modify_styleselect( $settings ) {
 					'icon'   => 'alignright',
 				),
 				array(
-					'title'   => 'Justify',
-					'format'  => 'alignjustify',
-					'icon'    => 'alignjustify',
+					'title'  => 'Justify',
+					'format' => 'alignjustify',
+					'icon'   => 'alignjustify',
 				),
 			),
 		),

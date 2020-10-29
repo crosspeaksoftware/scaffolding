@@ -51,7 +51,7 @@ require_once SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php';
 if ( class_exists( 'GFForms' ) ) {
 	require_once SCAFFOLDING_INCLUDE_PATH . 'gf-customizations.php';
 }
-// commonWP Support https://wordpress.org/plugins/commonwp/
+// commonWP Support https://wordpress.org/plugins/commonwp/ for details.
 require_once SCAFFOLDING_INCLUDE_PATH . 'commonwp.php';
 
 

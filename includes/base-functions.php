@@ -64,6 +64,7 @@ add_action( 'after_setup_theme', 'scaffolding_build', 16 );
  * @since Scaffolding 1.0
  */
 function scaffolding_head_cleanup() {
+	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );                 // category feeds.
 	// remove_action( 'wp_head', 'feed_links', 2 );                       // post and comment feeds.
 	remove_action( 'wp_head', 'rsd_link' );                               // EditURI link.
