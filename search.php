@@ -9,14 +9,14 @@
 
 get_header();
 
-global $sc_layout_class;
+global $scaffolding_layout_class;
 ?>
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo esc_attr( $sc_layout_class['row'] ); ?>">
+	<div class="row <?php echo esc_attr( $scaffolding_layout_class['row'] ); ?>">
 
-		<div id="main" class="<?php echo esc_attr( $sc_layout_class['main'] ); ?> clearfix" role="main">
+		<div id="main" class="<?php echo esc_attr( $scaffolding_layout_class['main'] ); ?> clearfix" role="main">
 
 			<div itemscope itemtype="http://schema.org/SearchResultsPage">
 

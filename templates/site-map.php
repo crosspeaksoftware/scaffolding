@@ -7,7 +7,7 @@
 
 get_header();
 
-global $sc_layout_class;
+global $scaffolding_layout_class;
 
 /**
  * Return array of excluded term IDs
@@ -183,9 +183,9 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo esc_attr( $sc_layout_class['row'] ); ?>">
+	<div class="row <?php echo esc_attr( $scaffolding_layout_class['row'] ); ?>">
 
-		<div id="main" class="<?php echo esc_attr( $sc_layout_class['main'] ); ?> clearfix" role="main">
+		<div id="main" class="<?php echo esc_attr( $scaffolding_layout_class['main'] ); ?> clearfix" role="main">
 
 			<?php
 			if ( have_posts() ) :
@@ -223,15 +223,15 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 									<h3><?php esc_html_e( 'Pages', 'scaffolding' ); ?></h3>
 									<ul>
 										<?php
-										$sc_page_args         = array(
+										$scaffolding_page_args         = array(
 											'sort_column' => 'post_title',
 											'title_li'    => '',
 										);
-										$sc_excluded_page_ids = scaffolding_excluded_posts( 'page' );
-										if ( ! empty( $sc_excluded_page_ids ) ) {
-											$sc_page_args['exclude'] = $sc_excluded_page_ids;
+										$scaffolding_excluded_page_ids = scaffolding_excluded_posts( 'page' );
+										if ( ! empty( $scaffolding_excluded_page_ids ) ) {
+											$scaffolding_page_args['exclude'] = $scaffolding_excluded_page_ids;
 										}
-										wp_list_pages( $sc_page_args );
+										wp_list_pages( $scaffolding_page_args );
 										?>
 									</ul>
 

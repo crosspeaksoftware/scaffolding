@@ -28,8 +28,8 @@ if ( post_password_required() ) {
 
 		<h3 class="h2 comments-title">
 			<?php
-			$sc_comment_count = get_comments_number();
-			if ( '1' === $sc_comment_count ) {
+			$scaffolding_comment_count = get_comments_number();
+			if ( '1' === $scaffolding_comment_count ) {
 				printf(
 					/* translators: 1: title. */
 					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'scaffolding' ),
@@ -38,8 +38,8 @@ if ( post_password_required() ) {
 			} else {
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $sc_comment_count, 'comments title', 'scaffolding' ) ),
-					number_format_i18n( $sc_comment_count ), // phpcs:ignore
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $scaffolding_comment_count, 'comments title', 'scaffolding' ) ),
+					number_format_i18n( $scaffolding_comment_count ), // phpcs:ignore
 					'<span>' . get_the_title() . '</span>' // phpcs:ignore
 				);
 			}
