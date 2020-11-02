@@ -26,7 +26,6 @@
  *    9.1 - Removes […] from read more
  *    9.2 - Modified author post link
  *    9.3 - Posted on meta
- *    9.4 - Set layout classes
  * 10.0 - Admin Customization
  *    10.1 - Set content width
  *    10.2 - Set image attachment width
@@ -384,9 +383,9 @@ function scaffolding_custom_headers_callback() {
 function scaffolding_register_sidebars() {
 	register_sidebar(
 		array(
-			'id'            => 'left-sidebar',
-			'name'          => __( 'Left Sidebar', 'scaffolding' ),
-			'description'   => __( 'The Left (primary) sidebar used for the interior menu.', 'scaffolding' ),
+			'id'            => 'footer-area-one',
+			'name'          => __( 'Footer Area - One', 'scaffolding' ),
+			'description'   => __( 'Left column footer area.', 'scaffolding' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widgettitle">',
@@ -395,9 +394,20 @@ function scaffolding_register_sidebars() {
 	);
 	register_sidebar(
 		array(
-			'id'            => 'right-sidebar',
-			'name'          => __( 'Right Sidebar', 'scaffolding' ),
-			'description'   => __( 'The Right sidebar used for the interior call to actions.', 'scaffolding' ),
+			'id'            => 'footer-area-two',
+			'name'          => __( 'Footer Area - Two', 'scaffolding' ),
+			'description'   => __( 'Center column footer area.', 'scaffolding' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="widgettitle">',
+			'after_title'   => '</h4>',
+		)
+	);
+	register_sidebar(
+		array(
+			'id'            => 'footer-area-three',
+			'name'          => __( 'Footer Area - Three', 'scaffolding' ),
+			'description'   => __( 'Right column footer area.', 'scaffolding' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h4 class="widgettitle">',
@@ -500,7 +510,6 @@ function scaffolding_comments( $comment, $args, $depth ) {
  *     9.1 - Removes […] from read more
  *     9.2 - Modified author post link
  *     9.3 - Posted on meta
- *     9.4 - Set layout classes
  ************************************/
 
 /**
@@ -612,79 +621,6 @@ function scaffolding_post_meta() {
 		)
 	) . '</p>';
 }
-
-/**
- * Set grid classes based on sidebars
- *
- * @since Scaffolding 3.0
- * @param string $type Content area: content, sidebar.
- */
-function scaffolding_set_layout_classes( $type ) {
-
-	if ( '' === $type || ( 'content' !== $type && 'sidebar' !== $type ) ) {
-		return;
-	}
-
-	if ( 'content' === $type ) {
-
-		$class = array(
-			'row'  => 'row-main no sidebars',
-			'main' => 'col-12',
-		);
-
-		// Test for active sidebars to set the main content width.
-		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-			$class['row']  = 'row-main has-both-sidebars';
-			$class['main'] = 'col-lg-6 order-lg-2';
-		} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
-			$class['row']  = 'row-main has-left-sidebar';
-			$class['main'] = 'col-md-9 order-md-2';
-		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-			$class['row']  = 'row-main has-right-sidebar';
-			$class['main'] = 'col-md-9 order-md-1';
-		}
-	} elseif ( 'sidebar' === $type ) {
-
-		$class = array(
-			'left'  => '',
-			'right' => '',
-		);
-
-		// Test for active sidebars to set sidebar classes.
-		if ( is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-			$class['left']  = 'col-md-6 order-md-1 col-lg-3';
-			$class['right'] = 'col-md-6 order-md-3 col-lg-3';
-		} elseif ( is_active_sidebar( 'left-sidebar' ) && ! is_active_sidebar( 'right-sidebar' ) ) {
-			$class['left'] = 'col-md-3 order-md-1';
-		} elseif ( ! is_active_sidebar( 'left-sidebar' ) && is_active_sidebar( 'right-sidebar' ) ) {
-			$class['right'] = 'col-md-3 order-md-2';
-		}
-	}
-
-	return $class;
-}
-
-/**
- * Set globals for layout classes
- *
- * @since Scaffolding 3.0
- */
-function scaffolding_layout_classes_globals() {
-	if ( function_exists( 'scaffolding_set_layout_classes' ) ) {
-		$GLOBALS['scaffolding_sidebar_class'] = scaffolding_set_layout_classes( 'sidebar' );
-		$GLOBALS['scaffolding_layout_class']  = scaffolding_set_layout_classes( 'content' );
-	} else {
-		$GLOBALS['scaffolding_sidebar_class'] = array(
-			'left'  => '',
-			'right' => '',
-		);
-		$GLOBALS['scaffolding_layout_class']  = array(
-			'row'  => 'row-main no-sidebars',
-			'main' => 'col-12',
-		);
-	}
-}
-add_action( 'scaffolding_after_content_begin', 'scaffolding_layout_classes_globals', 0 );
 
 
 /************************************

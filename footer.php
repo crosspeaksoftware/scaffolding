@@ -14,7 +14,9 @@
 
 		<footer id="colophon" class="footer" role="contentinfo">
 
-			<div id="inner-footer" class="container">
+			<?php get_sidebar(); ?>
+
+			<div id="inner-footer" class="container py-3">
 
 				<?php if ( has_nav_menu( 'footer-nav' ) ) : ?>
 
@@ -24,7 +26,7 @@
 
 				<?php endif; ?>
 
-				<p class="source-org copyright"><?php echo esc_html( '&copy; ' . gmdate( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
+				<p class="source-org copyright mb-0"><?php echo esc_html( '&copy; ' . gmdate( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
 
 			</div>
 

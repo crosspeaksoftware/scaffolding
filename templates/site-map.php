@@ -7,8 +7,6 @@
 
 get_header();
 
-global $scaffolding_layout_class;
-
 /**
  * Return array of excluded term IDs
  * Yoast settings - term meta set to noindex
@@ -183,96 +181,90 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo esc_attr( $scaffolding_layout_class['row'] ); ?>">
+	<div id="main" class="clearfix" role="main">
 
-		<div id="main" class="<?php echo esc_attr( $scaffolding_layout_class['main'] ); ?> clearfix" role="main">
+		<?php
+		if ( have_posts() ) :
+			while ( have_posts() ) :
+				the_post();
+				?>
 
-			<?php
-			if ( have_posts() ) :
-				while ( have_posts() ) :
-					the_post();
-					?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+					<header class="page-header">
 
-						<header class="page-header">
+						<h1 class="page-title"><?php the_title(); ?></h1>
 
-							<h1 class="page-title"><?php the_title(); ?></h1>
+					</header>
 
-						</header>
+					<section class="page-content clearfix">
 
-						<section class="page-content clearfix">
+						<?php
+						the_content();
 
-							<?php
-							the_content();
+						wp_link_pages(
+							array(
+								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+								'after'       => '</div>',
+								'link_before' => '<span>',
+								'link_after'  => '</span>',
+							)
+						);
+						?>
 
-							wp_link_pages(
-								array(
-									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-									'after'       => '</div>',
-									'link_before' => '<span>',
-									'link_after'  => '</span>',
-								)
-							);
-							?>
+						<div class="row">
 
-							<div class="row">
+							<div class="col-md-6">
 
-								<div class="col-md-6">
-
-									<h3><?php esc_html_e( 'Pages', 'scaffolding' ); ?></h3>
-									<ul>
-										<?php
-										$scaffolding_page_args         = array(
-											'sort_column' => 'post_title',
-											'title_li'    => '',
-										);
-										$scaffolding_excluded_page_ids = scaffolding_excluded_posts( 'page' );
-										if ( ! empty( $scaffolding_excluded_page_ids ) ) {
-											$scaffolding_page_args['exclude'] = $scaffolding_excluded_page_ids;
-										}
-										wp_list_pages( $scaffolding_page_args );
-										?>
-									</ul>
-
-								</div>
-
-								<div class="col-md-6">
-
-									<h3><?php esc_html_e( 'Blog Posts', 'scaffolding' ); ?></h3>
-									<?php scaffolding_list_posts( 'post' ); ?>
-
+								<h3><?php esc_html_e( 'Pages', 'scaffolding' ); ?></h3>
+								<ul>
 									<?php
-									/*
-									// Example with term list.
-									<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
-									<?php scaffolding_list_terms('category'); ?>
-									*/
+									$scaffolding_page_args         = array(
+										'sort_column' => 'post_title',
+										'title_li'    => '',
+									);
+									$scaffolding_excluded_page_ids = scaffolding_excluded_posts( 'page' );
+									if ( ! empty( $scaffolding_excluded_page_ids ) ) {
+										$scaffolding_page_args['exclude'] = $scaffolding_excluded_page_ids;
+									}
+									wp_list_pages( $scaffolding_page_args );
 									?>
+								</ul>
 
-								</div>
+							</div>
 
-							</div><?php // END .row. ?>
+							<div class="col-md-6">
 
-						</section>
+								<h3><?php esc_html_e( 'Blog Posts', 'scaffolding' ); ?></h3>
+								<?php scaffolding_list_posts( 'post' ); ?>
 
-					</article>
+								<?php
+								/*
+								// Example with term list.
+								<h3><?php _e( 'Blog Categories', 'scaffolding' ); ?></h3>
+								<?php scaffolding_list_terms('category'); ?>
+								*/
+								?>
 
-					<?php
-				endwhile;
+							</div>
 
-			else :
+						</div><?php // END .row. ?>
 
-				get_template_part( 'template-parts/error' ); // WordPress template error message.
+					</section>
 
-			endif;
-			?>
+				</article>
 
-		</div><?php // END #main. ?>
+				<?php
+			endwhile;
 
-		<?php get_sidebar(); ?>
+		else :
 
-	</div><?php // END .row. ?>
+			get_template_part( 'template-parts/error' ); // WordPress template error message.
+
+		endif;
+		?>
+
+	</div><?php // END #main. ?>
 
 </div><?php // END #inner-content. ?>
 

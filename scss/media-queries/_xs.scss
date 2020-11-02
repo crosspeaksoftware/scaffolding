@@ -205,14 +205,6 @@ body {
 }
 
 /*************************
- * SIDEBARS & ASIDES
- ************************/
-
-.sidebar {
-	margin-top: 2em;
-}
-
-/*************************
  * FOOTER
  ************************/
 
@@ -223,18 +215,12 @@ body {
 	font-size: 0.875em;
 
 	.copyright {
-		margin-bottom: 0;
 		text-align: center;
 	}
 
 	a {
 		color: $color__tertiary;
 	}
-}
-
-#inner-footer {
-	padding-top: 2em;
-	padding-bottom: 2em;
 }
 
 ul.footer-menu {
