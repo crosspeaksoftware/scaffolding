@@ -388,8 +388,8 @@ function scaffolding_register_sidebars() {
 			'description'   => __( 'Left column footer area.', 'scaffolding' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
+			'before_title'  => '<span class="widgettitle h4 d-block">',
+			'after_title'   => '</span>',
 		)
 	);
 	register_sidebar(
@@ -399,8 +399,8 @@ function scaffolding_register_sidebars() {
 			'description'   => __( 'Center column footer area.', 'scaffolding' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
+			'before_title'  => '<span class="widgettitle h4 d-block">',
+			'after_title'   => '</span>',
 		)
 	);
 	register_sidebar(
@@ -410,8 +410,8 @@ function scaffolding_register_sidebars() {
 			'description'   => __( 'Right column footer area.', 'scaffolding' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
+			'before_title'  => '<span class="widgettitle h4 d-block">',
+			'after_title'   => '</span>',
 		)
 	);
 } // end scaffolding_register_sidebars()

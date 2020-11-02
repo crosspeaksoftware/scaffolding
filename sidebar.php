@@ -10,45 +10,41 @@
 if ( is_active_sidebar( 'footer-area-one' ) || is_active_sidebar( 'footer-area-two' ) || is_active_sidebar( 'footer-area-three' ) ) :
 	?>
 
-	<div id="footer-widgets" class="py-4">
+	<div id="footer-widgets" class="container py-4">
 
-		<div class="container">
+		<div class="row footer-widgets__row">
 
-			<div class="row footer-widgets__row">
-
-				<?php
-				if ( is_active_sidebar( 'footer-area-one' ) ) :
-					?>
-
-					<div class="footer-widgets__col col-md">
-						<?php dynamic_sidebar( 'footer-area-one' ); ?>
-					</div>
-
-					<?php
-				endif;
-
-				if ( is_active_sidebar( 'footer-area-two' ) ) :
-					?>
-
-					<div class="footer-widgets__col col-md">
-						<?php dynamic_sidebar( 'footer-area-two' ); ?>
-					</div>
-
-					<?php
-				endif;
-
-				if ( is_active_sidebar( 'footer-area-three' ) ) :
-					?>
-
-					<div class="footer-widgets__col col-md">
-						<?php dynamic_sidebar( 'footer-area-three' ); ?>
-					</div>
-
-					<?php
-				endif;
+			<?php
+			if ( is_active_sidebar( 'footer-area-one' ) ) :
 				?>
 
-			</div>
+				<div class="footer-widgets__col col-md">
+					<?php dynamic_sidebar( 'footer-area-one' ); ?>
+				</div>
+
+				<?php
+			endif;
+
+			if ( is_active_sidebar( 'footer-area-two' ) ) :
+				?>
+
+				<div class="footer-widgets__col col-md">
+					<?php dynamic_sidebar( 'footer-area-two' ); ?>
+				</div>
+
+				<?php
+			endif;
+
+			if ( is_active_sidebar( 'footer-area-three' ) ) :
+				?>
+
+				<div class="footer-widgets__col col-md">
+					<?php dynamic_sidebar( 'footer-area-three' ); ?>
+				</div>
+
+				<?php
+			endif;
+			?>
 
 		</div>
 
