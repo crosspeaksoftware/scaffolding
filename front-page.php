@@ -11,64 +11,56 @@
  */
 
 get_header();
-
-global $scaffolding_layout_class;
 ?>
 
 <div id="inner-content" class="container">
 
-	<div class="row <?php echo esc_attr( $scaffolding_layout_class['row'] ); ?>">
+	<div id="main" class="clearfix" role="main">
 
-		<div id="main" class="<?php echo esc_attr( $scaffolding_layout_class['main'] ); ?> clearfix" role="main">
+		<?php
+		if ( have_posts() ) :
+			while ( have_posts() ) :
+				the_post();
+				?>
 
-			<?php
-			if ( have_posts() ) :
-				while ( have_posts() ) :
-					the_post();
-					?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+					<header class="page-header">
 
-						<header class="page-header">
+						<h1 class="page-title"><?php the_title(); ?></h1>
 
-							<h1 class="page-title"><?php the_title(); ?></h1>
+					</header>
 
-						</header>
+					<section class="page-content clearfix">
 
-						<section class="page-content clearfix">
+						<?php
+						the_content();
 
-							<?php
-							the_content();
+						wp_link_pages(
+							array(
+								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+								'after'       => '</div>',
+								'link_before' => '<span>',
+								'link_after'  => '</span>',
+							)
+						);
+						?>
 
-							wp_link_pages(
-								array(
-									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-									'after'       => '</div>',
-									'link_before' => '<span>',
-									'link_after'  => '</span>',
-								)
-							);
-							?>
+					</section>
 
-						</section>
+				</article>
 
-					</article>
+				<?php
+			endwhile;
 
-					<?php
-				endwhile;
+		else :
 
-			else :
+			get_template_part( 'template-parts/error' ); // WordPress template error message.
 
-				get_template_part( 'template-parts/error' ); // WordPress template error message.
+		endif;
+		?>
 
-			endif;
-			?>
-
-		</div><?php // END #main. ?>
-
-		<?php get_sidebar(); ?>
-
-	</div><?php // END .row. ?>
+	</div><?php // END #main. ?>
 
 </div><?php // END #inner-content. ?>
 
