@@ -120,35 +120,35 @@ Stylesheet: Responsive WooCommerce Styles - Payment
 				background-size: 32px 20px;
 
 				&.visa {
-					background-image: url("../images/icons/credit-cards/visa.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/visa.svg");
 				}
 
 				&.mastercard {
-					background-image: url("../images/icons/credit-cards/mastercard.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/mastercard.svg");
 				}
 
 				&.laser {
-					background-image: url("../images/icons/credit-cards/laser.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/laser.svg");
 				}
 
 				&.dinersclub {
-					background-image: url("../images/icons/credit-cards/diners.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/diners.svg");
 				}
 
 				&.maestro {
-					background-image: url("../images/icons/credit-cards/maestro.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/maestro.svg");
 				}
 
 				&.jcb {
-					background-image: url("../images/icons/credit-cards/jcb.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/jcb.svg");
 				}
 
 				&.amex {
-					background-image: url("../images/icons/credit-cards/amex.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/amex.svg");
 				}
 
 				&.discover {
-					background-image: url("../images/icons/credit-cards/discover.svg");
+					background-image: url("#{$plugins-path}woocommerce/assets/images/icons/credit-cards/discover.svg");
 				}
 			}
 
