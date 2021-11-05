@@ -24,7 +24,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
+	public function start_lvl( &$output, $depth = 0, $args = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
 		// depth dependent classes.
 		$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent.
 		$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0.
@@ -50,7 +50,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 * @param int      $id     Current item ID.
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -103,7 +103,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param int      $depth  Depth of page. Not Used.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function end_el( &$output, $item, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
+	public function end_el( &$output, $item, $depth = 0, $args = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
 		$output .= "</li>\n";
 	}
 
@@ -117,7 +117,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param stdClass $args              An object of wp_nav_menu() arguments.
 	 * @param string   $output            Used to append additional content (passed by reference).
 	 */
-	public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
 		// Set custom arg to tell if item has children.
 		$id_field = $this->db_fields['id'];
