@@ -15,8 +15,6 @@ remember less is more.
 
 ******************************************************************/
 
-@import "compass";
-
 //
 // Clearfix
 //
@@ -88,6 +86,30 @@ remember less is more.
 	text-overflow: $overflow;
 	white-space: nowrap;
 }
+
+//
+// Browser Prefixes
+//
+// Usage:   @include transition(width, height 0.3s ease-in-out);
+// Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
+//          transition(width 0.2s, height 0.3s ease-in-out);
+//
+// Pass in any number of transitions
+@mixin transition($transitions...) {
+	$unfoldedTransitions: ();
+	@each $transition in $transitions {
+		$unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+	}
+	-webkit-transition: $unfoldedTransitions;
+	transition: $unfoldedTransitions;
+}
+
+// Transform
+@mixin transform($property, $important: "") {
+	-webkit-transform: $property unquote("#{$important}");
+	transform: $property unquote("#{$important}");
+}
+
 
 //
 // Bootstrap Grid
@@ -294,16 +316,6 @@ remember less is more.
 	}
 }
 
-//
-// Gradients
-//
-
-// USAGE: @include css-gradient(#dfdfdf,#f8f8f8);
-@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
-	background-color: $to;
-	background-image: -webkit-linear-gradient(top, $from, $to);
-	background-image: linear-gradient(to bottom, $from, $to);
-}
 
 //
 // Flexbox
