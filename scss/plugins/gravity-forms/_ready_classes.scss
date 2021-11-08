@@ -9,7 +9,7 @@ https://wordpress.org/plugins/gravity-forms-css-ready-selector/
 
 ******************************************************************/
 
-// 
+//
 // Inline fields
 //
 
@@ -237,7 +237,7 @@ li.gfield.gf_list_inline {
 	}
 }
 
-// 
+//
 // hide am/pm field
 //
 
@@ -245,7 +245,7 @@ li.gf_hide_ampm div.gfield_time_ampm {
 	display: none !important;
 }
 
-// 
+//
 // scrolling text section break
 //
 
@@ -315,7 +315,7 @@ div.gform_ul.gform_fields li.gfield.gsection.gf_scroll_text div.gsection_descrip
 	}
 }
 
-// 
+//
 // HTML field alert style
 //
 
@@ -363,7 +363,7 @@ li.gfield.gfield_html.gf_alert_blue {
 	color: #314475;
 }
 
-// 
+//
 // Confirmation Styles
 //
 
@@ -394,7 +394,7 @@ div.gform_confirmation_wrapper.gf_confirmation_yellow_gradient {
 	background-color: #FFFBD2;
 	margin: 30px 0;
 	border: 1px solid #E6DB55;
-	@include box-shadow(0 0 5px rgba(221, 215, 131, 0.75));
+	box-shadow: 0 0 5px rgba(221, 215, 131, 0.75);
 
 	div#gforms_confirmation_message {
 		margin: 0;
@@ -416,7 +416,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	background-color: #f1fcdf;
 	margin: 30px 0;
 	border: 1px solid #a7c37c;
-	@include box-shadow(0 0 5px rgba(86, 122, 86, 0.4));
+	box-shadow: 0 0 5px rgba(86, 122, 86, 0.4);
 
 	div#gforms_confirmation_message {
 		margin: 0;
@@ -436,7 +436,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 
 div.gform_confirmation_wrapper.gf_confirmation_yellow_gradient
 div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
-	&:before, 
+	&:before,
 	&:after {
 		z-index: -1;
 		position: absolute;
@@ -447,7 +447,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		top: 80%;
 		max-width: 40%;
 		background: rgba(0, 0, 0, 0.2);
-		@include box-shadow(0 15px 10px rgba(0, 0, 0, 0.2));
+		box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
 		@include transform(rotate(-3deg));
 	}
 
@@ -621,7 +621,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		ul.gfield_radio {
 			@include flexbox(flex);
 			@include flex-wrap(wrap);
-			
+
 			li {
 				float: left;
 				padding-right: 1em;
