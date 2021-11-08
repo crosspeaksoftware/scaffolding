@@ -22,6 +22,14 @@ Stylesheet: Responsive WooCommerce Styles - Tables
 			border: 1px solid $table__border-color;
 		}
 
+		thead {
+			border-bottom-width: 2px;
+		}
+
+		tfoot {
+			border-top-width: 2px;
+		}
+
 		tr + tr {
 			border-top: 1px solid $table__border-color;
 		}
@@ -95,6 +103,7 @@ Stylesheet: Responsive WooCommerce Styles - Tables
 
 			dd {
 				margin: 0;
+				font-size: 1em;
 			}
 
 			p,

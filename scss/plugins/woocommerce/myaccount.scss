@@ -39,6 +39,10 @@ Last reviewed with plugin Version 4.8.0.
 
 			li {
 				margin-left: 0;
+
+				a {
+					display: inline-block;
+				}
 			}
 		}
 	}
@@ -165,6 +169,7 @@ Last reviewed with plugin Version 4.8.0.
 		.woocommerce-MyAccount-content {
 			float: right;
 			width: 80%;
+			padding-left: 2em;
 		}
 
 		form {

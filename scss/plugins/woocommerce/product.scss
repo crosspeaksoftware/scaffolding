@@ -41,7 +41,7 @@ Last reviewed with plugin Version 4.8.0.
 			padding: 0;
 		}
 
-		.price{
+		.price {
 			font-size: 1.25em;
 		}
 
@@ -374,6 +374,12 @@ Last reviewed with plugin Version 4.8.0.
 					margin: 0 auto;
 					transform: scale(1.5, 1.5);
 				}
+			}
+		}
+
+		.product_meta {
+			> span {
+				display: block;
 			}
 		}
 	}

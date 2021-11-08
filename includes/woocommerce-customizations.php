@@ -153,8 +153,8 @@ add_filter( 'woocommerce_breadcrumb_defaults', 'scaffolding_woocommerce_breadcru
  * @return array
  */
 function scaffolding_woocommerce_pagination_args( $args ) {
-	$args['prev_text'] = '<i class="fa fa-angle-double-left"></i> Previous Page';
-	$args['next_text'] = 'Next Page <i class="fa fa-angle-double-right"></i>';
+	$args['prev_text'] = '<i class="fa fa-angle-double-left" aria-hidden="true"></i> Previous Page';
+	$args['next_text'] = 'Next Page <i class="fa fa-angle-double-right" aria-hidden="true"></i>';
 	return $args;
 }
 add_filter( 'woocommerce_pagination_args', 'scaffolding_woocommerce_pagination_args' );

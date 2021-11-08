@@ -30,6 +30,7 @@ Stylesheet: Responsive WooCommerce Styles - Buttons
 		text-shadow: none;
 		text-transform: none;
 		border-radius: 0;
+		transition: background-color 0.25s ease-in-out;
 
 		&.loading {
 			opacity: 0.25;

@@ -31,9 +31,22 @@ Stylesheet: Responsive WooCommerce Styles - Forms
 			}
 		}
 
-		.form-row {
+		.form-row,
+		fieldset {
 			margin-top: 0;
 			margin-bottom: 1em;
+		}
+
+		.form-row {
+			input + span,
+			select + span:not(.select2),
+			.select2 + span {
+				display: inline-block;
+				margin-top: 5px;
+				font-size: 0.9em;
+				line-height: 1.45;
+				color: $subtext;
+			}
 
 			label {
 				&:not(.inline) {
@@ -97,7 +110,7 @@ Stylesheet: Responsive WooCommerce Styles - Forms
 			}
 
 			.required {
-				color: red;
+				color: $red;
 				font-weight: 700;
 				border: 0 !important;
 				text-decoration: none;
@@ -164,9 +177,9 @@ Stylesheet: Responsive WooCommerce Styles - Forms
 		}
 
 		.password-input {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			@include flexbox(flex);
+			@include flex-direction(column);
+			@include justify-content(center);
 			position: relative;
 
 			input[type="password"] {

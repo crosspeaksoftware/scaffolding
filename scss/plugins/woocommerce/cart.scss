@@ -179,6 +179,41 @@ Last reviewed with plugin Version 4.8.0.
 
 }
 
+@include media-breakpoint-down('md') {
+
+	.woocommerce-cart {
+		table.cart {
+			td.product-thumbnail {
+				display: none;
+			}
+		}
+
+		.cart-collaterals {
+			// Should not use responsive table class
+			// Revert to use table styles
+			table.shop_table_responsive {
+				tbody {
+					display: table-row-group;
+
+					tr {
+						display: table-row;
+					}
+
+					td:before {
+						display: none;
+					}
+
+					th,
+					td {
+						display: table-cell;
+					}
+				}
+			}
+		}
+	}
+
+}
+
 @include media-breakpoint-up('md') {
 
 	.woocommerce-cart {
