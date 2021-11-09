@@ -11,9 +11,9 @@ Stylesheet: Pagination Stylesheet
 		list-style: none;
 		text-align: center;
 		margin: 2em 0 0.5em;
-		@include flexbox(flex);
-		@include flex-wrap(wrap);
-		@include justify-content(center);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 
 		&:empty {
 			display: none;
@@ -47,7 +47,7 @@ Stylesheet: Pagination Stylesheet
 
 			a {
 				color: $color__primary;
-				@include transition(all 0.25s ease-in-out);
+				transition: all 0.25s ease-in-out;
 
 				&:hover,
 				&:focus {

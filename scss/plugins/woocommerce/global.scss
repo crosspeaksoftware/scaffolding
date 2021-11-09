@@ -179,18 +179,18 @@ Last reviewed with plugin Version 4.8.0.
 
 	.woocommerce {
 		.col2-set {
-			@include flexbox(flex);
-			@include flex-wrap(nowrap);
+			display: flex;
+			flex-wrap: nowrap;
 
 			.col-1 {
-				@include flex(0 0 50%);
+				flex: 0 0 50%;
 				max-width: 50%;
 				width: 100%;
 				padding-right: 2%;
 			}
 
 			.col-2 {
-				@include flex(0 0 50%);
+				flex: 0 0 50%;
 				max-width: 50%;
 				width: 100%;
 				padding-left: 2%;

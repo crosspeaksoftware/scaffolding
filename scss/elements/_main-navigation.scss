@@ -153,7 +153,7 @@ It currently slides out from the right.
 			right: -100%;
 			overflow: hidden;
 			width: 100%;
-			@include transition(right 0.25s ease-in-out);
+			transition: right 0.25s ease-in-out;
 
 			li {
 				a {
@@ -183,7 +183,7 @@ It currently slides out from the right.
 	#container {
 		position: relative;
 		left: 0;
-		@include transition(left 0.25s ease-in-out);
+		transition: left 0.25s ease-in-out;
 	}
 
 }
@@ -211,8 +211,8 @@ It currently slides out from the right.
 		}
 
 		ul.menu {
-			@include flexbox(flex);
-			@include flex-wrap(nowrap);
+			display: flex;
+			flex-wrap: nowrap;
 			margin: 0 auto;
 			text-align: center;
 			max-width: map-get($container-max-widths, 'xl');
@@ -220,7 +220,7 @@ It currently slides out from the right.
 			padding-left: ($grid-gutter-width / 2);
 
 			> li.menu-item {
-				@include flex(1 1 auto);
+				flex: 1 1 auto;
 				display: inline-block;
 				position: relative;
 				z-index: 1000;

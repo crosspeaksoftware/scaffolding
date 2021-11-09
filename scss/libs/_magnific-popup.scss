@@ -76,15 +76,11 @@ Stylesheet: Magnific Popup Stylesheet - v1.1.0
 
 .mfp-zoom-out-cur,
 .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-	cursor: -moz-zoom-out;
-	cursor: -webkit-zoom-out;
 	cursor: zoom-out;
 }
 
 .mfp-zoom {
 	cursor: pointer;
-	cursor: -webkit-zoom-in;
-	cursor: -moz-zoom-in;
 	cursor: zoom-in;
 }
 
@@ -96,8 +92,6 @@ Stylesheet: Magnific Popup Stylesheet - v1.1.0
 .mfp-arrow,
 .mfp-preloader,
 .mfp-counter {
-	-webkit-user-select: none;
-	-moz-user-select: none;
 	user-select: none;
 }
 
@@ -226,7 +220,7 @@ button::-moz-focus-inner {
 		opacity: 1;
 	}
 
-	&:before, 
+	&:before,
 	&:after {
 		content: '';
 		display: block;
@@ -385,11 +379,11 @@ img.mfp-img {
 			padding-left: 0;
 			padding-right: 0;
 		}
-		
+
 		img.mfp-img {
 			padding: 0;
 		}
-		
+
 		.mfp-figure {
 			// The shadow behind the image
 			&:after {
@@ -434,23 +428,20 @@ img.mfp-img {
 			padding: 0;
 		}
 	}
-	
+
 }
 
 @media all and (max-width: 900px) {
-	
+
 	.mfp-arrow {
-		-webkit-transform: scale(0.75);
 		transform: scale(0.75);
 	}
 
 	.mfp-arrow-left {
-		-webkit-transform-origin: 0;
 		transform-origin: 0;
 	}
 
 	.mfp-arrow-right {
-		-webkit-transform-origin: 100%;
 		transform-origin: 100%;
 	}
 
@@ -458,5 +449,5 @@ img.mfp-img {
 		padding-left: 6px;
 		padding-right: 6px;
 	}
-	
+
 }

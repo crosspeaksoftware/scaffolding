@@ -41,7 +41,7 @@ a.read-more {
 	font-weight: bold;
 	text-transform: uppercase;
 	border: 0;
-	@include transition(background-color 0.25s ease-in-out);
+	transition: background-color 0.25s ease-in-out;
 
 	&:hover,
 	&:focus,

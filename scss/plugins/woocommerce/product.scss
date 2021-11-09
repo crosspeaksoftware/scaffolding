@@ -194,13 +194,13 @@ Last reviewed with plugin Version 4.8.0.
 			}
 
 			.flex-control-thumbs {
-				@include flexbox(flex);
-				@include flex-wrap(wrap);
+				display: flex;
+				flex-wrap: wrap;
 				margin: 0;
 				padding: 0;
 
 				li {
-					@include flex(0 0 20%);
+					flex: 0 0 20%;
 					max-width: 20%;
 					width: 100%;
 					margin: 0;
@@ -425,12 +425,12 @@ Last reviewed with plugin Version 4.8.0.
 
 	.woocommerce {
 		div.product {
-			@include flexbox(flex);
-			@include flex-wrap(wrap);
+			display: flex;
+			flex-wrap: wrap;
 
 			div.images,
 			div.summary {
-				@include flex(0 0 50%);
+				flex: 0 0 50%;
 				max-width: 50%;
 				width: 100%;
 			}
@@ -441,7 +441,7 @@ Last reviewed with plugin Version 4.8.0.
 
 			.woocommerce-tabs,
 			.products {
-				@include flex(0 0 100%);
+				flex: 0 0 100%;
 				max-width: 100%;
 				width: 100%;
 			}

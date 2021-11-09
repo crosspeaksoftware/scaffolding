@@ -405,8 +405,6 @@ div.gform_confirmation_wrapper.gf_confirmation_yellow_gradient {
 		border-bottom: 1px solid #E6DB55;
 		background-color: #FFFBCC;
 		color: #424242;
-		background: #fffce5;
-		background: -webkit-linear-gradient(top, #fffce5 0%, #fff9bf 100%);
 		background: linear-gradient(to bottom, #fffce5 0%, #fff9bf 100%);
 	}
 }
@@ -428,8 +426,6 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		background-color: #FFFBCC;
 		text-shadow: #DFB 1px 1px;
 		color: #030;
-		background: rgb(219, 242, 183);
-		background: -webkit-linear-gradient(top, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
 		background: linear-gradient(to bottom, rgba(219, 242, 183, 1) 0%, rgba(180, 208, 136, 1) 100%);
 	}
 }
@@ -448,11 +444,11 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 		max-width: 40%;
 		background: rgba(0, 0, 0, 0.2);
 		box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
-		@include transform(rotate(-3deg));
+		transform: rotate(-3deg);
 	}
 
 	&:after {
-		@include transform(rotate(3deg));
+		transform: rotate(3deg);
 		right: 10px;
 		left: auto;
 	}
@@ -619,8 +615,8 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_list_5col {
 		ul.gfield_checkbox,
 		ul.gfield_radio {
-			@include flexbox(flex);
-			@include flex-wrap(wrap);
+			display: flex;
+			flex-wrap: wrap;
 
 			li {
 				float: left;
@@ -634,7 +630,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_2col ul.gfield_checkbox li,
 	li.gfield.gf_2col ul.gfield_radio li {
 		max-width: 50%;
-		@include flex(0 0 50%);
+		flex: 0 0 50%;
 
 		&:nth-child(2n) {
 			clear: right;
@@ -650,7 +646,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_3col ul.gfield_checkbox li,
 	li.gfield.gf_3col ul.gfield_radio li {
 		max-width: 33.333%;
-		@include flex(0 0 33.333%);
+		flex: 0 0 33.333%;
 
 		&:nth-child(3n) {
 			clear: right;
@@ -664,7 +660,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_list_4col ul.gfield_checkbox li,
 	li.gfield.gf_list_4col ul.gfield_radio li {
 		max-width: 25%;
-		@include flex(0 0 25%);
+		flex: 0 0 25%;
 
 		&:nth-child(4n) {
 			clear: right;
@@ -678,7 +674,7 @@ div.gform_confirmation_wrapper.gf_confirmation_green_gradient {
 	li.gfield.gf_list_5col ul.gfield_checkbox li,
 	li.gfield.gf_list_5col ul.gfield_radio li {
 		max-width: 20%;
-		@include flex(0 0 20%);
+		flex: 0 0 20%;
 
 		&:nth-child(5n) {
 			clear: right;
