@@ -5,9 +5,9 @@ Author: Hall
 Author URI: https://www.hallme.com
 Description: This site was built using the Scaffolding Development Theme. For more information about Scaffolding or to view documentation, you can visit the <a href="https://www.scaffolding.io" title="Scaffolding Development Page">project home</a>. You'll want to customize this for your clients with your own information.
 Version: 3.2
-Requires at least:
-Tested up to:
-Requires PHP:
+Requires at least: 5.0
+Tested up to: 5.8.2
+Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: scaffolding
