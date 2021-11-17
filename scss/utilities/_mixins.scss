@@ -40,8 +40,8 @@ remember less is more.
 //
 
 @mixin alert {
-	@include flexbox(inline-flex);
-	@include align-items(center);
+	display: inline-flex;
+	align-items: center;
 	position: relative;
 	padding: 1em 2em;
 	margin: 0 0 2em;
@@ -87,29 +87,6 @@ remember less is more.
 	white-space: nowrap;
 }
 
-//
-// Browser Prefixes
-//
-// Usage:   @include transition(width, height 0.3s ease-in-out);
-// Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
-//          transition(width 0.2s, height 0.3s ease-in-out);
-//
-// Pass in any number of transitions
-@mixin transition($transitions...) {
-	$unfoldedTransitions: ();
-	@each $transition in $transitions {
-		$unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
-	}
-	-webkit-transition: $unfoldedTransitions;
-	transition: $unfoldedTransitions;
-}
-
-// Transform
-@mixin transform($property, $important: "") {
-	-webkit-transform: $property unquote("#{$important}");
-	transform: $property unquote("#{$important}");
-}
-
 
 //
 // Bootstrap Grid
@@ -147,12 +124,12 @@ remember less is more.
 		@include media-breakpoint-up($breakpoint, $breakpoints) {
 			// Provide basic `.col-{bp}` classes for equal-width flexbox columns
 			.col#{$infix} {
-				@include flex-basis(0);
-				@include flex-grow(1);
+				flex-basis: 0;
+				flex-grow: 1;
 				max-width: 100%;
 			}
 			.col#{$infix}-auto {
-				@include flex(0 0 auto);
+				flex: 0 0 auto;
 				width: auto;
 				max-width: none; // Reset earlier grid tiers
 			}
@@ -164,16 +141,16 @@ remember less is more.
 			}
 
 			.order#{$infix}-first {
-				@include order(-1);
+				order: -1;
 			}
 
 			.order#{$infix}-last {
-				@include order($columns + 1);
+				order: $columns + 1;
 			}
 
 			@for $i from 0 through $columns {
 				.order#{$infix}-#{$i} {
-					@include order($i);
+					order: $i;
 				}
 			}
 
@@ -212,8 +189,8 @@ remember less is more.
 }
 
 @mixin make-row() {
-	@include flexbox(flex);
-	@include flex-wrap(wrap);
+	display: flex;
+	flex-wrap: wrap;
 	margin-right: ($grid-gutter-width / -2);
 	margin-left: ($grid-gutter-width / -2);
 }
@@ -230,7 +207,7 @@ remember less is more.
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
-	@include flex(0 0 percentage($size / $columns));
+	flex: 0 0 percentage($size / $columns);
 	//flex: 0 0 percentage($size / $columns);
 	// Add a `max-width` to ensure content within each column does not blow out
 	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
@@ -314,187 +291,4 @@ remember less is more.
 			@content;
 		}
 	}
-}
-
-
-//
-// Flexbox
-// Mixins provided by: https://github.com/mastastealth/sass-flex-mixin/blob/master/_flex.scss
-//
-
-// DISPLAY FLEX
-// Values: flex | inline-flex
-// Default: flex
-// USAGE: @include flexbox(flex);
-@mixin flexbox($value: flex, $important: "") {
-	@if $value == inline-flex {
-		display: -webkit-inline-box unquote("#{$important}");
-		display: -ms-inline-flexbox unquote("#{$important}");
-		display: inline-flex unquote("#{$important}");
-	} @else {
-		display: -webkit-box unquote("#{$important}");
-		display: -ms-flexbox unquote("#{$important}");
-		display: flex unquote("#{$important}");
-	}
-}
-
-// FLEXBOX WRAP
-// Values: nowrap | wrap | wrap-reverse
-// Default: nowrap
-// USAGE: @include flex-wrap(nowrap)
-@mixin flex-wrap($value: nowrap, $important: "") {
-	-ms-flex-wrap: $value unquote("#{$important}");
-	flex-wrap: $value unquote("#{$important}");
-}
-
-// FLEXBOX DIRECTION
-// Values: row | row-reverse | column | column-reverse
-// Default: row
-// USAGE: @include flex-direction(row)
-@mixin flex-direction($value: row, $important: "") {
-	@if $value == row-reverse {
-		-webkit-box-direction: reverse unquote("#{$important}");
-		-webkit-box-orient: horizontal unquote("#{$important}");
-	} @else if $value == column {
-		-webkit-box-direction: normal unquote("#{$important}");
-		-webkit-box-orient: vertical unquote("#{$important}");
-	} @else if $value == column-reverse {
-		-webkit-box-direction: reverse unquote("#{$important}");
-		-webkit-box-orient: vertical unquote("#{$important}");
-	} @else {
-		-webkit-box-direction: normal unquote("#{$important}");
-		-webkit-box-orient: horizontal unquote("#{$important}");
-	}
-	-ms-flex-direction: $value unquote("#{$important}");
-	flex-direction: $value unquote("#{$important}");
-}
-
-// FLEXBOX JUSTIFY CONTENT
-// Values: flex-start | flex-end | center | space-between | space-around
-// Default: flexstart
-// USAGE: @include justify-content(flex-start)
-@mixin justify-content($value: flex-start, $important: "") {
-	@if $value == flex-start {
-		-webkit-box-pack: start unquote("#{$important}");
-		-ms-flex-pack: start unquote("#{$important}");
-	} @else if $value == flex-end {
-		-webkit-box-pack: end unquote("#{$important}");
-		-ms-flex-pack: end unquote("#{$important}");
-	} @else if $value == space-between {
-		-webkit-box-pack: justify unquote("#{$important}");
-		-ms-flex-pack: justify unquote("#{$important}");
-	} @else if $value == space-around {
-		-ms-flex-pack: distribute unquote("#{$important}");
-	} @else {
-		-webkit-box-pack: $value unquote("#{$important}");
-		-ms-flex-pack: $value unquote("#{$important}");
-	}
-	justify-content: $value unquote("#{$important}");
-}
-
-// FLEXBOX ALIGN CONTENT
-// Values: flex-start | flex-end | center | space-between | space-around | stretch
-// Default: stretch
-// USAGE: @include align-content(stretch)
-@mixin align-content($value: stretch, $important: "") {
-	// No Webkit Box Fallback.
-	-webkit-align-content: $value unquote("#{$important}");
-	-moz-align-content: $value unquote("#{$important}");
-	@if $value == flex-start {
-		-ms-flex-line-pack: start unquote("#{$important}");
-	} @else if $value == flex-end {
-		-ms-flex-line-pack: end unquote("#{$important}");
-	} @else {
-		-ms-flex-line-pack: $value unquote("#{$important}");
-	}
-	align-content: $value unquote("#{$important}");
-}
-
-// FLEXBOX ALIGN ITEMS
-// Values: flex-start | flex-end | center | baseline | stretch
-// Default: stretch
-// USAGE: @include align-items(stretch)
-@mixin align-items($value: stretch, $important: "") {
-	@if $value == flex-start {
-		-webkit-box-align: start unquote("#{$important}");
-		-ms-flex-align: start unquote("#{$important}");
-	} @else if $value == flex-end {
-		-webkit-box-align: end unquote("#{$important}");
-		-ms-flex-align: end unquote("#{$important}");
-	} @else {
-		-webkit-box-align: $value unquote("#{$important}");
-		-ms-flex-align: $value unquote("#{$important}");
-	}
-	-ms-grid-row-align: $value unquote("#{$important}");
-	align-items: $value unquote("#{$important}");
-}
-
-// FLEXBOX ALIGN SELF
-// Values: auto | flex-start | flex-end | center | baseline | stretch
-// Default: auto
-// USAGE: @include align-self(auto)
-@mixin align-self($value: auto, $important: "") {
-	@if $value == flex-start {
-		-ms-flex-item-align: start unquote("#{$important}");
-	} @else if $value == flex-end {
-		-ms-flex-item-align: end unquote("#{$important}");
-	} @else {
-		-ms-flex-item-align: $value unquote("#{$important}");
-	}
-	align-self: $value unquote("#{$important}");
-}
-
-// FLEXBOX FLEX (shorthand)
-// Values: Values: none | <flex-grow> <flex-shrink> || <flex-basis>
-// Default: See individual properties (1 1 0).
-// USAGE: @include flex(1, 1, auto)
-@mixin flex($fg: 1, $fs: null, $fb: null, $important: "") {
-	// Set a variable to be used by box-flex properties
-	$fg-boxflex: $fg;
-	// Box-Flex only supports a flex-grow value so let's grab the
-	// first item in the list and just return that.
-	@if type-of($fg) == 'list' {
-		$fg-boxflex: nth($fg, 1);
-	}
-	-webkit-box-flex: $fg-boxflex unquote("#{$important}");
-	-ms-flex: $fg $fs $fb unquote("#{$important}");
-	flex: $fg $fs $fb unquote("#{$important}");
-}
-
-// FLEXBOX GROW
-// Values: positive integer
-// Default: 0
-// USAGE: @include flex-grow(0)
-@mixin flex-grow($int: 0, $important: "") {
-	-webkit-box-flex: $int unquote("#{$important}");
-	-ms-flex-positive: $int unquote("#{$important}");
-	flex-grow: $int unquote("#{$important}");
-}
-
-// FLEXBOX SHRINK
-// Values: positive integer
-// Default: 1
-// USAGE: @include flex-shrink(1)
-@mixin flex-shrink($int: 1, $important: "") {
-	-ms-flex-negative: $int unquote("#{$important}");
-	flex-shrink: $int unquote("#{$important}");
-}
-
-// FLEXBOX BASIS
-// Values: An absolute <length>, a <percentage> of the parent flex container's main size property, or the keyword auto. Negative values are invalid.
-// Default: auto
-// USAGE: @include flex-basis($width)
-@mixin flex-basis($width: auto, $important: "") {
-	-ms-flex-preferred-size: $width unquote("#{$important}");
-	flex-basis: $width unquote("#{$important}");
-}
-
-// FLEXBOX ORDER
-// Values: integer
-// Default: 0
-// USAGE: @include order(0)
-@mixin order($int: 0, $important: "") {
-	-webkit-box-ordinal-group: $int + 1 unquote("#{$important}");
-	-ms-flex-order: $int unquote("#{$important}");
-	order: $int unquote("#{$important}");
 }

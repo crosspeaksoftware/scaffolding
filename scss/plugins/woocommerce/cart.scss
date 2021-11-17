@@ -246,20 +246,20 @@ Last reviewed with plugin Version 4.8.0.
 		}
 
 		.cart-collaterals {
-			@include flexbox(flex);
-			@include flex-wrap(nowrap);
-			@include justify-content(flex-end);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
 
 			.cross-sells {
 				padding-right: 6%;
-				@include flex-basis(0);
-				@include flex-grow(1);
+				flex-basis: 0;
+				flex-grow: 1;
 				max-width: 100%;
 				width: 100%;
 			}
 
 			.cart_totals {
-				@include flex(0 0 48%);
+				flex: 0 0 48%;
 				max-width: 48%;
 				width: 100%;
 			}

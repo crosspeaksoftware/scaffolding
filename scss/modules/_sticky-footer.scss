@@ -15,20 +15,20 @@ body.sticky-footer {
 
 body.sticky-footer {
 	min-height: 100%;
-	@include flexbox(flex);
-	@include flex-direction(column);
+	display: flex;
+	flex-direction: column;
 
 	#container {
 		min-height: 100vh;
-		@include flexbox(flex);
-		@include flex-direction(column);
+		display: flex;
+		flex-direction: column;
 	}
 
 	.banner-wrap {
-		@include flex-shrink(0);
+		flex-shrink: 0;
 	}
 
 	#content {
-		@include flex-grow(1)
+		flex-grow: 1;
 	}
 }

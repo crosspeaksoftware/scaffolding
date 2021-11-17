@@ -171,13 +171,13 @@ Last reviewed with plugin Version 4.8.0.
 		}
 
 		ul.order_details {
-			@include flexbox(flex);
+			display: flex;
 			margin-left: -30px;
 			margin-right: -30px;
 
 			li {
-				@include flex-basis(0);
-				@include flex-grow(1);
+				flex-basis: 0;
+				flex-grow: 1;
 				max-width: 100%;
 				width: 100%;
 				padding-left: 30px;

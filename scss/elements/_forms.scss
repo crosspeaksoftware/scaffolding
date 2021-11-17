@@ -31,7 +31,7 @@ Stylesheet: Forms Stylesheet
 }
 
 @include placeholder-focus {
-	@include transition(opacity 0.25s ease-in-out);
+	transition: opacity 0.25s ease-in-out;
 	opacity: 0;
 }
 
@@ -67,7 +67,7 @@ input[type="search"] {
 	font-size: 1em;
 	letter-spacing: normal;
 	outline: none;
-	@include transition(all 0.25s ease-in-out);
+	transition: all 0.25s ease-in-out;
 	width: 100%;
 
 	&:focus,
@@ -144,7 +144,6 @@ button[type="submit"] {
 	@include button-color($color__primary, #FFF);
 	@include button-lg;
 	@include button-wide;
-
 	background-image: none;
 	border-radius: 0;
 	cursor: pointer;
@@ -172,11 +171,11 @@ button[type="submit"] {
 
 // Search form
 .sc-searchform {
-	@include flexbox(flex);
-	@include flex-wrap(wrap);
+	display: flex;
+	flex-wrap: wrap;
 
 	.sc-searchform-field {
-		@include flex(1 1 80%);
+		flex: 1 1 80%;
 		width: auto;
 		max-width: 100%;
 	}
@@ -184,7 +183,7 @@ button[type="submit"] {
 	button {
 		font-size: 1em;
 		padding: 0 0.5em;
-		@include flex(1 1 auto);
+		flex: 1 1 auto;
 		width: auto;
 		max-width: 100%;
 		min-height: $input__height;

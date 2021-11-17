@@ -1,55 +1,17 @@
-/******************************************************************
+/*
 Theme Name: Scaffolding
 Theme URI: https://scaffolding.io/
-Description: This site was built using the Scaffolding Development Theme. For more information about Scaffolding or to view documentation, you can visit the <a href="https://www.scaffolding.io" title="Scaffolding Development Page">project home</a>. You'll want to customize this for your clients with your own information.
 Author: Hall
 Author URI: https://www.hallme.com
+Description: This site was built using the Scaffolding Development Theme. For more information about Scaffolding or to view documentation, you can visit the <a href="https://www.scaffolding.io" title="Scaffolding Development Page">project home</a>. You'll want to customize this for your clients with your own information.
 Version: 3.2
-Text Domain: scaffolding
-Domain Path: /languages/
-Tags: translation-ready, microformats, rtl-language-support
-
+Requires at least: 5.0
+Tested up to: 5.8.2
+Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: scaffolding
 
-MAKE SURE TO READ BELOW BEFORE GETTING STARTED FOR THE FIRST TIME!
-------------------------------------------------------------------
-
-You may be thinking…
-
-WHOA, WHOA, WHOA... WHERE ARE THE STYLES?
-
-But before you freak out, let me take a few minutes to explain.
-
-Scaffolding uses Compass ( http://compass-style.org/ ) (and by extension, SASS) by default. If you prefer using regular CSS, then feel free to modify this theme how you like and keep a copy as your own personal starting point.
-
-DON'T DISMISS IT JUST YET THOUGH, USING SASS ISN'T AS COMPLICATED AS YOU THINK.
-
-It does take a few minutes to wrap your head around, but it will all be worth it. Need a quick intro? Here are a few quick reads:
-http://cognition.happycog.com/article/preprocess-this
-https://www.smashingmagazine.com/2011/09/an-introduction-to-less-and-comparison-to-sass/
-
-I would HIGHLY RECOMMEND, if you are going to be working with SASS, that you work locally.
-
-That being said, here is the guide to installing compass.
-http://compass-style.org/install/
-
-If you need a GUI for it, we recommend using Scout.
-Scout: (Windows / Mac Users)
-https://mhs.github.io/scout-app/
-
-These applications compile Sass into valid CSS. This
-way you can keep your production files easy to read and your
-CSS minified and speedy. Simply set the output to the
-css folder and you are all set. It's a thing of beauty.
-
-> Ready to get down to business? Head over to scss/styles.scss for more info on how to get started with styling.
-
----------------------------------------------------------------
-
-Remember, once you download scaffolding it's up to you how to use it,
-so go nuts. Set things up and develop in a way that's easiest for you.
-
-Happy Developing!
-
-******************************************************************/
+Our theme uses SCSS for our styles located in the /scss/ folder and these get compiled into the /css/ folder.
+Please review our get started guide in the readme.
+*/

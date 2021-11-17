@@ -21,9 +21,6 @@ body {
 
 	#container {
 		height: 100%;
-		// styles for mobile nav slide in
-		position: relative;
-		@include transition(all 0.25s ease-in-out);
 	}
 }
 
@@ -168,9 +165,6 @@ body {
 				// hyphenate long words
 				overflow-wrap: break-word;
 				word-wrap: break-word;
-				-webkit-hyphens: auto;
-				-ms-hyphens: auto;
-				-moz-hyphens: auto;
 				hyphens: auto;
 			}
 
@@ -278,7 +272,7 @@ ul.footer-menu {
 		text-decoration: none;
 		width: 1.675em;
 		border-radius: 500px;
-		@include transition(background-color 0.5s ease-in-out);
+		transition: background-color 0.5s ease-in-out;
 
 		&:hover,
 		&:focus {

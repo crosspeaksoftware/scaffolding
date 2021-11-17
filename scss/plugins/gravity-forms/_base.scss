@@ -17,7 +17,7 @@ Last reviewed with plugin Version 2.0.2.
 @import "other_fields";
 @import "credit_cards";
 
-// 
+//
 // GForm Wrapper
 //
 
@@ -31,7 +31,7 @@ Last reviewed with plugin Version 2.0.2.
 	}
 }
 
-// 
+//
 // REQUIRED
 //
 
@@ -41,7 +41,7 @@ Last reviewed with plugin Version 2.0.2.
 	margin-left: 4px;
 }
 
-// 
+//
 // INPUTS
 //
 
@@ -57,7 +57,7 @@ textarea.large {
 	height: 250px;
 }
 
-// 
+//
 // RADIO & CHECKBOXES
 //
 
@@ -68,10 +68,10 @@ ul.gfield_radio {
 	li {
 		position: relative;
 		width: 100%;
-		@include flexbox(inline-flex);
-		@include align-items(center);
+		display: inline-flex;
+		align-items: center;
 		margin-bottom: 0.5em;
-		
+
 		label {
 			margin-bottom: 0;
 		}
@@ -100,7 +100,7 @@ ul.gfield_radio {
 	}
 }
 
-// 
+//
 // HOVER & FOCUS
 //
 
@@ -114,7 +114,7 @@ ul.gfield_radio {
 	border: 1px solid #C2D7EF;
 }
 
-// 
+//
 // CUSTOM FIELDS
 //
 
@@ -152,7 +152,7 @@ ul.gfield_radio {
 	}
 }
 
-// 
+//
 // HEADER
 //
 
@@ -161,13 +161,13 @@ ul.gfield_radio {
 	margin-bottom: 2em;
 }
 
-// 
+//
 // BODY
 //
 
 .gform_body {}
 
-// 
+//
 // FOOTER
 //
 
@@ -176,7 +176,7 @@ ul.gfield_radio {
 	clear: both;
 }
 
-// 
+//
 // TITLES & DESCRIPTIONS
 //
 
@@ -247,7 +247,7 @@ h3.gform_title {
 	line-height: 1.5em;
 }
 
-// 
+//
 // LISTS
 //
 
@@ -302,7 +302,7 @@ form {
 	}
 }
 
-// 
+//
 // LABELS
 //
 
@@ -374,7 +374,6 @@ ul.gfield_checkbox {
 .right_label {
 	.gfield_label {
 		margin: 10px 0 5px 0;
-		display: -moz-inline-stack;
 		display: inline-block;
 		line-height: 1.3em;
 		clear: both;
@@ -396,7 +395,7 @@ ul.gfield_checkbox {
 			overflow: hidden;
 		}
 	}
-	
+
 	.top_label {
 		.hidden_label {
 			.ginput_container {
@@ -407,7 +406,7 @@ ul.gfield_checkbox {
 }
 
 
-// 
+//
 // SECTIONS
 //
 
@@ -600,5 +599,5 @@ ul.gfield_checkbox {
 			width: 49%;
 		}
 	}
-  
+
 }

@@ -40,7 +40,6 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	height: $input__height;
 	margin: 0;
 	user-select: none;
-	-webkit-user-select: none;
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -66,7 +65,6 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	display: block;
 	min-height: $input__height;
 	user-select: none;
-	-webkit-user-select: none;
 }
 
 .select2-container .select2-selection--multiple .select2-selection__rendered {
@@ -133,7 +131,6 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	padding: 6px;
 	margin: 0;
 	user-select: none;
-	-webkit-user-select: none;
 }
 
 .select2-results__option[data-selected],
@@ -202,7 +199,6 @@ Select2 gives you a customizable select box with support for searching, tagging,
 	opacity: 0;
 	z-index: 99;
 	background-color: #fff;
-	filter: alpha(opacity = 0);
 }
 
 .select2-hidden-accessible {

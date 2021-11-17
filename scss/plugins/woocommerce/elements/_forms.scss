@@ -14,9 +14,9 @@ Stylesheet: Responsive WooCommerce Styles - Forms
 
 	form {
 		[class*="field-wrapper"] {
-			@include flexbox(flex);
-			@include flex-wrap(wrap);
-			@include justify-content(space-between);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 
 			.form-row-first,
 			.form-row-last {
@@ -177,9 +177,9 @@ Stylesheet: Responsive WooCommerce Styles - Forms
 		}
 
 		.password-input {
-			@include flexbox(flex);
-			@include flex-direction(column);
-			@include justify-content(center);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			position: relative;
 
 			input[type="password"] {
