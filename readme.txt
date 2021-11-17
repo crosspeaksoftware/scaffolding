@@ -18,3 +18,17 @@ Scaffolding is designed to make the life of developers easier. It is built using
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
+
+== Get Started ==
+
+Our theme uses SCSS for our styles located in the /scss/ folder and these get compiled into the /css/ folder.
+https://sass-lang.com/
+
+Our SCSS is compiled using Laravel Mix, an API for defining Webpack build steps.
+https://laravel-mix.com/
+
+1. Requires NPM/Node.js to be installed
+2. Run `npm install` to install dependencies
+3. Compile SCSS with one of the following commands:
+   a) `npm run watch` - continually runs in the terminal, watching for files changes, and then automatically recompiles
+   b) `npm run production` - runs all Mix tasks and minifies the output
