@@ -26,10 +26,15 @@ function scaffolding_excluded_terms( $tax ) {
 			$terms = get_terms( $tax, array( 'fields' => 'ids' ) );
 
 			foreach ( $terms as $term ) {
-				$term_seo = ( array_key_exists( $term, $yoast_tax_meta[ $tax ] ) ) ? $yoast_tax_meta[ $tax ][ $term ] : '';
-				// Check if each term exists in array and is excluded from sitemap.
-				if ( $term_seo && ( 'never' === $term_seo['wpseo_sitemap_include'] || 'noindex' === $term_seo['wpseo_noindex'] ) ) {
-					$excluded_term_ids[] = $term;
+				if ( isset( $yoast_tax_meta[ $tax ] ) && ! empty( $yoast_tax_meta[ $tax ][ $term ] ) ) {
+					$term_seo = $yoast_tax_meta[ $tax ][ $term ];
+					// Check if each term exists in array and is excluded from sitemap.
+					if ( isset( $term_seo['wpseo_sitemap_include'] ) && 'never' === $term_seo['wpseo_sitemap_include'] ) {
+						$excluded_term_ids[] = $term;
+					}
+					if ( isset( $term_seo['wpseo_noindex'] ) && 'noindex' === $term_seo['wpseo_noindex'] ) {
+						$excluded_term_ids[] = $term;
+					}
 				}
 			}
 		}
