@@ -25,17 +25,9 @@
  * 9.0 - Utility Functions
  *    9.1 - Removes […] from read more
  *    9.2 - Modified author post link
- *    9.3 - Posted on meta
- * 10.0 - Admin Customization
- *    10.1 - Set content width
- *    10.2 - Set image attachment width
- *    10.3 - Disable default dashboard widgets
- *    10.4 - Change name of "Posts" in admin menu
- * 11.0 - Custom/Additional Functions
  */
 
 define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
-
 
 /************************************
  * 1.0 - INCLUDE FILES
@@ -166,25 +158,6 @@ function scaffolding_theme_support() {
 		)
 	);
 
-	// Support for custom headers.
-	add_theme_support(
-		'custom-header',
-		array(
-			'default-image'          => '%s/images/headers/default.jpg',
-			'random-default'         => false,
-			'width'                  => 1800,    // Make sure to set this.
-			'height'                 => 350,     // Make sure to set this.
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'default-text-color'     => 'ffffff',
-			'header-text'            => false,
-			'uploads'                => true,
-			'wp-head-callback'       => 'scaffolding_custom_headers_callback', // callback function.
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
-		)
-	);
-
 	// HTML5.
 	add_theme_support(
 		'html5',
@@ -200,34 +173,6 @@ function scaffolding_theme_support() {
 
 	// Title Tag.
 	add_theme_support( 'title-tag' );
-
-	/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// Feature Currently Disabled
-	// WP custom background (thx to @bransonwerner for update)
-	add_theme_support( 'custom-background', array(
-		'default-color'           => '',      // background color default (dont add the #)
-		'default-image'           => '',      // background image default
-		'wp-head-callback'        => '_custom_background_cb',
-		'admin-head-callback'     => '',
-		'admin-preview-callback'  => '',
-	) );
-	*/
-
-	/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// Feature Currently Disabled
-	// Support for post formats
-	add_theme_support( 'post-formats', array(
-			'aside',            // title less blurb
-			'gallery',          // gallery of images
-			'link',             // quick link to other site
-			'image',            // an image
-			'quote',            // a quick quote
-			'status',           // a Facebook like status update
-			'video',            // video
-			'audio',            // audio
-			'chat',             // chat transcript
-	) );
-	*/
 
 	// Support for menus.
 	add_theme_support( 'menus' );
@@ -340,36 +285,6 @@ function scaffolding_footer_nav() {
  * @since Scaffolding 1.0
  */
 function scaffolding_add_image_sizes() {}
-
-/**
- * Register custom image headers
- *
- * @since Scaffolding 1.0
- */
-register_default_headers(
-	array(
-		'default' => array(
-			'url'           => get_template_directory_uri() . '/images/headers/default.jpg',
-			'thumbnail_url' => get_template_directory_uri() . '/images/headers/default.jpg',
-			'description'   => __( 'default', 'scaffolding' ),
-		),
-	)
-);
-
-/**
- * Set header image as a BG
- *
- * This is a callback function defined in scaffolding_theme_support() 'custom-header'.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_custom_headers_callback() {
-	if ( has_header_image() ) {
-		?>
-<style type="text/css">#banner { display: block; background-image: url(<?php header_image(); ?>); }</style>
-		<?php
-	}
-} // end scaffolding_custom_headers_callback()
 
 
 /************************************
