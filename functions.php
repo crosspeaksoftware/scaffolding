@@ -593,59 +593,6 @@ function scaffolding_disable_default_dashboard_widgets() {
 }
 add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
 
-/**
- * Change name of "Posts" menu
- *
- * This is useful for improving UX in the WP backend.
- *
- * @since Scaffolding 1.0
- * @global menu, submenu
- */
-
-/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-// Not currently in use.
-function scaffolding_change_post_menu_label() {
-	global $menu;
-	global $submenu;
-	$menu[5][0] = 'News';
-	$submenu['edit.php'][5][0]  = 'All News Entries';
-	$submenu['edit.php'][10][0] = 'Add News Entries';
-	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
-	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
-	echo '';
-}
-add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
-*/
-
-/**
- * Change labels for "Posts"
- *
- * This is useful for improving UX in the WP backend.
- *
- * @since Scaffolding 1.0
- * @global wp_post_types
- */
-
-/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-// Not currently in use.
-function scaffolding_change_post_object_label() {
-	global $wp_post_types;
-	$labels                        = &$wp_post_types['post']->labels;
-	$labels->name                  = 'News';
-	$labels->singular_name         = 'News';
-	$labels->add_new               = 'Add News Entry';
-	$labels->add_new_item          = 'Add News Entry';
-	$labels->edit_item             = 'Edit News Entry';
-	$labels->new_item              = 'News Entry';
-	$labels->view_item             = 'View Entry';
-	$labels->search_items          = 'Search News Entries';
-	$labels->not_found             = 'No News Entries found';
-	$labels->not_found_in_trash    = 'No News Entries found in Trash';
-}
-add_action( 'init', 'scaffolding_change_post_object_label' );
-*/
-
-
 /************************************
  * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
  */
