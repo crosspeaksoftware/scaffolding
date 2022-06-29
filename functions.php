@@ -14,7 +14,7 @@
  *
  * Table of Contents
  *
- * 1.0 - Include Files
+ * 1.0 - Initiating Scaffolding
  * 2.0 - Scripts & Styles
  * 3.0 - Theme Support
  * 4.0 - Menus & Navigation
@@ -23,52 +23,121 @@
  * 7.0 - Search Functions
  * 8.0 - Comment Layout
  * 9.0 - Utility Functions
- *    9.1 - Removes […] from read more
- *    9.2 - Modified author post link
+ * 10.0 - ADMIN CUSTOMIZATION
+ * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
  */
-
-/**
- * Initiating Scaffolding.
- */
-require get_template_directory() . '/inc/init-theme.php';
-
-/**
- * Enqueue Scripts & Styles
- */
-require get_template_directory() . '/inc/scripts-styles.php';
-
-/**
- * Menus & Navigation
- */
-require get_template_directory() . '/inc/navigation.php';
 
 /************************************
- * 1.0 - INCLUDE FILES
+ * 1.0 - INITIATING SCAFFOLDING
+ ************************************/
+
+/**
+ * Scaffolding Setup
+ *
+ * All of these functions are defined below or in functions.php.
+ *
+ * @since Scaffolding 1.0
  */
+function scaffolding_build() {
+	add_action( 'init', 'scaffolding_head_cleanup' );                                 // launching operation cleanup.
+	add_filter( 'the_generator', 'scaffolding_rss_version' );                         // remove WP version from RSS.
+	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 ); // remove pesky injected css for recent comments widget.
+	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );           // clean up comment styles in the head.
+	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );        // enqueue base scripts and styles.
+	scaffolding_add_image_sizes();                                                    // add additional image sizes.
+	scaffolding_theme_support();                                                      // launching this stuff after theme setup.
+	add_action( 'widgets_init', 'scaffolding_register_sidebars' );                    // adding sidebars to WordPress (these are created in functions.php).
+	add_filter( 'the_content', 'scaffolding_filter_ptags_on_images' );                // cleaning up random code around images.
+	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );                         // cleaning up excerpt.
+}
+add_action( 'after_setup_theme', 'scaffolding_build', 16 );
 
-// Add any additional files to include here.
-require_once SCAFFOLDING_INCLUDE_PATH . 'base-functions.php';
-require_once SCAFFOLDING_INCLUDE_PATH . 'class-scaffolding-walker-nav-menu.php';
-
-// require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
-
-// WooCommerce Customizations.
-if ( function_exists( 'is_woocommerce' ) ) {
-	require_once SCAFFOLDING_INCLUDE_PATH . 'woocommerce-customizations.php';
+/**
+ * Clean up wp_head() output
+ *
+ * This function is called in scaffolding_build().
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_head_cleanup() {
+	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+	// remove_action( 'wp_head', 'feed_links_extra', 3 );                 // category feeds.
+	// remove_action( 'wp_head', 'feed_links', 2 );                       // post and comment feeds.
+	remove_action( 'wp_head', 'rsd_link' );                               // EditURI link.
+	remove_action( 'wp_head', 'wlwmanifest_link' );                       // windows live writer.
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // links for adjacent posts.
+	remove_action( 'wp_head', 'wp_generator' );                           // WP version.
 }
 
-// Gravity Forms Customizations.
-if ( class_exists( 'GFForms' ) ) {
-	require_once SCAFFOLDING_INCLUDE_PATH . 'gf-customizations.php';
+/**
+ * Remove WP version from RSS
+ *
+ * This function is called in scaffolding_build().
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_rss_version() {
+	return '';
 }
 
-// commonWP Support https://wordpress.org/plugins/commonwp/ for details.
-require_once SCAFFOLDING_INCLUDE_PATH . 'commonwp.php';
+/**
+ * Remove injected CSS for recent comments widget
+ *
+ * This function is called in scaffolding_build().
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_remove_wp_widget_recent_comments_style() {
+	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
+		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
+	}
+}
 
+/**
+ * Remove injected CSS from recent comments widget
+ *
+ * This function is called in scaffolding_build().
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_remove_recent_comments_style() {
+	global $wp_widget_factory;
+	if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
+		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+	}
+}
 
 /************************************
  * 2.0 - SCRIPTS & STYLES
  ************************************/
+
+/**
+ * Filter scripts and their data available for replacement.
+ *
+ * @param array $scripts Scripts and their data available for replacement.
+ * @return array
+ */
+function scaffolding_commonwp_npm_packages_scripts( $scripts ) {
+	$scripts['scaffolding-retinajs']          = array(
+		'package'  => 'retinajs',
+		'file'     => 'dist/retina',
+		'minified' => '.min',
+	);
+	$scripts['scaffolding-doubletaptogo-js']  = array(
+		'package'  => 'jquery-doubletaptogo',
+		'file'     => 'dist/jquery.dcd.doubletaptogo',
+		'minified' => '.min',
+	);
+	$scripts['scaffolding-magnific-popup-js'] = array(
+		'package'  => 'magnific-popup',
+		'file'     => 'dist/jquery.magnific-popup',
+		'minified' => '.min',
+	);
+	return $scripts;
+}
+add_filter( 'npm_packages_scripts', 'scaffolding_commonwp_npm_packages_scripts', 10, 1 );
+
+
 
 /**
  * Enqueue scripts and styles in wp_head() and wp_footer()
@@ -225,18 +294,174 @@ function scaffolding_theme_support() {
 
 } // end scaffolding_theme_support()
 
+/**
+ * Add rel and title attribute to next pagination link
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $attr Previous "Next Page" rel attribute.
+ * @return string New "Next Page rel attribute.
+ */
+function scaffolding_get_next_posts_link_attributes( $attr ) {
+	$attr = 'rel="next" title="View the Next Page"';
+	return $attr;
+}
+add_filter( 'next_posts_link_attributes', 'scaffolding_get_next_posts_link_attributes' );
+
+/**
+ * Add rel and title attribute to prev pagination link
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $attr Previous "Previous Page" rel attribute.
+ * @return string New "Previous Page rel attribute.
+ */
+function scaffolding_get_previous_posts_link_attributes( $attr ) {
+	$attr = 'rel="prev" title="View the Previous Page"';
+	return $attr;
+}
+add_filter( 'previous_posts_link_attributes', 'scaffolding_get_previous_posts_link_attributes' );
+
+/**
+ * Add page title attribute to wp_list_pages link tags
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $output Output from wp_list_pages.
+ * @return string Modified output.
+ */
+function scaffolding_wp_list_pages_filter( $output ) {
+	$output = preg_replace( '/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/', '<a$1 title="$4" href="$2"$3>$4</a>', $output );
+	return $output;
+}
+add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
 
 /************************************
  * 4.0 - MENUS & NAVIGATION
  ************************************/
 
 /**
- * Two menus included - main menu in header and footer menu
+ * Custom walker to build main navigation menu
  *
- * Add any additional menus here. Register new menu in scaffolding_theme_support() above.
+ * Adds classes for enhanced styles and support for mobile off-canvas menu.
  *
  * @since Scaffolding 1.0
  */
+class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
+	/**
+	 * Starts the list before the elements are added.
+	 *
+	 * @see Walker::start_lvl()
+	 *
+	 * @param string   $output Used to append additional content (passed by reference).
+	 * @param int      $depth  Depth of menu item. Used for padding.
+	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
+		// depth dependent classes.
+		$indent        = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent.
+		$display_depth = ( $depth + 1 ); // because it counts the first submenu as 0.
+		$classes       = array(
+			'sub-menu',
+			( $display_depth % 2 ? 'menu-odd' : 'menu-even' ),
+			'menu-depth-' . $display_depth,
+		);
+		$class_names   = implode( ' ', $classes );
+
+		// build html.
+		$output .= "\n" . $indent . '<ul class="' . $class_names . '"><li><button class="menu-back-button" type="button"><i class="fa fa-chevron-left"></i> Back</button></li>' . "\n";
+	}
+
+	/**
+	 * Starts the element output.
+	 *
+	 * @see Walker::start_el()
+	 *
+	 * @param string   $output Used to append additional content (passed by reference).
+	 * @param WP_Post  $item   Menu item data object.
+	 * @param int      $depth  Depth of menu item. Used for padding.
+	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 * @param int      $id     Current item ID.
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		global $wp_query;
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		// set li classes.
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		if ( ! $args->has_children ) {
+			$classes[] = 'menu-item-no-children';
+		}
+
+		// combine the class array into a string.
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		$class_names = ' class="' . esc_attr( $class_names ) . '"';
+
+		// set li id.
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		// set outer li and its attributes.
+		$output .= $indent . '<li' . $id . $class_names . '>';
+
+		// set link attributes.
+		$attributes  = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : ' title="' . esc_attr( wp_strip_all_tags( $item->title ) ) . '"';
+		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
+		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+
+		// Add menu button links to items with children.
+		if ( $args->has_children ) {
+			$menu_pull_link = '<button class="menu-button" type="button"><i class="fa fa-chevron-right"></i></button>';
+		} else {
+			$menu_pull_link = '';
+		}
+
+		$item_output  = $args->before;
+		$item_output .= '<a' . $attributes . '>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		$item_output .= '</a>';
+		$item_output .= $menu_pull_link . $args->after;
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+	}
+
+	/**
+	 * Ends the element output, if needed.
+	 *
+	 * @see Walker::end_el()
+	 *
+	 * @param string   $output Used to append additional content (passed by reference).
+	 * @param WP_Post  $item   Page data object. Not used.
+	 * @param int      $depth  Depth of page. Not Used.
+	 * @param stdClass $args   An object of wp_nav_menu() arguments.
+	 */
+	public function end_el( &$output, $item, $depth = 0, $args = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInExtendedClassAfterLastUsed
+		$output .= "</li>\n";
+	}
+
+	/**
+	 * Add additional arguments to use for building the markup.
+	 *
+	 * @param WP_Post  $element           Menu item data object.
+	 * @param WP_Post  $children_elements Menu item data object (passed by reference).
+	 * @param int      $max_depth         Max depth of page. Not used.
+	 * @param int      $depth             Depth of page. Not used.
+	 * @param stdClass $args              An object of wp_nav_menu() arguments.
+	 * @param string   $output            Used to append additional content (passed by reference).
+	 */
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+
+		// Set custom arg to tell if item has children.
+		$id_field = $this->db_fields['id'];
+		if ( is_object( $args[0] ) ) {
+			$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+		}
+
+		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+	}
+} // end Scaffolding_Walker_Nav_Menu()
+
 
 /**
  * Main navigation menu
@@ -287,7 +512,6 @@ function scaffolding_footer_nav() {
 	);
 } // end scaffolding_footer_nav()
 
-
 /************************************
  * 5.0 - IMAGES & HEADERS
  ************************************/
@@ -302,6 +526,21 @@ function scaffolding_footer_nav() {
  */
 function scaffolding_add_image_sizes() {}
 
+/**
+ * Remove the p from around imgs
+ *
+ * This function is called in scaffolding_build().
+ *
+ * @link http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $content Content to be modified.
+ * @return string Modified content
+ */
+function scaffolding_filter_ptags_on_images( $content ) {
+	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+}
 
 /************************************
  * 6.0 - SIDEBARS
@@ -605,6 +844,37 @@ function scaffolding_disable_default_dashboard_widgets() {
 	// unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms.
 }
 add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
+
+/**
+ * Custom login page CSS
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_login_css() {
+	$login_css_version = filemtime( get_theme_file_path( '/css/login.css' ) );
+	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/login.css', array(), $login_css_version, 'screen' );
+}
+add_action( 'login_enqueue_scripts', 'scaffolding_login_css' );
+
+/**
+ * Change logo link from wordpress.org to your site
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_login_url() {
+	return home_url();
+}
+add_filter( 'login_headerurl', 'scaffolding_login_url' );
+
+/**
+ * Change the link text of the header logo to show your site name
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_login_title() {
+	return get_option( 'blogname' );
+}
+add_filter( 'login_headertext', 'scaffolding_login_title' );
 
 /************************************
  * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
