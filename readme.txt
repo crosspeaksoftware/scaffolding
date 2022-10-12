@@ -1,7 +1,7 @@
 == Responsive Design Scaffolding for WordPress ==
 
 Contributors: Hall
-Tags: translation-ready, microformats, rtl-language-support
+Tags: translation-ready, rtl-language-support
 
 Requires at least: 4.0
 Tested up to: 5.5.1
