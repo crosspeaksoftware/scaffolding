@@ -38,7 +38,7 @@ get_header();
 
 						<h3 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
-						<?php echo scaffolding_post_meta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php scaffolding_post_meta(); ?>
 
 					</header>
 

@@ -26,7 +26,7 @@ get_header();
 
 						<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
-						<?php echo scaffolding_post_meta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php scaffolding_post_meta(); ?>
 
 					</header>
 
