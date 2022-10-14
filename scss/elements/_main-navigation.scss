@@ -9,9 +9,11 @@ It currently slides out from the right.
 
 ******************************************************************/
 
+@use "sass:math";
+
 // Remove bootstrap positioning
 #masthead [class^="col"] {
-    position: static;
+	position: static;
 }
 
 //
@@ -216,8 +218,8 @@ It currently slides out from the right.
 			margin: 0 auto;
 			text-align: center;
 			max-width: map-get($container-max-widths, 'xl');
-			padding-right: ($grid-gutter-width / 2);
-			padding-left: ($grid-gutter-width / 2);
+			padding-right: math.div($grid-gutter-width, 2);
+			padding-left: math.div($grid-gutter-width, 2);
 
 			> li.menu-item {
 				flex: 1 1 auto;

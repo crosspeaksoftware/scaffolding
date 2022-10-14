@@ -6,6 +6,8 @@ Stylesheet: Responsive WooCommerce Styles - Product Loops
 
 ******************************************************************/
 
+@use "sass:math";
+
 .woocommerce.archive {
 	ul.products {
 		margin-top: 2em;
@@ -59,7 +61,7 @@ Stylesheet: Responsive WooCommerce Styles - Product Loops
 			}
 
 			span.onsale {
-				margin-left: ($grid-gutter-width / 2);
+				margin-left: math.div($grid-gutter-width, 2);
 			}
 
 			h3,

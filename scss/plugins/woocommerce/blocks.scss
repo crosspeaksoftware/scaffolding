@@ -8,6 +8,8 @@ Last reviewed with plugin Version 4.8.0.
 
 ******************************************************************/
 
+@use "sass:math";
+
 //
 // IMPORT THEME UTILITIES
 //
@@ -28,13 +30,13 @@ Last reviewed with plugin Version 4.8.0.
 }
 
 .wc-block-grid__products {
-	margin-right: ($grid-gutter-width / -2);
-	margin-left: ($grid-gutter-width / -2);
+	margin-right: math.div($grid-gutter-width, -2);
+	margin-left: math.div($grid-gutter-width, -2);
 }
 
 .wc-block-grid__product {
 	text-align: left;
-	border-width: ($grid-gutter-width / 2);
+	border-width: math.div($grid-gutter-width, 2);
 	margin-bottom: 2.992em;
 }
 
