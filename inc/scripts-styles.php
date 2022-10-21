@@ -1,6 +1,6 @@
 <?php
 /**
- * Scaffolding Scripts & Styles
+ * Scaffolding Theme Scripts & Styles
  *
  * @package scaffolding
  */
@@ -40,13 +40,25 @@ add_filter( 'npm_packages_scripts', 'scaffolding_commonwp_npm_packages_scripts',
  */
 function scaffolding_scripts_and_styles() {
 
+	/**
+	 * Fonts
+	 */
+
 	// Font Awesome (icon set) - https://fontawesome.com/.
 	// this may be updated to include only specific icon sets: brands, solid, regular.
 	wp_enqueue_style( 'scaffolding-fontawesome-all', get_stylesheet_directory_uri() . '/css/libs/fontawesome/all.css', array(), '5.15.1' );
 
+	/**
+	 * Theme Styles
+	 */
+
 	// Main stylesheet.
 	$theme_css_version = filemtime( get_theme_file_path( '/css/style.css' ) );
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
+
+	/**
+	 * Third-Party Libraries
+	 */
 
 	// Modernizr - http://modernizr.com/.
 	// update this to include only what you need to test.
@@ -69,6 +81,10 @@ function scaffolding_scripts_and_styles() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	/**
+	 * Theme Scripts
+	 */
+
 	// Add Scaffolding scripts file in the footer.
 	$theme_js_version = filemtime( get_theme_file_path( '/js/scripts.js' ) );
 	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
@@ -81,21 +97,4 @@ function scaffolding_scripts_and_styles() {
 	// Fallback for elements outside the Gutenberg blocks (ie. using the Classic Editor).
 	wp_enqueue_script( 'scaffolding-responsive-iframes', get_stylesheet_directory_uri() . '/js/responsive-iframes.js', array( 'jquery' ), '1.0.0', true );
 
-	// Add styles for use in visual editor.
-	add_editor_style( 'css/editor-styles.css' );
-	add_editor_style( 'css/libs/fontawesome/fontawesome-all.css' );
-
 }
-add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles' );
-
-
-/**
- * Custom login page CSS
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_css() {
-	$login_css_version = filemtime( get_theme_file_path( '/css/login.css' ) );
-	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/login.css', array(), $login_css_version, 'screen' );
-}
-add_action( 'login_enqueue_scripts', 'scaffolding_login_css' );
