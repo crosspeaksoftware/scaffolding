@@ -14,8 +14,6 @@
  *
  * Table of Contents
  *
- * 1.0 - Initiating Scaffolding
- * 2.0 - Scripts & Styles
  * 3.0 - Theme Support
  * 4.0 - Menus & Navigation
  * 5.0 - Images & Headers
@@ -27,186 +25,15 @@
  * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
  */
 
-/************************************
- * 1.0 - INITIATING SCAFFOLDING
- ************************************/
+/**
+ * Initiating Scaffolding.
+ */
+require get_template_directory() . '/inc/init-theme.php';
 
 /**
- * Scaffolding Setup
- *
- * All of these functions are defined below or in functions.php.
- *
- * @since Scaffolding 1.0
+ * Enqueue Scripts & Styles
  */
-function scaffolding_build() {
-	add_action( 'init', 'scaffolding_head_cleanup' );                                 // launching operation cleanup.
-	add_filter( 'the_generator', 'scaffolding_rss_version' );                         // remove WP version from RSS.
-	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 ); // remove pesky injected css for recent comments widget.
-	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );           // clean up comment styles in the head.
-	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );        // enqueue base scripts and styles.
-	scaffolding_add_image_sizes();                                                    // add additional image sizes.
-	scaffolding_theme_support();                                                      // launching this stuff after theme setup.
-	add_action( 'widgets_init', 'scaffolding_register_sidebars' );                    // adding sidebars to WordPress (these are created in functions.php).
-	add_filter( 'the_content', 'scaffolding_filter_ptags_on_images' );                // cleaning up random code around images.
-	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );                         // cleaning up excerpt.
-}
-add_action( 'after_setup_theme', 'scaffolding_build', 16 );
-
-/**
- * Clean up wp_head() output
- *
- * This function is called in scaffolding_build().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_head_cleanup() {
-	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// remove_action( 'wp_head', 'feed_links_extra', 3 );                 // category feeds.
-	// remove_action( 'wp_head', 'feed_links', 2 );                       // post and comment feeds.
-	remove_action( 'wp_head', 'rsd_link' );                               // EditURI link.
-	remove_action( 'wp_head', 'wlwmanifest_link' );                       // windows live writer.
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 ); // links for adjacent posts.
-	remove_action( 'wp_head', 'wp_generator' );                           // WP version.
-}
-
-/**
- * Remove WP version from RSS
- *
- * This function is called in scaffolding_build().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_rss_version() {
-	return '';
-}
-
-/**
- * Remove injected CSS for recent comments widget
- *
- * This function is called in scaffolding_build().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_remove_wp_widget_recent_comments_style() {
-	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
-		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
-	}
-}
-
-/**
- * Remove injected CSS from recent comments widget
- *
- * This function is called in scaffolding_build().
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_remove_recent_comments_style() {
-	global $wp_widget_factory;
-	if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
-		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
-	}
-}
-
-/************************************
- * 2.0 - SCRIPTS & STYLES
- ************************************/
-
-/**
- * Filter scripts and their data available for replacement.
- *
- * @param array $scripts Scripts and their data available for replacement.
- * @return array
- */
-function scaffolding_commonwp_npm_packages_scripts( $scripts ) {
-	$scripts['scaffolding-retinajs']          = array(
-		'package'  => 'retinajs',
-		'file'     => 'dist/retina',
-		'minified' => '.min',
-	);
-	$scripts['scaffolding-doubletaptogo-js']  = array(
-		'package'  => 'jquery-doubletaptogo',
-		'file'     => 'dist/jquery.dcd.doubletaptogo',
-		'minified' => '.min',
-	);
-	$scripts['scaffolding-magnific-popup-js'] = array(
-		'package'  => 'magnific-popup',
-		'file'     => 'dist/jquery.magnific-popup',
-		'minified' => '.min',
-	);
-	return $scripts;
-}
-add_filter( 'npm_packages_scripts', 'scaffolding_commonwp_npm_packages_scripts', 10, 1 );
-
-
-
-/**
- * Enqueue scripts and styles in wp_head() and wp_footer()
- *
- * This function is called in scaffolding_build() in base-functions.php.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_scripts_and_styles() {
-
-	/**
-	 * Fonts
-	 */
-
-	// Font Awesome (icon set) - https://fontawesome.com/.
-	// this may be updated to include only specific icon sets: brands, solid, regular.
-	wp_enqueue_style( 'scaffolding-fontawesome-all', get_stylesheet_directory_uri() . '/css/libs/fontawesome/all.css', array(), '5.15.1' );
-
-	/**
-	 * Theme Styles
-	 */
-
-	// Main stylesheet.
-	$theme_css_version = filemtime( get_theme_file_path( '/css/style.css' ) );
-	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
-
-	/**
-	 * Third-Party Libraries
-	 */
-
-	// Modernizr - http://modernizr.com/.
-	// update this to include only what you need to test.
-	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
-
-	// Retina.js - http://imulus.github.io/retinajs/.
-	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
-
-	// Doubletaptogo (dropdown nav tapping for touch devices) - https://github.com/dachcom-digital/jquery-doubletaptogo.
-	wp_enqueue_script( 'scaffolding-doubletaptogo-js', get_stylesheet_directory_uri() . '/libs/js/jquery.dcd.doubletaptogo.min.js', array( 'jquery' ), '3.0.2', true );
-
-	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/.
-	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
-
-	// SelectWoo - https://github.com/woocommerce/selectWoo.
-	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.8', true );
-
-	// Comment reply script for threaded comments.
-	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	/**
-	 * Theme Scripts
-	 */
-
-	// Add Scaffolding scripts file in the footer.
-	$theme_js_version = filemtime( get_theme_file_path( '/js/scripts.js' ) );
-	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
-
-	// Navigation scripts.
-	$theme_nav_js_version = filemtime( get_theme_file_path( '/js/navigation.js' ) );
-	wp_enqueue_script( 'scaffolding-nav', get_stylesheet_directory_uri() . '/js/navigation.js', array( 'jquery', 'scaffolding-js' ), $theme_nav_js_version, true );
-
-	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php.
-	// Fallback for elements outside the Gutenberg blocks (ie. using the Classic Editor).
-	wp_enqueue_script( 'scaffolding-responsive-iframes', get_stylesheet_directory_uri() . '/js/responsive-iframes.js', array( 'jquery' ), '1.0.0', true );
-
-} // end scaffolding_scripts_and_styles()
-
+require get_template_directory() . '/inc/scripts-styles.php';
 
 /************************************
  * 3.0 - THEME SUPPORT
