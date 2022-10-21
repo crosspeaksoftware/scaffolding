@@ -1,6 +1,6 @@
 <?php
 /**
- * Scaffolding Theme Scripts & Styles
+ * Scaffolding Scripts & Styles
  *
  * @package scaffolding
  */

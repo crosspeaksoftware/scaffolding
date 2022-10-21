@@ -121,17 +121,6 @@ function scaffolding_theme_support() {
 	// Title Tag.
 	add_theme_support( 'title-tag' );
 
-	// Support for menus.
-	add_theme_support( 'menus' );
-
-	// Register WP3+ menus.
-	register_nav_menus(
-		array(
-			'main-nav'   => __( 'Main Menu', 'scaffolding' ),   // main nav in header.
-			'footer-nav' => __( 'Footer Menu', 'scaffolding' ), // secondary nav in footer.
-		)
-	);
-
 	/**
 	 * Gutenberg Support
 	 *
