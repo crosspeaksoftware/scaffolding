@@ -30,38 +30,20 @@ require get_template_directory() . '/inc/scripts-styles.php';
 require get_template_directory() . '/inc/navigation.php';
 
 /**
- * Sidebars & Widgets
+ * Sidebars
  */
 require get_template_directory() . '/inc/sidebars.php';
 
-/**
- * Admin & Login
- */
-require get_template_directory() . '/inc/admin.php';
-
 /************************************
- * 6.0 - SIDEBARS
+ * 7.0 - SEARCH FUNCTIONS
  ************************************/
 
-/**
- * Custom Functions
- * Add any and all simple theme customization functions below as needed.
- */
 
-/**
- * Removes the annoying […] to a Read More link
- *
- * @since Scaffolding 1.0
- * @global post
- * @param  string $more Initial more text.
- * @return string new more text.
- */
-function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
-	global $post;
-	/* translators: 1: post permalink, 2: post title */
-	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
-}
-add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );
+
+
+/************************************
+ * 8.0 - COMMENT LAYOUT
+ ************************************/
 
 /**
  * Comment Layout
@@ -315,3 +297,35 @@ add_filter( 'login_headertext', 'scaffolding_login_title' );
  */
 
 // Add your custom functions here.
+
+
+/**
+ * Filter posts from query that are set to 'noindex'
+ *
+ * This function is dependent on Yoast SEO Plugin.
+ *
+ * @since Scaffolding 1.1
+ * @param WP_Query $query WP_Query instance.
+ */
+function scaffolding_noindex_filter( $query ) {
+	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
+		$meta_query = $query->get( 'meta_query' );
+		if ( is_array( $meta_query ) ) {
+			$meta_query[] = array(
+				'key'     => '_yoast_wpseo_meta-robots-noindex',
+				'compare' => 'NOT EXISTS',
+			);
+			$query->set( 'meta_query', $meta_query );
+		} else {
+			$meta_query = array(
+				array(
+					'key'     => '_yoast_wpseo_meta-robots-noindex',
+					'compare' => 'NOT EXISTS',
+				),
+			);
+			$query->set( 'meta_query', $meta_query );
+		}
+	}
+	return $query;
+}
+add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
