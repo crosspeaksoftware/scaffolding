@@ -60,17 +60,15 @@ get_header();
 
 				</article>
 
-				<?php
-			endwhile;
+				<?php endwhile; ?>
 
-			get_template_part( 'template-parts/pager' ); // WordPress template pager/pagination.
+			<?php get_template_part( 'template-parts/pager' ); // Template pager/pagination. ?>
 
-		else :
+		<?php else : ?>
 
-			get_template_part( 'template-parts/error' ); // WordPress template error message.
+			<?php get_template_part( 'template-parts/error' ); // Template error message. ?>
 
-		endif;
-		?>
+		<?php endif; ?>
 
 	</div><?php // END #main. ?>
 

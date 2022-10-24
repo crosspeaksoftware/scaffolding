@@ -27,7 +27,20 @@
  *    9.2 - Modified author post link
  */
 
-define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
+/**
+ * Initiating Scaffolding.
+ */
+require get_template_directory() . '/inc/init-theme.php';
+
+/**
+ * Enqueue Scripts & Styles
+ */
+require get_template_directory() . '/inc/scripts-styles.php';
+
+/**
+ * Menus & Navigation
+ */
+require get_template_directory() . '/inc/navigation.php';
 
 /************************************
  * 1.0 - INCLUDE FILES
