@@ -12,16 +12,6 @@
  *
  * @todo language support, customizer functions
  *
- * Table of Contents
- *
- * 3.0 - Theme Support
- * 5.0 - Images & Headers
- * 6.0 - Sidebars
- * 7.0 - Search Functions
- * 8.0 - Comment Layout
- * 9.0 - Utility Functions
- * 10.0 - ADMIN CUSTOMIZATION
- * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
  */
 
 /**
@@ -34,157 +24,44 @@ require get_template_directory() . '/inc/init-theme.php';
  */
 require get_template_directory() . '/inc/scripts-styles.php';
 
-/************************************
- * 3.0 - THEME SUPPORT
- ************************************/
+/**
+ * Menus & Navigation
+ */
+require get_template_directory() . '/inc/navigation.php';
 
 /**
- * Add rel and title attribute to next pagination link
- *
- * @since Scaffolding 1.0
- *
- * @param string $attr Previous "Next Page" rel attribute.
- * @return string New "Next Page rel attribute.
+ * Sidebars & Widgets
  */
-function scaffolding_get_next_posts_link_attributes( $attr ) {
-	$attr = 'rel="next" title="View the Next Page"';
-	return $attr;
-}
-add_filter( 'next_posts_link_attributes', 'scaffolding_get_next_posts_link_attributes' );
+require get_template_directory() . '/inc/sidebars.php';
 
 /**
- * Add rel and title attribute to prev pagination link
- *
- * @since Scaffolding 1.0
- *
- * @param string $attr Previous "Previous Page" rel attribute.
- * @return string New "Previous Page rel attribute.
+ * Admin & Login
  */
-function scaffolding_get_previous_posts_link_attributes( $attr ) {
-	$attr = 'rel="prev" title="View the Previous Page"';
-	return $attr;
-}
-add_filter( 'previous_posts_link_attributes', 'scaffolding_get_previous_posts_link_attributes' );
-
-/**
- * Add page title attribute to wp_list_pages link tags
- *
- * @since Scaffolding 1.0
- *
- * @param string $output Output from wp_list_pages.
- * @return string Modified output.
- */
-function scaffolding_wp_list_pages_filter( $output ) {
-	$output = preg_replace( '/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/', '<a$1 title="$4" href="$2"$3>$4</a>', $output );
-	return $output;
-}
-add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
-
-
-/**
- * Remove the p from around imgs
- *
- * This function is called in scaffolding_build().
- *
- * @link http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
- *
- * @since Scaffolding 1.0
- *
- * @param string $content Content to be modified.
- * @return string Modified content
- */
-function scaffolding_filter_ptags_on_images( $content ) {
-	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
-}
+require get_template_directory() . '/inc/admin.php';
 
 /************************************
  * 6.0 - SIDEBARS
  ************************************/
 
 /**
- * Sidebars & Widgets Areas
- *
- * Two sidebars registered - left and right.
- * Define additional sidebars here.
- *
- * @since Scaffolding 1.0
+ * Custom Functions
+ * Add any and all simple theme customization functions below as needed.
  */
-function scaffolding_register_sidebars() {
-	register_sidebar(
-		array(
-			'id'            => 'footer-area-one',
-			'name'          => __( 'Footer Area - One', 'scaffolding' ),
-			'description'   => __( 'Left column footer area.', 'scaffolding' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widgettitle h4 d-block">',
-			'after_title'   => '</span>',
-		)
-	);
-	register_sidebar(
-		array(
-			'id'            => 'footer-area-two',
-			'name'          => __( 'Footer Area - Two', 'scaffolding' ),
-			'description'   => __( 'Center column footer area.', 'scaffolding' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widgettitle h4 d-block">',
-			'after_title'   => '</span>',
-		)
-	);
-	register_sidebar(
-		array(
-			'id'            => 'footer-area-three',
-			'name'          => __( 'Footer Area - Three', 'scaffolding' ),
-			'description'   => __( 'Right column footer area.', 'scaffolding' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widgettitle h4 d-block">',
-			'after_title'   => '</span>',
-		)
-	);
-}
-
-
-/************************************
- * 7.0 - SEARCH FUNCTIONS
- ************************************/
 
 /**
- * Filter posts from query that are set to 'noindex'
+ * Removes the annoying […] to a Read More link
  *
- * This function is dependent on Yoast SEO Plugin.
- *
- * @since Scaffolding 1.1
- * @param WP_Query $query WP_Query instance.
+ * @since Scaffolding 1.0
+ * @global post
+ * @param  string $more Initial more text.
+ * @return string new more text.
  */
-function scaffolding_noindex_filter( $query ) {
-	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
-		$meta_query = $query->get( 'meta_query' );
-		if ( is_array( $meta_query ) ) {
-			$meta_query[] = array(
-				'key'     => '_yoast_wpseo_meta-robots-noindex',
-				'compare' => 'NOT EXISTS',
-			);
-			$query->set( 'meta_query', $meta_query );
-		} else {
-			$meta_query = array(
-				array(
-					'key'     => '_yoast_wpseo_meta-robots-noindex',
-					'compare' => 'NOT EXISTS',
-				),
-			);
-			$query->set( 'meta_query', $meta_query );
-		}
-	}
-	return $query;
+function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+	global $post;
+	/* translators: 1: post permalink, 2: post title */
+	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
 }
-add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
-
-
-/************************************
- * 8.0 - COMMENT LAYOUT
- ************************************/
+add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );
 
 /**
  * Comment Layout
@@ -280,6 +157,8 @@ function scaffolding_get_the_author_posts_link() {
 
 /**
  * Build post meta
+ *
+ * @since Scaffolding 1.0
  */
 function scaffolding_post_meta() {
 	if ( 'post' !== get_post_type() ) {

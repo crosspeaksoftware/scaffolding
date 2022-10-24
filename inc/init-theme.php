@@ -141,12 +141,19 @@ function scaffolding_theme_support() {
 
 }
 
+// Set up the content width value based on the theme's design.
+if ( ! isset( $content_width ) ) {
+	$content_width = 1170; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+}
+
 /**
- * Add additional image sizes
- *
- * Function called in scaffolding_build() in base-functions.php.
- * Ex. add_image_size( 'scaffolding-thumb-600', 600, 150, true );
+ * Adjust content_width value for image attachment template
  *
  * @since Scaffolding 1.0
  */
-function scaffolding_add_image_sizes() {}
+function scaffolding_content_width() {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$GLOBALS['content_width'] = 810; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	}
+}
+add_action( 'template_redirect', 'scaffolding_content_width' );
