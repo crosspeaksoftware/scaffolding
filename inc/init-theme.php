@@ -87,14 +87,41 @@ function scaffolding_theme_support() {
 	// Make theme available for translation.
 	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
 
-	// Support for thumbnails.
-	add_theme_support( 'post-thumbnails' );
-
 	// Support for RSS.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Support for custom logo.
-	// @link https://developer.wordpress.org/themes/functionality/custom-logo/.
+	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
+	add_theme_support(
+		'html5',
+		array(
+			'caption',
+			'comment-list',
+			'comment-form',
+			'gallery',
+			'navigation-widgets',
+			'search-form',
+			'script',
+			'style',
+		)
+	);
+
+	/*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a hard-coded <title> tag in the document head, and expect WordPress to provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
+
+	/*
+	* Enable support for Post Thumbnails on posts and pages.
+	*
+	* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	*/
+	add_theme_support( 'post-thumbnails' );
+
+	/*
+	 * Support for custom logo.
+	 * @link https://developer.wordpress.org/themes/functionality/custom-logo/.
+	 */
 	add_theme_support(
 		'custom-logo',
 		array(
@@ -104,22 +131,6 @@ function scaffolding_theme_support() {
 			'flex-height' => false,
 		)
 	);
-
-	// HTML5.
-	add_theme_support(
-		'html5',
-		array(
-			'navigation-widgets',
-			'comment-list',
-			'comment-form',
-			'search-form',
-			'gallery',
-			'caption',
-		)
-	);
-
-	// Title Tag.
-	add_theme_support( 'title-tag' );
 
 	/**
 	 * Gutenberg Support
