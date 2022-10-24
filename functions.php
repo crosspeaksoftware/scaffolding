@@ -35,15 +35,91 @@ require get_template_directory() . '/inc/navigation.php';
 require get_template_directory() . '/inc/sidebars.php';
 
 /************************************
- * 7.0 - SEARCH FUNCTIONS
- ************************************/
+ * 10.0 - ADMIN CUSTOMIZATION
+ *     10.1 - Set content width
+ *     10.2 - Set image attachment width
+ *     10.3 - Disable default dashboard widgets
+ *     10.4 - Change name of "Posts" in admin menu
+ */
 
+// Set up the content width value based on the theme's design.
+if ( ! isset( $content_width ) ) {
+	$content_width = 1170; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+}
 
+/**
+ * Adjust content_width value for image attachment template
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_content_width() {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$GLOBALS['content_width'] = 810; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	}
+}
+add_action( 'template_redirect', 'scaffolding_content_width' );
 
+/**
+ * Disable Default Dashboard Widgets
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_disable_default_dashboard_widgets() {
+	global $wp_meta_boxes;
+	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links.
+	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'] );
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'] );
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );          // Quick Press.
+	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );        // Recent Drafts.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now'] );   // BBPress.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget''] );          // Yoast SEO.
+	// unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms.
+}
+add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
+
+/**
+ * Change logo link from wordpress.org to your site
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_login_url() {
+	return home_url();
+}
+add_filter( 'login_headerurl', 'scaffolding_login_url' );
+
+/**
+ * Change the link text of the header logo to show your site name
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_login_title() {
+	return get_option( 'blogname' );
+}
+add_filter( 'login_headertext', 'scaffolding_login_title' );
 
 /************************************
- * 8.0 - COMMENT LAYOUT
- ************************************/
+ * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
+ */
+
+/**
+ * Removes the annoying […] to a Read More link
+ *
+ * @since Scaffolding 1.0
+ * @global post
+ * @param  string $more Initial more text.
+ * @return string new more text.
+ */
+function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+	global $post;
+	/* translators: 1: post permalink, 2: post title */
+	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
+}
+add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );
 
 /**
  * Comment Layout
@@ -90,28 +166,6 @@ function scaffolding_comments( $comment, $args, $depth ) {
 		</article>
 	<?php
 	// </li> or </div> is added by WordPress automatically.
-}
-
-
-/************************************
- * 9.0 - UTILITY FUNCTIONS
- *     9.1 - Removes […] from read more
- *     9.2 - Modified author post link
- *     9.3 - Posted on meta
- ************************************/
-
-/**
- * Removes the annoying […] to a Read More link
- *
- * @since Scaffolding 1.0
- * @global post
- * @param  string $more Initial more text.
- * @return string new more text.
- */
-function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
-	global $post;
-	/* translators: 1: post permalink, 2: post title */
-	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
 }
 
 /**
@@ -211,93 +265,6 @@ function scaffolding_post_meta() {
 		)
 	) . '</p>';
 }
-
-
-/************************************
- * 10.0 - ADMIN CUSTOMIZATION
- *     10.1 - Set content width
- *     10.2 - Set image attachment width
- *     10.3 - Disable default dashboard widgets
- *     10.4 - Change name of "Posts" in admin menu
- */
-
-// Set up the content width value based on the theme's design.
-if ( ! isset( $content_width ) ) {
-	$content_width = 1170; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-}
-
-/**
- * Adjust content_width value for image attachment template
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_content_width() {
-	if ( is_attachment() && wp_attachment_is_image() ) {
-		$GLOBALS['content_width'] = 810; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	}
-}
-add_action( 'template_redirect', 'scaffolding_content_width' );
-
-/**
- * Disable Default Dashboard Widgets
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_disable_default_dashboard_widgets() {
-	global $wp_meta_boxes;
-	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links.
-	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );          // Quick Press.
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );        // Recent Drafts.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now'] );   // BBPress.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget''] );          // Yoast SEO.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms.
-}
-add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
-
-/**
- * Custom login page CSS
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_css() {
-	$login_css_version = filemtime( get_theme_file_path( '/css/login.css' ) );
-	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/login.css', array(), $login_css_version, 'screen' );
-}
-add_action( 'login_enqueue_scripts', 'scaffolding_login_css' );
-
-/**
- * Change logo link from wordpress.org to your site
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_url() {
-	return home_url();
-}
-add_filter( 'login_headerurl', 'scaffolding_login_url' );
-
-/**
- * Change the link text of the header logo to show your site name
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_title() {
-	return get_option( 'blogname' );
-}
-add_filter( 'login_headertext', 'scaffolding_login_title' );
-
-/************************************
- * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
- */
-
-// Add your custom functions here.
-
 
 /**
  * Filter posts from query that are set to 'noindex'
