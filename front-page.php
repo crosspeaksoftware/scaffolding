@@ -17,11 +17,11 @@ get_header();
 
 	<div id="main" class="clearfix" role="main">
 
-		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) :
-				the_post();
-				?>
+		<?php if ( have_posts() ) : ?>
+
+			<?php while ( have_posts() ) : ?>
+
+				<?php the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
 
@@ -50,15 +50,15 @@ get_header();
 
 				</article>
 
-				<?php
-			endwhile;
+			<?php endwhile; ?>
 
-		else :
+			<?php get_template_part( 'template-parts/pager' ); // Template pager/pagination. ?>
 
-			get_template_part( 'template-parts/error' ); // WordPress template error message.
+		<?php else : ?>
 
-		endif;
-		?>
+			<?php get_template_part( 'template-parts/error' ); // Template error message. ?>
+
+		<?php endif; ?>
 
 	</div><?php // END #main. ?>
 
@@ -66,3 +66,5 @@ get_header();
 
 <?php
 get_footer();
+
+

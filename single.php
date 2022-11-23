@@ -26,7 +26,7 @@ get_header();
 
 						<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
 
-						<?php echo scaffolding_post_meta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php scaffolding_post_meta(); ?>
 
 					</header>
 
@@ -66,15 +66,15 @@ get_header();
 
 				</article>
 
-				<?php
-			endwhile;
+			<?php endwhile; ?>
 
-		else :
+				<?php get_template_part( 'template-parts/pager' ); // Template pager/pagination. ?>
 
-			get_template_part( 'template-parts/error' ); // WordPress template error message.
+		<?php else : ?>
 
-		endif;
-		?>
+			<?php get_template_part( 'template-parts/error' ); // Template error message. ?>
+
+		<?php endif; ?>
 
 	</div><?php // END #main. ?>
 

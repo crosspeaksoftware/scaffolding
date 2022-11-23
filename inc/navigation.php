@@ -1,11 +1,131 @@
 <?php
 /**
- * Scaffolding Walker Nav
+ * Scaffolding Menus & Navigation
  *
- * Builds our main navigation for all devices
- *
- * @package Scaffolding
+ * @package scaffolding
  */
+
+/**
+ * Scaffolding Setup
+ *
+ * All of these functions are defined below or in functions.php.
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_setup_menus() {
+	scaffolding_register_menus();
+}
+add_action( 'after_setup_theme', 'scaffolding_setup_menus', 17 );
+
+/**
+ * Add theme support and register menus.
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_register_menus() {
+	// Support for menus.
+	add_theme_support( 'menus' );
+
+	// Register WP3+ menus.
+	register_nav_menus(
+		array(
+			'main-nav'   => __( 'Main Menu', 'scaffolding' ),   // main nav in header.
+			'footer-nav' => __( 'Footer Menu', 'scaffolding' ), // secondary nav in footer.
+		)
+	);
+}
+
+/**
+ * Main navigation menu
+ *
+ * @see Scaffolding_Walker_Nav_Menu
+ * @since Scaffolding 1.0
+ */
+function scaffolding_main_nav() {
+	wp_nav_menu(
+		array(
+			'container'       => '',                                     // remove nav container.
+			'container_class' => '',                                     // class of container (should you choose to use it).
+			'menu'            => '',                                     // nav name.
+			'menu_class'      => 'menu main-menu',                       // adding custom nav class.
+			'theme_location'  => 'main-nav',                             // where it's located in the theme.
+			'before'          => '',                                     // before the menu.
+			'after'           => '',                                     // after the menu.
+			'link_before'     => '',                                     // before each link.
+			'link_after'      => '',                                     // after each link.
+			'depth'           => 0,                                      // limit the depth of the nav.
+			'fallback_cb'     => '',                                     // fallback function.
+			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'walker'          => new Scaffolding_Walker_Nav_Menu(),
+		)
+	);
+}
+
+/**
+ * Footer menu (should you choose to use one)
+ *
+ * @return void
+ */
+function scaffolding_footer_nav() {
+	wp_nav_menu(
+		array(
+			'container'       => '',
+			'container_class' => '',
+			'menu'            => '',
+			'menu_class'      => 'menu footer-menu',
+			'theme_location'  => 'footer-nav',
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '',
+			'link_after'      => '',
+			'depth'           => 1,                  // only display top level items.
+			'fallback_cb'     => '__return_false',
+		)
+	);
+}
+
+/**
+ * Add rel and title attribute to next pagination link
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $attr Previous "Next Page" rel attribute.
+ * @return string New "Next Page rel attribute.
+ */
+function scaffolding_get_next_posts_link_attributes( $attr ) {
+	$attr = 'rel="next" title="View the Next Page"';
+	return $attr;
+}
+add_filter( 'next_posts_link_attributes', 'scaffolding_get_next_posts_link_attributes' );
+
+/**
+ * Add rel and title attribute to prev pagination link
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $attr Previous "Previous Page" rel attribute.
+ * @return string New "Previous Page rel attribute.
+ */
+function scaffolding_get_previous_posts_link_attributes( $attr ) {
+	$attr = 'rel="prev" title="View the Previous Page"';
+	return $attr;
+}
+add_filter( 'previous_posts_link_attributes', 'scaffolding_get_previous_posts_link_attributes' );
+
+/**
+ * Add page title attribute to wp_list_pages link tags
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $output Output from wp_list_pages.
+ * @return string Modified output.
+ */
+function scaffolding_wp_list_pages_filter( $output ) {
+	$output = preg_replace( '/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/', '<a$1 title="$4" href="$2"$3>$4</a>', $output );
+	return $output;
+}
+add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
+
 
 /**
  * Custom walker to build main navigation menu
@@ -43,6 +163,7 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * Starts the element output.
 	 *
 	 * @see Walker::start_el()
+	 * @since Scaffolding 1.0
 	 *
 	 * @param string   $output Used to append additional content (passed by reference).
 	 * @param WP_Post  $item   Menu item data object.
@@ -127,4 +248,4 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
-} // end Scaffolding_Walker_Nav_Menu()
+}

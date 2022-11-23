@@ -28,23 +28,36 @@ get_header();
 
 						<h2 class="entry-title" itemprop="headline"><?php the_title(); ?></h2>
 
-						<?php echo scaffolding_post_meta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php scaffolding_post_meta(); ?>
 
 					</header>
 
 					<section class="entry-content clearfix" itemprop="articleBody">
 
 						<?php
-						the_content();
+							the_content(
+								sprintf(
+									wp_kses(
+										/* translators: %s: Name of current post. Only visible to screen readers */
+										__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'scaffolding' ),
+										array(
+											'span' => array(
+												'class' => array(),
+											),
+										)
+									),
+									wp_kses_post( get_the_title() )
+								)
+							);
 
-						wp_link_pages(
-							array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
-								'after'       => '</div>',
-								'link_before' => '<span>',
-								'link_after'  => '</span>',
-							)
-						);
+							wp_link_pages(
+								array(
+									'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'scaffolding' ) . '</span>',
+									'after'       => '</div>',
+									'link_before' => '<span>',
+									'link_after'  => '</span>',
+								)
+							);
 						?>
 
 					</section>
@@ -68,15 +81,15 @@ get_header();
 
 				</article>
 
-				<?php
-			endwhile;
+				<?php endwhile; ?>
 
-		else :
+				<?php get_template_part( 'template-parts/pager' ); // Template pager/pagination. ?>
 
-			get_template_part( 'template-parts/error' ); // WordPress template error message.
+		<?php else : ?>
 
-		endif;
-		?>
+			<?php get_template_part( 'template-parts/error' ); // Template error message. ?>
+
+		<?php endif; ?>
 
 	</div><?php // END #main. ?>
 
