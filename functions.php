@@ -14,7 +14,6 @@
  *
  * Table of Contents
  *
- * 4.0 - Menus & Navigation
  * 6.0 - Sidebars
  * 7.0 - Search Functions
  * 8.0 - Comment Layout
@@ -41,69 +40,7 @@ define( 'SCAFFOLDING_INC', SCAFFOLDING_PATH . 'includes/' );
 // Add additional include files.
 require_once SCAFFOLDING_INC . 'base-functions.php';
 require_once SCAFFOLDING_INC . 'styles-scripts.php';
-require_once SCAFFOLDING_INC . 'class-scaffolding-walker-nav-menu.php';
-
-/************************************
- * 4.0 - MENUS & NAVIGATION
- ************************************/
-
-/**
- * Two menus included - main menu in header and footer menu
- *
- * Add any additional menus here. Register new menu in scaffolding_theme_support() above.
- *
- * @since Scaffolding 1.0
- */
-
-/**
- * Main navigation menu
- *
- * @see Scaffolding_Walker_Nav_Menu
- * @return void
- */
-function scaffolding_main_nav() {
-	wp_nav_menu(
-		array(
-			'container'       => '',                                     // remove nav container.
-			'container_class' => '',                                     // class of container (should you choose to use it).
-			'menu'            => '',                                     // nav name.
-			'menu_class'      => 'menu main-menu',                       // adding custom nav class.
-			'theme_location'  => 'main-nav',                             // where it's located in the theme.
-			'before'          => '',                                     // before the menu.
-			'after'           => '',                                     // after the menu.
-			'link_before'     => '',                                     // before each link.
-			'link_after'      => '',                                     // after each link.
-			'depth'           => 0,                                      // limit the depth of the nav.
-			'fallback_cb'     => '',                                     // fallback function.
-			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'walker'          => new Scaffolding_Walker_Nav_Menu(),
-		)
-	);
-} // end scaffolding_main_nav()
-
-/**
- * Footer menu (should you choose to use one)
- *
- * @return void
- */
-function scaffolding_footer_nav() {
-	wp_nav_menu(
-		array(
-			'container'       => '',
-			'container_class' => '',
-			'menu'            => '',
-			'menu_class'      => 'menu footer-menu',
-			'theme_location'  => 'footer-nav',
-			'before'          => '',
-			'after'           => '',
-			'link_before'     => '',
-			'link_after'      => '',
-			'depth'           => 1,                  // only display top level items.
-			'fallback_cb'     => '__return_false',
-		)
-	);
-} // end scaffolding_footer_nav()
-
+require_once SCAFFOLDING_INC . 'menus.php';
 
 /************************************
  * 6.0 - SIDEBARS

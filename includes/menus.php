@@ -1,11 +1,73 @@
 <?php
 /**
- * Scaffolding Walker Nav
- *
- * Builds our main navigation for all devices
+ * Menus
  *
  * @package Scaffolding
  */
+
+/**
+ * Two menus included - main menu in header and footer menu
+ *
+ * Add any additional menus here.
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_register_nav_menu() {
+	register_nav_menus(
+		array(
+			'main-nav'   => __( 'Main Menu', 'scaffolding' ),
+			'footer-nav' => __( 'Footer Menu', 'scaffolding' ),
+		)
+	);
+}
+add_action( 'after_setup_theme', 'scaffolding_register_nav_menu', 0 );
+
+/**
+ * Main navigation menu
+ *
+ * @see Scaffolding_Walker_Nav_Menu
+ */
+function scaffolding_main_nav() {
+	wp_nav_menu(
+		array(
+			'container'       => '',                                     // remove nav container.
+			'container_class' => '',                                     // class of container (should you choose to use it).
+			'menu'            => '',                                     // nav name.
+			'menu_class'      => 'menu main-menu',                       // adding custom nav class.
+			'theme_location'  => 'main-nav',                             // where it's located in the theme.
+			'before'          => '',                                     // before the menu.
+			'after'           => '',                                     // after the menu.
+			'link_before'     => '',                                     // before each link.
+			'link_after'      => '',                                     // after each link.
+			'depth'           => 0,                                      // limit the depth of the nav.
+			'fallback_cb'     => '',                                     // fallback function.
+			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'walker'          => new Scaffolding_Walker_Nav_Menu(),
+		)
+	);
+}
+
+/**
+ * Footer menu (should you choose to use one)
+ */
+function scaffolding_footer_nav() {
+	wp_nav_menu(
+		array(
+			'container'       => '',
+			'container_class' => '',
+			'menu'            => '',
+			'menu_class'      => 'menu footer-menu',
+			'theme_location'  => 'footer-nav',
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '',
+			'link_after'      => '',
+			'depth'           => 1,                  // only display top level items.
+			'fallback_cb'     => '__return_false',
+		)
+	);
+}
+
 
 /**
  * Custom walker to build main navigation menu
@@ -127,4 +189,4 @@ class Scaffolding_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
-} // end Scaffolding_Walker_Nav_Menu()
+}
