@@ -181,6 +181,34 @@ function scaffolding_comments( $comment, $args, $depth ) {
 }
 
 /**
+ * Add rel and title attribute to next pagination link
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $attr Previous "Next Page" rel attribute.
+ * @return string New "Next Page rel attribute.
+ */
+function scaffolding_get_next_posts_link_attributes( $attr ) {
+	$attr = 'rel="next" title="View the Next Page"';
+	return $attr;
+}
+add_filter( 'next_posts_link_attributes', 'scaffolding_get_next_posts_link_attributes' );
+
+/**
+ * Add rel and title attribute to prev pagination link
+ *
+ * @since Scaffolding 1.0
+ *
+ * @param string $attr Previous "Previous Page" rel attribute.
+ * @return string New "Previous Page rel attribute.
+ */
+function scaffolding_get_previous_posts_link_attributes( $attr ) {
+	$attr = 'rel="prev" title="View the Previous Page"';
+	return $attr;
+}
+add_filter( 'previous_posts_link_attributes', 'scaffolding_get_previous_posts_link_attributes' );
+
+/**
  * Filter posts from query that are set to 'noindex'
  *
  * This function is dependent on Yoast SEO Plugin.
