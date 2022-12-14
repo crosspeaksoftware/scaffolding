@@ -14,10 +14,6 @@
  *
  * Table of Contents
  *
- * 9.0 - Utility Functions
- *    9.1 - Removes […] from read more
- *    9.2 - Modified author post link
- *    9.3 - Posted on meta
  * 10.0 - Admin Customization
  *    10.1 - Set content width
  *    10.2 - Set image attachment width
@@ -39,124 +35,6 @@ require_once SCAFFOLDING_INC . 'base-functions.php';
 require_once SCAFFOLDING_INC . 'styles-scripts.php';
 require_once SCAFFOLDING_INC . 'menus.php';
 require_once SCAFFOLDING_INC . 'sidebars.php';
-
-/************************************
- * 9.0 - UTILITY FUNCTIONS
- *     9.1 - Removes […] from read more
- *     9.2 - Modified author post link
- *     9.3 - Posted on meta
- ************************************/
-
-/**
- * Removes the annoying […] to a Read More link
- *
- * @since Scaffolding 1.0
- * @global post
- * @param  string $more Initial more text.
- * @return string new more text.
- */
-function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
-	global $post;
-	/* translators: 1: post permalink, 2: post title */
-	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
-}
-
-/**
- * Modifies author post link which just returns the link
- *
- * This is necessary to allow usage of the usual l10n process with printf().
- *
- * @since Scaffolding 1.0
- * @global authordata
- */
-function scaffolding_get_the_author_posts_link() {
-	global $authordata;
-	if ( ! is_object( $authordata ) ) {
-		return false;
-	}
-	$link = sprintf(
-		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
-		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-		/* translators: author name */
-		esc_attr( sprintf( __( 'Posts by %s', 'scaffolding' ), get_the_author() ) ),
-		get_the_author()
-	);
-	return $link;
-}
-
-/**
- * Build post meta
- */
-function scaffolding_post_meta() {
-	if ( 'post' !== get_post_type() ) {
-		return;
-	}
-
-	// Posted on.
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-
-	$time_string = sprintf(
-		$time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
-
-	$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
-
-	$posted_on = '
-		<span class="posted-on">' .
-		/* translators: %s: post date */
-		sprintf( __( 'Posted %s', 'scaffolding' ), $output_time_string ) .
-		'</span>';
-
-	// Author.
-	$author = sprintf(
-		'<span class="post-author">%1$s %2$s</span>',
-		__( 'by', 'scaffolding' ),
-		scaffolding_get_the_author_posts_link()
-	);
-
-	// Categories.
-	$categories = sprintf(
-		'<span class="post-categories"><span class="amp">&amp;</span> %1$s %2$s</span>',
-		__( 'filed under', 'scaffolding' ),
-		get_the_category_list( __( ', ', 'scaffolding' ) )
-	);
-
-	// Comments.
-	$comments = '';
-
-	if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
-		$comments_number = get_comments_number_text( __( 'Leave a comment', 'scaffolding' ), __( '1 Comment', 'scaffolding' ), __( '% Comments', 'scaffolding' ) );
-
-		$comments = sprintf(
-			'<span class="post-comments">&mdash; <a href="%1$s">%2$s</a></span>',
-			esc_url( get_comments_link() ),
-			$comments_number
-		);
-	}
-
-	echo '<p class="entry-meta">' . wp_kses(
-		sprintf( '%1$s %2$s %3$s %4$s', $posted_on, $author, $categories, $comments ),
-		array(
-			'span' => array(
-				'class' => array(),
-			),
-			'a'    => array(
-				'href'  => array(),
-				'title' => array(),
-				'rel'   => array(),
-			),
-			'time' => array(
-				'datetime' => array(),
-				'class'    => array(),
-			),
-		)
-	) . '</p>';
-}
-
 
 /************************************
  * 10.0 - ADMIN CUSTOMIZATION
@@ -260,6 +138,117 @@ add_action( 'init', 'scaffolding_change_post_object_label' );
 
 
 // Add your custom functions here.
+
+/**
+ * Removes the annoying […] to a Read More link
+ *
+ * @since Scaffolding 1.0
+ * @global post
+ * @param  string $more Initial more text.
+ * @return string new more text.
+ */
+function scaffolding_excerpt_more( $more ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+	global $post;
+	/* translators: 1: post permalink, 2: post title */
+	return sprintf( __( '&hellip; <a class="read-more" href="%1$s" title="Read %2$s">Read more &raquo;</a>', 'scaffolding' ), get_permalink( $post->ID ), get_the_title( $post->ID ) );
+}
+add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );
+
+/**
+ * Modifies author post link which just returns the link
+ *
+ * This is necessary to allow usage of the usual l10n process with printf().
+ *
+ * @since Scaffolding 1.0
+ * @global authordata
+ */
+function scaffolding_get_the_author_posts_link() {
+	global $authordata;
+	if ( ! is_object( $authordata ) ) {
+		return false;
+	}
+	$link = sprintf(
+		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
+		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
+		/* translators: author name */
+		esc_attr( sprintf( __( 'Posts by %s', 'scaffolding' ), get_the_author() ) ),
+		get_the_author()
+	);
+	return $link;
+}
+
+/**
+ * Build post meta
+ */
+function scaffolding_post_meta() {
+	if ( 'post' !== get_post_type() ) {
+		return;
+	}
+
+	// Posted on.
+	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+	$time_string = sprintf(
+		$time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+
+	$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
+
+	$posted_on = '
+		<span class="posted-on">' .
+		/* translators: %s: post date */
+		sprintf( __( 'Posted %s', 'scaffolding' ), $output_time_string ) .
+		'</span>';
+
+	// Author.
+	$author = sprintf(
+		'<span class="post-author">%1$s %2$s</span>',
+		__( 'by', 'scaffolding' ),
+		scaffolding_get_the_author_posts_link()
+	);
+
+	// Categories.
+	$categories = sprintf(
+		'<span class="post-categories"><span class="amp">&amp;</span> %1$s %2$s</span>',
+		__( 'filed under', 'scaffolding' ),
+		get_the_category_list( __( ', ', 'scaffolding' ) )
+	);
+
+	// Comments.
+	$comments = '';
+
+	if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
+		$comments_number = get_comments_number_text( __( 'Leave a comment', 'scaffolding' ), __( '1 Comment', 'scaffolding' ), __( '% Comments', 'scaffolding' ) );
+
+		$comments = sprintf(
+			'<span class="post-comments">&mdash; <a href="%1$s">%2$s</a></span>',
+			esc_url( get_comments_link() ),
+			$comments_number
+		);
+	}
+
+	echo '<p class="entry-meta">' . wp_kses(
+		sprintf( '%1$s %2$s %3$s %4$s', $posted_on, $author, $categories, $comments ),
+		array(
+			'span' => array(
+				'class' => array(),
+			),
+			'a'    => array(
+				'href'  => array(),
+				'title' => array(),
+				'rel'   => array(),
+			),
+			'time' => array(
+				'datetime' => array(),
+				'class'    => array(),
+			),
+		)
+	) . '</p>';
+}
 
 /**
  * Comment Layout

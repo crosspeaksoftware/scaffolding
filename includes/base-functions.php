@@ -18,7 +18,6 @@ function scaffolding_build() {
 	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 ); // remove pesky injected css for recent comments widget.
 	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );           // clean up comment styles in the head.
 	scaffolding_theme_support();                                                      // launching this stuff after theme setup.
-	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );                         // cleaning up excerpt.
 }
 add_action( 'after_setup_theme', 'scaffolding_build', 16 );
 
