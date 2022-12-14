@@ -34,16 +34,21 @@
  * 11.0 - Custom/Additional Functions
  */
 
-define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
-
+// Useful global constants.
+define( 'SCAFFOLDING_VERSION', '4.0.0' );
+define( 'SCAFFOLDING_TEMPLATE_URL', get_template_directory_uri() );
+define( 'SCAFFOLDING_PATH', get_template_directory() . '/' );
+define( 'SCAFFOLDING_DIST_PATH', SCAFFOLDING_PATH . 'dist/' );
+define( 'SCAFFOLDING_DIST_URL', SCAFFOLDING_TEMPLATE_URL . '/dist/' );
+define( 'SCAFFOLDING_INC', SCAFFOLDING_PATH . 'includes/' );
 
 /************************************
  * 1.0 - INCLUDE FILES
  */
 
 // Add any additional files to include here.
-require_once SCAFFOLDING_INCLUDE_PATH . 'base-functions.php';
-require_once SCAFFOLDING_INCLUDE_PATH . 'class-scaffolding-walker-nav-menu.php';
+require_once SCAFFOLDING_INC . 'base-functions.php';
+require_once SCAFFOLDING_INC . 'class-scaffolding-walker-nav-menu.php';
 
 /************************************
  * 2.0 - SCRIPTS & STYLES
