@@ -195,9 +195,6 @@ function scaffolding_scripts_and_styles() {
 	// Retina.js - http://imulus.github.io/retinajs/.
 	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
 
-	// Doubletaptogo (dropdown nav tapping for touch devices) - https://github.com/dachcom-digital/jquery-doubletaptogo.
-	wp_enqueue_script( 'scaffolding-doubletaptogo-js', get_stylesheet_directory_uri() . '/libs/js/jquery.dcd.doubletaptogo.min.js', array( 'jquery' ), '3.0.2', true );
-
 	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/.
 	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
 
