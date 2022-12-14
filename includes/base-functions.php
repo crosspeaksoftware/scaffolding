@@ -154,6 +154,23 @@ function scaffolding_theme_support() {
 
 }
 
+// Set up the content width value based on the theme's design.
+if ( ! isset( $content_width ) ) {
+	$content_width = 1170; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+}
+
+/**
+ * Adjust content_width value for image attachment template
+ *
+ * @since Scaffolding 1.0
+ */
+function scaffolding_content_width() {
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		$GLOBALS['content_width'] = 810; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	}
+}
+add_action( 'template_redirect', 'scaffolding_content_width' );
+
 /**
  * Add rel and title attribute to next pagination link
  *
@@ -195,34 +212,3 @@ function scaffolding_wp_list_pages_filter( $output ) {
 	return $output;
 }
 add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
-
-/**
- * Custom login page CSS
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_css() {
-	$login_css_version = filemtime( get_theme_file_path( '/css/login.css' ) );
-	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/login.css', array(), $login_css_version, 'screen' );
-}
-add_action( 'login_enqueue_scripts', 'scaffolding_login_css' );
-
-/**
- * Change logo link from wordpress.org to your site
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_url() {
-	return home_url();
-}
-add_filter( 'login_headerurl', 'scaffolding_login_url' );
-
-/**
- * Change the link text of the header logo to show your site name
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_login_title() {
-	return get_option( 'blogname' );
-}
-add_filter( 'login_headertext', 'scaffolding_login_title' );

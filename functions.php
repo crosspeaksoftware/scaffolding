@@ -10,16 +10,6 @@
  *
  * @package Scaffolding
  *
- * @todo language support, customizer functions
- *
- * Table of Contents
- *
- * 10.0 - Admin Customization
- *    10.1 - Set content width
- *    10.2 - Set image attachment width
- *    10.3 - Disable default dashboard widgets
- *    10.4 - Change name of "Posts" in admin menu
- * 11.0 - Custom/Additional Functions
  */
 
 // Useful global constants.
@@ -35,107 +25,7 @@ require_once SCAFFOLDING_INC . 'base-functions.php';
 require_once SCAFFOLDING_INC . 'styles-scripts.php';
 require_once SCAFFOLDING_INC . 'menus.php';
 require_once SCAFFOLDING_INC . 'sidebars.php';
-
-/************************************
- * 10.0 - ADMIN CUSTOMIZATION
- *     10.1 - Set content width
- *     10.2 - Set image attachment width
- *     10.3 - Disable default dashboard widgets
- *     10.4 - Change name of "Posts" in admin menu
- */
-
-// Set up the content width value based on the theme's design.
-if ( ! isset( $content_width ) ) {
-	$content_width = 1170; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-}
-
-/**
- * Adjust content_width value for image attachment template
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_content_width() {
-	if ( is_attachment() && wp_attachment_is_image() ) {
-		$GLOBALS['content_width'] = 810; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	}
-}
-add_action( 'template_redirect', 'scaffolding_content_width' );
-
-/**
- * Disable Default Dashboard Widgets
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_disable_default_dashboard_widgets() {
-	global $wp_meta_boxes;
-	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );        // Activity.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );       // At a Glance.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'] ); // Recent Comments.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'] );  // Incoming Links.
-	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'] );
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );          // Quick Press.
-	unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'] );        // Recent Drafts.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['bbp-dashboard-right-now'] );   // BBPress.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget''] );          // Yoast SEO.
-	// unset( $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'] );        // Gravity Forms.
-}
-add_action( 'wp_dashboard_setup', 'scaffolding_disable_default_dashboard_widgets', 999 );
-
-/**
- * Change name of "Posts" menu
- *
- * This is useful for improving UX in the WP backend.
- *
- * @since Scaffolding 1.0
- * @global menu, submenu
- */
-
-/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-// Not currently in use.
-function scaffolding_change_post_menu_label() {
-	global $menu;
-	global $submenu;
-	$menu[5][0] = 'News';
-	$submenu['edit.php'][5][0]  = 'All News Entries';
-	$submenu['edit.php'][10][0] = 'Add News Entries';
-	$submenu['edit.php'][15][0] = 'Categories'; // Change name for categories
-	$submenu['edit.php'][16][0] = 'Tags'; // Change name for tags
-	echo '';
-}
-add_action( 'admin_menu', 'scaffolding_change_post_menu_label' );
-*/
-
-/**
- * Change labels for "Posts"
- *
- * This is useful for improving UX in the WP backend.
- *
- * @since Scaffolding 1.0
- * @global wp_post_types
- */
-
-/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-// Not currently in use.
-function scaffolding_change_post_object_label() {
-	global $wp_post_types;
-	$labels                        = &$wp_post_types['post']->labels;
-	$labels->name                  = 'News';
-	$labels->singular_name         = 'News';
-	$labels->add_new               = 'Add News Entry';
-	$labels->add_new_item          = 'Add News Entry';
-	$labels->edit_item             = 'Edit News Entry';
-	$labels->new_item              = 'News Entry';
-	$labels->view_item             = 'View Entry';
-	$labels->search_items          = 'Search News Entries';
-	$labels->not_found             = 'No News Entries found';
-	$labels->not_found_in_trash    = 'No News Entries found in Trash';
-}
-add_action( 'init', 'scaffolding_change_post_object_label' );
-*/
-
+require_once SCAFFOLDING_INC . 'admin.php';
 
 // Add your custom functions here.
 
