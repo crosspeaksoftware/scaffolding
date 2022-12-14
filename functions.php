@@ -14,7 +14,6 @@
  *
  * Table of Contents
  *
- * 8.0 - Comment Layout
  * 9.0 - Utility Functions
  *    9.1 - Removes […] from read more
  *    9.2 - Modified author post link
@@ -40,58 +39,6 @@ require_once SCAFFOLDING_INC . 'base-functions.php';
 require_once SCAFFOLDING_INC . 'styles-scripts.php';
 require_once SCAFFOLDING_INC . 'menus.php';
 require_once SCAFFOLDING_INC . 'sidebars.php';
-
-/************************************
- * 8.0 - COMMENT LAYOUT
- ************************************/
-
-/**
- * Comment Layout
- *
- * @since Scaffolding 1.0
- * @param WP_Comment $comment Comment object.
- * @param array      $args Array of arguments.
- * @param int        $depth Comment depth/nesting.
- */
-function scaffolding_comments( $comment, $args, $depth ) {
-	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
-	?>
-	<<?php echo $tag; // phpcs:ignore ?> <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>" class="comment-body clearfix">
-			<header class="comment-author vcard">
-				<?php
-				if ( 0 !== $args['avatar_size'] ) {
-					echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() );
-				}
-				?>
-				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
-				<time datetime="<?php echo esc_attr( comment_time( 'Y-m-d' ) ); ?>">
-					<a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php comment_time( 'F jS, Y' ); ?></a>
-					<?php edit_comment_link( __( '(Edit)', 'scaffolding' ), '<em>', '</em>' ); ?>
-				</time>
-			</header>
-			<?php if ( '0' === $comment->comment_approved ) : ?>
-				<div class="alert info">
-					<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
-				</div>
-			<?php endif; ?>
-			<div class="comment-content clearfix"><?php comment_text(); ?></div>
-			<?php
-			comment_reply_link(
-				array_merge(
-					$args,
-					array(
-						'depth'     => $depth,
-						'max_depth' => $args['max_depth'],
-					)
-				)
-			);
-			?>
-		</article>
-	<?php
-	// </li> or </div> is added by WordPress automatically.
-} // end scaffolding_comments()
-
 
 /************************************
  * 9.0 - UTILITY FUNCTIONS
@@ -313,6 +260,53 @@ add_action( 'init', 'scaffolding_change_post_object_label' );
 
 
 // Add your custom functions here.
+
+/**
+ * Comment Layout
+ *
+ * @since Scaffolding 1.0
+ * @param WP_Comment $comment Comment object.
+ * @param array      $args Array of arguments.
+ * @param int        $depth Comment depth/nesting.
+ */
+function scaffolding_comments( $comment, $args, $depth ) {
+	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+	?>
+	<<?php echo $tag; // phpcs:ignore ?> <?php comment_class(); ?>>
+		<article id="comment-<?php comment_ID(); ?>" class="comment-body clearfix">
+			<header class="comment-author vcard">
+				<?php
+				if ( 0 !== $args['avatar_size'] ) {
+					echo get_avatar( $comment, $args['avatar_size'], '', get_comment_author() );
+				}
+				?>
+				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
+				<time datetime="<?php echo esc_attr( comment_time( 'Y-m-d' ) ); ?>">
+					<a class="comment-date-link" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php comment_time( 'F jS, Y' ); ?></a>
+					<?php edit_comment_link( __( '(Edit)', 'scaffolding' ), '<em>', '</em>' ); ?>
+				</time>
+			</header>
+			<?php if ( '0' === $comment->comment_approved ) : ?>
+				<div class="alert info">
+					<p><?php esc_html_e( 'Your comment is awaiting moderation.', 'scaffolding' ); ?></p>
+				</div>
+			<?php endif; ?>
+			<div class="comment-content clearfix"><?php comment_text(); ?></div>
+			<?php
+			comment_reply_link(
+				array_merge(
+					$args,
+					array(
+						'depth'     => $depth,
+						'max_depth' => $args['max_depth'],
+					)
+				)
+			);
+			?>
+		</article>
+	<?php
+	// </li> or </div> is added by WordPress automatically.
+}
 
 /**
  * Filter posts from query that are set to 'noindex'
