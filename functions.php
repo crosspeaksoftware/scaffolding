@@ -14,7 +14,6 @@
  *
  * Table of Contents
  *
- * 7.0 - Search Functions
  * 8.0 - Comment Layout
  * 9.0 - Utility Functions
  *    9.1 - Removes […] from read more
@@ -41,43 +40,6 @@ require_once SCAFFOLDING_INC . 'base-functions.php';
 require_once SCAFFOLDING_INC . 'styles-scripts.php';
 require_once SCAFFOLDING_INC . 'menus.php';
 require_once SCAFFOLDING_INC . 'sidebars.php';
-
-
-/************************************
- * 7.0 - SEARCH FUNCTIONS
- ************************************/
-
-/**
- * Filter posts from query that are set to 'noindex'
- *
- * This function is dependent on Yoast SEO Plugin.
- *
- * @since Scaffolding 1.1
- * @param WP_Query $query WP_Query instance.
- */
-function scaffolding_noindex_filter( $query ) {
-	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
-		$meta_query = $query->get( 'meta_query' );
-		if ( is_array( $meta_query ) ) {
-			$meta_query[] = array(
-				'key'     => '_yoast_wpseo_meta-robots-noindex',
-				'compare' => 'NOT EXISTS',
-			);
-			$query->set( 'meta_query', $meta_query );
-		} else {
-			$meta_query = array(
-				array(
-					'key'     => '_yoast_wpseo_meta-robots-noindex',
-					'compare' => 'NOT EXISTS',
-				),
-			);
-			$query->set( 'meta_query', $meta_query );
-		}
-	}
-	return $query;
-}
-add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
-
 
 /************************************
  * 8.0 - COMMENT LAYOUT
@@ -350,8 +312,35 @@ add_action( 'init', 'scaffolding_change_post_object_label' );
 */
 
 
-/************************************
- * 11.0 CUSTOM/ADDITIONAL FUNCTIONS
- */
-
 // Add your custom functions here.
+
+/**
+ * Filter posts from query that are set to 'noindex'
+ *
+ * This function is dependent on Yoast SEO Plugin.
+ *
+ * @since Scaffolding 1.1
+ * @param WP_Query $query WP_Query instance.
+ */
+function scaffolding_noindex_filter( $query ) {
+	if ( ! is_admin() && $query->is_search() && defined( 'WPSEO_VERSION' ) ) {
+		$meta_query = $query->get( 'meta_query' );
+		if ( is_array( $meta_query ) ) {
+			$meta_query[] = array(
+				'key'     => '_yoast_wpseo_meta-robots-noindex',
+				'compare' => 'NOT EXISTS',
+			);
+			$query->set( 'meta_query', $meta_query );
+		} else {
+			$meta_query = array(
+				array(
+					'key'     => '_yoast_wpseo_meta-robots-noindex',
+					'compare' => 'NOT EXISTS',
+				),
+			);
+			$query->set( 'meta_query', $meta_query );
+		}
+	}
+	return $query;
+}
+add_action( 'pre_get_posts', 'scaffolding_noindex_filter' );
