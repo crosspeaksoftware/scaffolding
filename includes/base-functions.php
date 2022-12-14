@@ -123,14 +123,41 @@ function scaffolding_theme_support() {
 	// Make theme available for translation.
 	load_theme_textdomain( 'scaffolding', get_template_directory() . '/languages' );
 
-	// Support for thumbnails.
-	add_theme_support( 'post-thumbnails' );
-
 	// Support for RSS.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Support for custom logo.
-	// @link https://developer.wordpress.org/themes/functionality/custom-logo/.
+	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
+	add_theme_support(
+		'html5',
+		array(
+			'caption',
+			'comment-list',
+			'comment-form',
+			'gallery',
+			'navigation-widgets',
+			'search-form',
+			'script',
+			'style',
+		)
+	);
+
+	/*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a hard-coded <title> tag in the document head, and expect WordPress to provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
+
+	/*
+	* Enable support for Post Thumbnails on posts and pages.
+	*
+	* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	*/
+	add_theme_support( 'post-thumbnails' );
+
+	/*
+	 * Support for custom logo.
+	 * @link https://developer.wordpress.org/themes/functionality/custom-logo/.
+	 */
 	add_theme_support(
 		'custom-logo',
 		array(
@@ -138,80 +165,6 @@ function scaffolding_theme_support() {
 			'width'       => 216,   // Make sure to set this.
 			'flex-width'  => false,
 			'flex-height' => false,
-		)
-	);
-
-	// Support for custom headers.
-	add_theme_support(
-		'custom-header',
-		array(
-			'default-image'          => '%s/images/headers/default.jpg',
-			'random-default'         => false,
-			'width'                  => 1800,    // Make sure to set this.
-			'height'                 => 350,     // Make sure to set this.
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'default-text-color'     => 'ffffff',
-			'header-text'            => false,
-			'uploads'                => true,
-			'wp-head-callback'       => 'scaffolding_custom_headers_callback', // callback function.
-			'admin-head-callback'    => '',
-			'admin-preview-callback' => '',
-		)
-	);
-
-	// HTML5.
-	add_theme_support(
-		'html5',
-		array(
-			'navigation-widgets',
-			'comment-list',
-			'comment-form',
-			'search-form',
-			'gallery',
-			'caption',
-		)
-	);
-
-	// Title Tag.
-	add_theme_support( 'title-tag' );
-
-	/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// Feature Currently Disabled
-	// WP custom background (thx to @bransonwerner for update)
-	add_theme_support( 'custom-background', array(
-		'default-color'           => '',      // background color default (dont add the #)
-		'default-image'           => '',      // background image default
-		'wp-head-callback'        => '_custom_background_cb',
-		'admin-head-callback'     => '',
-		'admin-preview-callback'  => '',
-	) );
-	*/
-
-	/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-	// Feature Currently Disabled
-	// Support for post formats
-	add_theme_support( 'post-formats', array(
-			'aside',            // title less blurb
-			'gallery',          // gallery of images
-			'link',             // quick link to other site
-			'image',            // an image
-			'quote',            // a quick quote
-			'status',           // a Facebook like status update
-			'video',            // video
-			'audio',            // audio
-			'chat',             // chat transcript
-	) );
-	*/
-
-	// Support for menus.
-	add_theme_support( 'menus' );
-
-	// Register WP3+ menus.
-	register_nav_menus(
-		array(
-			'main-nav'   => __( 'Main Menu', 'scaffolding' ),   // main nav in header.
-			'footer-nav' => __( 'Footer Menu', 'scaffolding' ), // secondary nav in footer.
 		)
 	);
 
@@ -232,10 +185,6 @@ function scaffolding_theme_support() {
 
 	// Enable editor styles for use in Gutenberg and classic editors.
 	add_theme_support( 'editor-styles' );
-
-	// Add styles for use in visual editor.
-	add_editor_style( 'css/editor-styles.css' );
-	add_editor_style( 'css/libs/fontawesome/fontawesome-all.css' );
 
 }
 

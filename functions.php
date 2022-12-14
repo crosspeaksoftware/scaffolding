@@ -15,7 +15,6 @@
  * Table of Contents
  *
  * 4.0 - Menus & Navigation
- * 5.0 - Images & Headers
  * 6.0 - Sidebars
  * 7.0 - Search Functions
  * 8.0 - Comment Layout
@@ -104,51 +103,6 @@ function scaffolding_footer_nav() {
 		)
 	);
 } // end scaffolding_footer_nav()
-
-
-/************************************
- * 5.0 - IMAGES & HEADERS
- ************************************/
-
-/**
- * Add additional image sizes
- *
- * Function called in scaffolding_build() in base-functions.php.
- * Ex. add_image_size( 'scaffolding-thumb-600', 600, 150, true );
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_add_image_sizes() {}
-
-/**
- * Register custom image headers
- *
- * @since Scaffolding 1.0
- */
-register_default_headers(
-	array(
-		'default' => array(
-			'url'           => get_template_directory_uri() . '/images/headers/default.jpg',
-			'thumbnail_url' => get_template_directory_uri() . '/images/headers/default.jpg',
-			'description'   => __( 'default', 'scaffolding' ),
-		),
-	)
-);
-
-/**
- * Set header image as a BG
- *
- * This is a callback function defined in scaffolding_theme_support() 'custom-header'.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_custom_headers_callback() {
-	if ( has_header_image() ) {
-		?>
-<style type="text/css">#banner { display: block; background-image: url(<?php header_image(); ?>); }</style>
-		<?php
-	}
-} // end scaffolding_custom_headers_callback()
 
 
 /************************************
