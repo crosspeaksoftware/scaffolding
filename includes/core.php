@@ -181,14 +181,6 @@ add_action( 'template_redirect', 'scaffolding_content_width' );
 function scaffolding_scripts_and_styles() {
 
 	/**
-	 * Fonts
-	 */
-
-	// Font Awesome (icon set) - https://fontawesome.com/.
-	// this may be updated to include only specific icon sets: brands, solid, regular.
-	wp_enqueue_style( 'scaffolding-fontawesome-all', get_stylesheet_directory_uri() . '/css/libs/fontawesome/all.css', array(), '5.15.1' );
-
-	/**
 	 * Theme Styles
 	 */
 
