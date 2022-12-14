@@ -44,9 +44,6 @@ define( 'SCAFFOLDING_INCLUDE_PATH', dirname( __FILE__ ) . '/includes/' );
 // Add any additional files to include here.
 require_once SCAFFOLDING_INCLUDE_PATH . 'base-functions.php';
 require_once SCAFFOLDING_INCLUDE_PATH . 'class-scaffolding-walker-nav-menu.php';
-// commonWP Support https://wordpress.org/plugins/commonwp/ for details.
-require_once SCAFFOLDING_INCLUDE_PATH . 'commonwp.php';
-
 
 /************************************
  * 2.0 - SCRIPTS & STYLES
