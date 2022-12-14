@@ -15,8 +15,7 @@ define( 'SCAFFOLDING_DIST_URL', SCAFFOLDING_TEMPLATE_URL . '/dist/' );
 define( 'SCAFFOLDING_INC', SCAFFOLDING_PATH . 'includes/' );
 
 // Add additional include files.
-require_once SCAFFOLDING_INC . 'base-functions.php';
-require_once SCAFFOLDING_INC . 'styles-scripts.php';
+require_once SCAFFOLDING_INC . 'core.php';
 require_once SCAFFOLDING_INC . 'menus.php';
 require_once SCAFFOLDING_INC . 'sidebars.php';
 require_once SCAFFOLDING_INC . 'admin.php';
