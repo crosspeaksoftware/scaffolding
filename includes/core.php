@@ -192,9 +192,6 @@ function scaffolding_scripts_and_styles() {
 	 * Third-Party Libraries
 	 */
 
-	// Magnific Popup (lightbox) - http://dimsemenov.com/plugins/magnific-popup/.
-	wp_enqueue_script( 'scaffolding-magnific-popup-js', get_stylesheet_directory_uri() . '/libs/js/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
-
 	// SelectWoo - https://github.com/woocommerce/selectWoo.
 	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.8', true );
 
