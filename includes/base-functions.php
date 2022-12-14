@@ -42,7 +42,6 @@ function scaffolding_build() {
 	add_filter( 'the_generator', 'scaffolding_rss_version' );                         // remove WP version from RSS.
 	add_filter( 'wp_head', 'scaffolding_remove_wp_widget_recent_comments_style', 1 ); // remove pesky injected css for recent comments widget.
 	add_action( 'wp_head', 'scaffolding_remove_recent_comments_style', 1 );           // clean up comment styles in the head.
-	add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles', 999 );        // enqueue base scripts and styles.
 	scaffolding_add_image_sizes();                                                    // add additional image sizes.
 	scaffolding_theme_support();                                                      // launching this stuff after theme setup.
 	add_action( 'widgets_init', 'scaffolding_register_sidebars' );                    // adding sidebars to WordPress (these are created in functions.php).
