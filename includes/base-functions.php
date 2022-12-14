@@ -20,7 +20,6 @@ function scaffolding_build() {
 	scaffolding_add_image_sizes();                                                    // add additional image sizes.
 	scaffolding_theme_support();                                                      // launching this stuff after theme setup.
 	add_action( 'widgets_init', 'scaffolding_register_sidebars' );                    // adding sidebars to WordPress (these are created in functions.php).
-	add_filter( 'the_content', 'scaffolding_filter_ptags_on_images' );                // cleaning up random code around images.
 	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );                         // cleaning up excerpt.
 }
 add_action( 'after_setup_theme', 'scaffolding_build', 16 );
@@ -230,19 +229,3 @@ function scaffolding_login_title() {
 	return get_option( 'blogname' );
 }
 add_filter( 'login_headertext', 'scaffolding_login_title' );
-
-/**
- * Remove the p from around imgs
- *
- * This function is called in scaffolding_build().
- *
- * @link http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/
- *
- * @since Scaffolding 1.0
- *
- * @param string $content Content to be modified.
- * @return string Modified content
- */
-function scaffolding_filter_ptags_on_images( $content ) {
-	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
-}
