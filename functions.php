@@ -14,7 +14,6 @@
  *
  * Table of Contents
  *
- * 6.0 - Sidebars
  * 7.0 - Search Functions
  * 8.0 - Comment Layout
  * 9.0 - Utility Functions
@@ -41,54 +40,7 @@ define( 'SCAFFOLDING_INC', SCAFFOLDING_PATH . 'includes/' );
 require_once SCAFFOLDING_INC . 'base-functions.php';
 require_once SCAFFOLDING_INC . 'styles-scripts.php';
 require_once SCAFFOLDING_INC . 'menus.php';
-
-/************************************
- * 6.0 - SIDEBARS
- ************************************/
-
-/**
- * Sidebars & Widgets Areas
- *
- * Two sidebars registered - left and right.
- * Define additional sidebars here.
- *
- * @since Scaffolding 1.0
- */
-function scaffolding_register_sidebars() {
-	register_sidebar(
-		array(
-			'id'            => 'footer-area-one',
-			'name'          => __( 'Footer Area - One', 'scaffolding' ),
-			'description'   => __( 'Left column footer area.', 'scaffolding' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widgettitle h4 d-block">',
-			'after_title'   => '</span>',
-		)
-	);
-	register_sidebar(
-		array(
-			'id'            => 'footer-area-two',
-			'name'          => __( 'Footer Area - Two', 'scaffolding' ),
-			'description'   => __( 'Center column footer area.', 'scaffolding' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widgettitle h4 d-block">',
-			'after_title'   => '</span>',
-		)
-	);
-	register_sidebar(
-		array(
-			'id'            => 'footer-area-three',
-			'name'          => __( 'Footer Area - Three', 'scaffolding' ),
-			'description'   => __( 'Right column footer area.', 'scaffolding' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widgettitle h4 d-block">',
-			'after_title'   => '</span>',
-		)
-	);
-} // end scaffolding_register_sidebars()
+require_once SCAFFOLDING_INC . 'sidebars.php';
 
 
 /************************************
