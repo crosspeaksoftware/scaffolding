@@ -46,10 +46,6 @@ require_once SCAFFOLDING_INCLUDE_PATH . 'base-functions.php';
 require_once SCAFFOLDING_INCLUDE_PATH . 'class-scaffolding-walker-nav-menu.php';
 require_once SCAFFOLDING_INCLUDE_PATH . 'tinymce-settings.php';
 // require_once( SCAFFOLDING_INCLUDE_PATH . 'theme-guide.php' );
-// Gravity Forms Customizations.
-if ( class_exists( 'GFForms' ) ) {
-	require_once SCAFFOLDING_INCLUDE_PATH . 'gf-customizations.php';
-}
 // commonWP Support https://wordpress.org/plugins/commonwp/ for details.
 require_once SCAFFOLDING_INCLUDE_PATH . 'commonwp.php';
 
