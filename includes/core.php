@@ -192,10 +192,6 @@ function scaffolding_scripts_and_styles() {
 	 * Third-Party Libraries
 	 */
 
-	// Modernizr - http://modernizr.com/.
-	// update this to include only what you need to test.
-	wp_enqueue_script( 'scaffolding-modernizr', get_stylesheet_directory_uri() . '/libs/js/custom-modernizr.min.js', array(), '3.6.0', false );
-
 	// Retina.js - http://imulus.github.io/retinajs/.
 	wp_enqueue_script( 'scaffolding-retinajs', get_stylesheet_directory_uri() . '/libs/js/retina.min.js', array(), '2.1.2', true );
 
