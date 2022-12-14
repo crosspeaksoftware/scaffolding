@@ -188,13 +188,6 @@ function scaffolding_scripts_and_styles() {
 	$theme_css_version = filemtime( get_theme_file_path( '/css/style.css' ) );
 	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
 
-	/**
-	 * Third-Party Libraries
-	 */
-
-	// SelectWoo - https://github.com/woocommerce/selectWoo.
-	wp_enqueue_script( 'scaffolding-selectwoo', get_stylesheet_directory_uri() . '/libs/js/selectWoo.full.min.js', array( 'jquery' ), '1.0.8', true );
-
 	// Comment reply script for threaded comments.
 	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
 		wp_enqueue_script( 'comment-reply' );
