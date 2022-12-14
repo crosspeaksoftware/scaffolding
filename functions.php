@@ -1,15 +1,9 @@
 <?php
 /**
- * Scaffolding Main Functions
+ * Theme Functions
  *
- * Add custom functions and edit thumbnail sizes, header images, sidebars, menus, etc.
- *
- * @link https://github.com/hallme/scaffolding
- * @link http://scaffolding.io
  * @link https://codex.wordpress.org/Theme_Development
- *
- * @package Scaffolding
- *
+ * @package scaffolding
  */
 
 // Useful global constants.

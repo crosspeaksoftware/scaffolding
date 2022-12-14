@@ -2,7 +2,7 @@
 /**
  * Initiating Theme
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * The template for displaying search forms
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 global $scaffolding_search_form_index;

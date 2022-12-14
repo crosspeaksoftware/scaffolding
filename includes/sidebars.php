@@ -1,6 +1,6 @@
 <?php
 /**
- * Scaffolding Sidebars & Widgets
+ * Sidebars & Widgets
  *
  * @package scaffolding
  */

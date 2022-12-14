@@ -6,7 +6,7 @@
  *
  * @see http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 get_header();

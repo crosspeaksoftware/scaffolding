@@ -2,7 +2,7 @@
 /**
  * Error Messages
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 ?>

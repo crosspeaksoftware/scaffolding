@@ -1,11 +1,8 @@
 <?php
 /**
- * Styles and Scripts
+ * Styles & Scripts
  *
- * @link https://github.com/hallme/scaffolding
- * @link http://scaffolding.io
- *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 /**

@@ -1,8 +1,8 @@
 <?php
 /**
- * Menus
+ * Menus & Navigation
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Pagination
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 global $wp_query;

@@ -6,7 +6,7 @@
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 /**

@@ -4,7 +4,7 @@
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 if ( is_active_sidebar( 'footer-area-one' ) || is_active_sidebar( 'footer-area-two' ) || is_active_sidebar( 'footer-area-three' ) ) :

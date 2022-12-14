@@ -2,7 +2,7 @@
 /**
  * Template Name: Site Map Page
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 get_header();

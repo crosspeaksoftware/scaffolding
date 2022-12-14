@@ -4,7 +4,7 @@
  *
  * Contains the closing of the "main" div and all content after.
  *
- * @package Scaffolding
+ * @package scaffolding
  */
 
 ?>
