@@ -34,27 +34,27 @@ function scaffolding_woocommerce_assets() {
 	global $post;
 
 	// Enqueue our styles.
-	$woo_global_css_version = filemtime( get_theme_file_path( '/css/plugins/woocommerce/global.css' ) );
-	wp_enqueue_style( 'scaffolding-woocommerce-global', get_stylesheet_directory_uri() . '/css/plugins/woocommerce/global.css', array(), $woo_global_css_version );
+	$woo_global_css_version = filemtime( get_theme_file_path( '/dist/css/woocommerce-global.css' ) );
+	wp_enqueue_style( 'scaffolding-woocommerce-global', get_stylesheet_directory_uri() . '/dist/css/woocommerce-global.css', array(), $woo_global_css_version );
 
 	if ( is_product() || ( ! empty( $post->post_content ) && strstr( $post->post_content, '[product_page' ) ) ) {
-		$woo_product_css_version = filemtime( get_theme_file_path( '/css/plugins/woocommerce/product.css' ) );
-		wp_enqueue_style( 'scaffolding-woocommerce-product', get_stylesheet_directory_uri() . '/css/plugins/woocommerce/product.css', array(), $woo_product_css_version );
+		$woo_product_css_version = filemtime( get_theme_file_path( '/dist/css/woocommerce-product.css' ) );
+		wp_enqueue_style( 'scaffolding-woocommerce-product', get_stylesheet_directory_uri() . '/dist/css/woocommerce-product.css', array(), $woo_product_css_version );
 	}
 
 	if ( is_cart() ) {
-		$woo_cart_css_version = filemtime( get_theme_file_path( '/css/plugins/woocommerce/cart.css' ) );
-		wp_enqueue_style( 'scaffolding-woocommerce-cart', get_stylesheet_directory_uri() . '/css/plugins/woocommerce/cart.css', array(), $woo_cart_css_version );
+		$woo_cart_css_version = filemtime( get_theme_file_path( '/dist/css/woocommerce-cart.css' ) );
+		wp_enqueue_style( 'scaffolding-woocommerce-cart', get_stylesheet_directory_uri() . '/dist/css/woocommerce-cart.css', array(), $woo_cart_css_version );
 	}
 
 	if ( is_checkout() || is_order_received_page() ) {
-		$woo_checkout_css_version = filemtime( get_theme_file_path( '/css/plugins/woocommerce/checkout.css' ) );
-		wp_enqueue_style( 'scaffolding-woocommerce-checkout', get_stylesheet_directory_uri() . '/css/plugins/woocommerce/checkout.css', array(), $woo_checkout_css_version );
+		$woo_checkout_css_version = filemtime( get_theme_file_path( '/dist/css/woocommerce-checkout.css' ) );
+		wp_enqueue_style( 'scaffolding-woocommerce-checkout', get_stylesheet_directory_uri() . '/dist/css/woocommerce-checkout.css', array(), $woo_checkout_css_version );
 	}
 
 	if ( is_account_page() ) {
-		$woo_myaccount_css_version = filemtime( get_theme_file_path( '/css/plugins/woocommerce/myaccount.css' ) );
-		wp_enqueue_style( 'scaffolding-woocommerce-myaccount', get_stylesheet_directory_uri() . '/css/plugins/woocommerce/myaccount.css', array(), $woo_myaccount_css_version );
+		$woo_myaccount_css_version = filemtime( get_theme_file_path( '/dist/css/woocommerce-myaccount.css' ) );
+		wp_enqueue_style( 'scaffolding-woocommerce-myaccount', get_stylesheet_directory_uri() . '/dist/css/woocommerce-myaccount.css', array(), $woo_myaccount_css_version );
 	}
 
 	// Remove select2 script (we enqueue our own).
@@ -80,8 +80,8 @@ add_action( 'wp_enqueue_scripts', 'scaffolding_woocommerce_assets', 9999 );
  * for editor and front-end
  */
 function scaffolding_woocommerce_gutenberg_block_assets() {
-	$woo_blocks_css_version = filemtime( get_theme_file_path( '/css/plugins/woocommerce/blocks.css' ) );
-	wp_enqueue_style( 'scaffolding-woocommerce-blocks', get_stylesheet_directory_uri() . '/css/plugins/woocommerce/blocks.css', array(), $woo_blocks_css_version );
+	$woo_blocks_css_version = filemtime( get_theme_file_path( '/dist/css/woocommerce-blocks.css' ) );
+	wp_enqueue_style( 'scaffolding-woocommerce-blocks', get_stylesheet_directory_uri() . '/dist/css/woocommerce-blocks.css', array(), $woo_blocks_css_version );
 }
 add_action( 'enqueue_block_assets', 'scaffolding_woocommerce_gutenberg_block_assets' );
 

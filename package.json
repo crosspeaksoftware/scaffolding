@@ -1,36 +1,49 @@
 {
 	"name": "scaffolding",
-	"version": "1.0.0",
-	"description": "Responsive Design Scaffolding for WordPress",
+	"version": "4.0.0",
+	"description": "Responsive Design Starter Theme Framework for WordPress",
+	"author": "",
 	"private": true,
-	"scripts": {
-		"dev": "npm run development",
-		"development": "mix",
-		"watch": "mix watch",
-		"watch-poll": "mix watch -- --watch-options-poll=1000",
-		"hot": "mix watch --hot",
-		"prod": "npm run production",
-		"production": "mix --production"
-	},
+	"license": "GPL-2.0-or-later",
+	"keywords": [],
+	"homepage": "https://github.com/hallme/scaffolding#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/hallme/scaffolding.git"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "GPLv2",
 	"bugs": {
 		"url": "https://github.com/hallme/scaffolding/issues"
 	},
-	"homepage": "https://github.com/hallme/scaffolding#readme",
-	"browserslist": [
-		"last 4 version"
-	],
 	"devDependencies": {
-		"cross-env": "^7.0",
-		"laravel-mix": "^6.0.49",
-		"resolve-url-loader": "^4.0.0",
-		"sass": "^1.15.2",
-		"sass-loader": "^12.3.0"
+		"10up-toolkit": "latest"
+	},
+	"scripts": {
+		"start": "10up-toolkit build --watch",
+    "build": "10up-toolkit build",
+    "format-js": "10up-toolkit format-js",
+    "lint-js": "10up-toolkit lint-js",
+    "lint-style": "10up-toolkit lint-style"
+	},
+	"10up-toolkit": {
+		"entry": {
+			"woocommerce-cart": "./scss/plugins/woocommerce/cart.scss",
+			"woocommerce-product": "./scss/plugins/woocommerce/product.scss",
+			"woocommerce-global": "./scss/plugins/woocommerce/global.scss",
+			"editor-styles": "./scss/editor-styles.scss",
+			"login": "./scss/login.scss",
+			"style": "./scss/style.scss",
+			"fontawesome-v4-shims": "./scss/libs/fontawesome/v4-shims.scss",
+			"fontawesome-solid": "./scss/libs/fontawesome/solid.scss",
+			"fontawesome-regular": "./scss/libs/fontawesome/regular.scss",
+			"fontawesome": "./scss/libs/fontawesome/fontawesome.scss",
+			"fontawesome-brands": "./scss/libs/fontawesome/brands.scss",
+			"fontawesome-all": "./scss/libs/fontawesome/all.scss",
+			"woocommerce-blocks": "./scss/plugins/woocommerce/blocks.scss",
+			"woocommerce-myaccount": "./scss/plugins/woocommerce/myaccount.scss",
+			"woocommerce-checkout": "./scss/plugins/woocommerce/checkout.scss",
+			"navigation": "./js/navigation.js",
+			"responsive-iframes": "./js/responsive-iframes.js",
+			"scripts": "./js/scripts.js"
+		}
 	}
 }
