@@ -1,34 +1,9 @@
 <?php
 /**
- * Scaffolding Stock Functions
- *
- * Included stock functions. Custom functions go in functions.php to facilitate future updates if necessary.
- *
- * @link https://github.com/hallme/scaffolding
- * @link http://scaffolding.io
- * @link https://codex.wordpress.org/Theme_Development
+ * Initiating Theme
  *
  * @package Scaffolding
- *
- * Table of Contents
- *
- * 1.0 - Initiating Scaffolding
- * 2.0 - Cleaning Up wp_head
- * 3.0 - Front-End Improvements
- *    3.1 - Add attributes to next post link
- *    3.2 - Add attributes to previous post link
- *    3.3 - Add title attribute to wp_list_pages
- * 4.0 - Custom Login
- *    4.1 - Add styles to login page
- *    4.2 - Change logo link
- *    4.3 - Change alt attribute on logo
- * 5.0 - Visitor UX Functions
- *    5.1 - Remove p tags from images
  */
-
-/************************************
- * 1.0 - INITIATING SCAFFOLDING
- ************************************/
 
 /**
  * Scaffolding Setup
@@ -49,11 +24,6 @@ function scaffolding_build() {
 	add_filter( 'excerpt_more', 'scaffolding_excerpt_more' );                         // cleaning up excerpt.
 }
 add_action( 'after_setup_theme', 'scaffolding_build', 16 );
-
-
-/************************************
- * 2.0 - CLEANING UP WP_HEAD
- *************************************/
 
 /**
  * Clean up wp_head() output
@@ -188,14 +158,6 @@ function scaffolding_theme_support() {
 
 }
 
-
-/************************************
- * 3.0 - FRONT-END IMPROVEMENTS
- *    3.1 - Add attributes to next post link
- *    3.2 - Add attributes to previous post link
- *    3.3 - Add title attribute to wp_list_pages
- *************************************/
-
 /**
  * Add rel and title attribute to next pagination link
  *
@@ -238,14 +200,6 @@ function scaffolding_wp_list_pages_filter( $output ) {
 }
 add_filter( 'wp_list_pages', 'scaffolding_wp_list_pages_filter' );
 
-
-/************************************
- * 4.0 - CUSTOM LOGIN
- *    4.1 - Add styles to login page
- *    4.2 - Change logo link
- *    4.3 - Change alt attribute on logo
- *************************************/
-
 /**
  * Custom login page CSS
  *
@@ -276,12 +230,6 @@ function scaffolding_login_title() {
 	return get_option( 'blogname' );
 }
 add_filter( 'login_headertext', 'scaffolding_login_title' );
-
-
-/************************************
- * 5.0 - VISITOR/USER UX FUNCTIONS
- *    5.1 - Remove p tags from images
- *************************************/
 
 /**
  * Remove the p from around imgs
