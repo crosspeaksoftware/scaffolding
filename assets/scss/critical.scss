@@ -1,7 +1,22 @@
 /**
- * Scaffolding
- *
+ * Scaffolding Critical Styles
  */
 
-/* Resets - installed via NPM */
+// Resets - installed via NPM
 @import url("normalize.css");
+
+// Utilities
+@import "utilities/all-utilities";
+
+// Elements
+@import "elements/typography";
+@import "elements/main-navigation";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/media";
+@import "elements/tables";
+@import "elements/forms";
+@import "elements/bootstrap-grid";
+@import "elements/pagination";
+@import "elements/comments";
+@import "elements/widgets";
