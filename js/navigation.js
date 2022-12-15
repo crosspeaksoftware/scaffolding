@@ -1,8 +1,5 @@
 /**
- * Site Name:
- * Author:
- *
- * Name: Navigation Scripts
+ * Navigation Scripts
  *
  * @package scaffolding
  */
