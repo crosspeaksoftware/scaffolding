@@ -45,20 +45,6 @@ function getScrollBarWidth () {
 jQuery( document ).ready(
 	function($) {
 
-		// SelectWoo - https://github.com/woocommerce/selectWoo .
-		if ($.fn.selectWoo) {
-			var setup_selectWoo = function() {
-				$( 'select' ).not('#rating').each( function(){
-					$( this ).selectWoo({
-						width: 'null',
-					});
-				});
-			};
-			$( document ).ajaxComplete( setup_selectWoo );
-			$( document ).bind( 'gform_post_render', setup_selectWoo );
-			setup_selectWoo();
-		}
-
 		// Lightbox - http://dimsemenov.com/plugins/magnific-popup/ .
 		if ($.fn.magnificPopup) {
 			$image_selector = 'a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]';
