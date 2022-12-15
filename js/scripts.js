@@ -45,41 +45,6 @@ function getScrollBarWidth () {
 jQuery( document ).ready(
 	function($) {
 
-		// Lightbox - http://dimsemenov.com/plugins/magnific-popup/ .
-		if ($.fn.magnificPopup) {
-			$image_selector = 'a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]';
-
-			// single image popup.
-			$( $image_selector ).each(
-				function(){
-					if ($( this ).parents( '.gallery' ).length == 0) {
-						$( this ).magnificPopup( {type:'image'} );
-					}
-				}
-			);
-
-			// gallery popup.
-			$( '.gallery' ).each(
-				function() {
-					$( this ).magnificPopup(
-						{
-							type: 'image',
-							delegate: $image_selector,
-							gallery: {
-								enabled: true,
-								preload: [1,2]
-							},
-							image: {
-								titleSrc: function(item) {
-									return item.el.parents( '.gallery-item' ).find( '.gallery-caption' ).text();
-								}
-							}
-						}
-					);
-				}
-			);
-		}
-
 		// hide #back-top first.
 		$( "#back-top" ).hide();
 
