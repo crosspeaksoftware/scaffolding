@@ -7,11 +7,3 @@
 @import "utilities/all-utilities";
 
 @import "media-queries/xs";
-
-// PRINT STYLESHEET
-// Remember to remove things that do not make sense for print (ie. nav, ads, and forms should).
-@media print {
-
-	@import "media-queries/print";
-
-}

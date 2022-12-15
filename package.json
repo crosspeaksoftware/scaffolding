@@ -35,6 +35,7 @@
 			"header": "./assets/scss/header.scss",
 			"footer": "./assets/scss/footer.scss",
 			"style": "./assets/scss/style.scss",
+			"print": "./assets/scss/print.scss",
 			"navigation": "./assets/js/navigation.js",
 			"scripts": "./assets/js/scripts.js"
 		}

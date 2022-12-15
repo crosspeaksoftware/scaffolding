@@ -194,6 +194,9 @@ function scaffolding_scripts_and_styles() {
 	$footer_css_version = filemtime( get_theme_file_path( '/dist/css/footer.css' ) );
 	wp_enqueue_style( 'scaffolding-footer', get_stylesheet_directory_uri() . '/dist/css/footer.css', array(), $footer_css_version );
 
+	$print_css_version = filemtime( get_theme_file_path( '/dist/css/print.css' ) );
+	wp_enqueue_style( 'scaffolding-print', get_stylesheet_directory_uri() . '/dist/css/print.css', array(), $print_css_version, 'print' );
+
 	// Comment reply script for threaded comments.
 	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
 		wp_enqueue_script( 'comment-reply' );
