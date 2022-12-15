@@ -32,6 +32,7 @@
 			"editor-styles": "./assets/scss/editor-styles.scss",
 			"login": "./assets/scss/login.scss",
 			"critical": "./assets/scss/critical.scss",
+			"header": "./assets/scss/header.scss",
 			"style": "./assets/scss/style.scss",
 			"navigation": "./assets/js/navigation.js",
 			"scripts": "./assets/js/scripts.js"

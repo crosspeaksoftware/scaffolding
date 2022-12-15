@@ -1,0 +1,30 @@
+/**
+ * Scaffolding Header Styles
+ */
+ #masthead {}
+
+ #inner-header {
+	 padding-top: 1em;
+	 padding-bottom: 1em;
+ }
+
+ #logo {
+	 &.h1 {
+		 margin: 0;
+	 }
+
+	 a {
+		 text-decoration: none;
+	 }
+ }
+
+ #banner {
+	 display: none;
+	 background-position: top center;
+	 background-repeat: no-repeat;
+	 background-size: cover;
+
+	 .spacer {
+		 padding-top: 19.44%; // change this value based on the aspect ratio of your header image
+	 }
+ }

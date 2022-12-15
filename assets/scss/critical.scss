@@ -5,6 +5,20 @@
 // Resets - installed via NPM
 @import url("normalize.css");
 
+html {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	height: auto;
+	overflow-x: hidden;
+
+	#container {
+		height: 100%;
+	}
+}
+
 // Utilities
 @import "utilities/all-utilities";
 
