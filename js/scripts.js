@@ -45,11 +45,6 @@ function getScrollBarWidth () {
 jQuery( document ).ready(
 	function($) {
 
-		// Initialize Retinajs - https://github.com/strues/retinajs .
-		if (jQuery.fn.retinajs) {
-			retinajs();
-		}
-
 		// SelectWoo - https://github.com/woocommerce/selectWoo .
 		if ($.fn.selectWoo) {
 			var setup_selectWoo = function() {
