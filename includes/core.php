@@ -180,30 +180,26 @@ add_action( 'template_redirect', 'scaffolding_content_width' );
  */
 function scaffolding_scripts_and_styles() {
 
-	/**
-	 * Theme Styles
-	 */
+	// Styles.
 
-	// Main stylesheet.
-	$theme_css_version = filemtime( get_theme_file_path( '/css/style.css' ) );
-	wp_enqueue_style( 'scaffolding-stylesheet', get_stylesheet_directory_uri() . '/css/style.css', array(), $theme_css_version );
+	$critical_css_version = filemtime( get_theme_file_path( '/dist/css/critical.css' ) );
+	wp_enqueue_style( 'scaffolding-critical', get_stylesheet_directory_uri() . '/dist/css/critical.css', array(), $critical_css_version );
+
+	$theme_css_version = filemtime( get_theme_file_path( '/dist/css/style.css' ) );
+	wp_enqueue_style( 'scaffolding-styles', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), $theme_css_version );
 
 	// Comment reply script for threaded comments.
 	if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	/**
-	 * Theme Scripts
-	 */
+	// Scripts.
 
-	// Add Scaffolding scripts file in the footer.
-	$theme_js_version = filemtime( get_theme_file_path( '/js/scripts.js' ) );
-	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
+	$theme_js_version = filemtime( get_theme_file_path( '/dist/js/scripts.js' ) );
+	wp_enqueue_script( 'scaffolding-js', get_stylesheet_directory_uri() . '/dist/js/scripts.js', array( 'jquery' ), $theme_js_version, true );
 
-	// Navigation scripts.
-	$theme_nav_js_version = filemtime( get_theme_file_path( '/js/navigation.js' ) );
-	wp_enqueue_script( 'scaffolding-nav', get_stylesheet_directory_uri() . '/js/navigation.js', array( 'jquery', 'scaffolding-js' ), $theme_nav_js_version, true );
+	$theme_nav_js_version = filemtime( get_theme_file_path( '/dist/js/navigation.js' ) );
+	wp_enqueue_script( 'scaffolding-nav', get_stylesheet_directory_uri() . '/dist/js/navigation.js', array( 'jquery', 'scaffolding-js' ), $theme_nav_js_version, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles' );

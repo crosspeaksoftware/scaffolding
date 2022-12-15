@@ -15,22 +15,26 @@
 		"url": "https://github.com/hallme/scaffolding/issues"
 	},
 	"devDependencies": {
-		"10up-toolkit": "latest"
+		"10up-toolkit": "^4.3.1"
+	},
+	"dependencies": {
+		"normalize.css": "^8.0.1"
 	},
 	"scripts": {
 		"start": "10up-toolkit build --watch",
-    "build": "10up-toolkit build",
-    "format-js": "10up-toolkit format-js",
-    "lint-js": "10up-toolkit lint-js",
-    "lint-style": "10up-toolkit lint-style"
+		"build": "10up-toolkit build",
+		"format-js": "10up-toolkit format-js",
+		"lint-js": "10up-toolkit lint-js",
+		"lint-style": "10up-toolkit lint-style"
 	},
 	"10up-toolkit": {
 		"entry": {
-			"editor-styles": "./scss/editor-styles.scss",
-			"login": "./scss/login.scss",
-			"style": "./scss/style.scss",
-			"navigation": "./js/navigation.js",
-			"scripts": "./js/scripts.js"
+			"editor-styles": "./assets/scss/editor-styles.scss",
+			"login": "./assets/scss/login.scss",
+			"critical": "./assets/scss/critical.scss",
+			"style": "./assets/scss/style.scss",
+			"navigation": "./assets/js/navigation.js",
+			"scripts": "./assets/js/scripts.js"
 		}
 	}
 }
