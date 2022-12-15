@@ -1,0 +1,61 @@
+/**
+ * Scaffolding Footer Styles
+ */
+
+ @import "utilities/all-utilities";
+
+ #colophon {
+	background-color: $color__black;
+	clear: both;
+	color: $color__tertiary;
+	font-size: 0.875em;
+
+	.copyright {
+		text-align: center;
+	}
+
+	a {
+		color: $color__tertiary;
+	}
+}
+
+ul.footer-menu {
+	margin: 0 1px;
+	padding: 0;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0 -1px;
+		padding: 0;
+
+		a {
+			border-left: 1px solid $color__tertiary;
+			color: $color__tertiary;
+			display: block;
+			line-height: 1;
+			padding: 0 0.675em;
+		}
+
+		&:first-child {
+			a {
+				padding-left: 0;
+				border-left: 0;
+			}
+		}
+
+		&:last-child {
+			a {
+				padding-right: 0;
+			}
+		}
+	}
+
+	ul.sub-menu {
+		display: none; // hide child ul as design does not support it
+	}
+}
+
+@import "modules/sticky-footer"; // need to add sticky-footer class to the body
+
+@import "modules/back-to-top";

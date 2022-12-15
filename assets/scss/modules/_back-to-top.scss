@@ -1,0 +1,33 @@
+/**
+ * Scaffolding Back to Top Styles
+ */
+
+#back-top {
+	margin: 0;
+	bottom: 25px;
+	right: 30px;
+	position: fixed;
+	z-index: 9999;
+
+	a {
+		background-color: rgba(0,0,0,0.55);
+		color: #FFF;
+		display: block;
+		font-size: 1.675em;
+		height: 1.675em;
+		text-align: center;
+		text-decoration: none;
+		width: 1.675em;
+		border-radius: 500px;
+		transition: background-color 0.5s ease-in-out;
+
+		&:hover,
+		&:focus {
+			background-color: #000;
+		}
+	}
+
+	.fas {
+		line-height: 1.675em;
+	}
+}
