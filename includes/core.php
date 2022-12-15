@@ -205,9 +205,5 @@ function scaffolding_scripts_and_styles() {
 	$theme_nav_js_version = filemtime( get_theme_file_path( '/js/navigation.js' ) );
 	wp_enqueue_script( 'scaffolding-nav', get_stylesheet_directory_uri() . '/js/navigation.js', array( 'jquery', 'scaffolding-js' ), $theme_nav_js_version, true );
 
-	// Responsive iFrames, Embeds and Objects - http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php.
-	// Fallback for elements outside the Gutenberg blocks (ie. using the Classic Editor).
-	wp_enqueue_script( 'scaffolding-responsive-iframes', get_stylesheet_directory_uri() . '/js/responsive-iframes.js', array( 'jquery' ), '1.0.0', true );
-
 }
 add_action( 'wp_enqueue_scripts', 'scaffolding_scripts_and_styles' );
