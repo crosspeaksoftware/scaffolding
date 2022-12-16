@@ -34,7 +34,7 @@
 			"critical": "./assets/scss/critical.scss",
 			"header": "./assets/scss/header.scss",
 			"footer": "./assets/scss/footer.scss",
-			"style": "./assets/scss/style.scss",
+			"content": "./assets/scss/content.scss",
 			"print": "./assets/scss/print.scss",
 			"navigation": "./assets/js/navigation.js",
 			"scripts": "./assets/js/scripts.js"

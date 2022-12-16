@@ -188,8 +188,8 @@ function scaffolding_scripts_and_styles() {
 	$header_css_version = filemtime( get_theme_file_path( '/dist/css/header.css' ) );
 	wp_enqueue_style( 'scaffolding-header', get_stylesheet_directory_uri() . '/dist/css/header.css', array(), $header_css_version );
 
-	$theme_css_version = filemtime( get_theme_file_path( '/dist/css/style.css' ) );
-	wp_enqueue_style( 'scaffolding-styles', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), $theme_css_version );
+	$content_css_version = filemtime( get_theme_file_path( '/dist/css/content.css' ) );
+	wp_enqueue_style( 'scaffolding-content', get_stylesheet_directory_uri() . '/dist/css/content.css', array(), $content_css_version );
 
 	$footer_css_version = filemtime( get_theme_file_path( '/dist/css/footer.css' ) );
 	wp_enqueue_style( 'scaffolding-footer', get_stylesheet_directory_uri() . '/dist/css/footer.css', array(), $footer_css_version );

@@ -9,7 +9,7 @@ jQuery( document ).ready(
 	function($) {
 
 		// getting viewport width.
-		var responsive_viewport = $( window ).width() + getScrollBarWidth();
+		var responsive_viewport = $( window ).width();
 
 		/*
 		Mobile Navigation
@@ -54,7 +54,7 @@ jQuery( document ).ready(
 				accepts anchor and opens page on second tap
 				*/
 				if ($.fn.doubleTapToGo) {
-					responsive_viewport = $( window ).width() + getScrollBarWidth();
+					responsive_viewport = $( window ).width();
 					if (responsive_viewport >= 768) {
 						$( '#main-navigation' ).doubleTapToGo();
 					}
@@ -64,7 +64,7 @@ jQuery( document ).ready(
 
 		$( window ).resize(
 			function(e) {
-				responsive_viewport = $( window ).width() + getScrollBarWidth();
+				responsive_viewport = $( window ).width();
 				if (responsive_viewport >= 768) {
 					$( 'body' ).removeClass( 'menu-open' );
 					$( '#main-navigation > ul.main-menu' ).removeAttr( 'style' );
