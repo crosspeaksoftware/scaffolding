@@ -17,9 +17,7 @@
 	"devDependencies": {
 		"10up-toolkit": "^4.3.1"
 	},
-	"dependencies": {
-		"normalize.css": "^8.0.1"
-	},
+	"dependencies": {},
 	"scripts": {
 		"start": "10up-toolkit build --watch",
 		"build": "10up-toolkit build",
