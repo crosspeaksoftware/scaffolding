@@ -62,13 +62,6 @@
 			<?php scaffolding_main_nav(); ?>
 		</nav>
 
-		<?php // Interior Header Image. ?>
-		<div class="banner-wrap">
-			<div id="banner">
-				<div class="spacer"></div>
-			</div>
-		</div>
-
 		<div id="content">
 
 			<?php do_action( 'scaffolding_after_content_begin' ); ?>
