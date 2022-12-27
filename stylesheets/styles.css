@@ -551,12 +551,12 @@ section {
 	text-decoration: underline;
 }
 
-.hall-logo {
+.crosspeak-logo {
 	display: block;
 	margin-top: 20px;
 }
 
-.hall-logo img {
+.crosspeak-logo img {
 	display: block;
 	margin: 0 auto;
 }
@@ -751,12 +751,12 @@ input[type="checkbox"]:checked + label:after {
 		padding: 0 !important;
 	}
 
-	.hall-logo {
+	.crosspeak-logo {
 		margin-top: 0;
 		position: relative;
 	}
 
-	.hall-logo img {
+	.crosspeak-logo img {
 		float: right;
 		margin: 0;
 	}
