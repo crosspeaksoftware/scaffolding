@@ -36,36 +36,28 @@ $(function() {
 	// Download Button
 	$("#download-link").click(function() {
 		ga('send', 'event', 'button', 'click', 'Download');
-		_paq.push(['trackEvent', 'button', 'click', 'Download']);
 	});
 	// Customize Button
 	$("formsubmit").click(function() {
 		ga('send', 'event', 'button', 'click', 'Customize');
-		_paq.push(['trackEvent', 'button', 'click', 'Customize']);
 	});
 	$("#getstarted_btn").click(function() {
 		ga('send', 'event', 'button', 'click', 'Get Started');
-		_paq.push(['trackEvent', 'button', 'click', 'Get Started']);
 	});
 	// Fork on GitHub Button
 	$("#forkongithub_btn").click(function() {
 		ga('send', 'event', 'button', 'click', 'Fork on Github');
-		_paq.push(['trackEvent', 'button', 'click', 'Fork on Github']);
 	});
 	$("#name").change(function() {
 		ga('send', 'event', 'Form', 'Field', 'Name = ' + $(this).val());
-		_paq.push(['trackEvent', 'Form', 'Field', 'Name = ' + $(this).val()]);
 	});
 	$("#slug").change(function() {
 		ga('send', 'event', 'Form', 'Field', 'Slug = ' + $(this).val());
-		_paq.push(['trackEvent', 'Form', 'Field', 'Slug = ' + $(this).val()]);
 	});
 	$("#author").change(function() {
 		ga('send', 'event', 'Form', 'Field', 'Author = ' + $(this).val());
-		_paq.push(['trackEvent', 'Form', 'Field', 'Author = ' + $(this).val()]);
 	});
 	$("#authoruri").change(function() {
 		ga('send', 'event', 'Form', 'Field', 'Author URI = ' + $(this).val());
-		_paq.push(['trackEvent', 'Form', 'Field', 'Author URI = ' + $(this).val()]);
 	});
 });
