@@ -10,7 +10,7 @@
 if ( is_active_sidebar( 'footer-area-one' ) || is_active_sidebar( 'footer-area-two' ) || is_active_sidebar( 'footer-area-three' ) ) :
 	?>
 
-	<div id="footer-widgets" class="container py-4">
+	<div id="footer-widgets">
 
 		<div class="row footer-widgets__row">
 

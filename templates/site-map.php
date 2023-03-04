@@ -184,7 +184,7 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 }
 ?>
 
-<div id="inner-content" class="container">
+<div id="inner-content">
 
 	<div id="main" class="clearfix" role="main">
 

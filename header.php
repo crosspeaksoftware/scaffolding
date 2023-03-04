@@ -34,7 +34,7 @@
 
 		<header id="masthead" class="header" role="banner">
 
-			<div id="inner-header" class="container">
+			<div id="inner-header">
 
 				<div class="row align-items-center justify-content-between">
 

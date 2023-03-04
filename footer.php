@@ -16,7 +16,7 @@
 
 			<?php get_sidebar(); ?>
 
-			<div id="inner-footer" class="container py-3">
+			<div id="inner-footer">
 
 				<?php if ( has_nav_menu( 'footer-nav' ) ) : ?>
 
