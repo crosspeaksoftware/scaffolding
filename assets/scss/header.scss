@@ -12,6 +12,8 @@
  #inner-header {
 	 padding-top: 1em;
 	 padding-bottom: 1em;
+	 @include make-container();
+	 @include make-container-max-widths();
  }
 
  #logo {

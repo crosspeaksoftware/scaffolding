@@ -10,6 +10,8 @@
 #inner-content {
 	padding-top: 2em;
 	padding-bottom: 2em;
+	@include make-container();
+	@include make-container-max-widths();
 
 	// headers
 

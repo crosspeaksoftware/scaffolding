@@ -19,6 +19,20 @@
 	}
 }
 
+#footer-widgets {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	@include make-container();
+	@include make-container-max-widths();
+}
+
+#inner-footer {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	@include make-container();
+	@include make-container-max-widths();
+}
+
 ul.footer-menu {
 	margin: 0 1px;
 	padding: 0;
