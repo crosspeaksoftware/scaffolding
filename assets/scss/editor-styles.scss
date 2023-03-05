@@ -5,7 +5,7 @@ Author:
 Stylesheet: Editor Stylesheet
 
 This stylesheet is only for the wysiwyg editor. We will import
-our typography styles and bootstrap grid. Add any additional
+our typography styles. Add any additional
 custom styles here.
 
 ******************************************************************/
@@ -17,7 +17,6 @@ custom styles here.
 @import "elements/lists";
 @import "elements/media";
 @import "elements/tables";
-@import "elements/bootstrap-grid";
 
 .mceContentBody {
 	background-color: #FDFDFD;

@@ -8,6 +8,14 @@
 html {
 	height: 100%;
 	overflow-x: hidden;
+	box-sizing: border-box;
+	-ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
 }
 
 body {
@@ -29,7 +37,6 @@ body {
 @import "elements/media";
 @import "elements/tables";
 @import "elements/forms";
-@import "elements/bootstrap-grid";
 @import "elements/pagination";
 @import "elements/comments";
 @import "elements/widgets";
