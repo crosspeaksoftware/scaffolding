@@ -146,12 +146,12 @@
 }
 
 .sitemap {
-	.two-col {
+	.sitemap__row {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 15px;
 
-		.col {
+		.sitemap__col {
 			flex-grow: 1;
 			min-height: 1px;
 			position: relative;
