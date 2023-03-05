@@ -34,11 +34,11 @@
 
 		<header id="masthead" class="header" role="banner">
 
-			<div id="inner-header" class="container">
+			<div id="inner-header">
 
-				<div class="row align-items-center justify-content-between">
+				<div id="header-row">
 
-					<div id="logo" class="col-auto">
+					<div id="logo">
 						<?php if ( has_custom_logo() ) : ?>
 							<?php the_custom_logo(); ?>
 						<?php else : ?>
@@ -48,7 +48,7 @@
 						<?php endif; ?>
 					</div>
 
-					<div id="mobile-menu-toggle" class="col-auto">
+					<div id="mobile-menu-toggle">
 						<button id="mobile-menu-button" type="button"><?php esc_html_e( 'Menu', 'scaffolding' ); ?></button>
 					</div>
 

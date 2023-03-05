@@ -123,6 +123,19 @@ span.amp {
 	@extend %clearfix;
 }
 
+//
+// Margins & Padding
+//
+
+.no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.no-margin {
+	margin-left: 0;
+	margin-right: 0;
+}
 
 //
 // Visibility

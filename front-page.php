@@ -13,7 +13,7 @@
 get_header();
 ?>
 
-<div id="inner-content" class="container">
+<div id="inner-content">
 
 	<div id="main" class="clearfix" role="main">
 

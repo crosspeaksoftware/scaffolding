@@ -10,6 +10,8 @@
 #inner-content {
 	padding-top: 2em;
 	padding-bottom: 2em;
+	@include make-container();
+	@include make-container-max-widths();
 
 	// headers
 
@@ -141,4 +143,23 @@
 			margin: -0.5em 0 1em;
 		}
 	}
+}
+
+.sitemap {
+	.sitemap__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+
+		.sitemap__col {
+			flex-grow: 1;
+			min-height: 1px;
+			position: relative;
+			
+			@include media-breakpoint-down('sm') {
+				min-width: 100%;
+			}
+		}
+	}
+	
 }

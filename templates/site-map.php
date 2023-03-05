@@ -184,9 +184,9 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 }
 ?>
 
-<div id="inner-content" class="container">
+<div id="inner-content">
 
-	<div id="main" class="clearfix" role="main">
+	<div id="main" class="clearfix sitemap" role="main">
 
 		<?php
 		if ( have_posts() ) :
@@ -217,9 +217,9 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 						);
 						?>
 
-						<div class="row">
+						<div class="sitemap__row">
 
-							<div class="col-md-6">
+							<div class="sitemap__col">
 
 								<h3><?php esc_html_e( 'Pages', 'scaffolding' ); ?></h3>
 								<ul>
@@ -238,7 +238,7 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 
 							</div>
 
-							<div class="col-md-6">
+							<div class="sitemap__col">
 
 								<h3><?php esc_html_e( 'Blog Posts', 'scaffolding' ); ?></h3>
 								<?php scaffolding_list_posts( 'post' ); ?>
@@ -253,7 +253,7 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 
 							</div>
 
-						</div><?php // END .row. ?>
+						</div
 
 					</section>
 

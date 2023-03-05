@@ -12,11 +12,42 @@
 
 	.copyright {
 		text-align: center;
+		margin-bottom: 0;
 	}
 
 	a {
 		color: $color__tertiary;
 	}
+}
+
+#footer-widgets {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	@include make-container();
+	@include make-container-max-widths();
+
+	.footer-widgets__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+
+		.footer-widgets__col {
+			flex-grow: 1;
+			min-height: 1px;
+			position: relative;
+
+			@include media-breakpoint-down('sm') {
+				min-width: 100%;
+			}
+		}
+	}
+}
+
+#inner-footer {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	@include make-container();
+	@include make-container-max-widths();
 }
 
 ul.footer-menu {

@@ -16,7 +16,7 @@
 
 			<?php get_sidebar(); ?>
 
-			<div id="inner-footer" class="container py-3">
+			<div id="inner-footer">
 
 				<?php if ( has_nav_menu( 'footer-nav' ) ) : ?>
 
@@ -26,7 +26,7 @@
 
 				<?php endif; ?>
 
-				<p class="source-org copyright mb-0"><?php echo esc_html( '&copy; ' . gmdate( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
+				<p class="source-org copyright"><?php echo esc_html( '&copy; ' . gmdate( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
 
 			</div>
 
