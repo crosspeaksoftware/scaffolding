@@ -217,9 +217,9 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 						);
 						?>
 
-						<div class="two-col">
+						<div class="sitemap__row">
 
-							<div class="col">
+							<div class="sitemap__col">
 
 								<h3><?php esc_html_e( 'Pages', 'scaffolding' ); ?></h3>
 								<ul>
@@ -238,7 +238,7 @@ function scaffolding_list_posts( $post_type, $args = array() ) {
 
 							</div>
 
-							<div class="col">
+							<div class="sitemap__col">
 
 								<h3><?php esc_html_e( 'Blog Posts', 'scaffolding' ); ?></h3>
 								<?php scaffolding_list_posts( 'post' ); ?>
