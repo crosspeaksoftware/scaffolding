@@ -155,6 +155,11 @@
 			flex-grow: 1;
 			min-height: 1px;
 			position: relative;
+			
+			@include media-breakpoint-down('sm') {
+				min-width: 100%;
+			}
 		}
 	}
+	
 }
