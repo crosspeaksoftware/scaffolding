@@ -144,3 +144,17 @@
 		}
 	}
 }
+
+.sitemap {
+	.two-col {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+
+		.col {
+			flex-grow: 1;
+			min-height: 1px;
+			position: relative;
+		}
+	}
+}
