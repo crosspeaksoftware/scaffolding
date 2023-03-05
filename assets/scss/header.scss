@@ -16,7 +16,19 @@
 	 @include make-container-max-widths();
  }
 
+ #header-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+ }
+
  #logo {
+	position: static;
+	flex: 0 0 auto;
+	max-width: none;
+	width: auto;
+
 	 &.h1 {
 		 margin: 0;
 	 }
@@ -24,6 +36,13 @@
 	 a {
 		 text-decoration: none;
 	 }
+ }
+
+ #mobile-menu-toggle {
+	position: static;
+	flex: 0 0 auto;
+	max-width: none;
+	width: auto;
  }
 
 //

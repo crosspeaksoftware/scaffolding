@@ -36,7 +36,7 @@
 
 			<div id="inner-header">
 
-				<div class="row align-items-center justify-content-between">
+				<div id="header-row">
 
 					<div id="logo" class="col-auto">
 						<?php if ( has_custom_logo() ) : ?>
