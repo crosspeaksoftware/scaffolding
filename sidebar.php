@@ -12,13 +12,13 @@ if ( is_active_sidebar( 'footer-area-one' ) || is_active_sidebar( 'footer-area-t
 
 	<div id="footer-widgets">
 
-		<div class="row footer-widgets__row">
+		<div class="footer-widgets__row">
 
 			<?php
 			if ( is_active_sidebar( 'footer-area-one' ) ) :
 				?>
 
-				<div class="footer-widgets__col col-md">
+				<div class="footer-widgets__col">
 					<?php dynamic_sidebar( 'footer-area-one' ); ?>
 				</div>
 
@@ -28,7 +28,7 @@ if ( is_active_sidebar( 'footer-area-one' ) || is_active_sidebar( 'footer-area-t
 			if ( is_active_sidebar( 'footer-area-two' ) ) :
 				?>
 
-				<div class="footer-widgets__col col-md">
+				<div class="footer-widgets__col">
 					<?php dynamic_sidebar( 'footer-area-two' ); ?>
 				</div>
 
@@ -38,7 +38,7 @@ if ( is_active_sidebar( 'footer-area-one' ) || is_active_sidebar( 'footer-area-t
 			if ( is_active_sidebar( 'footer-area-three' ) ) :
 				?>
 
-				<div class="footer-widgets__col col-md">
+				<div class="footer-widgets__col">
 					<?php dynamic_sidebar( 'footer-area-three' ); ?>
 				</div>
 
